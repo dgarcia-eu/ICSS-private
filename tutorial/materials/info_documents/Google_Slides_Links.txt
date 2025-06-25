@@ -1,0 +1,20 @@
+Google Slides of ICSS:
+----------------------
+
+- Intro: 
+https://docs.google.com/presentation/d/1rFCluyEp6potnkhXXEdmxpe7B5LCn8nXtwRfF2vXR9k/edit#slide=id.p1
+
+- Git and GitHub: 
+https://docs.google.com/presentation/d/1dLckDCcR4Otr83To1d-qXAxEy3cOVWZKPFqbUmUBzow/edit#slide=id.g30fb92b17d6_4_0
+
+- API: 
+https://docs.google.com/presentation/d/1AjiYJL5TblgwT1Ez-yW7sxlfe1UX5-NsePa4Q1jLXpE/edit#slide=id.g3167fd318dc_0_369
+
+- Regexes: 
+https://docs.google.com/presentation/d/1t3CaM1eWDXVKB7M5-Uy8ZTsF_i0gjRLBEhlWVZ1FJ_M/edit#slide=id.g3170ef2347a_2_88
+
+- Paralellism: 
+https://docs.google.com/presentation/d/1dJgs7A4wLZDStzU-XF1u7p330wHbNawRsLy9tULBFAM/edit#slide=id.g31fef770ac8_0_231
+
+- Runtime Analysis
+https://docs.google.com/presentation/d/1z47qngNk2k6xq-LMrWGKYIH-NR-Y6OZuNxk3GH-FeqE/edit#slide=id.g310260827fe_0_9

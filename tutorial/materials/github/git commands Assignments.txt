@@ -1,0 +1,14 @@
+curl -s -H "Authorization: token ???" \
+"https://api.github.com/orgs/DLSS-2025/repos?per_page=100" \    ->100 aif eine Seite
+| jq -r '.[] | "git@github.com:" + .full_name + ".git"' \
+| xargs -L1 git clone
+
+find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} pull \;
+
+find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} add
+feedback_a01.txt \;
+
+find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} commit -m
+"upload feedback" \;
+
+find . -mindepth 1 -maxdepth 1 -type d -print -exec git -C {} push \;

@@ -1,0 +1,52 @@
+# First time setup - update 
+
+Note: Make sure you are connected to the remote.
+
+
+## Install Jupyter
+
+- sudo apt update
+- sudo apt install python3-pip
+- sudo pip install --upgrade setuptools
+- pip3 install jupyter
+
+Note: Before you can use Jupyter you'll have to log off and the log back in. ('exit')
+
+## Create a seperate screen that is running on the remote server
+
+- screen -S <screen_name>
+This will automatically jump toward this screen
+
+
+## Using Jupyter Notebook on the remote via your local browser
+
+Execute the following command in the screen you just created.
+
+- jupyter-notebook --no-browser --port=5000
+This will produce some output in the terminal window. You should see some link containing the phrase 'localhost'. Keep it in mind, you'll need it later.
+
+On your local machine open a second terminal and use (make sure you insert the IP of your instance):
+- ssh -N -f -L localhost:5001:localhost:5000 ubuntu@ip-address
+command for google cloud:
+- ssh -N -f -L localhost:5001:localhost:5000 <external-ip-address>
+
+Go back to the first terminal and ctrl + click the 'localhost' link. This will open a new browser tab. You will get an error that the 'site can't be reached'.
+This is because you are using port number 5000 instead of 5001. Simply change the URL to 'http://localhost:5001/...' instead of 'http://localhost:5000/...' and reload the page.
+
+Leave both terminals running in the background. The first is running Jupyter on the remote and the second one is keeping the 'bridge' between your local and the remote up and running.
+
+
+## Optionally, if you want to turn of your device:
+
+You can simply close the terminal screen and log-out of the other terminal using "exit"
+
+To reconnect: 
+
+open a terminal window and connect to your VM (ssh username@external_ip_adress)
+List the created screens:
+- 'screen -ls'
+To open the screen :
+- screen -r <screen_name>
+
+In a second terminal you have to again create the bridge between your device and the VM. 
+- ssh -N -f -L localhost:5001:localhost:5000 <external-ip-address>

@@ -1,0 +1,24 @@
+div.text-container {
+    color:blue;
+}
+
+div.link-container {
+    color:beige;
+    font-weight: bold;
+}
+
+h2#main-title {
+    font-size:xxx-large;
+    color: black;
+    font-family:serif;
+}
+
+body {
+    background-color: darksalmon;
+
+  }
+
+  div {
+    text-align: center;
+    font-size:x-large;
+  }

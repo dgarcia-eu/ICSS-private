@@ -1,0 +1,28 @@
+#!/bin/bash
+
+ASSIGNMENT_NUMBER="$1"
+
+ROSTER="DLSS_roster.csv"
+ASSIGNMENT="feedback_a0${ASSIGNMENT_NUMBER}.txt"
+TEMPLATE_FILE="template_a0${ASSIGNMENT_NUMBER}.txt"
+
+if [ ! -f "$TEMPLATE_FILE" ]; then
+echo "Error: Template $TEMPLATE_FILE does not exist."
+exit 1
+fi
+
+
+TEMPLATE_TEXT=$(cat "$TEMPLATE_FILE")
+
+while IFS=, read -r identifier github_username
+do
+FEEDBACK_DIR="submissions/submissions-${github_username}"
+
+if [ -d "$FEEDBACK_DIR" ]; then
+FILE_PATH="${FEEDBACK_DIR}/${ASSIGNMENT}"
+
+printf "$TEMPLATE_TEXT" "$identifier" > "$FILE_PATH"
+
+echo "Created $ASSIGNMENT for $FEEDBACK_DIR"
+fi
+done < "$ROSTER"
