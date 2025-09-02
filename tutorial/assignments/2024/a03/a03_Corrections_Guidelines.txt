@@ -1,0 +1,87 @@
+# Part 1 7p
+- is meant as a nice opportunity to gather points since task 3 is gonna be pretty hefty...
+
+## 1.1 4p
+- 1 point for implementing it as a class
+- 1 point for each method
+
+    Ideas to Check:
+    - One function, for calling the API (instead of in every method again)?
+    - API URL inside the class (I saw cases, where it is outside. Why?) -> -0.25
+
+## 1.2 3p
+- 1 point for coming up with suitable exceptions
+- 1 point for good ideas of how to deal with them
+- 1 point for the python implementation
+
+    Error Ideas:
+    - API connection error
+    - Invalid breed name
+    - Invalid method called
+  
+
+------------------------------------------------------------------
+# Part 2 8p
+
+## 2.1 3p
+- 1 point for each function
+
+## Task 2.2 5p
+- 1 point for each explained regex
+- 2 points for correct implementation
+
+    Idea:
+    - 0.5 for each implementation (@user, #hashtag, remove URL and get domains)
+    - With URL: check if "http://" and "https://" are combined in "https?://"
+                as well as: domain is without "http://www."-stuff
+                --> if both things are messed up (i.e. no https included and domains still contain http/www.-stuff) --> -0.25
+                --> if one thing is messed up: just a note
+    - Ensure to only match "@" after whitespace --> not i.e. in mail adress -0.25 points
+
+
+------------------------------------------------------------------
+# Part 3 9p
+- This is a bit hard to say... I mean it's kinda hit or miss. If the app doesn't work, well -> less points
+
+## Task 3.1 8p
+- 1 point for using an 'input_file'/'output_file' correctly
+- 2 points for using the 'load_data'
+- 2 points for 'start_app' correctly starting the app and showing classification buttons
+- 3 points for the 'next_tweet' method
+
+Depending on whether the 'load_data' and 'next_tweet' method function correctly I would substract point. Eg:
+- 'load_data' does not remove already classified tweets from the data to be classified -0.5 and so on...
+
+    Add ons:
+    - Maybe some kind of instruction on what to do in this app (even if it is just "Lets label some tweets"). Otherwise -0.25
+    - Ensure, they are using the clean_tokens and i.e. not tweets with full usernames -0.25 
+
+## Task 3.2 1p
+- 1 point for correctly implementing it in python
+
+------------------------------------------------------------------
+# Part 4 6p
+
+## Task 4.1 1p
+- 1 point hit or miss... If they can't use the sentiment analyzer correctly I don't really see the point of handing them a point here
+
+## Task 4.2 2p
+- 1 point for creating the labels
+- 1 point for the vis (substract overall points for missing labels, titles, etc.)
+
+    Ideas:
+    - For comparing shares, I would say a pie-plot is the most useful. Bars are hard to read shares (if no % shares included) -0.25
+
+## Task 4.3 1p
+- 1 point hit or miss... I wouldn't put to much on the exact measure they use to show that VADER is good/bad but if they have no answer to this question I wouldn't give the point
+
+    Ideas:
+    - I would expect a visualization and a confusion matrix is the most suitable here...
+
+## Task 4.4 2p
+- 1 point for printing the data
+- 1 point for visualizing the data (again substract overall points if titles, labels, etc. are missing)
+
+    Ideas:
+    - removed hashtags from tokens (analyzed separately later)? -0.25
+    - Converted URLs and Hashtags to lower (before counting? Otherwise dublicates) -0.25

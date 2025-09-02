@@ -1,0 +1,68 @@
+Feedback Assignment 2
+-----
+
+Part 1: /12
+
+Task 01
+
+a: 
+- Filter for the table, somewhat using the caption and/or the .parent() function
+
+b:
+- Scrape content in lists and recombine to data frame
+- Check if the correct years are scraped (some copy-paste errors in the used URLs? I.e. I had the case where df_2011 and df_2012 are the same, because df_2012 uses 2011-URL). Otherwise -0.25
+
+c:
+- Somewhat use a function or loop to go over the four years
+
+
+Task 02:
+- actually get participants for all four years!
+
+-----
+Part 2 : /6
+
+Task 03
+
+a:
+- Positive note, if people went back to actual html-source and scraped actual URLs (like 'Juliana_Pasha' instead of using the name from the artsits table ('Julia Pasha')
+
+b:
+- Reasonable design choice (scatter plot). For i.e. line plot -0.25. I also once had two bar-plots which were actually quite confusing (for the interpretation), so I did -0.5
+- Date on x-scale in reasonable format (i.e. date or day-difference to contest). Otherwise a note?
+- Legend/Title/Labels added? --> If not -0.25 points, if repeatedly -0.5 overall
+- Regression line added? Makes interpretation easier. Otherwise note to sns.regplot function
+
+-----
+Part 3: /7
+
+Task 04
+
+a:
+- Nodes: Should be contestants from rows and only-voters from columns (i.e. with different color-attribute). 
+- If only-voters aren't explicitly included as nodes, but appear because they are defined in the edges (and therefore automatically plotted) -0.25
+- If only-voters are not used at all (not in nodes with different color AND not used for constructing edges) then -1 point
+- Do directed edges go the corrent way? From voter in column to contestant in row? Otherwise -0.25
+
+b:
+- Some way of filtering for high points (i.e. only 8, 9, 10 points), If too cluttered -0.25
+- Weights and Distances correctly mapped? Othweise -0.25
+	- For spring_layout: assigned points are stored as weights, spring automatically uses them inversely for istance
+	- For kamada_kawaii: weights-parameter are used as actual distance and therefore need to be defined as the inverse of the assigned points 
+- Title added (ESC of year 20xx?) --> If not -0.25 points, if repeatedly -0.5 overall
+
+-----
+Part 4: /5
+
+a:
+- Aggregated as i.e. mean or sum
+- Here, I had no one explicitly checking if all countries in columns (voters) also appear as contestants to potentially use different colors. No points deducted.
+
+b:
+- Some way of filtering high points, i.e. only points above a threshold or difference to max.points. Otherwise, if too cluttered, -0.25
+- Weights and Distances correctly mapped (kamada_kawaii needs inversely defined weights), otherwise -0.25
+- Title added (aggregated or mean points)?
+
+c:
+
+
