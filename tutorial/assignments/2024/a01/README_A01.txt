@@ -6,7 +6,7 @@ often forgotten:
 	- only left a note since this is primarily a check for the students
 	
 PART 2: 
-Task 5:
+--------------------------------- Task 5:
 a)
 POS:
 - declare NA values directly with the import
@@ -44,7 +44,7 @@ NEG:
 	- name of the column and content do not match (name includes % and content is between 0 and 1)
 	- divide to many times by hundred 
 - forget to remove the transfer at least one column (column, remove percentage, ...)
-	- technically this depends on the exact task - If it is not explicitly asked and the column is not used then this 'mistake' can be ignored
+	- technically this depends on the exact task - If it is not explicitly asked and the column is not used then this "mistake" can be ignored
 
 e) 
 POS:
@@ -84,7 +84,31 @@ NEG:
 - number on the y-axis and the label of the y-label do not operate on the same scale!
 - keeping the billions as labels - hard to read
 
+--------------------------------- Task 6 
+a) 
+NEG: 
+- lambda function is not used in the intended way
 
+b) 
+POS:
+- consider punctuation in the function
+NEG:
+- missing function docString!
+
+--------------------------------- Task 7
+a) 
+POS:
+- use lambda function and list comprehension
+- address the second Oklahoma race
+
+NEG:
+- storing too little information about the candidates
+- using the wrong columns for matching (race =! state code)
+- for-loop
+
+b)
+NEG: 
+- no checking if candidates did not match because of spelling issues
 
 
 
