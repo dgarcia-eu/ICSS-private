@@ -1,5 +1,10 @@
 SOME NOTES REGARDING THE ASSIGNMENT:
 
+######################## REMARK ########################
+# OLD_a02_Correction_Guidelines.txt are from 2023, 
+# when the task were graded using points.
+########################################################
+
 --------------------------------- Task 1
 a)
 
