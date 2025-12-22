@@ -1,0 +1,5213 @@
+id,name,gender,nr_of_movies
+1,George Lucas,2,6
+7,Andrew Stanton,2,4
+8,Lee Unkrich,2,2
+13,Albert Brooks,2,2
+24,Robert Zemeckis,2,18
+31,Tom Hanks,2,1
+35,Sally Field,1,1
+39,Sam Mendes,2,8
+40,Orson Welles,2,7
+42,Lars von Trier,2,11
+43,John Fawcett,2,2
+59,Luc Besson,2,11
+68,Fritz Lang,2,11
+70,Karl Freund,2,1
+90,Isabel Coixet,1,5
+98,Sarah Polley,1,3
+108,Peter Jackson,2,14
+138,Quentin Tarantino,2,11
+150,RZA,2,1
+154,Walter Murch,2,1
+160,Eytan Fox,2,1
+172,Michael Winterbottom,2,8
+185,Katsuhiro Otomo,2,1
+187,Tensai Okamura,2,1
+190,Clint Eastwood,2,20
+197,David Silverman,2,1
+201,Michel Gondry,2,7
+202,Charlie Kaufman,2,3
+212,David Cross,2,1
+223,Alejandro González Iñárritu,2,6
+224,David Cronenberg,2,14
+228,Ed Harris,2,1
+240,Stanley Kubrick,2,13
+273,Guillermo Arriaga,2,1
+280,Terry Gilliam,2,11
+309,Pedro Almodóvar,2,18
+323,Curtis Hanson,2,6
+357,Hany Abu-Assad,2,2
+366,James Mangold,2,10
+372,Tom Stoppard,2,1
+380,Robert De Niro,2,1
+449,Jay Baruchel,2,1
+455,Paul Haggis,2,2
+468,Stephen Daldry,2,5
+488,Steven Spielberg,2,30
+504,Tim Robbins,2,2
+508,David Koepp,2,4
+510,Tim Burton,2,18
+518,Danny DeVito,2,3
+525,Christopher Nolan,2,11
+559,Wally Pfister,2,1
+564,Richard Linklater,2,13
+578,Ridley Scott,2,21
+607,Zhang Yimou,2,6
+608,Hayao Miyazaki,2,12
+628,Isao Takahata,2,5
+638,Michael Mann,2,8
+640,Chris Kentis,2,2
+642,Laura Lau,1,1
+648,Philip Kaufman,2,2
+664,Frank Marshall,2,2
+672,Oskar Roehler,2,1
+686,Willard Huyck,2,3
+687,Gloria Katz,1,1
+716,Emile Ardolino,2,3
+769,Martin Brest,2,5
+774,Daniel Petrie Jr.,2,1
+793,Luis Buñuel,2,7
+814,Tony Kaye,2,2
+819,Edward Norton,2,1
+834,Otto Preminger,2,6
+865,Michael Bay,2,15
+876,Jonathan Hensleigh,2,1
+879,Billy Bob Thornton,2,1
+880,Ben Affleck,2,5
+893,Tony Scott,2,12
+898,Mark Goldblatt,2,1
+956,Guy Ritchie,2,9
+957,Matthew Vaughn,2,7
+974,Dexter Fletcher,2,3
+1011,Susanne Bier,1,3
+1012,Anders Thomas Jensen,2,4
+1032,Martin Scorsese,2,20
+1035,Paul Schrader,2,5
+1038,Jodie Foster,1,2
+1044,Michael Chapman,2,1
+1071,Tom Tykwer,2,4
+1090,John McTiernan,2,8
+1103,Bill Duke,2,1
+1108,Shane Black,2,4
+1114,Jon Harris,2,1
+1126,Krzysztof Kieślowski,2,3
+1128,Agnieszka Holland,1,3
+1146,Julie Delpy,1,3
+1150,Brian De Palma,2,13
+1152,Oliver Stone,2,10
+1176,Lone Scherfig,1,6
+1188,Kim Ki-duk,2,4
+1201,Garry Marshall,2,12
+1215,Raja Gosnell,2,7
+1223,Joel Coen,2,17
+1224,Ethan Coen,2,8
+1233,Philip Seymour Hoffman,2,1
+1241,John Turturro,2,2
+1243,Woody Allen,2,31
+1255,David Mamet,2,3
+1269,Kevin Costner,2,2
+1270,Charles Martin Smith,2,3
+1333,Andy Serkis,2,1
+1357,Christopher Doyle,2,1
+1414,Goro Miyazaki,2,2
+1418,Albert Maysles,2,1
+1426,Ellen Giffard,1,1
+1461,George Clooney,2,6
+1496,Tod Browning,2,3
+1524,Harold Ramis,2,3
+1532,Bill Murray,2,1
+1577,Richard Kelly,2,3
+1579,Maggie Gyllenhaal,1,1
+1614,Ang Lee,2,10
+1650,François Truffaut,2,14
+1704,Gore Verbinski,2,8
+1707,Stuart Beattie,2,2
+1723,Walter Hill,2,8
+1724,Roger Spottiswoode,2,6
+1726,Steven E. de Souza,2,1
+1744,Robert Wise,2,13
+1748,William Shatner,2,2
+1749,Leonard Nimoy,2,3
+1769,Sofia Coppola,1,7
+1776,Francis Ford Coppola,2,13
+1777,Ross Katz,2,1
+1788,Nicholas Meyer,2,4
+1843,Thomas Jahn,2,1
+1867,Auguste Lumière,2,1
+1868,Louis Lumière,2,8
+1869,Sönke Wortmann,2,2
+1884,Steven Soderbergh,2,21
+1895,Carl Reiner,2,4
+1896,Don Cheadle,2,1
+1899,Denise Di Novi,1,1
+1901,Caroline Thompson,1,1
+1921,George Nolfi,2,2
+1927,Blake Edwards,2,6
+1961,Claude Pinoteau,2,3
+1963,Danièle Thompson,1,1
+1978,Iain Softley,2,5
+2000,Lewis Milestone,2,3
+2004,George Abbott,2,1
+2034,Danny Boyle,2,11
+2036,Alex Garland,2,3
+2042,Stephen Hopkins,2,4
+2053,Bill Paxton,2,1
+2087,Richard Fleischer,2,9
+2127,James Wan,2,9
+2128,Leigh Whannell,2,3
+2152,Alan Ball,2,1
+2163,Richard LaGravenese,2,5
+2171,Griffin Dunne,2,1
+2176,Tommy Lee Jones,2,3
+2178,Forest Whitaker,2,2
+2199,Scott Frank,2,2
+2206,Samantha Morton,1,1
+2209,Jan de Bont,2,4
+2216,Gary Rydstrom,2,1
+2226,Sydney Pollack,2,8
+2228,Sean Penn,2,1
+2239,Anthony Minghella,2,3
+2260,Steven Zaillian,2,2
+2283,Stanley Tucci,2,1
+2291,Paul McGuigan,2,3
+2293,Frank Miller,2,3
+2294,Robert Rodriguez,2,17
+2303,Wim Wenders,2,4
+2332,Christian Petzold,2,3
+2352,Jean-Jacques Annaud,2,6
+2357,Howard Franklin,0,1
+2380,David Carson,2,2
+2388,Jonathan Frakes,2,4
+2390,LeVar Burton,2,1
+2406,Mathieu Kassovitz,2,2
+2419,Jean-Pierre Jeunet,2,6
+2428,Ernst Lubitsch,2,7
+2460,Randall Wallace,2,4
+2461,Mel Gibson,2,5
+2490,Alexander Korda,2,1
+2523,Stuart Baird,2,1
+2559,Henri-Georges Clouzot,2,4
+2632,Chris Rock,2,1
+2636,Alfred Hitchcock,2,42
+2662,Frank Capra,2,10
+2675,Darren Lynn Bousman,2,6
+2679,David Hackl,2,1
+2690,Peter Weir,2,6
+2710,James Cameron,2,8
+2725,Rainer Werner Fassbinder,2,3
+2746,Elia Kazan,2,9
+2765,Nicholas Ray,2,7
+2775,Corey Allen,2,1
+2778,Dennis Hopper,2,1
+2801,Andrzej Wajda,2,1
+2836,Kimberly Peirce,3,2
+2873,Anne Goursaud,1,1
+2880,Emilio Estevez,2,2
+2891,Josef von Sternberg,2,6
+2917,James Whale,2,4
+2945,Stephen Gaghan,2,1
+2991,Robert Wiene,2,1
+3026,Rob Reiner,2,12
+3027,Stephen King,2,1
+3045,P.J. Hogan,2,5
+3047,Jocelyn Moorhouse,1,2
+3055,David Mackenzie,2,3
+3064,Peter Mullan,2,1
+3092,Diane Keaton,1,1
+3110,Allison Anders,1,4
+3111,Alexandre Rockwell,2,2
+3115,Andrzej Sekula,2,2
+3125,Madonna,1,1
+3146,Billy Wilder,2,15
+3191,Risa Bramon Garcia,1,1
+3224,Stephen Frears,2,10
+3227,Steve Pink,2,3
+3238,Merian C. Cooper,2,1
+3239,Ernest B. Schoedsack,2,3
+3288,Chris Weitz,2,4
+3289,Paul Weitz,2,7
+3290,Peter Hedges,2,4
+3310,Nick Moore,2,1
+3317,Takeshi Kitano,2,6
+3359,Laurence Olivier,2,3
+3388,James L. Brooks,2,5
+3415,Jerry Zucker,2,6
+3417,Tony Goldwyn,2,3
+3451,Mel Stuart,2,1
+3556,Roman Polanski,2,15
+3632,Richard Brooks,2,1
+3702,Sebastian Schipper,2,2
+3722,Hans Weingartner,2,2
+3776,Jean-Luc Godard,2,11
+3831,Jean-Pierre Melville,2,5
+3893,David S. Goyer,2,2
+3911,John Carroll Lynch,2,1
+3950,Len Wiseman,2,3
+3964,Patrick Tatopoulos,2,1
+3974,Miloš Forman,2,6
+4014,Paul W. S. Anderson,2,11
+4027,Frank Darabont,2,4
+4037,Ron Shelton,2,3
+4065,Fred Zinnemann,2,7
+4081,Stanley Kramer,2,5
+4109,Michael Curtiz,2,16
+4112,Paul Henreid,2,1
+4135,Robert Redford,2,6
+4147,Walter P. Martishius,2,1
+4163,Donna Deitch,1,1
+4173,Anthony Hopkins,2,1
+4275,Alain Chabat,2,1
+4385,Sergio Leone,2,5
+4387,François Ozon,2,8
+4391,Charles Dance,2,1
+4410,Roberto Rossellini,2,3
+4415,Federico Fellini,2,6
+4429,Jim Jarmusch,2,10
+4453,Thomas Vinterberg,2,6
+4483,Dustin Hoffman,2,1
+4489,Steve Oedekerk,2,2
+4499,Tom Shadyac,2,5
+4522,Caroline Link,1,3
+4566,Alan Rickman,2,2
+4575,Marc Evans,2,1
+4586,Pitof,2,1
+4590,Russ Meyer,2,7
+4600,Joe Dante,2,11
+4610,John Landis,2,12
+4634,Jasmila Žbanić,1,1
+4723,Brian Helgeland,2,4
+4746,Robert Lorenz,2,1
+4755,David R. Ellis,2,5
+4760,Deepa Mehta,1,2
+4762,Paul Thomas Anderson,2,9
+4780,Wolfgang Becker,2,1
+4782,Michael Crichton,2,1
+4786,Richard Attenborough,2,5
+4818,Roberto Benigni,2,2
+4883,Manuel Pradal,2,1
+4910,Michael Clancy,2,1
+4945,Joe Johnston,2,9
+4955,Dario Argento,2,6
+4956,Bernardo Bertolucci,2,7
+4964,Hal Ashby,2,2
+4967,Colin Higgins,2,3
+5010,Todd Field,2,3
+5026,Akira Kurosawa,2,18
+5029,Robert Siodmak,2,3
+5030,Edgar G. Ulmer,2,3
+5065,David Frankel,2,5
+5091,Valeska Grisebach,1,1
+5125,Fatih Akin,2,4
+5133,Bo Welch,2,1
+5140,Wes Craven,2,16
+5149,Bonnie Hunt,1,1
+5174,Barry Sonnenfeld,2,9
+5216,Gus Van Sant,2,10
+5231,Wolfgang Petersen,2,10
+5269,João Canijo,2,1
+5281,Spike Lee,2,15
+5292,Denzel Washington,2,2
+5306,Lasse Hallström,2,13
+5342,Mike Nichols,2,11
+5345,Bennett Miller,2,3
+5367,Zach Braff,2,3
+5369,George C. Wolfe,2,2
+5446,David Hand,2,3
+5469,Ralph Fiennes,2,2
+5501,Gary Fleder,2,5
+5524,Andrew Adamson,2,4
+5572,Joel Schumacher,2,11
+5575,Akiva Goldsman,2,2
+5602,David Lynch,2,10
+5629,Freddie Francis,2,2
+5636,Helmut Dietl,2,1
+5655,Wes Anderson,2,9
+5656,Noah Baumbach,2,9
+5690,James Algar,2,3
+5691,Samuel Armstrong,2,2
+5696,Bruce Beresford,2,6
+5713,Chris Wedge,2,4
+5714,Carlos Saldanha,2,5
+5763,Jacques Tati,2,4
+5834,Robert Stevenson,2,7
+5844,Detlev Buck,2,1
+5872,Joshua Marston,2,2
+5877,Vincenzo Natali,2,7
+5917,Ernie Barbarash,2,2
+5953,Spike Jonze,2,4
+5970,Pier Paolo Pasolini,2,3
+6011,Michael Haneke,2,5
+6037,Colin Strause,2,2
+6038,Greg Strause,2,2
+6046,Roland Emmerich,2,10
+6094,Hans-Christian Schmid,2,3
+6111,Mike Figgis,2,1
+6159,Ron Howard,2,18
+6198,Vondie Curtis-Hall,2,1
+6201,Baz Luhrmann,2,6
+6220,Gurinder Chadha,1,6
+6241,Ernst Marischka,2,1
+6295,Catherine Breillat,1,1
+6349,Alan J. Pakula,2,6
+6384,Keanu Reeves,2,1
+6431,Darren Aronofsky,2,7
+6448,Arthur Penn,2,4
+6449,Warren Beatty,2,2
+6482,John Singleton,2,6
+6495,Mira Nair,1,4
+6521,Alberto Rodríguez,2,1
+6554,Guillaume Gallienne,2,1
+6558,Gordon Parks,2,1
+6592,Duwayne Dunham,2,4
+6593,John Huston,2,10
+6603,Jack Cardiff,2,1
+6648,Ingmar Bergman,2,15
+6720,Joan Chen,1,1
+6729,Robert Benton,2,1
+6733,Dan Mazer,2,2
+6737,Jay Roach,2,10
+6767,Larry Charles,2,3
+6778,John Guillermin,2,2
+6817,Agnès Varda,1,5
+6818,Werner Herzog,2,5
+6884,Patty Jenkins,1,3
+6899,Steven Bernstein,2,1
+7017,Roger Michell,2,7
+7018,Richard Curtis,2,3
+7087,Brad Bird,2,6
+7145,Michael Lehmann,2,5
+7181,Robert K. Weiss,2,1
+7187,Richard Donner,2,11
+7190,Tom Mankiewicz,2,2
+7213,Jonathan Mostow,2,2
+7256,Lee Tamahori,2,3
+7270,Adrian Lyne,2,6
+7288,Stéphane Brizé,2,2
+7312,Angela Robinson,1,3
+7313,Steve Box,2,1
+7314,Nick Park,2,3
+7316,Mark Burton,2,1
+7324,Pan Nalin,2,2
+7348,Carlos Carrera,2,1
+7395,Bobby Farrelly,2,8
+7396,Peter Farrelly,2,10
+7399,Ben Stiller,2,5
+7409,J.B. Rogers,2,1
+7426,Duncan Tucker,2,1
+7467,David Fincher,2,11
+7482,Julian Schnabel,2,2
+7501,Ronald Neame,2,5
+7554,Silvio Soldini,2,2
+7623,Sam Raimi,2,14
+7649,Arthur Hilton,2,1
+7722,Edward Neumeier,2,1
+7727,Phil Tippett,2,1
+7740,Marius Holst,2,1
+7767,Sam Peckinpah,2,3
+7775,Stephen Sommers,2,5
+7832,Oliver Hirschbiegel,2,1
+7865,Michael Brandt,2,1
+7879,John Lasseter,2,5
+7881,Jill Culton,1,2
+7908,Frank Oz,2,11
+7929,Angus MacLane,2,1
+8010,Doug Sweetland,2,1
+8023,Kyle Balda,2,3
+8029,Jimmy Hayward,2,1
+8054,Adam Wood,2,1
+8193,Florian Henckel von Donnersmarck,2,2
+8246,Barry Levinson,2,9
+8256,Anne Heche,1,1
+8262,L.Q. Jones,2,1
+8296,Christophe Gans,2,3
+8297,Roger Avary,2,1
+8300,Kevin Reynolds,2,3
+8328,John Milius,2,2
+8333,Eddie Romero,2,1
+8392,Pascal Chaumeil,2,1
+8403,David Hare,2,1
+8447,Jeff Daniels,2,1
+8452,Andrei Tarkovsky,2,5
+8482,Robert Mulligan,2,2
+8500,John Ford,2,11
+8501,Nunnally Johnson,2,1
+8502,Darryl F. Zanuck,2,2
+8514,Robert Parrish,2,2
+8555,Carl Gottlieb,2,1
+8557,Fernando Meirelles,2,4
+8558,Joe Alves,2,1
+8559,Kátia Lund,1,1
+8574,Walter Salles,2,3
+8578,Daniel Rezende,2,1
+8626,Gerd Oswald,2,1
+8630,Erich von Stroheim,2,2
+8635,Buster Keaton,2,9
+8636,Cecil B. DeMille,2,4
+8676,Dean Devlin,2,1
+8684,Dan Bradley,2,1
+8685,Andrew Niccol,2,6
+8686,Sacha Gervasi,2,1
+8688,Diego Luna,2,2
+8741,Victor Sjöström,2,1
+8789,Mathieu Amalric,2,1
+8823,Raoul Walsh,2,3
+8841,Donald Crisp,2,1
+8843,Mick Jackson,2,5
+8844,Lawrence Kasdan,2,5
+8858,Ivan Reitman,2,12
+8872,Rick Moranis,2,1
+8876,Randal Kleiser,2,4
+8929,Charles Crichton,2,2
+8956,Robert Vincent O'Neil,2,2
+8965,Roland Joffé,2,2
+8966,Bruce Robinson,2,2
+9032,Bryan Singer,2,10
+9033,Christopher McQuarrie,2,4
+9049,Victor Fleming,2,4
+9054,Mervyn LeRoy,2,9
+9076,F. W. Murnau,2,4
+9108,Don Taylor,2,3
+9158,Sharon Maguire,1,3
+9168,Alan Parker,2,8
+9181,Edward Zwick,2,10
+9182,Marshall Herskovitz,2,1
+9198,Vincent Ward,2,1
+9200,John McNaughton,2,2
+9248,Nora Ephron,1,6
+9281,Elizabeth Banks,1,3
+9306,Scott Coffey,2,1
+9339,Lilly Wachowski,1,7
+9340,Lana Wachowski,1,8
+9577,George Roy Hill,2,5
+9603,Sergei Eisenstein,2,2
+9622,Eric Brevig,2,2
+9660,Tetsuya Nomura,2,2
+9661,Takeshi Nozue,2,1
+9730,Jean Cocteau,2,3
+9740,René Clément,2,1
+9788,Regina King,1,1
+9789,Robert Altman,2,11
+9815,Winston Azzopardi,2,1
+9855,Terence Young,2,4
+9868,Peter R. Hunt,2,1
+9888,Claire Denis,1,7
+9894,Bernhard Wicki,2,2
+9915,Guy Hamilton,2,6
+9956,Chris Marker,2,1
+9994,Helen Hunt,1,1
+10001,William Wyler,2,13
+10051,Tobe Hooper,2,6
+10076,Lewis Gilbert,2,6
+10092,Robert Flaherty,2,1
+10099,Park Chan-wook,2,9
+10139,Leni Riefenstahl,1,1
+10146,Jacques Tourneur,2,4
+10179,John Glen,2,4
+10249,Volker Schlöndorff,2,2
+10346,Robert Bresson,2,6
+10367,John Waters,2,10
+10395,Jon Poll,2,1
+10400,Barbra Streisand,1,2
+10439,Marshall Brickman,2,2
+10491,Paul Verhoeven,2,14
+10516,John G. Blystone,2,1
+10517,Clyde Bruckman,2,2
+10586,Richard Lester,2,5
+10601,Joseph L. Mankiewicz,2,9
+10620,Ulli Lommel,2,1
+10702,Martin Campbell,2,9
+10707,Terry Jones,2,4
+10723,Mike Newell,2,8
+10747,Julian Fellowes,2,1
+10757,Jane Campion,1,6
+10765,Andrzej Bartkowiak,2,3
+10781,Michael Apted,2,7
+10790,Sam Wood,2,5
+10808,Stephen Norrington,2,2
+10828,Guillermo del Toro,2,10
+10855,Chris Gorak,2,1
+10921,Charles Laughton,2,1
+10930,Irvin Kershner,2,2
+10943,Francis Lawrence,2,7
+10965,Chris Columbus,2,11
+11012,Michael Dougherty,2,3
+11035,George Schaefer,2,1
+11037,Lukas Moodysson,2,4
+11090,Edgar Wright,2,6
+11091,Brett Ratner,2,9
+11092,Simon Kinberg,2,2
+11147,John Cassavetes,2,2
+11151,Nick Cassavetes,2,3
+11154,Matt Ross,2,1
+11181,Kenneth Branagh,2,11
+11195,Gérard Oury,2,1
+11201,Claude Zidi,2,1
+11218,Alfonso Cuarón,2,8
+11266,James McTeigue,2,4
+11343,David Yates,2,8
+11401,John Woo,2,13
+11426,Ben Sharpsteen,2,4
+11427,Bill Roberts,2,6
+11428,Paul Satterfield,2,1
+11429,Hamilton Luske,2,12
+11430,Jim Handley,2,1
+11432,T. Hee,2,2
+11434,Wilfred Jackson,2,11
+11435,Howard Hawks,2,16
+11447,Albert Hughes,2,4
+11448,Allen Hughes,2,3
+11472,Irwin Winkler,2,1
+11505,John Hughes,2,6
+11523,Georges Méliès,2,31
+11528,Jean Renoir,2,3
+11558,Eugène Lourié,2,1
+11572,Carl Theodor Dreyer,2,3
+11593,Rudolph Maté,2,1
+11614,M. Night Shyamalan,2,10
+11649,Cameron Crowe,2,8
+11661,Kate Hudson,1,1
+11676,Mark Pellington,2,2
+11694,Doug Liman,2,9
+11701,Angelina Jolie,1,2
+11720,Jiří Menzel,2,1
+11770,John Carpenter,2,20
+11805,Frank Whaley,2,1
+11809,Rupert Wainwright,2,2
+11817,Nathan Hope,2,1
+11873,Roger Kumble,2,2
+11887,Brad Silberling,2,5
+11983,Alain Resnais,2,2
+11993,Dalton Trumbo,2,1
+12009,Anthony Harvey,2,1
+12011,William Castle,2,2
+12015,Sam O'Steen,2,1
+12028,John Moore,2,4
+12058,Vicky Jenson,1,2
+12079,Kelly Asbury,2,3
+12080,Conrad Vernon,2,5
+12095,Cody Cameron,2,1
+12098,Chris Miller,2,2
+12114,Michael Cimino,2,2
+12160,Satyajit Ray,2,4
+12180,Mamoru Oshii,2,5
+12219,Jon Stewart,2,1
+12238,David Lean,2,9
+12300,Fred M. Wilcox,2,1
+12327,Joseph M. Newman,2,1
+12329,Vittorio De Sica,2,5
+12438,Bob Balaban,2,1
+12453,Wong Kar-Wai,2,10
+12523,Rob Bowman,2,3
+12524,Chris Carter,2,1
+12624,Niels Mueller,2,1
+12632,Daniel Sackheim,2,1
+12640,David Duchovny,2,1
+12648,Bob Dolman,2,1
+12677,Matthew Robbins,2,2
+12698,Bob Clark,2,5
+12786,Simon West,2,5
+12804,Peter Yates,2,4
+12824,Don Hahn,2,1
+12840,John Badham,2,6
+12859,Steven Lisberger,2,1
+12881,Gary Goldman,2,3
+12890,Pete Docter,2,4
+12891,Joss Whedon,2,6
+12905,Ash Brannon,2,1
+12920,David S. Ward,2,2
+12936,Jim Abrahams,2,7
+12962,Jon Turteltaub,2,7
+12964,Michael Ritchie,2,4
+12987,David Zucker,2,9
+12988,Paul Michael Glaser,2,2
+12989,Andrew Davis,2,5
+12995,Marc Forster,2,9
+13015,Phillip Noyce,2,9
+13079,Gavin Hood,2,3
+13235,Alexander Payne,2,7
+13265,Franklin J. Schaffner,2,5
+13284,Stanley Donen,2,10
+13294,Gene Kelly,2,3
+13383,Helmut Weiss,0,1
+13426,Peter Segal,2,8
+13484,Jim Sharman,2,2
+13488,Graeme Clifford,2,1
+13496,Marleen Gorris,1,2
+13520,Aaron Sorkin,2,3
+13524,Christopher Guest,2,3
+13563,Norman Jewison,2,7
+13581,Brian Levant,2,4
+13614,Deborah Kaplan,1,2
+13615,Harry Elfont,2,2
+13663,Robert Shaye,2,1
+13680,Marc Caro,2,2
+13776,John Frankenheimer,2,3
+13823,George Irving,2,1
+13848,Charlie Chaplin,2,11
+13859,Stuart Rosenberg,2,2
+13861,Frank Pierson,2,3
+13899,G.W. Pabst,2,1
+13927,Kurt Wimmer,2,2
+13953,Edward F. Cline,2,1
+13973,Christian Nyby,2,1
+13980,Vincente Minnelli,2,7
+14132,Nicolas Roeg,2,4
+14172,Michael McCullers,2,1
+14227,Jules Dassin,2,3
+14281,Alan Crosland,2,1
+14292,Sidney Gilliat,2,2
+14293,Frank Launder,2,1
+14353,Max Ophüls,2,4
+14392,Kathryn Bigelow,1,7
+14409,David Schwimmer,2,1
+14473,Rupert Julian,2,1
+14502,John Ireland,2,1
+14520,John Sturges,2,5
+14566,Alexander Mackendrick,2,3
+14597,Gaspar Noé,2,3
+14639,Mel Brooks,2,10
+14643,William A. Wellman,2,7
+14674,George Cukor,2,14
+14692,Nick Castle,2,3
+14773,Don Siegel,2,4
+14800,Jennifer Lynch,1,1
+14838,James Bridges,2,1
+14855,Frank Borzage,2,2
+14875,Robert Rossen,2,4
+14887,Paddy Considine,2,1
+14911,Penny Marshall,1,6
+14987,Peter Bonerz,2,1
+14995,Alan Myerson,2,1
+14999,George A. Romero,2,7
+15002,Dean Parisot,2,4
+15042,Arlene Sanford,1,1
+15045,Michael Lembeck,2,3
+15056,Michael Gornick,2,1
+15106,Thomas Schlamme,2,1
+15111,Jean-Claude Van Damme,2,1
+15115,Stefan Ruzowitzky,2,1
+15127,Luchino Visconti,2,6
+15148,Jon Amiel,2,2
+15149,Sarah Kernochan,1,1
+15175,William Friedkin,2,7
+15189,Michelangelo Antonioni,2,6
+15194,Carlo Di Palma,2,1
+15206,Jim McBride,2,2
+15217,Zack Snyder,2,9
+15218,James Gunn,2,5
+15219,Marc Abraham,2,1
+15239,Terry Hughes,2,1
+15254,Emir Kusturica,2,4
+15277,Jon Favreau,2,8
+15287,Niki Caro,1,3
+15337,John Polson,2,1
+15344,J.J. Abrams,2,6
+15345,Alex Kurtzman,2,2
+15378,Carol Reed,2,4
+15389,Louis Malle,2,7
+15452,David Steinberg,2,1
+15459,Byambasuren Davaa,1,1
+15488,Ken Loach,2,19
+15521,Ernest R. Dickerson,2,2
+15556,Rebecca Hall,1,1
+15557,Bill Condon,2,8
+15602,Fernando León de Aranoa,2,4
+15657,Vincent McEveety,2,1
+15663,Joseph Sargent,2,2
+15705,Joseph Pevney,2,1
+15774,Chris Buck,2,4
+15775,Kevin Lima,2,4
+15778,Brian Pimental,2,1
+15780,Dan St. Pierre,0,1
+15798,Lesli Linka Glatter,1,2
+15810,Ron Clements,2,7
+15811,John Musker,2,7
+15812,Roger Allers,2,2
+15858,Tim Hunter,2,1
+15868,Uli Edel,2,3
+15890,James Foley,2,5
+15892,Dan Fogelman,2,1
+16002,Gene Nelson,2,1
+16187,Jeannot Szwarc,2,3
+16214,Mario Van Peebles,2,1
+16294,Jonathan Demme,2,7
+16328,Adam Brooks,2,1
+16356,Steve Bendelack,2,1
+16378,Mary Harron,1,4
+16384,Ralph Bakshi,2,1
+16391,Julie Taymor,1,4
+16395,Gregory Nava,2,3
+16410,Jules Bass,2,4
+16411,"Arthur Rankin, Jr.",2,4
+16435,Julio Medem,2,1
+16483,Sylvester Stallone,2,6
+16513,John G. Avildsen,2,6
+16523,Burgess Meredith,2,1
+16544,Ted Kotcheff,2,3
+16556,Jack Starrett,2,1
+16566,George P. Cosmatos,2,4
+16589,Peter MacDonald,2,1
+16590,Sheldon Lettich,2,4
+16666,Kevin Connolly,2,1
+16672,Ate de Jong,2,1
+16730,Darrell James Roodt,2,1
+16767,Aki Kaurismäki,2,5
+16785,Peter Webber,2,2
+16808,Matthias Schweighöfer,2,1
+16828,Chris Evans,2,1
+16829,Todd Robinson,2,2
+16830,Boaz Davidson,2,1
+16834,Allen Coulter,2,2
+16837,Mark Steven Johnson,2,4
+16842,Stephen J. Anderson,2,2
+16847,Eli Roth,2,5
+16848,Rob Zombie,2,4
+16852,Karen Leigh Hopkins,1,1
+16853,Jessie Nelson,1,3
+16860,Miranda July,1,3
+16862,Claude Lelouch,2,1
+16863,Todd Haynes,2,5
+16888,Ralph Nelson,2,2
+16897,Sidney Poitier,2,1
+16908,David McKay,2,1
+16919,Olivier Dahan,2,2
+16927,Gérard Depardieu,2,1
+16938,Renny Harlin,2,11
+16959,Jonathan Dayton,2,3
+16960,Valerie Faris,1,3
+16973,Icíar Bollaín,1,2
+17010,Tobi Baumann,2,1
+17016,Neil Jordan,2,8
+17046,Gary Winick,2,4
+17051,James Franco,2,2
+17087,Michael Moore,2,2
+17114,John Cameron Mitchell,3,3
+17167,Andy Tennant,2,5
+17208,Danny Lerner,2,1
+17246,Phil Morrison,2,1
+17268,Ronny Yu,2,3
+17278,Nick Gomez,2,1
+17281,Mike Hodges,2,2
+17282,Takashi Miike,2,7
+17309,Greg Beeman,2,1
+17329,Neil Burger,2,4
+17350,Kevin Macdonald,2,5
+17361,Lars Kraume,2,1
+17387,Robin Campillo,2,1
+17397,Callie Khouri,1,2
+17403,Mike Judge,2,3
+17439,Mike Mills,2,2
+17447,Terry Zwigoff,2,3
+17458,Abdellatif Kechiche,2,2
+17494,Dennis Dugan,2,5
+17496,Jacques Audiard,2,5
+17510,Ol Parker,2,3
+17520,Cédric Klapisch,2,5
+17597,Juan Carlos Fresnadillo,2,1
+17608,Rowan Joffe,2,1
+17627,Lucile Hadžihalilović,1,2
+17633,Rob Marshall,2,7
+17649,Alexander Witt,2,1
+17697,John Krasinski,2,3
+17698,Nancy Meyers,1,6
+17735,Mike White,2,1
+17784,John Irvin,2,1
+17812,Gregory Hoblit,2,2
+17825,Shawn Levy,2,12
+17835,Ricky Gervais,2,2
+17862,Alex Steyermark,0,1
+17867,Tom McCarthy,2,4
+17871,John Hamburg,2,3
+17880,Wesley Strick,2,1
+17883,David O. Russell,2,5
+17884,Jeff Baena,2,2
+18030,David Evans,2,1
+18068,Helena Bergström,1,1
+18069,Brian Gibson,2,1
+18072,Michael Herbig,2,1
+18161,Simon Verhoeven,2,1
+18175,Dominik Moll,2,1
+18179,W.D. Richter,2,1
+18184,Xavier Gens,2,3
+18185,Skip Woods,2,1
+18209,Claude Miller,2,1
+18250,Jon Avnet,2,2
+18254,Simon Wincer,2,1
+18281,Donald Petrie,2,5
+18308,Steve Barron,2,2
+18311,Joe Roth,2,1
+18320,Bronwen Hughes,1,1
+18323,Marc Lawrence,2,3
+18335,George Sluizer,2,1
+18342,Todd Graff,2,1
+18356,Stephen Herek,2,13
+18357,Peter Hewitt,2,6
+18378,Herbert Ross,2,8
+18392,Robert Aldrich,2,7
+18502,Alfred Vohrer,2,3
+18579,Burt Kennedy,2,2
+18596,Taylor Hackford,2,7
+18598,Ishirō Honda,2,14
+18603,Motoyoshi Oda,2,1
+18627,Paul Morrissey,2,2
+18635,Ted Post,2,2
+18669,J. Lee Thompson,2,4
+18738,George Stevens,2,5
+18834,Giuseppe Colizzi,2,2
+18844,John Madden,2,8
+18854,Martin Ritt,2,2
+18863,Eric Darnell,2,5
+18864,Tom McGrath,2,5
+18865,Louis Leterrier,2,7
+18868,Jerome Robbins,2,1
+18878,Rob Cohen,2,7
+18898,Rob Minkoff,2,5
+18899,Yuen Wo-Ping,2,3
+18903,Sandra Nettelbeck,1,2
+18907,Richard Quine,2,3
+18927,Ralf Westhoff,2,1
+18957,Harald Philipp,2,2
+18969,Doris Dörrie,1,3
+19000,Wayne Kramer,2,1
+19012,Davis Guggenheim,2,1
+19014,Scott Z. Burns,2,1
+19032,John Hough,2,1
+19035,Gilles Bourdos,2,1
+19066,Jeanne Herry,1,1
+19069,Claude Chabrol,2,5
+19077,Xavier Legrand,2,1
+19093,George Marshall,2,2
+19101,Lee H. Katzin,2,1
+19119,Mélanie Laurent,1,1
+19142,Kenneth Johnson,2,1
+19172,Donald P. Borchers,2,1
+19224,Gregg Araki,2,5
+19228,Jim Fall,2,3
+19242,Tony Gilroy,2,3
+19244,Michael Winner,2,2
+19266,Larry Cohen,2,1
+19271,Anthony Russo,2,7
+19272,Joe Russo,2,7
+19274,Seth Rogen,2,2
+19303,Kevin Smith,2,11
+19304,John Schlesinger,2,5
+19311,Stephen Chbosky,2,3
+19328,Dick Powell,2,1
+19333,Dick Richards,2,1
+19346,Niels Arden Oplev,2,2
+19359,Marina de Van,1,1
+19377,Erick Zonca,2,1
+19450,Bob Rafelson,2,3
+19457,Mark Robson,2,6
+19499,Kevin Munroe,2,3
+19509,Jessica Yu,1,1
+19528,Vincent Sherman,2,2
+19542,Nelson Shin,2,1
+19606,Jean Negulesco,2,4
+19629,Guy Casaril,2,1
+19656,Sebastian Gutierrez,2,2
+19665,John Boorman,2,6
+19684,Bille August,2,3
+19707,Charles Band,2,1
+19708,Albert Band,2,1
+19766,Sook-Yin Lee,1,1
+19769,David Ayer,2,5
+19798,Randa Haines,1,1
+19800,Richard Marquand,2,1
+19840,Alejandro Amenábar,2,4
+19841,Mateo Gil,2,3
+19842,José Luis Cuerda,2,1
+19850,Catherine Hardwicke,1,7
+19852,Robin Swicord,1,1
+19865,Konrad Wolf,2,1
+19866,Guillaume Canet,2,1
+19896,Jessica Hausner,1,4
+19921,Wolfgang Büld,2,1
+19939,Keren Yedaya,1,2
+19969,Pat O'Connor,2,3
+19983,Sam Garbarski,2,1
+20019,Lee Daniels,2,4
+20024,Amos Gitai,2,1
+20025,Shōhei Imamura,2,1
+20031,Samuel Bayer,2,1
+20133,Tod Williams,2,2
+20173,Don McKellar,2,2
+20192,Brian Taylor,2,4
+20193,Mark Neveldine,2,3
+20218,Eric Bress,2,1
+20219,J. Mackye Gruber,2,1
+20237,Beeban Kidron,1,2
+20239,Vincent Perez,2,1
+20267,Jan Ole Gerster,2,1
+20305,Christopher Roberts,2,1
+20307,Joachim Rønning,2,4
+20308,Espen Sandberg,2,3
+20310,Takashi Shimizu,2,9
+20370,Irving Pichel,2,1
+20387,Clea DuVall,1,1
+20400,Tim Story,2,6
+20412,Michael Anderson,2,5
+20430,Radu Mihăileanu,2,2
+20503,Scott Mosier,2,1
+20556,Bertrand Tavernier,2,2
+20561,James Gray,2,4
+20587,Emanuele Crialese,2,1
+20629,George Miller,2,5
+20640,Chen Kaige,2,2
+20646,Gabriele Muccino,2,3
+20657,Cristian Mungiu,2,2
+20658,Naomi Kawase,1,2
+20659,Marjane Satrapi,1,1
+20665,Rachid Bouchareb,2,2
+20709,Vincent Paronnaud,2,1
+20718,Claude Berri,2,1
+20739,Adam Shankman,2,8
+20789,Claude Sautet,2,2
+20824,Perry Andelin Blake,2,1
+20849,Étienne Chatiliez,2,1
+20907,Antoine Fuqua,2,9
+21007,Jonah Hill,2,1
+21031,Alejandro Agresti,2,1
+21037,Prince,2,1
+21053,John Dahl,2,2
+21085,Alex Proyas,2,5
+21126,Frédéric Auburtin,2,1
+21134,John Slattery,2,1
+21136,Michael Cristofer,2,2
+21175,Michel Blanc,2,2
+21183,Nicolas Winding Refn,2,8
+21198,Peter Sohn,2,1
+21217,Jonathan Lynn,2,4
+21269,Roselyne Bosch,1,1
+21275,Dean Silvers,2,1
+21278,Alan Alda,2,1
+21305,Lloyd Bacon,2,4
+21311,Wesley Ruggles,2,1
+21370,Roger Donaldson,2,7
+21371,Amy Holden Jones,1,1
+21377,Peter Medak,2,2
+21476,Kevin Goetz,2,1
+21477,Michael Goetz,2,1
+21506,George Sidney,2,5
+21526,Rod Lurie,2,2
+21544,Richard C. Sarafian,2,1
+21598,Ralph Thomas,2,2
+21657,Vera Farmiga,1,1
+21669,Philippe Lioret,2,1
+21673,Ericson Core,2,1
+21677,Barnaby Thompson,2,1
+21678,Olivier Assayas,2,5
+21681,Nobuhiro Suwa,2,1
+21683,Oliver Schmitz,2,1
+21684,Bong Joon-ho,2,6
+21692,Hironobu Sakaguchi,0,1
+21693,Motonori Sakakibara,2,1
+21712,Carl Franklin,2,2
+21737,Marc Rothemund,2,1
+21768,Sylvain Chomet,2,3
+21769,Bruno Podalydès,2,1
+21771,Daniela Thomas,1,1
+21792,George Gallo,2,1
+21806,Richard Rush,2,1
+21807,Billy Ray,2,2
+21819,Lewis Teague,2,2
+21863,Sebastian Junger,2,1
+21869,George Pal,2,1
+21879,Simon Wells,2,5
+21905,Danny Pang Fat,2,1
+21916,Charles Bail,2,2
+21931,Chris Nahon,2,3
+21958,Mark Rydell,2,3
+21960,Israel Horovitz,2,1
+21981,Harald Zwart,2,2
+22012,David Worth,2,1
+22151,Malcolm Mowbray,2,1
+22214,David Wain,2,4
+22215,Michael Showalter,2,3
+22239,Travis Zariwny,2,1
+22301,Liam Lynch,2,1
+22323,Colin Nutley,2,1
+22461,Vincent Gallo,2,2
+22463,María Lidón,1,1
+22467,Umberto Lenzi,2,2
+22558,Nils Gaup,2,2
+22669,Julien Temple,2,1
+22676,Ole Bornedal,2,2
+22677,Max Färberböck,2,1
+22767,Alfonso Arau,2,1
+22795,Kurt Maetzig,2,1
+22810,Andy Nyman,2,1
+23116,Leander Haußmann,2,1
+23213,Harold Becker,2,1
+23227,Steven Knight,2,2
+23393,Barbet Schroeder,2,1
+23430,Timur Bekmambetov,2,4
+23442,Vladimir Menshov,2,1
+23499,Bassam Kurdali,0,1
+23532,Jason Bateman,2,2
+23539,Zach Helm,2,1
+23571,Tim Disney,2,1
+23677,Joe Pytka,2,2
+23683,Tony Cervone,2,1
+23728,Ariel Zeitoun,2,1
+23799,Uwe Boll,2,2
+23921,Aleksandr Buravskiy,2,1
+23946,Roger Young,2,1
+23964,Gary Ross,2,4
+23968,Phil Alden Robinson,2,3
+24011,Jia Zhangke,2,1
+24045,Joseph Gordon-Levitt,2,1
+24173,Mike Binder,2,1
+24248,Nigel Cole,2,3
+24294,Ben Younger,2,1
+24318,Richard Benjamin,2,3
+24380,Édouard Molinaro,2,1
+24381,Jean Yanne,2,1
+24471,Charles Nemes,2,1
+24481,René Féret,2,1
+24492,Pierre Schoendoerffer,2,1
+24530,René Goscinny,2,2
+24531,Albert Uderzo,2,2
+24618,Paloma Baeza,1,1
+24636,Katsuhito Akiyama,2,1
+24657,Franco Zeffirelli,2,3
+24882,Jacques Demy,2,4
+24891,Clovis Cornillac,2,1
+24939,George Seaton,2,5
+24949,Michael Davis,2,1
+24989,Kim Hyun-seok,2,1
+25161,Marcel Carné,2,3
+25165,Roy William Neill,2,4
+25182,Yves Robert,2,1
+25236,Johnnie To Kei-Fung,2,5
+25340,Emmanuelle Bercot,1,1
+25453,Stefen Fangmeier,2,1
+25467,Toshiya Fujita,2,1
+25558,Don Chaffey,2,2
+25598,Paul Greengrass,2,6
+25630,Jack Clayton,2,1
+25645,Hirokazu Kore-eda,2,7
+25703,Lake Bell,1,1
+25735,Christian Duguay,2,1
+25826,Mario Bava,2,2
+25950,Jean-Paul Rappeneau,2,1
+26095,John Patrick Shanley,2,2
+26134,Roy Ward Baker,2,6
+26182,Alain Cavalier,2,1
+26183,François Leterrier,2,1
+26205,James Bobin,2,4
+26436,Helmut Käutner,2,1
+26457,Matthew Lillard,2,1
+26458,Kevin Williamson,2,1
+26475,Brent Maddock,2,1
+26479,S.S. Wilson,2,2
+26481,Anand Tucker,2,2
+26488,Craig Lucas,2,1
+26502,Howard Deutch,2,5
+26595,Michael Verhoeven,2,1
+26648,Luis Llosa,2,2
+26713,Chuck Russell,2,5
+26714,John R. Leonetti,2,4
+26760,Tsui Hark,2,4
+26767,Ringo Lam,2,2
+26775,Lau Kar-Leung,2,1
+26849,Daniel Myrick,2,1
+26850,Eduardo Sánchez,2,5
+26852,Joshua Leonard,2,1
+26875,Hideo Nakata,2,4
+26882,Kiyoshi Kurosawa,2,5
+26959,Samuel Fuller,2,4
+26971,Andrew Waller,2,1
+27014,Jan Troell,2,3
+27213,Ermanno Olmi,2,1
+27226,Patrick Lussier,2,2
+27236,Gregg Champion,2,1
+27436,Costa-Gavras,2,5
+27449,Emilio Martínez Lázaro,2,2
+27450,David Serrano,2,1
+27571,David Slade,2,3
+27580,G.J. Echternkamp,2,1
+27676,Robert Markowitz,2,1
+27728,Leslie H. Martinson,2,1
+27745,Robert C. Cooper,2,1
+27757,Gregg Hale,2,1
+27846,John Herzfeld,2,1
+27875,Alex van Warmerdam,2,1
+27889,Stephan Elliott,2,2
+27920,Charles Frend,2,1
+27977,Leos Carax,2,2
+27991,Stuart Gordon,2,4
+28239,David Twohy,2,5
+28605,Markus Schleinzer,2,1
+28615,Éric Rohmer,2,7
+28741,Michael Rymer,2,1
+28898,Michael Radford,2,2
+28904,Hugh Wilson,2,3
+28968,J. Searle Dawley,2,1
+28976,Jack Bender,2,2
+29009,Ken Kwapis,2,5
+29110,Carl Froelich,2,1
+29214,Anne Fletcher,1,7
+29226,Julian Jarrold,2,5
+29250,Harry O. Hoyt,2,1
+29324,Francis D. Lyon,2,1
+29433,Lucio Fulci,2,2
+29494,Nicolas Gessner,2,1
+29504,Basil Dearden,2,1
+29595,Rouben Mamoulian,2,2
+29605,Mikael Håfström,2,4
+29627,Charles Lamont,2,1
+29646,Charles Jarrott,2,1
+29648,Dan Curtis,2,2
+29662,Terence Fisher,2,4
+29715,David Swift,2,1
+29720,Abel Gance,2,2
+29755,Erle C. Kenton,2,2
+29765,Marvin J. Chomsky,2,1
+29808,Robert Florey,2,1
+29907,Phil Karlson,2,3
+29911,Jed Johnson,2,1
+29922,Marcus Nispel,2,2
+29962,King Vidor,2,10
+29963,George W. Hill,2,1
+30008,Leo McCarey,2,7
+30021,Jim Mallon,2,1
+30052,Leigh Scott,2,1
+30058,Steven C. Miller,2,2
+30099,Charles Barton,2,1
+30129,George Waggner,2,2
+30146,Rowland V. Lee,2,1
+30149,Mikael Salomon,2,2
+30165,Mark Sandrich,2,4
+30249,Preston Sturges,2,3
+30309,Peter Greenaway,2,2
+30365,Michael Caton-Jones,2,2
+30422,Jack Smight,2,2
+30477,Peter Werner,2,1
+30496,Francis Ford,2,1
+30561,Jun Fukuda,2,5
+30689,Greydon Clark,2,1
+30691,Kathi Castillo,1,1
+30696,Janice Karman,2,1
+30700,Jimmy Sangster,2,1
+30706,Lionel Jeffries,2,1
+30711,Kenneth Lonergan,2,2
+30715,Terrence Malick,2,6
+30716,Virginie Despentes,1,1
+30833,William Beaudine,2,1
+30956,Jesús Franco,2,6
+31024,Betty Thomas,1,3
+31033,Oxide Pang Shun,2,1
+31074,Kinji Fukasaku,2,2
+31083,David Verbeek,2,1
+31119,Sylvain White,2,2
+31155,Fred Olen Ray,2,2
+31211,Clive Barker,2,2
+31310,Jack Hill,2,6
+31336,Hugo Fregonese,2,1
+31338,Tulio Demicheli,2,1
+31439,Bryan Forbes,2,2
+31493,Alex Cox,2,1
+31497,John Cromwell,2,7
+31511,Grant Heslov,2,1
+31621,Jeff Burr,2,1
+31764,Edward L. Cahn,2,1
+31788,Carlos Enrique Taboada,2,1
+31843,Ranald MacDougall,2,1
+31849,José Antonio Nieves Conde,2,1
+31890,Luigi Zampa,2,1
+31894,Ettore Scola,2,2
+31898,Luciano Salce,2,1
+31963,Arthur Ripley,2,1
+32082,Andrzej Żuławski,2,2
+32133,Charles Brabin,2,1
+32134,Charles Vidor,2,3
+32166,Matías Bize,2,1
+32250,Sean Ellis,2,1
+32261,Scott Thomas,2,1
+32277,Geoff Murphy,2,1
+32278,Matt Reeves,2,5
+32327,Ken Russell,2,4
+32375,Mario Monicelli,2,4
+32427,W.S. Van Dyke,2,3
+32564,Renata Litvinova,1,1
+32593,Steven Brill,2,5
+32632,Percy Adlon,2,2
+32640,Bernt Amadeus Capra,2,1
+32765,Tony Richardson,2,4
+32767,John Byrum,2,1
+32831,Giulio Petroni,2,1
+32868,Erik Canuel,2,2
+32983,Douglas McGrath,2,2
+33008,Menahem Golan,2,1
+33054,Keith Gordon,2,1
+33062,Curtis Bernhardt,2,2
+33064,Henry Koster,2,6
+33094,Gary Sherman,2,2
+33156,James Merendino,2,1
+33166,René Clair,2,2
+33183,David Bowers,2,5
+33192,Joel Edgerton,2,2
+33254,Jim Gillespie,2,1
+33279,Danny Cannon,2,2
+33300,Jonathan King,2,1
+33315,Richard Loncraine,2,3
+33316,David Nutter,2,1
+33341,Rick Rosenthal,2,2
+33349,Derick Martini,2,1
+33405,Gillies MacKinnon,2,1
+33433,Scott Hicks,2,2
+33485,Ron Underwood,2,4
+33513,Clive Donner,2,3
+33541,Mark Christopher,2,1
+33542,Harald Reinl,2,5
+33727,Kaneto Shindō,2,1
+33806,Michele Lupo,2,1
+33821,Jorge Grau,2,1
+33883,Jack Arnold,2,4
+34110,Oren Moverman,2,2
+34170,Frank R. Strayer,0,2
+34262,Bertrand Blier,2,3
+34453,Kevin Bray,2,1
+34480,Alan Zaslove,2,1
+34481,Matt Williams,2,1
+34510,William Monahan,2,2
+34517,Trey Parker,2,4
+34611,Howard Zieff,2,3
+34613,Philippe de Broca,2,1
+34682,Jeremiah S. Chechik,2,4
+34740,Edmund Goulding,2,3
+34751,Ray Enright,2,2
+34796,Lambert Hillyer,2,1
+34849,Ted Demme,2,3
+34891,Mike Johnson,2,1
+34920,Curt Geda,2,1
+34922,Butch Lukic,2,1
+34934,Bruce Timm,2,1
+34970,Susan Montford,1,1
+35087,Rupert Harvey,2,1
+35155,John Gray,2,1
+35208,Coline Serreau,1,2
+35216,Michel Boisrond,2,2
+35256,Damiano Damiani,2,1
+35267,Boyd Kirkland,2,1
+35269,Dick Sebast,2,1
+35270,Eric Radomski,2,1
+35318,Ken Annakin,2,2
+35408,Ralf Huettner,2,1
+35452,Corey Yuen,2,4
+35453,Pierre Morel,2,3
+35475,Sean S. Cunningham,2,1
+35689,Keenen Ivory Wayans,2,3
+35694,Jason Friedberg,2,5
+35734,Aaron Seltzer,2,5
+35736,Karan Johar,2,2
+35770,Yash Chopra,2,1
+35771,Aditya Chopra,2,1
+35785,Siddharth Anand,2,1
+35796,Craig Mazin,2,1
+35896,Richard Berry,2,1
+35927,Alain Corneau,2,1
+35968,Pierre-François Martin-Laval,2,1
+36042,Rachel Ward,1,1
+36043,Kevin O'Neill,2,1
+36423,Tom Green,2,1
+36425,McG,2,8
+36564,Sonja Heiss,1,1
+36588,Joe Wright,2,8
+36602,Peter Berg,2,4
+36693,Richard Eyre,2,2
+36697,Gábor Csupó,2,2
+36772,Ann Turner,1,1
+36797,Robert Luketic,2,4
+36804,Peter Chelsom,2,4
+36805,Audrey Wells,1,1
+36811,Nick Cannon,2,1
+37021,Mike Elliott,2,1
+37230,Eberhard Itzenplitz,2,1
+37259,Neil Armfield,2,1
+37302,Georges Franju,2,1
+37360,Henry Hathaway,2,3
+37361,Anatole Litvak,2,3
+37362,Henry King,2,2
+37447,Muriel Box,1,1
+37451,Jean-Jacques Beineix,2,2
+37493,Luis García Berlanga,2,1
+37526,Fernando Trueba,2,2
+37561,Fernando Colomo,2,1
+37618,Andrew Dominik,2,3
+37626,Patrice Leconte,2,2
+37627,Dany Boon,2,1
+37630,Shekhar Kapur,2,3
+37633,Jean Becker,2,2
+37710,Peter Hyams,2,4
+37770,Claude Autant-Lara,2,1
+37833,Víctor Erice,2,1
+37842,Miguel Picazo,2,1
+37846,Emeric Pressburger,2,6
+37852,George Hickenlooper,2,1
+37876,Peter Tewksbury,2,1
+37915,David Greene,2,2
+37932,F. Gary Gray,2,8
+37948,Brad Anderson,2,6
+38007,Just Jaeckin,2,3
+38023,Michael Patrick King,2,2
+38131,Sergey Bondarchuk,2,1
+38250,James B. Clark,2,1
+38270,Robin Bissell,0,1
+38393,Marcel Pagnol,2,1
+38446,Christian Faure,2,1
+38494,Daniel Vigne,2,1
+38507,Francis Veber,2,2
+38516,Denys Arcand,2,2
+38560,Lou Diamond Phillips,2,1
+38587,Camillo Teti,2,1
+38689,John Flynn,2,1
+38692,Paul Hoen,2,6
+38803,Roman Coppola,2,1
+38804,Lydia Dean Pilcher,1,1
+38822,Dieter Pröttel,2,2
+39009,Joseph Losey,2,3
+39012,Peter Bogdanovich,2,4
+39058,Julien Duvivier,2,4
+39104,Abel Ferrara,2,5
+39189,Stephen Merchant,2,2
+39298,Margarethe von Trotta,1,3
+39379,Rafi Pitts,2,1
+39639,Sigi Rothemund,2,2
+39743,Henry Levin,2,5
+39779,Peter Collinson,2,2
+39819,Wayne Wang,2,6
+39847,Halina Reijn,1,1
+39853,Val Guest,2,1
+39996,Sidney Lumet,2,12
+40184,Philip Leacock,2,3
+40187,David Lowell Rich,2,1
+40199,Anthony Mann,2,2
+40223,Joe Carnahan,2,5
+40230,Kevin Hooks,2,1
+40235,Jacques Deray,2,1
+40243,Gil Junger,2,2
+40250,Paul Dinello,2,1
+40256,D.J. Caruso,2,5
+40277,Stuart Blumberg,2,1
+40307,John Maybury,2,2
+40333,Satoshi Kon,2,4
+40345,Don Bluth,2,7
+40357,Ulrich Köhler,2,2
+40391,Richard A. Colla,2,1
+40440,Todd Stephens,2,2
+40476,Maren Ade,1,2
+40485,Angela Schanelec,1,1
+40506,Ulrich Seidl,2,3
+40509,Veronika Franz,1,1
+40541,Andrea Di Stefano,2,1
+40542,Héctor Babenco,2,1
+40549,Daniel Petrie,2,3
+40559,Vanessa Jopp,1,1
+40599,Robert Day,2,1
+40644,Chad Stahelski,2,3
+40684,David Leitch,2,4
+40863,Joe Swanberg,2,3
+40864,Andrew Bujalski,2,4
+40940,Gerald Thomas,2,5
+40983,Géza von Radványi,2,2
+41039,Judd Apatow,2,7
+41040,Tony Gatlif,2,1
+41041,Christopher Smith,2,2
+41159,Ferdinando Baldi,2,1
+41222,Arthur Allan Seidelman,2,1
+41285,Kirsten Sheridan,1,1
+41355,Dimitri Logothetis,2,1
+41378,Kerry Conran,2,1
+41421,Jennifer Morrison,1,1
+41530,Nick Love,2,1
+41549,Andrew Fleming,2,5
+41550,Andrew Bergman,2,2
+41616,Segundo de Chomón,2,2
+41650,Lawrence Silverstein,0,1
+41670,Rebecca Miller,1,3
+41671,Nimród Antal,2,4
+41702,Michel Levesque,2,1
+41704,Jack Pollexfen,2,1
+41720,Jerry Paris,2,2
+41795,Manny Coto,2,1
+41968,Santiago Amigorena,2,1
+42060,Sidney Franklin,2,1
+42081,George Butler,2,1
+42082,Robert Fiore,0,1
+42092,Benedikt Erlingsson,2,2
+42111,Bryan Spicer,2,2
+42113,Zalman King,2,2
+42138,Victoria Mahoney,1,1
+42171,Jonathan Kaplan,2,4
+42175,Richard Stanley,2,1
+42274,Nick Hurran,2,1
+42309,Tibor Takács,2,3
+42378,Rob Sitch,2,3
+42412,Eran Kolirin,2,1
+42518,Peter Care,2,1
+42617,Antonia Bird,1,2
+42745,Steve Antin,2,1
+42804,Sanjay Leela Bhansali,2,3
+42946,Brian Grant,2,1
+42994,David Dobkin,2,6
+43141,Pete Travis,2,2
+43304,Richard Blackburn,2,1
+43330,Ventura Pons,2,1
+43403,Júlíus Kemp,2,1
+43468,Guy Ferland,2,2
+43513,Graham Baker,2,1
+43553,Jerzy Skolimowski,2,3
+43786,Robert Mandel,2,1
+43896,Jeff Probst,2,1
+43936,Kyle Schickner,0,1
+43993,Christophe Barratier,2,1
+44056,Fred Dekker,2,1
+44070,Enki Bilal,2,1
+44113,Steve Hickner,2,2
+44114,Simon J. Smith,2,2
+44130,Paul Lynch,2,1
+44131,Alan J. Levi,2,1
+44263,Luis Piedrahita,2,1
+44264,Rodrigo Sopeña,2,1
+44554,Alain Berbérian,2,1
+44683,David Jackson,2,2
+44726,Waris Hussein,2,1
+44740,Richard Shepard,2,1
+44763,Edward D. Wood Jr.,2,5
+44765,William Lustig,2,2
+44807,James Signorelli,2,1
+44847,David Anspaugh,2,1
+44866,Edwin S. Porter,2,2
+44878,Nathan Juran,2,1
+44916,Stanley Tong,2,1
+44955,Lamberto Bava,2,1
+44990,Peter Horton,2,2
+45037,Sam Irvin,2,1
+45052,Anton Corbijn,2,4
+45091,Coleman Francis,2,1
+45117,John Carney,2,3
+45138,Luc Dardenne,2,2
+45400,Greta Gerwig,1,2
+45405,Jay Duplass,2,2
+45407,Mark Duplass,2,2
+45419,Ry Russo-Young,1,1
+45423,Kris Rey,1,1
+45430,Gerry O'Hara,2,1
+45459,Mike Cahill,2,2
+45460,Ken Dixon,0,1
+45489,Beverly Sebastian,1,3
+45491,Ferd Sebastian,2,3
+45572,Ruggero Deodato,2,1
+45577,Claudio Fragasso,2,2
+45627,Nelson McCormick,2,1
+45672,Bruno Mattei,2,1
+45730,Ramin Bahrani,2,1
+45791,Roy Andersson,2,1
+45916,Owen Hurley,2,4
+45989,Ted Nicolaou,2,1
+45996,Ryûhei Kitamura,2,1
+46054,Reha Erdem,2,2
+46076,Tom Dey,2,2
+46085,Luis Mandoki,2,2
+46092,Gerard Damiano,2,1
+46199,Stephan Komandarev,2,3
+46203,Sherry Hormann,1,2
+46230,Nagisa Ōshima,2,2
+46297,Jay Russell,2,2
+46307,Roy Rowland,2,1
+46325,Jingle Ma Choh-Sing,2,1
+46364,Shun Oguri,2,1
+46366,Shusuke Kaneko,2,1
+46588,Bill Pohlad,2,1
+46617,Ida Lupino,1,2
+46680,Florian Gallenberger,2,1
+46712,Douglas Sirk,2,2
+46997,Alan Gibson,2,1
+47005,Alan Taylor,2,3
+47020,Eric Laneuville,2,1
+47201,Emily Young,1,1
+47275,Lajos Koltai,2,1
+47333,John Wells,2,1
+47399,Frank Tashlin,2,1
+47498,Robert Moore,2,1
+47503,Nancy Walker,1,1
+47506,Drew Goddard,2,2
+47640,Clark Johnson,2,1
+47724,Tom Shankland,2,1
+47786,Gela Babluani,2,1
+47792,Joseph McGrath,0,1
+47826,Alexandre Astier,2,2
+47893,Gary Nelson,2,3
+47935,Richard Curson Smith,0,1
+47974,Bob Spiers,2,1
+48055,Paul Leni,2,1
+48137,Glenn Gers,2,1
+48165,Stephan Wagner,2,1
+48566,Alf Sjöberg,2,1
+48583,Anne Fontaine,1,4
+48659,Andreas Marschall,2,1
+48948,Julian Pölsler,2,1
+48965,Anthony Hickox,2,1
+48980,David McNally,2,2
+48995,Christian-Jaque,2,1
+49214,William Dieterle,2,6
+49281,Chris Sivertson,2,2
+49450,Sergio Corbucci,2,1
+49903,Tim Hill,2,2
+49949,Steve Binder,2,1
+50099,Shuki Levy,2,1
+50300,John Farrow,2,1
+50460,Michael Mayer,2,2
+50567,Melvin Frank,2,3
+50577,Norman Panama,2,2
+50582,Frederik Du Chau,2,2
+50739,Enzo G. Castellari,2,2
+50765,Chester Erskine,2,1
+50767,Craig Gillespie,2,6
+50922,Pablo Fendrik,2,1
+50949,Alek Keshishian,2,1
+51000,Byron Haskin,2,2
+51034,Brett Sullivan,2,1
+51116,Pierre Salvadori,2,4
+51298,Dax Shepard,2,1
+51329,Bradley Cooper,2,1
+51373,Larry Peerce,2,2
+51421,Marcello Fondato,2,1
+51521,Robert Greenwald,2,1
+51533,Fran Kranz,2,1
+51534,Lucky McKee,2,4
+51535,David Ross,2,1
+51572,Aaron Norris,2,1
+51600,Clare Kilner,1,1
+51677,Gordon Douglas,2,1
+51712,Lewis Schoenbrun,2,2
+51715,Ib Melchior,2,1
+51785,Charlie Loventhal,0,1
+51851,Jake Kasdan,2,3
+51864,Kasi Lemmons,1,2
+51866,Rick Famuyiwa,2,3
+51875,Andrew V. McLaglen,2,1
+51894,J. A. Bayona,2,4
+51917,Larry Clark,2,1
+51918,Harmony Korine,2,3
+51952,Barry Shils,0,1
+51984,Mimi Leder,1,5
+51996,Brian Klugman,2,1
+52030,Catlin Adams,1,1
+52038,Thomas Carter,2,4
+52044,David Winning,2,1
+52049,Jay Chandrasekhar,2,2
+52094,Jerry Jameson,2,1
+52112,Steve Carr,2,5
+52114,Jon Lucas,2,3
+52115,Scott Moore,2,3
+52121,Héctor Olivera,2,1
+52139,Seth MacFarlane,2,3
+52169,Pieter Kuijpers,2,1
+52187,Howard R. Cohen,2,1
+52193,R.J. Kizer,2,2
+52194,Tony Randel,2,1
+52218,Perce Pearce,2,1
+52268,David Schmoeller,2,1
+52358,Boaz Yakin,2,4
+52405,Michael Hoffman,2,4
+52413,Jim Strouse,2,1
+52443,Jason Reitman,2,7
+52479,Eli Craig,2,1
+52576,José Padilha,2,2
+52583,Wagner Moura,2,1
+52599,Justin Zackham,2,1
+52609,Breck Eisner,2,2
+52629,Joseph Ruben,2,1
+52691,Anthony Stacchi,2,1
+52701,Fergal Reilly,2,1
+52779,Ryan Murphy,2,4
+52803,Etan Cohen,2,1
+52842,Garth Jennings,2,4
+52845,Karey Kirkpatrick,2,2
+52849,Louis C.K.,2,1
+52870,Tim Johnson,2,4
+52934,Nicholas Stoller,2,7
+52935,John Francis Daley,2,2
+52941,Rob McKittrick,2,1
+52961,Dennis Gansel,2,3
+52968,Russell Mulcahy,2,5
+53014,Jessica Bendinger,1,1
+53068,Ryan Fleck,2,3
+53069,Anna Boden,1,2
+53079,Jeremy Kipp Walker,2,1
+53090,Eran Riklis,2,3
+53102,John Jeffcoat,2,1
+53120,James DeMonaco,2,3
+53177,Brian Robbins,2,6
+53216,Dwayne Carey-Hill,2,2
+53267,Craig Brewer,2,3
+53276,Galt Niederhoffer,1,1
+53304,Peter Lord,2,2
+53333,John Hillcoat,2,4
+53334,Jim Sheridan,2,4
+53339,Maria von Heland,1,1
+53384,Zana Briski,0,1
+53385,Ross Kauffman,2,1
+53431,Nadine Labaki,1,3
+53525,Mark Palansky,2,1
+53671,Rakeysh Omprakash Mehra,2,1
+53708,Ira Sachs,2,2
+53767,Roger Vadim,2,5
+53859,Karel Zeman,2,1
+53861,Susan Seidelman,1,5
+53925,Jared Hess,2,3
+53935,Dito Montiel,2,1
+53964,Jason Matzner,2,1
+53995,Peter Brosens,2,1
+53996,Jessica Hope Woodworth,1,1
+54025,Karyn Kusama,1,5
+54040,John Lee Hancock,2,4
+54050,Mark Waters,2,7
+54148,Gonzalo Suárez,2,1
+54222,Jean-Paul Salomé,2,1
+54240,Tamara Jenkins,1,2
+54248,Christopher Landon,2,5
+54273,Philippe Claudel,2,1
+54441,James Ivory,2,7
+54448,Ismail Merchant,2,1
+54451,Brian G. Hutton,2,1
+54469,Michael Almereyda,2,2
+54472,Martin McDonagh,2,4
+54507,Jon M. Chu,2,7
+54525,Jaume Balagueró,2,6
+54526,Paco Plaza,2,5
+54559,Christian Alvart,2,2
+54584,Jesse Dylan,2,1
+54590,Steve Rash,2,3
+54597,Joe Nussbaum,2,3
+54644,Joel Zwick,2,1
+54713,Nicholas Jasenovec,2,1
+54733,Greg Mottola,2,6
+54734,Evan Goldberg,2,2
+54767,Mika Kaurismäki,2,2
+54781,Allison Burnett,2,1
+54795,Troy Duffy,2,2
+54868,Christian Gudegast,2,1
+54869,Paul T. Scheuring,2,1
+54967,Sam Weisman,2,2
+55006,Olle Hellbom,2,1
+55018,Karim Aïnouz,2,1
+55045,Shira Geffen,1,1
+55046,Etgar Keret,2,1
+55075,Jeff Wadlow,2,6
+55116,Joe Chappelle,2,1
+55117,Matthew Bright,2,1
+55119,Alejandro Jodorowsky,2,2
+55146,Paul Bogart,2,1
+55152,Campbell Scott,2,2
+55189,Bruce McDonald,2,5
+55251,Asif Kapadia,2,2
+55252,Tim Miller,2,2
+55299,Mark Herman,2,3
+55379,Yann Samuell,2,1
+55439,Patricia Rozema,1,4
+55476,Nicholas Hytner,2,4
+55493,Brady Corbet,2,1
+55499,Scott Derrickson,2,6
+55587,Peter Stebbings,2,1
+55615,Megan Park,1,1
+55710,Adam McKay,2,8
+55785,Shunji Iwai,2,3
+55786,Takeshi Kobayashi,2,1
+55789,Tate Taylor,2,6
+55790,Allan Moyle,2,2
+55806,Denis Dercourt,2,2
+55813,Jacques Maillot,0,1
+55898,Elissa Down,1,1
+55916,Gabriele Salvatores,2,2
+55934,Taika Waititi,2,7
+55936,Jemaine Clement,2,1
+55941,Ainsley Gardiner,1,1
+55948,Alan Smithee,2,2
+55969,Zoltán Fábri,2,2
+55983,Jim Henson,2,4
+56033,Enzo Barboni,2,4
+56106,Charles Shyer,2,1
+56146,Gaëtan Brizzi,2,2
+56147,Paul Brizzi,2,2
+56151,Peter Winther,2,1
+56154,Antony Hoffman,2,1
+56194,Paolo Sorrentino,2,4
+56197,Gerald McMorrow,2,1
+56198,Ari Folman,2,2
+56205,Atom Egoyan,2,2
+56206,Kornél Mundruczó,2,2
+56208,Lucrecia Martel,1,3
+56209,Jean-Pierre Dardenne,2,2
+56210,Pablo Trapero,2,3
+56212,Eric Khoo,2,1
+56214,Nuri Bilge Ceylan,2,2
+56251,Kevin Heffernan,2,1
+56253,Paul Soter,2,1
+56263,Mary Lambert,1,1
+56322,Amy Poehler,1,2
+56340,Takeshi Koike,2,1
+56341,Mahiro Maeda,2,2
+56342,Shinichiro Watanabe,2,1
+56343,Michael Arias,2,1
+56349,Victor Salva,2,2
+56369,Antonio Campos,2,1
+56370,Ruben Östlund,2,2
+56375,Amat Escalante,2,1
+56377,Bent Hamer,2,1
+56381,James Toback,2,1
+56383,Kelly Reichardt,1,3
+56401,Jan Kounen,2,2
+56405,Frédéric Beigbeder,2,1
+56411,Glenn Ficarra,2,4
+56412,John Requa,2,4
+56435,Stephen Kay,2,2
+56453,John Bonito,2,1
+56470,Javier Fesser,2,1
+56474,Shona Auerbach,0,1
+56477,Michael Schaack,2,1
+56501,Michael Spierig,2,4
+56502,Peter Spierig,2,4
+56506,William Dear,2,3
+56512,Tarsem Singh,2,5
+56539,Nicole Holofcener,1,5
+56578,Jeff Tremaine,2,2
+56591,Danny Leiner,2,2
+56635,Steve Barker,2,1
+56660,Lorna Cook,1,1
+56661,Jonathan Levine,2,4
+56710,Oliver Parker,2,6
+56714,Daisy von Scherler Mayer,1,4
+56717,Tom Vaughan,2,3
+56735,David Moreau,2,1
+56736,Xavier Palud,2,1
+56755,Patricia Birch,1,1
+56789,Thomas Bezucha,2,2
+56828,Christopher Cain,2,2
+56852,Tad Stones,2,2
+56865,Fruit Chan,2,1
+56891,Rachel Talalay,1,2
+56911,Les Mayfield,2,5
+56929,William Morgan,2,1
+56956,Michael Cohn,2,1
+56960,Hossein Amini,2,1
+56998,Dwight H. Little,2,2
+57055,Mitchell Lichtenstein,2,1
+57073,Ian MacNaughton,2,2
+57082,John Stockwell,2,1
+57090,Brett Leonard,2,1
+57113,Dan Gilroy,2,2
+57125,Greg Marcks,2,1
+57130,Todd Phillips,2,7
+57132,Daniel Goldberg,0,1
+57134,James Wong,2,3
+57138,Tony Bill,2,1
+57142,Andrew Marton,2,1
+57173,Jeff Lowell,2,1
+57193,Gil Kenan,2,2
+57199,Mark Mylod,2,3
+57206,Sally Potter,1,3
+57214,Prachya Pinkaew,2,1
+57270,Robert Schwentke,2,6
+57290,Pino Van Lamsweerde,2,2
+57314,Wolfgang Reitherman,2,7
+57359,Neal Israel,2,1
+57370,Frank Coraci,2,6
+57383,Paul Brickman,2,1
+57405,Jeff Schaffer,2,1
+57408,Jerusha Hess,1,1
+57434,Amy Heckerling,1,5
+57446,Mark Romanek,2,2
+57521,Steve Beck,2,2
+57538,Scot Armstrong,2,1
+57542,Henri Gruel,0,1
+57543,Pierre Watrin,2,1
+57558,Matthieu Delaporte,2,1
+57579,Don Roos,2,3
+57581,Neil Marshall,2,4
+57594,John Cornell,2,1
+57604,Joel Gallen,2,1
+57607,Stephen Chow Sing-Chi,2,5
+57630,Peter Cattaneo,2,1
+57632,Uberto Pasolini,2,1
+57633,Rawson Marshall Thurber,2,4
+57639,Tonino Valerii,2,1
+57646,Henry Selick,2,5
+57691,Tamra Davis,1,2
+57727,Robert Clouse,2,1
+57741,Mark Osborne,2,2
+57742,John Stevenson,2,2
+57763,Lars Jessen,2,1
+57777,Darin Scott,2,1
+57832,Daniel Lee,2,1
+57851,Bernard Rose,2,2
+57854,Cheryl Hines,1,1
+57865,Álex de la Iglesia,2,6
+57895,Robert Harmon,2,2
+57922,William Peter Blatty,2,1
+58005,Bharat Nalluri,2,1
+58021,Tinto Brass,2,1
+58040,Bruce Malmuth,2,2
+58052,Wai Ka-Fai,2,1
+58053,Edmond Pang Ho-Cheung,2,1
+58072,John Pasquin,2,3
+58080,Brian Gilbert,2,1
+58094,Gillian Armstrong,1,5
+58116,Hans Horn,2,1
+58137,Chris Noonan,2,2
+58164,Annabel Jankel,1,2
+58165,Rocky Morton,2,1
+58178,David Mirkin,2,2
+58189,Justin Lin,2,6
+58220,Hugh Hudson,2,1
+58245,Don Coscarelli,2,2
+58251,Elaine May,1,1
+58255,Alexandre de La Patellière,2,1
+58268,Stefan Fjeldmark,2,1
+58292,Aaron Schneider,2,2
+58294,George Armitage,2,1
+58324,Jean-François Richet,2,2
+58338,John Bruno,2,2
+58343,Leontine Sagan,1,1
+58375,Andy Fickman,2,4
+58384,Anthony Waller,2,1
+58403,Glen Morgan,2,1
+58448,Penelope Spheeris,1,4
+58453,Peter Faiman,2,1
+58463,Glenn Gordon Caron,2,1
+58498,Dominic Sena,2,3
+58547,Niall Johnson,2,1
+58552,Burr Steers,2,4
+58573,Nicole Kassell,1,1
+58613,Suzuki Matsuo,2,1
+58628,Sara Sugarman,1,2
+58656,Doug Lefler,2,1
+58666,George Iida,2,1
+58677,Norio Tsuruta,2,2
+58689,Neil LaBute,2,4
+58712,Steve Miner,2,5
+58728,Andrei Konchalovsky,2,1
+58729,Albert Magnoli,2,1
+58766,Simon Fellows,2,2
+58789,Marc Klein,2,1
+58822,Danny Steinmann,2,1
+58829,Darrell Rooney,2,2
+58838,Marco Brambilla,2,1
+58897,Sam Fell,2,3
+58922,Craig Rosenberg,2,1
+59023,Stewart Raffill,2,4
+59026,Peyton Reed,2,7
+59027,Jeremy Garelick,2,1
+59218,Kat Coiro,1,2
+59291,Alexandre Aja,2,7
+59315,Olivia Wilde,1,2
+59328,John Pogue,2,2
+59330,Ron Nyswaner,2,1
+59410,Bob Odenkirk,2,1
+59412,Michael Patrick Jann,2,1
+59438,Mark Joffe,2,1
+59466,Jamie Babbit,1,3
+59521,Jaume Collet-Serra,2,7
+59611,Pascal Laugier,2,3
+59635,Jerry Zaks,2,1
+59646,Kinka Usher,2,1
+59649,Michael Pressman,2,1
+59670,Jane Anderson,1,2
+59803,Brenda Chapman,1,2
+59824,Gary Entin,2,1
+59879,David Trueba,2,1
+59918,Rodney Rothman,2,1
+59958,Jamie Blanks,2,2
+59998,Greg McLean,2,3
+60024,Liz Friedlander,1,1
+60045,Eric Bross,2,1
+60073,Brie Larson,1,1
+60129,Susan Stroman,1,1
+60149,Nicholaus Goossen,2,1
+60237,John A. Davis,2,2
+60243,Rob Schmidt,2,3
+60261,Stan Winston,2,1
+60295,John N. Smith,2,1
+60438,Michael Landon Jr.,2,1
+60496,James Gartner,2,1
+60725,Jim Kammerud,2,1
+60860,Shainee Gabel,1,1
+60922,Josh Gordon,2,3
+60923,Will Speck,2,3
+60981,Peter Brook,2,1
+61019,Harry Hook,2,1
+61069,Miguel Arteta,2,7
+61087,Mennan Yapo,2,1
+61175,John Whitesell,2,1
+61244,Robert Vince,2,1
+61300,Yarrow Cheney,2,1
+61346,Rowan Woods,2,1
+61357,Geoffrey Sax,2,3
+61373,Cory Edwards,2,1
+61411,Mark Dindal,2,3
+61632,Dustin Nguyen,2,1
+61659,Chris Messina,2,1
+61677,Burny Mattinson,2,2
+61678,David Michener,2,1
+61703,Ron Yuan,2,1
+61797,Yahoo Serious,2,1
+61824,Mick Garris,2,2
+61847,Ethan Maniquis,2,1
+61949,Robert Walker,2,1
+61952,Aaron Blaise,2,1
+61961,Dave Thomas,2,1
+61970,Ben Gluck,2,1
+61985,Olivier Baroux,2,1
+62020,Jack Sholder,2,3
+62043,Michael Gottlieb,2,1
+62047,Gary Trousdale,2,3
+62048,Kirk Wise,2,3
+62081,Michael Damian,2,1
+62116,Bille Woodruff,2,3
+62157,Josh Stolberg,2,1
+62369,Olatunde Osunsanmi,2,1
+62514,Tommy O'Haver,2,1
+62541,Brandon Camp,2,2
+62556,Fred Walton,2,1
+62721,Andrew Douglas,2,1
+62768,William Brent Bell,2,2
+62824,Gary J. Tunnicliffe,2,1
+62826,Ed Hansen,2,1
+62854,Akiva Schaffer,2,4
+62863,Jorma Taccone,2,2
+62872,Katja von Garnier,1,1
+62897,Carl Bessai,2,1
+62918,Ben Immanuel,2,1
+63052,Julian Gilbey,2,1
+63099,Michael Fimognari,2,2
+63305,Ringan Ledwidge,0,1
+63306,James Watkins,2,1
+63423,Johnny Martin,2,1
+63477,Ryan Little,2,1
+63550,Tom McLoughlin,2,1
+63571,Wilson Yip,2,4
+63709,Craig R. Baxley,2,2
+63713,Martha Coolidge,1,5
+63772,Rolfe Kanefsky,2,1
+63820,Christian Ditter,2,2
+63852,Warren P. Sonoda,2,1
+63937,Albert Pyun,2,1
+63943,Rowdy Herrington,2,1
+63973,Matteo Garrone,2,2
+64045,Kirk Jones,2,3
+64061,Fred Schepisi,2,4
+64099,Sam Pillsbury,2,1
+64114,Edward Dmytryk,2,5
+64131,Courtney Hunt,1,1
+64140,Sanaa Hamri,1,2
+64141,David Gordon Green,2,7
+64151,Mike Mitchell,2,7
+64152,Robert Stevenhagen,0,1
+64170,Fran Rubel Kuzui,1,1
+64171,James Hayman,2,2
+64191,Lawrence Guterman,2,1
+64194,Paweł Pawlikowski,2,3
+64195,Joseph Zito,2,3
+64210,Maïwenn,1,1
+64211,Franck Khalfoun,2,2
+64214,Leonard Kastle,2,1
+64227,Brandon Trost,2,1
+64295,Alan Ritchson,2,1
+64508,Sidney J. Furie,2,6
+64520,Helke Sander,1,1
+64575,Laurent Tirard,2,2
+64681,Mark DiSalle,2,1
+64735,Rob Hedden,2,1
+64754,Andrew Currie,2,2
+64796,Tom Holland,2,4
+64814,Peter Straughan,2,1
+64815,Robert Iscove,2,2
+64823,Desmond Davis,2,2
+64864,Clyde Geronimi,2,10
+64877,Rod Daniel,2,2
+64901,Gordon Chan,2,1
+64949,Phil Nibbelink,2,1
+64992,Hou Hsiao-hsien,2,1
+65026,Geoffrey Wright,2,1
+65062,Marie Kreutzer,1,1
+65115,Keith Samples,2,1
+65133,Marcus Raboy,2,1
+65167,Scott Cooper,2,3
+65242,Jack Perez,2,1
+65298,Brian Henson,2,3
+65304,Franc Roddam,2,1
+65310,Kenny Ortega,2,10
+65314,Giuseppe Tornatore,2,4
+65317,Jake Scott,2,1
+65390,Scott Kalvert,2,1
+65420,Louis Morneau,2,1
+65429,Kunihiko Yuyama,2,6
+65452,Mike Leigh,2,10
+65530,Mike Gabriel,2,2
+65531,Eric Goldberg,2,2
+65548,Rick Friedberg,2,1
+65569,Emmanuel Mouret,2,1
+65594,John Michael McDonagh,2,3
+65629,Bibo Bergeron,2,2
+65630,Rob Letterman,2,4
+65677,Don Mancini,2,1
+65678,John Lafia,2,2
+65688,Jim Drake,2,1
+65734,Luke Greenfield,2,1
+65843,Mihalis Kakogiannis,2,1
+65852,Zoltan Korda,2,1
+65855,Ralph Zondag,2,1
+65856,Eric Leighton,2,1
+65859,Christopher Monger,2,1
+65865,Damien O'Donnell,2,1
+65879,Kristian Levring,2,1
+65994,Andrew Lau Wai-Keung,2,2
+66039,Damon Santostefano,2,2
+66074,Bryan Bertino,2,1
+66086,Mary Agnes Donoghue,0,1
+66088,Ronald F. Maxwell,2,3
+66121,George Tillman Jr.,2,5
+66162,Ed Bye,2,1
+66190,Tony Bancroft,2,1
+66191,Barry Cook,2,1
+66193,Chris Sanders,2,3
+66212,Timo Vuorensola,2,2
+66218,Jennifer Flackett,1,1
+66219,Mark Levin,2,2
+66224,Charles B. Pierce,2,1
+66226,Buddy Van Horn,2,1
+66496,Adrienne Shelly,1,1
+66512,Tom Brady,2,1
+66548,Paul Weiland,2,1
+66555,Whitney Cummings,1,1
+66563,Fred Wolf,2,2
+66564,Harris Goldberg,2,1
+66605,Todd Solondz,2,5
+66633,Vince Gilligan,2,1
+66654,Kevin Donovan,2,1
+66681,Matt Bettinelli-Olpin,2,3
+66718,Alan Mak,2,1
+66728,Jonathan Glazer,2,2
+66739,Jonathan Liebesman,2,5
+66777,Bob Fosse,2,2
+66823,Joseph Kahn,2,1
+66842,Christophe Offenstein,2,1
+66879,Kresten Vestbjerg Andersen,2,1
+66880,Thorbjørn Christoffersen,2,1
+66936,Julia von Heinz,1,1
+66960,Dennie Gordon,1,2
+66969,Wojciech Smarzowski,2,1
+66987,Fritz Kiersch,2,1
+67075,Sion Sono,2,5
+67173,Mimmo Calopresti,2,1
+67259,Tony Ching Siu-Tung,2,2
+67268,Jimmy T. Murakami,2,3
+67316,Masayuki Ochiai,2,1
+67349,Harry Keller,2,1
+67356,Reed Morano,1,2
+67360,Maya Forbes,1,1
+67367,Rian Johnson,2,6
+67373,William Cottrell,2,1
+67426,William Keighley,2,3
+67451,Delbert Mann,2,3
+67542,Stephen Manuel,2,1
+67570,Hettie Macdonald,1,1
+67604,Ted Berman,2,2
+67607,Art Stevens,2,2
+67619,Guy Green,2,1
+67657,Scott Glosserman,2,1
+67717,Michel Hazanavicius,2,4
+67750,Liliana Cavani,1,1
+67753,Mark L. Lester,2,4
+67781,Peter Kosminsky,2,1
+67792,Massimo Troisi,2,1
+67795,Steven Shainberg,2,1
+67813,Baltasar Kormákur,2,4
+67897,Jeff Kanew,2,2
+67919,Ray Goossens,2,1
+67924,Steno,2,4
+67925,Kazuhisa Takenouchi,2,1
+67941,Hatsuki Tsuji,2,1
+68020,Omar Naim,0,1
+68185,Eric Schaeffer,2,1
+68212,Carroll Ballard,2,1
+68215,Reginald Hudlin,2,2
+68281,Justin Kerrigan,2,1
+68338,Neele Vollmar,1,1
+68352,Carter Smith,2,1
+68381,Thom Eberhardt,2,1
+68412,Toshio Masuda,2,1
+68424,Michael Powell,2,10
+68457,James Frawley,2,1
+68519,Andrey Zvyagintsev,2,1
+68573,Walt Becker,2,3
+68656,Philip Gröning,2,1
+68687,Bill Forsyth,2,3
+68732,Arna Selznick,0,1
+68750,Robert Townsend,2,1
+68770,Mark Rosman,2,4
+68774,Christopher Menaul,2,1
+68813,Céline Sciamma,1,5
+68892,Paul Harather,2,1
+68993,Godfrey Reggio,2,2
+68994,Ron Fricke,2,2
+69003,John Lounsbery,2,2
+69081,Kim Jee-woon,2,4
+69099,Dan Ireland,2,1
+69124,Abby Kohn,1,1
+69125,Marc Silverstein,2,1
+69167,Jūzō Itami,2,1
+69290,Higuchinsky,2,1
+69300,Gene Saks,2,2
+69309,Lucía Puenzo,1,3
+69315,Luis Puenzo,2,1
+69331,Ethan Wiley,2,1
+69353,Stephen Kessler,2,1
+69371,Jean-Marc Vallée,2,6
+69392,Charles Walters,2,7
+69416,Bradley Raymond,2,5
+69488,Nanni Moretti,2,2
+69500,Lou Adler,2,1
+69579,James Isaac,2,1
+69593,M.J. Bassett,1,2
+69597,Drew Barrymore,1,1
+69646,Ulf Malmros,2,1
+69696,Daniel Algrant,2,1
+69719,Bruno Barreto,2,2
+69741,David Mickey Evans,2,1
+69759,Apichatpong Weerasethakul,2,3
+69797,Dean DeBlois,2,4
+69801,Alan Metter,2,3
+69830,Doze Niu Cheng-Tse,2,1
+69982,Jeff Bleckner,2,4
+69991,Pen-Ek Ratanaruang,2,1
+70008,Mel Damski,2,1
+70100,Shinji Aramaki,2,3
+70103,Fumihiko Sori,2,1
+70171,Francis Leroi,2,1
+70183,Robert Zappia,2,1
+70212,Kazuaki Kiriya,2,1
+70221,Christian Carion,2,1
+70235,Marco Tullio Giordana,2,1
+70238,Chris Williams,2,3
+70250,Newt Arnold,2,1
+70262,Elliot Silverstein,2,1
+70280,Leonard Schrader,2,1
+70287,Will Finn,2,2
+70301,Matthew Leutwyler,2,1
+70308,Ken Hughes,2,2
+70415,Tony Maylam,2,1
+70500,Tom Hooper,2,4
+70520,Shane Meadows,2,3
+70558,Mark Jones,2,1
+70565,Kurt Neumann,2,3
+70602,Jörg Buttgereit,2,1
+70616,Gerald Potterton,2,2
+70636,Gabriel Axel,2,1
+70651,Stephen Hillenburg,2,1
+70663,Martin Rosen,2,1
+70707,John Halas,2,2
+70709,Joy Batchelor,1,1
+70737,Gary Goddard,2,1
+70738,Gary David Goldberg,2,1
+70792,David Hogan,2,1
+70862,Richard Thorpe,2,4
+70864,Robert Hamer,2,3
+70890,Adam Green,2,1
+70905,Vadim Jean,2,1
+71042,Jay Levey,2,1
+71046,Michael Lander,2,1
+71068,Phyllida Lloyd,1,3
+71082,Andrea Arnold,1,4
+71174,Tsai Ming-liang,2,2
+71253,George Dunning,2,1
+71267,Kirk DeMicco,2,1
+71269,Jericca Cleland,1,1
+71276,Imtiaz Ali,2,1
+71280,Michael Dowse,2,2
+71307,Laetitia Colombani,1,1
+71329,Jonas Åkerlund,2,3
+71498,Stephen Deutsch,2,1
+71506,Rémi Bezançon,2,1
+71522,Juan Antonio Bardem,2,2
+71527,Marco Schnabel,2,1
+71538,Dave Filoni,2,1
+71548,Peter Sollett,2,3
+71551,Lorene Scafaria,1,3
+71570,Justin Chadwick,2,3
+71596,André Erkau,2,1
+71600,Seth Gordon,2,5
+71609,Joachim Trier,2,5
+71625,François Margolin,2,1
+71729,Steve Martino,2,3
+71732,Peter Masterson,2,2
+71787,Ludwig Berger,2,1
+71788,Tim Whelan,2,1
+71792,George Scribner,2,1
+71797,Alex Gibney,2,1
+71825,Reb Braddock,2,1
+71849,Lynne Southerland,1,1
+71852,Paul Sabella,2,1
+71872,Jeff Nichols,2,5
+71923,Shane Acker,2,1
+71929,Benoît Delépine,2,2
+71930,Gustave Kervern,2,2
+71947,Gina Prince-Bythewood,1,5
+72005,Christian Vincent,2,1
+72024,Malcolm D. Lee,2,7
+72036,Susan Johnson,1,1
+72061,Frank Lloyd,2,3
+72101,Martin Gero,2,1
+72182,Mark Pavia,0,1
+72197,Ferzan Özpetek,2,2
+72205,Shari Springer Berman,1,2
+72206,Robert Pulcini,2,2
+72266,Éric Besnard,2,1
+72299,Ursula Meier,1,1
+72320,Xavier Beauvois,2,1
+72327,Jalil Lespert,2,1
+72343,Jørgen Leth,2,1
+72344,Asger Leth,0,1
+72467,Thaddeus O'Sullivan,2,1
+72480,Antti-Jussi Annila,2,1
+72496,Yoji Yamada,2,1
+72543,Sam Firstenberg,2,1
+72619,Stacy Title,1,1
+72624,John Duigan,2,2
+72709,Karel Reisz,2,1
+72757,Steve McQueen,2,4
+72769,Gianni Di Gregorio,2,1
+72823,Kazuki Ōmori,2,1
+72891,Amando de Ossorio,2,1
+72952,Grant Harvey,2,1
+73023,David Steiman,2,1
+73035,Paul Johansson,2,1
+73121,Gisaburō Sugii,2,1
+73149,Monte Markham,2,1
+73150,Paul Wendkos,2,1
+73153,Jacques Rivette,2,3
+73282,Paddy Breathnach,2,1
+73409,Mike Mendez,2,1
+73460,Saul Dibb,2,2
+73496,Richard Pearce,2,2
+73577,Christoph Hochhäusler,2,1
+73608,Maurice Devereaux,2,1
+73639,Cristina Comencini,1,1
+73654,Catherine Corsini,1,1
+73712,Pratibha Parmar,1,1
+73832,Jessy Terrero,2,1
+73875,Toa Fraser,2,1
+73962,Kristine Peterson,1,1
+74052,Peter Avanzino,2,2
+74060,Amy J. Berg,1,1
+74091,Makoto Shinkai,2,5
+74101,Marcel Langenegger,2,1
+74114,Philippe Guillard,2,1
+74118,Philippe Le Guay,2,2
+74152,Christine Jeffs,1,2
+74259,Brian Dannelly,2,2
+74272,Goran Dukić,2,1
+74296,Teller,2,1
+74297,Hendel Butoy,2,2
+74298,Francis Glebas,0,1
+74299,Pixote Hunt,0,2
+74300,Bill Kroyer,0,1
+74396,Tomas Alfredson,2,3
+74565,Jack Kinney,2,8
+74569,Joby Harold,2,1
+74619,Sean Anders,2,6
+74623,Kyle Newman,2,2
+74629,Jon Keeyes,2,1
+74638,Karen Moncrieff,1,1
+74655,Jeremy Saulnier,2,3
+74659,Gregory La Cava,2,5
+74697,Alberto Cavalcanti,2,1
+74724,Stian Kristiansen,2,2
+74730,Felix Herngren,2,1
+74752,Nikolaj Arcel,2,2
+74863,Lauren Montgomery,1,5
+74872,Jieho Lee,2,1
+74878,Tay Garnett,2,3
+74887,Christophe Van Rompaey,0,1
+74893,Alejandro Doria,2,1
+74907,Fabián Bielinsky,2,1
+74943,Daniel Monzón,2,2
+74950,Makoto Kamiya,2,1
+75035,Olivier Megaton,2,5
+75126,Miranda Nation,0,1
+75286,Richard Lowenstein,2,1
+75646,Bryan Barber,2,1
+75699,Lisa Cholodenko,1,2
+75725,Robert Connolly,2,2
+75753,Morgan O'Neill,2,1
+75915,Na Hong-jin,2,1
+76009,Arie Posin,2,1
+76021,Griff Furst,2,1
+76081,Paul Goldman,2,1
+76100,Ben Stassen,2,1
+76171,Noboru Iguchi,2,2
+76230,Diane English,1,1
+76242,Noel Clarke,2,2
+76247,Charles Herman-Wurmfeld,2,2
+76249,Koen Mortier,2,1
+76325,Daniel Alfredson,2,2
+76380,Robert Asher,2,1
+76381,David Butler,2,1
+76418,Stuart Gillard,2,3
+76422,Ric Roman Waugh,2,2
+76447,Shimit Amin,0,1
+76462,Richard Schenkman,2,1
+76560,Joone,0,1
+76595,Byron Howard,2,4
+76624,Shane Carruth,2,2
+76705,Preston A. Whitmore II,2,1
+76832,Martin Provost,2,3
+76882,Cy Endfield,2,3
+76910,Christophe Honoré,2,3
+76927,Tommy Wirkola,2,4
+76936,Yojiro Takita,2,1
+76965,Jon S. Baird,2,2
+76978,Masaki Kobayashi,2,1
+76981,Delmer Daves,2,1
+76998,James Marsh,2,2
+77003,Gavin O'Connor,2,4
+77005,Diane Kurys,1,1
+77076,Michael Corrente,2,1
+77089,Ken Marino,2,2
+77101,Edward Buzzell,2,2
+77121,Randall Miller,2,2
+77123,Gonzalo López-Gallego,2,1
+77131,Pascal Elbé,2,1
+77147,John Erick Dowdle,2,3
+77162,Rodrigo García,2,6
+77177,Fuminori Kizaki,2,1
+77269,John Crowley,2,3
+77277,Nate Parker,2,1
+77300,Michael Schultz,2,2
+77309,Daniel Cohen,2,1
+77357,Rupert Wyatt,2,1
+77362,Sheldon Wilson,2,2
+77441,Darren Grant,2,1
+77488,Saul Blinkoff,2,1
+77544,Karl Geurs,2,1
+77658,Simon Hunter,2,1
+77775,Marianna Palka,1,1
+77815,Joseph Cedar,2,3
+77831,Jessica Sharzer,1,1
+77853,Hamish Hamilton,2,1
+77883,Jordan Melamed,0,1
+77919,Tim McCanlies,2,1
+77921,Hideaki Anno,2,6
+77923,Kazuya Tsurumaki,2,4
+77926,Masayuki,2,3
+77962,Ben Dobyns,0,1
+77964,Mike Barker,2,1
+77965,Morten Tyldum,2,3
+78012,François Girard,2,1
+78014,Leiji Matsumoto,2,1
+78021,Lloyd Kaufman,2,3
+78040,Alex Kendrick,2,2
+78053,Edwin L. Marin,2,2
+78061,Menhaj Huda,2,1
+78108,Isaac Florentine,2,1
+78118,Vadim Perelman,2,2
+78136,Daniel Farrands,2,1
+78157,Lindsay Anderson,2,2
+78160,Luca Guadagnino,2,4
+78173,Hiroyuki Morita,2,1
+78176,Dominic Brigstocke,2,1
+78188,Whit Stillman,2,4
+78207,Romain Gavras,2,2
+78268,Ryuichi Hiroki,2,1
+78451,Chuck Patton,0,1
+78481,Hans Canosa,0,1
+78485,Jeff McGrath,2,1
+78488,Cathy Malkasian,1,1
+78514,David Hugh Jones,2,2
+78523,Marek Kanievska,0,1
+78562,Phil Traill,2,2
+78615,Phil Roman,2,3
+78708,Marco Filiberti,0,1
+78751,Ashutosh Gowariker,2,3
+78845,Arthur Lubin,2,2
+78871,Wu Jing,2,1
+78914,Noam Murro,2,1
+78992,Bill Eagles,2,1
+79272,Ella Lemhagen,1,1
+79279,Paco Cabezas,2,1
+79294,Herk Harvey,2,1
+79362,Michael Flatley,2,1
+79390,Paul Bales,2,1
+79434,Craig Zobel,2,3
+79462,David Acomba,2,1
+79656,John Schultz,2,2
+79726,John D. Hancock,2,1
+80006,Jon Knautz,2,1
+80047,Lee Demarbre,0,1
+80215,Charles Stone III,2,1
+80247,Stephen Chiodo,2,1
+80260,René Laloux,2,1
+80261,Robin Hardy,2,1
+80384,Paul Andrew Williams,2,2
+80386,Zoya Akhtar,1,1
+80387,Priyadarshan,2,1
+80423,Peter Ettedgui,2,1
+80523,Ron Oliver,2,1
+80540,Stig Bergqvist,2,1
+80570,Walter Lang,2,3
+80602,Tyler Perry,2,7
+80609,Jerry London,2,1
+80671,John Sanford,2,1
+80672,Peggy Holmes,1,3
+80691,Gary Chapman,2,1
+80698,Rob LaDuca,2,1
+80702,Kenji Misumi,2,4
+80709,Kazuo Mori,2,1
+80752,Shinji Higuchi,2,1
+80762,Naoyuki Tomomatsu,2,1
+80923,Måns Mårlind,2,2
+80924,Björn Stein,2,2
+80931,Tomoki Kyoda,2,1
+80948,William Lau,2,4
+80978,Brian Goodman,2,1
+80999,Fyodor Bondarchuk,2,1
+81044,Alexandre Bustillo,2,1
+81045,Julien Maury,2,1
+81118,Emmanuel Carrère,2,1
+81159,Christian Molina,2,1
+81165,Archie Mayo,2,1
+81201,Charles Guard,2,1
+81237,Chris Thomson,2,1
+81251,Banjong Pisanthanakun,2,1
+81252,Parkpoom Wongpoom,2,1
+81256,Joel Hopkins,2,3
+81272,Jay Lowi,2,1
+81285,Stuart Heisler,2,1
+81327,David Nerlich,2,1
+81328,Andrew Traucki,2,2
+81355,Yukihiko Tsutsumi,2,1
+81437,Philippe Falardeau,2,3
+81476,Ariel Vromen,2,1
+81597,Maxwell Atoms,2,1
+81718,Mamoru Hosoda,2,5
+81727,Darnell Martin,1,1
+81799,André de Toth,2,1
+81809,Declan Lowney,2,1
+81850,Duncan Jones,2,3
+81856,Nicholas Jarecki,2,1
+81916,Tommy Wiseau,2,1
+81930,Alfred L. Werker,2,2
+81963,Jonah Markowitz,2,1
+82171,John M. Stahl,2,4
+82194,Neill Blomkamp,2,3
+82226,Charlie McDowell,2,2
+82335,Richard Glatzer,2,3
+82337,Wash Westmoreland,2,4
+82351,Henrik Ruben Genz,2,1
+82372,M. dot Strange,0,1
+82389,Norman Z. McLeod,2,5
+82413,Jack Conway,2,3
+82446,David Morlet,2,1
+82461,Seijun Suzuki,2,3
+82482,Greg Pritikin,2,1
+82511,Will Gluck,2,4
+82518,Paul Ziller,2,1
+82623,Andrew Black,2,1
+82640,Darren Paul Fisher,2,1
+82714,Alan Clarke,2,1
+82769,Craig Chester,2,1
+82800,Norman Taurog,2,8
+82813,David Molina,0,1
+82815,Terry Shakespeare,0,1
+82822,Phil Claydon,2,1
+82829,Michael Oblowitz,2,1
+82839,Henry Alex Rubin,0,1
+82885,Zoe Lister-Jones,1,2
+82937,Victor Levin,2,1
+82939,Toby Wilkins,2,1
+83048,Eric Amadio,2,1
+83189,Paolo Virzì,2,2
+83198,Allan Arkush,2,2
+83224,Jamie Thraves,2,1
+83281,Lenny Abrahamson,2,2
+83287,Lynne Ramsay,1,3
+83313,Melanie Mayron,1,4
+83319,Ryszard Bugajski,2,1
+83360,Kimiyoshi Yasuda,2,1
+83399,H. C. Potter,2,1
+83408,John Cosgrove,2,1
+83415,Michael McGowan,2,1
+83455,Charles Marquis Warren,2,1
+83524,Shinobu Yaguchi,2,1
+83588,Robert Allan Ackerman,2,1
+83594,Nagesh Kukunoor,2,1
+83653,Ryan Shiraki,2,1
+83711,Gary Walkow,2,1
+83730,Jonathan English,2,1
+83736,Chen Chi-Hwa,2,1
+83791,Michael D. Moore,2,1
+83793,Riad Sattouf,2,1
+83858,Simon Barrett,2,1
+83957,Sue Kramer,1,1
+83985,Scott Wiper,2,1
+84034,Clarence Brown,2,6
+84061,Daniel Barnz,2,4
+84124,Tina Gordon,1,1
+84271,Gabriel Friedman,2,1
+84276,Caleb Emerson,0,1
+84335,Joe Lynch,2,2
+84425,Éric Toledano,2,2
+84426,Olivier Nakache,2,2
+84437,Gabriela Tagliavini,1,1
+84439,Julien Leclercq,2,1
+84461,Alice Wu,1,2
+84496,Josh Cooley,2,1
+84515,Katherine Brooks,1,1
+84568,Rob Williams,2,1
+84618,Tom Gustafson,0,1
+84641,Lewis Seiler,2,1
+84697,E.L. Katz,2,1
+84714,Juan José Campanella,2,1
+84739,Damon Beesley,2,1
+84740,Iain Morris,2,1
+84782,Francine McDougall,1,2
+84833,Zach Cregger,2,1
+84851,Hoyt Yeatman,2,1
+84885,Mona Achache,1,1
+84931,Michael Cuesta,2,3
+84940,Crane Wilbur,2,1
+84962,Stiles White,2,1
+84969,Kim Yong-hwa,2,1
+84977,Dave Marshall,2,1
+84982,Rob Spera,2,1
+84990,Isao Yukisada,2,1
+85013,Stéphane Giusti,2,1
+85311,Masanori Hata,2,1
+85340,Eric Lartigau,2,2
+85435,Gino Nichele,2,1
+85530,R. Balki,2,1
+85621,Charles Tait,2,1
+85637,Béla Tarr,2,3
+85665,Sriram Raghavan,2,1
+85670,Anurag Kashyap,2,1
+85675,Rajkumar Hirani,2,2
+85716,Robert C. Ramirez,2,1
+85758,Edward Sampson,0,1
+85809,Shane van Dyke,2,1
+85822,Anthony C. Ferrante,2,7
+85925,Hilary Brougher,1,2
+86004,Joseph H. Lewis,2,3
+86013,Arbaaz Khan,2,1
+86035,Maria Maggenti,1,2
+86051,Joshua Logan,2,4
+86194,James Sbardellati,0,1
+86203,Bart Freundlich,2,1
+86255,Sebastián Cordero,2,1
+86270,Joseph Kosinski,2,5
+86290,Derek Jarman,2,2
+86437,John Eng,2,1
+86439,Norton Virgien,2,2
+86482,Mark Tonderai,2,1
+86523,Nina Paley,1,1
+86659,Peter Glenville,2,1
+86688,Levan Gabriadze,2,1
+86783,Rohit Shetty,2,2
+86884,Anand Tiwari,2,1
+86967,Kevin Lewis,0,2
+86978,Keiichi Sato,2,2
+87009,Del Shores,2,1
+87033,Julie Davis,1,1
+87055,Karen Disher,1,2
+87081,Dave McKean,2,1
+87082,Jim Mickle,2,4
+87094,Dan Sturman,2,1
+87103,Paul Seed,2,1
+87106,Jordan Brady,2,1
+87130,Mark A.Z. Dippé,2,1
+87160,Jay Lee,2,2
+87183,Mark Young,2,1
+87193,William Heins,0,1
+87213,Philip Ridley,2,2
+87257,Cary Joji Fukunaga,2,3
+87267,Francesco Rosi,2,1
+87322,Aku Louhimies,2,1
+87355,Mustan Alibhai Burmawalla,2,1
+87356,Abbas Alibhai Burmawalla,2,1
+87378,Ayan Mukerji,2,2
+87429,Michel Ocelot,2,1
+87510,Carlos Sorín,2,1
+87521,Morton DaCosta,2,2
+87550,Vishal Bhardwaj,2,1
+87565,Savage Steve Holland,2,2
+87672,Stephen Belber,2,1
+87700,H. Bruce Humberstone,2,1
+87742,Marc Webb,2,5
+87877,Roar Uthaug,2,3
+87904,Bobby Eerhart,0,1
+88039,Steven R. Monroe,2,1
+88077,Alex Zamm,2,1
+88084,Luis Prieto,2,1
+88164,Luigi Cozzi,2,2
+88323,Pat Holden,0,1
+88472,Matteo Oleotto,2,1
+88556,Glenn McQuaid,2,2
+88571,Harold P. Warren,2,1
+88623,Jim Stenstrum,2,2
+88675,Justin Baldoni,2,1
+88800,Mohit Suri,2,1
+88809,Hrishikesh Mukherjee,2,1
+88820,Jean Rollin,2,3
+88823,Jason Stutter,0,1
+88832,Kyle Rankin,2,2
+88857,Dome Karukoski,2,1
+88926,Armando Iannucci,2,3
+88939,Donald G. Jackson,2,2
+88967,Greg Berlanti,2,2
+89112,Tony Leondis,2,2
+89154,Prabhu Deva,2,1
+89166,Noriaki Yuasa,2,3
+89216,Robert D. Webb,2,1
+89226,William Nigh,2,5
+89395,Katherine Dieckmann,1,1
+89411,Lee Hirsch,0,1
+89467,Bob Giraldi,2,1
+89576,Jeffrey Blitz,2,1
+89632,William K. Howard,2,1
+89669,A. Edward Sutherland,2,1
+89674,Benjamin Christensen,2,1
+89685,Fletcher Markle,2,1
+89692,Wallace Fox,2,1
+89745,Jean Yarbrough,2,2
+89779,Dwain Esper,2,1
+89785,Ron Ormond,2,1
+89787,Herbert Tevos,0,1
+89814,R. J. Cutler,2,1
+89824,Jon Wright,2,2
+89847,Madeleine Sami,1,1
+89924,William Clemens,2,1
+89981,László Benedek,2,1
+90037,James Lapine,2,2
+90048,Noriyuki Abe,2,3
+90064,Victor Halperin,2,2
+90081,Fouad Mikati,0,1
+90150,Mark Brooks,2,1
+90363,Douglas Jackson,2,1
+90367,Sam Liu,2,6
+90370,Herbert J. Biberman,2,1
+90429,Mike McCoy,2,1
+90492,Lynn Shelton,1,6
+90502,Goro Taniguchi,2,1
+90510,Satoshi Kuwabara,2,1
+90522,Daniel Mann,2,1
+90525,Douglas Cheek,2,1
+90574,Ishai Setton,2,1
+90575,Daniel Schechter,0,1
+90583,Don Argott,2,1
+90585,Sheena M. Joyce,1,1
+90591,Oren Peli,2,1
+90609,Osgood Perkins,2,3
+90638,Phil Weinstein,2,2
+90667,Ami-Ro Sköld,3,1
+90694,Gillo Pontecorvo,2,1
+90812,Scott Mann,2,1
+90864,Charles Grosvenor,2,2
+91026,Tennyson Bardwell,0,1
+91252,Alex Rivera,2,1
+91268,Ruben Fleischer,2,6
+91343,Hal Hartley,2,2
+91493,Chris Addison,2,1
+91552,Shankar,2,1
+91602,Scandar Copti,2,1
+91603,Yaron Shani,0,1
+91727,Lisa Gottlieb,1,1
+91730,Jeff Lew,2,1
+91758,Mehdi Charef,2,2
+91759,Jordan Scott,1,2
+91760,Stefano Veneruso,0,1
+91788,Ubaldo Ragona,2,1
+91789,Sidney Salkow,2,1
+92068,Jason Berry,0,1
+92125,Conrad Helten,2,1
+92554,Harry Winer,2,1
+92591,Peter Sullivan,2,2
+92657,Scott Sanders,2,1
+92693,Madhur Bhandarkar,2,1
+92694,Elliot M. Bour,2,2
+92733,Adam Elliot,2,1
+92743,Jamin Winans,2,2
+92779,Pablo Proenza,2,1
+92784,Barry Jenkins,2,2
+92831,Herman Yau,2,1
+92844,Jeff Broadstreet,0,2
+92905,Rick Stevenson,2,1
+93025,Nancy Savoca,1,1
+93064,Michael G. Bartlett,0,2
+93067,Kevin Gates,0,1
+93136,Charles Binamé,2,1
+93214,Steven Quale,2,2
+93237,Björn Runge,2,1
+93286,Cate Shortland,1,3
+93288,Sarah Gavron,1,1
+93301,Jun Falkenstein,1,3
+93364,Jeff Fowler,2,2
+93406,Elem Klimov,2,1
+93410,Meir Zarchi,2,1
+93419,Don Scardino,2,1
+93468,Gareth Carrivick,2,1
+93512,Tomomi Mochizuki,2,1
+93587,Daryl Duke,2,1
+93883,John Rice,2,1
+93903,Cédric Kahn,2,1
+93904,Irving Rapper,2,6
+93905,Allan Dwan,2,3
+93906,Robert Z. Leonard,2,3
+93911,Terence Davies,2,4
+93975,Lewis Allen,2,1
+94011,Bill Melendez,2,2
+94037,Bruno Bozzetto,2,1
+94050,Naoko Ogigami,1,2
+94069,Steve Sekely,2,2
+94075,David Soren,2,2
+94108,Dennis Iliadis,2,3
+94169,John Berry,2,1
+94180,Charles Reisner,2,1
+94208,Vincent Bal,2,1
+94218,Roy Del Ruth,2,2
+94220,Àlex Pastor,2,1
+94222,David Pastor,2,1
+94403,F. Javier Gutiérrez,0,1
+94471,Jon Gunn,2,1
+94608,Nancy Bardawil,0,1
+94771,Roland West,2,1
+94831,Maggie Greenwald,1,4
+94880,Irving Reis,2,1
+94918,Daniel Barber,2,1
+95024,Bobcat Goldthwait,2,1
+95040,Pietro Germi,2,1
+95058,Anne-Marie Miéville,1,1
+95111,Dziga Vertov,2,1
+95168,Slava Tsukerman,0,1
+95293,Busby Berkeley,2,5
+95320,Rodrigo Cortés,2,1
+95375,Mikael Marcimain,2,1
+95456,Elio Petri,2,2
+95501,Yasujirō Ozu,2,8
+95510,Sujoy Ghosh,2,1
+95526,William Asher,2,2
+95528,Pablo Berger,2,1
+95550,Avi Nesher,2,2
+95568,Peter Watkins,2,3
+95606,Javier Ambrossi,2,1
+95901,Bruno Dumont,2,3
+95972,Hans Petter Moland,2,2
+96166,John Curran,2,2
+96172,Sam Levinson,2,2
+96199,Liz Garbus,1,1
+96222,Laurie Collyer,1,2
+96305,Philippa Lowthorpe,1,1
+96323,Marcel Sarmiento,2,2
+96324,Gadi Harel,0,1
+96369,Carlos Saura,2,3
+96439,Nanette Burstein,1,1
+96627,André Téchiné,2,2
+96657,Lee Chang-dong,2,2
+96676,Tomm Moore,2,3
+96677,Nora Twomey,1,2
+96690,Rodrigo Sorogoyen,2,1
+96716,William Marshall,2,1
+96745,Stephen Milburn Anderson,2,1
+96801,Hiroshi Teshigahara,2,1
+96878,Dan Hoskins,0,1
+96902,A.W. Vidmer,0,1
+96934,Bo Widerberg,2,1
+96972,Alain Berliner,2,1
+97026,John Luessenhop,2,2
+97083,William Klein,2,1
+97180,Steve Loter,2,1
+97202,Kenji Mizoguchi,2,4
+97350,Steven Vasquez,2,1
+97570,Robert Hartford-Davis,2,1
+97573,Lee Sholem,2,2
+97579,Guy Maddin,2,2
+97591,Joel Anderson,2,1
+97618,David DeCoteau,2,3
+97646,Joan Micklin Silver,1,2
+97652,José Ramón Larraz,2,1
+97710,Charles E. Sellier Jr.,2,1
+97773,Anne Wheeler,1,1
+97774,Alfred E. Green,2,2
+97827,Jose Prendes,2,1
+97901,Christopher Ray,2,1
+97936,James Felix McKenney,2,1
+97942,Jonathan Teplitzky,2,1
+97966,"John ""Bud"" Cardos",2,1
+98043,Maurice Tourneur,2,2
+98103,Richard Ayoade,2,2
+98132,Jim Wynorski,2,3
+98136,Andy Sidaris,2,2
+98140,Lou Vockell,0,1
+98251,Sebastián Silva,2,2
+98389,Devin McGinn,2,1
+98514,Stephanie Rothman,1,2
+98521,Floria Sigismondi,1,2
+98534,Oley Sassone,2,1
+98553,Glendyn Ivin,2,1
+98631,Adam Wingard,2,6
+98750,Trevor Nunn,2,2
+98835,Georgiy Daneliya,2,2
+98882,Royston Tan,2,1
+98940,Catherine Cyran,1,1
+99074,Elza Kephart,1,1
+99339,Ken Shapiro,2,1
+99436,Chang Cheh,2,2
+99511,Duccio Tessari,2,1
+99875,Masami Hata,2,1
+99898,David Chase,2,1
+100036,D.W. Griffith,2,4
+100117,Francis Giacobetti,2,1
+100134,Götz Spielmann,2,1
+100296,Peter Sasdy,2,1
+100388,Naomi Foner,1,1
+100516,Max Mayer,2,1
+100616,Tom DeSimone,2,1
+100734,Johannes Roberts,2,3
+100771,Jodie Markell,1,1
+100807,Juan Piquer Simón,2,1
+100888,Chuck Jones,2,1
+100890,Abe Levitow,2,1
+101180,J.A. Steel,0,4
+101377,Paul Bartel,2,1
+101399,Claudia Llosa,1,3
+101444,Scott McGehee,2,2
+101446,David Siegel,2,2
+101520,John Gilling,2,1
+101528,Don Sharp,2,1
+101542,Ti West,2,6
+101666,Paul King,2,2
+101767,Robert Butler,2,1
+101885,George Archainbaud,2,1
+102201,Yoshiyuki Kuroda,2,1
+102234,Homi Adajania,2,1
+102329,María Ripoll,1,1
+102334,Bruce D. Clark,2,1
+102389,Thunder Levin,2,1
+102402,Rick Jacobson,2,2
+102429,Roger Corman,2,7
+102445,John Sayles,2,6
+102511,Attila Dargay,2,1
+102557,Maurício Farias,2,1
+102561,Jorge Furtado,2,1
+102627,Steve Carver,2,2
+102634,Katt Shea,1,2
+103150,Malcolm Venville,2,1
+103312,Chad Ferrin,2,1
+103344,Harold Young,2,1
+103393,Jacques Becker,2,2
+103467,William J. Hole Jr.,2,2
+103509,Eloy de la Iglesia,2,2
+103586,Simon Shore,2,1
+103679,Per Åhlin,2,1
+103931,Phil Rosen,2,2
+104025,David M. Rosenthal,2,1
+104510,John T. Bone,2,1
+104561,Craig Roberts,2,1
+104644,Dan Povenmire,2,2
+104784,Caytha Jentis,0,1
+104816,Todd Sheets,2,1
+105036,Theodore Gershuny,2,1
+105084,Cirio H. Santiago,2,1
+105091,John C. Broderick,2,1
+105153,Vicente Aranda,2,1
+105199,Joe Finley,0,1
+105239,Stuart Hazeldine,2,2
+105435,Joanna Hogg,1,2
+105574,Adrián García Bogliano,2,2
+105642,Rick Morales,2,2
+105643,Jay Oliva,2,5
+105648,Nat Faxon,2,1
+105866,Marco Bellocchio,2,2
+106345,Neri Parenti,2,1
+106381,Norman J. Warren,2,1
+106540,William Crain,2,1
+106608,Mikel Conrad,2,1
+106782,Ömer Faruk Sorak,2,1
+106834,Charles A. Nichols,2,1
+106967,Thomas Bentley,2,1
+107045,Masahiro Ando,2,1
+107195,Laura Gabbert,1,1
+107274,Richard Rich,2,3
+107276,Sergio Garrone,2,1
+107331,John Llewellyn Moxey,2,1
+107333,Jim O'Connolly,2,1
+107446,Phil Lord,2,4
+107490,Jaco Van Dormael,2,1
+107533,Cristi Puiu,2,1
+107564,Ali Selim,2,1
+107629,Greg Pak,2,1
+107630,William Phillips,2,1
+107668,Katsuhito Ishii,2,1
+107669,Eldar Ryazanov,2,2
+107730,Trần Anh Hùng,2,2
+107753,Shamim Sarif,1,2
+107762,Aleksandr Sokurov,2,2
+107792,Maclain Nelson,2,1
+107831,Jennie Livingston,1,1
+107855,Hideki Futamura,2,1
+107859,Jane Arden,1,1
+107940,Lin Yu-Hsien,2,1
+108022,David Caesar,2,1
+108072,Ruba Nadda,1,1
+108106,Fred Niblo,2,1
+108217,Jerry Rees,0,1
+108346,Sophie Barthes,1,2
+108497,David Caffrey,2,1
+108753,Kimmy Gatewood,1,1
+108764,Mikhail Kalatozov,2,1
+108929,Grace Lee,1,1
+108952,Mike Disa,2,2
+108983,Dorothy Arzner,1,2
+108987,William A. Seiter,2,2
+109016,Cary Solomon,2,1
+109017,Chuck Konzelman,0,1
+109086,D'Urville Martin,2,1
+109191,Hiroyuki Imaishi,2,2
+109293,Corneliu Porumboiu,2,3
+109314,Don Hertzfeldt,2,1
+109339,Julien Magnat,2,1
+109342,Jacques Feyder,2,2
+109402,Rob Epstein,2,3
+109403,Jeffrey Friedman,2,3
+109439,Kieran Darcy-Smith,2,1
+109531,Tommy Stovall,0,1
+109544,Andy de Emmony,2,1
+109635,Michael Ray Rhodes,2,1
+109640,Doug Atchison,2,1
+109692,David E. Talbert,2,3
+109745,Lee Toland Krieger,2,2
+109846,Alex Nicol,2,1
+109857,Thor Freudenthal,2,2
+109978,Ian Fitzgibbon,2,1
+110054,Fredrik Edfeldt,2,1
+110347,William K.L. Dickson,2,29
+110348,William Heise,2,26
+110356,Samuel Maoz,2,1
+110461,William Carr Crofts,0,1
+110462,Woodsworth Donisthorpe,0,1
+110467,Takuya Sato,2,1
+110468,Terry Ingram,2,1
+110532,George Bamber,2,1
+110684,Takashi Nakamura,2,1
+110691,Shinsuke Terasawa,2,1
+110695,Majid Majidi,2,2
+110726,Joseph Green,0,1
+110873,Igor Kovalyov,2,1
+110876,Rachel Lee Goldenberg,1,2
+111059,Anthony DiBlasi,2,1
+111094,Heitor Dhalia,2,2
+111216,Bohdan Sláma,2,1
+111338,Adam Bernstein,2,1
+111352,Henrik Hellström,0,1
+111388,Joel Bergvall,0,1
+111389,Simon Sandquist,0,1
+111411,Ahn Sang-hoon,2,1
+111588,J Blakeson,2,3
+111686,Jim Field Smith,2,1
+111699,Lance Daly,2,2
+111736,Klay Hall,2,2
+111807,Matthew Warchus,2,2
+111944,Bobby Roth,2,1
+112132,Fernando Eimbcke,2,1
+112206,Astra Taylor,0,1
+112280,Yoshihiro Nishimura,2,1
+112340,Ron Krauss,2,1
+112400,William Girdler,2,1
+112588,Kirby Dick,2,1
+112674,Rolf de Heer,2,1
+112740,Adam Coleman Howard,2,1
+112946,Jennifer Leitzes,1,1
+112995,John Boulting,2,2
+113102,Tom Moore,2,1
+113225,Alan Poul,2,1
+113273,Jeremy Lovering,2,1
+113290,Wiebke von Carolsfeld,0,1
+113373,Mike Birbiglia,2,2
+113406,Belén Macías,1,1
+113411,Simon Staho,2,1
+113417,Tom Fernández,2,1
+113500,Philipp Stölzl,2,2
+113600,Susanna White,1,2
+113601,Jerzy Hoffman,2,1
+113664,Josh Klausner,2,1
+113667,Meghna Gulzar,1,1
+113680,Nancy Kissam,0,1
+113799,Frank Perry,2,1
+113802,Marcus Warren,2,1
+113855,Xavier Giannoli,2,1
+113896,Joe Sichta,2,1
+114109,Matt Vancil,2,2
+114312,Cheng Hsiao-Tse,2,1
+114319,Franz Osten,2,1
+114334,David Michôd,2,4
+114337,George Fitzmaurice,2,1
+114404,Miguel Sapochnik,2,1
+114433,Fritz Böttger,0,1
+114468,Kevin James Dobson,2,1
+114545,Ivan Engler,2,1
+114546,Ralph Etter,0,1
+114562,Ray Kellogg,2,1
+114597,Julie Anne Robinson,1,1
+114620,Neil Johnson,2,1
+114629,Philippe Mora,2,2
+114722,Kentaro Otani,2,1
+115128,Bo Burnham,2,2
+115174,Daniel Ribeiro,2,2
+115447,Andy Wolk,2,1
+115458,Phil Whitman,2,1
+115666,Phil Hawkins,2,1
+115999,Inna Evlannikova,1,1
+116000,Svyatoslav Ushakov,2,1
+116018,Matthew Barney,2,1
+116100,Richard Williams,2,1
+116181,Kim Tae-gyun,2,1
+116186,Lowell Sherman,2,1
+116187,Phillips Smalley,2,1
+116267,Matthew Holness,2,1
+116330,Patrick Creadon,2,1
+116357,Scott Stewart,2,3
+116370,Matthew Diamond,2,2
+116482,"V, formerly Eve Ensler",1,1
+116531,Travis Betz,2,1
+116601,Tiago Guedes,2,1
+116641,James Neilson,2,1
+116802,Todd Kessler,2,2
+116805,Paul Feig,2,6
+116832,Patricia Cardoso,1,1
+117052,Jorge Blanco,2,1
+117147,Henry Cass,2,1
+117773,S. Sylvan Simon,2,1
+117794,Chris Morris,2,1
+117865,Jud Taylor,2,1
+117883,K. Asher Levin,0,1
+118171,Rumle Hammerich,2,2
+118303,Nacho Vigalondo,2,2
+118355,Lee Lik-Chi,2,1
+118415,Sean Baker,2,3
+118463,Peter DeLuise,2,1
+118489,Walt Dohrn,2,1
+118606,Janus Metz,2,2
+118639,Tom Six,2,2
+118752,Natalie Morales,1,1
+119194,Yannick Dahan,2,1
+119195,Benjamin Rocher,2,1
+119294,Abbas Kiarostami,2,6
+119310,Annette Haywood-Carter,1,1
+119335,Ataru Oikawa,2,1
+119368,Jennifer Westfeldt,1,1
+119386,James K. Shea,0,1
+119396,Kevin Tierney,2,1
+119410,Wong Ching-Po,2,1
+119417,Gavin Wiesen,2,1
+119419,Deon Taylor,2,1
+119476,Zelda Barron,1,2
+119498,Joann Sfar,2,1
+119624,Anna Biller,1,2
+119665,Gregory Jacobs,2,1
+119819,Anurag Basu,2,2
+119953,Gabe Ibáñez,2,1
+120135,Rocco Papaleo,2,1
+120229,Jafar Panahi,2,5
+120245,Daniel Stamm,2,1
+120247,Andrew Gurland,2,1
+120259,Philip Ford,2,1
+120572,Dan Eckman,2,1
+120615,Tom Ford,2,2
+120897,Jeong Jae-eun,1,1
+120930,Jon Jones,2,1
+121102,Ralph Staub,2,1
+121585,Raúl Ruiz,2,3
+121608,James Westby,2,1
+121686,Ellen Seidler,0,1
+121687,Megan Siler,0,1
+121829,Barnet Kellman,2,1
+121830,Nathan Greno,2,1
+121873,Debra Granik,1,2
+122186,Daisuke Nishio,2,4
+122348,Guy Jenkin,2,1
+122423,Yorgos Lanthimos,2,5
+122506,Steven Hahn,0,1
+122568,Wayne Lytle,2,1
+122582,Jake Paltrow,2,1
+122590,Richard Laxton,2,1
+122673,Wendy Jo Carlton,1,3
+122775,Maria Govan,1,1
+122785,Ciro Guerra,2,1
+122842,Rich Christiano,2,1
+122847,Serge Élissalde,2,1
+122905,Lance Comfort,2,1
+122967,Craig McCracken,2,1
+122969,Edward Sedgwick,2,1
+123012,Barbara Loden,1,1
+123099,José María Forqué,2,2
+123132,Jac Schaeffer,1,1
+123186,Podz,2,1
+123193,Koichi Mashimo,2,1
+123195,Lawrence Ah Mon,2,1
+123199,Ann Hui,1,3
+123219,Neeraj Pandey,2,1
+123401,Michael Gordon,2,2
+123586,Mark Young,2,1
+123695,James Nguyen,2,2
+123707,John Geddes,2,1
+123798,Sheree Folkson,1,1
+123970,Gábor Herendi,2,3
+124092,Lisa Krueger,1,1
+124132,Maria Burton,1,1
+124137,Věra Chytilová,1,1
+124279,Brandon Vietti,2,1
+124334,Stanley M. Brooks,2,1
+124635,Billy O'Brien,2,1
+124747,Pierre Coffin,2,4
+124748,Chris Renaud,2,4
+124749,Sergio Pablos,2,1
+124783,Perry Lang,2,1
+124830,Lisa Barros D'Sa,1,2
+124831,Glenn Leyburn,0,2
+124856,Zaida Bergroth,1,1
+125064,Ramón Salazar,2,1
+125179,Zoltán Várkonyi,2,1
+125247,Péter Tímár,2,2
+125324,William Eubank,2,1
+125385,Masakazu Hashimoto,2,1
+125398,Leslie Arliss,2,1
+125440,Ferenc Török,2,1
+125543,Michael Lindsay-Hogg,2,2
+125544,Tim Fywell,2,2
+125570,Xiaolu Xue,1,1
+125637,Brian Baugh,2,1
+125659,Pat Murphy,1,1
+125681,Krisztina Goda,1,1
+125690,Mikio Naruse,2,2
+125738,Daniel Espinosa,2,4
+125992,Cecil M. Hepworth,2,1
+126333,Harry Cripps,2,1
+126462,James Hill,2,1
+126467,Christopher N. Rowley,2,1
+126597,Stéphane Aubier,2,2
+126599,Vincent Patar,2,2
+126638,Mark Andrews,2,1
+126765,Anubhav Sinha,2,1
+126768,Manuel Carballo,2,1
+126805,James Yuen,2,1
+126809,Lee Joon-ik,2,1
+126855,Pavel Lungin,2,1
+126910,Derrick Borte,2,2
+126945,Brian Percival,2,1
+126951,Simon Langton,2,1
+127081,Yasmin Ahmad,1,1
+127123,Oksana Bychkova,1,1
+127279,Andrew Lancaster,2,1
+127380,Michael Chang,2,1
+127483,József Gémes,2,1
+127494,Louise Archambault,1,1
+127515,Jack Hively,2,1
+127537,Yossi Wein,2,1
+127608,Allan Holzman,0,1
+127716,Robert Young,2,1
+127823,Agustín Díaz Yanes,2,2
+128077,Claudio Giovannesi,2,1
+128217,Giuseppe Capotondi,2,1
+128276,Otto Bathurst,2,1
+128476,Satoshi Miki,2,1
+129106,Alessandro Genovesi,2,1
+129251,Patrick Dinhut,2,1
+129422,Irving Cummings,2,1
+129433,Éric Rochant,2,1
+129514,Peter H. Hunt,2,1
+129552,Thornton Freeland,2,1
+129561,Josh Safdie,2,3
+129602,Julian Kemp,2,1
+129715,Agnieszka Wojtowicz-Vosloo,1,1
+129716,Julio DePietro,2,1
+129718,Shana Feste,1,2
+129826,Takuji Kitamura,0,1
+129879,Kim Chapiron,2,1
+129894,Gareth Edwards,2,3
+129952,Sean McNamara,2,5
+130030,Chantal Akerman,1,2
+130050,Colin Theys,2,1
+130056,Anthony Kimmins,2,1
+130087,Joseph Santley,2,1
+130101,Rob Stefaniuk,2,1
+130135,Avi Lewis,2,1
+130204,Mohamed Diab,2,1
+130300,Aluizio Abranches,2,1
+130313,Walerian Borowczyk,2,1
+130367,Raymond Lee Wai-Man,2,1
+130402,Semih Kaplanoğlu,2,2
+130459,Tōya Satō,2,1
+130646,Nobuhiro Doi,2,1
+130791,John Lyde,2,1
+130816,Jesse Peretz,2,1
+130837,Stewart Hendler,2,2
+130920,Micha Wald,0,1
+130938,Sergei Bodrov,2,1
+130987,Daniela Féjerman,1,1
+130988,Inés París,0,1
+131081,Kazuyoshi Katayama,2,1
+131184,Phillip J. Roth,2,1
+131186,Tetsuya Nakashima,2,2
+131249,Alexandre Franchi,2,1
+131374,Tetsu Maeda,2,1
+131388,Bradley Rust Gray,2,1
+131397,So Yong Kim,1,2
+131459,Kelvin Tong,2,1
+131521,Spencer Susser,2,1
+131564,Yasuhiro Yoshiura,2,1
+131617,Banksy,2,1
+131664,Wayne Blair,2,3
+131776,Jeffrey Walker,2,1
+131785,Douglas Barr,2,2
+131870,Daryl Wein,2,2
+131873,Jacob Chase,2,1
+131874,Marja-Lewis Ryan,1,1
+131925,Dover Koshashvili,0,1
+131948,Tim Hetherington,2,1
+132188,Mario Mattoli,2,1
+132305,Nobuhiko Obayashi,2,1
+132360,Wanuri Kahiu,1,2
+132412,Travis Mathews,2,1
+132452,Im Sang-soo,2,1
+132495,Mai Tominaga,1,1
+132566,Matt Codd,2,1
+132722,Curtis Crawford,2,1
+132812,Jonathan Parker,2,1
+132856,Tim Heidecker,2,1
+132857,Eric Wareheim,2,1
+132876,Brad Peyton,2,3
+132964,Drake Doremus,2,3
+133004,Chicho Ibáñez Serrador,2,1
+133057,Naoto Kumazawa,2,1
+133259,Arthur Hiller,2,5
+133398,Quentin Dupieux,2,5
+133406,Dan Rush,2,1
+133427,Takao Nakano,2,1
+133471,Vilgot Sjöman,2,1
+133502,Simon Curtis,2,3
+133873,Aisling Walsh,1,1
+133932,Urszula Antoniak,1,1
+134016,Bill Sebastian,2,1
+134114,Gavin Millar,2,2
+134123,Adrian Kwan,2,1
+134129,Benny Boom,2,2
+134156,Sam Miller,2,1
+134306,Kevin Sullivan,2,1
+134449,Zachary Weintraub,2,1
+134604,Ben Ketai,2,2
+135113,André Øvredal,2,3
+135163,Susan Streitfeld,1,1
+135335,Harry Kümel,2,1
+135534,Léa Pool,1,2
+135601,Troy Nixey,2,1
+135616,Iris Letans,1,1
+135650,Melvin Van Peebles,2,1
+135795,Todd Berger,2,1
+136153,Peter Atencio,2,1
+136495,Damien Chazelle,2,4
+136903,Ned Farr,2,2
+137422,Marcos Efron,2,1
+137427,Denis Villeneuve,2,8
+137467,Ben Wheatley,2,5
+137475,Richard J. Lewis,2,1
+137703,Morio Asaka,2,1
+138167,Peter Duffell,2,1
+138322,Victor Nunez,2,1
+138775,Andy Mitton,2,1
+138776,Jesse Holland,2,1
+138781,Robert Eggers,2,3
+138806,Alice Nellis,1,1
+138867,William Fruet,2,1
+139002,David Maysles,2,1
+139098,Derek Cianfrance,2,3
+139135,Lena Dunham,1,2
+139250,Samantha Lang,1,1
+139474,Glen Keane,2,1
+139851,Toby Shelton,2,1
+139898,Arthur Borman,2,1
+140354,Ulu Grosbard,2,1
+140372,David Palmer,2,1
+140390,Johannes Stjärne Nilsson,2,1
+140391,Ola Simonsson,2,1
+140396,Miguel Ángel Vivas,2,1
+140815,James Parrott,2,1
+141065,Alfred J. Goulding,2,1
+141172,Tanya Hamilton,1,1
+141450,Mel Smith,2,1
+141673,Jason Eisener,2,2
+141675,Jason Winer,2,1
+141688,Gary McKendry,0,1
+141706,Chuck Sheetz,2,1
+141825,Rusty Cundieff,2,1
+141883,Tobias Lindholm,2,2
+141962,David Bruckner,2,3
+141963,Dan Bush,2,1
+141964,Jacob Gentry,2,2
+142007,Steve Trenbirth,0,1
+142013,Gareth Evans,2,3
+142272,Henry Joost,2,4
+142276,Ariel Schulman,2,4
+142297,Compton Bennett,2,2
+142312,Jennifer Yuh Nelson,1,3
+142398,Patrick Horvath,2,1
+142467,Pater Sparrow,2,1
+142513,Emma-Kate Croghan,1,1
+142526,Robert Cormack,2,1
+142587,Greg Tiernan,2,2
+142603,Julie Dash,1,1
+142617,Alexey Popogrebsky,2,1
+142670,Lee Sang-il,2,1
+142687,Claire McCarthy,1,1
+142732,Haim Tabakman,2,1
+142857,Çağan Irmak,2,1
+142859,Lo Yuen-Ming,2,1
+142865,Jean Vigo,2,1
+142960,Harvey Frost,2,1
+143014,Mischa Kamp,1,1
+143035,Edward Yang,2,2
+143059,Patrick Hughes,2,4
+143079,Christian E. Christiansen,2,1
+143385,Fred C. Newmeyer,2,4
+143463,Dave Fleischer,2,3
+143520,Håkon Liu,2,1
+143558,Ted Wilde,2,2
+143561,Sam Taylor,2,7
+143593,Xavier Dolan,2,5
+143635,Cyril Frankel,2,1
+143696,Klim Shipenko,2,1
+143862,Brendan Muldowney,2,1
+143966,Joan Carr-Wiggin,1,1
+143998,Malcolm St. Clair,2,1
+144009,Josh Radnor,2,2
+144063,Victor Heerman,2,1
+144082,Julie Bertuccelli,1,1
+144221,Brad Furman,2,3
+144232,Gregg Bishop,2,1
+144476,Hiromasa Yonebayashi,2,3
+144519,Gilles Paquet-Brenner,2,1
+144536,Shinsuke Sato,2,2
+144734,Edgar Neville,2,1
+144782,Arnaud Larrieu,0,1
+144798,Simon Cellan Jones,2,1
+144816,Chris McKay,2,2
+144817,Ladj Ly,2,1
+144961,Jeff Stephenson,2,1
+144977,Larry Roemer,2,1
+145022,Diego Lerman,2,1
+145053,Dorian Walker,2,1
+145117,Jean-Pierre Améris,2,1
+145130,Azazel Jacobs,2,1
+145134,Jill Sprecher,1,1
+145175,Albert Parker,2,1
+145210,Craig Pryce,2,3
+145228,Jalmari Helander,2,2
+145350,Issei Oda,2,1
+145446,Kirk R. Thatcher,2,1
+145605,Harry Beaumont,2,2
+145675,Alain Gagnol,2,1
+145676,Jean-Loup Felicioli,2,1
+145701,Guillem Morales,2,1
+145821,Matthias Hoene,0,1
+145867,Kasper Barfoed,2,1
+145968,Richard Boleslawski,2,2
+146169,Jean-Marie Larrieu,0,1
+146225,Silvio Narizzano,2,1
+146438,Bertrand Bonello,2,1
+146439,James Ward Byrkit,2,1
+146704,Javier Fuentes-León,2,1
+146836,John Suits,2,3
+147021,S. S. Rajamouli,2,3
+147112,Marco Martins,0,1
+147113,Jason Woliner,2,1
+147227,Lizzie Borden,1,1
+147302,Dorothée Van Den Berghe,0,1
+147411,Tomoo Haraguchi,2,1
+147702,Douglas McCarthy,2,1
+147793,Godfrey Ho,2,1
+148085,Saverio Costanzo,2,1
+148097,Kunihiko Ikuhara,2,2
+148098,Hiroshi Negishi,2,1
+148559,Herbert Wilcox,2,1
+148656,Gilbert Pratt,2,1
+148658,Lyndon Chubbuck,2,1
+148678,Brett Donowho,0,1
+148705,Bill Anderson,2,1
+148735,Benjamin Kasulke,2,1
+148763,Oskar Santos,2,1
+148839,Clarence G. Badger,2,1
+149082,Monika Treut,1,1
+149495,Marti Noxon,1,1
+150098,Rupert Goold,2,2
+150150,Min Kyu-dong,2,1
+150181,John Erman,2,1
+150193,Sandy Collora,2,1
+150207,Jeffrey Hornaday,2,2
+150208,Jeff Balis,2,1
+150482,Philippe Leclerc,2,1
+150512,Miguel Gomes,2,2
+150615,Seren Yüce,2,1
+150630,Nicholas McCarthy,2,1
+150660,Kallan Kagan,0,1
+150777,Mari Asato,1,1
+150956,Michael Tully,2,1
+150975,Hong Sang-soo,2,2
+151007,Peter Ramsey,2,2
+151086,Masaaki Taniguchi,2,1
+151091,Gary Ellis,2,1
+151166,Frédéric Fonteyne,2,1
+151380,Peter Paige,2,1
+151384,Meredith Scott Lynn,1,1
+151502,Bruce Bilson,2,1
+152222,Paul Powell,2,1
+152249,Jim O'Hanlon,2,1
+152414,Anthony Lucero,2,1
+154547,Chris Nelson,0,3
+154631,Noel Nosseck,2,1
+154705,Chris Butler,2,2
+154865,Siân Heder,1,2
+155267,Christopher Miller,2,4
+155293,Mercy Malick,1,1
+155531,Joe Cornish,2,2
+155945,Jack Heller,2,1
+158955,Joan Darling,1,1
+159232,John Krish,2,2
+161229,Ralph Levy,2,1
+161932,Jim Rash,2,1
+163998,Carol Morley,1,1
+164149,Samantha Buck,1,1
+164554,Jennifer Kent,1,1
+165752,Fielder Cook,2,1
+165787,Rich Moore,2,3
+166999,Steve Hoefer,2,1
+167687,Claudia Weill,1,1
+167889,Michael J. Weithorn,2,1
+168330,Ben Lewin,2,2
+168349,Shane Dawson,2,1
+168667,Jason Moore,2,2
+168782,Don McBrearty,2,1
+169448,Richie Keen,2,1
+170820,Ben Falcone,2,5
+171000,Joe Mantello,2,1
+171949,Jenny Deller,1,1
+172529,Remy Auberjonois,2,1
+172993,Rose Troche,1,1
+173298,Jeremy Dyson,2,1
+173667,Julian Farino,2,1
+173686,Anthony Drazan,2,1
+173847,Harry Bradbeer,2,2
+174313,Adam Nee,2,1
+174463,Bob Doucette,0,1
+176148,Steve Ball,0,1
+176153,Ezekiel Norton,2,4
+176246,Kevin Yagher,2,1
+177532,Marielle Heller,1,3
+181870,Michael Morrissey,2,1
+182009,Joey Soloway,3,1
+182327,Alice Lowe,1,1
+182892,Mike Rohl,2,1
+183036,Doug Ellin,2,1
+184162,Coley Sohn,0,1
+184567,Andrew Bush,2,2
+185438,Genndy Tartakovsky,2,2
+185995,Michael Walker,2,1
+186758,Jon Sherman,2,1
+186783,Daniel Nettheim,2,1
+188897,Jon Hewitt,0,1
+190090,Luke Scott,2,1
+190103,Alain Desrochers,2,1
+190495,Alan Bridges,2,1
+191750,Philip Barantini,2,1
+192852,Francis Lee,2,2
+193390,Jon Matthews,2,1
+196858,Kenny Leon,2,3
+197803,Rob Greenberg,2,1
+198201,Larry Stewart,2,1
+199993,Yves Lavandier,0,1
+201439,Christopher Miles,2,1
+202122,Lee Rose,1,1
+202816,Noah Hawley,2,1
+204553,Ethan Spaulding,2,4
+204761,Steve Franks,2,1
+205639,Jim McKay,2,1
+206296,Jim Loach,2,1
+206651,Alexandra Kondracke,1,1
+207718,Mika Ninagawa,1,1
+208113,Sarah Smith,1,2
+208527,Yann Demange,2,1
+208664,Kay Cannon,1,2
+209373,Bryn Higgins,2,1
+209513,Macon Blair,2,1
+209970,Muffie Meyer,1,1
+210053,Bobs Gannaway,2,1
+210355,Brea Grant,1,1
+210827,Nathan Crooker,2,1
+211659,James Kent,2,1
+212165,Chris Eyre,2,1
+212240,Tom Harper,2,4
+212587,Randy Walker,2,1
+212678,Robin Sheppard,1,1
+212980,Kevin Finn,0,1
+213316,Nick Whitfield,0,1
+213341,Milton Katselas,2,1
+213379,Srđan Dragojević,2,1
+213485,Andreas Öhman,2,2
+213611,Richard Press,0,1
+213613,Lynn Hershman-Leeson,1,1
+213614,Max Winkler,2,2
+216146,Jordan Rubin,2,1
+217174,Paul Tibbitt,2,1
+217587,Leslye Headland,1,2
+219647,Yasuhiro Takemoto,2,1
+219961,Kim Farrant,1,1
+220691,Laura Poitras,1,1
+220997,James Griffiths,2,1
+221478,Züli Aladag,2,1
+221944,Katie Aselton,1,1
+222238,Joshua Meador,2,1
+222470,Todd Strauss-Schulson,2,3
+222686,Mia Hansen-Løve,1,2
+223330,Matthew Porterfield,2,1
+223516,Benh Zeitlin,2,1
+223708,Camillo Mastrocinque,2,1
+223791,Pietro Francisci,2,1
+223806,Xan Cassavetes,1,1
+223886,Thomas Guard,2,1
+224221,Maneesh Sharma,2,1
+224419,Stefan Jarl,2,1
+224663,Junji Sakamoto,2,1
+224875,Nicole Conn,1,1
+224884,Imanol Uribe,2,2
+224976,Giuseppe Ferrara,2,1
+225009,Pablo Larraín,2,5
+225055,Jack Neo,2,1
+225142,Philippe de Chauveron,2,1
+225224,Jorge Sánchez-Cabezudo,2,1
+225407,Yann Gozlan,2,1
+225556,Salim Akil,2,2
+225706,Henry Saine,0,1
+225893,Niall MacCormick,2,1
+225898,István Szabó,2,2
+225899,Jörg Ihle,2,1
+225976,Dan Scanlon,2,2
+226076,Jean-Charles Hue,2,1
+226493,Sandra Goldbacher,1,2
+226599,Norman Ferguson,2,5
+226608,Antoinette Beumer,1,1
+226662,František Vláčil,2,1
+226920,Yoichi Sai,2,1
+227239,Cristiano Bortone,2,1
+227346,Jeff Chan,2,1
+227393,Pascal Franchot,2,1
+227439,Don Hall,2,4
+227455,Lisa Langseth,1,1
+227564,Benny Safdie,2,3
+227839,Michael Goldbach,2,1
+227842,Susanna Nicchiarelli,1,1
+227910,Roberto Andò,2,1
+227936,Benedek Fliegauf,2,1
+227945,Stefan C. Schaefer,2,1
+228041,Márcio Garcia,2,1
+228090,Sylvie Verheyde,1,1
+228102,Raimund Huber,2,1
+228134,Rupert Sanders,2,2
+228278,Lee Sung-gang,2,1
+228643,Morgan Neville,2,1
+228728,Shigeo Tanaka,2,1
+228797,Richard Kwietniowski,2,1
+228801,Anthony Fankhauser,2,1
+228991,Danish Aslam,0,1
+229002,Jeff Renfroe,2,2
+229006,David Palmieri,0,1
+229135,Alantė Kavaitė,1,1
+229164,Mike Stoklasa,2,1
+229180,Richard Gray,0,2
+229182,Andrew Leman,2,1
+229263,Benoît Jacquot,2,1
+229275,Leena Yadav,1,1
+229374,Marilyn Agrelo,1,1
+229380,Brian Crano,2,1
+229418,Valerio Zurlini,2,1
+229420,T.C. Christensen,2,1
+229482,Kyle Patrick Alvarez,2,1
+229501,Göran Olsson,2,1
+229519,Thom Fitzgerald,2,1
+229604,Clio Barnard,1,1
+229695,David Keating,2,1
+229873,Gerardo Olivares,2,1
+229931,Asghar Farhadi,2,3
+229962,Mike Thurmeier,2,2
+230335,Jeff Lipsky,2,1
+230421,Léa Fehner,1,1
+230437,Raj Kumar Gupta,2,1
+230799,Douglas Langway,2,2
+230802,H.P. Mendoza,2,1
+231249,Kern Saxton,0,1
+231385,Alastair Orr,2,1
+231705,Matt Eskandari,2,1
+231745,Béla Ternovszky,2,1
+232002,Peter Hutchings,2,1
+232381,Bruno Zincone,2,1
+232617,George Ormrod,0,1
+232898,Frédéric Jardin,2,1
+232937,Cheryl Dunye,1,1
+232959,Baran bo Odar,2,2
+233108,Jasmin Dizdar,0,1
+233200,Mu Fei,2,1
+233263,Anthony Byrne,2,1
+233343,Tonino Cervi,2,1
+233655,Kanji Wakabayashi,2,1
+234363,Koichi Chigira,2,1
+234575,Giulio Questi,2,1
+234581,Daniel Simpson,0,1
+235333,Kim Dong-bin,0,1
+235430,Timo Tjahjanto,2,1
+235503,Joonas Berghäll,2,1
+235504,Mika Hotakainen,2,1
+235539,Jannicke Systad Jacobsen,1,1
+235715,Yoshimitsu Banno,2,1
+235772,Natalya Kudryashova,1,1
+235932,Alain Gomis,2,1
+236378,Anna Chi,0,1
+236539,Jordan Vogt-Roberts,2,2
+236859,Michaël R. Roskam,2,2
+236861,James Rabbitts,2,1
+236884,Athina Rachel Tsangari,1,1
+236889,Rebecca Zlotowski,1,2
+237051,Sukumar,2,1
+237350,Mario Camus,2,1
+237414,Hilary Birmingham,0,1
+237583,Juan Martínez Moreno,2,1
+237608,Mohan Raja,2,1
+237682,Vernon Zimmerman,2,1
+237706,K. Balachander,2,1
+237855,Richard Tanne,2,1
+238156,Mae Cruz-Alviar,1,1
+238273,Djo Munga,2,1
+238384,Alain Guiraudie,2,1
+239033,Paul Grimault,2,1
+239176,Richard Lerner,0,1
+239293,Paolo Heusch,2,1
+239404,Julia Leigh,1,1
+239418,Darren Stein,2,2
+239424,Thomas Arslan,2,1
+239485,Stanislav Rostotsky,2,1
+239551,Nobuo Nakagawa,2,1
+239571,Carl Rinsch,2,1
+239574,Eugenio Derbez,2,1
+239672,Felix van Groeningen,2,3
+239674,Aleksandr Mindadze,2,1
+239763,Osamu Yamasaki,2,2
+239858,Sunao Katabuchi,2,1
+239940,Francesco Amato,2,1
+240113,Emanuela Piovano,1,1
+240740,Daniel Junge,2,1
+240747,Paul Matthews,2,1
+240924,Poon Man-kit,2,1
+253066,Edward H. Griffith,2,1
+253152,Oscar Micheaux,2,1
+253696,Len Talan,0,1
+253716,Thorold Dickinson,2,1
+256062,Mireia Ros,1,1
+258498,Daniel de la Vega,2,1
+260945,Vinko Brešan,0,1
+261280,Manon Briand,1,1
+261347,Alberto Sciamma,2,1
+263640,Cristián Galaz,0,1
+264113,Tanya Wexler,1,2
+275022,Harve Foster,0,1
+288710,Liz W. Garcia,1,1
+291263,Jordan Peele,2,3
+293911,Scott Waugh,2,2
+300347,Donovan Cook,2,1
+303056,Craig Johnson,2,3
+305750,Patrik-Ian Polk,2,1
+307791,Matthew Parkhill,2,1
+309934,P. Vasu,2,1
+310233,Stephen MacLean,2,1
+383088,Fernando Sariñana,2,1
+386918,Avdotya Smirnova,1,1
+402272,Anna Foerster,1,1
+423584,Lixin Fan,0,1
+427133,Pablo Parés,2,1
+429728,Quinn Shephard,1,1
+433134,Jesper Ganslandt,2,1
+434091,Xiaolu Guo,1,1
+437833,Patricia Riggen,1,4
+439236,Zackary Adler,0,1
+440517,Steve Taylor,2,1
+440763,Greg Richardson,2,3
+442985,Stéphane Lafleur,2,2
+444720,Andrés Baiz,2,1
+444892,Eskil Vogt,2,1
+447777,Magnus Martens,2,1
+448563,Laurent Boutonnat,2,1
+449889,Plan B,2,1
+454818,Alejandro Brugués,2,1
+465763,Maggie Carey,1,1
+472630,Dee Rees,1,3
+487207,Mariana Otero,1,1
+488844,John Orrichio,0,1
+509442,Yuya Ishii,2,1
+515867,Giancarlo Volpe,2,1
+517851,Yoav Potash,2,1
+523789,Aaron Harvey,2,1
+527607,Sean Durkin,2,1
+529184,Navot Papushado,2,1
+532052,Hattie Dalton,1,1
+532757,Mark Roper,2,1
+536810,Steven Robman,2,1
+536891,Katsuhiko Nishijima,2,1
+542659,Amir Shervan,2,1
+543842,David Guy Levy,2,1
+544082,Dennis Todorović,2,1
+544130,Jen Soska,1,2
+544134,Sylvia Soska,1,2
+544644,Mac Carter,0,1
+545053,Aaron Katz,2,2
+545092,Tahmine Milani,1,1
+545330,April Mullen,1,1
+545675,Claude Jutra,2,1
+545763,Marlen Khutsiyev,2,1
+548474,Wong Jing,2,2
+548666,Jang Cheol-soo,2,1
+549310,Justin Kurzel,2,2
+549353,Sylvain Estibal,0,1
+549451,India Allen,1,1
+549608,Timothy Friend,0,1
+549834,Lotte Reiniger,1,1
+549971,Maryam Keshavarz,1,1
+550280,Anna Muylaert,1,1
+550327,Tushar Hiranandani,0,1
+550338,Pascale Bailly,1,1
+550481,Jérémy Clapin,2,1
+550621,Hiroshi Hamasaki,2,1
+550669,Andrew Rossi,2,1
+550681,Nicholas Tomnay,2,1
+550707,Francisco Vargas,0,1
+551463,Mike Flanagan,2,6
+552028,Herman Shumlin,2,1
+552707,Geoffrey Enthoven,2,1
+553061,Shun Nakahara,2,1
+553145,David Mucci Fassett,2,1
+553375,Sean Cisterna,2,2
+554389,Lee Chi-Ngai,2,1
+554929,Dilip Mehta,2,1
+555094,Akiyuki Shinbo,2,1
+555254,Yoshifumi Kondo,2,1
+555845,Dickie Jobson,0,1
+555975,Nicolás Goldbart,0,1
+556165,Caroline Bottaro,1,1
+556172,J.C. Chandor,2,4
+556711,Hannes Holm,2,1
+557134,Ousmane Sembène,2,2
+557179,Ed Gass-Donnelly,2,2
+557359,Ramiro García Bogliano,2,1
+557372,Turner Clay,2,1
+557383,Marc Meyers,2,1
+557575,Paul D. Hannah,0,1
+557745,Aaron Lieber,0,1
+557818,Jonathan Kesselman,0,1
+558177,Jonathan Newman,2,1
+558263,Marcos Jorge,2,1
+558465,Ben C. Lucas,2,1
+558509,Joshua Grannell,2,1
+558860,David Zellner,2,1
+558929,David Robert Mitchell,2,2
+559559,Marshall Neilan,2,2
+560232,Sándor Mihályfy,0,1
+562261,Charles L. Gaskill,0,1
+562589,Alexandra-Therese Keining,1,2
+562918,Larysa Kondracki,1,1
+563356,Katell Quillévéré,1,3
+564042,Larry Morey,2,1
+564082,Francesca Gregorini,1,1
+564948,Nick Weiss,0,1
+564949,Sonny Mallhi,2,1
+565366,Logan McMillan,0,1
+565467,Bernard Deyriès,2,1
+565524,Chatrichalerm Yukol,2,1
+566165,Yuki Tanada,1,1
+566328,Michael Sucsy,2,2
+566414,Eleanor Wilson,1,1
+567267,Elise Pearlstein,1,1
+567562,Phil Johnston,2,1
+567815,Andrea Ugalde,1,1
+567933,Chris Peckover,2,1
+568322,Dan Trachtenberg,2,2
+568406,Paul F. Ryan,2,1
+568692,Tim Fehlbaum,2,1
+568712,Damir Lukacevic,2,1
+569209,Louis Aimé Augustin Le Prince,2,4
+569529,José Alcala,2,1
+570354,Daniele Gaglianone,2,2
+571424,Stefano Pasetto,0,1
+571473,Michael Greenspan,2,2
+571908,Michael Hack,2,1
+571991,Tsutomu Mizushima,2,2
+572295,Howard J. Ford,2,1
+575126,Ole Giæver,2,1
+576537,Angel Gracia,2,1
+578511,Yasemin Samdereli,1,1
+580911,James Ricardo,0,1
+581670,Dmitry Povolotsky,0,1
+582255,Kike Maíllo,2,1
+582527,Eric England,2,1
+582918,Nick Murphy,2,1
+583023,Frank LaLoggia,2,1
+583394,Dorota Kędzierzawska,1,1
+583479,Aaron Moorhead,2,2
+583851,Eléonore Pourriat,1,2
+583857,Peter Strickland,2,4
+583881,Nobuhiro Yamashita,2,1
+583932,Jared Cohn,2,2
+583988,Trent Harris,2,1
+584191,Gastón Duprat,2,1
+584193,Mariano Cohn,2,1
+584197,Raphaël Nadjari,2,1
+584335,Daniel Burman,2,1
+584806,Lisa Aschan,1,1
+585035,Óscar Aibar,2,1
+585078,Carine Tardieu,1,1
+585135,George Nichols Jr.,0,1
+585208,Tsutomu Hanabusa,2,2
+585933,François Simard,2,1
+585934,Anouk Whissell,1,1
+585990,Ela Thier,1,1
+586002,Andrew Haigh,2,3
+586110,Jennifer Phang,1,1
+587200,John Howley,0,1
+587254,James L. Wolcott,2,1
+587376,Paula van der Oest,1,1
+587603,Keisuke Kinoshita,2,1
+587699,Troy Quane,2,1
+587903,Olivier Horlait,2,1
+588125,Jorge Coira,2,1
+588827,Tono Errando,2,1
+588828,Javier Mariscal,2,1
+588869,Claude Barras,2,1
+588957,Radha Bharadwaj,0,1
+589129,Sean Branney,2,1
+589402,Adrian Grünberg,2,1
+589479,Bryan Poyser,0,1
+591234,Jan Schmidt,2,1
+591420,Andrzej Jakimowski,2,1
+591600,Damián Szifron,2,1
+592304,Tom Skull,2,1
+592318,Stephen Cone,2,1
+592493,David Lowery,2,4
+592597,Derek Efrain Villanueva,2,1
+592762,Lucian Pintilie,2,1
+592830,J. Gordon Edwards,2,1
+605481,Serge Bourguignon,2,1
+606084,Max Fleischer,2,1
+630230,Patrick Garland,0,1
+812068,Emily Hagins,1,1
+836732,Jake Schreier,2,2
+844266,Jon Erwin,2,3
+848030,Suzi Yoonessi,1,2
+856440,Michael Mohan,2,1
+859754,Bart Layton,2,1
+909318,Andrew Erwin,2,3
+916958,Liza Johnson,1,1
+921570,Julia Loktev,1,2
+928146,David Wnendt,2,2
+928490,Camille Delamarre,2,2
+928757,Axel Petersén,2,1
+928830,Deborah Chow,1,1
+928915,David Gelb,2,2
+929616,Marina Rice Bader,1,1
+929825,Ava DuVernay,1,3
+929917,Lee Sternthal,0,1
+930012,Alma Har'el,1,1
+930333,Anne K. Black,1,2
+930499,Péter Bergendy,2,1
+930526,Boots Riley,2,1
+930567,Enrico Casarosa,2,1
+930624,Howard Avedis,0,1
+930629,Jamie Travis,2,1
+930697,Aurora Guerrero,0,1
+930699,Sally El Hosaini,1,1
+930707,Colin Trevorrow,2,3
+930710,James Ponsoldt,2,4
+931194,George Melford,2,1
+931237,Thomas H. Ince,2,1
+931420,Herbert G. Ponting,2,1
+931525,Aaron Nee,2,1
+931794,Émile Cohl,2,1
+931949,Sergey Mokritsky,2,1
+931952,Lee Isaac Chung,2,1
+932088,Scott Speer,2,1
+932248,Fede Álvarez,2,3
+932363,Mariano Barroso,2,1
+932417,Dallas Richard Hallam,2,1
+932533,Stefano Sollima,2,1
+932543,Ismaël Ferroukhi,2,1
+932759,Brett Haley,2,3
+932916,Ricky Lau,2,1
+933176,Damien Leone,2,2
+933201,Martine Dugowson,0,1
+933226,Stéphane Robelin,2,1
+933739,Zal Batmanglij,2,2
+934281,Alex Wolff,2,1
+934401,Anders Grönros,2,1
+934803,Josh Trank,2,2
+935093,Muriel Coulin,1,1
+935094,Delphine Coulin,1,1
+935123,Mohammad Rasoulof,2,2
+935140,Aaron Rottinghaus,2,1
+935471,Daniel Beahm,0,1
+935472,Erika Randall Beahm,0,1
+935531,Tom DeNucci,2,1
+935705,Michael Dudok de Wit,2,1
+935707,Émile Reynaud,2,7
+935907,Danishka Esterhazy,1,1
+935911,Evan Kelly,2,1
+936014,Anthony Fabian,2,2
+936343,Humphrey Jennings,0,1
+936670,Bob Persichetti,2,1
+936974,Rebecca Thomas,1,1
+937147,Autumn de Wilde,1,1
+937282,Diego Velasco,2,1
+937340,Harold Cronk,2,1
+937430,Joe Lawlor,2,1
+937431,Christine Molloy,1,1
+937544,Philip J. Cook,2,1
+937722,Margot Benacerraf ,1,1
+937765,Alejandro Landes,2,2
+937777,Ingo Rasper,2,1
+937799,Masaya Fujimori,2,1
+938618,Grímur Hákonarson,2,1
+939128,Kim Tae-yong,2,1
+939147,Yeon Sang-ho,2,3
+939346,Jim Hemphill,2,1
+940663,Chester M. Franklin,2,1
+942251,Rachel Perkins,1,1
+947056,Jayme Monjardim,2,1
+958540,Alec Gillis,2,1
+964037,Issa López,1,2
+965039,Hal Prince,2,1
+967241,Hubert Weiland,2,1
+968370,Sean McConville,2,1
+969493,Madeleine Sackler,1,1
+969551,Alastair Siddons,2,1
+970777,Matt Spicer,2,1
+971292,Matthew Heineman,2,2
+971660,Bill Holderman,2,1
+974555,Felipe Cazals,2,1
+976806,Nikki Braendlin,0,1
+980524,Dave Monahan,2,1
+982944,Chisui Takigawa,2,1
+983909,Kelly Fremon Craig,1,1
+987016,Anne Renton,1,1
+989235,Andrea Berloff,1,1
+989381,Tania Hermida,1,1
+989687,Jordan Galland,2,1
+991868,Ari Sandel,2,3
+992866,Takahiro Omori,2,1
+993676,Anaïs Barbeau-Lavalette,1,1
+994163,Lee Friedlander,1,1
+994323,Kayo Hatta,1,1
+994345,José Miguel Ribeiro,2,1
+995492,Dylan Nelson,2,1
+995521,Kristina Buožytė,1,1
+997694,Germaine Dulac,1,1
+997736,Tim Baumann,0,1
+998589,John Swanbeck,2,1
+999511,John Davies,2,1
+999760,Eran Creevy,2,1
+999812,Bradley Parker,2,1
+1000034,Vicente Molina Foix,0,1
+1001384,Onur Tukel,2,1
+1001981,Styx Jones,0,1
+1002647,Cédric Jimenez,2,1
+1003237,DK Welchman,1,1
+1003644,Sanae Yamamoto,2,1
+1006774,Maja Miloš,0,1
+1006810,Vladlen Barbe,2,1
+1006867,Kim Sung-ho,2,1
+1008306,Lewin Fitzhamon,2,1
+1008379,Amanda Micheli,1,1
+1008548,Emilio Ruiz Barrachina,0,1
+1009255,Jason Trost,2,1
+1011168,Juraj Lehotský,2,1
+1011210,Noël Wells,1,1
+1013022,Ricardo Franco,2,1
+1013150,Mariken Halle,1,1
+1015234,Trish Doolan,1,1
+1015967,Saara Cantell,1,1
+1016035,Max Linder,2,1
+1016134,Martha Stephens,0,1
+1016214,Kleber Mendonça Filho,2,3
+1016229,Juliano Dornelles,2,1
+1016305,Wang Xiaoshuai,2,2
+1016489,Eric Byler,2,1
+1017209,Carles Torrens,2,2
+1017258,Brett Sullivan,2,1
+1017624,Dominic Savage,2,1
+1018980,Bryan Wizemann,0,1
+1019303,Duke Johnson,2,1
+1019947,Fujirô Mitsuishi,2,1
+1020732,Marziyeh Meshkiny,1,1
+1022719,Samuel Collardey,2,1
+1023127,Lee Kirk,2,1
+1024823,Brian A. Miller,2,1
+1026085,Elgin James,2,1
+1026261,Enrique Urbizu,2,1
+1027008,Michael McKay,0,1
+1027099,Fernando Méndez,2,1
+1027910,Elizabeth Chai Vasarhelyi,1,1
+1028276,Gustavo Steinberg,0,1
+1028309,Susan Froemke,1,1
+1028485,Ramón Obón,0,1
+1029961,Adam Rodgers,2,1
+1030260,Pat Mills,2,1
+1031463,Lin Oeding,2,1
+1031692,Phil Dorling,0,1
+1031943,Sophia Takal,1,1
+1032011,Afonso Poyart,2,1
+1032536,Robert Stromberg,2,1
+1033123,Craig William Macneill,2,1
+1033654,Josephine Decker,1,2
+1033661,Travis Knight,2,2
+1033844,Tom Ellery,2,1
+1034317,Meral Uslu,0,1
+1034523,Jill Nicholls,0,1
+1034683,Yousry Nasrallah,2,1
+1035398,Jay Bauman,2,1
+1036084,Omid Nooshin,0,1
+1036442,Yen Tan,2,1
+1036831,Raphaël Hernandez,2,1
+1036834,Savitri Joly-Gonfard,2,1
+1037661,George Albert Smith,2,4
+1037760,Paul Hyett,0,1
+1037780,Susan Lacy,0,1
+1037794,Lois Weber,1,2
+1037989,Madeleine Olnek,1,2
+1037999,Jeremy Gillespie,2,1
+1038001,Steven Kostanski,2,1
+1038653,Israel Cárdenas,2,1
+1038654,Laura Amelia Guzmán,1,1
+1039527,Tyler Gillett,2,3
+1039528,Justin Martinez,2,1
+1039529,Chad Villella,2,1
+1042010,Nitesh Tiwari,2,1
+1042011,Vikas Bahl,2,1
+1042634,Ho Meng-Hua,2,1
+1042715,Hajime Ishimine,2,1
+1042716,Shunichiro Miki,2,1
+1043185,Park Ki-hyung,2,1
+1043297,Chris Wojcik,0,1
+1043975,Warren Skeels,0,1
+1044017,Dana Rotberg,1,1
+1044045,S. Panju,2,1
+1044250,Panos Cosmatos,2,2
+1044255,Alex Ross Perry,2,2
+1045176,Gabriela Cowperthwaite,1,2
+1045188,Charlie Vaughn,2,2
+1045533,Juan López Moctezuma,2,1
+1046101,Scott Sidney,2,1
+1046169,Pat Verducci,1,1
+1046489,Richard Bates Jr.,2,1
+1046494,Kris Pearn,2,1
+1046508,Tizza Covi,1,1
+1046509,Rainer Frimmel,2,1
+1046538,Michael Traynor,2,1
+1046935,Kim Longinotto,1,3
+1047300,Sergio Barrejón,2,1
+1047756,Sam Mraovich,0,1
+1047948,Edoardo Leo,2,1
+1048452,Charlie Ahearn,2,1
+1049430,Megumi Sasaki,0,1
+1049745,Alexandre Lehmann,2,1
+1050191,Esteban Ramírez,2,1
+1050201,Peter Tscherkassky,2,1
+1050356,Sidney Drew,2,1
+1051292,Aleksa Gajić,0,1
+1051305,Oriol Paulo,2,3
+1051327,Alice Winocour,1,2
+1052217,Jorge Torregrossa,2,1
+1052612,Tyrone Guthrie,0,1
+1052664,Alê Abreu,2,1
+1053420,Josh Boone,2,3
+1053934,Julia Murat,1,1
+1056060,Zach Clark,2,1
+1056121,Ryan Coogler,2,4
+1056130,Peter Levin,2,1
+1056316,Anton King,0,1
+1056719,Ashley Miller,2,1
+1058108,William Friese-Greene,2,4
+1058954,Yusuf Pirhasan,2,1
+1059033,Tara Miele,1,1
+1059047,Renji Philip,2,1
+1059118,Geoffrey Fletcher,0,1
+1059163,Regan Hall,2,1
+1059255,Natalya Nazarova,1,1
+1059261,Norman Lee,2,1
+1059571,Justin Simien,2,2
+1059578,Jeymes Samuel,2,1
+1059880,Ildikó Enyedi,1,1
+1060540,Mitsuo Hashimoto,2,3
+1060598,Toshirô Inomata,2,1
+1060626,John Mitchell,0,1
+1061119,Andrew Edison,2,1
+1061511,Jake Newsome,0,1
+1061773,Jake Szymanski,2,1
+1061941,Hafsteinn Gunnar Sigurðsson,2,1
+1062401,Kenichi Takeshita,2,1
+1062805,John Maclean,2,1
+1063311,Jared Moshé,2,1
+1063377,Bryan Buckley,2,1
+1064560,Vicky Wight,0,1
+1064951,Simon Aboud,2,1
+1065210,Tia Brelis,0,1
+1065336,Melville W. Brown,0,1
+1066114,Brian Sloan,2,1
+1066705,Vince Marcello,2,3
+1066960,María Luisa Bemberg,1,1
+1068048,Arnaud des Pallières,2,1
+1068112,Gauri Shinde,1,1
+1068143,Samuli Valkama,2,1
+1069553,Aniruddha Roy Chowdhury,2,1
+1069629,Michael J. Gallagher,2,1
+1069782,Ulrika Bengts,1,1
+1069832,Natalia Beristáin,1,1
+1070338,Tyler MacIntyre,2,1
+1071150,Dan Sallitt,2,1
+1071403,Alice Guy-Blaché,1,2
+1071418,Marek Brodzki,2,1
+1071946,Ernesto Daranas,2,1
+1072562,Boo Junfeng,2,1
+1072778,Naoko Yamada,1,2
+1073991,Greg Swinson,2,1
+1073992,Ryan Thiessen,0,1
+1074311,Diane Crespo,1,1
+1074319,Mojtaba Mirtahmasb,2,1
+1074560,Justin Benson,2,2
+1074721,Enrique Gato,2,2
+1074781,Stina Werenfels,0,1
+1075122,Yaron Zilberman,2,1
+1075235,Stéphane Lapointe,2,1
+1075658,Souleymane Cissé,2,1
+1076630,Mario Pinzauti,0,2
+1076793,Darius Marder,2,1
+1077548,Sophie Lellouche,0,1
+1077578,Nikyatu Jusu,1,1
+1078813,Cynthia Scott,1,1
+1079143,Anna Parmas,1,1
+1079361,Ferdinand Zecca,2,1
+1079381,Leslie Harris,1,1
+1080010,Takayuki Hirao,2,1
+1080230,Pat Collins,2,1
+1080277,Kazui Nihonmatsu,2,1
+1080996,Marten Persiel,2,1
+1081027,João Salaviza,2,1
+1081445,Brandon Cronenberg,2,1
+1081559,Marc Singer,2,1
+1082434,Michel Franco,2,1
+1083452,Tadayoshi Yamamuro,2,1
+1083453,Masahiro Hosoda,2,1
+1083481,S. Pierre Yameogo,2,1
+1084728,Jonathan Lisecki,0,1
+1084818,William West,0,1
+1084905,Keishi Otomo,2,1
+1085093,William R. Kowalchuk Jr.,2,1
+1085904,Ramaa Mosley,1,1
+1085916,Gabriela Pichler,1,1
+1086408,Sean Garrity,2,1
+1086430,Michael Mayer,0,1
+1087209,Timothy Lanzone,0,1
+1087746,Niki Lindroth von Bahr,1,1
+1088579,Haifaa al-Mansour,1,3
+1088681,Perry Bhandal,2,1
+1088936,Delphine de Vigan,0,1
+1089476,Oliver Haffner,0,1
+1090768,René Leprince,0,1
+1090812,Stephen Elliott,2,1
+1091974,Sebastian Meise,2,1
+1092607,Benjamin Renner,2,1
+1092615,Solveig Nordlund,1,1
+1092631,Géza Bereményi,2,1
+1093493,Lou Simon,1,1
+1093528,Jon Acevski,0,1
+1094239,Ford Beebe Jr.,2,1
+1094766,Stanley J. Orzel,0,1
+1095805,Cassie Jaye,1,1
+1096867,Thea Sharrock,1,1
+1097070,Alessio de Paola,0,1
+1097101,Michael Peterson,2,1
+1097147,Dag Johan Haugerud,2,1
+1098037,Katherine Fairfax Wright,0,1
+1098038,Malika Zouhali-Worrall,1,1
+1098477,Cal Brunker,2,2
+1099626,Benjamin Epps,2,1
+1099677,Mike Fetterly,0,1
+1099678,Steve Sacks,0,2
+1099792,John Patton Ford,2,1
+1099862,Dean Israelite,2,2
+1099913,Sam Mendoti,0,1
+1100017,J. Stuart Blackton,2,3
+1100748,Frant Gwo,2,1
+1100860,Ryan Mitchelle,2,1
+1101410,Dave Green,2,2
+1104837,Adam Leon,2,1
+1105712,Régis Roinsard,2,1
+1106524,João Nicolau,2,1
+1106577,Carlos Vermut,2,2
+1106991,Jim Cliffe,2,1
+1107310,Hiroyuki Kawasaki,2,1
+1107513,Carmel Winters,0,1
+1107609,Maria Sadowska,1,1
+1108200,Ted Koland,2,1
+1108711,John Laing,2,1
+1109366,Emin Alper,2,2
+1109770,Christian Marclay,2,1
+1110102,Michael Tiddes,2,2
+1110491,Juan Carlos Claver,0,1
+1111194,Ryuta Miyake,2,1
+1111251,R. Krishnan,2,1
+1111695,Debbie Williams,1,1
+1111947,Jill Godmilow,1,1
+1112502,Briar Grace Smith,0,1
+1112916,Nancy Meckler,0,1
+1113116,Andy Muschietti,2,3
+1113994,Eric Appel,2,1
+1114576,Pa. Ranjith,2,1
+1116010,Nick Rijgersberg,0,1
+1116303,Shira Potash,0,1
+1116780,José Luis Ucha,0,1
+1117026,Ritesh Batra,2,1
+1117050,John Waters,2,1
+1117977,Jennifer Shainin,0,1
+1118343,Mark Lund,0,1
+1119016,Rashid Nugmanov,2,1
+1119418,Hugo Gélin,2,1
+1120638,Veronica Kedar,1,1
+1120694,Jennifer Lee,1,2
+1120754,Max Skladanowsky,2,2
+1120883,Sam Hargrave,2,1
+1121281,Joel Hershman,2,1
+1121490,Jean Flynn,0,1
+1121891,Cho Ui-seok,2,1
+1122286,Nir Paniry,0,1
+1122296,Melissa Finell,0,1
+1122662,Manne Lindwall,2,1
+1123761,Måns Månsson,2,1
+1123897,Roseanne Liang,1,1
+1124474,Grégory Magne,2,1
+1125743,Akashaditya Lama,0,1
+1126222,Kazunori Ikegami,2,1
+1128442,Deniz Gamze Ergüven,1,1
+1128550,Timothy Hines,2,1
+1129511,Ryotaro Makihara,2,1
+1129908,Rob Savage,2,1
+1130539,Jon Garaño,2,1
+1130540,Jose Mari Goenaga,2,1
+1130801,Gabriele Mainetti,2,1
+1133675,Pierre Duculot,0,1
+1134632,Richard Raaphorst,2,1
+1134669,Eliza Hittman,1,2
+1135153,Étienne-Jules Marey,2,4
+1135710,Gabriel Mascaro,2,2
+1137536,Călin Peter Netzer,2,1
+1137890,Coralie Trinh Thi,1,1
+1137903,Sam Taylor-Johnson,1,2
+1138163,Stacie Passon,1,2
+1138328,Chad Crawford Kinkle,0,1
+1138367,Lin Lisheng,2,1
+1138699,John Krokidas,2,1
+1139506,Florence Ayisi,1,1
+1140231,Shaka King,2,1
+1140238,Hannah Fidell,1,1
+1140438,Zachary Heinzerling,2,1
+1140570,Jérôme Enrico,2,1
+1140583,Luke Snellin,2,1
+1141411,Aron Lehmann,2,2
+1141683,Theodore Melfi,2,2
+1142171,Sebastián Lelio,2,3
+1142986,Marco van Bergen,2,2
+1142992,Antoine Delesvaux,0,1
+1143388,David Stoten,0,1
+1144092,Matt Johnson,2,1
+1144604,Destin Daniel Cretton,2,4
+1144622,Paul Humfress,0,1
+1145017,Lisa James Larsson,1,1
+1145050,Marteinn Þórsson,2,1
+1145520,Ari Aster,2,3
+1147472,Anvita Dutt,1,1
+1149038,Duane Journey,0,1
+1149198,Tina Gharavi,1,1
+1149217,Stephan Lacant,2,1
+1149369,Kader Ayd,0,1
+1149371,Karim Abbou,0,1
+1149649,Lee Hwan-kyung,2,1
+1149925,José Mellinas,2,1
+1150877,Maksim Sveshnikov,2,1
+1151278,Brad Leong,2,1
+1151834,Joe Robert Cole,2,1
+1151864,Jillian Schlesinger,0,1
+1152054,Josh Greenbaum,2,1
+1152131,Arne Birkenstock,2,1
+1152981,Graham Annable,2,1
+1153023,Tearepa Kahi,0,1
+1153824,Burton L. King,2,1
+1153925,Pawan Kumar,2,1
+1154037,Cüneyt Kaya,2,1
+1154215,Sam Kadi,0,1
+1154561,Kevin Kölsch,2,1
+1155547,Patrick Brice,2,4
+1156224,Brian Spitz,0,1
+1156260,Brad J. Silverman,0,1
+1156668,Giorgia Farina,1,1
+1157091,Meera Menon,1,1
+1157604,Dan Krauss,0,1
+1158072,Manfred Noa,2,1
+1159421,Greg Robbins,2,1
+1160284,Stefan Haupt,2,1
+1160616,Sini Anderson,0,1
+1161214,Eva Husson,1,1
+1161489,Alexandre Promio,2,1
+1162039,Hiroki Shibata,2,2
+1162585,Flávia Castro,1,1
+1163332,Zack Bernbaum,0,1
+1163460,Joe Penna,2,1
+1164736,Steve Stone,0,1
+1167470,Gary Shore,2,1
+1167487,Jenée LaMarque,1,1
+1167531,Lincoln Péricles,2,1
+1167896,Ned Benson,2,2
+1168094,Kiyotaka Taguchi,2,1
+1168912,Nick Corirossi,2,1
+1169024,Ilya Naishuller,2,2
+1169094,Flora Lau,1,1
+1170415,Lawrence Blume,0,1
+1170484,Alfred Clark,0,1
+1170737,Emil Skladanowsky,0,1
+1171837,Juanra Fernández,0,1
+1172158,Brent Bonacorso,0,1
+1172420,Gaston Méliès,2,1
+1173102,Garth Davis,2,1
+1173121,Gabriel Veyre,2,1
+1173774,Albert E. Smith,2,1
+1173933,Suzana Amaral,1,1
+1174074,Ant Timpson,2,1
+1174090,Farren Blackburn,2,1
+1174367,Forugh Farrokhzad,1,1
+1174526,Hasraf Dulull,2,1
+1174528,Joe Sill,0,1
+1175916,Arthur Marvin,2,1
+1175929,Clément Maurice,0,1
+1176188,André Novais Oliveira,2,1
+1176212,René Sampaio,2,1
+1177180,Fritz Böhm,2,1
+1177320,Nina Grosse,1,1
+1178751,Koji Hashimoto,2,1
+1179066,Wes Ball,2,3
+1179419,Matt Duffer,2,1
+1179422,Ross Duffer,2,1
+1179590,Scott Walker,2,1
+1179651,Lin-Manuel Miranda,2,1
+1179822,Sarah-Violet Bliss,1,1
+1180690,Joshua Caldwell,0,2
+1181022,Zach Lipovsky,2,1
+1181031,Richard Bracewell,0,2
+1181253,Hannah Pearl Utt,1,1
+1182269,Josie Rourke,1,1
+1182819,Brian James O'Connell,0,1
+1183516,Adam Schindler,2,1
+1184250,Mark Levinson,2,1
+1184335,Jean-Marc Rudnicki,2,1
+1184816,Morgan Matthews,2,1
+1184875,Adilkhan Yerzhanov,2,1
+1185620,André Pellenz,0,1
+1186229,Shira Piven,1,1
+1186770,Frauke Finsterwalder,1,1
+1186851,Stéphane Berla,2,1
+1186852,Mathias Malzieu,2,1
+1186858,Grand Corps Malade,2,1
+1187130,Michael Grandage,2,1
+1187215,Paul Seetachitt,0,1
+1187357,James Kerwin,0,1
+1187819,Matthew Weiner,2,1
+1188585,Kevin King,0,1
+1190421,Leonid Gaidai,2,1
+1192557,Georgina Lightning,1,1
+1192754,Peter Landesman,0,2
+1193597,Amma Asante,1,3
+1193602,Gia Coppola,1,2
+1194137,Zach Parrish,2,1
+1194420,Jeremy Herrin,0,1
+1195187,Víctor Matellano,2,1
+1195458,Gabriel Abrantes,2,1
+1195460,Daniel Schmidt,0,1
+1196398,Noriaki Akitaya,2,1
+1197416,Dean Matthew Ronalds,0,1
+1198724,Riley Stearns,2,1
+1198774,Fernando Coimbra,2,1
+1199132,Gez Medinger,0,1
+1199133,Robin Schmidt,0,1
+1199146,Caroline Strubbe,0,1
+1199504,Andrew Nackman,2,1
+1199903,Hiro Murai,2,1
+1200565,John Butler,2,1
+1203298,David McCracken,2,1
+1204082,Jeffrey Travis,0,1
+1205016,Emiliano Rocha Minter,2,1
+1205054,Joan López Lloret,0,1
+1205579,Glenn Miller,2,2
+1205598,Jay Stern,2,1
+1205756,Patrick Gilmore,2,1
+1206119,Nina Wels,1,1
+1207953,Shoujirou Nishimi,2,1
+1208650,Petra Biondina Volpe,1,1
+1211000,Tom Gormican,2,2
+1211216,Caradog W. James,2,1
+1211473,Eugene Kotlyarenko,2,1
+1211779,Damien Macé,2,1
+1211781,Alexis Wajsbrot,2,1
+1212412,Larry Shaw,2,1
+1212522,Matt Shakman,2,1
+1212755,Gail Mancuso,1,1
+1212871,Thomas M. Wright,2,1
+1213074,Steven S. DeKnight,2,1
+1213124,Richard Day,2,1
+1213167,Cindy Chupack,1,1
+1213330,Adriana Trigiani,1,1
+1213560,Allison Liddi-Brown,1,1
+1214381,Martin Wood,2,1
+1215026,Marita Grabiak,1,1
+1215399,Taylor Sheridan,2,2
+1215621,Rob Burnett,0,1
+1215646,Matt Thompson,2,1
+1216147,Anthony Hemingway,2,1
+1218992,Ben Palmer,2,2
+1219201,Michael Engler,2,2
+1220300,David Kerr,2,1
+1221695,Bonnie McFarlane,1,1
+1222225,Semi Chellas,1,1
+1223146,Alex Hardcastle,2,1
+1223175,Elizabeth Allen Rosenbaum,1,3
+1223306,Gabriel Ripstein,2,1
+1223307,Sarah Holt,0,1
+1224031,Alfonso Gomez-Rejon,2,2
+1224425,Rob Thomas,2,1
+1224454,Nahnatchka Khan,1,1
+1224778,Monika Mitchell,1,1
+1225777,Leigh Jason,2,1
+1226444,Chuck Martinez,2,1
+1226762,D.J. MacHale,2,1
+1227885,Dearbhla Walsh,1,1
+1229085,Mandie Fletcher,1,1
+1229448,Eric Fogel,2,1
+1230252,Peter Howitt,2,4
+1230368,Laurie Lynd,2,1
+1230593,Loren Bouchard,2,1
+1231927,Colm McCarthy,2,1
+1232361,Andy Hamilton,2,1
+1232650,Chris Roland,0,1
+1232954,Lee David Zlotoff,2,1
+1233222,Paul Demeyer,2,1
+1234861,Jhonen Vasquez,2,1
+1234970,Christopher Leone,2,1
+1236679,Jonathan Goldstein,2,2
+1238017,Kirk Browning,2,1
+1238737,Fredrik Wikingsson,2,1
+1238738,Filip Hammar,2,1
+1238965,Bora Dağtekin,2,1
+1239407,Drew Pearce,2,1
+1239766,Nisha Ganatra,1,2
+1244465,Richard Starzak,2,1
+1245726,Rebecca Sugar,3,1
+1245934,Mark Gustafson,2,1
+1247708,Tatsuya Ishihara,2,1
+1247742,Kyran Kelly,0,1
+1250633,Byron Paul,0,1
+1252934,Emerald Fennell,1,1
+1252958,Yukihiro Miyamoto,2,1
+1254001,Kyle Newacheck,2,1
+1254240,Yoshio Kuroda,0,1
+1255859,Canyon Prince,2,1
+1261455,Pierre Perifel,2,1
+1262197,Peter Lepeniotis,0,1
+1262481,Alessandro Carloni,2,1
+1262618,Bilal Lashari,2,1
+1262867,Babak Anvari,2,1
+1263750,Dano Johnson,2,1
+1264786,Tom Edmunds,0,1
+1264876,Le Van Kiet,2,1
+1265056,Jorge R. Gutierrez,2,1
+1265357,Douglas Sadler,0,1
+1265647,Orelsan,2,1
+1266490,Will Slocombe,2,1
+1266967,Roman Ilyushenko,2,1
+1267246,Pierre Monnard,2,1
+1267385,Ray William Johnson,2,1
+1267956,Dustin Ferguson,2,1
+1268009,Katharina Mückstein,1,1
+1268213,Georges Monca,0,1
+1270591,Tonia Mishiali,1,1
+1270701,J.J. Winlove,0,1
+1272213,Lee Galea,0,1
+1272574,A. P. Nagarajan,0,1
+1272619,Behnam Behzadi,0,1
+1273262,Zaza Urushadze,2,1
+1273712,Marcus Markou,0,1
+1275010,Ubaldo Magnaghi,0,1
+1276373,Michael Gracey,2,1
+1276823,Cary Murnion,2,2
+1276825,Jonathan Milott,2,2
+1277050,David Grovic,0,1
+1278694,Malu De Martino,1,1
+1278722,Trish Sie,1,2
+1279523,Mike Cahill,0,1
+1280031,Mona Fastvold,1,1
+1281344,Stuart Murdoch,2,1
+1281387,Clay Kaytis,2,1
+1282041,Emile Edwin Smith,2,1
+1283010,Haruo Sotozaki,2,1
+1283668,Sydney Freeland,1,1
+1284099,Gillian Robespierre,1,2
+1284498,Zachary Donohue,0,1
+1284691,Yoshihiro Ueda,2,1
+1284692,Lorcan Finnegan,2,1
+1284964,Anders Walter,2,1
+1285174,Desiree Akhavan,1,2
+1285197,Rob Pearlstein,2,1
+1286552,Chris Riedell,2,1
+1286553,Nick Riedell,2,1
+1286797,Jackie van Beek,1,1
+1286997,Harshavardhan Kulkarni,0,1
+1287732,Feng Xiaogang,2,1
+1288064,Lennart Ruff,0,1
+1288624,Geoff Moore,0,1
+1288625,David Posamentier,0,1
+1288704,Charles Rogers,2,1
+1288796,Gerard Johnstone,2,1
+1289604,Ana Lily Amirpour,1,1
+1289919,Ádám Császi,0,1
+1290265,Leigh Janiak,1,3
+1290272,Dennis Widmyer,2,1
+1290914,Clay Glen,0,2
+1290982,Erik Schmitt,2,1
+1291957,Ísold Uggadóttir,1,1
+1292275,Sanna Lenken,1,1
+1293085,Kim Byung-seo,2,1
+1293994,Jon Watts,2,4
+1294471,Hwang Dong-hyuk,2,1
+1294594,Moon Hyun-sung,2,1
+1294627,Yoo Ha,2,1
+1296175,Hiroshi Aoyama,2,1
+1296176,Kazumi Fukushima,0,1
+1296522,Claire Scanlon,1,1
+1296677,B.J. Alexander,0,1
+1296950,Kim Do-young,1,1
+1297948,Daniel B. Iske,0,1
+1298670,Himiona Grace,0,1
+1299380,Nima Nourizadeh,2,2
+1299467,Sharmeen Obaid-Chinoy,1,1
+1299642,Julius Avery,2,1
+1299812,Bas Devos,2,1
+1300274,Jason Zada,2,1
+1300689,P. Ramesh,0,1
+1301180,Jean-Gabriel Périot,2,1
+1301933,Julius Onah,2,2
+1302077,Arantxa Echevarría,1,1
+1302082,David F. Sandberg,2,3
+1302549,Susanna Fogel,1,2
+1304718,Leonardo Mouramateus,2,1
+1304792,Rania Stephan,1,1
+1305108,Hidde Simons,0,1
+1305282,Assad Fouladkar,2,1
+1305360,Alonso Ruizpalacios,2,1
+1305363,Talya Lavie,1,1
+1306608,Adam Robitel,2,2
+1307036,Kenji Nagasaki,2,2
+1309008,Anna Rose Holmer,1,1
+1310518,Colin Minihan,2,2
+1310545,Fred Paul,2,1
+1311031,Svyatoslav Podgaevsky,2,1
+1311564,Antoinette Jadaone,1,1
+1311748,Justin Fielding,0,1
+1312080,Kanu Behl,0,1
+1312149,July Jung,1,1
+1316749,Jill D'Agnenica,1,1
+1316783,Eric Summer,2,1
+1317574,Alberto Rodríguez,2,1
+1317730,Daniel Scheinert,2,2
+1317796,James A. Ward,0,1
+1318201,Jared Bush,2,1
+1318326,Jacob Cooney,2,1
+1321451,Jonas Alexander Arnby,2,1
+1322043,Kristina Kjellin,0,1
+1322394,Tan Pin Pin,1,1
+1322446,Andrés Garretón,0,1
+1323509,Zak Hilditch,2,1
+1323609,Liang Xuan,2,1
+1324582,Atsuko Ishizuka,1,1
+1325732,Manuela Tempesta,0,1
+1326253,Masato Hijikata,2,1
+1327402,Michael Hurst,2,1
+1327643,Kerem Sanga,2,1
+1328180,Paul Harrill,0,1
+1329047,Koji Sawai,2,1
+1329201,Ira Miller,0,1
+1330498,Rania Attieh,0,1
+1330499,Daniel Garcia,0,1
+1330852,Jarand Herdal,2,1
+1331055,Chetan Desai,0,1
+1331163,Sam Esmail,2,1
+1331884,J.P. Chan,0,1
+1332033,Blair Doroshwalther,3,1
+1332325,Emily Ting,1,1
+1333168,Jennifer Reeder,1,1
+1333477,Charles Lane,2,1
+1334339,Chris Kelly,2,1
+1334409,Kimberly K. Wilson,0,1
+1337286,Shonali Bose,1,1
+1337858,Louise Alston,1,1
+1338249,Gary Dauberman,2,1
+1339972,Shashank Khaitan,2,1
+1341472,Jeff Tomsic,2,1
+1346215,Lluís Quílez,2,1
+1347619,Severin Fiala,2,1
+1350084,Yasunao Aoki,2,1
+1350775,Anders Helde,0,1
+1350796,Karen J. Lloyd,1,1
+1353245,Kazuhiro Takamura,2,1
+1353279,Todd Livingston,0,1
+1353564,Pundhevanop Dhewakul,2,1
+1356318,Phillip Lybrand,2,1
+1357614,Mia Salsi,0,1
+1358800,Adrian Bol,2,1
+1358976,Nick Powell,2,1
+1361417,Aleem Khan,2,1
+1361546,Kiah Roache-Turner,2,1
+1361809,Chaitanya Tamhane,2,1
+1362815,David Yarovesky,2,1
+1363226,Jayson Thiessen,2,3
+1363227,Ishi Rudell,2,6
+1364023,Brian O'Malley,0,1
+1364309,Hana Jušić,1,1
+1364491,Maxime Govare,2,1
+1364789,Xavier Picard,0,1
+1364908,Caroline Vigneaux,1,1
+1364983,Joe Anderson,0,1
+1364984,Sean McEwen,0,1
+1365066,Matt Danner,2,1
+1365105,Carey Williams,2,1
+1365478,Stephen Dypiangco,2,1
+1365479,Patrick Epino,2,1
+1367952,Neal Fischer,0,1
+1367953,Del Harvey,0,1
+1368144,Max Nichols,2,1
+1368293,Jackie Oudney,0,1
+1368971,Bobby Roe,2,1
+1369361,Benedict Andrews,2,2
+1371324,Lulu Wang,1,1
+1373168,Stephen Bradley,0,1
+1373229,Tomohisa Taguchi,2,1
+1374237,Johnny Tabor,2,1
+1374315,Isaac Feder,0,1
+1375066,Stuart Ortiz,0,1
+1375135,Bryan Bockbrader,0,1
+1375201,Ken Scott,2,3
+1376980,Bert,1,1
+1377784,Peter Claridge,0,1
+1378416,Mark Monheim,2,1
+1381495,Iris K. Shim,1,1
+1382567,David Leo Schultz,2,1
+1382692,Ula Stöckl,1,1
+1383612,Daniel Kwan,2,2
+1384266,Ian Samuels,2,1
+1384516,Alex Rudzinski,2,2
+1387013,Fábio Mendonça,2,1
+1391625,Nicole Gomez Fisher,1,1
+1392433,Julia Ducournau,1,2
+1393015,Joe Ksander,0,1
+1393833,Crystal Moselle,1,1
+1394656,Karen Maine,1,1
+1394664,András Monory Mész,0,1
+1394796,David Au,0,1
+1395183,Chloé Zhao,1,2
+1397397,Louis Clichy,2,1
+1397786,Yoann-Karl Whissell,2,1
+1399841,Adil El Arbi,2,1
+1399842,Bilall Fallah,2,1
+1400440,Tyler Graham Pavey,0,1
+1400880,Jerrod Carmichael,2,1
+1400889,Oliver Thompson,2,1
+1402420,Louis-Julien Petit,2,1
+1402638,Jim Weedon,0,1
+1403129,Jimmy Chin,2,1
+1404291,Danielle Krudy,1,1
+1404799,Vicky Jewson,1,1
+1405645,Laura Terruso,1,1
+1406344,Noël Mitrani,2,1
+1406393,Tamara Drakulić,0,1
+1407174,Takahiro Tanaka,2,1
+1409683,Diego Quemada-Díez,0,1
+1410873,Fanni Metelius,1,1
+1413740,Aleksander Bach,2,1
+1414752,Sean Willis,0,1
+1415665,Reinaldo Marcus Green,2,1
+1418227,Keith Arem,0,1
+1418296,Hiroshi Haraguchi,2,1
+1419579,Christian Rivers,2,1
+1421414,Julia Hart,1,3
+1422673,Jason Lei Howden,2,1
+1423202,Jeff Silva,0,1
+1423660,Trey Edward Shults,2,1
+1426528,Jean-Bernard Marlin,0,1
+1429196,Károly Ujj Mészáros,2,1
+1432389,Rucha Humnabadkar,0,1
+1432890,Leonid Margolin,2,1
+1433022,Tara Johns,1,1
+1435414,Michael Thelin,2,1
+1436340,Cyprien Vial,0,1
+1437799,Emma De Swaef,1,1
+1438838,Piero Messina,2,1
+1441577,Bitte Andersson,1,1
+1443386,Brian Fee,2,1
+1443615,Javier Calvo,2,1
+1444067,Nuno Beato,2,1
+1445415,Sarah Bouyain,0,1
+1445739,Dominique Wirtschafter,0,1
+1446356,Sandra L. Martin,1,1
+1447210,Robert Hughes,2,1
+1448215,Trevor Wall,2,1
+1448492,Castille Landon,1,1
+1448874,Josh Ruben,2,1
+1448889,Claire Carré,1,1
+1449583,Alethea Jones,1,1
+1450229,Richie Smyth,0,1
+1450257,Ido Fluk,2,1
+1450348,Joel Crawford,2,2
+1454099,Raquel Almazan,0,1
+1454252,Ottomar Anschütz,0,1
+1454563,Aaron Hann,2,1
+1454564,Mario Miscione,2,1
+1454692,Jean-Philippe Vine,0,1
+1454884,Cedric Nicolas-Troyan,2,2
+1455337,Neeraj Ghaywan,2,1
+1455348,Laurent Larivière,2,1
+1455548,Kevin R. Adams,2,1
+1455858,Frank Pérez-Garland,0,1
+1455963,Selene Kapsaski,1,1
+1456058,P.J.C. Janssen,2,1
+1456070,Georges Demenÿ,0,1
+1458050,Takahiko Kyougoku,2,1
+1458657,Gianni Hoepli,0,1
+1462214,David Sandberg,2,1
+1462262,Daishi Matsunaga,2,1
+1464250,Anna Axster,1,1
+1464511,John Forte,2,1
+1466181,Hugh Welchman,2,1
+1469397,Tom Daley,0,1
+1470860,James Bushe,2,1
+1472447,Matt Tauber,0,1
+1479300,Mats Grorud,0,1
+1480620,Lucia Aniello,1,1
+1481682,Takashi Kawabata,2,1
+1483302,James Sweeney,2,1
+1483483,Emily Harris,1,1
+1483807,Rémi Chayé,0,1
+1484008,Franck Ekinci,2,1
+1484009,Christian Desmares,2,1
+1484082,Gwen Wynne,0,1
+1485823,Thomas Kail,2,2
+1487492,Ryūsuke Hamaguchi,2,2
+1488028,Mounia Meddour,1,1
+1489114,Lars Kokemüller,0,2
+1491896,Toshiyuki Kanno,2,1
+1492939,Pedring Lopez,0,1
+1492971,Maureen Bharoocha,1,1
+1494433,William J. Stribling,0,1
+1496011,Matt Brown,2,1
+1496238,Richard Boylan,0,1
+1496319,Jacob Akira Okada,0,1
+1496470,Rachel Tunnard,1,1
+1496508,Jean-Pascal Zadi,2,1
+1497391,Elliot Weaver,0,1
+1497392,Zander Weaver,0,1
+1497967,Lisa Joy,1,1
+1498114,Kazuo Sakai,2,1
+1498350,Jamie M. Dagg,2,1
+1498662,Kathleen Hepburn,1,1
+1499294,Károly Esztergályos,2,1
+1500342,Alexander Black,0,1
+1500401,Simon Fitzmaurice,2,1
+1500801,Muzaffar Ali,0,1
+1504440,Prakash Kovelamudi,2,1
+1507651,Owen Egerton,2,1
+1509639,Stéphanie Joalland,1,1
+1511287,Jan Bultheel,0,1
+1512482,Barry Barclay,2,1
+1512979,Ben Sharrock,0,1
+1514227,Ashwiny Iyer Tiwari,1,1
+1515361,Philippe Lesage,0,1
+1516214,Kayoze Irani,2,1
+1517402,Peter Grönlund,0,1
+1518220,Adam C. Caudill,0,1
+1518221,Wrion Bowling,0,1
+1521528,Dylan Tonk,0,1
+1521529,Lazlo Tonk,0,1
+1522546,Chanya Button,1,1
+1527010,Yasushi Muraki,2,1
+1529110,Patrick Vollrath,2,1
+1531446,Gary Wang,2,1
+1533722,Paula Cons,0,1
+1539858,Dominic Cooke,2,1
+1539930,Anthony Roux,2,1
+1539931,Jean-Jacques Denis,0,1
+1541931,Guy Shalem,2,1
+1542102,Stephen Johnson,2,1
+1545175,Aksinya Gog,1,1
+1546658,Tyler Nilson,2,1
+1549377,Shoko Nakamura,1,1
+1551346,Matthew Robinson,2,1
+1551461,Patrícia Sequeira,1,1
+1551545,Steven Caple Jr.,2,1
+1552058,Morton M. Lewis,2,1
+1554277,Andrew Ahn,2,2
+1554996,Mark Fattibene,0,1
+1562429,Mehdi Idir,2,1
+1565227,Christina Zeidler,0,1
+1565228,John Mitchell,0,1
+1565249,Céline Devaux,1,1
+1566484,Otmar Penker,2,1
+1567186,Otto Bell,2,1
+1572145,Stella Meghie,1,1
+1575131,Hiroshi Yamazaki,2,1
+1579200,Lara Jean Gallagher,1,1
+1579618,Marc James Roels,2,1
+1582006,Ramzi Ben Sliman,0,1
+1583529,Steven Gomez,0,1
+1585647,Betty Kaplan,1,1
+1586169,Ingrid Jungermann,1,1
+1586194,Jenny Gage,1,1
+1591592,Buichi Saitō,2,1
+1592390,Alain Bidard,0,1
+1593336,Elle-Máijá Tailfeathers,1,1
+1593350,Andre Catoto Dias,0,1
+1603050,Derrick Granado,0,1
+1603696,Tinu Suresh Desai,2,1
+1607016,Coralie Fargeat,1,1
+1607672,Michael Chaves,2,2
+1607850,John Wate,0,1
+1608098,Katie Carman-Lehach,0,1
+1608969,Zhang Chun,2,1
+1609917,Houda Benyamina,1,1
+1609935,Melina Matsoukas,1,1
+1611981,Mark Elijah Rosenberg,2,1
+1614893,Michael O'Shea,2,1
+1615888,Yasushi Kawamura,2,1
+1620987,Cory Finley,2,2
+1623016,Marcelo Martinessi,0,1
+1624073,Tito Jara,0,1
+1625416,Liza Mandelup,1,1
+1625557,Olivia Milch,1,1
+1625854,Rita Osei,1,1
+1625963,Carly Usdin,3,1
+1629919,Matt Kugelman,2,1
+1636959,Brian Patrick Butler,2,1
+1637776,Matt Peters,2,3
+1642118,Ian Bonhôte,2,1
+1646354,L. Gabriel Gonda,2,1
+1647289,Mike Rianda,2,1
+1653099,Océan,2,1
+1653750,Clayton Cogswell,2,1
+1656682,Peter Foott,0,1
+1659438,Elena López Riera,1,1
+1660374,Liam Gavin,2,1
+1660602,Rusty Nixon,0,1
+1661695,Damien Power,2,1
+1661916,Natalie Erika James,1,1
+1665446,Federico D'Alessandro,2,1
+1665497,Zhao Ji,2,1
+1667260,Adam Randall,2,1
+1667819,Margaret Betts,1,1
+1668008,Olivia Newman,1,2
+1668245,Ben Young,2,1
+1668722,Maysaloun Hamoud,1,1
+1670558,Bertie,1,1
+1675644,Mimi Cave,1,1
+1681145,Stephen Donnelly,2,1
+1681146,Olly Reid,0,1
+1685669,Saman Ali,0,1
+1685671,Hedvig Blidberg,0,1
+1685672,Eva Bowden,0,1
+1685673,Ria Busch,0,1
+1685674,Göran Bäuerle,0,1
+1685675,Ann Duroj,0,1
+1685676,Maryn Eales,0,1
+1685677,Thérèse Ferry,0,1
+1685678,Mats Gustavsson,0,1
+1685679,Annika Hallström,0,1
+1685680,Jan-Anders Hansson,0,1
+1685681,Fredrik Heurlin,0,1
+1685682,Åsa Hoflin,0,1
+1685683,Charlie Kristiansson,0,1
+1685684,Peter Lindnér,0,1
+1685685,Stefan Norlin,0,1
+1685686,Pauli Saastamoinen,0,1
+1685687,Robert Stengård,0,1
+1685688,Daniel Strömberg,0,1
+1685689,Ziskas Szemes,0,1
+1685690,Helen Walhgren,0,1
+1685691,Åsa Wendel,0,1
+1685692,Niklas Westergren,0,1
+1685734,Berkun Oya,2,1
+1686489,Alan Bunce,0,1
+1688970,Matthew T. Price,0,1
+1691444,Jeff Gomez,2,1
+1692687,Matthijs van Heijningen Jr.,2,1
+1692995,Gerald Rascionato,2,1
+1693616,Mikhail Zhernevsky,2,1
+1693752,Harold Whitaker,0,1
+1694182,Manuk Depoian,2,1
+1698520,Thomas Gulamerian,0,1
+1699095,Bill Oliver,0,1
+1699934,Mónica Mateo,1,1
+1701330,Billy Dickson,2,1
+1702466,Léa Mysius,1,1
+1702841,Polly Steele,1,1
+1704882,Max Barbakow,2,1
+1709280,Penelope Lawson,0,1
+1709460,Jessica M. Thompson,1,1
+1709468,Gerard McMurray,2,2
+1711448,Yutaka Uemura,2,1
+1711826,Jude Weng,1,1
+1713922,Bank Tangjaitrong,0,1
+1714237,Jasmeet K Reen,1,1
+1714926,Hallie Meyers-Shyer,1,1
+1718765,Nebojša Andrić,0,1
+1718766,Stevan Đorđević,0,1
+1719706,Aaron Horvath,2,1
+1721377,Jennifer Kaytin Robinson,1,2
+1722811,Brian Andrew Mendoza,0,1
+1728992,Morgan Dameron,1,1
+1730920,Shinya Kawatsura,2,1
+1731494,Daniel Warth,0,1
+1731915,Kitty Green,1,1
+1734267,Curt Wiser,2,1
+1742726,Lucien Georges Bull,0,1
+1744211,Nzingha Stewart,1,1
+1745178,Nick Bruno,2,1
+1747190,Meghan Weinstein,0,1
+1748373,Bridget Savage Cole,1,1
+1750942,Elizabeth E. Schuch,1,1
+1756398,John McPhail,2,1
+1758663,Advait Chandan,2,1
+1767481,Cris Lyra,1,1
+1768826,K. Rajagopal,2,1
+1770708,Mohamed Ali,0,1
+1773189,Jack Stokes,0,1
+1774456,Remi Weekes,2,1
+1777007,Avgousta Zourelidi,0,1
+1777190,Kiyotaka Suzuki,2,1
+1782644,Ross Stewart,2,1
+1786006,Alex Huston Fischer,0,1
+1792483,Éric Warin,2,1
+1796209,Dave Paiko,0,1
+1797713,Gregory Erdstein,0,1
+1799486,Andy Kirshner,0,1
+1800815,Hubert Charuel,2,1
+1808704,João Moreira,2,1
+1808705,Pedro Santo,0,1
+1810580,Makoto Nagahisa,2,1
+1815481,Bernard Derriman,2,1
+1828590,Simon McQuoid,2,1
+1832456,Guillaume Renard,2,1
+1833186,Peter Stray,2,1
+1833218,Giordano Giulivi,2,1
+1835572,Assaad Yacoub,0,1
+1835619,Daniel Tenenbaum,0,1
+1839584,Erika Bagnarello,0,1
+1843623,blackANDwhite,0,1
+1849086,Egor Abramenko,2,1
+1851294,Michael Matthews,2,1
+1855298,Michael C. Dougherty,0,1
+1863287,Kim Sung-hoon,2,1
+1863430,Thomas Montgomery,2,1
+1864582,David Freyne,2,1
+1865267,Brent Christy,2,1
+1869796,Tatsuma Minamikawa,2,1
+1870435,Jeremy Rush,2,1
+1879400,Barrie Nelson,2,1
+1879788,Daniel Kokotajlo,2,1
+1893249,Alex Thompson,2,1
+1898315,Hernán Jiménez,2,1
+1900791,Brian Darwas,0,1
+1903167,Peter Rida Michail,2,1
+1905014,Robert Cullen,0,1
+1911436,Ciarán Foy,2,1
+1918226,Adolfo Aguilar,2,1
+1922505,Arun Prabu Purushothaman,2,1
+1932178,Carlos López Estrada,2,2
+1932296,Aneesh Chaganty,2,2
+1932822,Daniel Roher,2,1
+1936668,Cathy Yan,1,1
+1936718,Lindsay Gossling,0,1
+1937020,Carolyn Combs,0,1
+1938317,Adam B. Stein,2,1
+1938744,Shinichiro Ushijima,2,1
+1943702,Lee Chung-hyun,2,1
+1944726,João Maia,0,1
+1947343,Jenny Goldberg,1,1
+1949676,Hayley MacFarlane,1,1
+1951395,Manuel Siles,0,1
+1951668,Michael Linn,2,1
+1951774,Rachel Carey,0,1
+1959810,Jake Castorena,2,1
+1962993,Hu Bo,2,1
+1966571,Liesl Tommy,1,1
+1967383,Bob Bowen,2,1
+1968322,Robin Bain,1,1
+1977538,Derek Power,2,1
+1977694,Maria Matteoli,0,1
+1980616,Grant Sputore,2,1
+1981891,David Blue Garcia,2,1
+1982161,Richard Lanni,0,1
+1983842,Gwen Haworth,0,1
+1985643,Brittany Blockman,0,1
+2000998,Marcela Rincon,0,1
+2001470,Katie Rice,1,1
+2006385,Bruce Wemple,0,1
+2009739,Domee Shi,1,1
+2014842,Noga Ashkenazi,1,1
+2018843,Vic Rawlings,0,1
+2020100,Daniel Goldhaber,2,1
+2033198,Aniruddh Pandit,0,1
+2035232,Shannon Murphy,1,1
+2036105,Stefon Bristol,2,1
+2036264,Don Paul,2,1
+2037808,Danya Taymor,0,1
+2040781,Aleksey Kiryushchenko,2,1
+2041517,Jessica Swale,1,1
+2044656,Brad Michael Elmore,0,1
+2056727,Gabriel Bitar,0,1
+2057335,Jason Aaron Goldberg,0,1
+2071228,Örn Marino Arnarson,2,1
+2075261,Cédric Le Gallo,0,1
+2076097,Shelly Chopra Dhar,0,1
+2079911,Hirotoshi Rissen,2,1
+2083062,Ann Deborah Fishman,0,1
+2086147,Marley Morrison,0,1
+2093036,Nicholas D. Johnson,2,1
+2093041,Will Merrick,2,1
+2095430,Ivan Ayr,2,1
+2099632,Eli Horowitz,2,1
+2108340,Jeanie M. Clark,0,1
+2108770,Javi Camino,0,1
+2109832,Albert Calleros,0,1
+2112566,Lila Avilés,1,1
+2114488,Steve Lawson,2,1
+2121269,Sasie Sealy,1,1
+2147539,Sarah Knight,1,1
+2153040,Eliane Coster,1,1
+2182087,Nicole Quinn,0,1
+2182258,Prashanth Neel,2,1
+2185140,Paul Downs Colaizzo,2,1
+2185237,Marie Schlingmann,1,1
+2186238,Andrew Patterson,2,1
+2194514,Antonin Baudry,2,1
+2208300,Udo Flohr,2,1
+2217620,Amp Wong,2,1
+2218465,Parker Finn,2,1
+2219327,Rose Glass,1,1
+2220265,Waad al-Kateab,1,1
+2220266,Edward Watts,2,1
+2225523,Sascha Rice,1,1
+2237403,Michael Lockshin,2,1
+2263272,SK Dale,2,1
+2264366,Sunghoo Park,2,1
+2271256,Hisashi Saito,2,1
+2275503,Justin Copeland,2,1
+2292629,Daniel Halperin,0,1
+2294822,Colm Bairéad,2,1
+2296846,Elsy Hajjar,0,1
+2303931,Chelsea Stardust,1,1
+2305028,Chris Brown,0,1
+2305272,Roberto De Feo,2,1
+2320943,Tsuneo Kobayashi,2,1
+2330170,Mark Davis,0,1
+2364949,Melanie Martinez,1,1
+2365909,Shawn French,0,1
+2374023,Galder Gaztelu-Urrutia,2,1
+2374838,Martin Sofiedal,0,1
+2377386,MTJJ,2,1
+2393957,Matt Salmon,2,1
+2396600,Michael Schwartz,0,1
+2399109,Pawo Choyning Dorji,2,1
+2399829,Gerard Bush,2,1
+2399830,Christopher Renz,2,1
+2403335,Tetsuro Kodama,2,1
+2419028,Guilherme Trindade,0,1
+2422289,Elise Durán,1,1
+2426957,Jake Wyatt,2,1
+2440462,Rahul Sharma,0,1
+2441794,Megumi Shimizu,1,1
+2443208,Joshua Land,0,1
+2456774,Paolo Strippoli,2,1
+2461704,Raj Mehta,0,1
+2465597,Carylanna Taylor,1,1
+2482071,Al Benoit,0,1
+2484462,Cheng Teng,2,1
+2484467,Li Wei,2,1
+2488249,Mary Trunk,1,1
+2527787,André Meirelles Collazzo,0,1
+2555868,John Wax,2,1
+2565106,Yoshifumi Sasahara,2,1
+2579481,Christina Sotta,1,1
+2580328,Michael Sarnoski,2,1
+2607651,Derek Ahonen,0,1
+2616201,Alex Leung,0,1
+2622330,Alejandro De Grazia,0,1
+2627293,Chris Palmer,2,2
+2633624,Dylan Brown,0,1
+2663910,Paul Howard Allen,0,1
+2670521,Joan Freeman,1,1
+2671468,James D. Rolfe,2,1
+2683196,Valdimar Jóhannsson,2,1
+2758000,Maradona Dias Dos Santos,0,1
+2765446,Nicolás Postiglione,2,1
+2790377,Guy Moore,0,1
+2813235,Tord Danielsson,2,1
+2813236,Oskar Mellander,2,1
+2818437,Thorkell S. Hardarson,2,1
+2875827,Claire Knight,1,1
+2888351,Julian Harris,0,1
+2901333,York-Fabian Raabe,0,1
+2976942,Dana Kippel,1,1
+2985470,Evan Jacobs,2,1
+3004226,Ana Caridad Sánchez,0,1
+3070695,Greig Cameron,2,1
+3193734,Sammi Cohen,3,1
+3320117,Gaëlle Graton,1,1
+3423507,Terence Daw,2,1
+3514429,Roshaan Garry Bhinder,0,1
+3539056,Luke Thompson,0,1
+3556334,Marco Antônio Fiorito,0,1
+3562600,Jimmy Caputo,0,1
+3772456,Steve Laughlin,0,1
+3810425,J. James Manera,0,1
+3878595,J. Van Auken,2,1
+4111876,Ramón Menéndez,2,1
+4279618,Chris Lukeman,0,1
+4367087,Sophie Hyde,1,3
+4449584,Phil Robinson,0,1
+4477780,Mori Masaki,0,1
+4590778,Clara Blyth,1,1
+4603499,Bryan Jones,0,1
+4617382,Keiichi Sugiyama,2,1
+5014145,Francisco Antônio de Almeida Júnior,2,1
