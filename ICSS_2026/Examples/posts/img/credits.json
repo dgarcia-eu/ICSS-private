@@ -1,0 +1,947 @@
+{
+ "babbage": {
+  "title": "Charles Babbage",
+  "file": "babbage.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Charles_Babbage_-_1860.jpg"
+ },
+ "difference-engine": {
+  "title": "Difference engine",
+  "file": "difference-engine.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "User:geni",
+  "page": "https://commons.wikimedia.org/wiki/File:Babbage_Difference_Engine.jpg"
+ },
+ "lovelace": {
+  "title": "Ada Lovelace",
+  "file": "lovelace.png",
+  "license": "Public domain",
+  "artist": "Antoine Claudet",
+  "page": "https://commons.wikimedia.org/wiki/File:Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png"
+ },
+ "hollerith": {
+  "title": "Herman Hollerith",
+  "file": "hollerith.jpg",
+  "license": "Public domain",
+  "artist": "Charles Milton Bell",
+  "page": "https://commons.wikimedia.org/wiki/File:Hollerith.jpg"
+ },
+ "harvard-computers": {
+  "title": "Harvard Computers",
+  "file": "harvard-computers.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Edward_Charles_Pickering%27s_Harem_13_May_1913.jpg"
+ },
+ "annie-cannon": {
+  "title": "Annie Jump Cannon",
+  "file": "annie-cannon.jpg",
+  "license": "Public domain",
+  "artist": "New York World-Telegram and the Sun Newspaper",
+  "page": "https://commons.wikimedia.org/wiki/File:Annie_Jump_Cannon_1922_Portrait.jpg"
+ },
+ "katherine-johnson": {
+  "title": "Katherine Johnson",
+  "file": "katherine-johnson.jpg",
+  "license": "Public domain",
+  "artist": "NASA",
+  "page": "https://commons.wikimedia.org/wiki/File:Katherine_Johnson_1983.jpg"
+ },
+ "dorothy-vaughan": {
+  "title": "Dorothy Vaughan",
+  "file": "dorothy-vaughan.jpg",
+  "license": "Public domain",
+  "artist": "NASA on The Commons",
+  "page": "https://commons.wikimedia.org/wiki/File:Dorothy_Vaughan_2.jpg"
+ },
+ "mary-jackson": {
+  "title": "Mary Jackson (engineer)",
+  "file": "mary-jackson.jpg",
+  "license": "Public domain",
+  "artist": "NASA Langley Research Center, Bob Nye",
+  "page": "https://commons.wikimedia.org/wiki/File:Mary_Jackson_1979_Portrait_(LRC-1979-B701_P_F002-07086).jpg"
+ },
+ "eniac": {
+  "title": "ENIAC",
+  "file": "eniac.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "The original uploader was TexasDex at English Wikipedia.",
+  "page": "https://commons.wikimedia.org/wiki/File:ENIAC_Penn1.jpg"
+ },
+ "turing": {
+  "title": "Alan Turing",
+  "file": "turing.jpg",
+  "license": "Public domain",
+  "artist": "Elliott &amp; Fry",
+  "page": "https://commons.wikimedia.org/wiki/File:Alan_turing_header.jpg"
+ },
+ "von-neumann": {
+  "title": "John von Neumann",
+  "file": "von-neumann.png",
+  "license": "Attribution",
+  "artist": "LANL",
+  "page": "https://commons.wikimedia.org/wiki/File:JohnvonNeumann-LosAlamos.gif"
+ },
+ "hopper": {
+  "title": "Grace Hopper",
+  "file": "hopper.jpg",
+  "license": "Public domain",
+  "artist": "James S. Davis",
+  "page": "https://commons.wikimedia.org/wiki/File:Commodore_Grace_M._Hopper,_USN_(covered)_head_and_shoulders_crop.jpg"
+ },
+ "leibniz": {
+  "title": "Gottfried Wilhelm Leibniz",
+  "file": "leibniz.jpg",
+  "license": "Public domain",
+  "artist": "Christoph Bernhard Francke",
+  "page": "https://commons.wikimedia.org/wiki/File:Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_(ca._1695).jpg"
+ },
+ "boole": {
+  "title": "George Boole",
+  "file": "boole.png",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Portrait_of_George_Boole.png"
+ },
+ "shannon": {
+  "title": "Claude Shannon",
+  "file": "shannon.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:C.E._Shannon._Tekniska_museet_43069_(2x3_crop).jpg"
+ },
+ "lamarr": {
+  "title": "Hedy Lamarr",
+  "file": "lamarr.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Hedy_Lamarr_Publicity_Photo_for_The_Heavenly_Body_1944.jpg"
+ },
+ "kahan": {
+  "title": "William Kahan",
+  "file": "kahan.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "George Bergman",
+  "page": "https://commons.wikimedia.org/wiki/File:William_Kahan_2008.jpg"
+ },
+ "punched-card": {
+  "title": "Punched card",
+  "file": "punched-card.jpg",
+  "license": "CC BY 4.0",
+  "artist": "José Antonio González Nieto - cropped by Eyesinthefire",
+  "page": "https://commons.wikimedia.org/wiki/File:2punchCards-square.jpg"
+ },
+ "simon": {
+  "title": "Herbert A. Simon",
+  "file": "simon.jpg",
+  "license": "Public domain",
+  "artist": "Rochester Institute of Technology",
+  "page": "https://commons.wikimedia.org/wiki/File:Herbert_Simon,_RIT_NandE_Vol13Num11_1981_Mar19_Complete.jpg"
+ },
+ "liskov": {
+  "title": "Barbara Liskov",
+  "file": "liskov.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Kenneth C. Zirkel",
+  "page": "https://commons.wikimedia.org/wiki/File:Barbara_Liskov_MIT_computer_scientist_2010.jpg"
+ },
+ "knuth": {
+  "title": "Donald Knuth",
+  "file": "knuth.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Alex Handy",
+  "page": "https://commons.wikimedia.org/wiki/File:Donald_Ervin_Knuth_(cropped).jpg"
+ },
+ "mccarthy": {
+  "title": "John McCarthy (computer scientist)",
+  "file": "mccarthy.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "\"null0\"",
+  "page": "https://commons.wikimedia.org/wiki/File:John_McCarthy_Stanford.jpg"
+ },
+ "zuse": {
+  "title": "Konrad Zuse",
+  "file": "zuse.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Wolfgang Hunscher, Dortmund",
+  "page": "https://commons.wikimedia.org/wiki/File:Konrad_Zuse_(1992).jpg"
+ },
+ "z3": {
+  "title": "Z3 (computer)",
+  "file": "z3.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "File:Z3 Deutsches Museum.JPG: Venusianer at German Wikipedia\nderivative work: Ge",
+  "page": "https://commons.wikimedia.org/wiki/File:Z3_Deutsches_Museum_b.jpg"
+ },
+ "sammet": {
+  "title": "Jean E. Sammet",
+  "file": "sammet.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Ben Shneiderman",
+  "page": "https://commons.wikimedia.org/wiki/File:Jean_Sammet_UMD_1979.jpg"
+ },
+ "backus": {
+  "title": "John Backus",
+  "file": "backus.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "PIerre.Lescanne",
+  "page": "https://commons.wikimedia.org/wiki/File:John_Backus_2.jpg"
+ },
+ "dijkstra": {
+  "title": "Edsger W. Dijkstra",
+  "file": "dijkstra.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Hamilton Richards",
+  "page": "https://commons.wikimedia.org/wiki/File:Edsger_Wybe_Dijkstra.jpg"
+ },
+ "nygaard": {
+  "title": "Kristen Nygaard",
+  "file": "nygaard.png",
+  "license": "Public domain",
+  "artist": "Jorge Stolfi",
+  "page": "https://commons.wikimedia.org/wiki/File:Kristen-Nygaard-SBLP-1997-head.png"
+ },
+ "van-rossum": {
+  "title": "Guido van Rossum",
+  "file": "van-rossum.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Kushal Das",
+  "page": "https://commons.wikimedia.org/wiki/File:Guido_van_Rossum_in_PyConUS24_(cropped).jpg"
+ },
+ "khwarizmi": {
+  "title": "Al-Khwarizmi",
+  "file": "khwarizmi.jpg",
+  "license": "CC0",
+  "artist": "Zarateman",
+  "page": "https://commons.wikimedia.org/wiki/File:Madrid_-_Ciudad_Universitaria,_Monumento_a_Muhammad_al-Juarismi_(cropped).jpg"
+ },
+ "euclid": {
+  "title": "Euclid",
+  "file": "euclid.jpg",
+  "license": "Public domain",
+  "artist": "Jusepe de Ribera (Spanish / Italian, 1591 - 1652) (1591 - 1652) – artist (Spanis",
+  "page": "https://commons.wikimedia.org/wiki/File:Italian_-_Euclid_-_Google_Art_Project.jpg"
+ },
+ "euler": {
+  "title": "Leonhard Euler",
+  "file": "euler.jpg",
+  "license": "Public domain",
+  "artist": "Jakob Emanuel Handmann",
+  "page": "https://commons.wikimedia.org/wiki/File:Leonhard_Euler_-_Jakob_Emanuel_Handmann_(Kunstmuseum_Basel).jpg"
+ },
+ "erdos": {
+  "title": "Paul Erdős",
+  "file": "erdos.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Kmhkmh",
+  "page": "https://commons.wikimedia.org/wiki/File:Erdos_budapest_fall_1992_(cropped).jpg"
+ },
+ "fibonacci": {
+  "title": "Fibonacci",
+  "file": "fibonacci.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Taty2007",
+  "page": "https://commons.wikimedia.org/wiki/File:Leonardo_Fibonacci.JPG"
+ },
+ "lucas": {
+  "title": "Édouard Lucas",
+  "file": "lucas.png",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Elucas_1.png"
+ },
+ "dedekind": {
+  "title": "Richard Dedekind",
+  "file": "dedekind.jpg",
+  "license": "Public domain",
+  "artist": "Unknown (Mondadori Publishers)",
+  "page": "https://commons.wikimedia.org/wiki/File:Richard_Dedekind_1900s.jpg"
+ },
+ "peano": {
+  "title": "Giuseppe Peano",
+  "file": "peano.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Giuseppe_Peano.jpg"
+ },
+ "hilbert": {
+  "title": "David Hilbert",
+  "file": "hilbert.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Hilbert.jpg"
+ },
+ "godel": {
+  "title": "Kurt Gödel",
+  "file": "godel.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Kurt_g%C3%B6del.jpg"
+ },
+ "peter": {
+  "title": "Rózsa Péter",
+  "file": "peter.jpg",
+  "license": "Public domain",
+  "artist": "JOC/EFR March 2006",
+  "page": "https://commons.wikimedia.org/wiki/File:RozsaPeter.jpg"
+ },
+ "naur": {
+  "title": "Peter Naur",
+  "file": "naur.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "The original uploader was Eriktj at English Wikipedia.",
+  "page": "https://commons.wikimedia.org/wiki/File:Peternaur.JPG"
+ },
+ "card-sorter": {
+  "title": "Punched card sorter",
+  "file": "card-sorter.jpg",
+  "license": "CC BY 4.0",
+  "artist": "Tekniska museet",
+  "page": "https://commons.wikimedia.org/wiki/File:IBM_080_(2).jpg"
+ },
+ "holberton": {
+  "title": "Betty Holberton",
+  "file": "holberton.jpg",
+  "license": "Public domain",
+  "artist": "Unknown photographer",
+  "page": "https://commons.wikimedia.org/wiki/File:Betty-Holbeton-circa-1950s-600dpi.jpg"
+ },
+ "hoare": {
+  "title": "Tony Hoare",
+  "file": "hoare.jpg",
+  "license": "CC BY-SA 2.0 fr",
+  "artist": "Rama",
+  "page": "https://commons.wikimedia.org/wiki/File:Sir_Tony_Hoare_IMG_5125.jpg"
+ },
+ "landau": {
+  "title": "Edmund Landau",
+  "file": "landau.jpg",
+  "license": "Public domain",
+  "artist": "Urheber unbekannt",
+  "page": "https://commons.wikimedia.org/wiki/File:Edmund_Landau.jpg"
+ },
+ "hartmanis": {
+  "title": "Juris Hartmanis",
+  "file": "hartmanis.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Wolfgang Hunscher, Dortmund",
+  "page": "https://commons.wikimedia.org/wiki/File:Juris_Hartmanis(2002).jpg"
+ },
+ "stearns": {
+  "title": "Richard E. Stearns",
+  "file": "stearns.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Richard Edwin Stearns",
+  "page": "https://commons.wikimedia.org/wiki/File:Dick_Stearns.jpg"
+ },
+ "edmonds": {
+  "title": "Jack Edmonds",
+  "file": "edmonds.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "JeffAEdmonds",
+  "page": "https://commons.wikimedia.org/wiki/File:Jack.Edmonds.jpg"
+ },
+ "cook": {
+  "title": "Stephen Cook",
+  "file": "cook.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Jiří Janíček\n\nPokud hodláte některou z mých fotografií použít mimo Wikipedii, bu",
+  "page": "https://commons.wikimedia.org/wiki/File:Prof.Cook.jpg"
+ },
+ "karp": {
+  "title": "Richard M. Karp",
+  "file": "karp.jpg",
+  "license": "CC BY-SA 2.0 fr",
+  "artist": "Rama",
+  "page": "https://commons.wikimedia.org/wiki/File:Karp_mg_7725-b.cr2.jpg"
+ },
+ "levin": {
+  "title": "Leonid Levin",
+  "file": "levin.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Sergio01",
+  "page": "https://commons.wikimedia.org/wiki/File:LeonidLevin2010.jpg"
+ },
+ "blum": {
+  "title": "Manuel Blum",
+  "file": "blum.jpg",
+  "license": "GFDL 1.2",
+  "artist": "George Bergman",
+  "page": "https://commons.wikimedia.org/wiki/File:Blum_manuel_lenore_avrim.jpg"
+ },
+ "goldwasser": {
+  "title": "Shafi Goldwasser",
+  "file": "goldwasser.jpg",
+  "license": "Public domain",
+  "artist": "Weizmann Institute of Science",
+  "page": "https://commons.wikimedia.org/wiki/File:Shafi_Goldwasser.JPG"
+ },
+ "agrawal": {
+  "title": "Manindra Agrawal",
+  "file": "agrawal.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Dany.GOT",
+  "page": "https://commons.wikimedia.org/wiki/File:Manindra_Agarwal.jpg"
+ },
+ "saxena": {
+  "title": "Nitin Saxena",
+  "file": "saxena.jpg",
+  "license": "GODL-India",
+  "artist": "Prime Minister's Office",
+  "page": "https://commons.wikimedia.org/wiki/File:The_Prime_Minister,_Shri_Narendra_Modi_presenting_the_Shanti_Swarup_Bhatnagar_Prizes_for_Mathematical_Sciences_to_Dr._Nitin_Saxena,_Professor,_IIT_Kanpur,_at_a_function_in_New_Delhi_on_February_28,_2019.jpg"
+ },
+ "kleene": {
+  "title": "Stephen Cole Kleene",
+  "file": "kleene.png",
+  "license": "Public domain",
+  "artist": "Harold N. Hone",
+  "page": "https://commons.wikimedia.org/wiki/File:Stephen_Cole_Kleene_circa_1963.tif"
+ },
+ "post": {
+  "title": "Emil Leon Post",
+  "file": "post.jpg",
+  "license": "Public domain",
+  "artist": "",
+  "page": "https://commons.wikimedia.org/wiki/File:Emil_Leon_Post.jpg"
+ },
+ "rabin": {
+  "title": "Michael O. Rabin",
+  "file": "rabin.jpg",
+  "license": "CC BY-SA 2.0 de",
+  "artist": "Konrad Jacobs, Erlangen, Copyright is MFO",
+  "page": "https://commons.wikimedia.org/wiki/File:M_O_Rabin.jpg"
+ },
+ "scott": {
+  "title": "Dana Scott",
+  "file": "scott.jpg",
+  "license": "CC0",
+  "artist": "Logos Semantikos",
+  "page": "https://commons.wikimedia.org/wiki/File:Dana_Scott_in_2026.jpg"
+ },
+ "chomsky": {
+  "title": "Noam Chomsky",
+  "file": "chomsky.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Σ, retouched by Wugapodes and Jonnmann",
+  "page": "https://commons.wikimedia.org/wiki/File:Noam_Chomsky_portrait_2017_retouched.jpg"
+ },
+ "robinson": {
+  "title": "Julia Robinson",
+  "file": "robinson.jpg",
+  "license": "GFDL 1.2",
+  "artist": "George Bergman",
+  "page": "https://commons.wikimedia.org/wiki/File:Julia_Robinson_1975.jpg"
+ },
+ "matiyasevich": {
+  "title": "Yuri Matiyasevich",
+  "file": "matiyasevich.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Yuri Matiyasevich",
+  "page": "https://commons.wikimedia.org/wiki/File:Yuri_Matiyasevich._Portrait_1969.jpg"
+ },
+ "bletchley": {
+  "title": "Bombe",
+  "file": "bletchley.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Wartime_picture_of_a_Bletchley_Park_Bombe.jpg"
+ },
+ "laplace": {
+  "title": "Pierre-Simon Laplace",
+  "file": "laplace.jpg",
+  "license": "Public domain",
+  "artist": "James Posselwhite",
+  "page": "https://commons.wikimedia.org/wiki/File:Laplace,_Pierre-Simon,_marquis_de.jpg"
+ },
+ "gauss": {
+  "title": "Carl Friedrich Gauss",
+  "file": "gauss.jpg",
+  "license": "Public domain",
+  "artist": "Christian Albrecht Jensen",
+  "page": "https://commons.wikimedia.org/wiki/File:Carl_Friedrich_Gauss_1840_by_Jensen.jpg"
+ },
+ "bayes": {
+  "title": "Thomas Bayes",
+  "file": "bayes.png",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Thomas_Bayes.gif"
+ },
+ "fisher": {
+  "title": "Ronald Fisher",
+  "file": "fisher.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Youngronaldfisher2.JPG"
+ },
+ "pitts": {
+  "title": "Walter Pitts",
+  "file": "pitts.jpg",
+  "license": "Public domain",
+  "artist": "Creator:Francis Bello (1917-1987)",
+  "page": "https://commons.wikimedia.org/wiki/File:1954_Walter_Pitts_and_a_blackboard.jpg"
+ },
+ "rosenblatt": {
+  "title": "Frank Rosenblatt",
+  "file": "rosenblatt.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "AnonymousUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Frank_Rosenblatt.jpg"
+ },
+ "minsky": {
+  "title": "Marvin Minsky",
+  "file": "minsky.jpg",
+  "license": "CC BY 3.0",
+  "artist": "The original uploader was Sethwoodworth at English Wikipedia.",
+  "page": "https://commons.wikimedia.org/wiki/File:Marvin_Minsky_at_OLPCb_(3x4_cropped).jpg"
+ },
+ "papert": {
+  "title": "Seymour Papert",
+  "file": "papert.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Matematicamente.it",
+  "page": "https://commons.wikimedia.org/wiki/File:Seymour_Papert.jpg"
+ },
+ "hinton": {
+  "title": "Geoffrey Hinton",
+  "file": "hinton.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Cmichel67",
+  "page": "https://commons.wikimedia.org/wiki/File:Geoffrey_Hinton_in_2026.jpg"
+ },
+ "lecun": {
+  "title": "Yann LeCun",
+  "file": "lecun.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Jérémy Barande",
+  "page": "https://commons.wikimedia.org/wiki/File:Laura_Chaubard_%26_Yann_Le_Cun_-_2024_(53814052697)_(cropped).jpg"
+ },
+ "bengio": {
+  "title": "Yoshua Bengio",
+  "file": "bengio.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Xuthoria",
+  "page": "https://commons.wikimedia.org/wiki/File:ICLR_2025_-_Yoshua_Bengio_02.jpg"
+ },
+ "fei-fei-li": {
+  "title": "Fei-Fei Li",
+  "file": "fei-fei-li.jpg",
+  "license": "CC BY 2.0",
+  "artist": "ITU Pictures",
+  "page": "https://commons.wikimedia.org/wiki/File:Fei-Fei_Li_at_AI_for_Good_2017.jpg"
+ },
+ "buolamwini": {
+  "title": "Joy Buolamwini",
+  "file": "buolamwini.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Niccolò Caranti",
+  "page": "https://commons.wikimedia.org/wiki/File:Joy_Buolamwini_-_Wikimania_2018_01.jpg"
+ },
+ "gebru": {
+  "title": "Timnit Gebru",
+  "file": "gebru.jpg",
+  "license": "CC BY 2.0",
+  "artist": "TechCrunch",
+  "page": "https://commons.wikimedia.org/wiki/File:Timnit_Gebru_crop.jpg"
+ },
+ "bachman": {
+  "title": "Charles Bachman",
+  "file": "bachman.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Hamilton_and_Bachman_at_ACM_Turing_Centenary_Celebration.jpg: Dennis Hamilton\nde",
+  "page": "https://commons.wikimedia.org/wiki/File:Charles_Bachman_2012.jpg"
+ },
+ "chamberlin": {
+  "title": "Donald Chamberlin",
+  "file": "chamberlin.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Dicklyon",
+  "page": "https://commons.wikimedia.org/wiki/File:Don_Chamberlin_(cropped).jpg"
+ },
+ "selinger": {
+  "title": "Patricia Selinger",
+  "file": "selinger.jpg",
+  "license": "CC BY 4.0",
+  "artist": "Jacek Ambroziak and Sam Madden",
+  "page": "https://commons.wikimedia.org/wiki/File:01_Pat_Selinger_-_Stonebraker70_(cropped).jpg"
+ },
+ "stonebraker": {
+  "title": "Michael Stonebraker",
+  "file": "stonebraker.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "David.Monniaux",
+  "page": "https://commons.wikimedia.org/wiki/File:Michael_Stonebraker_P1120062.jpg"
+ },
+ "gray": {
+  "title": "Jim Gray (computer scientist)",
+  "file": "gray.jpg",
+  "license": "CC BY-SA 3.0 us",
+  "artist": "Microsoft Research",
+  "page": "https://commons.wikimedia.org/wiki/File:Jim_Gray_Computing_in_the_21st_Century_2006.jpg"
+ },
+ "ellison": {
+  "title": "Larry Ellison",
+  "file": "ellison.png",
+  "license": "Public domain",
+  "artist": "The White House",
+  "page": "https://commons.wikimedia.org/wiki/File:Larry_Ellison_-_American_AI_investment_(2).png"
+ },
+ "amdahl": {
+  "title": "Gene Amdahl",
+  "file": "amdahl.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Perry Kivolowitz (Pkivolowitz at en.wikipedia)",
+  "page": "https://commons.wikimedia.org/wiki/File:Amdahl_march_13_2008.jpg"
+ },
+ "illiac": {
+  "title": "ILLIAC IV",
+  "file": "illiac.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Steve Jurvetson from Menlo Park, USA",
+  "page": "https://commons.wikimedia.org/wiki/File:ILLIAC_4_parallel_computer.jpg"
+ },
+ "flynn": {
+  "title": "Michael J. Flynn",
+  "file": "flynn.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Michael Flynn",
+  "page": "https://commons.wikimedia.org/wiki/File:Michael_Flynn.jpg"
+ },
+ "cray": {
+  "title": "Seymour Cray",
+  "file": "cray.jpg",
+  "license": "Public domain",
+  "artist": "unknown",
+  "page": "https://commons.wikimedia.org/wiki/File:Seymour_R._Cray.JPG"
+ },
+ "cray-1": {
+  "title": "Cray-1",
+  "file": "cray-1.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Irid Escent",
+  "page": "https://commons.wikimedia.org/wiki/File:Science_Museum_20180227_132902_(49362732462).jpg"
+ },
+ "gordon-moore": {
+  "title": "Gordon Moore",
+  "file": "gordon-moore.png",
+  "license": "CC BY-SA 2.0",
+  "artist": "Intel Free Press",
+  "page": "https://commons.wikimedia.org/wiki/File:Gordon_Moore_1978_(cropped).png"
+ },
+ "fran-allen": {
+  "title": "Frances Allen",
+  "file": "fran-allen.jpg",
+  "license": "CC BY-SA 2.0 fr",
+  "artist": "Rama",
+  "page": "https://commons.wikimedia.org/wiki/File:Allen_mg_2528-3750K-b.jpg"
+ },
+ "hillis": {
+  "title": "Danny Hillis",
+  "file": "hillis.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Joi Ito",
+  "page": "https://commons.wikimedia.org/wiki/File:Danny_Hillis,_2014_(crop).jpg"
+ },
+ "connection-machine": {
+  "title": "Connection Machine",
+  "file": "connection-machine.png",
+  "license": "CC BY 4.0",
+  "artist": "Logg Tandy",
+  "page": "https://commons.wikimedia.org/wiki/File:Connection_Machine_CM-2_and_DataVault_at_The_Mimms_Museum_of_Technology_and_Art.webp"
+ },
+ "emeagwali": {
+  "title": "Philip Emeagwali",
+  "file": "emeagwali.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "InfoATemeagwaliDOTcom",
+  "page": "https://commons.wikimedia.org/wiki/File:Philip_Emeagwali_with_scribbled_Exxon-Mobil_equations.jpg"
+ },
+ "dean": {
+  "title": "Jeff Dean",
+  "file": "dean.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Cmichel67",
+  "page": "https://commons.wikimedia.org/wiki/File:Jeff_Dean_in_2025_x.jpg"
+ },
+ "sutter": {
+  "title": "Herb Sutter",
+  "file": "sutter.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Microsoft PDC",
+  "page": "https://commons.wikimedia.org/wiki/File:Professional_Developers_Conference_2009_Technical_Leaders_Panel_7.jpg"
+ },
+ "schelling": {
+  "title": "Thomas Schelling",
+  "file": "schelling.jpg",
+  "license": "CC BY 2.0",
+  "artist": "New America",
+  "page": "https://commons.wikimedia.org/wiki/File:Thomas_C._Schelling_(cropped).jpg"
+ },
+ "milgram": {
+  "title": "Stanley Milgram",
+  "file": "milgram.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Stanley_Milgram_1974.jpg"
+ },
+ "axelrod": {
+  "title": "Robert Axelrod (political scientist)",
+  "file": "axelrod.png",
+  "license": "CC BY 3.0",
+  "artist": "Ford School",
+  "page": "https://commons.wikimedia.org/wiki/File:Professor_RobertMAxelrod.png"
+ },
+ "watts": {
+  "title": "Duncan J. Watts",
+  "file": "watts.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Doc Searls",
+  "page": "https://commons.wikimedia.org/wiki/File:Duncan_Watts.jpg"
+ },
+ "barabasi": {
+  "title": "Albert-László Barabási",
+  "file": "barabasi.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "World Economic Forum from Cologny, Switzerland",
+  "page": "https://commons.wikimedia.org/wiki/File:Albert-Laszlo_Barabasi_-_Annual_Meeting_of_the_New_Champions_2012.jpg"
+ },
+ "adamic": {
+  "title": "Lada Adamic",
+  "file": "adamic.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Marc Smith",
+  "page": "https://commons.wikimedia.org/wiki/File:Lada_Adamic_at_Cornell_crop.jpg"
+ },
+ "boyd": {
+  "title": "Danah boyd",
+  "file": "boyd.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "commissioned by boyd",
+  "page": "https://commons.wikimedia.org/wiki/File:Dboyd-3.jpg"
+ },
+ "crawford": {
+  "title": "Kate Crawford",
+  "file": "crawford.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Cmichel67",
+  "page": "https://commons.wikimedia.org/wiki/File:Kate_Crawford_in_2025_05.jpg"
+ },
+ "noble": {
+  "title": "Safiya Noble",
+  "file": "noble.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Jennifer 8. Lee",
+  "page": "https://commons.wikimedia.org/wiki/File:Safiyah_Noble_at_Essence_Festival_Global_Black_Economic_Forum_2025_5_(cropped).jpg"
+ },
+ "benjamin": {
+  "title": "Ruha Benjamin",
+  "file": "benjamin.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Data &amp; Society Research Institute",
+  "page": "https://commons.wikimedia.org/wiki/File:Ruha_Benjamin,_Databite_124,_2019_(cropped).jpg"
+ },
+ "carley": {
+  "title": "Kathleen Carley",
+  "file": "carley.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Casoscmu",
+  "page": "https://commons.wikimedia.org/wiki/File:Kathleen-M-Carley.jpg"
+ },
+ "salganik": {
+  "title": "Matthew J. Salganik",
+  "file": "salganik.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Beccaann13",
+  "page": "https://commons.wikimedia.org/wiki/File:Salganik_Bit_By_Bit_author_photo.jpg"
+ },
+ "pentland": {
+  "title": "Alex Pentland",
+  "file": "pentland.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Robert Scoble from Half Moon Bay, USA",
+  "page": "https://commons.wikimedia.org/wiki/File:Alex_Pentland,_MIT_(3238517166).jpg"
+ },
+ "excel": {
+  "title": "Microsoft Excel",
+  "file": "excel.png",
+  "license": "Public domain",
+  "artist": "Microsoft",
+  "page": "https://commons.wikimedia.org/wiki/File:Microsoft_Office_Excel_(2025%E2%80%93present).svg"
+ },
+ "ariane": {
+  "title": "Ariane 5",
+  "file": "ariane.jpg",
+  "license": "Public domain",
+  "artist": "Chris Gunn",
+  "page": "https://commons.wikimedia.org/wiki/File:Ariane_5_with_James_Webb_Space_Telescope_Prelaunch_(51773093465).jpg"
+ },
+ "titanic": {
+  "title": "Titanic",
+  "file": "titanic.jpg",
+  "license": "Public domain",
+  "artist": "Francis Godolphin Osbourne Stuart",
+  "page": "https://commons.wikimedia.org/wiki/File:RMS_Titanic_3_(cropped_to_ship).jpg"
+ },
+ "sudoku": {
+  "title": "Sudoku",
+  "file": "sudoku.png",
+  "license": "CC0",
+  "artist": "Tim Stellmach",
+  "page": "https://commons.wikimedia.org/wiki/File:Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg"
+ },
+ "konigsberg": {
+  "title": "Seven Bridges of Königsberg",
+  "file": "konigsberg.png",
+  "license": "CC BY-SA 4.0",
+  "artist": "Twotwos",
+  "page": "https://commons.wikimedia.org/wiki/File:Bridges_of_Konigsberg.png"
+ },
+ "literary-digest": {
+  "title": "The Literary Digest",
+  "file": "literary-digest.jpg",
+  "license": "Public domain",
+  "artist": "Agnes M. Watson",
+  "page": "https://commons.wikimedia.org/wiki/File:LiteraryDigest-19210219.jpg"
+ },
+ "gallup": {
+  "title": "George Gallup",
+  "file": "gallup.jpg",
+  "license": "Public domain",
+  "artist": "Norman James",
+  "page": "https://commons.wikimedia.org/wiki/File:George_Gallup_1961_(01).jpg"
+ },
+ "landon": {
+  "title": "Alf Landon",
+  "file": "landon.jpg",
+  "license": "Public domain",
+  "artist": "Unknown authorUnknown author",
+  "page": "https://commons.wikimedia.org/wiki/File:Unsuccessful_1936.jpg"
+ },
+ "roosevelt": {
+  "title": "Franklin D. Roosevelt",
+  "file": "roosevelt.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Leon Perskie",
+  "page": "https://commons.wikimedia.org/wiki/File:FDR-1944-Campaign-Portrait_(3x4_retouched,_cropped).jpg"
+ },
+ "kaliningrad": {
+  "title": "Kaliningrad",
+  "file": "kaliningrad.jpg",
+  "license": "FAL",
+  "artist": "A.Savin",
+  "page": "https://commons.wikimedia.org/wiki/File:Kaliningrad_05-2017_img07_Fishery_Village.jpg"
+ },
+ "hanoi": {
+  "title": "Tower of Hanoi",
+  "file": "hanoi.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "AlejandroLinaresGarcia",
+  "page": "https://commons.wikimedia.org/wiki/File:UniversumUNAM34.JPG"
+ },
+ "reinhart": {
+  "title": "Carmen Reinhart",
+  "file": "reinhart.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "World Economic Forum from Cologny, Switzerland",
+  "page": "https://commons.wikimedia.org/wiki/File:Carmen_M._Reinhart_-_World_Economic_Forum_Annual_Meeting_2011.jpg"
+ },
+ "rogoff": {
+  "title": "Kenneth Rogoff",
+  "file": "rogoff.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Xuthoria",
+  "page": "https://commons.wikimedia.org/wiki/File:ASSA_2026_-_Kenneth_Rogoff_01_(cropped).jpg"
+ },
+ "cloudflare": {
+  "title": "Cloudflare",
+  "file": "cloudflare.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "HaeB",
+  "page": "https://commons.wikimedia.org/wiki/File:Cloudflare_office_entrance_area.jpg"
+ },
+ "gpu": {
+  "title": "Graphics processing unit",
+  "file": "gpu.png",
+  "license": "CC0",
+  "artist": "ScotXW",
+  "page": "https://commons.wikimedia.org/wiki/File:Generic_block_diagram_of_a_GPU.svg"
+ },
+ "wikipedia": {
+  "title": "Wikipedia",
+  "file": "wikipedia.png",
+  "license": "CC BY-SA 3.0",
+  "artist": "Version 1 by Nohat (concept by Paullusmagnus); Wikimedia.",
+  "page": "https://commons.wikimedia.org/wiki/File:Wikipedia-logo-v2.svg"
+ },
+ "bundestag": {
+  "title": "Bundestag",
+  "file": "bundestag.png",
+  "license": "Public domain",
+  "artist": "Bundestag; Urheber Prof. Ludwig Gies, Bearbeitung 2008: büro uebele, Stuttgart",
+  "page": "https://commons.wikimedia.org/wiki/File:Deutscher_Bundestag_logo.svg"
+ },
+ "passport": {
+  "title": "German passport",
+  "file": "passport.jpg",
+  "license": "Public domain",
+  "artist": "Bundesrepublik Deutschland, Bundesministerium des Innern",
+  "page": "https://commons.wikimedia.org/wiki/File:Reisepass_Bundesrepublik_Deutschland_%E2%80%93_Einband_Vorderseite_2017.jpg"
+ },
+ "y2038": {
+  "title": "Year 2038 problem",
+  "file": "y2038.png",
+  "license": "Public domain",
+  "artist": "Monaneko",
+  "page": "https://commons.wikimedia.org/wiki/File:Year_2038_problem.gif"
+ },
+ "kevin-bacon": {
+  "title": "Kevin Bacon",
+  "file": "kevin-bacon.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Bryan Berlin",
+  "page": "https://commons.wikimedia.org/wiki/File:Kevin_Bacon_The_Best_You_Can-55_(cropped).jpg"
+ },
+ "wolf": {
+  "title": "Wolf",
+  "file": "wolf.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "User:Mas3cf",
+  "page": "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg"
+ },
+ "husky": {
+  "title": "Siberian Husky",
+  "file": "husky.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "xJaM (talk · contribs)",
+  "page": "https://commons.wikimedia.org/wiki/File:Husky_L.jpg"
+ },
+ "flu": {
+  "title": "Google Flu Trends",
+  "file": "flu.png",
+  "license": "Public domain",
+  "artist": "Google Inc.",
+  "page": "https://commons.wikimedia.org/wiki/File:Google_Flu_Trends_Data,_South_Africa.png"
+ },
+ "bobby": {
+  "title": "SQL injection",
+  "file": "bobby.png",
+  "license": "CC BY-SA 3.0",
+  "artist": "KDeltchev",
+  "page": "https://commons.wikimedia.org/wiki/File:KD_SQLIA_Classification_2010.png"
+ },
+ "post-sorting": {
+  "title": "Mail sorting",
+  "file": "post-sorting.jpg",
+  "license": "CC BY-SA 2.0 uk",
+  "artist": "Mike Peel",
+  "page": "https://commons.wikimedia.org/wiki/File:BLW_Automated_postal_sorting_equipment_(2).jpg"
+ },
+ "floyd": {
+  "title": "Robert W. Floyd",
+  "file": "floyd.jpg",
+  "license": "CC BY 4.0",
+  "artist": "The Official CTBTO Photostream",
+  "page": "https://commons.wikimedia.org/wiki/File:Robert_Floyd.jpg"
+ }
+}

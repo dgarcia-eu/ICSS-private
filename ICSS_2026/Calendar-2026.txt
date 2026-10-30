@@ -1,0 +1,47 @@
+ICSS
+
+20.10 - No exercise
+21.10 - Session 01 -- Intro
+
+27.10 - Exercise 01
+28.10 - Session 02 -- Information Coding
+
+3.11 - Exercise 02
+4.11 - Session 03 -- Data Structures
+
+10.11 - No class
+11.11 - No class
+13.11 - Exercise 03 and Session 04 -- Programming and testing
+
+17.11 - Exercise 04
+18.11 - Session 05 -- Algorithms
+
+24.11 - Exercise 05
+25.11 - Session 06 -- Recursion
+
+1.12 - Exercise 06
+2.12 - Session 07 -- Sorting
+
+8.12 - Exercise 07
+9.12 - Session 08 -- Time Complexity
+
+15.12 - Exercise 08
+16.12 - Session 09 -- Theoretical CS
+
+22.12 - No class
+23.12 - No class
+
+12.01 - Exercise 09
+13.01 - Session 10 -- Machine Learning
+
+19.01 - Exercise 10
+20.01 - Session 11 -- Databases
+
+26.01 - Exercise 11
+27.01 - Session 12 -- Parallel Programming
+
+02.02 - Exercise 12
+03.02 - Session 13 -- Social Science Applications
+
+
+

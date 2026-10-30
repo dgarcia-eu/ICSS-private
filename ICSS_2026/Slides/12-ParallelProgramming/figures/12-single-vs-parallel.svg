@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 710 290" width="710" height="290" font-family="Arial, Helvetica, sans-serif">
+  <text x="20" y="22" text-anchor="start" font-size="17" fill="#111" font-weight="bold">Single-thread</text>
+  <line x1="70" y1="56" x2="700" y2="56" stroke="#7a7a7a" stroke-width="1"/>
+  <text x="66" y="61" text-anchor="end" font-size="14" fill="#111" font-weight="normal">CPU 1</text>
+  <rect x="80" y="38" width="190" height="36" fill="#cfe8f5" stroke="#7a7a7a" stroke-width="1"/>
+  <text x="175.0" y="61.0" text-anchor="middle" font-size="14" fill="#111" font-weight="normal">task 1</text>
+  <rect x="280" y="38" width="190" height="36" fill="#fbe3a6" stroke="#7a7a7a" stroke-width="1"/>
+  <text x="375.0" y="61.0" text-anchor="middle" font-size="14" fill="#111" font-weight="normal">task 2</text>
+  <rect x="480" y="38" width="200" height="36" fill="#f5d3d6" stroke="#7a7a7a" stroke-width="1"/>
+  <text x="580.0" y="61.0" text-anchor="middle" font-size="14" fill="#111" font-weight="normal">task 3</text>
+  <text x="20" y="118" text-anchor="start" font-size="17" fill="#111" font-weight="bold">Parallel</text>
+  <line x1="70" y1="152" x2="700" y2="152" stroke="#7a7a7a" stroke-width="1"/>
+  <text x="66" y="157" text-anchor="end" font-size="14" fill="#111" font-weight="normal">CPU 1</text>
+  <rect x="80" y="134" width="190" height="36" fill="#cfe8f5" stroke="#7a7a7a" stroke-width="1"/>
+  <text x="175.0" y="157.0" text-anchor="middle" font-size="14" fill="#111" font-weight="normal">task 1</text>
+  <line x1="70" y1="198" x2="700" y2="198" stroke="#7a7a7a" stroke-width="1"/>
+  <text x="66" y="203" text-anchor="end" font-size="14" fill="#111" font-weight="normal">CPU 2</text>
+  <rect x="80" y="180" width="190" height="36" fill="#fbe3a6" stroke="#7a7a7a" stroke-width="1"/>
+  <text x="175.0" y="203.0" text-anchor="middle" font-size="14" fill="#111" font-weight="normal">task 2</text>
+  <line x1="70" y1="244" x2="700" y2="244" stroke="#7a7a7a" stroke-width="1"/>
+  <text x="66" y="249" text-anchor="end" font-size="14" fill="#111" font-weight="normal">CPU 3</text>
+  <rect x="80" y="226" width="190" height="36" fill="#f5d3d6" stroke="#7a7a7a" stroke-width="1"/>
+  <text x="175.0" y="249.0" text-anchor="middle" font-size="14" fill="#111" font-weight="normal">task 3</text>
+</svg>

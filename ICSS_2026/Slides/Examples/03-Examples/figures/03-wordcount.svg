@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="13.9 8.4 916.5 243.0" width="916" height="243" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333333"/></marker></defs>
+<text x="20" y="26" font-size="16" text-anchor="start" fill="#333333" font-weight="bold" font-style="normal">counting words with a list of (word, count) pairs</text>
+<rect x="20" y="45" width="210" height="30" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="30" y="66" font-size="15" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">("the", 3)</text>
+<rect x="20" y="79" width="210" height="30" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="30" y="100" font-size="15" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">("vote", 2)</text>
+<rect x="20" y="113" width="210" height="30" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="30" y="134" font-size="15" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">("of", 1)</text>
+<rect x="20" y="147" width="210" height="30" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="30" y="168" font-size="15" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">("party", 1)</text>
+<rect x="20" y="181" width="210" height="30" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="30" y="202" font-size="15" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">("budget", 1)</text>
+<text x="250" y="60" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">next word: "vote"</text>
+<text x="250" y="84" font-size="14" text-anchor="start" fill="#8e2043" font-weight="normal" font-style="normal">→ scan pair 1, pair 2 … until found</text>
+<text x="250" y="108" font-size="14" text-anchor="start" fill="#8e2043" font-weight="normal" font-style="normal">cost grows with the number of distinct words</text>
+<text x="470" y="26" font-size="16" text-anchor="start" fill="#333333" font-weight="bold" font-style="normal">counting words with a dictionary</text>
+<rect x="470" y="45" width="40" height="30" rx="3" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="490" y="66" font-size="13" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">0</text>
+<rect x="515" y="45" width="170" height="30" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<rect x="470" y="79" width="40" height="30" rx="3" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="490" y="100" font-size="13" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">1</text>
+<rect x="515" y="79" width="170" height="30" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<rect x="470" y="113" width="40" height="30" rx="3" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="490" y="134" font-size="13" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">2</text>
+<rect x="515" y="113" width="170" height="30" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<rect x="470" y="147" width="40" height="30" rx="3" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="490" y="168" font-size="13" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">3</text>
+<rect x="515" y="147" width="170" height="30" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<rect x="470" y="181" width="40" height="30" rx="3" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="490" y="202" font-size="13" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">4</text>
+<rect x="515" y="181" width="170" height="30" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<rect x="470" y="215" width="40" height="30" rx="3" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="490" y="236" font-size="13" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">5</text>
+<rect x="515" y="215" width="170" height="30" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="525" y="66" font-size="15" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">"of" → 1</text>
+<text x="525" y="134" font-size="15" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">"the" → 3</text>
+<text x="525" y="168" font-size="15" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">"vote" → 2</text>
+<text x="525" y="236" font-size="15" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">"party" → 1</text>
+<text x="700" y="60" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">next word: "vote"</text>
+<text x="700" y="84" font-size="14" text-anchor="start" fill="#0a9086" font-weight="normal" font-style="normal">→ hash("vote") = 3 → slot 3, directly</text>
+<text x="700" y="108" font-size="14" text-anchor="start" fill="#0a9086" font-weight="normal" font-style="normal">cost does not depend on table size</text>
+</svg>

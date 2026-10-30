@@ -1,0 +1,11 @@
+- Center all figures in transcripts.
+- Make sure that captions are in italics and end in a point.
+- Check al within document links and make sure that they work to jump in the document.
+- Take the transcript and convert my > quotes into footnotes
+- change the tables transcript 2 to make them compact and with values centered in each cell.
+- Check whether the terminology "fractional number with decimal places" is appropriate or we should use another term on the slides and transcript
+- When I mention our funny paper on emoji, link that text to my Holiday Paper Series paper on the pinched hands emoji.
+- Add a link to the WhyItMatters of section 2 from its transcript, quickly explaining that they can see things for themselves with this practical notebook.
+
+
+Check that math.fsum is the same as the loop in WhyItMatters for session 2.

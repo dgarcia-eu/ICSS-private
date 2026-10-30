@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="13.3 7.2 677.5 276.0" width="677" height="276" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333333"/></marker></defs>
+<text x="20" y="24" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">arrivals</text>
+<rect x="20" y="34" width="70" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="55" y="51" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">78464</text>
+<rect x="20" y="61" width="70" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="55" y="78" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">10115</text>
+<rect x="20" y="88" width="70" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="55" y="105" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">78462</text>
+<rect x="20" y="115" width="70" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="55" y="132" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">80331</text>
+<rect x="20" y="142" width="70" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="55" y="159" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">78457</text>
+<rect x="20" y="169" width="70" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="55" y="186" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">10117</text>
+<rect x="20" y="196" width="70" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="55" y="213" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">50667</text>
+<rect x="20" y="223" width="70" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="55" y="240" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">78464</text>
+<text x="160" y="24" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">pass 1: bin by the LAST digit</text>
+<rect x="160" y="34" width="74" height="24" rx="3" fill="#a6e1f4" stroke="#00a9e0" stroke-width="1.5"/>
+<text x="197" y="51" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">bin 1</text>
+<rect x="160" y="62" width="74" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="197" y="79" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">8033<tspan fill="#8e2043" font-weight="bold">1</tspan></text>
+<rect x="244" y="34" width="74" height="24" rx="3" fill="#a6e1f4" stroke="#00a9e0" stroke-width="1.5"/>
+<text x="281" y="51" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">bin 2</text>
+<rect x="244" y="62" width="74" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="281" y="79" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">7846<tspan fill="#8e2043" font-weight="bold">2</tspan></text>
+<rect x="328" y="34" width="74" height="24" rx="3" fill="#a6e1f4" stroke="#00a9e0" stroke-width="1.5"/>
+<text x="365" y="51" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">bin 4</text>
+<rect x="328" y="62" width="74" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="365" y="79" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">7846<tspan fill="#8e2043" font-weight="bold">4</tspan></text>
+<rect x="328" y="89" width="74" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="365" y="106" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">7846<tspan fill="#8e2043" font-weight="bold">4</tspan></text>
+<rect x="412" y="34" width="74" height="24" rx="3" fill="#a6e1f4" stroke="#00a9e0" stroke-width="1.5"/>
+<text x="449" y="51" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">bin 5</text>
+<rect x="412" y="62" width="74" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="449" y="79" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">1011<tspan fill="#8e2043" font-weight="bold">5</tspan></text>
+<rect x="496" y="34" width="74" height="24" rx="3" fill="#a6e1f4" stroke="#00a9e0" stroke-width="1.5"/>
+<text x="533" y="51" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">bin 7</text>
+<rect x="496" y="62" width="74" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="533" y="79" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">7845<tspan fill="#8e2043" font-weight="bold">7</tspan></text>
+<rect x="496" y="89" width="74" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="533" y="106" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">1011<tspan fill="#8e2043" font-weight="bold">7</tspan></text>
+<rect x="496" y="116" width="74" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="533" y="133" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">5066<tspan fill="#8e2043" font-weight="bold">7</tspan></text>
+<text x="160" y="250" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">collect the bins in order, repeat for digit 4, 3, 2, 1: five passes, each a single sweep</text>
+<text x="160" y="274" font-size="15" text-anchor="start" fill="#3e5496" font-weight="bold" font-style="normal">cost: 5 passes × n letters, no comparisons at all</text>
+</svg>

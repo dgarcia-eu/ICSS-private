@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="14.0 10.5 872.0 246.9" width="872" height="247" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333333"/></marker></defs>
+<text x="20" y="28" font-size="16" text-anchor="start" fill="#333333" font-weight="bold" font-style="normal">IEEE 754 double: 1 sign · 11 exponent · 52 significand bits</text>
+<text x="20" y="60" font-size="18" text-anchor="start" fill="#333333" font-weight="bold" font-style="normal">0.1</text>
+<text x="150" y="60" font-size="18" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">0x3FB999999999999A</text>
+<text x="430" y="60" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">= 0.100000000000000005551115123125782702…</text>
+<text x="20" y="98" font-size="18" text-anchor="start" fill="#333333" font-weight="bold" font-style="normal">0.2</text>
+<text x="150" y="98" font-size="18" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">0x3FC999999999999A</text>
+<text x="430" y="98" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">= 0.200000000000000011102230246251565404…</text>
+<text x="20" y="136" font-size="18" text-anchor="start" fill="#8e2043" font-weight="bold" font-style="normal">0.1 + 0.2</text>
+<text x="150" y="136" font-size="18" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">0x3FD3333333333334</text>
+<text x="430" y="136" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">= 0.300000000000000044408920985006261616…</text>
+<text x="20" y="174" font-size="18" text-anchor="start" fill="#0a9086" font-weight="bold" font-style="normal">0.3</text>
+<text x="150" y="174" font-size="18" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">0x3FD3333333333333</text>
+<text x="430" y="174" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">= 0.299999999999999988897769753748434595…</text>
+<line x1="20" y1="192" x2="880" y2="192" stroke="#cccccc" stroke-width="1"/>
+<text x="20" y="220" font-size="16" text-anchor="start" fill="#8e2043" font-weight="normal" font-style="normal">last significand bits differ:  …3333333333333334  vs  …3333333333333333</text>
+<text x="20" y="248" font-size="16" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">0.1 + 0.2 − 0.3 = 5.551e-17  (one unit in the last place)</text>
+</svg>

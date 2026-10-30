@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="13.2 9.4 480.0 195.5" width="480" height="196" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333333"/></marker></defs>
+<text x="20" y="26" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">the survey column, as read from the file</text>
+<rect x="20" y="38" width="60" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="50" y="61" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">"23"</text>
+<rect x="90" y="38" width="60" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="120" y="61" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">"41"</text>
+<rect x="160" y="38" width="60" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="190" y="61" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">"35"</text>
+<rect x="230" y="38" width="60" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="260" y="61" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">"29"</text>
+<text x="20" y="120" font-size="17" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">total = ""</text>
+<text x="20" y="150" font-size="17" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">for value in ages:  total = total + value</text>
+<text x="20" y="195" font-size="17" text-anchor="start" fill="#8e2043" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">print(total)   →   23413529354119…  (40 000 digits)</text>
+</svg>

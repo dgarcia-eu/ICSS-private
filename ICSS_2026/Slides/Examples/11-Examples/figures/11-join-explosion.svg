@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="13.5 6.9 782.5 296.6" width="782" height="297" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333333"/></marker></defs>
+<text x="20" y="24" font-size="15" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">SELECT * FROM purchase, product;   -- no WHERE, no ON</text>
+<text x="20" y="60" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">purchase (8 rows)</text>
+<rect x="20" y="70" width="120" height="20" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="80" y="85" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 1</text>
+<rect x="20" y="92" width="120" height="20" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="80" y="107" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 2</text>
+<rect x="20" y="114" width="120" height="20" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="80" y="129" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 3</text>
+<rect x="20" y="136" width="120" height="20" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="80" y="151" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 4</text>
+<rect x="20" y="158" width="120" height="20" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="80" y="173" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 5</text>
+<rect x="20" y="180" width="120" height="20" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="80" y="195" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 6</text>
+<rect x="20" y="202" width="120" height="20" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="80" y="217" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 7</text>
+<rect x="20" y="224" width="120" height="20" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="80" y="239" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 8</text>
+<text x="200" y="60" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">product (2 rows)</text>
+<rect x="200" y="70" width="100" height="20" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="250" y="85" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Milk</text>
+<rect x="200" y="92" width="100" height="20" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="250" y="107" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Tea</text>
+<text x="380" y="60" font-size="14" text-anchor="start" fill="#8e2043" font-weight="normal" font-style="normal">result: every purchase paired with every product = 8 × 2 = 16 rows</text>
+<rect x="380" y="70" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="470" y="85" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 1  ×  Milk</text>
+<rect x="380" y="92" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="470" y="107" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 1  ×  Tea</text>
+<rect x="380" y="114" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="470" y="129" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 2  ×  Milk</text>
+<rect x="380" y="136" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="470" y="151" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 2  ×  Tea</text>
+<rect x="380" y="158" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="470" y="173" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 3  ×  Milk</text>
+<rect x="380" y="180" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="470" y="195" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 3  ×  Tea</text>
+<rect x="380" y="202" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="470" y="217" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 4  ×  Milk</text>
+<rect x="380" y="224" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="470" y="239" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 4  ×  Tea</text>
+<rect x="570" y="70" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="660" y="85" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 5  ×  Milk</text>
+<rect x="570" y="92" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="660" y="107" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 5  ×  Tea</text>
+<rect x="570" y="114" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="660" y="129" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 6  ×  Milk</text>
+<rect x="570" y="136" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="660" y="151" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 6  ×  Tea</text>
+<rect x="570" y="158" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="660" y="173" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 7  ×  Milk</text>
+<rect x="570" y="180" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="660" y="195" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 7  ×  Tea</text>
+<rect x="570" y="202" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="660" y="217" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 8  ×  Milk</text>
+<rect x="570" y="224" width="180" height="20" rx="3" fill="#fde2e2" stroke="#999999" stroke-width="1"/>
+<text x="660" y="239" font-size="12" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">purchase 8  ×  Tea</text>
+<text x="20" y="270" font-size="14" text-anchor="start" fill="#0a9086" font-weight="normal" font-style="normal">with  WHERE purchase.product_id = product.id  only the 8 matching pairs survive</text>
+<text x="20" y="294" font-size="15" text-anchor="start" fill="#3e5496" font-weight="bold" font-style="normal">a forgotten join condition on two million-row tables produces 10¹² rows</text>
+</svg>

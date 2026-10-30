@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="13.5 8.1 806.0 301.6" width="806" height="302" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333333"/></marker></defs>
+<text x="20" y="24" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">customers</text>
+<text x="300" y="24" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">orders</text>
+<rect x="20" y="34" width="160" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="30" y="51" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">1  Anna</text>
+<rect x="20" y="60" width="160" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="30" y="77" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">2  Ben</text>
+<rect x="20" y="86" width="160" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="30" y="103" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">3  Cem</text>
+<rect x="20" y="112" width="160" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="30" y="129" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">4  Dana</text>
+<rect x="300" y="34" width="170" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="310" y="51" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">10  customer 1</text>
+<rect x="300" y="60" width="170" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="310" y="77" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">11  customer 1</text>
+<rect x="300" y="86" width="170" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="310" y="103" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">12  customer 3</text>
+<text x="20" y="165" font-size="14" text-anchor="start" fill="#8e2043" font-weight="bold" font-style="normal">INNER JOIN</text>
+<rect x="20" y="175" width="200" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="30" y="192" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">Anna   order 10</text>
+<rect x="20" y="201" width="200" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="30" y="218" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">Anna   order 11</text>
+<rect x="20" y="227" width="200" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="30" y="244" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">Cem   order 12</text>
+<text x="20" y="268" font-size="13" text-anchor="start" fill="#8e2043" font-weight="normal" font-style="normal">Ben and Dana are gone: the rows we wanted</text>
+<text x="300" y="165" font-size="14" text-anchor="start" fill="#0a9086" font-weight="bold" font-style="normal">LEFT JOIN</text>
+<rect x="300" y="175" width="200" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="310" y="192" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">Anna   order 10</text>
+<rect x="300" y="201" width="200" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="310" y="218" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">Anna   order 11</text>
+<rect x="300" y="227" width="200" height="24" rx="3" fill="#e0f3ec" stroke="#999999" stroke-width="1"/>
+<text x="310" y="244" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">Ben   order NULL</text>
+<rect x="300" y="253" width="200" height="24" rx="3" fill="#fff" stroke="#999999" stroke-width="1"/>
+<text x="310" y="270" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">Cem   order 12</text>
+<rect x="300" y="279" width="200" height="24" rx="3" fill="#e0f3ec" stroke="#999999" stroke-width="1"/>
+<text x="310" y="296" font-size="13" text-anchor="start" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">Dana   order NULL</text>
+<text x="560" y="190" font-size="14" text-anchor="start" fill="#0a9086" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">… WHERE orders.id IS NULL</text>
+<text x="560" y="214" font-size="13" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">→ exactly the customers who never ordered</text>
+</svg>

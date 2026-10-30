@@ -1,0 +1,218 @@
+{
+ "A · The clock that ends on 19 January 2038": {
+  "img": "figures/02-y2038-q.svg",
+  "maxw": 1150
+ },
+ "A · The clock that ends on 19 January 2038 · answer": {
+  "img": "figures/02-y2038.svg",
+  "maxw": 1150
+ },
+ "B · 0.1 + 0.2 is not 0.3 · answer": {
+  "img": "figures/02-float-sum.svg",
+  "maxw": 1150
+ },
+ "C · Why your boarding pass spells you MUELLER": {
+  "img": "figures/02-mrz.svg",
+  "maxw": 1150
+ },
+ "C · Why your boarding pass spells you MUELLER · answer": {
+  "img": "figures/02-mrz.svg",
+  "maxw": 1150
+ },
+ "A · Where does the Back button keep the pages? · answer": {
+  "img": "figures/03-browser-stacks.svg",
+  "maxw": 1150
+ },
+ "B · Count a million words: 49 seconds or 0.01": {
+  "img": "figures/03-wordcount.svg",
+  "maxw": 1150
+ },
+ "B · Count a million words: 49 seconds or 0.01 · answer": {
+  "img": "figures/03-wordcount-timing.png",
+  "maxw": 600
+ },
+ "C · The waiting room that gets slower the fuller it is": {
+  "img": "figures/03-queue-shift-q.svg",
+  "maxw": 1150
+ },
+ "C · The waiting room that gets slower the fuller it is · answer": {
+  "img": "figures/03-queue-shift.svg",
+  "maxw": 1150
+ },
+ "A · The survey whose ages summed to a 40 000-digit number": {
+  "img": "figures/04-string-sum-q.svg",
+  "maxw": 1150
+ },
+ "A · The survey whose ages summed to a 40 000-digit number · answer": {
+  "img": "figures/04-string-sum.svg",
+  "maxw": 1150
+ },
+ "B · The rocket that exploded because a number did not fit · answer": {
+  "img": "figures/04-ariane-overflow.svg",
+  "maxw": 1150
+ },
+ "C · Was 1900 a leap year? Excel says yes · answer": {
+  "img": "figures/04-leap-year.svg",
+  "maxw": 1150
+ },
+ "A · What is your Erdős number?": {
+  "img": "figures/05-erdos-q.svg",
+  "maxw": 1150
+ },
+ "A · What is your Erdős number? · answer": {
+  "img": "figures/05-erdos-bfs.svg",
+  "maxw": 1150
+ },
+ "B · The seven bridges of Königsberg": {
+  "img": "figures/konigsberg-bridges.png",
+  "maxw": 540
+ },
+ "B · The seven bridges of Königsberg · answer": {
+  "img": "figures/05-konigsberg-graph.svg",
+  "maxw": 600
+ },
+ "C · Solve the maze without luck": {
+  "img": "figures/05-maze.svg",
+  "maxw": 540
+ },
+ "C · Solve the maze without luck · answer": {
+  "img": "figures/05-maze-solved.svg",
+  "maxw": 600
+ },
+ "A · The monks, the 64 disks, and the end of the world": {
+  "img": "figures/tower-of-hanoi.jpg",
+  "maxw": 1150
+ },
+ "A · The monks, the 64 disks, and the end of the world · answer": {
+  "img": "figures/06-hanoi.svg",
+  "maxw": 1150
+ },
+ "B · Draw this tree in five lines": {
+  "img": "figures/06-fractal-tree.svg",
+  "maxw": 1150
+ },
+ "B · Draw this tree in five lines · answer": {
+  "img": "figures/06-fractal-tree.svg",
+  "maxw": 1150
+ },
+ "C · You have more ancestors than there were people": {
+  "img": "figures/06-ancestors.svg",
+  "maxw": 1150
+ },
+ "C · You have more ancestors than there were people · answer": {
+  "img": "figures/06-ancestors.svg",
+  "maxw": 1150
+ },
+ "A · How the post office sorts 20 million letters a night · answer": {
+  "img": "figures/07-radix-postcodes.svg",
+  "maxw": 1150
+ },
+ "B · Can you sort 8 things in 10 comparisons? · answer": {
+  "img": "figures/07-decision-tree.svg",
+  "maxw": 1150
+ },
+ "C · The median of a billion salaries, without sorting · answer": {
+  "img": "figures/07-quickselect.svg",
+  "maxw": 1150
+ },
+ "A · Tr0ub4dor&3 or correct horse battery staple?": {
+  "img": "figures/xkcd-936-password-strength.png",
+  "maxw": 540
+ },
+ "A · Tr0ub4dor&3 or correct horse battery staple? · answer": {
+  "img": "figures/08-password-bruteforce.png",
+  "maxw": 1150
+ },
+ "B · The clustering script that ran out of memory at 100 000 · answer": {
+  "img": "figures/08-quadratic-memory.png",
+  "maxw": 600
+ },
+ "C · Computers got 1 000× faster. Solving got 43 000 000× faster. · answer": {
+  "img": "figures/08-algorithms-vs-hardware.png",
+  "maxw": 600
+ },
+ "A · Design a coffee machine that cannot be cheated · answer": {
+  "img": "figures/09-vending-dfa.svg",
+  "maxw": 1150
+ },
+ "B · Can a finite machine check your brackets? · answer": {
+  "img": "figures/09-brackets-pda.svg",
+  "maxw": 1150
+ },
+ "C · Is there a fast way to solve any Sudoku?": {
+  "img": "figures/sudoku-example.svg",
+  "maxw": 540
+ },
+ "C · Is there a fast way to solve any Sudoku? · answer": {
+  "img": "figures/sudoku-example.svg",
+  "maxw": 600
+ },
+ "A · The wolf detector that only saw snow": {
+  "img": "figures/10-husky-wolf-q.svg",
+  "maxw": 1150
+ },
+ "A · The wolf detector that only saw snow · answer": {
+  "img": "figures/10-husky-wolf.svg",
+  "maxw": 1150
+ },
+ "B · Predict who survived the Titanic in five words": {
+  "img": "figures/10-titanic-rates.png",
+  "maxw": 1150
+ },
+ "B · Predict who survived the Titanic in five words · answer": {
+  "img": "figures/10-titanic-confusion.svg",
+  "maxw": 1150
+ },
+ "C · How many groups are there?": {
+  "img": "figures/10-kmeans-data.png",
+  "maxw": 540
+ },
+ "C · How many groups are there? · answer": {
+  "img": "figures/10-kmeans-k3.png",
+  "maxw": 600
+ },
+ "A · Little Bobby Tables": {
+  "img": "figures/xkcd-327-exploits-of-a-mom.png",
+  "maxw": 1150
+ },
+ "B · The join that returned more rows than the table · answer": {
+  "img": "figures/11-join-explosion.svg",
+  "maxw": 1150
+ },
+ "C · Find the customers who never ordered · answer": {
+  "img": "figures/11-left-join-null.svg",
+  "maxw": 1150
+ },
+ "A · One million increments, and the counter says 712 431 · answer": {
+  "img": "figures/12-race-condition.svg",
+  "maxw": 1150
+ },
+ "B · Why is the GPU 50× faster, and 10× slower? · answer": {
+  "img": "figures/12-simd-vs-cpu.svg",
+  "maxw": 1150
+ },
+ "C · Count every word in Wikipedia in two minutes · answer": {
+  "img": "figures/12-mapreduce.svg",
+  "maxw": 1150
+ },
+ "A · Two point four million ballots, and the wrong president": {
+  "img": "figures/13-literary-digest.png",
+  "maxw": 1150
+ },
+ "A · Two point four million ballots, and the wrong president · answer": {
+  "img": "figures/13-literary-digest.png",
+  "maxw": 1150
+ },
+ "B · Is every segregated city full of racists?": {
+  "img": "figures/13-schelling-before.svg",
+  "maxw": 540
+ },
+ "B · Is every segregated city full of racists? · answer": {
+  "img": "figures/13-schelling-after.svg",
+  "maxw": 600
+ },
+ "C · How many Likes does it take to know you better than your spouse? · answer": {
+  "img": "figures/13-likes-accuracy.png",
+  "maxw": 1150
+ }
+}

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" width="420" height="320" font-family="Arial, Helvetica, sans-serif">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111"/></marker></defs>
+  <path d="M 144.0 263.0 Q 217.0 279.0 290.0 263.0" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <text x="217.0" y="294.0" text-anchor="middle" font-size="17" fill="#111" font-weight="normal" font-style="normal">a</text>
+  <path d="M 123.0 216.0 Q 139.0 158.0 123.0 100.0" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <text x="149.0" y="163.0" text-anchor="middle" font-size="17" fill="#111" font-weight="normal" font-style="normal">b</text>
+  <path d="M 343.0 216.0 Q 359.0 158.0 343.0 100.0" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <text x="369.0" y="163.0" text-anchor="middle" font-size="17" fill="#111" font-weight="normal" font-style="normal">a</text>
+  <path d="M 296.0 237.0 Q 223.0 221.0 150.0 237.0" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <text x="223.0" y="216.0" text-anchor="middle" font-size="17" fill="#111" font-weight="normal" font-style="normal">b</text>
+  <path d="M 296.0 47.0 Q 223.0 31.0 150.0 47.0" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <text x="223.0" y="26.0" text-anchor="middle" font-size="17" fill="#111" font-weight="normal" font-style="normal">a</text>
+  <path d="M 317.0 94.0 Q 301.0 152.0 317.0 210.0" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <text x="291.0" y="157.0" text-anchor="middle" font-size="17" fill="#111" font-weight="normal" font-style="normal">b</text>
+  <path d="M 97.0 94.0 Q 81.0 152.0 97.0 210.0" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <text x="71.0" y="157.0" text-anchor="middle" font-size="17" fill="#111" font-weight="normal" font-style="normal">a</text>
+  <path d="M 144.0 73.0 Q 217.0 89.0 290.0 73.0" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <text x="217.0" y="104.0" text-anchor="middle" font-size="17" fill="#111" font-weight="normal" font-style="normal">b</text>
+  <line x1="18" y1="250" x2="66" y2="250" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <circle cx="110" cy="250" r="34" fill="#fff" stroke="#111" stroke-width="2"/>
+  <text x="110" y="257" text-anchor="middle" font-size="20" fill="#111" font-weight="normal" font-style="normal">z0</text>
+  <circle cx="330" cy="250" r="34" fill="#f5a3a3" stroke="#111" stroke-width="2"/>
+  <text x="330" y="257" text-anchor="middle" font-size="20" fill="#111" font-weight="normal" font-style="normal">z1</text>
+  <circle cx="330" cy="60" r="34" fill="#fff" stroke="#111" stroke-width="2"/>
+  <text x="330" y="67" text-anchor="middle" font-size="20" fill="#111" font-weight="normal" font-style="normal">z2</text>
+  <circle cx="110" cy="60" r="39" fill="none" stroke="#111" stroke-width="2"/>
+  <circle cx="110" cy="60" r="34" fill="#fff" stroke="#111" stroke-width="2"/>
+  <text x="110" y="67" text-anchor="middle" font-size="20" fill="#111" font-weight="normal" font-style="normal">z3</text>
+</svg>

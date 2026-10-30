@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="14.2 22.5 901.6 247.9" width="902" height="248" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333333"/></marker></defs>
+<rect x="20" y="30" width="200" height="150" rx="8" fill="#eaf4fb" stroke="#999999" stroke-width="1.5"/>
+<circle cx="35" cy="45" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="72" cy="98" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="109" cy="151" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="146" cy="84" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="183" cy="137" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="220" cy="70" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="67" cy="123" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="104" cy="56" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="141" cy="109" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="178" cy="162" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="215" cy="95" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="62" cy="148" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="99" cy="81" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="136" cy="134" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<ellipse cx="120" cy="125" rx="48" ry="22" fill="#666666"/>
+<circle cx="160" cy="105" r="18" fill="#666666" stroke="#666666" stroke-width="2"/>
+<polygon points="150,92 156,72 166,92" fill="#666666"/>
+<polygon points="166,92 174,72 180,92" fill="#666666"/>
+<text x="120" y="200" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">wolf, in snow (training)</text>
+<text x="120" y="222" font-size="14" text-anchor="middle" fill="#0a9086" font-weight="bold" font-style="normal">model says: wolf</text>
+<rect x="250" y="30" width="200" height="150" rx="8" fill="#dfe8d3" stroke="#999999" stroke-width="1.5"/>
+<ellipse cx="350" cy="125" rx="48" ry="22" fill="#666666"/>
+<circle cx="390" cy="105" r="18" fill="#666666" stroke="#666666" stroke-width="2"/>
+<polygon points="380,92 386,72 396,92" fill="#666666"/>
+<polygon points="396,92 404,72 410,92" fill="#666666"/>
+<text x="350" y="200" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">husky, on grass (training)</text>
+<text x="350" y="222" font-size="14" text-anchor="middle" fill="#0a9086" font-weight="bold" font-style="normal">model says: husky</text>
+<rect x="480" y="30" width="200" height="150" rx="8" fill="#eaf4fb" stroke="#999999" stroke-width="1.5"/>
+<circle cx="495" cy="45" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="532" cy="98" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="569" cy="151" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="606" cy="84" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="643" cy="137" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="680" cy="70" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="527" cy="123" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="564" cy="56" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="601" cy="109" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="638" cy="162" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="675" cy="95" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="522" cy="148" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="559" cy="81" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<circle cx="596" cy="134" r="3" fill="#fff" stroke="#fff" stroke-width="2"/>
+<ellipse cx="580" cy="125" rx="48" ry="22" fill="#666666"/>
+<circle cx="620" cy="105" r="18" fill="#666666" stroke="#666666" stroke-width="2"/>
+<polygon points="610,92 616,72 626,92" fill="#666666"/>
+<polygon points="626,92 634,72 640,92" fill="#666666"/>
+<text x="580" y="200" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">husky, in snow (new photo)</text>
+<text x="580" y="222" font-size="14" text-anchor="middle" fill="#8e2043" font-weight="bold" font-style="normal">model says: wolf</text>
+<rect x="710" y="30" width="200" height="150" rx="8" fill="#dfe8d3" stroke="#999999" stroke-width="1.5"/>
+<ellipse cx="810" cy="125" rx="48" ry="22" fill="#666666"/>
+<circle cx="850" cy="105" r="18" fill="#666666" stroke="#666666" stroke-width="2"/>
+<polygon points="840,92 846,72 856,92" fill="#666666"/>
+<polygon points="856,92 864,72 870,92" fill="#666666"/>
+<text x="810" y="200" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">wolf, on grass (new photo)</text>
+<text x="810" y="222" font-size="14" text-anchor="middle" fill="#8e2043" font-weight="bold" font-style="normal">model says: husky</text>
+<rect x="480" y="30" width="200" height="150" rx="8" fill="none" stroke="#8e2043" stroke-width="3" stroke-dasharray="6,4"/>
+<text x="580" y="262" font-size="14" text-anchor="middle" fill="#8e2043" font-weight="normal" font-style="italic">what the explanation highlights: the background, not the animal</text>
+</svg>

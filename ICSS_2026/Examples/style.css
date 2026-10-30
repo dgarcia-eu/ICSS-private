@@ -1,0 +1,38 @@
+/* ICSS self-study pages -- Uni Konstanz palette, plain and readable */
+:root { --seeblau: #00a9e0; --seeblau1: #cceef9; --karpfen: #3e5496; --petrol: #00797b; --g5: #333; --g4: #666; --g2: #ccc; --g1: #e5e5e5; }
+html { font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; color: var(--g5); line-height: 1.5; }
+body { max-width: 46em; margin: 2.5em auto; padding: 0 1.2em; }
+h1 { font-size: 1.9em; line-height: 1.2; border-bottom: 4px solid var(--seeblau); padding-bottom: .25em; margin-bottom: .5em; }
+h2 { font-size: 1.25em; color: var(--karpfen); margin-top: 1.8em; border-left: 6px solid var(--seeblau); padding-left: .55em; }
+h3 { font-size: 1.05em; color: var(--petrol); margin-top: 1.4em; }
+a { color: var(--karpfen); }
+a:hover { color: var(--seeblau); }
+h1 + p em, .subtitle { color: var(--g4); }
+blockquote { margin: 1em 0; padding: .6em 1em; background: var(--seeblau1); border-left: 6px solid var(--seeblau); border-radius: 0 8px 8px 0; }
+blockquote p { margin: 0; }
+code { font-family: "DejaVu Sans Mono", Menlo, Consolas, monospace; font-size: .92em; background: #f4f4f4; padding: .05em .3em; border-radius: 3px; }
+pre { background: #f6f8fa; border: 1px solid var(--g1); border-radius: 8px; padding: .8em 1em; overflow-x: auto; }
+pre code { background: none; padding: 0; }
+table { border-collapse: collapse; margin: 1em 0; font-size: .95em; }
+th { background: var(--seeblau1); text-align: left; padding: .35em .7em; border-bottom: 2px solid var(--seeblau); }
+td { padding: .35em .7em; border-bottom: 1px solid var(--g1); vertical-align: top; }
+img { max-width: 100%; }
+hr { border: 0; border-top: 1px solid var(--g2); margin: 2em 0; }
+details { margin: .6em 0; padding: .4em .8em; background: #fafafa; border: 1px solid var(--g1); border-radius: 6px; }
+summary { cursor: pointer; font-weight: bold; color: var(--karpfen); }
+.nav { font-size: .85em; color: var(--g4); margin-bottom: 1.5em; }
+.nav a { margin-right: 1em; }
+
+/* figures in posts: portraits and small diagrams float to the side, wide figures span */
+figure { margin: 1.2em 0; }
+figure img { display: block; max-width: 100%; border-radius: 6px; }
+figure.side { float: right; width: 210px; margin: 0.2em 0 1em 1.6em; clear: right; }
+figure.side img { max-height: 250px; width: auto; margin: 0 auto; }
+figure.side.wide { width: 320px; }
+figure.side.wide img { max-height: 300px; }
+figure.full { width: 100%; clear: both; }
+figure.full img { margin: 0 auto; max-height: 26em; }
+figcaption { font-size: .8em; color: var(--g4); line-height: 1.35; margin-top: .4em; }
+figcaption a { color: var(--g4); }
+h2 { clear: both; }
+@media (max-width: 40em) { figure.side, figure.side.wide { float: none; width: 100%; margin: 1em 0; } }

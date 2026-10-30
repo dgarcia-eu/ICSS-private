@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 700" width="880" height="700" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-end"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker></defs>
+<path d="M117,309 Q240,210 363,111" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+<text x="256" y="238" text-anchor="middle" font-size="24">10</text>
+<path d="M117,351 Q240,445 363,539" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+<text x="224" y="474" text-anchor="middle" font-size="24">5</text>
+<path d="M424,90 Q575,90 726,90" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+<text x="575" y="72" text-anchor="middle" font-size="24">1</text>
+<path d="M402,124 Q436,325 402,526" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+<text x="444" y="333" text-anchor="middle" font-size="24">2</text>
+<path d="M378,526 Q344,325 378,124" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+<text x="336" y="333" text-anchor="middle" font-size="24">3</text>
+<path d="M411,533 Q575,325 739,117" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+<text x="553" y="316" text-anchor="middle" font-size="24">9</text>
+<path d="M424,560 Q575,560 726,560" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+<text x="575" y="542" text-anchor="middle" font-size="24">2</text>
+<path d="M772,124 Q806,325 772,526" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+<text x="814" y="333" text-anchor="middle" font-size="24">6</text>
+<path d="M748,526 Q714,325 748,124" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+<text x="706" y="333" text-anchor="middle" font-size="24">4</text>
+<path d="M735,590 C560,690 200,660 100,366" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+<text x="330" y="675" text-anchor="middle" font-size="24">7</text>
+<circle cx="90" cy="330" r="34" fill="#eeeeee" stroke="#111" stroke-width="3"/>
+<text x="90" y="340" text-anchor="middle" font-size="28">a</text>
+<circle cx="390" cy="90" r="34" fill="#eeeeee" stroke="#111" stroke-width="3"/>
+<text x="390" y="100" text-anchor="middle" font-size="28">b</text>
+<circle cx="760" cy="90" r="34" fill="#eeeeee" stroke="#111" stroke-width="3"/>
+<text x="760" y="100" text-anchor="middle" font-size="28">c</text>
+<circle cx="390" cy="560" r="34" fill="#eeeeee" stroke="#111" stroke-width="3"/>
+<text x="390" y="570" text-anchor="middle" font-size="28">d</text>
+<circle cx="760" cy="560" r="34" fill="#eeeeee" stroke="#111" stroke-width="3"/>
+<text x="760" y="570" text-anchor="middle" font-size="28">e</text>
+</svg>

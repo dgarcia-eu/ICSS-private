@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="13.8 8.4 675.0 275.1" width="675" height="275" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333333"/></marker></defs>
+<text x="20" y="26" font-size="16" text-anchor="start" fill="#333333" font-weight="bold" font-style="normal">array: calling the next patient shifts everyone</text>
+<rect x="20" y="40" width="84" height="34" rx="4" fill="#a6e1f4" stroke="#999999" stroke-width="1.5"/>
+<text x="62" y="63" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Anna</text>
+<rect x="110" y="40" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="152" y="63" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Ben</text>
+<rect x="200" y="40" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="242" y="63" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Cem</text>
+<rect x="290" y="40" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="332" y="63" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Dana</text>
+<rect x="380" y="40" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="422" y="63" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Eli</text>
+<rect x="470" y="40" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="512" y="63" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Fay</text>
+<text x="580" y="63" font-size="14" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">← Anna is called</text>
+<rect x="20" y="95" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="62" y="118" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Ben</text>
+<line x1="152" y1="80" x2="70" y2="92" stroke="#8e2043" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="110" y="95" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="152" y="118" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Cem</text>
+<line x1="242" y1="80" x2="160" y2="92" stroke="#8e2043" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="200" y="95" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="242" y="118" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Dana</text>
+<line x1="332" y1="80" x2="250" y2="92" stroke="#8e2043" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="290" y="95" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="332" y="118" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Eli</text>
+<line x1="422" y1="80" x2="340" y2="92" stroke="#8e2043" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect x="380" y="95" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="422" y="118" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Fay</text>
+<line x1="512" y1="80" x2="430" y2="92" stroke="#8e2043" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="20" y="155" font-size="14" text-anchor="start" fill="#8e2043" font-weight="normal" font-style="normal">n − 1 moves for one call; with 1 000 waiting, every call costs 1 000 moves</text>
+<text x="20" y="200" font-size="16" text-anchor="start" fill="#333333" font-weight="bold" font-style="normal">queue: the same call moves one pointer</text>
+<rect x="20" y="214" width="84" height="34" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="62" y="237" font-size="15" text-anchor="middle" fill="#999999" font-weight="normal" font-style="normal">Anna</text>
+<rect x="110" y="214" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="152" y="237" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Ben</text>
+<rect x="200" y="214" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="242" y="237" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Cem</text>
+<rect x="290" y="214" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="332" y="237" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Dana</text>
+<rect x="380" y="214" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="422" y="237" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Eli</text>
+<rect x="470" y="214" width="84" height="34" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="512" y="237" font-size="15" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal">Fay</text>
+<text x="62" y="275" font-size="13" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal">head</text>
+<line x1="62" y1="262" x2="62" y2="252" stroke="#666666" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="152" y="275" font-size="13" text-anchor="middle" fill="#0a9086" font-weight="bold" font-style="normal">head</text>
+<line x1="152" y1="262" x2="152" y2="252" stroke="#0a9086" stroke-width="2" marker-end="url(#ar)"/>
+<text x="230" y="275" font-size="14" text-anchor="start" fill="#0a9086" font-weight="normal" font-style="normal">one step, however many are waiting</text>
+</svg>

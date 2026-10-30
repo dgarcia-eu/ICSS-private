@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="446.028923pt" height="240.048pt" viewBox="0 0 446.028923 240.048" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-30T17:43:51.470749</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 240.048 
+L 446.028923 240.048 
+L 446.028923 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 167.282441 52.856308 
+Q 146.890897 52.856308 128.064601 52.856308 
+" clip-path="url(#pf8988233bb)" style="fill: none; stroke: #1f77b4; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 133.664601 55.656308 
+L 128.064601 52.856308 
+L 133.664601 50.056308 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #1f77b4; stroke: #1f77b4; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 278.746483 52.856308 
+Q 299.138026 52.856308 317.964322 52.856308 
+" clip-path="url(#pf8988233bb)" style="fill: none; stroke: #1f77b4; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 312.364322 50.056308 
+L 317.964322 52.856308 
+L 312.364322 55.656308 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #1f77b4; stroke: #1f77b4; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 278.746483 164.802462 
+Q 299.138026 164.802462 317.964322 164.802462 
+" clip-path="url(#pf8988233bb)" style="fill: none; stroke: #1f77b4; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 312.364322 162.002462 
+L 317.964322 164.802462 
+L 312.364322 167.602462 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #1f77b4; stroke: #1f77b4; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 167.677914 163.600667 
+Q 120.022798 127.859329 73.619879 93.05714 
+" clip-path="url(#pf8988233bb)" style="fill: none; stroke: #1f77b4; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 76.419879 98.65714 
+L 73.619879 93.05714 
+L 79.779879 94.17714 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #1f77b4; stroke: #1f77b4; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 17.033538 90.918 
+L 124.501846 90.918 
+L 124.501846 14.794615 
+L 17.033538 14.794615 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #ffffff; stroke: #111111; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 321.527077 83.305662 
+L 428.995385 83.305662 
+L 428.995385 22.406954 
+L 321.527077 22.406954 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #ffffff; stroke: #111111; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 169.280308 90.918 
+L 276.748615 90.918 
+L 276.748615 14.794615 
+L 169.280308 14.794615 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #ffffff; stroke: #111111; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 169.280308 202.864154 
+L 276.748615 202.864154 
+L 276.748615 126.740769 
+L 169.280308 126.740769 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #ffffff; stroke: #111111; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 321.527077 202.864154 
+L 428.995385 202.864154 
+L 428.995385 126.740769 
+L 321.527077 126.740769 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #ffffff; stroke: #111111; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 17.033538 30.019292 
+L 124.501846 30.019292 
+L 124.501846 14.794615 
+L 17.033538 14.794615 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #cceef9; stroke: #111111; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 321.527077 37.631631 
+L 428.995385 37.631631 
+L 428.995385 22.406954 
+L 321.527077 22.406954 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #cceef9; stroke: #111111; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 169.280308 30.019292 
+L 276.748615 30.019292 
+L 276.748615 14.794615 
+L 169.280308 14.794615 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #cceef9; stroke: #111111; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 169.280308 141.965446 
+L 276.748615 141.965446 
+L 276.748615 126.740769 
+L 169.280308 126.740769 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #cceef9; stroke: #111111; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 321.527077 141.965446 
+L 428.995385 141.965446 
+L 428.995385 126.740769 
+L 321.527077 126.740769 
+z
+" clip-path="url(#pf8988233bb)" style="fill: #cceef9; stroke: #111111; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #8a8a8a" x="223.014462" y="225.253385" transform="rotate(-0 223.014462 225.253385)">arrows: foreign key → the table whose primary key it references</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="70.767692" y="25.134903" transform="rotate(-0 70.767692 25.134903)">Speaker</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="21.511385" y="39.969873" transform="rotate(-0 21.511385 39.969873)">SpeakerID (PK)</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="21.511385" y="55.194198" transform="rotate(-0 21.511385 55.194198)">Name</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="21.511385" y="70.419227" transform="rotate(-0 21.511385 70.419227)">BirthYear</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="21.511385" y="85.643904" transform="rotate(-0 21.511385 85.643904)">Constituency</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="375.261231" y="32.746831" transform="rotate(-0 375.261231 32.746831)">Party</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="326.004923" y="47.58186" transform="rotate(-0 326.004923 47.58186)">PartyID (PK)</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="326.004923" y="62.806537" transform="rotate(-0 326.004923 62.806537)">Name</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="326.004923" y="78.031565" transform="rotate(-0 326.004923 78.031565)">FoundingYear</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="223.014462" y="25.134903" transform="rotate(-0 223.014462 25.134903)">Membership</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="173.758154" y="39.969873" transform="rotate(-0 173.758154 39.969873)">SpeakerID (PK, FK)</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="173.758154" y="55.194198" transform="rotate(-0 173.758154 55.194198)">FromDate (PK)</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="173.758154" y="70.418875" transform="rotate(-0 173.758154 70.418875)">ToDate</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="173.758154" y="85.643552" transform="rotate(-0 173.758154 85.643552)">PartyID (FK)</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="223.014462" y="137.081057" transform="rotate(-0 223.014462 137.081057)">Speech</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="173.758154" y="151.916027" transform="rotate(-0 173.758154 151.916027)">SpeechID (PK)</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="173.758154" y="167.140704" transform="rotate(-0 173.758154 167.140704)">SpeakerID (FK)</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="173.758154" y="182.365381" transform="rotate(-0 173.758154 182.365381)">DebateID (FK)</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="173.758154" y="197.590058" transform="rotate(-0 173.758154 197.590058)">Time, Text, Length</text>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle" x="375.261231" y="137.081057" transform="rotate(-0 375.261231 137.081057)">Debate</text>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="326.004923" y="151.916027" transform="rotate(-0 326.004923 151.916027)">DebateID (PK)</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="326.004923" y="167.140704" transform="rotate(-0 326.004923 167.140704)">Title</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="326.004923" y="182.365029" transform="rotate(-0 326.004923 182.365029)">Date</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start" x="326.004923" y="197.590058" transform="rotate(-0 326.004923 197.590058)">Topic</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pf8988233bb">
+   <rect x="3.6" y="3.6" width="438.828923" height="232.848"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="14.5 7.1 900.0 275.9" width="900" height="276" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333333"/></marker></defs>
+<text x="20" y="24" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">find the median (5th smallest of 9) without sorting everything</text>
+<text x="20" y="58" font-size="13" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">partition [0..8], pivot 63</text>
+<rect x="230" y="40" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="252" y="59" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">38</text>
+<rect x="280" y="40" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="302" y="59" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">12</text>
+<rect x="330" y="40" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="352" y="59" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">25</text>
+<rect x="380" y="40" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="402" y="59" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">56</text>
+<rect x="430" y="40" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="452" y="59" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">44</text>
+<rect x="480" y="40" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="502" y="59" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">17</text>
+<rect x="530" y="40" width="44" height="28" rx="4" fill="#e0f3ec" stroke="#0a9086" stroke-width="1.5"/>
+<text x="552" y="59" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">63</text>
+<rect x="580" y="40" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="602" y="59" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">90</text>
+<rect x="630" y="40" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="652" y="59" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">71</text>
+<text x="700" y="58" font-size="13" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">pivot lands at position 6 → look left</text>
+<text x="20" y="102" font-size="13" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">partition [0..5], pivot 17</text>
+<rect x="230" y="84" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="252" y="103" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">12</text>
+<rect x="280" y="84" width="44" height="28" rx="4" fill="#e0f3ec" stroke="#0a9086" stroke-width="1.5"/>
+<text x="302" y="103" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">17</text>
+<rect x="330" y="84" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="352" y="103" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">25</text>
+<rect x="380" y="84" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="402" y="103" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">56</text>
+<rect x="430" y="84" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="452" y="103" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">44</text>
+<rect x="480" y="84" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="502" y="103" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">38</text>
+<rect x="530" y="84" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="552" y="103" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">63</text>
+<rect x="580" y="84" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="602" y="103" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">90</text>
+<rect x="630" y="84" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="652" y="103" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">71</text>
+<text x="700" y="102" font-size="13" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">pivot lands at position 1 → look right</text>
+<text x="20" y="146" font-size="13" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">partition [2..5], pivot 38</text>
+<rect x="230" y="128" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="252" y="147" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">12</text>
+<rect x="280" y="128" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="302" y="147" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">17</text>
+<rect x="330" y="128" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="352" y="147" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">25</text>
+<rect x="380" y="128" width="44" height="28" rx="4" fill="#e0f3ec" stroke="#0a9086" stroke-width="1.5"/>
+<text x="402" y="147" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">38</text>
+<rect x="430" y="128" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="452" y="147" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">44</text>
+<rect x="480" y="128" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="502" y="147" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">56</text>
+<rect x="530" y="128" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="552" y="147" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">63</text>
+<rect x="580" y="128" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="602" y="147" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">90</text>
+<rect x="630" y="128" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="652" y="147" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">71</text>
+<text x="700" y="146" font-size="13" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">pivot lands at position 3 → look right</text>
+<text x="20" y="190" font-size="13" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">partition [4..5], pivot 56</text>
+<rect x="230" y="172" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="252" y="191" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">12</text>
+<rect x="280" y="172" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="302" y="191" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">17</text>
+<rect x="330" y="172" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="352" y="191" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">25</text>
+<rect x="380" y="172" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="402" y="191" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">38</text>
+<rect x="430" y="172" width="44" height="28" rx="4" fill="#fff" stroke="#999999" stroke-width="1.5"/>
+<text x="452" y="191" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">44</text>
+<rect x="480" y="172" width="44" height="28" rx="4" fill="#e0f3ec" stroke="#0a9086" stroke-width="1.5"/>
+<text x="502" y="191" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">56</text>
+<rect x="530" y="172" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="552" y="191" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">63</text>
+<rect x="580" y="172" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="602" y="191" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">90</text>
+<rect x="630" y="172" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="652" y="191" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">71</text>
+<text x="700" y="190" font-size="13" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">pivot lands at position 5 → look left</text>
+<text x="20" y="234" font-size="13" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">partition [4..4], pivot 44</text>
+<rect x="230" y="216" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="252" y="235" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">12</text>
+<rect x="280" y="216" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="302" y="235" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">17</text>
+<rect x="330" y="216" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="352" y="235" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">25</text>
+<rect x="380" y="216" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="402" y="235" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">38</text>
+<rect x="430" y="216" width="44" height="28" rx="4" fill="#e0f3ec" stroke="#0a9086" stroke-width="1.5"/>
+<text x="452" y="235" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">44</text>
+<rect x="480" y="216" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="502" y="235" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">56</text>
+<rect x="530" y="216" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="552" y="235" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">63</text>
+<rect x="580" y="216" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="602" y="235" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">90</text>
+<rect x="630" y="216" width="44" height="28" rx="4" fill="#e5e5e5" stroke="#999999" stroke-width="1.5"/>
+<text x="652" y="235" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">71</text>
+<text x="700" y="234" font-size="13" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">pivot lands at position 4: done</text>
+<text x="20" y="274" font-size="15" text-anchor="start" fill="#3e5496" font-weight="bold" font-style="normal">median = 44.  Only one side is ever recursed into: expected cost O(n), not O(n log n)</text>
+</svg>

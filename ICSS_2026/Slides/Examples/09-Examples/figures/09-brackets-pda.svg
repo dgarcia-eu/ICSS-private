@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="13.3 7.1 869.5 305.8" width="869" height="306" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333333"/></marker></defs>
+<text x="20" y="24" font-size="15" text-anchor="start" fill="#666666" font-weight="normal" font-style="normal">input:  (()(()))     (one symbol at a time, with a stack)</text>
+<rect x="20" y="40" width="100" height="30" rx="4" fill="#a6e1f4" stroke="#999999" stroke-width="1.5"/>
+<text x="70" y="61" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">read (</text>
+<rect x="45" y="200" width="50" height="22" rx="3" fill="#fff" stroke="#333333" stroke-width="1.5"/>
+<text x="70" y="216" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">(</text>
+<line x1="35" y1="224" x2="105" y2="224" stroke="#666666" stroke-width="2"/>
+<text x="70" y="245" font-size="12" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal">depth 1</text>
+<rect x="128" y="40" width="100" height="30" rx="4" fill="#a6e1f4" stroke="#999999" stroke-width="1.5"/>
+<text x="178" y="61" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">read (</text>
+<rect x="153" y="200" width="50" height="22" rx="3" fill="#fff" stroke="#333333" stroke-width="1.5"/>
+<text x="178" y="216" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">(</text>
+<rect x="153" y="174" width="50" height="22" rx="3" fill="#fff" stroke="#333333" stroke-width="1.5"/>
+<text x="178" y="190" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">(</text>
+<line x1="143" y1="224" x2="213" y2="224" stroke="#666666" stroke-width="2"/>
+<text x="178" y="245" font-size="12" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal">depth 2</text>
+<rect x="236" y="40" width="100" height="30" rx="4" fill="#fde9c8" stroke="#999999" stroke-width="1.5"/>
+<text x="286" y="61" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">read )</text>
+<rect x="261" y="200" width="50" height="22" rx="3" fill="#fff" stroke="#333333" stroke-width="1.5"/>
+<text x="286" y="216" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">(</text>
+<line x1="251" y1="224" x2="321" y2="224" stroke="#666666" stroke-width="2"/>
+<text x="286" y="245" font-size="12" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal">depth 1</text>
+<rect x="344" y="40" width="100" height="30" rx="4" fill="#a6e1f4" stroke="#999999" stroke-width="1.5"/>
+<text x="394" y="61" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">read (</text>
+<rect x="369" y="200" width="50" height="22" rx="3" fill="#fff" stroke="#333333" stroke-width="1.5"/>
+<text x="394" y="216" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">(</text>
+<rect x="369" y="174" width="50" height="22" rx="3" fill="#fff" stroke="#333333" stroke-width="1.5"/>
+<text x="394" y="190" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">(</text>
+<line x1="359" y1="224" x2="429" y2="224" stroke="#666666" stroke-width="2"/>
+<text x="394" y="245" font-size="12" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal">depth 2</text>
+<rect x="452" y="40" width="100" height="30" rx="4" fill="#a6e1f4" stroke="#999999" stroke-width="1.5"/>
+<text x="502" y="61" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">read (</text>
+<rect x="477" y="200" width="50" height="22" rx="3" fill="#fff" stroke="#333333" stroke-width="1.5"/>
+<text x="502" y="216" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">(</text>
+<rect x="477" y="174" width="50" height="22" rx="3" fill="#fff" stroke="#333333" stroke-width="1.5"/>
+<text x="502" y="190" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">(</text>
+<rect x="477" y="148" width="50" height="22" rx="3" fill="#fff" stroke="#333333" stroke-width="1.5"/>
+<text x="502" y="164" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">(</text>
+<line x1="467" y1="224" x2="537" y2="224" stroke="#666666" stroke-width="2"/>
+<text x="502" y="245" font-size="12" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal">depth 3</text>
+<rect x="560" y="40" width="100" height="30" rx="4" fill="#fde9c8" stroke="#999999" stroke-width="1.5"/>
+<text x="610" y="61" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">read )</text>
+<rect x="585" y="200" width="50" height="22" rx="3" fill="#fff" stroke="#333333" stroke-width="1.5"/>
+<text x="610" y="216" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">(</text>
+<rect x="585" y="174" width="50" height="22" rx="3" fill="#fff" stroke="#333333" stroke-width="1.5"/>
+<text x="610" y="190" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">(</text>
+<line x1="575" y1="224" x2="645" y2="224" stroke="#666666" stroke-width="2"/>
+<text x="610" y="245" font-size="12" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal">depth 2</text>
+<rect x="668" y="40" width="100" height="30" rx="4" fill="#fde9c8" stroke="#999999" stroke-width="1.5"/>
+<text x="718" y="61" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">read )</text>
+<rect x="693" y="200" width="50" height="22" rx="3" fill="#fff" stroke="#333333" stroke-width="1.5"/>
+<text x="718" y="216" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">(</text>
+<line x1="683" y1="224" x2="753" y2="224" stroke="#666666" stroke-width="2"/>
+<text x="718" y="245" font-size="12" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal">depth 1</text>
+<rect x="776" y="40" width="100" height="30" rx="4" fill="#fde9c8" stroke="#999999" stroke-width="1.5"/>
+<text x="826" y="61" font-size="14" text-anchor="middle" fill="#333333" font-weight="normal" font-style="normal" font-family="DejaVu Sans Mono, Menlo, monospace">read )</text>
+<line x1="791" y1="224" x2="861" y2="224" stroke="#666666" stroke-width="2"/>
+<text x="826" y="245" font-size="12" text-anchor="middle" fill="#666666" font-weight="normal" font-style="normal">depth 0</text>
+<text x="20" y="280" font-size="15" text-anchor="start" fill="#3e5496" font-weight="bold" font-style="normal">accept ⇔ never pop an empty stack, and the stack is empty at the end</text>
+<text x="20" y="304" font-size="14" text-anchor="start" fill="#8e2043" font-weight="normal" font-style="normal">a finite automaton cannot do this: it has no unbounded counter, and depth is unbounded</text>
+</svg>

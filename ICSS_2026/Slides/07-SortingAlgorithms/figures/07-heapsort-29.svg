@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="560" height="300" font-family="Arial, Helvetica, sans-serif">
+  <circle cx="280.0" cy="26" r="17" fill="#fff" stroke="#111" stroke-width="1.2"/>
+  <text x="280.0" y="31" text-anchor="middle" font-size="14" fill="#111" font-weight="normal" font-style="normal">18</text>
+  <rect x="127.0" y="246" width="34" height="24" fill="#cceef9" stroke="#111" stroke-width="1"/>
+  <text x="144.0" y="263" text-anchor="middle" font-size="13" fill="#111" font-weight="normal" font-style="normal">2</text>
+  <rect x="161.0" y="246" width="34" height="24" fill="#cceef9" stroke="#111" stroke-width="1"/>
+  <text x="178.0" y="263" text-anchor="middle" font-size="13" fill="#111" font-weight="normal" font-style="normal">4</text>
+  <rect x="195.0" y="246" width="34" height="24" fill="#cceef9" stroke="#111" stroke-width="1"/>
+  <text x="212.0" y="263" text-anchor="middle" font-size="13" fill="#111" font-weight="normal" font-style="normal">8</text>
+  <rect x="229.0" y="246" width="34" height="24" fill="#cceef9" stroke="#111" stroke-width="1"/>
+  <text x="246.0" y="263" text-anchor="middle" font-size="13" fill="#111" font-weight="normal" font-style="normal">10</text>
+  <rect x="263.0" y="246" width="34" height="24" fill="#cceef9" stroke="#111" stroke-width="1"/>
+  <text x="280.0" y="263" text-anchor="middle" font-size="13" fill="#111" font-weight="normal" font-style="normal">11</text>
+  <rect x="297.0" y="246" width="34" height="24" fill="#cceef9" stroke="#111" stroke-width="1"/>
+  <text x="314.0" y="263" text-anchor="middle" font-size="13" fill="#111" font-weight="normal" font-style="normal">14</text>
+  <rect x="331.0" y="246" width="34" height="24" fill="#cceef9" stroke="#111" stroke-width="1"/>
+  <text x="348.0" y="263" text-anchor="middle" font-size="13" fill="#111" font-weight="normal" font-style="normal">15</text>
+  <rect x="365.0" y="246" width="34" height="24" fill="#cceef9" stroke="#111" stroke-width="1"/>
+  <text x="382.0" y="263" text-anchor="middle" font-size="13" fill="#111" font-weight="normal" font-style="normal">16</text>
+  <rect x="399.0" y="246" width="34" height="24" fill="#cceef9" stroke="#111" stroke-width="1"/>
+  <text x="416.0" y="263" text-anchor="middle" font-size="13" fill="#111" font-weight="normal" font-style="normal">17</text>
+</svg>
