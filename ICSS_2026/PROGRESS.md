@@ -735,3 +735,18 @@ test with --tb=short, and -v after the fix), with --color=no and
 PYTHONDONTWRITEBYTECODE so the second run does not pick up a stale .pyc.
 The run_tests helper is gone. Edited in the .ipynb, executed in place,
 HTML exported with nbconvert; tools/why_04.py mirrors the new cells.
+
+2026-11-09, session 4 slide 13 "Object-oriented programming": figure now in
+a 62% column, with a code example bottom right (ana and ben created, then
+ana.describe() and ben.is_adult()). Deck 47 slides, overflow 0.
+
+2026-11-09: David edits the deck in ICSS-private/ICSS_2026/ (his own text
+changes to slides 2-13 on 2026-11-09). The slide 13 code block was added to
+that copy and the file copied back to ICSS_2026/, so the two are identical.
+Pre-merge copy of ICSS_2026's version saved in the session scratchpad.
+
+2026-11-09: one copy only. ICSS-local/ICSS_2026 is now a symlink to
+ICSS-private/ICSS_2026, the git repo copy; the old folder is
+ICSS-local/ICSS_2026-old (delete once happy). Generated files and
+Slides/unused are kept out of git by ICSS_2026/.gitignore, so committing
+needs no sync step.

@@ -1,9 +1,0 @@
-- Remove the second and third examples. Look for an example I heard about in my bachelor's that the symbian operating system of Nokia had a huge amount of code that nobody knew what it did but they couldn't remove.
-- Add a box at the end of slide 8 explaining that vibe coding is also programming (natural language to machine code automatically) but that the difference is the "flakiness", i.e. randomness in the final result
-- Add a definition of Software with a figure at the beginning of the software engineering section
-- When introducing OOP, add a slide motivating "why we use OOP?" focusing on the maintenance of code and the separation of code responsibilities in a large coding team. Add a box explaining that OOP does not make much sense for a one-person project but has become a conceptual building block of many language models, including Python.
-- Add a graphic to slide 14 about the dictionary as an object with attributes and methods. Align it with the figure on the previous slide so this is a clear example of an object (edit the previous figure if you need so).
-- Add some space between the two code blocks on slide 15.
-- Change the program example on slide 18 from "Politics" to "SEDS"
-- Change the polymorphism example so the method call is a clear object.method() kind of call, unlike len(object)
-- We need a better running example along the software engineering steps. Before editing, propose a few possibilities for social data science we can use to explain the steps in the software engineering flow.

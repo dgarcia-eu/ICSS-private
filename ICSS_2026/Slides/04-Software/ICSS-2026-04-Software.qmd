@@ -25,10 +25,10 @@ format:
 :::: {.columns}
 ::: {.column width="50%"}
 ::: {.sm}
-- Session 1: Introduction
-- Session 2: Information Coding
-- Session 3: Data Structures
-- Session 4: Software
+- *Session 1: Introduction*
+- *Session 2: Information Coding*
+- *Session 3: Data Structures*
+- **Session 4: Software**
 - Session 5: Algorithms
 - Session 6: Recursion
 - Session 7: Sorting Algorithms
@@ -65,7 +65,7 @@ format:
 [Motivating example]{.label}
 **Tea**, a US app where women warn each other about men they date, asked every
 new user for a selfie and a photo ID to prove she was a woman. In July 2025
-someone posted the address of the storage that held them: **no login, no
+someone posted the address of the storage contained all these data. There was **no login and no
 access rule.** Anyone could download everything.
 :::
 
@@ -89,7 +89,7 @@ TechCrunch and CNN, 26 July 2025; 404 Media. Many blamed vibe coding; Tea says t
 <!-- MOTIVATION:M04-A:END -->
 
 <!-- MOTIVATION:M04-D:BEGIN -->
-## The 5 millimeters nobody could move {.fit1}
+## 20 million lines of code to move 5 millimeters {.fit1}
 
 ::: {.motivation}
 [Motivating example]{.label}
@@ -111,7 +111,7 @@ that could shift it up 5mm."*
 :::
 ::::
 
-[Nobody wrote this code to be unchangeable. What makes working code impossible to change, and what keeps it changeable?]{.ask}
+[Nobody wrote this code to be unchangeable. What makes working code impossible to change? What keeps a codebase changeable?]{.ask}
 
 ::: {.source}
 Juhani Risku in The Register, 22 July 2010; All About Symbian, 4 February 2010. In 2011 Nokia replaced Symbian with Windows Phone.
@@ -144,7 +144,7 @@ A formal language for writing those instructions, either directly as machine cod
 
 ::: {.concept .sm}
 [Vibe coding is programming too]{.label}
-Natural language is turned into machine code automatically: a language model writes the source code, and an interpreter or compiler translates it. The difference is **flakiness**: the same request can give different code, and a different result, each time.
+A coding agent automatically converts natural language into machine code, thus vibe coding is a type of programming. The main difference with traditional coding is **flakiness**: the same natural language request can lead to very different codes as a result.
 :::
 
 ## Levels of programming languages
@@ -157,7 +157,7 @@ Natural language is turned into machine code automatically: a language model wri
 <li>One line becomes many machine instructions</li></ul>
 </td><td class="ex"><pre class="snippet" style="margin:0;font-size:1.0em">area = b * h / 2</pre></td></tr>
 <tr><td class="type" rowspan="2">Low-level</td><td class="ex">Assembly</td><td class="desc">
-<ul><li>Readable names for machine instructions</li></ul>
+<ul><li>Readable names for machine instructions. Machine dependent.</li></ul>
 </td><td class="ex"><pre class="snippet" style="margin:0;font-size:1.0em">LOAD r1,b
 LOAD r2,h
 MUL  r1,r2
@@ -178,7 +178,7 @@ DIV  r1,#2</pre></td></tr>
 [Interpreter: Python, R, JavaScript]{.label}
 
 - Translates and runs the code **one line at a time**, on every run
-- Errors appear when the line runs
+- Errors appear only when the line runs, never before
 :::
 
 ![](figures/04-interpreter.svg){width="100%"}
@@ -188,8 +188,8 @@ DIV  r1,#2</pre></td></tr>
 ::: {.concept .sm}
 [Compiler: C, C++, (Java)]{.label}
 
-- Translates the **whole program** once into machine code
-- Many errors appear before it runs
+- Translates the **whole program** once into machine code binary file
+- Some errors appear before it runs, others require a debugger
 :::
 
 ![](figures/04-compiler.svg){width="100%"}
@@ -206,24 +206,26 @@ Paradigms classify languages and programs by **how** they express a computation
 ::: {.column width="50%"}
 ::: {.concept .sm}
 [Imperative]{.label}
-Statements that change the program's state, step by step: **how** to compute
+Statements that change the program's state step by step. Determines **how** to compute.
 :::
 
 ::: {.concept .sm}
 [Object-oriented]{.label}
-Groups data and the instructions that operate on it into **objects**
+Groups data and the instructions that operate on it into **objects**. Models what we compute on.
 :::
 :::
 
 ::: {.column width="50%"}
 ::: {.concept .sm}
 [Declarative]{.label}
-Describes **what** the result should be, not how to compute it (SQL, session 11)
+Describes **what** the result should be, not how to compute it.  
+(for example SQL, session 11)
 :::
 
 ::: {.concept .sm}
 [Functional]{.label}
-The result is the value of functions applied to functions (recursion, session 6)
+The result is the value of functions applied to functions  
+(based on recursion, session 6)
 :::
 :::
 ::::
@@ -237,15 +239,15 @@ Python supports all of them: which one you use depends on how you write.
 :::: {.columns}
 ::: {.column width="50%"}
 ::: {.sm}
-- The program has a **state**: the current values of its variables
+- The program has a **state** composed of the current values of its variables
 - **Assignments** change the state
 :::
 :::
 
 ::: {.column width="50%"}
 ::: {.sm}
-- **Control structures** choose what runs next: conditions, loops
-- **Functions** name a block of steps, to reuse and check it
+- **Control structures** choose what runs next, for example conditionals and loops
+- **Functions** name a block of steps that can be reused and centrally changed
 :::
 :::
 ::::
@@ -273,16 +275,16 @@ def mean(xs):         # function
 :::
 ::::
 
-## Why do we use OOP? {.fit1}
+## Why do we use Object-Oriented Programming? {.fit1}
 
 ::: {.sm}
 - Large programs are written by **teams** and **maintained** for years
-- OOP gives each part of the program **one responsibility**, in one class, owned by one person or team
-- Others use a class only through its **methods**: its inside can change without breaking their code, and a bug is fixed in one place
+- The main motivation is code management: OOP gives each part of the program **one responsibility**, in one class, owned by one person or team
+- Others use a class only through its **methods**. Its code can change without affecting the other developers. Developers just need to know the object model, not the code inside.
 :::
-
+::: {.center-h}
 ![](figures/04-oop-team.svg){height="5.6em"}
-
+:::
 ::: {.concept .xs}
 [A note on scale]{.label}
 For a one-person script, OOP adds little. But it has become a conceptual building block of many programming languages, Python included: every value in Python is an object.
@@ -292,11 +294,26 @@ For a one-person script, OOP adds little. But it has become a conceptual buildin
 
 ::: {.sm}
 - An **object** bundles **data** (its *attributes*) with the **operations** on that data (its *methods*)
-- A **class** is the blueprint; every object is an **instance** of a class
+- A **class** is the blueprint. Every object is an **instance** of a class
 - You query or change an object by calling its methods: `object.method(arguments)`
 :::
 
-![](figures/04-class-objects.svg){height="9.2em"}
+:::: {.columns}
+::: {.column width="58%"}
+![](figures/04-class-objects.svg){height="8.6em"}
+:::
+
+::: {.column width="42%"}
+::: {style="font-size:0.66em; padding-top:6.2em"}
+```python
+ana = Respondent("Ana", 34)
+ben = Respondent("Ben", 16)
+ana.describe()   # 'Ana, 34 years'
+ben.is_adult()   # False
+```
+:::
+:::
+::::
 
 ## You already use objects
 
@@ -353,6 +370,7 @@ class Respondent:
         return f"{self.name}, {self.age} years"
 ```
 :::
+</br>
 
 :::: {.columns style="margin-top:2.0em"}
 ::: {.column width="50%"}

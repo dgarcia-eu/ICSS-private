@@ -1,0 +1,11 @@
+# Generated files: rebuild with quarto, rmarkdown or nbconvert
+*.html
+*_files/
+.quarto/
+__pycache__/
+_measure_*
+# Parked material, kept locally only
+Slides/unused/
+# Editor and OS clutter
+.DS_Store
+.Rhistory
