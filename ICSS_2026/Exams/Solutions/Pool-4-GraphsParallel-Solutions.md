@@ -186,7 +186,7 @@ BFS/DFS need exactly the neighbor query (`GP-05`).
 
 ## GP-07 · How edge density changes BFS complexity · 3 pts · [2023-E2 Q4d]
 
-**Where to look.** Slides: session 8, slides 25 to 28 (*Complexity of BFS*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`; session 8, slides 30 to 36 (*O-notation; Upper bound*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [08 §7 Graph algorithms: BFS](../../Transcripts/08-TimeComplexity.md#7-graph-algorithms-bfs), [08 §8 Asymptotic behavior and O-notation](../../Transcripts/08-TimeComplexity.md#8-asymptotic-behavior-and-o-notation).
+**Where to look.** Slides: session 8, slides 25 to 28 (*Complexity of BFS*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`; session 8, slides 30 to 36 (*O-notation; Upper bound*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [08 §7 Graph algorithms: BFS](../../Transcripts/08-TimeComplexity.md#7-graph-algorithms-bfs), [08 §8 Asymptotic behavior and O-notation](../../Transcripts/08-TimeComplexity.md#o-notation).
 
 **Solution.** BFS is $O(|V| + |E|)$; substitute each growth law.
 
@@ -268,7 +268,7 @@ iteration-by-iteration table, not only the last row.
 
 ## GP-09 · Complexity of Bellman-Ford · 2 pts · [2023-E1 Q4c]
 
-**Where to look.** Slides: session 8, slides 13 to 17 (*Runtime analysis*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`; session 8, slides 25 to 28 (*Complexity of BFS*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [08 §4 Runtime analysis](../../Transcripts/08-TimeComplexity.md#4-runtime-analysis), [08 §7 Graph algorithms: BFS](../../Transcripts/08-TimeComplexity.md#7-graph-algorithms-bfs).
+**Where to look.** Slides: session 8, slides 13 to 17 (*Runtime analysis*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`; session 8, slides 25 to 28 (*Complexity of BFS*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [08 §4 Runtime analysis](../../Transcripts/08-TimeComplexity.md#runtime-analysis), [08 §7 Graph algorithms: BFS](../../Transcripts/08-TimeComplexity.md#7-graph-algorithms-bfs).
 
 **Solution.** $\mathbf{O(|V| \cdot |E|)}$.
 
@@ -317,7 +317,7 @@ silently produces nonsense on negative weights.
 
 ## GP-11 · Dijkstra trace · 5 pts · [2023-Ex Q5b, 2024-Ex Q4a, 2025-Ex Q4a] · **figure**
 
-**Where to look.** Slides: session 5, slides 38 to 39 (*Examples of graph problems; Example: finding distances*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 7, slides 41 to 46 (*Heaps; Min-heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [05 §9 Breadth-First Search](../../Transcripts/05-Algorithms.md#9-breadth-first-search), [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#8-heaps-and-heapsort).
+**Where to look.** Slides: session 5, slides 38 to 39 (*Examples of graph problems; Example: finding distances*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 7, slides 41 to 46 (*Heaps; Min-heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [05 §9 Breadth-First Search](../../Transcripts/05-Algorithms.md#9-breadth-first-search), [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#heapsort).
 
 **Solution.** Edges: $a\to b\,(10)$, $a\to d\,(5)$, $b\to c\,(1)$,
 $b\to d\,(2)$, $d\to b\,(3)$, $d\to c\,(9)$, $d\to e\,(2)$, $c\to e\,(6)$,
@@ -352,7 +352,7 @@ queue was understood.
 
 ## GP-12 · Dijkstra and the cost of extractMin · 2 pts · [2025-Ex Q4b]
 
-**Where to look.** Slides: session 7, slides 41 to 46 (*Heaps; Min-heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`; session 8, slides 25 to 28 (*Complexity of BFS*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#8-heaps-and-heapsort), [08 §7 Graph algorithms: BFS](../../Transcripts/08-TimeComplexity.md#7-graph-algorithms-bfs).
+**Where to look.** Slides: session 7, slides 41 to 46 (*Heaps; Min-heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`; session 8, slides 25 to 28 (*Complexity of BFS*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#heapsort), [08 §7 Graph algorithms: BFS](../../Transcripts/08-TimeComplexity.md#7-graph-algorithms-bfs).
 
 **Solution.** `extractMin` is called exactly **once per vertex**, the `while`
 loop empties the queue, so its cost is multiplied by $|V|$ and enters the total
@@ -381,7 +381,7 @@ the exam review.
 
 ## GP-13 · Amdahl's law · 2–4 pts · [2023-Ex Q5a, 2023-E2 Q6e, 2024-Ex Q4b, 2024-E1 Q6c, 2024-E2 Q6c, 2025-Ex Q4c]
 
-**Where to look.** Slides: session 12, slides 48 to 49 (*Limits to parallelization; Amdahl's law*), in `Slides/12-ParallelProgramming/ICSS-2026-12-ParallelProgramming.qmd`. Handout: [12 §11 Amdahl's law](../../Transcripts/12-ParallelProgramming.md#11-amdahls-law).
+**Where to look.** Slides: session 12, slides 48 to 49 (*Limits to parallelization; Amdahl's law*), in `Slides/12-ParallelProgramming/ICSS-2026-12-ParallelProgramming.qmd`. Handout: [12 §11 Amdahl's law](../../Transcripts/12-ParallelProgramming.md#limitations).
 
 **Solution.** Amdahl's law:
 $$S = \frac{1}{(1-P) + \dfrac{P}{N}}$$
@@ -419,7 +419,7 @@ as $N$ grows.
 
 ## GP-14 · Maximum speedup of MapReduce · 4 pts · [2025-E1 Q6d, 2025-E2 Q6d]
 
-**Where to look.** Slides: session 12, slides 33 to 36 (*Software parallelization; MapReduce*), in `Slides/12-ParallelProgramming/ICSS-2026-12-ParallelProgramming.qmd`; session 12, slides 47 to 49 (*Limitations; Limits to parallelization; Amdahl's law*), in `Slides/12-ParallelProgramming/ICSS-2026-12-ParallelProgramming.qmd`. Handout: [12 §9 Software parallelization and MapReduce](../../Transcripts/12-ParallelProgramming.md#9-software-parallelization-and-mapreduce), [12 §11 Amdahl's law](../../Transcripts/12-ParallelProgramming.md#11-amdahls-law).
+**Where to look.** Slides: session 12, slides 33 to 36 (*Software parallelization; MapReduce*), in `Slides/12-ParallelProgramming/ICSS-2026-12-ParallelProgramming.qmd`; session 12, slides 47 to 49 (*Limitations; Limits to parallelization; Amdahl's law*), in `Slides/12-ParallelProgramming/ICSS-2026-12-ParallelProgramming.qmd`. Handout: [12 §9 Software parallelization and MapReduce](../../Transcripts/12-ParallelProgramming.md#software), [12 §11 Amdahl's law](../../Transcripts/12-ParallelProgramming.md#limitations).
 
 **Solution.** The theoretical maximum is $\mathbf{N}$, linear speedup, achieved
 only if the entire computation is parallelizable ($P = 1$ in `GP-13`), the work

@@ -11,7 +11,7 @@
 
 ## IC-01 · Convert to octal · 2–3 pts · [2023-Ex Q1a, 2023-E2 Q1a, 2024-E1 Q1a, 2025-E1 Q1a, 2025-E2 Q1a]
 
-**Where to look.** Slides: session 2, slides 17 to 30 (*Positional number systems; Conversions between number systems*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §4 Positional number systems](../../Transcripts/02-InformationCoding.md#4-positional-number-systems), [02 §5 Converting between bases](../../Transcripts/02-InformationCoding.md#5-converting-between-bases).
+**Where to look.** Slides: session 2, slides 17 to 30 (*Positional number systems; Conversions between number systems*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §4 Positional number systems](../../Transcripts/02-InformationCoding.md#number-systems), [02 §5 Converting between bases](../../Transcripts/02-InformationCoding.md#5-converting-between-bases).
 
 **Solution.**
 - $10111101_2$: group in threes from the right: $010\ 111\ 101$ → $\mathbf{275_8}$.
@@ -41,7 +41,7 @@ decimal. Award the method, not only the digits.
 
 ## IC-02 · Convert to base 32 · 2 pts · [2025-E1 Q1b, 2025-E2 Q1b]
 
-**Where to look.** Slides: session 2, slides 17 to 30 (*Positional number systems; Conversions between number systems*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §4 Positional number systems](../../Transcripts/02-InformationCoding.md#4-positional-number-systems), [02 §5 Converting between bases](../../Transcripts/02-InformationCoding.md#5-converting-between-bases).
+**Where to look.** Slides: session 2, slides 17 to 30 (*Positional number systems; Conversions between number systems*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §4 Positional number systems](../../Transcripts/02-InformationCoding.md#number-systems), [02 §5 Converting between bases](../../Transcripts/02-InformationCoding.md#5-converting-between-bases).
 
 **Solution.** Base 32 is $2^5$, so group binary digits in **fives** from the
 right. Symbols: `0`–`9` for 0–9, then `A`=10, `B`=11, …, `V`=31.
@@ -119,7 +119,7 @@ chosen, a pair with different exponents would not fit in 4 points.
 
 ## IC-06 · Add 0.125 and check exactness · 2–3 pts · [2023-E1 Q1b, 2024-Ex Q1b, 2024-E2 Q1c, 2025-Ex Q1b]
 
-**Where to look.** Slides: session 2, slides 34 to 41 (*Floating-point numbers: IEEE 754; Rounding errors*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §7 Floating-point numbers: IEEE 754](../../Transcripts/02-InformationCoding.md#7-floating-point-numbers-ieee-754), [02 §8 When rounding errors matter](../../Transcripts/02-InformationCoding.md#8-when-rounding-errors-matter).
+**Where to look.** Slides: session 2, slides 34 to 41 (*Floating-point numbers: IEEE 754; Rounding errors*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §7 Floating-point numbers: IEEE 754](../../Transcripts/02-InformationCoding.md#7-floating-point-numbers-ieee-754), [02 §8 When rounding errors matter](../../Transcripts/02-InformationCoding.md#rounding-errors).
 
 **Solution** (following `IC-04`, result 96.0):
 $96.125 = 1.501953125 \times 2^6$. Exponent $133$; fraction
@@ -141,7 +141,7 @@ everything else. Contrast with `IC-07`, where the answer is *no*.
 
 ## IC-07 · Decimal to IEEE 754, with rounding direction · 3 pts · [2025-E1 Q1d, 2025-E2 Q1c, 2023-Ex Q1c+d]
 
-**Where to look.** Slides: session 2, slides 34 to 41 (*Floating-point numbers: IEEE 754; Rounding errors*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §7 Floating-point numbers: IEEE 754](../../Transcripts/02-InformationCoding.md#7-floating-point-numbers-ieee-754), [02 §8 When rounding errors matter](../../Transcripts/02-InformationCoding.md#8-when-rounding-errors-matter).
+**Where to look.** Slides: session 2, slides 34 to 41 (*Floating-point numbers: IEEE 754; Rounding errors*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §7 Floating-point numbers: IEEE 754](../../Transcripts/02-InformationCoding.md#7-floating-point-numbers-ieee-754), [02 §8 When rounding errors matter](../../Transcripts/02-InformationCoding.md#rounding-errors).
 
 **Solution.**
 $0.225 = 1.8 \times 2^{-3}$. Exponent $-3 + 127 = 124 = 01111100_2$.
@@ -210,7 +210,7 @@ $+127$).
 
 ## IC-10 · Biasing a die to two bits · 2 pts · [2024-E1 Q1c+d, 2025-Ex Q1d]
 
-**Where to look.** Slides: session 2, slides 9 to 13 (*Measuring information in bits; Encoding information more efficiently*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §1 Information as the answer to a question](../../Transcripts/02-InformationCoding.md#1-information-as-the-answer-to-a-question), [02 §2 Measuring information in bits](../../Transcripts/02-InformationCoding.md#2-measuring-information-in-bits).
+**Where to look.** Slides: session 2, slides 9 to 13 (*Measuring information in bits; Encoding information more efficiently*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §1 Information as the answer to a question](../../Transcripts/02-InformationCoding.md#information-coding), [02 §2 Measuring information in bits](../../Transcripts/02-InformationCoding.md#2-measuring-information-in-bits).
 
 **Solution.**
 a) There are 16 equally likely outcomes and $\log_2 16 = 4$, so a fixed 4-bit
@@ -279,7 +279,7 @@ the arithmetic is not finished, as the question says.
 
 ## IC-12 · Base-4 conversion with bitwise operations · 3 pts · [2023-E1 Q1d, 2024-Ex Q1d]
 
-**Where to look.** Slides: session 2, slides 17 to 30 (*Conversions between number systems*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`; session 2, slides 50 to 55 (*Python data types and binary operations; Operators*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §5 Converting between bases](../../Transcripts/02-InformationCoding.md#5-converting-between-bases), [02 §10 Data types and bitwise operations](../../Transcripts/02-InformationCoding.md#10-data-types-and-bitwise-operations).
+**Where to look.** Slides: session 2, slides 17 to 30 (*Conversions between number systems*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`; session 2, slides 50 to 55 (*Python data types and binary operations; Operators*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §5 Converting between bases](../../Transcripts/02-InformationCoding.md#5-converting-between-bases), [02 §10 Data types and bitwise operations](../../Transcripts/02-InformationCoding.md#data-types).
 
 **Solution.** Base 4 is $2^2$, so each base-4 digit is exactly two bits. Mask off
 the low two bits, then shift right by two.
@@ -311,7 +311,7 @@ worth mentioning but not worth a point.
 
 ## IC-13 · Why 0.1 loses precision · 2 pts · [2024-E1 Q1b]
 
-**Where to look.** Slides: session 2, slides 34 to 41 (*Floating-point numbers: IEEE 754; Rounding errors*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §7 Floating-point numbers: IEEE 754](../../Transcripts/02-InformationCoding.md#7-floating-point-numbers-ieee-754), [02 §8 When rounding errors matter](../../Transcripts/02-InformationCoding.md#8-when-rounding-errors-matter).
+**Where to look.** Slides: session 2, slides 34 to 41 (*Floating-point numbers: IEEE 754; Rounding errors*), in `Slides/02-InformationCoding/ICSS-2026-02-InformationCoding.qmd`. Handout: [02 §7 Floating-point numbers: IEEE 754](../../Transcripts/02-InformationCoding.md#7-floating-point-numbers-ieee-754), [02 §8 When rounding errors matter](../../Transcripts/02-InformationCoding.md#rounding-errors).
 
 **Solution.** A binary floating-point number represents
 $\pm\, m \times 2^{e}$ with a finite significand, so it can represent exactly

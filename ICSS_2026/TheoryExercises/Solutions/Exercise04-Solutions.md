@@ -9,14 +9,468 @@
 
 ---
 
-**Where to look, for all four exercises.** The process: slides 21 to 23 (*From a script to software*, *A typical software engineering flow*, *Vibe coding in the flow*); handout [04 §5 Software engineering](../../Transcripts/04-Software.md#5-software-engineering). Requirements, specifications and design: slides 25 to 32; handout [04 §6](../../Transcripts/04-Software.md#6-requirements-specifications-and-design). Tests: slides 34 to 38 (*What is a test?* to *Test first, then generate*); handout [04 §7 Testing](../../Transcripts/04-Software.md#7-testing). Data structures: session 3, handout [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries) and the stacks and queues of [03 §3](../../Transcripts/03-DataStructures.md#3-linked-lists).
+**Where to look, for Exercises 1 and 2.** The flow and its roles: slides 22 to 25 (*From a script to software*, *A typical software engineering flow*, *Roles in a software team*, *Vibe coding in the flow*); handout [04 §5 Software engineering](../../Transcripts/04-Software.md#software-engineering). Requirements, specification and design: slides 27 to 36, where the lecture's running example, linking two panel waves, goes through the same steps; handout [04 §6](../../Transcripts/04-Software.md#requirements). Tests, the first implementation and maintenance: slides 38 to 44; handout [04 §7 Testing](../../Transcripts/04-Software.md#testing). Flakiness of generated code: slide 7 (*What is programming?*). Data structures: session 3, handout [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries).
 
 These are model answers. Other choices are just as good if they are written
-down and the tests follow from them; the questions to the client are the part
+down and the tests follow from them. The questions to the client are the part
 that matters most, because each one is a decision that would otherwise be
-made silently, by you or by a language model.
+made silently, by you or by whoever writes the code. All code below was run: the
+reference implementations pass every test shown.
 
-## Exercise 1: Counting the answers to a survey question
+## Exercise 1: The mean age of each survey wave
+
+**a) Requirements.**
+
+Functional:
+
+1. The result gives, for every wave in the data, the mean of the valid ages
+   and the number of valid ages it is based on.
+2. A skipped question (`""`) does not count, neither in the sum nor in the
+   number of respondents.
+3. Spaces around a number are ignored: `" 27"` is 27.
+4. An age is valid if it is a whole number in the age range of the survey,
+   assumed 18 to 99. Anything else, such as `"340"` or `"thirty"`, is
+   counted as invalid and reported, not silently dropped and not silently
+   used.
+5. A wave without a single valid age is reported as such, without a mean,
+   and does not stop the other waves from being computed.
+
+Non-functional: the rows are only read, never changed (safety); the result
+contains counts and means, nothing about individual respondents (privacy);
+the same data gives the same result, in the same order of waves
+(reproducibility).
+
+Questions to the client, with the assumed answer:
+
+| Question | Assumed answer |
+|---|---|
+| What is the age range of the survey? | 18 to 99; anything outside is a typing error. |
+| What should happen with ages that are not a number, or out of range? | Leave them out of the mean, and report how many there were per wave. |
+| Should skipped answers count? | No; report how many there were. |
+| Should the mean be rounded? | Not in the function; the report shows one decimal. |
+| Should "thirty" be read as 30? | No; it is counted as invalid. Guessing would make the result depend on how well we guess. |
+
+The lecture's `mean_age(ages)` took a clean list of ints; most of the work
+here is in getting from the form's text to that list, and that is where the
+requirements are.
+
+**b) Specification.**
+
+```python
+def mean_age_by_wave(rows, low=18, high=99):
+    """Return the mean of the valid ages in each wave.
+
+    rows: a list of dicts with "wave" (int) and "age" (str, the text typed
+          in the form; "" if the question was skipped).
+    An age is valid if, without surrounding spaces, it is a whole number
+    from low to high. "" is a skipped answer; any other text is invalid.
+    Returns: a dict from each wave in rows, in increasing order, to a dict
+             with "mean" (the mean of the valid ages, a float, not rounded;
+             None if the wave has no valid age), "answered" (the number of
+             valid ages), "skipped" and "invalid".
+    An empty list gives {}. The rows are not modified.
+    """
+```
+
+**c) Design.**
+
+- `classify(text, low, high)` returns `("answered", age)`, `("skipped", None)`
+  or `("invalid", None)` for one text from the form. All the rules about what
+  a valid age is live here.
+- `mean_age(ages)` is the lecture's function: the mean of a non-empty list of
+  ints, raising `ValueError` for an empty list.
+- `mean_age_by_wave(rows)` groups the valid ages by wave, counts the three
+  kinds of answer, and calls `mean_age` for each wave, with `None` where it
+  raises.
+- `report(result)` prints one line per wave, with the mean rounded to one
+  decimal and the three counts.
+
+A **dictionary** from wave to a **list** of valid ages connects the parts:
+grouping is a lookup by key, and the list collects the ages of one wave in
+any order. A second dictionary from wave to the three counts keeps the
+skipped and invalid answers visible. Reusing `mean_age` means the part that
+was already specified and tested in the lecture is not written again.
+
+**d) Tests.**
+
+```python
+ROWS = [{"wave": 1, "age": "34"}, {"wave": 1, "age": ""},
+        {"wave": 1, "age": " 27"}, {"wave": 2, "age": "19"},
+        {"wave": 2, "age": "340"}, {"wave": 2, "age": "thirty"}]
+
+def test_example_from_the_form():
+    r = mean_age_by_wave(ROWS)
+    assert r[1] == {"mean": 30.5, "answered": 2, "skipped": 1, "invalid": 0}
+    assert r[2] == {"mean": 19.0, "answered": 1, "skipped": 0, "invalid": 2}
+
+def test_boundaries_of_the_age_range():
+    rows = [{"wave": 1, "age": a} for a in ["18", "99", "17", "120"]]
+    r = mean_age_by_wave(rows)[1]
+    assert r["answered"] == 2 and r["invalid"] == 2 and r["mean"] == 58.5
+
+def test_wave_without_valid_age():
+    assert mean_age_by_wave([{"wave": 3, "age": ""}])[3]["mean"] is None
+
+def test_empty_list():
+    assert mean_age_by_wave([]) == {}
+
+def test_counts_add_up():
+    r = mean_age_by_wave(ROWS)
+    assert sum(r[w][k] for w in r
+               for k in ("answered", "skipped", "invalid")) == len(ROWS)
+
+def test_rows_are_not_modified():
+    rows = [{"wave": 1, "age": " 27"}]
+    mean_age_by_wave(rows)
+    assert rows == [{"wave": 1, "age": " 27"}]
+```
+
+The boundary test checks both sides of both limits, 17 and 18, 99 and 120,
+because `<` instead of `<=` is the most common way to get a range wrong.
+
+**e) Implementation.** On the example rows, the coder's function stops with
+`ValueError: invalid literal for int() with base 10: 'thirty'`. That is the
+good failure: it is loud. Without the last row it returns
+`{1: 20.33, 2: 179.5}`, and both numbers are wrong in the quiet way:
+
+- `int(row["age"] or 0)` turns the skipped answer `""` into an age of 0, and
+  the respondent is counted. Wave 1 gets $(34 + 0 + 27) / 3 = 20.3$ instead of
+  $(34 + 27) / 2 = 30.5$. This is the bug of the lecture's first
+  `mean_age`, in a new form.
+- `"340"` is a valid int, so the typing error enters the mean: wave 2 gets
+  $(19 + 340) / 2 = 179.5$.
+- `int(" 27")` is 27, because Python's `int` ignores surrounding spaces, so
+  this case happens to work.
+
+Against the tests of d): `test_example_from_the_form` and `test_counts_add_up`
+fail with the `ValueError` on `"thirty"`; `test_boundaries_of_the_age_range` and
+`test_wave_without_valid_age` fail because the function returns a bare float
+instead of the specified dictionary, and on content it would have failed too,
+with a mean of 63.5 that includes 17 and 120, and a mean of 0.0 for a wave in
+which nobody answered. `test_empty_list` and `test_rows_are_not_modified` pass.
+A function that fails on the format alone would be easy to fix; the content
+failures are the ones the tests are for.
+
+**f) Maintenance.**
+
+- The number of people who answered is already in the result (`"answered"`),
+  because the requirements asked for it; only `report` has to show it.
+- The median is a new function, `median_age(ages)`, next to `mean_age`, with
+  its own specification (what is the median of an even number of ages?) and
+  tests, including one with an even and one with an odd number of ages.
+  `mean_age_by_wave` gets one more key, `"median"`, and its tests one more
+  expected value each.
+- The drop-down menu changes what `classify` receives: text that is always a
+  valid number or `""`. The function does not have to change, and its tests
+  stay, because the old data from waves 1 and 2 still has typed ages. A new
+  test checks a value exactly as the drop-down writes it, for example
+  `"99+"` if the menu has such an option, which the client has to be asked
+  about.
+- A third wave needs no change at all: waves are keys of a dictionary, not
+  fixed in the code. A test with three waves confirms it.
+- All the tests written for d) are run again after the change, as
+  *regression tests*: they check that the new version still does what the
+  old one did.
+
+## Exercise 2: How often do parties talk about climate?
+
+**a) Requirements.**
+
+Functional:
+
+1. For every party and year, the result gives the number of speeches that
+   mention the topic and the number of all speeches, so that the share of
+   speeches about the topic can be compared between parties of different
+   size.
+2. A speech mentions the topic if its text contains one of a list of terms,
+   ignoring upper and lower case. The list is an input, not part of the code.
+3. A speech counts once, however often it mentions the topic.
+4. Parties and years with speeches but no mention appear with 0, so that
+   "no mention" is distinguishable from "no data".
+5. Dates that are not of the form `YYYY-MM-DD` are an error and stop the
+   program, because a wrong year moves speeches between the years that the
+   client wants to compare.
+
+Non-functional: the result is reproducible: the same speeches and the same
+list of terms give the same table, also on another computer, and the list of
+terms is saved with every result (reproducibility). It runs on all speeches
+of ten years in reasonable time, so it reads the text only once
+(performance). The speech data is only read (safety). Speeches in Parliament
+are public, so privacy is not the main concern here, although the speaker
+names are not needed for the result and do not have to appear in it.
+
+Questions to the client, with the assumed answer:
+
+| Question | Assumed answer |
+|---|---|
+| Which words count as "about climate"? | Start with `"climate"`; the list is a parameter and can grow. |
+| Count mentions or speeches? | Speeches: one long speech should not outweigh many short ones. |
+| Absolute numbers or shares? | Both: the number of speeches mentioning the topic and the number of all speeches, so shares are one division away. Parties with more members give more speeches. |
+| What about "business climate" or "a climate of fear"? | They count; we read a random sample of 50 matched speeches to estimate how often that happens, and report it. |
+| What about speeches by the Speaker of the House, who chairs the debate? | Leave them out when reading the data: they are procedural, not party positions. |
+| Which party does an MP who changed party count for? | The party at the date of the speech, as in the data. |
+
+The first four rows are the measurement. Each choice changes the numbers,
+and two people with the same data and different choices can reach different
+conclusions about whether climate grew as a topic after 2019. That is why
+they belong in the specification, where they can be read and criticized,
+rather than in code that a coder chose alone.
+
+**b) Specification.**
+
+```python
+def topic_by_party_year(speeches, terms):
+    """Count the speeches that mention a topic, per party and year.
+
+    speeches: a list of dicts with "party" (str), "date" (str, "YYYY-MM-DD")
+              and "text" (str).
+    terms: the words and phrases that mark the topic, in lower case,
+           e.g. ("climate", "global warming", "net zero").
+    A speech mentions the topic if its text, in lower case, contains one of
+    the terms. A speech counts once, however often it mentions the topic.
+    Returns: a dict from (party, year) to (mentioning, total), the number of
+             speeches that mention the topic and the number of all speeches,
+             for every party and year with at least one speech; year is an int.
+    Raises: ValueError if a date is not of the form YYYY-MM-DD.
+    The speeches are not modified, and their order does not change the result.
+    An empty list gives {}.
+    """
+```
+
+**c) Design.**
+
+- `read_speeches(path)` reads the data into the list of dictionaries and
+  leaves out the procedural speeches of the Speaker of the House.
+- `mentions(text, terms)` returns `True` if the text, in lower case, contains
+  one of the terms. This one line is the measurement of the concept, and
+  keeping it in its own function means it can be tested, read and changed in
+  one place.
+- `topic_by_party_year(speeches, terms)` as specified.
+- `report(counts, terms)` writes the table of shares per party and year,
+  together with the list of terms and the date of the run.
+
+A **dictionary** keyed by the pair (party, year) holds the counts: every
+speech is one lookup and one update, and the pair is a valid key because a
+tuple cannot change (session 3: keys must not change while they are in the
+table). The terms are a tuple, since their order does not matter and they do
+not change during a run; a **set** of terms works just as well. Reading the
+text once per speech and checking all terms there keeps the running time
+proportional to the amount of text.
+
+**d) Tests.**
+
+```python
+CLIMATE = ("climate",)
+
+def sp(party, date, text):
+    return {"party": party, "date": date, "text": text}
+
+def test_typical():
+    s = [sp("Labour", "2019-05-01", "We must act on climate."),
+         sp("Labour", "2019-06-01", "Schools need money.")]
+    assert topic_by_party_year(s, CLIMATE) == {("Labour", 2019): (1, 2)}
+
+def test_case_is_ignored():
+    s = [sp("Labour", "2019-05-01", "The Climate Change Act")]
+    assert topic_by_party_year(s, CLIMATE) == {("Labour", 2019): (1, 1)}
+
+def test_a_speech_counts_once():
+    s = [sp("Green", "2020-01-01", "climate, climate, climate")]
+    assert topic_by_party_year(s, CLIMATE) == {("Green", 2020): (1, 1)}
+
+def test_years_without_mentions_appear():
+    s = [sp("SNP", "2016-03-03", "Fishing quotas.")]
+    assert topic_by_party_year(s, CLIMATE) == {("SNP", 2016): (0, 1)}
+
+def test_phrases():
+    s = [sp("Labour", "2021-01-01", "Global warming is real."),
+         sp("Labour", "2021-02-01", "A global market.")]
+    assert topic_by_party_year(s, ("global warming",)) == {("Labour", 2021): (1, 2)}
+
+def test_bad_date_raises():
+    with pytest.raises(ValueError):
+        topic_by_party_year([sp("Labour", "01.05.2019", "climate")], CLIMATE)
+
+def test_empty():
+    assert topic_by_party_year([], CLIMATE) == {}
+
+def test_order_does_not_matter():
+    s = [sp("Labour", "2019-05-01", "climate"),
+         sp("Conservative", "2019-05-02", "tax")]
+    assert topic_by_party_year(s, CLIMATE) == topic_by_party_year(s[::-1], CLIMATE)
+
+def test_input_is_not_modified():
+    s = [sp("Labour", "2019-05-01", "Climate")]
+    topic_by_party_year(s, CLIMATE)
+    assert s == [sp("Labour", "2019-05-01", "Climate")]
+```
+
+No test checks that "business climate" is left out, because the
+specification says it counts. Tests check the specification, not the
+concept; whether the specification measures the concept well is checked
+differently, by reading a sample of matched speeches.
+
+**e) Implementation.** The two functions answer two different questions:
+
+- **Coder A** counts *mentions* of the lower-case string `"climate"`. It
+  misses `"Climate"` at the start of a sentence or in "Climate Change Act",
+  counts a speech with ten mentions ten times, and keeps the year as a
+  string.
+- **Coder B** counts *speeches* that contain `"climate"` in any case, which
+  matches the specification better, keeps the year as an int, but leaves out
+  every party and year without a mention, so "no mention" and "no data" look
+  the same.
+- Neither counts the speeches that do *not* mention the topic, so neither
+  gives shares. The party with the most MPs gives the most speeches and will
+  look like the party that talks most about climate, whatever its interest in
+  the topic. That is the most serious error, and no error message points to
+  it.
+- Neither has a list of terms, so 'global warming' cannot be added without
+  changing the code.
+
+They give different results on any speech with "Climate" in capitals (A: 0,
+B: 1) and on any speech with more than one mention (A: the number of
+mentions, B: 1). On real speeches, both happen all the time.
+
+Against the tests of d): A fails six, all but `test_empty`,
+`test_order_does_not_matter` and `test_input_is_not_modified`; on
+`test_years_without_mentions_appear` it is right on content, since it keeps
+the key with 0, but it returns a count instead of a pair and the year as a
+string. B fails five, and passes
+`test_bad_date_raises` only by accident: `int("01.0")` raises a `ValueError`,
+although no line of B checks the date. Several failures are about the format
+of the result; the ones that matter are the capital letters (A), the
+repeated mentions (A), the missing zeros (B) and the missing totals (both).
+
+What this means: the same message, given to two coders, gave two programs
+that measure two different things. It is not a bug of one of the two
+programs; the message left the measurement open, and each coder closed it in
+a different way, without telling anyone. The same happens when one coding
+agent gets the same message twice, the **flakiness** of slide 7. A result
+produced this way cannot be reproduced from the message, only from the code,
+and nobody decided what was measured. The specification of b) closes the question once,
+in writing, and the tests check every implementation against it, whoever or
+whatever wrote it.
+
+**f) Maintenance.**
+
+- Adding "global warming" and "net zero" changes no code at all, because the
+  terms are a parameter: `terms = ("climate", "global warming", "net zero",
+  "net-zero")`. The hyphenated form is needed because "net zero" is often
+  written "net-zero", and a substring match does not see the two as the same.
+  The old results, with `("climate",)` alone, have to be kept and labeled with
+  their list of terms, so that the paper can say which numbers come from which
+  list.
+- Running on the 2025 speeches changes nothing if the data has the same
+  format. A test with one speech in the new format, read with
+  `read_speeches`, checks that this is the case before the full run.
+- The colleague's migration topic is the same program with a different list
+  of terms. It is also a warning: a substring match for `"migration"` also
+  finds "immigration" and "emigration", and whether that is wanted is a new
+  requirement for that colleague to answer. If the answer is no, `mentions`
+  needs whole-word matching, a change to the specification, then to the
+  tests, then to the code, in that order.
+- All existing tests are rerun after every change. A new test for
+  `test_phrases` with the hyphenated "net-zero" records the reviewer's point,
+  so the next version cannot lose it.
+
+## Additional practice
+
+### A1. Functional or non-functional?
+
+**Where to look.** Slide 29 (*Functional and non-functional requirements*). Handout: [04 §6](../../Transcripts/04-Software.md#requirements).
+
+a) functional. b) non-functional, performance. c) non-functional, privacy.
+d) functional: it says what output (an error) the program gives for an input.
+e) non-functional, safety. f) non-functional, reproducibility.
+g) non-functional, security.
+
+### A2. The questions a coder will not ask
+
+**Where to look.** Slides 31 to 33 (*An ambiguous request*, *Writing the specification*, *The specification is the coder's instructions*).
+
+Open questions: in which format are the birth dates written (`"1990-03-05"`,
+`"05.03.1990"`, or date objects)? Age at which date: today, or the date of the
+interview? Age in completed years, or with decimals? What happens with a
+missing birth date? What with an impossible one, in the future or giving an
+age over 120? Is the data modified, or is a new list returned?
+
+Rewritten instructions: *"Write `ages(birth_dates, interview_dates)`. Both are
+lists of strings `"DD.MM.YYYY"` of the same length. Return a list of ints: the
+age in completed years on the interview date. Return None for a missing birth
+date and raise ValueError for a birth date after the interview date. Do not
+modify the input lists; use only the standard library."*
+
+### A3. Which test is missing?
+
+**Where to look.** Slides 38 to 42 (*What is a test?* to *Choosing test cases*).
+
+Not tested: that `None` answers are ignored, that the `ValueError` is raised,
+and that the list is not modified. Missing tests:
+
+```python
+def test_missing_answers_are_ignored():
+    assert share_yes(["yes", None, "no", None]) == 0.5
+
+def test_no_valid_answer_raises():
+    with pytest.raises(ValueError):
+        share_yes([None, None])
+
+def test_input_is_not_modified():
+    answers = ["yes", None]
+    share_yes(answers)
+    assert answers == ["yes", None]
+```
+
+A wrong implementation that passes the two given tests:
+`return answers.count("yes") / len(answers)`. It gives 0.75 and 1.0 on the
+given cases, but 0.25 instead of 0.5 on the first missing test, because it
+divides by all answers including `None`; it returns 0.0 instead of raising
+`ValueError` for `[None, None]`, and raises `ZeroDivisionError` for `[]`. Two passing tests said nothing about
+the lines of the specification they did not cover.
+
+### A4. Choosing a data structure
+
+**Where to look.** Slide 36 (*Design: choosing the data structures*); session 3.
+
+a) A list: the order of the questions matters. b) A dictionary from code to
+label: lookup by key. c) A set: the only question is membership, and a set
+answers it in constant time. d) A queue: first in, first out. e) A stack: last
+in, first out, so the most recent step is undone first.
+
+### A5. Compilers, interpreters and research code
+
+**Where to look.** Slides 8 and 9 (*Levels of programming languages*, *Interpreter vs. compiler*). Handout: [04 §1 What programming is](../../Transcripts/04-Software.md#programming).
+
+a) (i) The 50× may be irrelevant if the bottleneck is reading data, or if the
+slow part already runs in a compiled library like NumPy: you would rewrite the
+part that is already fast. (ii) Your time is a cost: six hours of computer
+time once is cheaper than two weeks of your time plus a new class of bugs, and
+the C version would need its own tests. Measure first which part is slow,
+then improve that part (session 8).
+
+b) An interpreter translates each line only when it runs, so an error in a
+branch that never runs, say the `else` for a rare answer code, is never
+reported. Test cases should therefore make every branch run at least once:
+the rare codes, the missing values, the empty input.
+
+### A6. Rules that need more than instructions
+
+**Where to look.** Slides 25 and 33 (*Vibe coding in the flow*, *The specification is the coder's instructions*).
+
+a) and c) can go in the instructions. They are wishes about the code, and you can
+check them by reading the code or with a test; if the coder ignores them, the
+result is inconvenient, not harmful. b) and d) must be enforced by the system,
+because breaking them once does damage that cannot be undone. b): run the
+agent with permission to change only the project folder, ask for confirmation
+before any delete command, and keep backups. d): give the agent no access to
+the production database at all, with separate development and production
+data, which is what the platform Replit did in July 2025 after its AI agent
+deleted a production database during a code freeze.
+
+### A7. Counting survey answers
+
+**Where to look.** As for Exercises 1 and 2, at the top of this file; the queue of A8 is in session 3, handout [03 §3 Linked lists](../../Transcripts/03-DataStructures.md#linked-lists).
 
 **a) Requirements.**
 
@@ -106,13 +560,15 @@ def test_input_is_not_modified():
     assert answers == ["Bus", None]
 ```
 
-The example from the client's message, `["bus", "bike", None, "car", "bus",
+The example from the exercise, `["bus", "bike", None, "car", "bus",
 "Bus"]`, gives bus 3, bike 1, car 1, walk 0, no answer 1, invalid 0. The
-version a language model writes from the one-line request typically gives bus
+version a coder writes from the one-line request alone often gives bus
 2 and a separate key `"Bus"` with 1, and fails on `None` or counts it as a
 key: both are caught by the second and third tests.
 
-## Exercise 2: The seminar waiting list
+### A8. The seminar waiting list
+
+**Where to look.** As for Exercises 1 and 2, at the top of this file; the queue of A8 is in session 3, handout [03 §3 Linked lists](../../Transcripts/03-DataStructures.md#linked-lists).
 
 **a) Requirements.**
 
@@ -233,90 +689,9 @@ def test_never_more_places_than_capacity():
     assert len(s["places"]) == 2
 ```
 
-## Exercise 3: Who took part in both waves?
+### A9. Grades from exercise points
 
-**a) Requirements.**
-
-Functional:
-
-1. The result is the list of respondent IDs that appear in both waves, sorted.
-2. The number of respondents in both waves is reported.
-3. An ID that appears twice in the same wave is counted once.
-4. IDs are compared exactly as written; `"007"` and `"7"` are different IDs.
-
-Non-functional: the email addresses are not needed for this task, so the
-result, and any file written from it, contains **no email addresses**
-(privacy). This is the requirement that the client did not state and would
-certainly agree with: the emails are personal data, and a list of panel
-participants with their email addresses is exactly the kind of file that
-should never be shared by accident. The two input files are never modified
-(safety).
-
-Questions to the client, with the assumed answer:
-
-| Question | Assumed answer |
-|---|---|
-| Are IDs numbers or text, and can they have leading zeros? | Text; leading zeros are kept. |
-| What about someone who submitted a wave twice? | They count once. |
-| Should we also match on email, for people who got a new ID? | No; match on ID only, and report the question back. |
-| Sorted how? | As text, which for IDs of equal length is numeric order. |
-| Is the list of IDs shared with anyone else? | Assume it may be, so it contains IDs only. |
-
-**b) Specification.**
-
-```python
-def in_both_waves(wave1, wave2):
-    """Return the respondents who took part in both waves.
-
-    wave1, wave2: lists of pairs (respondent_id, email); respondent_id is a
-                  string. The same ID may appear more than once in a list.
-    Returns: a sorted list of the distinct IDs that appear in both lists; the
-             number of respondents in both waves is its length.
-    The result contains no email addresses. The input lists are not modified.
-    """
-```
-
-**c) Design.**
-
-- `ids(wave)` returns the **set** of IDs in a wave; this is the step that
-  drops the email addresses and removes duplicates.
-- `in_both_waves(wave1, wave2)` returns `sorted(ids(wave1) & ids(wave2))`.
-- `report(ids_in_both)` prints the count and writes the IDs to a file.
-
-A set is the right structure because the task is membership: "is this ID also
-in the other wave?". With $n$ respondents per wave, the intersection of two
-sets takes time proportional to $n$, while checking every ID of one list
-against the other list takes time proportional to $n^2$, the difference timed
-in the WhyItMatters notebook of session 3. The result is a list, since it has
-to be sorted. Dropping the emails in the very first function means that no
-later part of the program can leak them.
-
-**d) Tests.**
-
-```python
-W1 = [("001", "a@x.de"), ("002", "b@x.de"), ("003", "c@x.de")]
-W2 = [("003", "c@x.de"), ("001", "a@y.de"), ("004", "d@x.de")]
-
-def test_typical():
-    assert in_both_waves(W1, W2) == ["001", "003"]
-
-def test_duplicates_count_once():
-    assert in_both_waves(W1 + [("001", "a@x.de")], W2) == ["001", "003"]
-
-def test_nobody_in_both():
-    assert in_both_waves([("001", "a@x.de")], [("002", "b@x.de")]) == []
-
-def test_empty_wave():
-    assert in_both_waves([], W2) == []
-
-def test_leading_zeros_are_kept():
-    assert in_both_waves([("007", "a@x.de")], [("7", "a@x.de")]) == []
-
-def test_no_email_in_result():
-    assert all("@" not in x for x in in_both_waves(W1, W2))
-```
-
-## Exercise 4: Grades from exercise points
+**Where to look.** As for Exercises 1 and 2, at the top of this file; the queue of A8 is in session 3, handout [03 §3 Linked lists](../../Transcripts/03-DataStructures.md#linked-lists).
 
 **a) Requirements.**
 
@@ -422,97 +797,3 @@ The boundary tests, exactly half and just below, are where an implementation
 most often goes wrong: writing `>` instead of `>=` fails the second test, and
 leaving `None` out of the count of sheets would let a student pass with half
 the points of only the sheets they handed in.
-
-## Additional practice
-
-### A1. Functional or non-functional?
-
-**Where to look.** Slide 26 (*Functional and non-functional requirements*). Handout: [04 §6](../../Transcripts/04-Software.md#6-requirements-specifications-and-design).
-
-a) functional. b) non-functional, performance. c) non-functional, privacy.
-d) functional: it says what output (an error) the program gives for an input.
-e) non-functional, safety. f) non-functional, reproducibility.
-g) non-functional, security.
-
-### A2. The questions a model will not ask
-
-**Where to look.** Slides 28 to 30 (*An ambiguous request*, *Writing the specification*, *The specification is your prompt*).
-
-Open questions: in which format are the birth dates written (`"1990-03-05"`,
-`"05.03.1990"`, or date objects)? Age at which date: today, or the date of the
-interview? Age in completed years, or with decimals? What happens with a
-missing birth date? What with an impossible one, in the future or giving an
-age over 120? Is the data modified, or is a new list returned?
-
-A rewritten prompt: *"Write `ages(birth_dates, interview_dates)`. Both are
-lists of strings `"DD.MM.YYYY"` of the same length. Return a list of ints: the
-age in completed years on the interview date. Return None for a missing birth
-date and raise ValueError for a birth date after the interview date. Do not
-modify the input lists; use only the standard library."*
-
-### A3. Which test is missing?
-
-**Where to look.** Slides 34 to 37 (*What is a test?* to *Choosing test cases*).
-
-Not tested: that `None` answers are ignored, that the `ValueError` is raised,
-and that the list is not modified. Missing tests:
-
-```python
-def test_missing_answers_are_ignored():
-    assert share_yes(["yes", None, "no", None]) == 0.5
-
-def test_no_valid_answer_raises():
-    with pytest.raises(ValueError):
-        share_yes([None, None])
-
-def test_input_is_not_modified():
-    answers = ["yes", None]
-    share_yes(answers)
-    assert answers == ["yes", None]
-```
-
-A wrong implementation that passes the two given tests:
-`return answers.count("yes") / len(answers)`. It gives 0.75 and 1.0 on the
-given cases, but 0.25 instead of 0.5 on the first missing test, because it
-divides by all answers including `None`; it returns 0.0 instead of raising
-`ValueError` for `[None, None]`, and raises `ZeroDivisionError` for `[]`. Two passing tests said nothing about
-the lines of the specification they did not cover.
-
-### A4. Choosing a data structure
-
-**Where to look.** Slide 32 (*Design: choosing the data structures*); session 3.
-
-a) A list: the order of the questions matters. b) A dictionary from code to
-label: lookup by key. c) A set: the only question is membership, and a set
-answers it in constant time. d) A queue: first in, first out. e) A stack: last
-in, first out, so the most recent step is undone first.
-
-### A5. Compilers, interpreters and research code
-
-**Where to look.** Slides 9 and 10 (*Levels of programming languages*, *Interpreter vs. compiler*). Handout: [04 §1 What programming is](../../Transcripts/04-Software.md#1-what-programming-is).
-
-a) (i) The 50× may be irrelevant if the bottleneck is reading data, or if the
-slow part already runs in a compiled library like NumPy: you would rewrite the
-part that is already fast. (ii) Your time is a cost: six hours of computer
-time once is cheaper than two weeks of your time plus a new class of bugs, and
-the C version would need its own tests. Measure first which part is slow,
-then improve that part (session 8).
-
-b) An interpreter translates each line only when it runs, so an error in a
-branch that never runs, say the `else` for a rare answer code, is never
-reported. Test cases should therefore make every branch run at least once:
-the rare codes, the missing values, the empty input.
-
-### A6. Rules that do not belong in a prompt
-
-**Where to look.** Slides 23 and 30 (*Vibe coding in the flow*, *The specification is your prompt*); motivating examples on slides 5 and 6.
-
-a) and c) can go in the prompt. They are wishes about the code, and you can
-check them by reading the code or with a test; if the model ignores them, the
-result is inconvenient, not harmful. b) and d) must be enforced by the system,
-because breaking them once does damage that cannot be undone. b): run the
-agent with permission to change only the project folder, ask for confirmation
-before any delete command, and keep backups. d): give the agent no access to
-the production database at all, with separate development and production
-data, which is what Replit did after its agent deleted a production database
-during a code freeze.

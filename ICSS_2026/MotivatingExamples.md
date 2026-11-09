@@ -66,10 +66,8 @@ decks. After selection it will be off by however many you kept, usually one.
 
 - [ ] **M04-A**: *The app that leaked 13,000 photo IDs*  
   <small>Tea stored 13,000 selfies and photo IDs where anyone could download them: an obvious requirement that nobody wrote down or tested.</small>
-- [ ] **M04-B**: *"Clear the cache", said the developer*  
-  <small>Asked to clear a cache, Google's Antigravity agent deleted a developer's whole D: drive, then apologized: a command nobody checked against what was meant.</small>
-- [ ] **M04-C**: *The code freeze that was only a sentence*  
-  <small>Replit's AI agent deleted a production database during a code freeze that existed only as a sentence in a chat.</small>
+- [ ] **M04-D**: *The 5 millimeters nobody could move*  
+  <small>Nokia's Symbian grew to 20 million lines in one phone, and nobody could find the code to move a screen element by 5 mm.</small>
 
 
 ## Session 5: Algorithms

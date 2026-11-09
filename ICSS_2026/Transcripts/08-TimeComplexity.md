@@ -1,32 +1,23 @@
 # Session 8: Time Complexity
 
+<style>
+figure, .figure, .float { margin: 1.4em 0 1.8em 0; }
+figure img, .float img { display: block; max-width: 100%; }
+figcaption, .figcaption, .figure p.caption { margin-top: 0.3em; font-size: 0.88em; color: #555; }
+</style>
+
 *Introduction to Computing for the Social Sciences · lecture transcript*
 
-> Companion text for lecture 8. Notation follows
-> [the course conventions](00-Conventions.md).
->
-> **Reading for this session:** Chapters 9 and 10 of Guttag, *Introduction to
-> Computation and Programming Using Python* (2016). References at the end.
+**Reading for this session:** Chapters 9 and 10 of Guttag, *Introduction to
+Computation and Programming Using Python* (2016). References at the end.
 
 ---
 
 ## Contents
 
-<!-- MOTIVATION-TOC:BEGIN -->
-0. [Motivating examples](#motivating-examples)
-<!-- MOTIVATION-TOC:END -->
-1. [The question](#1-the-question)
-2. [Three kinds of complexity](#2-three-kinds-of-complexity)
-3. [Why it matters: some numbers](#3-why-it-matters-some-numbers)
-4. [Runtime analysis](#4-runtime-analysis)
-5. [Best, average and worst case](#5-best-average-and-worst-case)
-6. [Recursive algorithms: mergesort](#6-recursive-algorithms-mergesort)
-7. [Graph algorithms: BFS](#7-graph-algorithms-bfs)
-8. [Asymptotic behavior and O-notation](#8-asymptotic-behavior-and-o-notation)
-9. [Using O-notation](#9-using-o-notation)
-10. [Why this matters for us](#10-why-this-matters-for-us)
-11. [Check yourself](#11-check-yourself)
-12. [References](#12-references)
+1. [Complexity](#complexity)
+2. [Runtime analysis](#runtime-analysis)
+3. [O-notation](#o-notation)
 
 ---
 
@@ -34,8 +25,8 @@
 ## Motivating examples
 
 Three candidate openings for this session, each a real situation the
-material is the answer to. **One of these will be used in the lecture**;
-the others are kept here because they are worth reading anyway.
+material is the answer to. **One of these will be used in the lecture**,
+while the others are kept here because they are worth reading anyway.
 
 <!-- MOTIVATION:M08-A:BEGIN -->
 ### A · It ran fine on the pilot
@@ -51,17 +42,17 @@ more data means a million times more time, $4\,\text{s} \times 10^6 = 4
 \times 10^6\,\text{s}$, about 46 days. If it grows as $n \log n$, as a sort
 does, then about 90 minutes. And if it is exponential, the pilot was the
 largest instance you will ever solve. Same code, same machine, same four
-seconds. What separates 67 minutes from 46 days is not the speed of anything:
-it is the shape of the growth, and that is a property you can read off the
+seconds. What separates 67 minutes from 46 days is not the speed of anything.
+It is the shape of the growth, and that is a property you can read off the
 code before running it at all.
 
 This is why timing on a small case tells you so little, and why the advice
 to optimize later if it turns out slow is bad advice. A constant-factor
 optimization, whether better hardware, a faster language or more cores, buys
-you a factor of ten or a hundred; going from quadratic to linear at $n =
+you a factor of ten or a hundred, while going from quadratic to linear at $n =
 10^6$ buys you a factor of a million. The first cannot substitute for the
 second, and no amount of engineering rescues the wrong growth rate. There is
-a second-order lesson in the arithmetic: the crossover is often past the
+a second-order lesson in the arithmetic, namely that the crossover is often past the
 pilot. At $n = 1\,000$ a quadratic algorithm with a small constant can easily
 beat a linear one with a large constant, which is exactly why the pilot did
 not warn you. Asymptotic behavior is invisible at small $n$ by definition.
@@ -73,7 +64,7 @@ on which laptop you used. Section 8 is about O-notation, the tool for saying
 the code. Section 5 is about the best, average and worst cases, because "how
 long will it take" has three answers, and they can be very far apart.
 Sections 3 and 9 put the growth rates side by side, which is the table to
-keep: the difference between $\log n$, $n$, $n \log n$, $n^2$ and $2^n$ at
+keep, i.e. the difference between $\log n$, $n$, $n \log n$, $n^2$ and $2^n$ at
 realistic sizes. The skill this session really teaches is to look at a piece
 of code and say how its cost grows before you run it. After this session you
 should be able to look at your own pilot script and predict which of the four
@@ -114,9 +105,9 @@ there. That is a factor of 20 000, and at a few million operations per second
 in an interpreted language it is roughly an hour and a half against well
 under a second.
 
-Now the part that matters for how you read code: you did not have to run
+Now the part that matters for how you read code. You did not have to run
 anything to know this, you read the shapes. A loop inside a loop over a
-different collection costs the product of the two sizes; this is the single
+different collection costs the product of the two sizes, and this is the single
 most common source of accidental quadratic behavior, and it appears every
 time someone writes "for each X, look through the Y". Two loops one after
 another cost the sum of the two sizes. Nested means multiply and sequential
@@ -145,34 +136,34 @@ page and checked whether it matched. At an implausibly generous one billion
 pages per second, that is ten seconds per query, and only for the looking,
 with no ranking, no relevance and no concurrent users. Real answers arrive in
 about 0.3 seconds, for millions of simultaneous queries. Brute force is not
-slow here; it is off by orders of magnitude that no hardware budget closes.
+slow here. It is off by orders of magnitude that no hardware budget closes.
 So the answer cannot be that the machines are fast. It has to be that the
 procedure does not look at most of the data, and two ideas do the work, both
 of them in this session.
 
 The first is sub-linear search. A procedure whose cost grows like $\log n$
-rather than $n$ touches a vanishing fraction of the data: $\log_2 (10^{10})
+rather than $n$ touches a vanishing fraction of the data. For example, $\log_2 (10^{10})
 \approx 34$, a few dozen steps for ten billion items. The binary search of
 session 3 is the elementary case, and a hash lookup, at $O(1)$, is better
 still. The reason why logarithms matter so much in this course is exactly
-this: $\log n$ barely grows, so a $\log n$ procedure scales to data that a
+that $\log n$ barely grows, so a $\log n$ procedure scales to data that a
 linear one cannot touch. The second is pre-computation. The search engine
 does not answer your question from the web. It answers from an inverted
 index, built in advance, which maps each word to the pages containing it.
 Building it is enormously expensive and happens continuously, and the query
 then costs a lookup rather than a scan. This is exactly the trade of session
-7, where sorting is an investment, at industrial scale: pay a lot once, pay
+7, where sorting is an investment, at industrial scale. You pay a lot once, pay
 almost nothing per query, and the arithmetic works because there are billions
-of queries. The general form is the thing to take away: where you cannot
+of queries. The general form is the thing to take away. Where you cannot
 afford to compute the answer, arrange the data in advance so that the answer
 is cheap to look up. That is the same move as building a hash set in session
 3, sorting a codebook in session 7, and creating a database index in session
 11, and this session gives you the vocabulary to say how much it buys.
 
 Section 8 of this session is about O-notation, and sections 3 and 9 put the
-growth rates side by side; the gap between $\log n$ and $n$ at $n = 10^{10}$
+growth rates side by side, and the gap between $\log n$ and $n$ at $n = 10^{10}$
 is the whole of the story above. Section 2 distinguishes time from memory
-complexity, which is the other half of the trade: a pre-computed index is a
+complexity, which is the other half of the trade, because a pre-computed index is a
 very large object, and someone pays for it. The framing to carry forward is
 that complexity analysis is not about making slow code faster. It is about
 knowing, in advance, which designs are possible at all at the size you care
@@ -181,10 +172,9 @@ about.
 ---
 
 <!-- MOTIVATION-SECTION:END -->
-## 1. The question
-
+## 1. The question {#complexity}
 Recall selection sort from session 7. For a list of length $n$ we search $n-1$
-times for the minimum, over a list of decreasing length: the first search
+times for the minimum, over a list of decreasing length. The first search
 looks at $n-1$ elements, the search after the first swap at $n-2$, the search
 after the second swap at $n-3$, and so on. In total,
 
@@ -204,29 +194,29 @@ of the algorithm itself.
 The word complexity has three meanings in computer science. *Algorithmic
 complexity* typically refers to the time complexity of a given algorithm, and
 it depends on the particular implementation. *Memory complexity* is the memory
-required during the calculation; mergesort, for example, needs a stack because
+required during the calculation. Mergesort, for example, needs a stack because
 of the recursion plus a temporary second list, while quicksort in its optimal
 implementation only requires the stack. *Problem complexity* is the minimal
-effort needed to solve a problem, analyzed for typical cases; its
+effort needed to solve a problem, analyzed for typical cases, and its
 classification is independent of the specific algorithm but depends on the
 algorithms known to solve the problem, and we will see more of it in session
-9. Keep the three apart: "sorting is $n\log n$" is a claim about the problem,
+9. Keep the three apart. For example, "sorting is $n\log n$" is a claim about the problem,
 "selection sort is $n^2$" is a claim about an algorithm, and "this Python
 implementation takes 4 seconds" is a claim about an implementation on a
 machine.
 
 Outside computer science the word means something else, and the distinction
 is worth having. A *complicated* system has many pieces with specific
-functions and well-defined relationships; it has been carefully engineered or
+functions and well-defined relationships, and it has been carefully engineered or
 designed. A *complex* system is composed of many particles that interact
 following some forces or dynamics, and its behavior follows from natural
 principles rather than from a design. A program with lots of lines of code,
 functions and objects is complicated. A problem whose elements depend on each
 other, such as a graph, can be complex, and the time required to solve it
 depends both on that complexity and on the algorithms we have to solve it. We
-care about all of this for two reasons: problem complexity decides whether we
-can in principle solve a problem in a reasonable amount of time, and
-algorithmic and memory complexity determine whether solutions are feasible to
+care about all of this for two reasons. First, problem complexity decides
+whether we can in principle solve a problem in a reasonable amount of time,
+and second, algorithmic and memory complexity determine whether solutions are feasible to
 implement with the memory and time actually available.
 
 ---
@@ -262,20 +252,19 @@ course.
 
 A few more observations frame the rest of the session. Memory complexity and
 time complexity can differ, and the trade-off between them is often relevant
-in practice; memoization in session 6 bought time with space. Time complexity
+in practice, as when memoization in session 6 bought time with space. Time complexity
 varies in how it changes with $n$, since some functions rise slowly and then
 sharply and others the reverse, which makes certain algorithms better for
 small $n$ and others for large $n$. Depending on the data, complexity may
 vary, so we distinguish worst-case, average-case and best-case complexity.
-And the analysis is deliberately simplified: it is an approximate calculation
+And the analysis is deliberately simplified, since it is an approximate calculation
 of the time complexity in terms of the input size $n$, it is machine
 independent because it is a property of the algorithm, and time is measured
 in the number of basic computer steps.
 
 ---
 
-## 4. Runtime analysis
-
+## 4. Runtime analysis {#runtime-analysis}
 The runtime of an algorithm sums up the time units needed per instruction.
 Primitive operations such as assignments, comparisons and arithmetic
 operations count as one time unit each, a loop costs the number of iterations
@@ -294,14 +283,14 @@ def selectionsort(seq):
     return seq
 ```
 
-The first step is to count the primitive operations per line: line 1 has a
-`range`, a length and an arithmetic operation, 3 time units; line 2 is an
-assignment, 1 unit; line 3 has a `range`, an arithmetic operation and a
-length, 3 units; line 4 is a comparison, 1 unit; line 5 an assignment, 1
-unit; and line 6 a double assignment, 2 units. The second step is to count the
-iterations: the outer loop runs a maximum of $n-1$ times, and the nested loop
+The first step is to count the primitive operations per line. Line 1 has a
+`range`, a length and an arithmetic operation, 3 time units. Line 2 is an
+assignment, 1 unit. Line 3 has a `range`, an arithmetic operation and a
+length, 3 units. Line 4 is a comparison, 1 unit, line 5 an assignment, 1
+unit, and line 6 a double assignment, 2 units. The second step is to count the
+iterations. The outer loop runs a maximum of $n-1$ times, and the nested loop
 a maximum of $n-1$ times. Note the words "a maximum of". The inner loop
-actually runs $n-i$ times, which is at most $n-1$; replacing the exact count
+actually runs $n-i$ times, which is at most $n-1$. Replacing the exact count
 with its maximum is an upper-bound approximation, and it is legitimate
 precisely because we only care about growth. The third step puts it together,
 
@@ -315,7 +304,7 @@ The asymptotically dominant term is $n^2$, and constant terms and lower-order
 terms influence the runtime only marginally as $n$ grows, which is what
 O-notation formalizes. Look at what survived and what did not. The "3 time
 units for `range`" was a guess, and it changed the constant 5 but not the
-$n^2$. That robustness is the point: the analysis does not depend on details
+$n^2$. That robustness is the point, because the analysis does not depend on details
 we cannot know.
 
 ---
@@ -323,7 +312,7 @@ we cannot know.
 ## 5. Best, average and worst case
 
 The *average* running time is the mean over all possible problem cases,
-assuming that they are all equally likely; the *worst-case* running time is
+assuming that they are all equally likely. The *worst-case* running time is
 the maximum over any possible problem case, and the *best-case* running time
 the minimum. For sorting, the problem cases are the possible initial orders of
 the list. When selecting algorithms we should have an idea of the
@@ -351,7 +340,7 @@ For i = 2 to n:
       A[j + 1] ← key
 ```
 
-![Insertion sort in action](../Slides/08-TimeComplexity/figures/08-insertion-sort.svg)
+![*Insertion sort in action.*](../Slides/08-TimeComplexity/figures/08-insertion-sort.svg)
 
 In the worst case the outer loop runs $n-1$ times and the inner `While` loop
 runs backwards all the way to $j = 0$, that is, up to $n-1$ iterations, so the
@@ -363,13 +352,13 @@ which grows with $n^2$. In the best case, an already sorted list, the inner
 loop always stops at its first test, because `A[j] > key` is immediately
 false, so the running time grows with $n$. The average and the worst case are
 $n^2$ and the best case is $n$. This is the contrast with selection sort,
-which has no best case: its loops run to completion regardless of the input.
+which has no best case, because its loops run to completion regardless of the input.
 If your data is nearly sorted, which happens constantly with time series,
 identifiers and log files, insertion sort is genuinely fast and selection
 sort is not. The exercise of the lecture is to work out the best and
 worst-case running times of quicksort.
 
-![Insertion sort on sorted input](../Slides/08-TimeComplexity/figures/08-insertion-sort-best.svg)
+![*Insertion sort on sorted input.*](../Slides/08-TimeComplexity/figures/08-insertion-sort-best.svg)
 
 ---
 
@@ -388,7 +377,7 @@ If p ≥ r
 ```
 
 Let $n$ be the length of $A$. The best case, a single element, takes one
-operation; there are two recursive calls on arrays of length $n/2$; and the
+operation, there are two recursive calls on arrays of length $n/2$, and the
 call to MERGE with an array of length $n$ takes $c \cdot n$ steps for some
 constant $c$. The running time therefore satisfies
 
@@ -410,7 +399,7 @@ The recursion stops when the subarrays have one element, that is, when $n/2^k
 $$T(n) = 2^{\log_2 n} + \log_2 n \cdot c \cdot n = n + c \cdot n \log_2 n.$$
 
 The dominant term is $n \log_2 n$. There is an intuition behind the algebra
-that is worth keeping: each level of the recursion does $cn$ work in total,
+that is worth keeping. Each level of the recursion does $cn$ work in total,
 because every element is merged exactly once at that level, and there are
 $\log_2 n$ levels, because halving $n$ that many times reaches 1. Multiply the
 two.
@@ -440,12 +429,12 @@ While Q ≠ ∅:
 
 We reason about it in two parts. We enqueue and dequeue each vertex exactly
 once, because the color test makes sure of it, which contributes $|V|$. And
-we check the adjacent nodes of each node; in an undirected graph stored as
+we check the adjacent nodes of each node. In an undirected graph stored as
 adjacency lists, each edge appears in two lists, so each edge is examined
 exactly twice, which contributes $2|E|$. The running time of BFS therefore
 grows with $|V| + 2|E|$. Two lessons generalize. When the input has more than
 one size parameter, the answer has more than one term. And the running time
-depends on the representation: with an adjacency matrix, finding the
+depends on the representation. With an adjacency matrix, finding the
 neighbors of a vertex means scanning a whole row, and BFS becomes $|V|^2$
 instead of $|V| + |E|$, so the data structure choice of session 5 shows up
 here as a difference in complexity.
@@ -458,20 +447,19 @@ the calculation of its complexity, he received the Turing Award for his
 contributions to the foundations of computational complexity theory and its
 application to cryptography and program checking, and he is one of the
 inventors of CAPTCHA as a Turing test. He is also known for being the mentor
-of extraordinarily influential computer scientists: three Turing Award
+of extraordinarily influential computer scientists, namely three Turing Award
 winners, several winners of the Gödel and Knuth prizes, and about twenty
 professors of computer science at top US universities.
 
 ---
 
-## 8. Asymptotic behavior and O-notation
-
+## 8. Asymptotic behavior and O-notation {#o-notation}
 The *asymptotic behavior* of a function $f(x)$ describes its value towards
-infinity: the values of $f(x)$ as $x \rightarrow \infty$ or $x \rightarrow
+infinity, that is, the values of $f(x)$ as $x \rightarrow \infty$ or $x \rightarrow
 -\infty$, and the values of $x$ where $f(x) \rightarrow \infty$ or $f(x)
 \rightarrow -\infty$.
 
-![Asymptotic behavior](../Slides/08-TimeComplexity/figures/08-asymptotic.svg)
+![*Asymptotic behavior.*](../Slides/08-TimeComplexity/figures/08-asymptotic.svg)
 
 O-notation, also called Big O notation, pronounced "big-oh", or Landau's
 symbol, describes classes of functions with specific asymptotic properties.
@@ -479,7 +467,7 @@ The values of a given function, after some large value $n_0$, are always
 larger than or equal to, or always smaller than or equal to, a given
 function, and constants are not considered, or are absorbed into an
 arbitrarily chosen pre-factor. There are three notations, of which $O$ is by
-far the most used: $O$ refers to the upper bound, $\Omega$ to the lower bound
+far the most used, where $O$ refers to the upper bound, $\Omega$ to the lower bound
 and $\Theta$ to the tight bound. Formally,
 
 $$O(g(n)) = \{f(n) : \text{there exist positive constants } c \text{ and } n_0 \text{ such that } 0 \le f(n) \le c\,g(n) \text{ for all } n \ge n_0\},$$
@@ -491,30 +479,30 @@ constant factor, which is the role of $c$. What remains is the shape of the
 growth.
 
 Some conventions of use follow from this. People often write $f = O(g)$
-instead of $f \in O(g)$; this is a tolerated abuse of notation, and we use it
+instead of $f \in O(g)$, which is a tolerated abuse of notation, and we use it
 too. The notation describes asymptotic upper, lower and exact bounds of a
 function for large values, and the interest is in the dominant terms for
 large values only, because more precise analyses are often very cumbersome
 and unnecessary, constant factors may not be of interest, and a linear
 acceleration is typically easy to achieve with new hardware. The goal is to
-describe complexity through classes of functions; literally, "it cannot get
+describe complexity through classes of functions. Literally, "it cannot get
 worse than $f$" if the complexity is $O(f)$. The general rules are to ignore
 constants and to ignore lower-order terms, because certain terms dominate
 others:
 
 $$O(1) \subset O(\log n) \subset O(n) \subset O(n \log n) \subset O(n^2) \subset O(2^n) \subset O(n!).$$
 
-So $5n^2 - 4n - 1$ is $O(n^2)$: drop the constant 5, drop $-4n$ and $-1$. To
+So $5n^2 - 4n - 1$ is $O(n^2)$, because we drop the constant 5 and drop $-4n$ and $-1$. To
 show that $f \in O(g)$ you must produce $c$ and $n_0$. For $f(n) = 5n^2 - 4n -
-1$ and $g(n) = n^2$, take $c = 5$ and $n_0 = 1$; then for all $n \ge 1$, $5n^2
+1$ and $g(n) = n^2$, take $c = 5$ and $n_0 = 1$. Then for all $n \ge 1$, $5n^2
 - 4n - 1 \le 5n^2$, since $-4n - 1 < 0$. Note that the constants do not have
-to be tight or clever: any pair that works proves the claim.
+to be tight or clever, because any pair that works proves the claim.
 
 ---
 
 ## 9. Using O-notation
 
-Back to the tables of section 3, now labeled properly: selection sort is
+Back to the tables of section 3, now labeled properly. Selection sort is
 $O(n^2)$ and mergesort is $O(n \log n)$, and using your laptop for an $O(n^2)$
 algorithm is unfeasible for $n$ above a few million. O-notation is a
 language for describing upper bounds on complexity, and here are some
@@ -527,7 +515,7 @@ $O(n^3)$. Testing whether a number $k$ is prime with a brute-force algorithm,
 dividing by all numbers up to $k-1$, is $O(k)$. And finding a Hamiltonian
 path in a graph with a brute-force algorithm that explores all paths is
 $O(|V|!)$. That last one is the setup for session 9. An $O(|V|!)$ algorithm
-is not a slow algorithm; it is an algorithm that is useless for $|V| = 20$.
+is not a slow algorithm. It is an algorithm that is useless for $|V| = 20$.
 
 ---
 
@@ -557,7 +545,7 @@ and graph isomorphism, which is exactly where session 9 goes next.
 (a) $O(n)$, dropping the constant and the 3. (b) $O(n^2)$, because $1000n$ is
 dominated for large $n$, even though it is bigger up to $n = 2000$. (c)
 $O(2^n)$, because every exponential eventually beats every polynomial. (d)
-$\log(n^2) = 2\log n$, so $O(\log n)$; note also that the base does not
+$\log(n^2) = 2\log n$, so $O(\log n)$. Note also that the base does not
 matter, since $\log_a n$ and $\log_b n$ differ by a constant factor.
 
 </details>
@@ -568,7 +556,7 @@ matter, since $\log_a n$ and $\log_b n$ differ by a constant factor.
 
 For $O(n)$, 10 seconds. For $O(n\log n)$, $10 \times \frac{\log
 10000}{\log 1000} \approx 13$ seconds. For $O(n^2)$, 100 seconds. For
-$O(2^n)$, $2^{9000}$ times longer, a number with about 2700 digits; in other
+$O(2^n)$, $2^{9000}$ times longer, a number with about 2700 digits, in other
 words, never.
 
 </details>
@@ -603,7 +591,7 @@ common performance bug in research code.
 Take $c = 1$ and $n_0 = 101$. At $n = 101$, $n^3 = 1\,030\,301$ and $200n +
 1\,000\,000 = 1\,020\,200$, so $f(n) \le n^3$ holds, and since $n^3 - 200n -
 1\,000\,000$ is increasing for $n \ge 9$ (its derivative $3n^2 - 200$ is
-positive there), it holds for all $n \ge 101$. The claim is true: $O$ is an
+positive there), it holds for all $n \ge 101$. The claim is true, because $O$ is an
 upper bound, and a loose upper bound is still a valid one. The tight answer
 is $\Theta(n)$.
 

@@ -2,29 +2,17 @@
 
 *Introduction to Computing for the Social Sciences · lecture transcript*
 
-> This is the companion text for the first lecture. It covers everything on the
-> slides plus the explanations that were given out loud, so you can study from
-> it alone. Notation follows [the course conventions](00-Conventions.md).
-
 ---
 
 ## Contents
 
-1. [Why a computing course in a social science degree](#1-why-a-computing-course-in-a-social-science-degree)
-2. [What the course is about](#2-what-the-course-is-about)
-3. [What is a computer?](#3-what-is-a-computer)
-4. [What is computer science?](#4-what-is-computer-science)
-5. [What is an algorithm?](#5-what-is-an-algorithm)
-6. [Computing as an artificial science](#6-computing-as-an-artificial-science)
-7. [A short history](#7-a-short-history)
-8. [The subfields of computer science](#8-the-subfields-of-computer-science)
-9. [Check yourself](#9-check-yourself)
-10. [References](#10-references)
+1. [Course motivations and objectives](#motivation)
+2. [Course overview and formalities](#course)
+3. [A brief introduction to computer science](#computer-science)
 
 ---
 
-## 1. Why a computing course in a social science degree
-
+## 1. Why a computing course in a social science degree {#motivation}
 ### The digital society
 
 More and more of what people do passes through digital technologies. Looking
@@ -34,7 +22,7 @@ card, or chatting with your boss on a company messenger are ordinary actions
 that a few decades ago left no record at all, and that today leave a record in
 the database of some company. The growth in adoption and evolution of these
 technologies is the *digital transformation* of society, and it has three
-consequences that matter for this course. The first is *datafication*: digital
+consequences that matter for this course. The first is *datafication*, which means that digital
 technologies generate data traces that persist and can be analyzed. A phone
 call in 1990 left nothing behind but a line on a bill, while a message today is
 a timestamped, addressed and searchable object, so social scientists have gained
@@ -54,9 +42,9 @@ model is trained.
 
 Computational methods are a precondition for working with this kind of data,
 not a convenience. They give us automation and scalability, because nobody can
-process millions of records by hand; robustness, because with code we can run
-the same analysis again under different assumptions or parameters and see
-whether the conclusion survives; and reproducibility, because code is a precise
+process millions of records by hand. They give us robustness, because with code
+we can run the same analysis again under different assumptions or parameters and
+see whether the conclusion survives. And they give us reproducibility, because code is a precise
 and shareable statement of what we did, which somebody else can run. The problem
 is that most social scientists arrive with a working knowledge of high-level
 software such as Excel, SPSS or STATA and no understanding of the tools
@@ -76,7 +64,7 @@ shapes the behavior we observe on it, and some platforms contain non-human
 actors, such as bots, that appear in the data as if they were people (*platform
 biases*). Not everyone can access the same data, and research based on data that
 only one company can grant may be impossible for anyone else to reproduce
-(*data gatekeepers*). Talking online is not the same as talking offline: people
+(*data gatekeepers*). Talking online is not the same as talking offline, because people
 have purposes when they post, and those purposes can distort the behavior we
 measure (*performative behavior*). Not everyone leaves digital traces, and both
 measurement methods and predictive models can carry biases that lead to
@@ -90,8 +78,7 @@ does, and what it means when someone says that the computer decided.
 
 ---
 
-## 2. What the course is about
-
+## 2. What the course is about {#course}
 The overarching goal of the course is that you become able to solve problems
 computationally. More concretely, by the end of the course you should be able to
 appreciate, understand and use the ideas at the core of computer science and
@@ -104,7 +91,7 @@ concepts of databases and parallel programming. Concepts and theory are taught
 in the lectures, and the assignments of the practical part rely wherever
 possible on real-world examples and data.
 
-One warning is worth repeating from the lecture: practice and self-learning are
+One warning is worth repeating from the lecture, namely that practice and self-learning are
 essential in computing. Knowing the concepts is not the same as being able to
 use them. The pen-and-paper exercises exist because writing a trace by hand is
 what turns having seen selection sort into being able to reason about selection
@@ -112,18 +99,17 @@ sort, and the same holds for every other topic in the course.
 
 ---
 
-## 3. What is a computer?
-
+## 3. What is a computer? {#computer-science}
 Zelle (2016, chapter 1) defines a computer as *a machine that stores and
 manipulates information under the control of a changeable program*. Each part
 of the definition excludes something. An abacus stores and manipulates
 information, but a person moves the beads, so it is not a machine in the
-required sense: nothing happens automatically. A pocket calculator is
-automatic, but it is not programmable; you can change the numbers you feed it,
+required sense, since nothing happens automatically. A pocket calculator is
+automatic, but it is not programmable. You can change the numbers you feed it,
 but not the kinds of things it can do. What makes a computer a computer is the
 changeable program, which lets the same physical device become a word
 processor, a statistics package or a game depending on which program it is
-running. This is why the word covers such a varied list of objects today:
+running. This is why the word covers such a varied list of objects today, since
 personal computers, servers, smartphones, fridges, photo cameras and watches
 are all the same kind of machine.
 
@@ -147,14 +133,14 @@ Computer science is the scientific and practical approach to computation. It
 studies how to enable the collection, representation, processing, storage and
 access to information, and it includes the theory of computation, the study of
 algorithmic processes, and the design of computational machines. A line that is
-usually attributed to Edsger W. Dijkstra makes the point sharply: *computer
+usually attributed to Edsger W. Dijkstra makes the point sharply, namely that *computer
 science is no more about computers than astronomy is about telescopes*. The
 telescope is the instrument and the stars are the subject, and in the same way
 the computer is the instrument and computation is the subject. This course is
 about computation, which is why a large part of it involves no computer at all
 and can be done with pen and paper.
 
-Two questions organize the whole field. The first is what can be computed:
+Two questions organize the whole field. The first is what can be computed, that is,
 which problems admit a solution at all, and which do not. This is the subject
 of session 9, and the answer includes problems that provably cannot be solved by
 any program. The second is how we can solve a problem with computation, that
@@ -197,7 +183,7 @@ For i = 1 to n - 1:
 ```
 
 The same algorithm can be written in Python. Note the shift in the indices,
-which is explained in the [conventions](00-Conventions.md): pseudocode counts
+which is explained in the [conventions](00-Conventions.md). Pseudocode counts
 from 1 and Python counts from 0.
 
 ```python
@@ -230,7 +216,7 @@ the part that is already sorted from the rest.
 Two observations from this trace will be useful later in the course. The outer
 loop runs $n-1$ times and not $n$, because once $n-1$ elements are in place the
 last one has nowhere else to go. And the number of comparisons does not depend
-on the input at all: it is always $(n-1) + (n-2) + \dots + 1$, so selection
+on the input at all. It is always $(n-1) + (n-2) + \dots + 1$, so selection
 sort takes the same time on a list that is already sorted as on a shuffled one.
 We will count this properly in session 8.
 
@@ -252,11 +238,11 @@ Herbert Simon (1916–2001) was a political scientist whose work was influential
 enough in economics to win him the Nobel Prize in 1978, and influential enough
 in computer science to win him the Turing Award in 1975. In *The Sciences of
 the Artificial* (1969) he draws a distinction that is useful for placing this
-course. The natural sciences study what exists independently of us: physics
+course. The natural sciences study what exists independently of us, e.g. physics
 studies matter and biology studies organisms. The artificial sciences study
 what humans create, such as economies, institutions and programs. The
 consequence that Simon emphasizes is that the artificial sciences are not only
-descriptive but also *prescriptive*: they ask not only how things are but what
+descriptive but also *prescriptive*, which means that they ask not only how things are but what
 we should do. Economists look for a tax incentive that drives innovation,
 sociologists look for a policy that reduces gender inequality, and computer
 scientists look for the program that lets a robot find its way out of a maze,
@@ -268,7 +254,7 @@ purpose too, usually stated as solving a problem. This gives computer science a
 two-level structure that will recur during the whole term. The first level is
 designing and testing methods, that is, building an algorithm and checking that
 it works. The second level is methodology, the systematic study of methods and
-their properties: whether an algorithm is correct, whether it terminates, how
+their properties, such as whether an algorithm is correct, whether it terminates, how
 fast it is, and whether it is the best possible. The second level is what makes
 computer science a science rather than a craft, and it is where most of this
 course lives. Notice also the political weight of Simon's examples. If computer
@@ -305,7 +291,7 @@ Two names deserve more than a row. Ada Lovelace (1815–1852) studied Babbage's
 Analytical Engine and published, in the notes to her translation of a paper by
 Luigi Menabrea, an algorithm for the machine to compute Bernoulli numbers, which
 is widely recognized as the first computer program. She also saw further than
-Babbage in one respect: she understood that a machine manipulating symbols need
+Babbage in one respect. She understood that a machine manipulating symbols need
 not be manipulating numbers, and could in principle work on music or text. The
 Ada programming language is named after her. Al-Khwarizmi (c. 780–850) worked
 in Baghdad and wrote the books that popularized algebra and the decimal system
@@ -321,13 +307,13 @@ to Roman numerals and the abacus. That concern is the ancestor of session 8.
 
 A rough map of the discipline helps to place the sessions of this course.
 Computer engineering covers microprocessor technology, computer architecture
-and the communication between machines; we touch on it in sessions 2 and 4.
+and the communication between machines, which we touch on in sessions 2 and 4.
 Theoretical computer science covers automata theory and formal languages,
-complexity theory and quantum computing; sessions 8 and 9 belong here. Applied
+complexity theory and quantum computing, and sessions 8 and 9 belong here. Applied
 computer science covers programming languages, algorithms and data structures,
 operating systems, databases and software development, which is the content of
 sessions 3 to 7, 11 and 12. Finally, there are interdisciplinary fields that
-apply computing to the problems of another discipline: business informatics,
+apply computing to the problems of another discipline, such as business informatics,
 computer vision, artificial intelligence, computational linguistics,
 bioinformatics, medical informatics, media informatics, human-computer
 interaction, and computational social science, which is the reason you are in
@@ -337,10 +323,10 @@ this course and the subject of sessions 10 and 13.
 
 ## 9. Check yourself
 
-Answers below; try first.
+Answers are below, but try first.
 
 1. Is a mechanical clock a computer? What about a modern digital watch?
-2. Selection sort on `[3, 1, 2]`: how many comparisons does the algorithm make?
+2. If you run selection sort on `[3, 1, 2]`, how many comparisons does the algorithm make?
    How many swaps?
 3. Why does the outer loop of selection sort stop at $n-1$ instead of $n$?
 4. In your own words, what is the difference between an algorithm and a program?
@@ -351,21 +337,21 @@ Answers below; try first.
 <summary>Answers</summary>
 
 1. Neither. Both store and manipulate information automatically, but neither
-   runs a changeable program: you cannot make a clock compute your tax return.
+   runs a changeable program. You cannot make a clock compute your tax return.
    A smart watch, on the other hand, is a computer.
 2. For $i=1$ the algorithm compares positions 2 and 3 against the current
-   smallest, which is 2 comparisons; for $i=2$ it compares position 3, which is
+   smallest, which is 2 comparisons. For $i=2$ it compares position 3, which is
    1 comparison. The total is 3, which is $(n-1)+(n-2) = 2+1$. There are 2
    swaps, one per iteration of the outer loop, although one of them may swap an
    element with itself.
 3. After $n-1$ elements have been placed, only one element remains, and
    everything smaller than it has already been removed, so it is necessarily
    the largest and is already in the right place.
-4. An algorithm is the method: a language-independent description of the
+4. An algorithm is the method, i.e. a language-independent description of the
    steps. A program is one implementation of an algorithm in a particular
    language for a particular machine. One algorithm can have many programs.
-5. Open. Two examples: which electoral system should a country adopt, and which
-   moderation rule should a platform apply. Both ask what we should do, and both
+5. Open. For example, which electoral system should a country adopt, and which
+   moderation rule should a platform apply? Both ask what we should do, and both
    can be studied by building and testing designs rather than only by observing.
 
 </details>

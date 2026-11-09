@@ -2,8 +2,8 @@
 
 TITLE = "Hundred times slower, quietly wrong, and fixed by its tests"
 HOOK = ("A Python loop against compiled NumPy, a wrong mean that a one-line test catches, "
-        "and a generated function whose silent error is corrected because a test suite "
-        "tells the language model what is wrong.")
+        "and a generated function whose silent error is found by pytest, step by step, and "
+        "corrected because the tests tell the coder what is wrong.")
 
 CELLS = [
 ("md", r"""# Hundred times slower, quietly wrong, and fixed by its tests
@@ -117,14 +117,42 @@ the month first, the convention in the United States, so `05/03/2024` became
 the 3rd of May. Our fieldwork ran in March and April, and the table spreads it
 over seven months. Because every day in these dates is 12 or less, every date
 is also a valid date month first, and nothing crashes. Here someone might
-notice that November looks odd; with a slightly different question, say the
+notice that November looks odd. With a slightly different question, say the
 mean number of days between interviews, there would be nothing odd to notice
 at all.
 
 The lecture's order of work is to write the specification and the tests before
-asking for code. Here is the specification, four tests written from it, and a
-small helper that runs them and reports failures the way `pytest` does, so
-that the notebook runs anywhere."""),
+asking for code, and to run the tests with `pytest`. We do that here step by
+step, exactly as you would in a terminal. pytest works on files, so the code
+and the tests have to live in files inside one folder.
+
+**Step 1: the code goes into a file.** We make a fresh folder `survey/` and
+save the generated function there as `survey.py`."""),
+
+("code", r"""import os, subprocess, sys, tempfile
+
+folder = os.path.join(tempfile.mkdtemp(), "survey")    # a fresh folder for this demo
+os.makedirs(folder)
+
+GENERATED = '''from collections import Counter
+from datetime import datetime
+
+def interviews_per_month(dates):
+    months = Counter()
+    for d in dates:
+        months[datetime.strptime(d, "%m/%d/%Y").strftime("%Y-%m")] += 1
+    return dict(sorted(months.items()))
+'''
+with open(os.path.join(folder, "survey.py"), "w") as f:
+    f.write(GENERATED)
+
+print(sorted(os.listdir(folder)))"""),
+
+("md", r"""**Step 2: the specification and the tests go into a second file.** Its name
+starts with `test_`, so that pytest finds it. It imports the function from
+`survey.py`, and each test is a function whose name starts with `test_`, with
+one `assert` inside. The four tests come from the specification, one per line
+of it."""),
 
 ("code", r"""SPEC = '''interviews_per_month(dates)
 dates: a list of strings "DD/MM/YYYY", day first (German convention).
@@ -132,72 +160,88 @@ Returns: a dict from "YYYY-MM" to the number of interviews in that month,
          sorted by month; months without interviews do not appear.
 An empty list gives {}. The list itself is not modified.'''
 
+TESTS = '''from survey import interviews_per_month
+
 def test_day_comes_first():
-    got = interviews_per_month(["05/03/2024"])
-    assert got == {"2024-03": 1}, f"got {got}"
+    assert interviews_per_month(["05/03/2024"]) == {"2024-03": 1}
 
 def test_counts_per_month():
-    got = interviews_per_month(["04/03/2024", "11/03/2024", "02/04/2024"])
-    assert got == {"2024-03": 2, "2024-04": 1}, f"got {got}"
+    dates = ["04/03/2024", "11/03/2024", "02/04/2024"]
+    assert interviews_per_month(dates) == {"2024-03": 2, "2024-04": 1}
 
 def test_day_after_the_12th():
-    got = interviews_per_month(["25/03/2024"])
-    assert got == {"2024-03": 1}, f"got {got}"
+    assert interviews_per_month(["25/03/2024"]) == {"2024-03": 1}
 
 def test_empty():
-    got = interviews_per_month([])
-    assert got == {}, f"got {got}"
+    assert interviews_per_month([]) == {}
+'''
+with open(os.path.join(folder, "test_survey.py"), "w") as f:
+    f.write(TESTS)
 
-TESTS = [test_day_comes_first, test_counts_per_month, test_day_after_the_12th, test_empty]
+print(sorted(os.listdir(folder)))"""),
 
-def run_tests(tests):
-    report = []
-    for t in tests:
-        try:
-            t()
-        except Exception as e:
-            report.append(f"FAILED {t.__name__}: {type(e).__name__} {e}")
-    print("\n".join(report) or "all tests pass")
-    print(f"{len(tests) - len(report)} passed, {len(report)} failed")
-    return "\n".join(report)
+("md", r"""**Step 3: run `pytest` in that folder.** In a terminal you would type `cd
+survey` and then `pytest`. The notebook does the same by starting the command
+as a program and printing what it prints. The option `-q` keeps the report
+short, and `--tb=no` leaves out the details of each failure for now."""),
 
-failures = run_tests(TESTS)"""),
+("code", r"""def run_pytest(*options):
+    command = [sys.executable, "-m", "pytest", "-q", "--color=no", "-p", "no:cacheprovider", *options]
+    result = subprocess.run(command, cwd=folder, capture_output=True, text=True,
+                            env={**os.environ, "COLUMNS": "100", "PYTHONDONTWRITEBYTECODE": "1"})
+    print(result.stdout)
+    return result.stdout
 
-("md", r"""Three of the four tests fail, and each failure is specific: the 5th of March
-was not counted in March, and `25/03/2024` is not even a valid date for this
-function. This is where a test suite changes what working with a language
-model is like. Instead of "it seems wrong somehow", we can give the model the
-specification and the exact failures."""),
+report = run_pytest("--tb=no")"""),
+
+("md", r"""The first line is one character per test, in the order pytest found them:
+`F` for a failed test and `.` for a passed one. Three of the four tests fail,
+and the summary names each failed test and the error. Two are assertion
+errors, a wrong dictionary came back. The third is a `ValueError`, because
+`25/03/2024` is not even a valid date for this function.
+
+**Step 4: look at one failure in detail.** pytest can run a single test, named
+as `file::function`, and `--tb=short` shows the failing line with the values
+on both sides of the `==`."""),
+
+("code", r"""run_pytest("--tb=short", "test_survey.py::test_day_comes_first");"""),
+
+("md", r"""The function returned `{'2024-05': 1}` where `{'2024-03': 1}` was expected:
+the 5th of March was counted in May. This is where a test suite changes what
+working with a coding agent is like. Instead of "it seems wrong somehow", we
+can give the coder the specification and the exact failures.
+
+**Step 5: send the specification and the report back to the coder.**"""),
 
 ("code", r"""prompt = ("Here is the specification of interviews_per_month:\n" + SPEC +
-          "\n\nYour implementation fails these tests:\n" + failures +
-          "\n\nCorrect the function.")
+          "\n\nYour implementation fails these tests:\n" + report +
+          "\nCorrect the function.")
 print(prompt)"""),
 
-("md", r"""Given this prompt, a language model answers with a corrected function. We
-write its answer here rather than calling a model, so that the notebook runs
-offline and gives the same result every time; the correction is a single
-format string."""),
+("md", r"""Given these instructions, a coding agent answers with a corrected function.
+We write its answer here rather than calling a model, so that the notebook
+runs offline and gives the same result every time. The correction is a single
+format string.
 
-("code", r"""# The model's corrected version: the day comes first in the format
-def interviews_per_month(dates):
-    months = Counter()
-    for d in dates:
-        months[datetime.strptime(d, "%d/%m/%Y").strftime("%Y-%m")] += 1
-    return dict(sorted(months.items()))
+**Step 6: replace the code and run `pytest` again.** This time with `-v`, which
+lists every test by name."""),
 
-run_tests(TESTS)
-interviews_per_month(interview_dates)"""),
+("code", r"""CORRECTED = GENERATED.replace('"%m/%d/%Y"', '"%d/%m/%Y"')     # the day comes first
+with open(os.path.join(folder, "survey.py"), "w") as f:
+    f.write(CORRECTED)
 
-("md", r"""All tests pass, and the fieldwork is back in March and April. Nothing in the
-first version would have told us it was wrong; the tests did, and they also
-told the model what to fix. Writing them took a few minutes and needed only
-the specification, not the code. That is the division of labor of the
-lecture: a language model can write the implementation, and the
-specification and the tests remain your job.
+run_pytest("-v");"""),
 
-**What we used:** [interpreters and compilers](../Transcripts/04-Software.md#1-what-programming-is),
-[vibe coding](../Transcripts/04-Software.md#5-software-engineering),
-[specifications](../Transcripts/04-Software.md#6-requirements-specifications-and-design) and
-[testing](../Transcripts/04-Software.md#7-testing) from session 4."""),
+("md", r"""All four tests pass. From now on, every change to `survey.py` is followed by
+the same command, and a change that breaks one of the four rules is caught
+before it reaches a table. Nothing in the first version would have told us it
+was wrong. The tests did, and they also told the coder what to fix. Writing
+them took a few minutes and needed only the specification, not the code. That
+is the division of labor of the lecture: a coding agent can write the
+implementation, and the specification and the tests remain your job.
+
+**What we used:** [interpreters and compilers](../Transcripts/04-Software.md#programming),
+[vibe coding](../Transcripts/04-Software.md#software-engineering),
+[specifications](../Transcripts/04-Software.md#requirements) and
+[testing](../Transcripts/04-Software.md#testing) from session 4."""),
 ]

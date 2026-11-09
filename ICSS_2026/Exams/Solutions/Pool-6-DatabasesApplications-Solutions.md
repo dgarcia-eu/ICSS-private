@@ -11,7 +11,7 @@
 
 ## DB-01 · Primary key of a flat table · 2 pts · [2023-E2 Q6a, `TE-11` Ex. 1a]
 
-**Where to look.** Slides: session 11, slides 22 to 29 (*Relational databases; Database models; Building a relational database; Normal form example*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`; session 11, slides 33 to 40 (*Tables in SQL; SQL schema*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §6 Database models: flat and relational](../../Transcripts/11-Databases.md#6-database-models-flat-and-relational), [11 §7 Keys and normal forms](../../Transcripts/11-Databases.md#7-keys-and-normal-forms), [11 §9 Tables, types, schemas and keys in SQL](../../Transcripts/11-Databases.md#9-tables-types-schemas-and-keys-in-sql).
+**Where to look.** Slides: session 11, slides 22 to 29 (*Relational databases; Database models; Building a relational database; Normal form example*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`; session 11, slides 33 to 40 (*Tables in SQL; SQL schema*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §6 Database models: flat and relational](../../Transcripts/11-Databases.md#relational-databases), [11 §7 Keys and normal forms](../../Transcripts/11-Databases.md#7-keys-and-normal-forms), [11 §9 Tables, types, schemas and keys in SQL](../../Transcripts/11-Databases.md#9-tables-types-schemas-and-keys-in-sql).
 
 **Solution.** **(UserNumber, PurchaseTime)**, under the assumption that **one
 user makes at most one purchase per second**, the timestamps have
@@ -65,7 +65,7 @@ acceptable here since the column type is not specified.
 
 ## DB-03 · Restructure into a relational database · 2–3 pts · [2023-E2 Q6c, 2024-E2 Q6b, 2025-E2 Q5c, `TE-11` Ex. 1c]
 
-**Where to look.** Slides: session 11, slides 26 to 29 (*Building a relational database; Normal form example*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §6 Database models: flat and relational](../../Transcripts/11-Databases.md#6-database-models-flat-and-relational), [11 §7 Keys and normal forms](../../Transcripts/11-Databases.md#7-keys-and-normal-forms).
+**Where to look.** Slides: session 11, slides 26 to 29 (*Building a relational database; Normal form example*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §6 Database models: flat and relational](../../Transcripts/11-Databases.md#relational-databases), [11 §7 Keys and normal forms](../../Transcripts/11-Databases.md#7-keys-and-normal-forms).
 
 **Solution.** The product name is currently repeated once per purchase, so
 renaming a product means updating every row that mentions it, and missing one
@@ -133,7 +133,7 @@ WHERE u.UserName = 'Adam';
 
 ## DB-05 · Design a schema from a specification · 5 pts · [2024-E1 Q6a, 2025-Ex Q6a]
 
-**Where to look.** Slides: session 11, slides 22 to 29 (*Relational databases; Building a relational database*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`; session 11, slides 33 to 40 (*Tables in SQL; SQL schema*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §6 Database models: flat and relational](../../Transcripts/11-Databases.md#6-database-models-flat-and-relational), [11 §7 Keys and normal forms](../../Transcripts/11-Databases.md#7-keys-and-normal-forms), [11 §9 Tables, types, schemas and keys in SQL](../../Transcripts/11-Databases.md#9-tables-types-schemas-and-keys-in-sql).
+**Where to look.** Slides: session 11, slides 22 to 29 (*Relational databases; Building a relational database*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`; session 11, slides 33 to 40 (*Tables in SQL; SQL schema*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §6 Database models: flat and relational](../../Transcripts/11-Databases.md#relational-databases), [11 §7 Keys and normal forms](../../Transcripts/11-Databases.md#7-keys-and-normal-forms), [11 §9 Tables, types, schemas and keys in SQL](../../Transcripts/11-Databases.md#9-tables-types-schemas-and-keys-in-sql).
 
 **Solution.** Six tables. Primary keys **bold**, foreign keys marked →.
 
@@ -203,7 +203,7 @@ Three points of technique:
 
 ## DB-07 · A naive algorithm over registrations · 5 pts · [2023-E1 Q6a, 2024-Ex Q6a, 2025-E2 Q5a]
 
-**Where to look.** Slides: session 5, slides 16 to 20 (*Representation of algorithms; Pseudocode*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 4, slides 12 (*Imperative programming*), in `Slides/04-Software/ICSS-2026-04-Software.qmd`. Handout: [05 §4 Pseudocode](../../Transcripts/05-Algorithms.md#4-pseudocode), [04 §3 Imperative programming](../../Transcripts/04-Software.md#3-imperative-programming), [08 §4 Runtime analysis](../../Transcripts/08-TimeComplexity.md#4-runtime-analysis).
+**Where to look.** Slides: session 5, slides 16 to 20 (*Representation of algorithms; Pseudocode*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 4, slides 11 (*Imperative programming*), in `Slides/04-Software/ICSS-2026-04-Software.qmd`. Handout: [05 §4 Pseudocode](../../Transcripts/05-Algorithms.md#4-pseudocode), [04 §3 Imperative programming](../../Transcripts/04-Software.md#3-imperative-programming), [08 §4 Runtime analysis](../../Transcripts/08-TimeComplexity.md#runtime-analysis).
 
 **Solution.** Load `Registrations` into an array `R[1..N]` of records with fields
 `.id`, `.date` and `.block`, accessed by index in $O(1)$.
@@ -341,7 +341,7 @@ table can be joined to itself. Part (a) is the standard `LEFT JOIN` + `GROUP BY`
 
 ## DB-10 · Evaluating a classifier · 4 pts · `new` (session 10)
 
-**Where to look.** Slides: session 10, slides 16 to 18 (*Error and loss; Class imbalance; The F1 score*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`. Handout: [10 §5 Error, loss and the traps of accuracy](../../Transcripts/10-MachineLearning.md#5-error-loss-and-the-traps-of-accuracy).
+**Where to look.** Slides: session 10, slides 16 to 18 (*Error and loss; Class imbalance; The F1 score*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`. Handout: [10 §5 Error, loss and the traps of accuracy](../../Transcripts/10-MachineLearning.md#error-and-loss).
 
 **Solution.**
 
@@ -416,7 +416,7 @@ and sometimes the time period or the conversation.
 
 ## DB-12 · K-means and choosing K · 4 pts · `new` (session 10)
 
-**Where to look.** Slides: session 10, slides 26 to 31 (*Unsupervised machine learning; Clustering with K-means; The elbow method*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`. Handout: [10 §10 Unsupervised learning and clustering](../../Transcripts/10-MachineLearning.md#10-unsupervised-learning-and-clustering).
+**Where to look.** Slides: session 10, slides 26 to 31 (*Unsupervised machine learning; Clustering with K-means; The elbow method*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`. Handout: [10 §10 Unsupervised learning and clustering](../../Transcripts/10-MachineLearning.md#unsupervised).
 
 **Solution.**
 
@@ -469,7 +469,7 @@ also necessary, since it converges to a *local* minimum.
 
 ## DB-13 · Which kind of learning? · 3 pts · `new` (session 10)
 
-**Where to look.** Slides: session 10, slides 10 to 13 (*Machine learning approaches; Supervised learning; Classification and regression*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`; session 10, slides 26 to 27 (*Unsupervised machine learning*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`. Handout: [10 §2 What machine learning is](../../Transcripts/10-MachineLearning.md#2-what-machine-learning-is), [10 §3 Supervised learning: the setup](../../Transcripts/10-MachineLearning.md#3-supervised-learning-the-setup), [10 §10 Unsupervised learning and clustering](../../Transcripts/10-MachineLearning.md#10-unsupervised-learning-and-clustering).
+**Where to look.** Slides: session 10, slides 10 to 13 (*Machine learning approaches; Supervised learning; Classification and regression*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`; session 10, slides 26 to 27 (*Unsupervised machine learning*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`. Handout: [10 §2 What machine learning is](../../Transcripts/10-MachineLearning.md#2-what-machine-learning-is), [10 §3 Supervised learning: the setup](../../Transcripts/10-MachineLearning.md#supervised), [10 §10 Unsupervised learning and clustering](../../Transcripts/10-MachineLearning.md#unsupervised).
 
 **Solution.**
 
@@ -491,7 +491,7 @@ covers machine learning, paired with `DB-10` or `DB-12` as the anchor.
 
 ## DB-14 · Schelling's segregation model · 5 pts · [2025-Ex Q6c–e] · **figure**
 
-**Where to look.** Slides: session 13, slides 30 to 33 (*Agent-based modeling; Modeling segregation: Schelling's model; Segregation under tolerance*), in `Slides/13-SocialScienceApplications/ICSS-2026-13-SocialScienceApplications.qmd`. Handout: [13 §13 Agent-based modeling](../../Transcripts/13-SocialScienceApplications.md#13-agent-based-modeling), [13 §14 Schelling's segregation model](../../Transcripts/13-SocialScienceApplications.md#14-schellings-segregation-model).
+**Where to look.** Slides: session 13, slides 30 to 33 (*Agent-based modeling; Modeling segregation: Schelling's model; Segregation under tolerance*), in `Slides/13-SocialScienceApplications/ICSS-2026-13-SocialScienceApplications.qmd`. Handout: [13 §13 Agent-based modeling](../../Transcripts/13-SocialScienceApplications.md#agent-based-modeling), [13 §14 Schelling's segregation model](../../Transcripts/13-SocialScienceApplications.md#14-schellings-segregation-model).
 
 **Solution.**
 
@@ -547,7 +547,7 @@ example exam, where they followed two database parts.
 
 ## DB-15 · Digital trace data and its limits · 4 pts · `new` (session 13)
 
-**Where to look.** Slides: session 13, slides 12 to 19 (*Digital behavioral data; Research examples; Issues with digital behavioral data: representation*), in `Slides/13-SocialScienceApplications/ICSS-2026-13-SocialScienceApplications.qmd`; session 13, slides 28 to 29 (*The end of theory?*), in `Slides/13-SocialScienceApplications/ICSS-2026-13-SocialScienceApplications.qmd`. Handout: [13 §6 Digital behavioral data](../../Transcripts/13-SocialScienceApplications.md#6-digital-behavioral-data), [13 §8 Issues with digital data: representation](../../Transcripts/13-SocialScienceApplications.md#8-issues-with-digital-data-representation), [13 §12 The end of theory?](../../Transcripts/13-SocialScienceApplications.md#12-the-end-of-theory).
+**Where to look.** Slides: session 13, slides 12 to 19 (*Digital behavioral data; Research examples; Issues with digital behavioral data: representation*), in `Slides/13-SocialScienceApplications/ICSS-2026-13-SocialScienceApplications.qmd`; session 13, slides 28 to 29 (*The end of theory?*), in `Slides/13-SocialScienceApplications/ICSS-2026-13-SocialScienceApplications.qmd`. Handout: [13 §6 Digital behavioral data](../../Transcripts/13-SocialScienceApplications.md#digital-data), [13 §8 Issues with digital data: representation](../../Transcripts/13-SocialScienceApplications.md#digital-data-issues), [13 §12 The end of theory?](../../Transcripts/13-SocialScienceApplications.md#theory).
 
 **Solution.**
 
@@ -588,7 +588,7 @@ thing in the pool to a real research-methods question, and it discriminates well
 
 ## DB-16 · Agent-based modeling and what it proves · 3 pts · `new` (session 13)
 
-**Where to look.** Slides: session 13, slides 27 to 34 (*Computational analysis of social science theory; Agent-based modeling; Simulating anti-COVID policies*), in `Slides/13-SocialScienceApplications/ICSS-2026-13-SocialScienceApplications.qmd`. Handout: [13 §13 Agent-based modeling](../../Transcripts/13-SocialScienceApplications.md#13-agent-based-modeling), [13 §15 Simulating anti-COVID policies](../../Transcripts/13-SocialScienceApplications.md#15-simulating-anti-covid-policies).
+**Where to look.** Slides: session 13, slides 27 to 34 (*Computational analysis of social science theory; Agent-based modeling; Simulating anti-COVID policies*), in `Slides/13-SocialScienceApplications/ICSS-2026-13-SocialScienceApplications.qmd`. Handout: [13 §13 Agent-based modeling](../../Transcripts/13-SocialScienceApplications.md#agent-based-modeling), [13 §15 Simulating anti-COVID policies](../../Transcripts/13-SocialScienceApplications.md#15-simulating-anti-covid-policies).
 
 **Solution.**
 

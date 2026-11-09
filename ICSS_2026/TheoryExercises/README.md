@@ -7,7 +7,7 @@ One sheet per lecture, for the pen-and-paper exercise sessions.
 | 01 | [Introduction](Exercise01.md) | selection sort traces, I Can't Believe It Can Sort |
 | 02 | [Information Coding](Exercise02.md) | biased dice and codes, base conversion, IEEE 754 |
 | 03 | [Data Structures](Exercise03.md) | hash tables, binary search and BSTs, linked lists |
-| 04 | [Software](Exercise04.md) | requirements, specification, design and tests for four small cases |
+| 04 | [Software](Exercise04.md) | the software engineering flow for two cases: survey ages, climate in parliamentary speeches |
 | 05 | [Algorithms](Exercise05.md) | flowcharts, graph representation, BFS, Bellman-Ford |
 | 06 | [Recursion](Exercise06.md) | min-heaps, DFS, Euclid's algorithm |
 | 07 | [Sorting Algorithms](Exercise07.md) | selection sort, mergesort, bubblesort, stability |

@@ -11,7 +11,7 @@
 
 ## AC-01 · The h-index · 3 pts · [2025-E1 Q3a]
 
-**Where to look.** Slides: session 5, slides 16 to 20 (*Representation of algorithms; Pseudocode*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 7, slides 6 to 12 (*Why sort at all?; Sorting*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [05 §4 Pseudocode](../../Transcripts/05-Algorithms.md#4-pseudocode), [07 §1 Why sorting](../../Transcripts/07-SortingAlgorithms.md#1-why-sorting), [07 §9 Why sorting matters for us](../../Transcripts/07-SortingAlgorithms.md#9-why-sorting-matters-for-us).
+**Where to look.** Slides: session 5, slides 16 to 20 (*Representation of algorithms; Pseudocode*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 7, slides 6 to 12 (*Why sort at all?; Sorting*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [05 §4 Pseudocode](../../Transcripts/05-Algorithms.md#4-pseudocode), [07 §1 Why sorting](../../Transcripts/07-SortingAlgorithms.md#sorting), [07 §9 Why sorting matters for us](../../Transcripts/07-SortingAlgorithms.md#9-why-sorting-matters-for-us).
 
 **Solution.**
 
@@ -46,7 +46,7 @@ student actually wrote.
 
 ## AC-02 · Complexity of the h-index algorithm · 2 pts · [2025-E1 Q3b]
 
-**Where to look.** Slides: session 8, slides 13 to 17 (*Runtime analysis*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`; session 8, slides 36 to 40 (*O-notation; Common use of O-notation*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [08 §4 Runtime analysis](../../Transcripts/08-TimeComplexity.md#4-runtime-analysis), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
+**Where to look.** Slides: session 8, slides 13 to 17 (*Runtime analysis*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`; session 8, slides 36 to 40 (*O-notation; Common use of O-notation*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [08 §4 Runtime analysis](../../Transcripts/08-TimeComplexity.md#runtime-analysis), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
 
 **Solution.** $\mathbf{O(N \log N)}$, dominated by the sort. The scan afterwards
 is a single pass over at most $N$ elements, $O(N)$, and $O(N \log N) + O(N) =
@@ -82,7 +82,7 @@ additional working memory**, and whether the chosen sort is in place. A bare
 
 ## AC-04 · Formal O-notation argument · 3 pts · [2023-Ex Q3d, 2025-E1 Q3d, 2025-E2 Q3d]
 
-**Where to look.** Slides: session 8, slides 30 to 38 (*O-notation; Asymptotic behavior of functions; Upper bound; Growth of functions*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [08 §8 Asymptotic behavior and O-notation](../../Transcripts/08-TimeComplexity.md#8-asymptotic-behavior-and-o-notation), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
+**Where to look.** Slides: session 8, slides 30 to 38 (*O-notation; Asymptotic behavior of functions; Upper bound; Growth of functions*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [08 §8 Asymptotic behavior and O-notation](../../Transcripts/08-TimeComplexity.md#o-notation), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
 
 **Solution.** **No.**
 
@@ -119,7 +119,7 @@ $1\,000\,000$ is absorbed by choosing $n_0$ large enough. Say so.
 
 ## AC-05 · Selection sort trace · 2–3 pts · [2023-Ex Q3a, 2023-E2 Q3a, 2025-E1 Q4a]
 
-**Where to look.** Slides: session 7, slides 14 to 20 (*Iterative sorting; Repeated minimum search; Selection sort*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [07 §4 Iterative sorting](../../Transcripts/07-SortingAlgorithms.md#4-iterative-sorting).
+**Where to look.** Slides: session 7, slides 14 to 20 (*Iterative sorting; Repeated minimum search; Selection sort*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [07 §4 Iterative sorting](../../Transcripts/07-SortingAlgorithms.md#iterative-sorting).
 
 **Solution.** Selection sort finds the minimum of the unsorted suffix and swaps
 it into position $i$.
@@ -150,7 +150,7 @@ does $\Theta(n^2)$ comparisons even on sorted input.
 
 ## AC-06 · Selection sort versus repeated minimum search · 2 pts · [2023-Ex Q3b, 2023-E2 Q3b, 2025-E1 Q4b]
 
-**Where to look.** Slides: session 7, slides 14 to 20 (*Repeated minimum search vs selection sort*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`; session 7, slides 13 (*Stable vs unstable sorting*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [07 §3 Stable and unstable sorting](../../Transcripts/07-SortingAlgorithms.md#3-stable-and-unstable-sorting), [07 §4 Iterative sorting](../../Transcripts/07-SortingAlgorithms.md#4-iterative-sorting).
+**Where to look.** Slides: session 7, slides 14 to 20 (*Repeated minimum search vs selection sort*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`; session 7, slides 13 (*Stable vs unstable sorting*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [07 §3 Stable and unstable sorting](../../Transcripts/07-SortingAlgorithms.md#3-stable-and-unstable-sorting), [07 §4 Iterative sorting](../../Transcripts/07-SortingAlgorithms.md#iterative-sorting).
 
 **Solution.** *Repeated minimum search* means: find the minimum of the array,
 remove it and append it to a new output array; repeat.
@@ -178,7 +178,7 @@ review, since it is why mergesort is preferred in libraries.
 
 ## AC-07 · Complexity of selection sort from its pseudocode · 3 pts · [2023-Ex Q3c]
 
-**Where to look.** Slides: session 8, slides 7 to 8 (*Recap: selection sort*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`; session 8, slides 13 to 17 (*Runtime analysis example: selection sort*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [08 §4 Runtime analysis](../../Transcripts/08-TimeComplexity.md#4-runtime-analysis), [08 §5 Best, average and worst case](../../Transcripts/08-TimeComplexity.md#5-best-average-and-worst-case).
+**Where to look.** Slides: session 8, slides 7 to 8 (*Recap: selection sort*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`; session 8, slides 13 to 17 (*Runtime analysis example: selection sort*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [08 §4 Runtime analysis](../../Transcripts/08-TimeComplexity.md#runtime-analysis), [08 §5 Best, average and worst case](../../Transcripts/08-TimeComplexity.md#5-best-average-and-worst-case).
 
 **Solution.**
 
@@ -211,7 +211,7 @@ from insertion sort, and connects to `AC-12`.
 
 ## AC-08 · Mergesort trace and its advantage · 5 pts · [2023-E2 Q3c+d]
 
-**Where to look.** Slides: session 7, slides 22 to 35 (*Divide and conquer; Mergesort; The MERGE function*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`; session 8, slides 23 to 24 (*Complexity of mergesort*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [07 §5 Divide and conquer](../../Transcripts/07-SortingAlgorithms.md#5-divide-and-conquer), [07 §6 Mergesort](../../Transcripts/07-SortingAlgorithms.md#6-mergesort), [08 §6 Recursive algorithms: mergesort](../../Transcripts/08-TimeComplexity.md#6-recursive-algorithms-mergesort).
+**Where to look.** Slides: session 7, slides 22 to 35 (*Divide and conquer; Mergesort; The MERGE function*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`; session 8, slides 23 to 24 (*Complexity of mergesort*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [07 §5 Divide and conquer](../../Transcripts/07-SortingAlgorithms.md#divide-and-conquer), [07 §6 Mergesort](../../Transcripts/07-SortingAlgorithms.md#6-mergesort), [08 §6 Recursive algorithms: mergesort](../../Transcripts/08-TimeComplexity.md#6-recursive-algorithms-mergesort).
 
 **Solution.**
 a) Divide to single elements, then merge upwards.
@@ -421,7 +421,7 @@ stops has missed the question.
 
 ## AC-14 · The $k$-th smallest element · 3+2+3+3 pts · [2023-E1 Q3a–d, 2024-Ex Q3a–d]
 
-**Where to look.** Slides: session 5, slides 16 to 20 (*Representation of algorithms; Pseudocode*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 7, slides 14 to 16 (*Repeated minimum search*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`; session 8, slides 30 to 38 (*O-notation; Upper bound*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [05 §4 Pseudocode](../../Transcripts/05-Algorithms.md#4-pseudocode), [07 §4 Iterative sorting](../../Transcripts/07-SortingAlgorithms.md#4-iterative-sorting), [08 §8 Asymptotic behavior and O-notation](../../Transcripts/08-TimeComplexity.md#8-asymptotic-behavior-and-o-notation), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
+**Where to look.** Slides: session 5, slides 16 to 20 (*Representation of algorithms; Pseudocode*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 7, slides 14 to 16 (*Repeated minimum search*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`; session 8, slides 30 to 38 (*O-notation; Upper bound*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [05 §4 Pseudocode](../../Transcripts/05-Algorithms.md#4-pseudocode), [07 §4 Iterative sorting](../../Transcripts/07-SortingAlgorithms.md#iterative-sorting), [08 §8 Asymptotic behavior and O-notation](../../Transcripts/08-TimeComplexity.md#o-notation), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
 
 **Solution.**
 
@@ -483,7 +483,7 @@ the whole pool about what O-notation means.
 
 ## AC-15 · Posts, comments and users · 2+2+2+3+3 pts · [2024-E1 Q3a–e, 2025-Ex Q3a–e]
 
-**Where to look.** Slides: session 3, slides 33 to 45 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 3, slides 49 to 51 (*Appendix: binary search*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 8, slides 30 to 40 (*O-notation and its use*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#8-hashing-and-hash-tables), [03 §5 Binary search](../../Transcripts/03-DataStructures.md#5-binary-search), [07 §9 Why sorting matters for us](../../Transcripts/07-SortingAlgorithms.md#9-why-sorting-matters-for-us), [08 §8 Asymptotic behavior and O-notation](../../Transcripts/08-TimeComplexity.md#8-asymptotic-behavior-and-o-notation), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
+**Where to look.** Slides: session 3, slides 33 to 45 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 3, slides 49 to 51 (*Appendix: binary search*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 8, slides 30 to 40 (*O-notation and its use*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [03 §5 Binary search](../../Transcripts/03-DataStructures.md#5-binary-search), [07 §9 Why sorting matters for us](../../Transcripts/07-SortingAlgorithms.md#9-why-sorting-matters-for-us), [08 §8 Asymptotic behavior and O-notation](../../Transcripts/08-TimeComplexity.md#o-notation), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
 
 **Solution.**
 
@@ -575,7 +575,7 @@ mechanical for anyone who has done the exercise sheets.
 
 ## AC-16 · Building a comment network · 3+2+3+2 pts · [2024-E2 Q3a–d]
 
-**Where to look.** Slides: session 3, slides 33 to 45 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 5, slides 34 to 37 (*Graphs: formalization; Adjacency matrix; Adjacency list*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#8-hashing-and-hash-tables), [05 §8 Representing graphs](../../Transcripts/05-Algorithms.md#8-representing-graphs), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
+**Where to look.** Slides: session 3, slides 33 to 45 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 5, slides 34 to 37 (*Graphs: formalization; Adjacency matrix; Adjacency list*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [05 §8 Representing graphs](../../Transcripts/05-Algorithms.md#8-representing-graphs), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
 
 **Solution.**
 

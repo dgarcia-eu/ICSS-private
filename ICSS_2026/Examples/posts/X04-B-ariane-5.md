@@ -85,11 +85,11 @@ reproduces the same bug, which is reproducibility working as intended.
 
 ## What we used from the lecture
 
-- [Software engineering](../../Transcripts/04-Software.md#5-software-engineering): reused code
+- [Software engineering](../../Transcripts/04-Software.md#software-engineering): reused code
   carries the requirements of the system it was written for.
-- [Specifications](../../Transcripts/04-Software.md#6-requirements-specifications-and-design): the range of a value is part of
+- [Specifications](../../Transcripts/04-Software.md#requirements): the range of a value is part of
   the specification, and it changed with the new rocket.
-- [Testing](../../Transcripts/04-Software.md#7-testing): the reused code was never tested with
+- [Testing](../../Transcripts/04-Software.md#testing): the reused code was never tested with
   Ariane 5 flight data.
 
 ## Further reading

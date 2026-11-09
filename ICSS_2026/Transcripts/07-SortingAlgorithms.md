@@ -1,31 +1,24 @@
 # Session 7: Sorting Algorithms
 
+<style>
+figure, .figure, .float { margin: 1.4em 0 1.8em 0; }
+figure img, .float img { display: block; max-width: 100%; }
+figcaption, .figcaption, .figure p.caption { margin-top: 0.3em; font-size: 0.88em; color: #555; }
+</style>
+
 *Introduction to Computing for the Social Sciences · lecture transcript*
 
-> Companion text for lecture 7. Notation follows
-> [the course conventions](00-Conventions.md).
->
-> **Reading for this session:** Chapters 2 and 3 of Cormen, *Algorithms Unlocked*
-> (2013). References at the end.
+**Reading for this session:** Chapters 2 and 3 of Cormen, *Algorithms Unlocked*
+(2013). References at the end.
 
 ---
 
 ## Contents
 
-<!-- MOTIVATION-TOC:BEGIN -->
-0. [Motivating examples](#motivating-examples)
-<!-- MOTIVATION-TOC:END -->
-1. [Why sorting](#1-why-sorting)
-2. [The formal problem](#2-the-formal-problem)
-3. [Stable and unstable sorting](#3-stable-and-unstable-sorting)
-4. [Iterative sorting](#4-iterative-sorting)
-5. [Divide and conquer](#5-divide-and-conquer)
-6. [Mergesort](#6-mergesort)
-7. [Quicksort](#7-quicksort)
-8. [Heaps and heapsort](#8-heaps-and-heapsort)
-9. [Why sorting matters for us](#9-why-sorting-matters-for-us)
-10. [Check yourself](#10-check-yourself)
-11. [References](#11-references)
+1. [Sorting](#sorting)
+2. [Iterative sorting: selection sort](#iterative-sorting)
+3. [Divide and conquer: mergesort and quicksort](#divide-and-conquer)
+4. [Data structures for sorting: heapsort](#heapsort)
 
 ---
 
@@ -33,8 +26,8 @@
 ## Motivating examples
 
 Three candidate openings for this session, each a real situation the
-material is the answer to. **One of these will be used in the lecture**;
-the others are kept here because they are worth reading anyway.
+material is the answer to. **One of these will be used in the lecture**,
+while the others are kept here because they are worth reading anyway.
 
 <!-- MOTIVATION:M07-A:BEGIN -->
 ### A · Sorted by region, then by age, and the regions came apart
@@ -43,13 +36,13 @@ Here is a bug that produces no error, no warning and a plausible-looking
 table. You have a respondent file. You sort it by region, because the report
 is organized that way. Then you sort the same table by age, to look at the age
 distribution. You expect that within each age the regions are still in the
-order you put them, but they are not; they come back scrambled. Both sorts
+order you put them, but they are not, because they come back scrambled. Both sorts
 were correct, and the table really is sorted by age. The difference is a
-property called stability: a sorting algorithm is stable if elements that
+property called stability. A sorting algorithm is stable if elements that
 compare equal keep their original relative order. Sorting by age, every
 34-year-old compares equal to every other 34-year-old. A stable algorithm
 leaves them in the order they arrived, which, after the first sort, is region
-order; an unstable algorithm is free to put them in any order, and generally
+order, while an unstable algorithm is free to put them in any order, and generally
 does. This is not a curiosity. It is the mechanism behind a standard
 technique, sorting by several keys one at a time, from the least important to
 the most important. Sort by region, then by age, and with a stable sort you
@@ -63,7 +56,7 @@ elements. Mergesort is stable, because on a tie the merge step takes from the
 left half first. Quicksort is not stable, because partitioning swaps across
 the array. Heapsort is not stable either, because moving the last element to
 the top of the heap reorders equal keys. Stability is not a property that an
-algorithm advertises; it is a property that someone had to design in, and in
+algorithm advertises. It is a property that someone had to design in, and in
 the case of mergesort it hangs on a single character, the $\le$ in the merge
 comparison, so it can be lost by a change that looks purely cosmetic.
 
@@ -72,7 +65,7 @@ mergesort and quicksort, and section 8 heapsort, so that you can see where an
 element moves and why stability holds or fails. The habit to build is that
 when a library offers you a `sort`, you find out whether it is stable before
 relying on a previous sort surviving it. Python's `sorted()` is stable and
-guarantees it; many others are not, and most do not say.
+guarantees it. However, many others are not, and most do not say.
 <!-- MOTIVATION:M07-A:END -->
 <!-- MOTIVATION:M07-B:BEGIN -->
 ### B · Two seconds, or fourteen hours
@@ -96,23 +89,23 @@ At ten million comparisons a second, that is about fourteen hours against two
 seconds. What is worth noticing is where the difference comes from, because it
 is not about efficiency in any ordinary sense. Both algorithms do simple work
 in their inner loop, and neither is written badly. The difference is
-structural. Selection sort throws away everything it learns: having scanned
+structural. Selection sort throws away everything it learns. Having scanned
 the entire array to find the minimum, it knows a great deal about the relative
 order of the remaining elements, and then discards all of it and scans again.
-Mergesort keeps its work: once two halves are sorted, merging them uses that
+Mergesort, in contrast, keeps its work. Once two halves are sorted, merging them uses that
 order, and it never compares two elements whose relative position is already
 implied. That is why the gap widens with $n$ rather than staying constant. At
 $n = 100$ the ratio is about 7, at $n = 10^6$ it is 25 000, and at $n = 10^9$
 it is 17 million. An algorithmic difference is not a constant factor you can
-buy your way out of: no amount of faster hardware closes it, and session 12
+buy your way out of, since no amount of faster hardware closes it, and session 12
 shows that no amount of parallelism does either.
 
 Section 4 of this session covers selection sort and the summation above,
 whose arithmetic is worth doing once by hand. Section 6 covers mergesort and
-the divide-and-conquer idea: halving gives $\log n$ levels, and $\log n$ is a
+the divide-and-conquer idea. Halving gives $\log n$ levels, and $\log n$ is a
 very small number, since $\log_2$ of a billion is 30. Session 8 turns this
 comparison into notation and shows how to count the steps of both algorithms.
-For now the point is the intuition: the question is never how fast an
+For now the point is the intuition, i.e. the question is never how fast an
 algorithm is on your data, but what happens when the data gets ten times
 bigger.
 <!-- MOTIVATION:M07-B:END -->
@@ -120,7 +113,7 @@ bigger.
 ### C · Why sort at all?
 
 Sorting is almost never the goal. It is something you do so that the next
-operation is cheap: searching, merging, deduplicating, finding a median,
+operation is cheap, for example searching, merging, deduplicating, finding a median,
 detecting a range. So the question is never whether something should be
 sorted in the abstract. It is whether the sort costs less than what it saves,
 and we can put numbers on it. Take a codebook of $m = 6\,000$ entries and $q$
@@ -136,7 +129,7 @@ $1.2 \times 10^{11}$, a factor of 240.
 The break-even calculation is the transferable skill here, and it
 generalizes well past sorting. Any preprocessing step, whether sorting,
 building an index, building a hash table or caching a result, has the same
-structure: a fixed cost up front and a lower cost per query afterwards. You
+structure, namely a fixed cost up front and a lower cost per query afterwards. You
 are choosing between two lines with different intercepts and different
 slopes, and the only question is where they cross and on which side of the
 crossing your workload sits. The cases where sorting does not pay are worth
@@ -150,7 +143,7 @@ operation.
 
 Sections 4 to 8 of this session give the costs on the left-hand side of that
 inequality, what each sorting algorithm actually costs and why $n \log n$ is
-achievable; the binary search of session 3 gives the right-hand side, and
+achievable. The binary search of session 3 gives the right-hand side, and
 session 8 gives the notation for reasoning about both at once. The exam has
 asked a version of this question, when sorting is less efficient than
 processing unsorted data, and the answer is always the break-even argument,
@@ -159,8 +152,7 @@ not a rule.
 ---
 
 <!-- MOTIVATION-SECTION:END -->
-## 1. Why sorting
-
+## 1. Why sorting {#sorting}
 The lecture starts with two questions you can answer by eye. Which numbers are
 duplicates? Given a pile of scattered number tiles, this is hard, because you
 have to compare every tile against every other, while given the same tiles
@@ -185,7 +177,7 @@ $$\forall\, 1 \leq k \leq n-1: \; s(u_{i_k}) \leq s(u_{i_{k+1}}),$$
 
 in words, a rearrangement of the objects in which each key is no larger than
 the next. This formalism buys two things. First, the objects and the keys are
-different: you sort survey respondents by age, and the respondent is not the
+different. For example, you sort survey respondents by age, and the respondent is not the
 age. Second, the order relation must be linear, so that any two keys are
 comparable. If your order is only partial, as with "is an ancestor of",
 sorting in this sense is not defined.
@@ -197,12 +189,12 @@ sorting in this sense is not defined.
 Different objects can have the same key value, such as students with exactly
 the same name or respondents of exactly the same age. If a sorting algorithm,
 after sorting, does not change the relative sequence of items with equal keys,
-it is called *stable*; otherwise it is *unstable*. Stability matters because
-it lets you sort by several criteria in sequence: if objects with the same
+it is called *stable*, and otherwise it is *unstable*. Stability matters
+because it lets you sort by several criteria in sequence. If objects with the same
 value for a sorting function $s_1$ have different values for another function
 $s_2$, then a stable sort by $s_1$ after a sort by $s_2$ leaves the $s_2$ order
 intact within each $s_1$ group. In the example of the lecture, four students
-identified by a number are sorted by first name:
+identified by a number are sorted by first name.
 
 | original | | stable result | | unstable result | |
 |---|---|---|---|---|---|
@@ -219,20 +211,19 @@ destroys the first.
 
 ---
 
-## 4. Iterative sorting
-
+## 4. Iterative sorting {#iterative-sorting}
 The fundamental principle of iterative sorting is selection. The intuitive
 strategy is to find the minimum (or the maximum) of a set, move it to the
 front, and apply the same logic to the remaining set. The algorithmic
 strategy, called *repeated minimum search*, splits the list into two parts, a
 sorted part $L$ on the left and an unsorted part $R$ on the right. At the
-start $L$ is empty and $R$ is the entire list; in each round the minimum of
+start $L$ is empty and $R$ is the entire list. In each round the minimum of
 $R$ is found and appended to $L$, and the process stops when $R$ has length 1.
-In the figure, each row shows one round: the smallest remaining element is
+In the figure, each row shows one round, in which the smallest remaining element is
 identified and moved to the end of the sorted prefix, shifting the others
 along.
 
-![Repeated minimum search](../Slides/07-SortingAlgorithms/figures/07-repeated-minimum.svg)
+![*Repeated minimum search.*](../Slides/07-SortingAlgorithms/figures/07-repeated-minimum.svg)
 
 *Selection sort* implements the same idea with swaps instead of insertions.
 The pseudocode is the one of session 1, taken from Cormen (2013, pp. 32–34):
@@ -251,13 +242,13 @@ For i = 1 to n - 1:
       swap A[i] with A[smallest]           # swap it to be the last of L
 ```
 
-![Selection sort](../Slides/07-SortingAlgorithms/figures/07-selection-sort.svg)
+![*Selection sort.*](../Slides/07-SortingAlgorithms/figures/07-selection-sort.svg)
 
 Compare the two figures carefully. Both end sorted, but they get there
-differently: repeated minimum search preserves the relative order of the
+differently, because repeated minimum search preserves the relative order of the
 untouched elements, and selection sort scrambles them by swapping. Both
 algorithms are partially correct, because at every step any element still in
-$R$ is larger than or equal to any element in $L$, and $L$ is sorted; and both
+$R$ is larger than or equal to any element in $L$, and $L$ is sorted. Both also
 terminate, because $R$ shrinks in every step and eventually has length 1. They
 differ in the data structure they suit. Repeated minimum search inserts in the
 middle of the list, so it is better for linked lists, where insertion is cheap
@@ -265,7 +256,7 @@ and index access is expensive, while selection sort uses swaps, so it is
 better for arrays, where index access is cheap and insertion is expensive.
 They also differ in stability. Repeated minimum search is stable, because in
 case of a tie it takes the first minimum in $R$, which preserves any other
-ordering; selection sort is unstable, because a swap moves an arbitrary
+ordering, while selection sort is unstable, because a swap moves an arbitrary
 element into the vacated slot. As a concrete example, sort `[2a, 2b, 1]`,
 where `2a` and `2b` are two records with key 2. Selection sort swaps position
 1 with the minimum, the 1, and produces `[1, 2b, 2a]`, so the two 2s have
@@ -275,16 +266,15 @@ Why should we care about sorting at all? We sort data more often than we
 think, especially in data science, where complex data often has to be sorted
 to be analyzed or shown, and in practice speed matters for analysts and
 users. Sorting is also healthy, because it helps to notice data issues. And
-many search algorithms require sorted data to work, as binary search does; it
+many search algorithms require sorted data to work, as binary search does, since it
 is simply much easier to find items in an ordered list than in an unordered
 one.
 
 ---
 
-## 5. Divide and conquer
-
+## 5. Divide and conquer {#divide-and-conquer}
 *Divide and conquer* is a fundamental algorithmic principle named after the
-military maxim *divide et impera*: separate a problem into separate
+military maxim *divide et impera*. The idea is to separate a problem into separate
 sub-problems, continue until those sub-problems are solvable, and then
 recombine the partial results into the full solution. Divide and conquer is
 not the same as recursion, that is, as recursive calls of the same function.
@@ -293,9 +283,9 @@ algorithms, because by definition the sub-problems are self-similar and the
 overall solution is generated by combining the solutions of the sub-problems,
 but a divide-and-conquer strategy can also be implemented iteratively. The
 distinction matters because it tells you where to look when an algorithm is
-slow: at the split, at the sub-problems, or at the combination.
+slow, i.e. at the split, at the sub-problems, or at the combination.
 
-![Divide and conquer](../Slides/07-SortingAlgorithms/figures/07-divide-and-conquer.svg)
+![*Divide and conquer.*](../Slides/07-SortingAlgorithms/figures/07-divide-and-conquer.svg)
 
 ---
 
@@ -304,7 +294,7 @@ slow: at the split, at the sub-problems, or at the combination.
 *Mergesort* first divides the list into equal halves and then combines them
 in a sorted manner, so it sorts by merging sublists. The principle is that a
 list with one element is trivially sorted, and that merging two sorted lists
-is simple: compare the first element of each sublist, append the smaller of
+is simple. You compare the first element of each sublist, append the smaller of
 the two to the merged list and remove it from its sublist, and continue with
 the remaining sublists. The algorithmic strategy is to divide the list
 repeatedly until one element remains per list, and then to merge sorted
@@ -347,25 +337,27 @@ simple. When one of the two copies is exhausted, its next element is $\infty$,
 which is never smaller than anything, so the loop keeps copying from the
 other array without a special case. The example of the lecture merges $B =
 [2,3,4,6]$ with $C = [1,5,7,8]$. Comparing 2 and 1 takes 1, comparing 2 and 5
-takes 2, comparing 3 and 5 takes 3, and comparing 4 and 5 takes 4; then
+takes 2, comparing 3 and 5 takes 3, and comparing 4 and 5 takes 4. Then
 comparing 6 and 5 takes 5, comparing 6 and 7 takes 6, and 7 and 8 follow.
 
-![Merging, first half](../Slides/07-SortingAlgorithms/figures/07-merge-1.svg)
+![*Merging, first half.*](../Slides/07-SortingAlgorithms/figures/07-merge-1.svg)
 
-![Merging, second half](../Slides/07-SortingAlgorithms/figures/07-merge-2.svg)
+![*Merging, second half.*](../Slides/07-SortingAlgorithms/figures/07-merge-2.svg)
 
 Note that the test `B[i] ≤ C[j]` uses $\le$ and not $<$. That single character
-is what makes mergesort stable: on a tie, the element from the left half goes
+is what makes mergesort stable, because on a tie the element from the left half goes
 first, and the left half was earlier in the original. Seen as a whole, the
 split step divides the list iteratively into equal halves without changing
 the sequence of the items until single elements are reached, and the merge
 step combines them back in sorted order.
 
-![Splitting](../Slides/07-SortingAlgorithms/figures/07-mergesort-split.svg)
+![*Splitting.*](../Slides/07-SortingAlgorithms/figures/07-mergesort-split.svg)
 
-![First merge](../Slides/07-SortingAlgorithms/figures/07-mergesort-merge-1.svg)
-![Second merge](../Slides/07-SortingAlgorithms/figures/07-mergesort-merge-2.svg)
-![Final merge](../Slides/07-SortingAlgorithms/figures/07-mergesort-merge-3.svg)
+![*First merge.*](../Slides/07-SortingAlgorithms/figures/07-mergesort-merge-1.svg)
+
+![*Second merge.*](../Slides/07-SortingAlgorithms/figures/07-mergesort-merge-2.svg)
+
+![*Final merge.*](../Slides/07-SortingAlgorithms/figures/07-mergesort-merge-3.svg)
 
 As a divide-and-conquer strategy, the divide step splits the list into two
 sublists of half the size and sorts them recursively, calling mergesort on
@@ -373,7 +365,7 @@ itself, assuming that the output is a sorted list at each recursion step, and
 relying on a well-defined base case, the list with one element. The combine
 step merges two lists while preserving their order, a systematic and
 efficient merger of partial lists into one large sorted list. Note where the
-work is: all of it is in the combine step, and the divide step is just
+work is. All of it is in the combine step, and the divide step is just
 arithmetic on indices. Regarding correctness, the merge steps sort correctly,
 no order is changed outside merging, all elements are sorted and the algorithm
 terminates. Regarding memory and stability, mergesort needs additional memory
@@ -413,38 +405,39 @@ If p ≥ r
 ```
 
 PARTITION is the procedure that does the rearranging and returns the final
-position of the pivot; its pseudocode is in Cormen (2013, ch. 3, pp. 50–53),
+position of the pivot. Its pseudocode is in Cormen (2013, ch. 3, pp. 50–53),
 and the exercise of the lecture is to run quicksort by hand on the same
 example as mergesort. Quicksort is very memory efficient, because it is an
 in-place procedure, and it is usually faster than mergesort in practice. Its
 disadvantage is that its efficiency depends on the choice of the pivot and on
-the partition scheme, as we will see in session 8: a bad pivot, such as
+the partition scheme, as we will see in session 8. For example, a bad pivot, such as
 always the first element of an already sorted list, makes it degenerate. The
 difference from mergesort is worth remembering, because the two most
 important sorting algorithms are mirror images. In quicksort all the heavy
 lifting is done while dividing the array into subarrays, and the combine step
-does absolutely nothing; in mergesort all the real work happens while merging
+does absolutely nothing, while in mergesort all the real work happens while merging
 the subarrays.
 
 ---
 
-## 8. Heaps and heapsort
-
+## 8. Heaps and heapsort {#heapsort}
 Sorting algorithms can use data structures for help, and heapsort is the
 example where the data structure does the sorting. A *heap* is a partially
-ordered binary tree without gaps or holes: the children of any node are not
+ordered binary tree without gaps or holes. The children of any node are not
 larger than the node, all levels are filled, and the last level is filled
 from the left. It is not a binary search tree, because we only require local
 ordering between a node and its children. Does the tree of the lecture
-satisfy the heap property? No: node 4 has the child 8, and $8 > 4$. But the
+satisfy the heap property? No, because node 4 has the child 8, and $8 > 4$. But the
 property can be efficiently recovered by swapping the offending node with its
 largest child and repeating the swap downwards.
 
-![A tree to check](../Slides/07-SortingAlgorithms/figures/07-heap-example.svg)
+![*A tree to check.*](../Slides/07-SortingAlgorithms/figures/07-heap-example.svg)
 
-![Recovering, step 1](../Slides/07-SortingAlgorithms/figures/07-heap-fix-1.svg)
-![Recovering, step 2](../Slides/07-SortingAlgorithms/figures/07-heap-fix-2.svg)
-![Recovering, step 3](../Slides/07-SortingAlgorithms/figures/07-heap-fix-3.svg)
+![*Recovering, step 1.*](../Slides/07-SortingAlgorithms/figures/07-heap-fix-1.svg)
+
+![*Recovering, step 2.*](../Slides/07-SortingAlgorithms/figures/07-heap-fix-2.svg)
+
+![*Recovering, step 3.*](../Slides/07-SortingAlgorithms/figures/07-heap-fix-3.svg)
 
 Two things distinguish a heap from a binary search tree, and both matter. The
 heap condition is local, between a parent and its children, so it is much
@@ -458,9 +451,9 @@ node at position $x$ are found by arithmetic:
 
 $$\text{left}(x) = 2x, \qquad \text{right}(x) = 2x+1, \qquad \text{parent}(x) = \lfloor x/2 \rfloor.$$
 
-![A min-heap](../Slides/07-SortingAlgorithms/figures/07-min-heap.svg)
+![*A min-heap.*](../Slides/07-SortingAlgorithms/figures/07-min-heap.svg)
 
-![A min-heap as an array](../Slides/07-SortingAlgorithms/figures/07-min-heap-array.svg)
+![*A min-heap as an array.*](../Slides/07-SortingAlgorithms/figures/07-min-heap-array.svg)
 
 The conceptual foundation of *heapsort* is that in a min-heap the smallest
 element is on top, the children are not smaller because of the heap property,
@@ -471,30 +464,37 @@ recover the heap property by permuting elements downwards. Repeated until the
 heap is empty, the removed elements come out in sorted order. The trace of the
 lecture starts from the min-heap `[2, 4, 14, 10, 8, 15, 18, 17, 11, 16]`, and
 the sorted output grows below the tree. First the top, 2, is extracted and
-placed first in the output; then the last element, 16, is moved to the top;
-then the min-heap property is recovered by sifting 16 down; then the new
+placed first in the output. Then the last element, 16, is moved to the top,
+the min-heap property is recovered by sifting 16 down, and then the new
 minimum, 4, is extracted, and so on.
 
-![Extract 2](../Slides/07-SortingAlgorithms/figures/07-heapsort-00.svg)
-![Move last to top](../Slides/07-SortingAlgorithms/figures/07-heapsort-01.svg)
-![Recover](../Slides/07-SortingAlgorithms/figures/07-heapsort-02.svg)
-![Recover](../Slides/07-SortingAlgorithms/figures/07-heapsort-03.svg)
-![Extract 4](../Slides/07-SortingAlgorithms/figures/07-heapsort-04.svg)
+![*Extract 2.*](../Slides/07-SortingAlgorithms/figures/07-heapsort-00.svg)
+
+![*Move last to top.*](../Slides/07-SortingAlgorithms/figures/07-heapsort-01.svg)
+
+![*Recover.*](../Slides/07-SortingAlgorithms/figures/07-heapsort-02.svg)
+
+![*Recover.*](../Slides/07-SortingAlgorithms/figures/07-heapsort-03.svg)
+
+![*Extract 4.*](../Slides/07-SortingAlgorithms/figures/07-heapsort-04.svg)
 
 Each round is the same three moves, extract, move the last element to the
 top, and sift down, until the heap is empty and the output is sorted.
 
-![Later state](../Slides/07-SortingAlgorithms/figures/07-heapsort-10.svg)
-![Later state](../Slides/07-SortingAlgorithms/figures/07-heapsort-16.svg)
-![Later state](../Slides/07-SortingAlgorithms/figures/07-heapsort-24.svg)
-![Final state](../Slides/07-SortingAlgorithms/figures/07-heapsort-30.svg)
+![*Later state.*](../Slides/07-SortingAlgorithms/figures/07-heapsort-10.svg)
+
+![*Later state.*](../Slides/07-SortingAlgorithms/figures/07-heapsort-16.svg)
+
+![*Later state.*](../Slides/07-SortingAlgorithms/figures/07-heapsort-24.svg)
+
+![*Final state.*](../Slides/07-SortingAlgorithms/figures/07-heapsort-30.svg)
 
 Each extraction costs about $\log_2 n$ swaps, the depth of the heap, and there
 are $n$ extractions, which is what we will call $O(n \log n)$ in the next
 session. The pseudocode of heapsort and of the heap operations is in Cormen
 (2013, pp. 98–99), and the exercise of the lecture is to write the pseudocode
 to build a heap and to extract the minimum, and to decide whether heapsort is
-stable. A note on the figures: the 31 states of the trace were produced by
+stable. As a note on the figures, the 31 states of the trace were produced by
 actually running the algorithm, not drawn by hand, so the tree, the output
 array and the captions agree with each other by construction, and you can use
 them to check your own pen-and-paper trace.
@@ -545,7 +545,7 @@ rule is to sort by the least significant key first.
 
 <details><summary>Answer</summary>
 
-Rarely, but yes: it makes the minimum possible number of swaps, at most
+Rarely, but yes, because it makes the minimum possible number of swaps, at most
 $n-1$, which matters if writing is far more expensive than reading, for
 example on flash memory with limited write cycles, or with records so large
 that moving them dominates. It is also simple enough to get right on paper,
@@ -553,13 +553,13 @@ which is why it opens the course.
 
 </details>
 
-**3.** Mergesort needs extra memory; quicksort does not. Why is mergesort still used?
+**3.** Mergesort needs extra memory, while quicksort does not. Why is mergesort still used?
 
 <details><summary>Answer</summary>
 
 Because it is stable and its worst case is as good as its average case, while
 the worst case of quicksort degenerates badly with an unlucky pivot. Real
-libraries often use hybrids: Python's `sorted` uses Timsort, a mergesort
+libraries often use hybrids. For example, Python's `sorted` uses Timsort, a mergesort
 variant that exploits runs already present in the data and is stable.
 
 </details>
@@ -575,7 +575,7 @@ extraction is cheap, $\log n$ instead of $n$.
 
 </details>
 
-**5.** Selection sort and mergesort on an already-sorted list of a million elements: which is faster, and by roughly how much?
+**5.** Selection sort and mergesort on an already-sorted list of a million elements. Which is faster, and by roughly how much?
 
 <details><summary>Answer</summary>
 

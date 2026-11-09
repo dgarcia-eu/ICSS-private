@@ -81,9 +81,9 @@ number is a string.
 
 - [Object-oriented programming](../../Transcripts/04-Software.md#4-object-oriented-programming):
   the same `+` is a different method for each class (polymorphism).
-- [Specifications](../../Transcripts/04-Software.md#6-requirements-specifications-and-design): say what type the input is
+- [Specifications](../../Transcripts/04-Software.md#requirements): say what type the input is
   before you compute with it.
-- [Testing](../../Transcripts/04-Software.md#7-testing): one test with a known answer would have
+- [Testing](../../Transcripts/04-Software.md#testing): one test with a known answer would have
   caught the 40,000-digit sum.
 
 ## Further reading

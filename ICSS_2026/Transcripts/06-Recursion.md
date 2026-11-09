@@ -1,31 +1,23 @@
 # Session 6: Recursion
 
+<style>
+figure, .figure, .float { margin: 1.4em 0 1.8em 0; }
+figure img, .float img { display: block; max-width: 100%; }
+figcaption, .figcaption, .figure p.caption { margin-top: 0.3em; font-size: 0.88em; color: #555; }
+</style>
+
 *Introduction to Computing for the Social Sciences · lecture transcript*
 
-> Companion text for lecture 6. Notation follows
-> [the course conventions](00-Conventions.md).
->
-> **Reading for this session:** Chapter 13 of Zelle, *Python Programming*
-> (2016). References at the end.
+**Reading for this session:** Chapter 13 of Zelle, *Python Programming*
+(2016). References at the end.
 
 ---
 
 ## Contents
 
-<!-- MOTIVATION-TOC:BEGIN -->
-0. [Motivating examples](#motivating-examples)
-<!-- MOTIVATION-TOC:END -->
-1. [Recursion, starting from an example](#1-recursion-starting-from-an-example)
-2. [The three parts of a recursive definition](#2-the-three-parts-of-a-recursive-definition)
-3. [Factorial](#3-factorial)
-4. [How recursion runs: the program stack](#4-how-recursion-runs-the-program-stack)
-5. [Euclid's algorithm](#5-euclids-algorithm)
-6. [Depth-First Search](#6-depth-first-search)
-7. [Types of recursion](#7-types-of-recursion)
-8. [Dynamic programming](#8-dynamic-programming)
-9. [Families of algorithm design](#9-families-of-algorithm-design)
-10. [Check yourself](#10-check-yourself)
-11. [References](#11-references)
+1. [Recursion](#recursion)
+2. [Recursive algorithms](#recursive-algorithms)
+3. [Dynamic programming](#dynamic-programming)
 
 ---
 
@@ -33,16 +25,16 @@
 ## Motivating examples
 
 Three candidate openings for this session, each a real situation the
-material is the answer to. **One of these will be used in the lecture**;
-the others are kept here because they are worth reading anyway.
+material is the answer to. **One of these will be used in the lecture**,
+while the others are kept here because they are worth reading anyway.
 
 <!-- MOTIVATION:M06-A:BEGIN -->
 ### A · How many people report to her?
 
-Take an ordinary organizational chart. There is a chief executive; below her,
-division heads; below them, departments, teams and staff. In some divisions
+Take an ordinary organizational chart. There is a chief executive, below her
+are division heads, and below them are departments, teams and staff. In some divisions
 that is four levels, in others seven, and after the next reorganization
-something else. Now answer a simple question: how many people in total sit
+something else. Now answer a simple question. How many people in total sit
 below a given manager? The instinct from session 4 is a loop. Add up the
 direct reports, then add up their reports, then theirs, and written out it
 becomes:
@@ -59,7 +51,7 @@ For each direct report:
 The `...` is the problem. The nesting depth of the code has to match the
 depth of the chart, which you do not know when you write the code, and which
 is not even the same across the organization. You could write ten levels of
-nesting and hope; it would be wrong for the eleventh, and unreadable at the
+nesting and hope, but it would be wrong for the eleventh, and unreadable at the
 third. The way out is to notice something about the structure, not about the
 code. The subtree of a manager is the manager plus the subtree of each direct
 report, so the description of the whole refers to the same kind of thing as
@@ -77,18 +69,18 @@ return total
 ```
 
 Four lines, no assumption about depth, and it is obviously correct once you
-read it as a sentence: the number below me is, for each of my reports, that
+read it as a sentence, namely that the number below me is, for each of my reports, that
 person plus the number below them. The base case is hidden in plain sight,
 because a person with no direct reports never enters the loop and returns 0,
 and that is what stops the whole thing.
 
 Section 2 of this session is about the parts of any recursive definition, a
 base case that returns without recursing and a recursion case that moves
-strictly closer to it; get either wrong and you get an infinite descent.
+strictly closer to it. If you get either wrong, you get an infinite descent.
 Section 4 is about the call stack, what the machine actually keeps while
 those nested calls are outstanding, and why "recursion depth exceeded" is a
 real limit rather than a theoretical one. Section 7 is about the types of
-recursion, and tree recursion is exactly the shape above: one call per child
+recursion, and tree recursion is exactly the shape above, with one call per child
 rather than one call in total. The reframing to take away is that recursion
 is not a trick for writing loops differently. It is what you reach for when
 the data is defined in terms of itself, and organizations, family trees, file
@@ -99,12 +91,12 @@ systems, comment threads and grammatical sentences all are.
 
 Online discussion is a standard object of study in computational social
 science, and it has an awkward shape. A thread is not a list of posts. It is a
-tree: a top-level post has replies, those replies have replies, and there is
+tree, in which a top-level post has replies, those replies have replies, and there is
 no fixed limit. A heated exchange between two people can run forty levels
 deep while the rest of the thread is flat. Look at how you would have to
-define the data type: a comment consists of an author, a timestamp, some
+define the data type. A comment consists of an author, a timestamp, some
 text, and a list of comments. The definition uses the word it is defining.
-That is not sloppiness; it is the honest description, and it is exactly why
+That is not sloppiness but the honest description, and it is exactly why
 loops sit badly on this data. Any question you want to ask has the same
 self-referential shape. How many posts are in this thread? One, plus the
 count in each reply. How deep does it go? One, plus the deepest of its
@@ -135,11 +127,11 @@ yourself are correct.
 Section 2 of this session is about the base case and the recursion case.
 Here the base case is a comment with no replies, and it is what guarantees
 termination, provided that the thread really is a tree and not a cycle.
-Section 4 is about the call stack and the practical limit it imposes: a
+Section 4 is about the call stack and the practical limit it imposes. For example, a
 thread 40 000 levels deep would exhaust Python's default recursion limit of
 about 1 000, which is a real constraint on real data. Section 7 distinguishes
 tree recursion, one call per child, from linear recursion. The exercise sheet
-asks you to write several of these procedures; do them by writing the
+asks you to write several of these procedures. Do them by writing the
 definition of the data first, and the procedure follows from it almost
 mechanically.
 <!-- MOTIVATION:M06-B:END -->
@@ -147,15 +139,15 @@ mechanically.
 ### C · The algorithm that is 2 300 years old
 
 The oldest algorithm still in everyday use is about 2 300 years old. Euclid
-gives it in Book VII of the *Elements*, in geometric language: to find the
+gives it in Book VII of the *Elements*, in geometric language, i.e. to find the
 greatest common measure of two magnitudes, repeatedly subtract the smaller
 from the larger. In modern form, using remainders instead of repeated
 subtraction,
 
 $$\gcd(a, b) = \gcd(b,\ a \bmod b), \qquad \gcd(a, 0) = a.$$
 
-Two lines, and they do something genuinely non-obvious: they find the largest
-number dividing both, without factoring either. Run it on 270 and 192:
+Two lines, and they do something genuinely non-obvious, because they find the largest
+number dividing both, without factoring either. Run it on 270 and 192.
 
 | Call | $a$ | $b$ | $a \bmod b$ |
 |---|---|---|---|
@@ -165,22 +157,22 @@ number dividing both, without factoring either. Run it on 270 and 192:
 | 4 | 36 | 6 | 0 |
 | 5 | 6 | 0 | base case, return 6 |
 
-Five calls, and the numbers collapse fast: 270, 192, 78, 36, 6. That speed is
+Five calls, and the numbers collapse fast, from 270 to 192, 78, 36 and 6. That speed is
 not luck. Taking a remainder against $b$ produces something strictly less
 than $b$, and it can be shown that two steps at least halve the larger
 number, so the number of calls is logarithmic in the input, not linear. This
 is the cleanest example in the course of the two things a recursion needs,
 and it is worth naming them against this table. The first is a base case,
-line 5 of the table: when $b = 0$, the procedure returns without calling
+line 5 of the table. When $b = 0$, the procedure returns without calling
 itself, and without it the recursion never ends. The second is progress
-towards the base case: each call replaces $(a, b)$ with $(b, a \bmod b)$, and
+towards the base case. Each call replaces $(a, b)$ with $(b, a \bmod b)$, and
 $a \bmod b < b$, so the second argument strictly decreases and is never
 negative. A strictly decreasing sequence of non-negative integers cannot go
 on forever, so the base case is reached. That is a proof of termination, and
 it is the argument you should be able to make for any recursion you write.
 Drop either half and the failure is dramatic rather than subtle. A missing
 base case, or a recursive call that does not shrink the problem, gives
-infinite descent: each call pushes a frame onto the call stack, the stack
+infinite descent. Each call pushes a frame onto the call stack, the stack
 fills, and the program dies with `RecursionError: maximum recursion depth
 exceeded`, which in Python happens after about 1 000 frames.
 
@@ -196,15 +188,14 @@ the whole of what is asked.
 ---
 
 <!-- MOTIVATION-SECTION:END -->
-## 1. Recursion, starting from an example
-
-The lecture starts with a country called Simpleland and its citizenship law: a
+## 1. Recursion, starting from an example {#recursion}
+The lecture starts with a country called Simpleland and its citizenship law, which says that a
 person P is a citizen of Simpleland if P was born in Simpleland, or if either
 of P's parents is a citizen of Simpleland. Now ask whether a given person P is
 a citizen. The rule does not answer directly. To apply the second clause you
 have to ask the same question about P's mother and father, and to answer that
 you have to ask about P's grandparents, so the question keeps referring back
-to itself. This is *recursion*: a definition that is stated in terms of
+to itself. This is *recursion*, that is, a definition that is stated in terms of
 itself. It is not circular, and understanding why it is not circular is the
 point of the whole lecture.
 
@@ -217,11 +208,11 @@ the rule again. It can be checked directly, and that is the *base case*.
 Without a base case the recursion never bottoms out, so every recursive
 definition needs at least one. The second clause, that either of P's parents is
 a citizen, reduces the question to the same question about a different input,
-and that is the *recursion case*. Two conditions make it work: the sub-problem
+and that is the *recursion case*. Two conditions make it work. The sub-problem
 must be of the same kind as the original, so that the same rule applies, and
 it must be closer to the base case, so that the process terminates.
 
-There is also a practical problem: what if we do not know all of P's
+There is also a practical problem. What if we do not know all of P's
 ancestors? Real records run out, and the recursion would keep asking questions
 that cannot be answered. The fix is to add a clause that says that if we do
 not know P's parents, then P is not a citizen of Simpleland. That is an *abort
@@ -240,7 +231,7 @@ function converges to a target value or a predefined abort condition is met.
 Once you look for it, recursion is everywhere. A binary tree is defined in
 terms of binary trees (session 3), a directory contains files and
 directories, a sentence can contain a clause that is itself a sentence, and
-fractals are pictures defined in terms of themselves; the site
+fractals are pictures defined in terms of themselves. The site
 <http://recursivedrawing.com/> lets you draw some and is worth five minutes of
 your time.
 
@@ -249,13 +240,13 @@ your time.
 ## 3. Factorial
 
 How many different ways are there to seat four diners? For the first slot
-there are 4 choices; having used one person, the second slot has 3 choices,
+there are 4 choices. Having used one person, the second slot has 3 choices,
 then 2, then 1, so there are $4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24$
 arrangements.
 
-![Four slots](../Slides/06-Recursion/figures/06-factorial-slots.svg)
+![*Four slots.*](../Slides/06-Recursion/figures/06-factorial-slots.svg)
 
-![Four slots with choices](../Slides/06-Recursion/figures/06-factorial-slots-choices.svg)
+![*Four slots with choices.*](../Slides/06-Recursion/figures/06-factorial-slots-choices.svg)
 
 The factorial has an iterative definition, $n! = n \, (n-1) \, (n-2) \cdots
 (1)$, and a recursive one:
@@ -263,7 +254,7 @@ The factorial has an iterative definition, $n! = n \, (n-1) \, (n-2) \cdots
 $$n! = \begin{cases} 1 & \text{if } n = 1 \quad \text{(base case)}\\ n \cdot (n-1)! & \text{if } n > 1 \quad \text{(recursion case)}\end{cases}$$
 
 The recursive definition is shorter, and it is also a better description of
-the structure of the problem: the number of ways to seat $n$ people is $n$
+the structure of the problem, because the number of ways to seat $n$ people is $n$
 choices for the first seat times the number of ways to seat the remaining
 $n-1$. Each definition gives an implementation.
 
@@ -298,24 +289,30 @@ def recursive_factorial(n):
 ```
 
 Notice how directly the recursive version transcribes the mathematical
-definition. That is typical: when a problem has a recursive structure, the
+definition. That is typical, since when a problem has a recursive structure, the
 recursive program is often the shortest correct one. The calculation can be
 drawn as a tree. Tracing `fac(4)`, the call cannot return yet because it
 needs `fac(3)`, which needs `fac(2)`, which needs `fac(1)`. The calls go down
 until they reach the base case, `fac(1)` returns 1 without calling anything,
-and only then do the values come back up: $1$, then $2 \cdot 1 = 2$, then $3
+and only then do the values come back up, first $1$, then $2 \cdot 1 = 2$, then $3
 \cdot 2 = 6$, then $4 \cdot 6 = 24$.
 
-![Step 1](../Slides/06-Recursion/figures/06-factorial-tree-1.svg)
-![Step 2](../Slides/06-Recursion/figures/06-factorial-tree-2.svg)
-![Step 3](../Slides/06-Recursion/figures/06-factorial-tree-3.svg)
-![Step 4, base case reached](../Slides/06-Recursion/figures/06-factorial-tree-4.svg)
-![Step 5](../Slides/06-Recursion/figures/06-factorial-tree-5.svg)
-![Step 6](../Slides/06-Recursion/figures/06-factorial-tree-6.svg)
-![Step 7](../Slides/06-Recursion/figures/06-factorial-tree-7.svg)
+![*Step 1.*](../Slides/06-Recursion/figures/06-factorial-tree-1.svg)
+
+![*Step 2.*](../Slides/06-Recursion/figures/06-factorial-tree-2.svg)
+
+![*Step 3.*](../Slides/06-Recursion/figures/06-factorial-tree-3.svg)
+
+![*Step 4, base case reached.*](../Slides/06-Recursion/figures/06-factorial-tree-4.svg)
+
+![*Step 5.*](../Slides/06-Recursion/figures/06-factorial-tree-5.svg)
+
+![*Step 6.*](../Slides/06-Recursion/figures/06-factorial-tree-6.svg)
+
+![*Step 7.*](../Slides/06-Recursion/figures/06-factorial-tree-7.svg)
 
 The shape of that trace, all the way down and then all the way back up, is the
-most important picture in this lecture. Nothing is computed on the way down;
+most important picture in this lecture. Nothing is computed on the way down, and
 everything is computed on the way back.
 
 ---
@@ -326,23 +323,23 @@ To understand why recursion behaves like that, and why it can fail, we need
 to look at how a running program uses memory. A program being run on a
 machine is called a *process*, and a process requires memory that is organized
 in three segments. The code segment (CS) contains the executable instructions,
-that is, the program loaded from disk; it is typically read-only and of fixed
+that is, the program loaded from disk, and it is typically read-only and of fixed
 size. The stack segment (SS) contains local variables, parameters and return
-addresses; it is typically not executable (NX) and it is limited in size, for
+addresses. It is typically not executable (NX) and it is limited in size, for
 example 8 MB on Linux and 1 MB on Windows and in Java. The data segment or
 heap (DS) contains global data, and Python manages all its objects in a
-private heap; it is typically not executable and its size is limited by the
+private heap. It is typically not executable and its size is limited by the
 main memory or by an explicit parameter given when the program is run.
 
-![Memory layout of a process](../Slides/06-Recursion/figures/06-process-memory.svg)
+![*Memory layout of a process.*](../Slides/06-Recursion/figures/06-process-memory.svg)
 
 Recursion uses the program stack. For each call, the stack stores the
 parameters, the return address, the local variables and the return value, and
-it grows and shrinks automatically with every call: a push on the call, a pop
+it grows and shrinks automatically with every call, with a push on the call and a pop
 on the return. That is exactly the LIFO behavior of the stack of session 5,
 and it is why the innermost call must finish first. But the stack has a
 maximum size, so stack overflows are possible, and recursion in functions
-leads to stack overflow very easily: a missing base case, or an input that is
+leads to stack overflow very easily. A missing base case, or an input that is
 simply too large, and the process dies. Python sets a limit of about 1000
 frames by default precisely so that you get a clean error rather than a
 crash:
@@ -360,8 +357,7 @@ recursive code goes wrong.
 
 ---
 
-## 5. Euclid's algorithm
-
+## 5. Euclid's algorithm {#recursive-algorithms}
 The *greatest common divisor* $\gcd(a,b)$ of two numbers is the largest number
 that divides both exactly. For 8 and 6, 1 divides both, 2 divides both, and 3
 does not divide 8, so $\gcd(8,6) = 2$. Euclid's algorithm rests on one
@@ -369,11 +365,11 @@ mathematical property,
 
 $$\gcd(a,b) = \gcd(b,\; a \bmod b),$$
 
-and that single equation is the recursion case: it replaces the problem with
+and that single equation is the recursion case. It replaces the problem with
 a smaller instance of the same problem, because $a \bmod b < b$. The base
 case is $b = 0$, since the greatest common divisor of $a$ and 0 is $a$.
 
-![Dividing 8 and 6](../Slides/06-Recursion/figures/06-gcd.svg)
+![*Dividing 8 and 6.*](../Slides/06-Recursion/figures/06-gcd.svg)
 
 ```
 Procedure GCD(a, b)
@@ -386,18 +382,18 @@ If b = 0
 ```
 
 The worked trace of the lecture computes $\gcd(270, 192)$. Since $270 \bmod
-192 = 78$, the call becomes $\gcd(192, 78)$; since $192 \bmod 78 = 36$, it
-becomes $\gcd(78, 36)$; since $78 \bmod 36 = 6$, it becomes $\gcd(36, 6)$; and
+192 = 78$, the call becomes $\gcd(192, 78)$. Since $192 \bmod 78 = 36$, it
+becomes $\gcd(78, 36)$, and since $78 \bmod 36 = 6$, it becomes $\gcd(36, 6)$. Finally,
 since $36 \bmod 6 = 0$, it becomes $\gcd(6, 0)$, which returns 6. Five calls,
-and the numbers shrink fast. That speed is not an accident: the remainder $a
+and the numbers shrink fast. That speed is not an accident, because the remainder $a
 \bmod b$ is always less than $a/2$, so the larger argument at least halves
 every two calls, and the number of calls is logarithmic in the input.
 
 Euclid (c. 300 BC) was a Greek mathematician, and "Euclid of Alexandria" is
-about all we know of him: neither his birth year nor his birthplace is
+about all we know of him, since neither his birth year nor his birthplace is
 recorded. He is commonly called the father of geometry, and his most
 influential book, the *Elements*, contains this algorithm in Book VII. The
-original version used subtraction rather than the modulo operation; it was
+original version used subtraction rather than the modulo operation. It was
 still recursive, but it needed more steps. One of his lesser-known books is
 titled *Data* (Δεδομένα), on how to study given information geometrically.
 That the same algorithm has been running unchanged for 2300 years is a good
@@ -411,7 +407,7 @@ computers.
 Breadth-first search (session 5) used a queue and explored level by level.
 *Depth-first search* (DFS) explores as deep as it can before backtracking,
 and the natural way to write it is recursively, because the recursion is the
-stack. Several problems can be solved with it: whether a node $x$ is included
+stack. Several problems can be solved with it, for example whether a node $x$ is included
 in the graph, whether the graph has a cycle, and whether the graph has a
 strongly connected component. The algorithm has two procedures. The outer one
 initializes every vertex and then visits every vertex that is still white,
@@ -450,7 +446,7 @@ time ← time + 1
 f[u] ← time                     # finished
 ```
 
-Each vertex gets two timestamps: $d[u]$ when it is first discovered, and
+Each vertex gets two timestamps, $d[u]$ when it is first discovered, and
 $f[u]$ when all its descendants are finished. In the figures they are written
 inside the node as `d/f`, the parent is the gray capital letter, and the
 graph is directed, with edges $c \to b$, $c \to f$, $c \to g$, $b \to e$, $e
@@ -461,68 +457,80 @@ neighbors are taken in alphabetical order, as the conventions require.
 
 In the initial state all times are empty.
 
-![DFS initial](../Slides/06-Recursion/figures/06-dfs-00.svg)
+![*DFS initial.*](../Slides/06-Recursion/figures/06-dfs-00.svg)
 
 We call DFS-VISIT($c$), and the time becomes 1. The first white neighbor of
 $c$ is $b$, so we set $\pi[b] = C$ and recurse.
 
-![DFS at c](../Slides/06-Recursion/figures/06-dfs-01.svg)
+![*DFS at c.*](../Slides/06-Recursion/figures/06-dfs-01.svg)
 
-We call DFS-VISIT($b$) at time 2; its white neighbor is $e$.
+We call DFS-VISIT($b$) at time 2, and its white neighbor is $e$.
 
-![DFS at b](../Slides/06-Recursion/figures/06-dfs-02.svg)
+![*DFS at b.*](../Slides/06-Recursion/figures/06-dfs-02.svg)
 
-We call DFS-VISIT($e$) at time 3; its first white neighbor is $a$.
+We call DFS-VISIT($e$) at time 3, and its first white neighbor is $a$.
 
-![DFS at e](../Slides/06-Recursion/figures/06-dfs-03.svg)
+![*DFS at e.*](../Slides/06-Recursion/figures/06-dfs-03.svg)
 
 We call DFS-VISIT($a$) at time 4. Since $a$ has no white neighbors, it
 finishes immediately at time 5, so $a$ gets $4/5$, and we return to the loop
 of $e$.
 
-![DFS at a](../Slides/06-Recursion/figures/06-dfs-04.svg)
-![a finished](../Slides/06-Recursion/figures/06-dfs-05.svg)
+![*DFS at a.*](../Slides/06-Recursion/figures/06-dfs-04.svg)
+
+![*Node a finished.*](../Slides/06-Recursion/figures/06-dfs-05.svg)
 
 Back in the loop of $e$, the next white neighbor is $f$. We call
-DFS-VISIT($f$) at time 6; it has no white neighbors and finishes at time 7.
+DFS-VISIT($f$) at time 6. It has no white neighbors and finishes at time 7.
 
-![back in e](../Slides/06-Recursion/figures/06-dfs-06.svg)
-![f discovered](../Slides/06-Recursion/figures/06-dfs-07.svg)
-![f finished](../Slides/06-Recursion/figures/06-dfs-08.svg)
+![*Back in e.*](../Slides/06-Recursion/figures/06-dfs-06.svg)
+
+![*Node f discovered.*](../Slides/06-Recursion/figures/06-dfs-07.svg)
+
+![*Node f finished.*](../Slides/06-Recursion/figures/06-dfs-08.svg)
 
 Back in the loop of $e$ nothing white is left, so $e$ finishes at time 8, and
 back in the loop of $b$ nothing is white either, so $b$ finishes at time 9.
 
-![back in e again](../Slides/06-Recursion/figures/06-dfs-09.svg)
-![e finished](../Slides/06-Recursion/figures/06-dfs-10.svg)
-![back in b](../Slides/06-Recursion/figures/06-dfs-11.svg)
-![b finished](../Slides/06-Recursion/figures/06-dfs-12.svg)
+![*Back in e again.*](../Slides/06-Recursion/figures/06-dfs-09.svg)
+
+![*Node e finished.*](../Slides/06-Recursion/figures/06-dfs-10.svg)
+
+![*Back in b.*](../Slides/06-Recursion/figures/06-dfs-11.svg)
+
+![*Node b finished.*](../Slides/06-Recursion/figures/06-dfs-12.svg)
 
 Back in the loop of $c$, the next white neighbor is $g$, because $f$ is black
 by now. We call DFS-VISIT($g$) at time 10, and its white neighbor is $d$.
 
-![back in c](../Slides/06-Recursion/figures/06-dfs-13.svg)
-![g discovered](../Slides/06-Recursion/figures/06-dfs-14.svg)
+![*Back in c.*](../Slides/06-Recursion/figures/06-dfs-13.svg)
 
-We call DFS-VISIT($d$) at time 11; it has no white neighbors and finishes at
+![*Node g discovered.*](../Slides/06-Recursion/figures/06-dfs-14.svg)
+
+We call DFS-VISIT($d$) at time 11. It has no white neighbors and finishes at
 time 12. Back in the loop of $g$ nothing is white, so $g$ finishes at time
 13, and back in the loop of $c$ nothing is white, so $c$ finishes at time 14.
 All nodes are finished and the algorithm is done.
 
-![d discovered](../Slides/06-Recursion/figures/06-dfs-15.svg)
-![d finished](../Slides/06-Recursion/figures/06-dfs-16.svg)
-![back in g](../Slides/06-Recursion/figures/06-dfs-17.svg)
-![g finished](../Slides/06-Recursion/figures/06-dfs-18.svg)
-![back in c](../Slides/06-Recursion/figures/06-dfs-19.svg)
-![all finished](../Slides/06-Recursion/figures/06-dfs-20.svg)
+![*Node d discovered.*](../Slides/06-Recursion/figures/06-dfs-15.svg)
+
+![*Node d finished.*](../Slides/06-Recursion/figures/06-dfs-16.svg)
+
+![*Back in g.*](../Slides/06-Recursion/figures/06-dfs-17.svg)
+
+![*Node g finished.*](../Slides/06-Recursion/figures/06-dfs-18.svg)
+
+![*Back in c.*](../Slides/06-Recursion/figures/06-dfs-19.svg)
+
+![*All finished.*](../Slides/06-Recursion/figures/06-dfs-20.svg)
 
 The `d/f` pairs are not decoration. Because DFS-VISIT is recursive, the
-intervals $[d[u], f[u]]$ are properly nested: for any two vertices, their
+intervals $[d[u], f[u]]$ are properly nested, i.e. for any two vertices, their
 intervals are either disjoint or one contains the other. That structure is
 what lets DFS answer questions that BFS cannot. Any traversal can tell
 whether a node is in the graph. But if DFS ever finds a neighbor that is
 GRAY, that is, discovered but not finished, that neighbor is an ancestor on
-the current path, so there is a cycle; this is why we keep three colors and
+the current path, so there is a cycle. This is why we keep three colors and
 not two. And the strongly connected components of a directed graph are
 computed from the finishing times $f$, with an algorithm you can find in
 Cormen et al. (2009).
@@ -539,7 +547,7 @@ value of the function is computed as a call to itself and nothing else, so
 that the result of the last recursive call is the final return value. The gcd
 is tail-recursive, because it returns `GCD(b, a mod b)` and nothing more,
 while factorial is not, because after the call returns you still have to
-multiply by $n$. This distinction is practical: a tail-recursive function can
+multiply by $n$. This distinction is practical, because a tail-recursive function can
 be turned into a loop mechanically, and some compilers do it automatically,
 which is called tail-call optimization and removes the risk of stack overflow.
 Finally, in *nested* recursion the parameters of the method themselves
@@ -557,13 +565,12 @@ primitive recursive.
 
 ---
 
-## 8. Dynamic programming
-
+## 8. Dynamic programming {#dynamic-programming}
 An *optimization problem* consists of maximizing or minimizing a real function
 by systematically choosing input values from within an allowed set and
 computing the value of the function, that is, finding the best available
 values of some objective function given a defined domain. Many problems in
-applied social science research have this structure: optimizing a statistical
+applied social science research have this structure, for example optimizing a statistical
 model, optimizing the parameters of a simulation model, or calculating the
 shortest geographical path. *Dynamic programming* refers to simplifying a
 complicated problem by breaking it down into simpler sub-problems and saving
@@ -573,13 +580,13 @@ points in time often do break apart recursively. Dynamic programming is both a
 mathematical optimization method and an algorithm design principle, it is a
 common technique in engineering and economics, and it goes back to the ideas
 of Richard Bellman in the 1950s. Its key requirement is *optimal
-substructure*: the problem can be solved optimally by breaking it into
+substructure*, which means that the problem can be solved optimally by breaking it into
 sub-problems and recursively finding optimal solutions to them.
 
 The idea behind dynamic programming is to use recursion but also to save and
 reuse intermediate solutions. The problem is broken down into simpler
 sub-problems and the solution to each sub-problem is stored, which is called
-*memoization*, so that each sub-problem is only solved once; then the
+*memoization*, so that each sub-problem is only solved once. Then the
 overlapping partial solutions are put together step by step to form the
 overall solution. A typical implementation iteratively fills up an array or a
 matrix, and the method makes code faster by reducing the time complexity at
@@ -636,7 +643,7 @@ return memo[n]
 ```
 
 This does the same work with no stack frames and no risk of overflow, and it
-is the usual endpoint of a dynamic programming design: recognize the
+is the usual endpoint of a dynamic programming design, which is to recognize the
 recursion, memoize it, then notice that the recursion was only ever filling a
 table and fill the table directly.
 
@@ -648,13 +655,13 @@ The lecture closes with the most common problem-solving heuristics you will
 meet. *Recursion* solves a problem through recursive function calls, as in
 DFS, and requires sensible abort conditions. *Greedy* algorithms extend
 partial solutions successively, as in the construction of a Huffman code,
-where the two least likely symbols are merged at every step; they determine
+where the two least likely symbols are merged at every step. They determine
 the locally optimal choice at each step and then move on, and they are only
 correct if the local optimum also leads to a globally optimal solution, which
 is the thing you must check and which is false surprisingly often. *Divide
 and conquer* separates the problem into decoupled, non-overlapping smaller
 sub-problems, solves the sub-problems independently and, if necessary,
-collapses the sub-results into the global result; mergesort and quicksort in
+collapses the sub-results into the global result, and mergesort and quicksort in
 the next session are the examples. The difference between divide and conquer
 and dynamic programming is whether the sub-problems overlap. In mergesort the
 two halves are disjoint, so there is nothing to reuse, while in Fibonacci the
@@ -669,7 +676,7 @@ sub-problems overlap enormously, so caching pays.
 <details><summary>Answer</summary>
 
 Infinite recursion, then a `RecursionError`. The base case tests `n == 1`,
-and 0 never reaches it: 0, −1, −2, and so on. This is the "always have an
+and 0 never reaches it, because the calls go 0, −1, −2, and so on. This is the "always have an
 exit condition" rule. A correct implementation tests `n <= 1`, or defines
 $0! = 1$ explicitly.
 
@@ -694,7 +701,7 @@ returns.
 
 </details>
 
-**3.** BFS and DFS on the same graph from the same start: will they always discover the same set of nodes?
+**3.** If you run BFS and DFS on the same graph from the same start, will they always discover the same set of nodes?
 
 <details><summary>Answer</summary>
 

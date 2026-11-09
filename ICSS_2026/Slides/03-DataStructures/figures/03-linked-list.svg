@@ -27,6 +27,9 @@
   <circle cx="675.0" cy="79.0" r="4" fill="#111"/>
   <text x="197.0" y="124" text-anchor="middle" font-size="14" fill="#555" font-weight="normal" font-style="italic">key</text>
   <text x="243.0" y="124" text-anchor="middle" font-size="14" fill="#555" font-weight="normal" font-style="italic">next</text>
+  <text x="197.0" y="44" text-anchor="middle" font-size="15" fill="#1f6fb2" font-family="Consolas, Menlo, monospace">head</text>
+  <text x="341.0" y="44" text-anchor="middle" font-size="15" fill="#1f6fb2" font-family="Consolas, Menlo, monospace">head.next</text>
+  <text x="485.0" y="44" text-anchor="middle" font-size="15" fill="#1f6fb2" font-family="Consolas, Menlo, monospace">head.next.next</text>
   <line x1="243.0" y1="79.0" x2="309.0" y2="79.0" stroke="#111" stroke-width="1.8" marker-end="url(#a)"/>
   <line x1="387.0" y1="79.0" x2="453.0" y2="79.0" stroke="#111" stroke-width="1.8" marker-end="url(#a)"/>
   <line x1="531.0" y1="79.0" x2="597.0" y2="79.0" stroke="#111" stroke-width="1.8" marker-end="url(#a)"/>

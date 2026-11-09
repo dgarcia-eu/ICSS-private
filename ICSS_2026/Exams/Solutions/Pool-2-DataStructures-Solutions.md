@@ -11,7 +11,7 @@
 
 ## DS-01 · A stack for a task queue · 3 pts · [2023-Ex Q4a, 2023-E2 Q2d, 2025-E1 Q2a]
 
-**Where to look.** Slides: session 5, slides 26 to 29 (*Abstract data structures; Queues; Stacks*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`. Handout: [05 §6 Abstract data structures: queues and stacks](../../Transcripts/05-Algorithms.md#6-abstract-data-structures-queues-and-stacks), [03 §1 What a data structure is, and why it matters](../../Transcripts/03-DataStructures.md#1-what-a-data-structure-is-and-why-it-matters).
+**Where to look.** Slides: session 5, slides 26 to 29 (*Abstract data structures; Queues; Stacks*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`. Handout: [05 §6 Abstract data structures: queues and stacks](../../Transcripts/05-Algorithms.md#abstract-data-structures), [03 §1 What are data structures?](../../Transcripts/03-DataStructures.md#arrays).
 
 **Solution.** **No.** A stack is **LIFO** (last in, first out): the task served
 next is the one that arrived most recently. Under sustained load this is
@@ -43,7 +43,7 @@ starvation problem, not just saying "a queue is FIFO".
 
 ## DS-02 · Linked lists versus arrays · 2 pts · [2023-Ex, 2024-E1 Q2a, 2025-E1 Q2b]
 
-**Where to look.** Slides: session 3, slides 8 to 12 (*Arrays; Linked lists*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §2 Arrays](../../Transcripts/03-DataStructures.md#2-arrays), [03 §3 Linked lists](../../Transcripts/03-DataStructures.md#3-linked-lists), [03 §4 The trade-off: editing versus searching](../../Transcripts/03-DataStructures.md#4-the-trade-off-editing-versus-searching).
+**Where to look.** Slides: session 3, slides 8 to 12 (*Arrays; Linked lists*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §2 Arrays](../../Transcripts/03-DataStructures.md#2-arrays), [03 §3 Linked lists](../../Transcripts/03-DataStructures.md#linked-lists), [03 §4 The linked list trade-off: editing versus searching](../../Transcripts/03-DataStructures.md#binary-search-trees).
 
 **Solution.**
 
@@ -67,7 +67,7 @@ lists are dynamic arrays. The comparison that shows understanding is
 
 ## DS-03 · Hash tables versus arrays · 2 pts · [2024-E2 Q2a, 2025-Ex Q2a]
 
-**Where to look.** Slides: session 3, slides 8 to 9 (*Arrays*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 3, slides 33 to 45 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §2 Arrays](../../Transcripts/03-DataStructures.md#2-arrays), [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#8-hashing-and-hash-tables), [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries).
+**Where to look.** Slides: session 3, slides 8 to 9 (*Arrays*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 3, slides 33 to 45 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §2 Arrays](../../Transcripts/03-DataStructures.md#2-arrays), [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries).
 
 **Solution.**
 
@@ -86,7 +86,7 @@ without extra work.
 
 ## DS-04 · Hash table with linear probing · 3–4 pts · [2025-E1 Q2c, 2025-E2 Q2a] · needs no figure
 
-**Where to look.** Slides: session 3, slides 34 to 43 (*Hashing; Hash functions; Hash collisions; Linear and random probing*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#8-hashing-and-hash-tables).
+**Where to look.** Slides: session 3, slides 34 to 43 (*Hashing; Hash functions; Hash collisions; Linear and random probing*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables).
 
 **Solution.** Compute $f$, then probe forward on a collision.
 
@@ -110,7 +110,7 @@ Final state:
 
 ## DS-05 · What is wrong with that hash function · 2 pts · [2025-E1 Q2d]
 
-**Where to look.** Slides: session 3, slides 34 to 43 (*Hashing; Hash functions; Hash collisions; Linear and random probing*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#8-hashing-and-hash-tables).
+**Where to look.** Slides: session 3, slides 34 to 43 (*Hashing; Hash functions; Hash collisions; Linear and random probing*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables).
 
 **Solution.** $f(x) = 2x \bmod 16$ can only produce **even** values, because
 $\gcd(2, 16) = 2$ divides every output. Eight of the sixteen slots, all the odd
@@ -205,7 +205,7 @@ search degrades to $O(n)$.)
 
 ## DS-08 · Remove the minimum from a min-heap · 2–3 pts · [2024-E2 Q2d, 2025-Ex Q2b] · **figure**
 
-**Where to look.** Slides: session 7, slides 41 to 46 (*Data structures for sorting; Heaps; Min-heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`; session 7, slides 79 (*Heapsort: pseudocode*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#8-heaps-and-heapsort).
+**Where to look.** Slides: session 7, slides 41 to 46 (*Data structures for sorting; Heaps; Min-heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`; session 7, slides 79 (*Heapsort: pseudocode*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#heapsort).
 
 **Solution.** The minimum is always the root. Removing it would leave a hole, so
 we move the *last* element into the root, which keeps the tree nearly complete,
@@ -252,7 +252,7 @@ smaller than both siblings.
 
 ## DS-09 · Trace the min-heap extraction · 2 pts · [2024-E2 Q2e, 2025-Ex Q2c] · **figure**
 
-**Where to look.** Slides: session 7, slides 41 to 46 (*Heaps; Min-heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`; session 7, slides 47 to 79 (*Heapsort: example and pseudocode*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#8-heaps-and-heapsort).
+**Where to look.** Slides: session 7, slides 41 to 46 (*Heaps; Min-heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`; session 7, slides 47 to 79 (*Heapsort: example and pseudocode*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#heapsort).
 
 **Solution.** As an array: `[2, 4, 14, 10, 8, 15, 18, 17, 11, 16]`.
 
@@ -277,7 +277,7 @@ the two figures cannot disagree.
 
 ## DS-10 · Reduce a key in a min-heap · 5 pts · [2023-Ex Q4d+e]
 
-**Where to look.** Slides: session 7, slides 41 to 46 (*Heaps; Min-heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#8-heaps-and-heapsort), [06 §2 The three parts of a recursive definition](../../Transcripts/06-Recursion.md#2-the-three-parts-of-a-recursive-definition).
+**Where to look.** Slides: session 7, slides 41 to 46 (*Heaps; Min-heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#heapsort), [06 §2 The three parts of a recursive definition](../../Transcripts/06-Recursion.md#2-the-three-parts-of-a-recursive-definition).
 
 **Solution.** Lowering a value can only break the property *upwards*, against the
 parent, so the element bubbles up rather than sinking.
@@ -377,7 +377,7 @@ the failure mode.
 
 ## DS-13 · Recursive search in a linked list · 3–4 pts · [2023-E1 Q2d, 2024-Ex Q2d, 2023-E2 Q2b+c]
 
-**Where to look.** Slides: session 3, slides 11 to 12 (*Linked lists*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 6, slides 13 to 15 (*Components of recursion*), in `Slides/06-Recursion/ICSS-2026-06-Recursion.qmd`; session 6, slides 77 (*Types of recursive algorithms*), in `Slides/06-Recursion/ICSS-2026-06-Recursion.qmd`. Handout: [03 §3 Linked lists](../../Transcripts/03-DataStructures.md#3-linked-lists), [06 §2 The three parts of a recursive definition](../../Transcripts/06-Recursion.md#2-the-three-parts-of-a-recursive-definition), [06 §7 Types of recursion](../../Transcripts/06-Recursion.md#7-types-of-recursion).
+**Where to look.** Slides: session 3, slides 11 to 12 (*Linked lists*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 6, slides 13 to 15 (*Components of recursion*), in `Slides/06-Recursion/ICSS-2026-06-Recursion.qmd`; session 6, slides 77 (*Types of recursive algorithms*), in `Slides/06-Recursion/ICSS-2026-06-Recursion.qmd`. Handout: [03 §3 Linked lists](../../Transcripts/03-DataStructures.md#linked-lists), [06 §2 The three parts of a recursive definition](../../Transcripts/06-Recursion.md#2-the-three-parts-of-a-recursive-definition), [06 §7 Types of recursion](../../Transcripts/06-Recursion.md#7-types-of-recursion).
 
 **Solution.**
 
@@ -425,7 +425,7 @@ Fibonacci, where both calls run and the recursion tree branches.
 
 ## DS-14 · Fixing a slow dictionary loop · 3 pts · [2024-E1 Q2e]
 
-**Where to look.** Slides: session 3, slides 33 to 45 (*Hash tables; Dictionaries in Python*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#8-hashing-and-hash-tables), [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
+**Where to look.** Slides: session 3, slides 33 to 45 (*Hash tables; Dictionaries in Python*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
 
 **Solution.** The problem is `.keys()` combined with `in`. In Python 2 (and in
 any code that materializes the keys into a list) `mydictionary.keys()` builds a
@@ -464,7 +464,7 @@ printing, is the cost.
 
 ## DS-15 · Choosing a data structure · 3 pts · `new`
 
-**Where to look.** Slides: session 3, slides 7 to 14 (*Data structures; Arrays; Linked lists; The question of editing vs search*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 3, slides 33 to 45 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 5, slides 26 to 29 (*Queues; Stacks*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 5, slides 35 to 37 (*Adjacency matrix; Adjacency list*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 7, slides 41 to 46 (*Heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [03 §4 The trade-off: editing versus searching](../../Transcripts/03-DataStructures.md#4-the-trade-off-editing-versus-searching), [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#8-hashing-and-hash-tables), [05 §6 Abstract data structures: queues and stacks](../../Transcripts/05-Algorithms.md#6-abstract-data-structures-queues-and-stacks), [05 §8 Representing graphs](../../Transcripts/05-Algorithms.md#8-representing-graphs), [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#8-heaps-and-heapsort).
+**Where to look.** Slides: session 3, slides 7 to 14 (*Data structures; Arrays; Linked lists; The question of editing vs search*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 3, slides 33 to 45 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 5, slides 26 to 29 (*Queues; Stacks*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 5, slides 35 to 37 (*Adjacency matrix; Adjacency list*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 7, slides 41 to 46 (*Heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [03 §4 The linked list trade-off: editing versus searching](../../Transcripts/03-DataStructures.md#binary-search-trees), [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [05 §6 Abstract data structures: queues and stacks](../../Transcripts/05-Algorithms.md#abstract-data-structures), [05 §8 Representing graphs](../../Transcripts/05-Algorithms.md#8-representing-graphs), [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#heapsort).
 
 **Solution.**
 

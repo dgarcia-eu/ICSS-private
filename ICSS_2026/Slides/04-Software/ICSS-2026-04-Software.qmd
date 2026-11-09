@@ -88,65 +88,35 @@ TechCrunch and CNN, 26 July 2025; 404 Media. Many blamed vibe coding; Tea says t
 :::
 <!-- MOTIVATION:M04-A:END -->
 
-<!-- MOTIVATION:M04-B:BEGIN -->
-## "Clear the cache", said the developer {.fit1}
+<!-- MOTIVATION:M04-D:BEGIN -->
+## The 5 millimeters nobody could move {.fit1}
 
 ::: {.motivation}
 [Motivating example]{.label}
-Late 2025, posted on Reddit: a developer asks Google's coding agent
-**Antigravity** to clear a project's cache. The agent runs
-`rmdir /s /q d:\`, which deletes **the entire D: drive**, past the Recycle Bin.
-Its answer: *"I am deeply, deeply sorry. This is a critical failure on my part."*
+In the 2000s, **Symbian**, the system of Nokia's phones, ran most of the world's
+smartphones. In 2010 a former Nokia design executive told how his team wanted to
+move one element of a phone's screen up by 5 mm: *"We can't find the piece of code
+that could shift it up 5mm."*
 :::
 
 :::: {.figures}
 ::: {.fq}
-[1]{.big}[command]{.cap}
+[20 million]{.big}[lines of code in one phone]{.cap}
 :::
 ::: {.fq}
-[1 drive]{.big}[deleted instead of 1 folder]{.cap}
+[40 million]{.big}[lines of Symbian released as open source, 2010]{.cap}
 :::
 ::: {.fq}
-[0]{.big}[confirmations asked ("Turbo mode")]{.cap}
+[11 million]{.big}[lines of Android at the time]{.cap}
 :::
 ::::
 
-[What should have been specified, and checked, before a command that deletes files is allowed to run?]{.ask}
+[Nobody wrote this code to be unchangeable. What makes working code impossible to change, and what keeps it changeable?]{.ask}
 
 ::: {.source}
-TechRadar, December 2025; AI Incident Database, report 7050
+Juhani Risku in The Register, 22 July 2010; All About Symbian, 4 February 2010. In 2011 Nokia replaced Symbian with Windows Phone.
 :::
-<!-- MOTIVATION:M04-B:END -->
-
-<!-- MOTIVATION:M04-C:BEGIN -->
-## The code freeze that was only a sentence {.fit1}
-
-::: {.motivation}
-[Motivating example]{.label}
-July 2025: the founder of SaaStr spends twelve days vibe coding an app with
-Replit's AI agent. On day nine, during a code freeze he had declared in the
-chat, the agent **deletes the production database**, then reports that a
-rollback is impossible. It was not; the data came back.
-:::
-
-:::: {.figures}
-::: {.fq}
-[1,206]{.big}[executives' records deleted]{.cap}
-:::
-::: {.fq}
-[1,196]{.big}[companies' records deleted]{.cap}
-:::
-::: {.fq}
-[0]{.big}[barriers between the agent and production]{.cap}
-:::
-::::
-
-[A rule in a chat message is a wish. What would have made "never touch production" impossible to break?]{.ask}
-
-::: {.source}
-Fortune, 23 July 2025; AI Incident Database. Replit then separated development and production databases.
-:::
-<!-- MOTIVATION:M04-C:END -->
+<!-- MOTIVATION:M04-D:END -->
 
 ## Programming in a nutshell
 
@@ -157,7 +127,7 @@ Fortune, 23 July 2025; AI Incident Database. Replit then separated development a
 4. Testing
 :::
 
-## What is programming?
+## What is programming? {.fit2}
 
 ::: {.definition}
 [Definition: Programming]{.label}
@@ -170,6 +140,11 @@ Programming is the process of creating a set of instructions that tell a compute
 ::: {.sm}
 A formal language for writing those instructions, either directly as machine code or as human-readable source code that is translated to machine code automatically.
 :::
+:::
+
+::: {.concept .sm}
+[Vibe coding is programming too]{.label}
+Natural language is turned into machine code automatically: a language model writes the source code, and an interpreter or compiler translates it. The difference is **flakiness**: the same request can give different code, and a different result, each time.
 :::
 
 ## Levels of programming languages
@@ -298,6 +273,21 @@ def mean(xs):         # function
 :::
 ::::
 
+## Why do we use OOP? {.fit1}
+
+::: {.sm}
+- Large programs are written by **teams** and **maintained** for years
+- OOP gives each part of the program **one responsibility**, in one class, owned by one person or team
+- Others use a class only through its **methods**: its inside can change without breaking their code, and a bug is fixed in one place
+:::
+
+![](figures/04-oop-team.svg){height="5.6em"}
+
+::: {.concept .xs}
+[A note on scale]{.label}
+For a one-person script, OOP adds little. But it has become a conceptual building block of many programming languages, Python included: every value in Python is an object.
+:::
+
 ## Object-oriented programming
 
 ::: {.sm}
@@ -316,7 +306,7 @@ def mean(xs):         # function
 **Strings**
 :::
 
-::: {style="font-size:0.77em"}
+::: {style="font-size:0.68em"}
 ```python
 s = "Konstanz"
 s.upper()     # 'KONSTANZ'
@@ -330,7 +320,7 @@ s.count("n")  # 2
 **Dictionaries**
 :::
 
-::: {style="font-size:0.77em"}
+::: {style="font-size:0.68em"}
 ```python
 votes = {"yes": 12, "no": 7}
 votes.get("no")        # 7
@@ -341,8 +331,10 @@ list(votes.keys())     # ['yes', 'no']
 :::
 ::::
 
-::: {.sm}
-`s` is an object of the class `str`, `votes` of the class `dict`: `upper`, `count`, `get`, `keys` are their **methods**. Lists, sets and pandas data frames work the same way.
+![](figures/04-dict-objects.svg){height="9.2em"}
+
+::: {.xs}
+`s` is a `str` object, `votes` a `dict` object; lists and data frames work the same way.
 :::
 
 ## Your own class and objects
@@ -362,7 +354,7 @@ class Respondent:
 ```
 :::
 
-:::: {.columns style="margin-top:1.0em"}
+:::: {.columns style="margin-top:2.0em"}
 ::: {.column width="50%"}
 ::: {style="font-size:0.91em"}
 ```python
@@ -451,7 +443,7 @@ class Student(Respondent):
         super().__init__(name, age)
         self.program = program
 
-bea = Student("Bea", 21, "Politics")
+bea = Student("Bea", 21, "SEDS")
 bea.is_adult()  # True: inherited
 ```
 :::
@@ -466,18 +458,20 @@ bea.is_adult()  # True: inherited
 - Encapsulation: data and the methods that use it live together in one object
 - Abstraction: you use an object through its methods, without knowing how it works inside
 - Inheritance: a new class extends an existing one and reuses its methods: a student *is a* respondent
-- **Polymorphism:** the same name does the right thing for each class
+- **Polymorphism:** the same call does the right thing for each class
 :::
 :::
 
 ::: {.column width="58%"}
 ![](figures/04-oop-polymorphism.svg){height="8.4em"}
 
-::: {style="font-size:1.1em"}
+::: {style="font-size:0.79em"}
 ```python
-len("data")                # 4
-len([3, 1, 2])             # 3
-len({"yes": 12, "no": 7})  # 2
+class Student(Respondent):
+    def describe(self):
+        return f"{self.name}: {self.program}"
+ana.describe()  # 'Ana, 34 years'
+bea.describe()  # 'Bea: SEDS'
 ```
 :::
 :::
@@ -490,6 +484,21 @@ len({"yes": 12, "no": 7})  # 2
 2. [Software engineering]{.current}
 3. Requirements, specifications, and design
 4. Testing
+:::
+
+## What is software?
+
+::: {.definition}
+[Definition: Software]{.label}
+Computer programs, procedures, and possibly associated documentation and data pertaining to the operation of a computer system.
+:::
+
+::: {.center-h}
+![](figures/04-software.svg){height="7.2em"}
+:::
+
+::: {.source}
+IEEE Std 610.12-1990, *Standard Glossary of Software Engineering Terminology*
 :::
 
 ## From a script to software
@@ -519,13 +528,23 @@ Research code needs this too: it outlives the paper, and others build on it.
 - Two steps define correctness: the **specification** says what is right, **testing** checks it
 :::
 
+## Roles in a software team {.fit1}
+
+![](figures/04-roles.svg){height="9.4em"}
+
+::: {.sm}
+- Each stage has an owner: the **analyst** finds out what is needed, the **architect** splits the work, the **coder** implements, the **tester** checks, the **maintainer** keeps it running
+- The **coder** can be a person or a coding agent: both work from the same instructions
+- In research you often play every role yourself; skipping a role skips its stage
+:::
+
 ## Vibe coding in the flow
 
 ![](figures/04-se-flow-vibe.svg){width="100%"}
 
 ::: {.sm}
 - **Vibe coding**: describe what you want, accept the generated code without reading it, and see whether it seems to work
-- The LLM can take over implementation. **Everything else remains your job**, and it is what failed in the three opening examples
+- A coding agent can take the **coder's** role. **Every other role remains yours**: those stages failed at Tea and at Nokia
 :::
 
 ## Requirements, specifications, and design
@@ -535,6 +554,18 @@ Research code needs this too: it outlives the paper, and others build on it.
 2. Software engineering
 3. [Requirements, specifications, and design]{.current}
 4. Testing
+:::
+
+## Our example: a panel survey in two waves {.fit2}
+
+::: {.example .sm}
+*"We asked the same people the same question in spring and in autumn. I need everyone's two answers side by side, to see who changed their mind. Please, no email addresses in what I share with the team."* (Ana, the client)
+:::
+
+![](figures/04-panel-example.svg){width="100%"}
+
+::: {.sm}
+This request goes through every stage and every role with us, from requirements to maintenance
 :::
 
 ## What are requirements? {.fit1}
@@ -548,10 +579,10 @@ What the software must achieve, for whom, and under which constraints, in the wo
 :::
 
 ::: {.sm}
-- They come from the **client**: a research team, a colleague, or yourself in three months
-- They describe the need, not the program: *"I need the mean age of each survey wave, without the people who did not answer"*
-- Four questions find most of them: **who** uses it, with **which data**, what must **never** happen, and when is it **done**?
-- A misunderstanding found here costs a conversation; found after the code is written, it costs the code
+- The **analyst** collects them from the **client**, who may be a research team, a colleague, or yourself in three months
+- They describe the need, not the program. *"Everyone's two answers side by side, with no email addresses"* is a requirement
+- Four questions find most of them. **Who** uses it? With **which data**? What must **never** happen? When is it **done**?
+- A misunderstanding found here costs a conversation. Found after the code is written, it costs the code
 :::
 
 ## Functional and non-functional requirements {.fit1}
@@ -562,8 +593,8 @@ What the software must achieve, for whom, and under which constraints, in the wo
 [Functional]{.label}
 What output for what input
 
-- the mean skips missing answers
-- an empty survey raises an error
+- people in both waves are paired, also if they typed their email differently
+- an empty wave raises an error
 :::
 :::
 
@@ -573,7 +604,7 @@ What output for what input
 How the program must behave beyond its outputs
 
 - **security**: users see only their own data
-- **privacy**: no names in the output
+- **privacy**: no email addresses in the output
 - **safety**: never delete or change the original data
 - performance, reproducibility
 :::
@@ -581,7 +612,7 @@ How the program must behave beyond its outputs
 ::::
 
 ::: {.sm}
-Tea, Antigravity and Replit met their functional requirements; the non-functional ones were never written down.
+Tea met its functional requirements. Nobody had written down the non-functional ones.
 :::
 
 ## What is a specification?
@@ -595,79 +626,92 @@ A precise description of **what** a program must do, without saying **how**.
 :::
 
 ::: {.sm}
-- **Inputs** and what may be assumed about them (*preconditions*)
-- **Outputs** and what is guaranteed about them (*postconditions*)
+- The **inputs**, and what may be assumed about them (the *preconditions*)
+- The **outputs**, and what is guaranteed about them (the *postconditions*)
 - What happens in **edge cases and errors**
 - What the program must **never** do
+- The analyst writes it for two readers. The **coder** implements it, and the **tester** checks the code against it
 :::
 
 ::: {.xs}
-You already know the format: every procedure in this course starts with `Inputs:` and `Result:`
+You already know the format. Every procedure in this course starts with `Inputs:` and `Result:`
 :::
 
 ## An ambiguous request
 
 ::: {.example}
 ::: {.sm}
-*"Write a function that computes the mean age of the respondents."*
+*"Write a function that links the two waves of our panel survey, so we can see who changed their answer."*
 :::
 :::
 
 ::: {.sm}
-Five questions a human colleague would ask, and an LLM will silently answer for you:
+A careful coder asks these five questions. A hurried coder, human or agent, answers them alone and in silence.
 :::
 
 ::: {.sm}
-1. How are missing answers stored, and do they count?
-2. What if nobody answered?
-3. Are ages integers, or can they be text like `"34"`?
-4. Should the result be rounded?
-5. May the function change the list it was given?
+1. When are two records the same person? Is `" Ana@Uni.de"` the same as `"ana@uni.de"`?
+2. What if someone answered twice in the same wave?
+3. What happens to people who answered only once?
+4. May email addresses appear in the result?
+5. May the function change the lists it was given?
 :::
 
 ## Writing the specification
 
 ::: {style="font-size:0.94em"}
 ```python
-def mean_age(ages):
-    """Return the mean of the ages that were answered.
+def link_waves(wave1, wave2):
+    """Pair the answers of the people in both waves.
 
-    ages: a list of ages in years (int); None marks a missing answer.
-    Returns: the mean of the ages that are not None, as a float.
-    Raises: ValueError if no age was answered.
-    The list itself is not modified.
+    wave1, wave2: lists of (email, answer) pairs.
+    Emails match ignoring case and surrounding spaces.
+    If someone answered twice in a wave, the last answer counts.
+    Returns: a dict from pseudonym(email) to (answer1, answer2),
+      only for the people in both waves.
+    Raises: ValueError if a wave is empty.
+    Never: puts an email in the result or changes the lists.
     """
 ```
 :::
 
 ::: {.sm}
-- Each line answers one of the five questions
-- It says nothing about **how** to compute the mean
+- Each line answers one of the five questions, and one more line settles the empty case
+- Nothing here says **how** to link the waves
 :::
 
-## The specification is your prompt
+## The specification is the coder's instructions {.fit2}
 
 :::: {.columns}
 ::: {.column width="44%"}
 ::: {.example .sm}
-**Vague**
+**Vague instructions**
 
-*"Write a function for the mean age."*
+*"Write a function that links the two waves."*
 :::
 :::
 
 ::: {.column width="56%"}
 ::: {.example .sm}
-**Specified**
+**Specified instructions**
 
-*"Write `mean_age(ages)`. `ages` is a list of ints; `None` marks a missing answer and is skipped. Return a float. Raise `ValueError` if no age was answered. Do not modify the list. Use only the standard library."*
+*"Write `link_waves(wave1, wave2)`. Each wave is a list of (email, answer) pairs. Match emails ignoring case and spaces. If someone answered twice, keep the last answer. Return a dict from `pseudonym(email)` to the two answers, for the people in both waves. Raise `ValueError` if a wave is empty. Never put an email in the result or change the lists. Use only the standard library."*
 :::
 :::
 ::::
 
 ::: {.sm}
-- A precise prompt gets better code, and you can **check** the code against it
-- Rules that must never be broken are not prompts: enforce them with permissions, backups, separate test and production data
+- Precise instructions get better code from any coder, and they give you something to **check** the code against
+- A rule that must never be broken needs more than instructions. Enforce it with permissions, backups, and separate test and production data
+:::
+
+## One specification, any coder
+
+![](figures/04-any-coder.svg){width="100%"}
+
+::: {.sm}
+- A colleague and a coding agent receive **the same instructions**, and their code has to pass **the same tests**
+- The tester writes the tests from the specification, not from the code, so they check what was asked rather than what was written
 :::
 
 ## Design: small parts with clear connections
@@ -675,9 +719,9 @@ def mean_age(ages):
 ![](figures/04-design-pipeline.svg){width="100%"}
 
 ::: {.sm}
-- Split the program into **small parts**, each with one job and its own specification
-- Decide **what data flows between the parts**, and in which data structure
-- Small parts are easier to test, to replace, and to ask an LLM for: one specified function at a time
+- The **architect** splits the program into **small parts**, each with one job and its own specification
+- The architect also decides **what data flows between the parts**, and in which data structure
+- Small parts are easier to test, easier to replace, and easier to hand to a coder, one specified function at a time
 :::
 
 ## Design: choosing the data structures
@@ -685,14 +729,14 @@ def mean_age(ages):
 ::: {.tbl-grid .sm}
 | The program needs to... | Data structure (session 3) | Example |
 |---|---|---|
-| keep items in order | list | answers in the order they arrived |
-| look something up by a key | dictionary | `counts["yes"]`, a codebook |
-| check membership fast | set | is this ID already registered? |
+| keep items in order | list | the (email, answer) pairs of a wave |
+| look something up by a key | dictionary | pseudonym → answer, one per wave |
+| check membership fast | set | the pseudonyms in both waves |
 | serve first come, first served | queue | a waiting list for a seminar |
 :::
 
 ::: {.sm}
-The design is yours to decide: an LLM writes better code inside a structure you chose than when it invents one
+A coder, human or agent, writes better code inside a structure the architect chose than inside one it invented on the spot
 :::
 
 ## Testing
@@ -714,94 +758,115 @@ A small program that runs your code on an input whose correct output you know, a
 :::
 :::
 
-::: {style="font-size:1.08em"}
+::: {style="font-size:0.8em"}
 ```python
-assert mean_age([30, 40, 50]) == 40
-assert mean_age([30, None, 50]) == 40
+w1 = [("ana@uni.de", "yes"), ("ben@uni.de", "no")]
+w2 = [("ana@uni.de", "no"), ("eva@uni.de", "yes")]
+assert list(link_waves(w1, w2).values()) == [("yes", "no")]
+assert "ana@uni.de" not in str(link_waves(w1, w2))
 ```
 :::
 
 ::: {.sm}
-- The specification says what should happen; a test **checks** that it does
-- A failing `assert` stops the program with an error: a loud failure instead of a wrong number
+- The specification says what should happen. The **tester's** tests check that it does
+- A failing `assert` stops the program with an error. That is a loud failure instead of a quiet wrong number
+:::
+
+## What is pytest?
+
+![](figures/04-pytest.svg){height="7.9em"}
+
+::: {.sm}
+- **pytest** is a Python package for running tests, installed once with `pip install pytest`
+- A test is a function named `test_...` in a file named `test_...`. It **passes** if it runs to the end and **fails** on a failed `assert` or an unexpected error
+- One command finds all the tests, runs them, and reports which ones failed and why
 :::
 
 ## Tests with pytest
 
 :::: {.columns}
 ::: {.column width="50%"}
-::: {style="font-size:0.73em"}
+::: {style="font-size:0.61em"}
 ```python
-# test_survey.py
+# test_panel.py
 import pytest
-from survey import mean_age
+from panel import link_waves
+
+W1 = [("ana@uni.de", "yes"),
+      ("ben@uni.de", "no")]
+W2 = [("ana@uni.de", "no"),
+      ("eva@uni.de", "yes")]
 
 def test_typical():
-    assert mean_age([30, 40, 50]) == 40
-
-def test_missing_answers_are_skipped():
-    assert mean_age([30, None, 50]) == 40
+    pairs = link_waves(W1, W2)
+    assert list(pairs.values()) == [("yes", "no")]
 ```
 :::
 :::
 
 ::: {.column width="50%"}
-::: {style="font-size:0.73em"}
+::: {style="font-size:0.61em"}
 ```python
-def test_no_answers_raises():
-    with pytest.raises(ValueError):
-        mean_age([None, None])
+def test_case_and_spaces_are_ignored():
+    w2 = [(" Ana@Uni.de", "no")]
+    assert len(link_waves(W1, w2)) == 1
 
-def test_input_is_not_modified():
-    ages = [30, None, 50]
-    mean_age(ages)
-    assert ages == [30, None, 50]
+def test_no_emails_in_result():
+    pairs = link_waves(W1, W2)
+    assert "ana@uni.de" not in str(pairs)
+
+def test_empty_wave_raises():
+    with pytest.raises(ValueError):
+        link_waves(W1, [])
 ```
 :::
 :::
 ::::
 
 ::: {.sm}
-Save the tests in a file whose name starts with `test_`, then run `pytest` in that folder: it finds and runs every function whose name starts with `test_`
+Each test checks one line of the specification. The last one uses `pytest.raises` to check that an error is raised
 :::
 
-## A generated function meets the tests
+## A first implementation meets the tests
 
 :::: {.columns}
 ::: {.column width="50%"}
-::: {style="font-size:0.81em"}
+::: {style="font-size:0.73em"}
 ```python
-def mean_age(ages):
-    answered = [a for a in ages
-                if a is not None]
-    return sum(answered) / len(ages)
+def link_waves(wave1, wave2):
+    first = dict(wave1)
+    return {email: (first[email], answer)
+            for email, answer in wave2
+            if email in first}
 ```
 :::
 
 ::: {.sm}
-Plausible, short, and wrong twice
+A coder's first try. Plausible, short, and wrong three times
 :::
 :::
 
 ::: {.column width="50%"}
-::: {style="font-size:0.77em"}
+::: {style="font-size:0.69em"}
 ```
 $ pytest -q
-.FF.
-FAILED test_missing_answers_are_skipped
-  assert 26.666666666666668 == 40
-FAILED test_no_answers_raises
+.FFF
+FAILED test_case_and_spaces_are_ignored
+  assert 0 == 1
+FAILED test_no_emails_in_result
+  'ana@uni.de' is contained here
+FAILED test_empty_wave_raises
   DID NOT RAISE ValueError
-2 failed, 2 passed
+3 failed, 1 passed
 ```
 :::
 :::
 ::::
 
 ::: {.sm}
-- It divides by all respondents, not by those who answered: **26.7 instead of 40**, a quiet wrong number
-- With no answers it returns 0 instead of raising an error
-- Fix: divide by `len(answered)` and raise if `answered` is empty. Then all four tests pass
+- It compares emails exactly, so `" Ana@Uni.de"` becomes a new person and panel members **quietly disappear**
+- It keys the result by email, so the privacy requirement is broken without any error
+- The fix is to clean each email, key the result by `pseudonym(email)`, and raise an error if a wave is empty. Then all four tests pass
 :::
 
 ## Choosing test cases
@@ -809,29 +874,37 @@ FAILED test_no_answers_raises
 ::: {.tbl-grid}
 | Kind | Example input | Expected |
 |---|---|---|
-| Typical | `[30, 40, 50]` | `40` |
-| Missing values | `[30, None, 50]` | `40` |
-| Boundary | `[25]` | `25` |
-| Empty | `[None, None]`, `[]` | `ValueError` |
-| Must not happen | the list is changed | list unchanged |
+| Typical | Ana in both waves, Ben and Eva in one | one pair, `("yes", "no")` |
+| Spelling | `" Ana@Uni.de"` and `"ana@uni.de"` | the same person |
+| Duplicates | Ana twice in wave 1 | her last answer |
+| Boundary | nobody in both waves | `{}` |
+| Empty | `[]` as a wave | `ValueError` |
+| Must not happen | an email in the result, a changed list | never |
 :::
 
 ::: {.sm}
-Test where the specification draws a line: missing, empty, a single element, the largest and smallest values
+Write one test for every line of the specification, and more wherever it draws a line, such as spelling, duplicates, nobody in common, and empty input
 :::
 
-## Test first, then generate
+## Test first, then implement
+
+![](figures/04-test-first.svg){width="100%"}
 
 ::: {.sm}
-1. Write the **specification** (the docstring)
-2. Write the **tests** from the specification, before any code exists
-3. Ask the LLM (or yourself) for the **implementation**
-4. **Run the tests**; read the code that passes them
-5. Every bug you find later becomes a **new test**, so it can never come back (*regression test*)
+- The tests exist **before** the code, so they record what was meant and not what the code happens to do
+- The tests are your measurement. They replace the feeling that the code works with evidence that it does
 :::
 
+## Maintenance: the third wave arrives
+
+::: {.example .sm}
+*"Great! In spring we run a third wave. Can we link all three?"* (Ana, a year later)
+:::
+
+![](figures/04-maintenance.svg){width="88%"}
+
 ::: {.sm}
-The tests are your measurement. They replace the feeling that the code works with evidence that it does.
+The **maintainer** goes through the flow again on a small scale. First the specification changes, then the tests, then the code
 :::
 
 ## What tests cannot do
@@ -844,20 +917,58 @@ Edsger W. Dijkstra, *Notes on Structured Programming* (1970)
 :::
 
 ::: {.sm}
-- Tests check only the cases you thought of: a missing requirement produces missing tests
-- **Software verification** goes further: it *proves*, with mathematics, that a program meets its specification for **every** input. It is expensive and used where failure is unacceptable: aircraft control, railway signaling, operating system kernels
-- For research code: specification, tests, and **reading** the code you did not write
+- Tests check only the cases you thought of. A missing requirement produces missing tests
+- **Software verification** goes further. It *proves*, with mathematics, that a program meets its specification for **every** input. It is expensive, so it is used where failure is unacceptable, as in aircraft control, railway signaling and operating system kernels
+- For research code, the practical combination is a specification, tests, and **reading** the code you did not write
+:::
+
+## A proof instead of a test: a loop invariant {.fit2}
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {style="font-size:0.7em"}
+```python
+def mean(xs):
+    """xs: a non-empty list of numbers.
+    Returns: their mean."""
+    total = 0
+    i = 0
+    while i < len(xs):
+        # invariant: total == xs[0] + ... + xs[i-1]
+        total = total + xs[i]
+        i = i + 1
+    return total / len(xs)
+```
+:::
+:::
+
+::: {.column width="50%"}
+::: {.concept .sm}
+[Loop invariant]{.label}
+A statement that is true before every turn of a loop
+:::
+
+::: {.sm}
+1. **Before the loop**: `i` is 0 and `total` is 0, the sum of no elements. True
+2. **Each turn**: `total` gains `xs[i]` and `i` grows by 1, so `total` is again the sum of the first `i` elements. Still true
+3. **After the loop**: `i == len(xs)`, so `total` is the sum of all elements and line 10 returns the mean. The list is not empty, so there is no division by zero
+:::
+:::
+::::
+
+::: {.sm}
+A test checks one list. This argument covers **every** non-empty list. Verification tools check such arguments by computer, which is why they need a formal specification
 :::
 
 ## Summary {.fit1}
 
 ::: {.sm}
 - A **program** is a precise list of instructions, run by an **interpreter** or translated by a **compiler**
-- **Paradigms**: imperative programs change state step by step; **objects** bundle data with methods, as in `s.upper()` or your own classes
-- **Software engineering** puts coding inside a loop: requirements, specification, design, implementation, testing, maintenance
-- **Requirements** say what is needed; the **specification** says exactly what the program must do; the **design** splits it into small parts
-- A **test** runs the code on cases with known answers; write tests first, then generate or write the code
-- With AI tools, implementation is cheap: **everything around it** is the part you cannot delegate
+- **Paradigms** differ in how they express a computation. Imperative programs change state step by step, and **objects** bundle data with methods, as in `s.upper()` or your own classes
+- **Software engineering** puts coding inside a loop of requirements, specification, design, implementation, testing and maintenance
+- **Requirements** say what is needed, the **specification** says exactly what the program must do, and the **design** splits it into small parts
+- A **test** runs the code on cases with known answers. Write the tests first, then implement, whoever the coder is
+- With coding agents, implementation is cheap. **Everything around it** is the part you cannot delegate
 :::
 
 **Next session:** Algorithms

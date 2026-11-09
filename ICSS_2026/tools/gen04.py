@@ -62,8 +62,8 @@ FLOW_W = X0 + 6 * BW + 5 * GAP + X0           # the whole last box fits on the c
 def flow(name, vibe=False):
     body = []
     xs = [X0 + i * (BW + GAP) for i in range(len(STAGES))]
-    who = {"Requirements": "you and your client", "Specification": "you", "Design": "you",
-           "Implementation": "the LLM", "Testing": "you", "Maintenance": "you"}
+    who = {"Requirements": "you: analyst", "Specification": "you: analyst", "Design": "you: architect",
+           "Implementation": "coding agent", "Testing": "you: tester", "Maintenance": "you: maintainer"}
     for i, (stage, desc) in enumerate(STAGES):
         x = xs[i]
         fill, stroke, dash = SEEBLAU1, SEEBLAU, ""
@@ -162,21 +162,31 @@ def class_box(x, y, w, title, attrs, methods, fill=SEEBLAU1, stroke=SEEBLAU, mon
     return out, h
 
 
-def class_objects():
+def class_objects(name="04-class-objects.svg", cls="Respondent", attrs=("name", "age"),
+                  methods=("is_adult()", "describe()"), objects=(("ana", '"Ana"', "34"), ("ben", '"Ben"', "16")),
+                  fields=("name", "age"), sep=" = "):
+    """A class on the left and two of its objects on the right; the same layout for every class."""
     body = []
-    b, h = class_box(20, 40, 300, "class Respondent", ["name", "age"], ["is_adult()", "describe()"],
-                     fill=SEEBLAU2, stroke=KARPFEN)
+    b, h = class_box(20, 40, 300, f"class {cls}", list(attrs), list(methods), fill=SEEBLAU2, stroke=KARPFEN)
     body += b
     body.append(txt(170, 24, "the blueprint", 16, fill=KARPFEN, style="italic"))
     body.append(txt(26, 40 + h + 26, "attributes: the data · methods: what it can do", 15, fill="#333", anchor="start"))
-    for k, (nm, name, age) in enumerate([("ana", '"Ana"', "34"), ("ben", '"Ben"', "16")]):
+    for k, (nm, v1, v2) in enumerate(objects):
         y = 30 + k * 130
-        ob, oh = class_box(520, y, 280, f"{nm}: a Respondent", [f"name = {name}", f"age = {age}"], [])
+        ob, oh = class_box(520, y, 280, f"{nm}: a {cls}", [f"{fields[0]}{sep}{v1}", f"{fields[1]}{sep}{v2}"], [])
         body += ob
         body.append(arrow(512, y + oh / 2, 326, 100 + (k - 0.5) * 50, dash="6 5"))
     body.append(txt(420, 134, "instance of", 15, fill=KARPFEN, style="italic"))
     body.append(txt(660, 320, "the objects: each has its own data", 16, fill=KARPFEN, style="italic"))
-    write("04-class-objects.svg", 820, 332, body)
+    write(name, 820, 332, body)
+
+
+def dict_objects():
+    """A dict as an object, in the layout of class_objects: its data are key-value pairs."""
+    class_objects("04-dict-objects.svg", cls="dict", attrs=("keys", "values"),
+                  methods=("get(key, default)", "keys()"),
+                  objects=(("votes", '"yes" \u2192 12', '"no" \u2192 7'), ("ages", '"Ana" \u2192 34', '"Ben" \u2192 16')),
+                  fields=("", ""), sep="")
 
 
 # ============================================================ the four OOP concepts
@@ -233,19 +243,69 @@ def inheritance():
 
 
 def polymorphism():
-    body = [box(210, 20, 180, 50, fill=SEEBLAU2, stroke=KARPFEN),
-            txt(300, 52, "len(x)", 23, mono=True, weight="bold")]
-    cases = [('"data"', "str", "4"), ("[3, 1, 2]", "list", "3"), ('{"yes": 12, "no": 7}', "dict", "2")]
-    for k, (val, cls, res) in enumerate(cases):
-        x = 20 + k * 196
-        body.append(arrow(300, 72, x + 88, 128))
-        body.append(box(x, 132, 176, 92, fill=SEEBLAU1, stroke=SEEBLAU, sw=2))
-        body.append(txt(x + 88, 160, cls, 19, fill=GREY))
-        body.append(txt(x + 88, 188, val, 14 if len(val) > 12 else 18, mono=True))
-        body.append(txt(x + 88, 214, f"→ {res}", 20, mono=True, fill=KARPFEN, weight="bold"))
-    body.append(txt(300, 262, "one name, the right operation for each class:", 18, fill=KARPFEN, style="italic"))
-    body.append(txt(300, 284, "characters, elements, keys", 18, fill=KARPFEN, style="italic"))
+    body = [box(190, 14, 220, 50, fill=SEEBLAU2, stroke=KARPFEN),
+            txt(300, 47, "p.describe()", 23, mono=True, weight="bold")]
+    cases = [("ana", "Respondent", "'Ana, 34 years'"), ("bea", "Student", "'Bea: SEDS'")]
+    for k, (obj, cls, res) in enumerate(cases):
+        x = 30 + k * 290
+        body.append(arrow(300, 66, x + 125, 118))
+        body.append(box(x, 122, 250, 108, fill=SEEBLAU1, stroke=SEEBLAU, sw=2))
+        body.append(txt(x + 125, 152, f"{obj}: a {cls}", 19, weight="bold"))
+        body.append(txt(x + 125, 182, f"{cls}.describe()", 16, mono=True, fill=GREY))
+        body.append(txt(x + 125, 212, f"\u2192 {res}", 17, mono=True, fill=KARPFEN, weight="bold"))
+    body.append(txt(300, 266, "the same call; each object runs", 18, fill=KARPFEN, style="italic"))
+    body.append(txt(300, 288, "the method of its own class", 18, fill=KARPFEN, style="italic"))
     write("04-oop-polymorphism.svg", CW, CH, body)
+
+
+# ============================================================ why OOP: one class per responsibility
+def oop_team():
+    people = [("Lea", "class Survey", ["load()", "questions()"]),
+              ("Tom", "class Respondent", ["is_adult()", "describe()"]),
+              ("Ana", "class Report", ["table()", "save()"])]
+    bw, gap, y = 300, 70, 52
+    body = []
+    for k, (who, cls, methods) in enumerate(people):
+        x = 10 + k * (bw + gap)
+        body.append(f'  <circle cx="{x + bw / 2}" cy="22" r="14" fill="{SEEBLAU4}"/>\n')
+        body.append(txt(x + bw / 2 + 24, 29, f"{who} maintains", 17, fill="#333", anchor="start"))
+        body.append(box(x, y, bw, 150, fill=SEEBLAU2, stroke=KARPFEN))
+        body.append(txt(x + bw / 2, y + 30, cls, 20, weight="bold", mono=True))
+        body.append(box(x + 20, y + 44, bw - 40, 40, fill="#d9d9d9", stroke=GREY, sw=1.5, rx=6))
+        body.append(txt(x + bw / 2, y + 70, "inside: free to change", 16, fill="#555"))
+        for j, m in enumerate(methods):
+            mx = x + 20 + j * (bw - 40) / 2
+            body.append(box(mx + 4, y + 100, (bw - 40) / 2 - 8, 34, fill="#ffffff", stroke=KARPFEN, sw=1.8, rx=6))
+            body.append(txt(mx + (bw - 40) / 4, y + 123, m, 16, mono=True, fill=KARPFEN))
+        if k < 2:
+            body.append(arrow(x + bw + 4, y + 117, x + bw + gap - 4, y + 117))
+    body.append(txt(10 + 1.5 * bw + gap, y + 186, "the classes talk only through their methods", 18, fill=KARPFEN,
+                    style="italic"))
+    write("04-oop-team.svg", 20 + 3 * bw + 2 * gap, y + 200, body)
+
+
+# ============================================================ what software is
+def software():
+    body = []
+    body.append(box(170, 10, 620, 196, fill=SEEBLAU1, stroke=KARPFEN))
+    body.append(txt(480, 42, "software", 23, weight="bold"))
+    parts = [("programs", ["the code that", "runs"]), ("data", ["files, settings,", "databases"]),
+             ("documentation", ["how to use", "and change it"]), ("tests", ["checks that", "it works"])]
+    for k, (name, desc) in enumerate(parts):
+        x = 190 + k * 148
+        body.append(box(x, 60, 136, 128, fill="#ffffff", stroke=SEEBLAU, sw=2))
+        body.append(txt(x + 68, 92, name, 18, weight="bold"))
+        for j, d in enumerate(desc):
+            body.append(txt(x + 68, 124 + 22 * j, d, 16, fill="#444"))
+    body.append(box(170, 252, 620, 60, fill=LIGHT, stroke=GREY, sw=2))
+    body.append(txt(480, 290, "hardware: processor, memory, disk", 19, fill="#444"))
+    body.append(arrow(480, 208, 480, 248))
+    body.append(txt(492, 234, "runs on", 16, fill=KARPFEN, style="italic", anchor="start"))
+    body.append(f'  <circle cx="70" cy="90" r="22" fill="{SEEBLAU4}"/>\n')
+    body.append(f'  <path d="M 30 160 Q 70 110 110 160 Z" fill="{SEEBLAU4}"/>\n')
+    body.append(txt(70, 190, "users", 17, fill="#333"))
+    body.append(arrow(118, 110, 164, 110))
+    write("04-software.svg", 800, 322, body)
 
 
 # ============================================================ from a script to software
@@ -282,26 +342,308 @@ def script_to_software():
 
 # ============================================================ design: small parts with specifications
 def design_pipeline():
-    steps = [("load_responses(path)", "read the file into a", "list of dicts"),
-             ("clean_ages(rows)", "turn text into int,", "blank into None"),
-             ("mean_age(ages)", "mean of the ages", "that were answered"),
-             ("report(mean, n)", "one line of text", "for the report")]
-    data = ["list of dicts", "list of int / None", "float"]
-    bw, gap, y = 260, 50, 30
+    """The panel-wave example: three steps in a row, a helper below the main one."""
+    steps = [("read_wave(path)", "read one wave file", "into a list of pairs"),
+             ("link_waves(w1, w2)", "pair the answers of", "the people in both waves"),
+             ("report(pairs)", "how many changed", "their answer")]
+    data = ["2 lists of (email, answer)", "dict: pseudonym → pair"]
+    bw, gap, y = 300, 96, 20
     body = []
+    xs = [6 + k * (bw + gap) for k in range(3)]
     for k, (fn, a, b) in enumerate(steps):
-        x = 6 + k * (bw + gap)
-        hl = fn.startswith("mean_age")
+        x = xs[k]
+        hl = k == 1
         body.append(box(x, y, bw, 120, fill=SEEBLAU2 if hl else SEEBLAU1, stroke=KARPFEN if hl else SEEBLAU))
         body.append(txt(x + bw / 2, y + 34, fn, 18, mono=True, weight="bold"))
         body.append(txt(x + bw / 2, y + 70, a, 19, fill="#444"))
         body.append(txt(x + bw / 2, y + 96, b, 19, fill="#444"))
         if k < len(steps) - 1:
             body.append(arrow(x + bw + 3, y + 60, x + bw + gap - 3, y + 60))
-            body.append(txt(x + bw + gap / 2, y + 152, data[k], 18, fill=KARPFEN, style="italic"))
-    body.append(txt(6 + 2 * (bw + gap) + bw / 2, y + 186, "specified and tested in the next sections", 18,
-                    fill=KARPFEN, style="italic"))
-    write("04-design-pipeline.svg", 6 + 4 * bw + 3 * gap + 6, 226, body)
+    # data on the arrows, below the boxes
+    body.append(txt(xs[0] + bw / 2 + 40, y + 152, data[0], 18, fill=KARPFEN, style="italic"))
+    body.append(txt(xs[2] + bw / 2 - 40, y + 152, data[1], 18, fill=KARPFEN, style="italic"))
+    # the helper, used by link_waves
+    hx, hy = xs[1] + 10, y + 196
+    body.append(arrow(xs[1] + bw / 2, hy - 2, xs[1] + bw / 2, y + 123, dash="6 5"))
+    body.append(txt(xs[1] + bw / 2 + 8, y + 172, "uses", 17, fill=KARPFEN, style="italic", anchor="start"))
+    body.append(box(hx, hy, bw - 20, 100, fill=SEEBLAU1, stroke=SEEBLAU))
+    body.append(txt(hx + (bw - 20) / 2, hy + 32, "pseudonym(email)", 18, mono=True, weight="bold"))
+    body.append(txt(hx + (bw - 20) / 2, hy + 62, "clean the email, then a", 18, fill="#444"))
+    body.append(txt(hx + (bw - 20) / 2, hy + 86, "hash with a secret (session 3)", 18, fill="#444"))
+    body.append(txt(xs[2] + bw / 2, hy + 56, "link_waves is specified and", 18, fill=KARPFEN, style="italic"))
+    body.append(txt(xs[2] + bw / 2, hy + 80, "tested in the next sections", 18, fill=KARPFEN, style="italic"))
+    write("04-design-pipeline.svg", xs[2] + bw + 6, hy + 106, body)
+
+
+# ============================================================ roles and the panel example
+ORANGE = "#e07b00"
+
+
+def person(cx, cy, s=1.0, color=SEEBLAU4):
+    """A person glyph: head and shoulders, centered at (cx, cy)."""
+    r, w = 13 * s, 22 * s
+    return (f'  <circle cx="{cx}" cy="{cy - 14 * s}" r="{r}" fill="{color}"/>\n'
+            f'  <path d="M {cx - w} {cy + 24 * s} V {cy + 18 * s} A {w} {w} 0 0 1 {cx + w} {cy + 18 * s} '
+            f'V {cy + 24 * s} Z" fill="{color}"/>\n')
+
+
+def agent(cx, cy, s=1.0, color=KARPFEN):
+    """A coding agent glyph: a robot head with an antenna."""
+    w, h = 40 * s, 30 * s
+    return (f'  <line x1="{cx}" y1="{cy - h / 2 - 12 * s}" x2="{cx}" y2="{cy - h / 2}" stroke="{color}" stroke-width="{2.5 * s}"/>\n'
+            f'  <circle cx="{cx}" cy="{cy - h / 2 - 14 * s}" r="{4 * s}" fill="{color}"/>\n'
+            f'  <rect x="{cx - w / 2}" y="{cy - h / 2}" width="{w}" height="{h}" rx="{7 * s}" fill="{color}"/>\n'
+            f'  <circle cx="{cx - 9 * s}" cy="{cy - 2 * s}" r="{4 * s}" fill="#ffffff"/>\n'
+            f'  <circle cx="{cx + 9 * s}" cy="{cy - 2 * s}" r="{4 * s}" fill="#ffffff"/>\n'
+            f'  <rect x="{cx - 10 * s}" y="{cy + 7 * s}" width="{20 * s}" height="{3 * s}" fill="#ffffff"/>\n'
+            f'  <rect x="{cx - w / 2 + 4 * s}" y="{cy + h / 2 + 2 * s}" width="{w - 8 * s}" height="{10 * s}" rx="{3 * s}" fill="{color}"/>\n')
+
+
+def document(x, y, w, h, title, lines=3, fill="#ffffff", stroke=GREY):
+    out = [f'  <path d="M {x} {y} H {x + w - 18} L {x + w} {y + 18} V {y + h} H {x} Z" fill="{fill}" '
+           f'stroke="{stroke}" stroke-width="2"/>\n']
+    out.append(txt(x + w / 2, y + 28, title, 17, weight="bold", mono=True))
+    for k in range(lines):
+        out.append(f'  <line x1="{x + 14}" y1="{y + 46 + 14 * k}" x2="{x + w - 14 - (k % 2) * 30}" '
+                   f'y2="{y + 46 + 14 * k}" stroke="#c8c8c8" stroke-width="5"/>\n')
+    return out
+
+
+ROLES = [("Requirements", "analyst", "with the client", "requirements"),
+         ("Specification", "analyst", "writes it down", "specification"),
+         ("Design", "architect", "splits the work", "design"),
+         ("Implementation", "coder", "human or agent", "code"),
+         ("Testing", "tester", "checks the code", "test report"),
+         ("Maintenance", "maintainer", "fixes, extends", "new requests")]
+
+
+def roles(name="04-roles.svg"):
+    """The six stages of the flow, each with the role that owns it and what it hands on."""
+    body = []
+    xs = [X0 + i * (BW + GAP) for i in range(len(ROLES))]
+    for i, (stage, role, note, hands) in enumerate(ROLES):
+        x, cx = xs[i], xs[i] + BW / 2
+        body.append(box(x, 10, BW, 52, fill=SEEBLAU1, stroke=SEEBLAU))
+        body.append(txt(cx, 43, stage, 19, weight="bold"))
+        if i < len(ROLES) - 1:
+            body.append(arrow(x + BW + 3, 36, x + BW + GAP - 3, 36))
+        if role == "coder":
+            body.append(person(cx - 28, 112, 1.0))
+            body.append(agent(cx + 28, 114, 0.95))
+        else:
+            if role == "analyst" and i == 0:          # the client sits next to the analyst
+                body.append(person(cx + 24, 112, 1.0))
+                body.append(person(cx - 34, 118, 0.7, color="#bbbbbb"))
+                body.append(txt(cx - 34, 152, "client", 14, fill=GREY))
+            else:
+                body.append(person(cx, 112, 1.0))
+        body.append(txt(cx, 172 if role != "coder" else 172, role, 21, weight="bold", fill=KARPFEN))
+        body.append(txt(cx, 196, note, 16, fill="#444", style="italic"))
+        body += document(x + 20, 214, BW - 40, 74, "", lines=2)
+        body.append(txt(cx, 238, hands, 16, fill="#111", weight="bold"))
+        if i < len(ROLES) - 1:
+            body.append(arrow(x + BW - 20 + 2, 251, xs[i + 1] + 20 - 2, 251, sw=2))
+    body.append(txt(FLOW_W / 2, 318, "each role hands its result to the next one; in a small project, one person plays several roles",
+                    17, fill=KARPFEN, style="italic"))
+    write(name, FLOW_W, 330, body)
+
+
+def table(x, y, title, header, rows, colw, hl=None, title_fill=KARPFEN):
+    """A small data table. hl maps a row index to an outline color."""
+    out = [txt(x + sum(colw) / 2, y - 10, title, 18, weight="bold", fill=title_fill)]
+    rh = 36
+    cx = x
+    for w, h in zip(colw, header):
+        out.append(box(cx, y, w, rh, fill=SEEBLAU2, stroke=SEEBLAU, sw=1.5, rx=0))
+        out.append(txt(cx + w / 2, y + 24, h, 16, weight="bold"))
+        cx += w
+    for r, row in enumerate(rows):
+        cx = x
+        for w, v in zip(colw, row):
+            out.append(box(cx, y + rh * (r + 1), w, rh, fill="#ffffff", stroke=SEEBLAU, sw=1.5, rx=0))
+            out.append(txt(cx + w / 2, y + rh * (r + 1) + 24, v, 16, mono=True))
+            cx += w
+        if hl and r in hl:
+            out.append(f'  <rect x="{x - 3}" y="{y + rh * (r + 1) - 3}" width="{sum(colw) + 6}" height="{rh + 6}" '
+                       f'rx="6" fill="none" stroke="{hl[r]}" stroke-width="3"/>\n')
+    return out
+
+
+def panel_example():
+    """The running example: two waves of a panel survey, linked without email addresses."""
+    body = []
+    cw = [210, 92]
+    body += table(10, 40, "wave 1 (spring)", ["email", "answer"],
+                  [['"ana@uni.de"', '"yes"'], ['"ben@uni.de"', '"no"']], cw, hl={0: ORANGE})
+    body += table(10, 220, "wave 2 (autumn)", ["email", "answer"],
+                  [['" Ana@Uni.de"', '"no"'], ['"eva@uni.de"', '"yes"']], cw, hl={0: ORANGE})
+    # notes next to the waves
+    body.append(txt(330, 136, "Ben: only in wave 1", 16, fill=GREY, anchor="start", style="italic"))
+    body.append(txt(330, 316, "Eva: only in wave 2", 16, fill=GREY, anchor="start", style="italic"))
+    body.append(txt(330, 266, "the same person as", 16, fill=ORANGE, anchor="start", weight="bold"))
+    body.append(txt(330, 286, "ana@uni.de?", 16, fill=ORANGE, anchor="start", weight="bold", mono=True))
+    # the linking step
+    bx, by = 600, 140
+    body.append(box(bx, by, 220, 92, fill=SEEBLAU2, stroke=KARPFEN))
+    body.append(txt(bx + 110, by + 38, "link_waves", 20, weight="bold", mono=True))
+    body.append(txt(bx + 110, by + 66, "pair the answers", 16, fill="#444"))
+    body.append(arrow(318, 58, bx - 4, by + 26))
+    body.append(arrow(318, 238, bx - 4, by + 66))
+    body.append(arrow(bx + 224, by + 46, 874, by + 46))
+    body += table(880, 150, "linked, to share", ["pseudonym", "spring", "autumn"],
+                  [['"3f9a1c07e2"', '"yes"', '"no"']], [138, 84, 84])
+    body.append(txt(880 + 153, 262, "one row per person in both waves,", 16, fill=KARPFEN, style="italic"))
+    body.append(txt(880 + 153, 284, "no email addresses", 16, fill=KARPFEN, style="italic", weight="bold"))
+    write("04-panel-example.svg", 1196, 336, body)
+
+
+def any_coder():
+    """One specification, two coders, the same tests."""
+    body = []
+    body += document(10, 92, 200, 150, "link_waves", lines=6, fill=SEEBLAU1, stroke=KARPFEN)
+    body.append(txt(110, 270, "the specification", 18, weight="bold", fill=KARPFEN))
+    body.append(txt(110, 292, "(analyst)", 16, fill="#444", style="italic"))
+    # two coders
+    for k, (label, glyph) in enumerate([("a colleague", "person"), ("a coding agent", "agent")]):
+        y = 70 + k * 170
+        cx = 340
+        body.append(arrow(214, 167, cx - 50, y + 20))
+        body.append(person(cx, y + 18, 1.2) if glyph == "person" else agent(cx, y + 18, 1.15))
+        body.append(txt(cx, y + 74, label, 18, weight="bold", fill=KARPFEN))
+        body.append(arrow(cx + 52, y + 18, 470, y + 18))
+        body += document(476, y - 26, 150, 90, "panel.py", lines=2)
+        body.append(arrow(630, y + 18, 726, 167 + (k * 2 - 1) * 26))
+    # tests
+    body.append(box(732, 92, 196, 150, fill=SEEBLAU2, stroke=KARPFEN))
+    body.append(txt(830, 128, "the tests", 20, weight="bold"))
+    body.append(txt(830, 156, "written by the tester", 16, fill="#444"))
+    body.append(txt(830, 178, "from the specification,", 16, fill="#444"))
+    body.append(txt(830, 200, "before the code", 16, fill="#444"))
+    body.append(arrow(932, 140, 990, 112))
+    body.append(arrow(932, 196, 990, 226))
+    body.append(txt(998, 118, "pass", 19, weight="bold", fill=KARPFEN, anchor="start"))
+    body.append(txt(998, 222, "fail: back", 19, weight="bold", fill=ORANGE, anchor="start"))
+    body.append(txt(998, 244, "to the coder", 19, weight="bold", fill=ORANGE, anchor="start"))
+    write("04-any-coder.svg", 1140, 326, body)
+
+
+def test_first():
+    """The order of work, with the role that does each step."""
+    steps = [("1", "analyst", "specification", "the docstring"),
+             ("2", "tester", "tests", "from the specification"),
+             ("3", "coder", "implementation", "human or agent"),
+             ("4", "tester", "run the tests", "read what passes"),
+             ("5", "maintainer", "bug found later", "becomes a new test")]
+    bw, gap, y = 196, 34, 70
+    body = []
+    xs = [6 + k * (bw + gap) for k in range(5)]
+    for k, (n, role, what, note) in enumerate(steps):
+        x, cx = xs[k], xs[k] + bw / 2
+        if role == "coder":
+            body.append(person(cx - 26, 30, 0.85))
+            body.append(agent(cx + 26, 32, 0.8))
+        else:
+            body.append(person(cx, 30, 0.85))
+        hl = role == "tester"
+        body.append(box(x, y, bw, 108, fill=SEEBLAU2 if hl else SEEBLAU1, stroke=KARPFEN if hl else SEEBLAU))
+        body.append(txt(cx, y + 30, f"{n}. {role}", 19, weight="bold", fill=KARPFEN))
+        body.append(txt(cx, y + 62, what, 18, weight="bold"))
+        body.append(txt(cx, y + 88, note, 16, fill="#444", style="italic"))
+        if k < 4:
+            body.append(arrow(x + bw + 3, y + 54, x + bw + gap - 3, y + 54))
+
+    def back(i_from, i_to, depth, label, color):
+        x1, x2 = xs[i_from] + bw / 2, xs[i_to] + bw / 2
+        yb, yl = y + 108 + 3, y + 108 + depth
+        body.append(f'  <path d="M {x1} {yb} V {yl} H {x2} V {yb + 3}" fill="none" stroke="{color}" '
+                    f'stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#a)"/>\n')
+        body.append(txt((x1 + x2) / 2, yl + 20, label, 16, fill=color, style="italic"))
+
+    back(3, 2, 26, "a test fails: back to the coder", ORANGE)
+    back(4, 1, 74, "regression test: the bug can never come back unnoticed", KARPFEN)
+    write("04-test-first.svg", xs[4] + bw + 6, y + 108 + 74 + 32, body)
+
+
+def maintenance():
+    """The design of the example after the client asks for a third wave."""
+    steps = [("read_wave(path)", "unchanged", "reads wave 3 like the others", "same"),
+             ("link_waves(waves)", "changed", "any number of waves:", "spec, tests, code, in order"),
+             ("report(pairs)", "changed", "one more column", "")]
+    bw, gap, y = 300, 96, 40
+    xs = [6 + k * (bw + gap) for k in range(3)]
+    body = []
+    for k, (fn, status, a, b) in enumerate(steps):
+        x = xs[k]
+        ch = status == "changed"
+        stroke = ORANGE if ch else SEEBLAU
+        body.append(box(x, y, bw, 120, fill="#fff3e0" if ch else SEEBLAU1, stroke=stroke, dash="" if ch else ""))
+        body.append(txt(x + bw / 2, y - 12, status, 17, weight="bold", fill=ORANGE if ch else GREY))
+        body.append(txt(x + bw / 2, y + 34, fn, 18, mono=True, weight="bold"))
+        body.append(txt(x + bw / 2, y + 70, a, 18, fill="#444"))
+        if b and b != "same":
+            body.append(txt(x + bw / 2, y + 96, b, 18, fill="#444"))
+        if k < 2:
+            body.append(arrow(x + bw + 3, y + 60, x + bw + gap - 3, y + 60))
+    hx, hy = xs[1] + 10, y + 186
+    body.append(arrow(xs[1] + bw / 2, hy - 30, xs[1] + bw / 2, y + 123, dash="6 5"))
+    body.append(box(hx, hy, bw - 20, 100, fill=SEEBLAU1, stroke=SEEBLAU))
+    body.append(txt(hx + (bw - 20) / 2, hy - 10, "unchanged", 17, weight="bold", fill=GREY))
+    body.append(txt(hx + (bw - 20) / 2, hy + 32, "pseudonym(email)", 18, mono=True, weight="bold"))
+    body.append(txt(hx + (bw - 20) / 2, hy + 62, "the secret must stay the same,", 17, fill="#444"))
+    body.append(txt(hx + (bw - 20) / 2, hy + 84, "or wave 3 cannot be linked", 17, fill="#444"))
+    body.append(person(xs[0] + 60, hy + 34, 1.0))
+    body.append(txt(xs[0] + 60, hy + 84, "maintainer", 18, weight="bold", fill=KARPFEN))
+    body.append(txt(xs[2] + bw / 2, hy + 40, "the four old tests run again", 18, fill=KARPFEN, style="italic"))
+    body.append(txt(xs[2] + bw / 2, hy + 64, "after every change:", 18, fill=KARPFEN, style="italic"))
+    body.append(txt(xs[2] + bw / 2, hy + 88, "regression tests", 18, fill=KARPFEN, style="italic", weight="bold"))
+    write("04-maintenance.svg", xs[2] + bw + 6, hy + 106, body)
+
+
+
+# ============================================================ how pytest works
+def pytest_flow():
+    body = []
+    # the folder with two files
+    body.append(f'  <path d="M 10 30 H 90 L 106 46 H 318 V 296 H 10 Z" fill="#fbfbfb" stroke="{GREY}" stroke-width="2"/>\n')
+    body.append(txt(164, 70, "survey/", 20, fill=GREY, mono=True))
+    body += document(26, 88, 112, 78, "", lines=2)
+    body.append(txt(82, 114, "panel.py", 17, mono=True, weight="bold"))
+    body.append(txt(82, 184, "the code", 17, fill="#444", style="italic"))
+    body += document(150, 88, 160, 78, "", lines=0)
+    body.append(txt(230, 112, "test_panel.py", 16, mono=True, weight="bold"))
+    body.append(txt(230, 134, "def test_typical", 14, mono=True, fill=KARPFEN))
+    body.append(txt(230, 152, "def test_empty_wave", 14, mono=True, fill=KARPFEN))
+    body.append(txt(230, 184, "the tests", 17, fill="#444", style="italic"))
+    body.append(box(64, 212, 200, 46, fill="#222222", stroke="#222222", rx=6))
+    body.append(txt(164, 242, "$ pytest", 22, fill="#ffffff", mono=True))
+    body.append(txt(164, 282, "one command, in the folder", 17, fill="#444", style="italic"))
+    body.append(arrow(324, 163, 372, 163, sw=3))
+    # pytest box
+    bx, by, bw, bh = 378, 36, 400, 262
+    body.append(box(bx, by, bw, bh, fill=SEEBLAU2, stroke=KARPFEN))
+    body.append(txt(bx + bw / 2, by + 38, "pytest", 26, weight="bold"))
+    steps = [("1", "finds every file", "test_*.py"),
+             ("2", "finds every function", "test_*  in those files"),
+             ("3", "runs each one", "failed assert or error = fail"),
+             ("4", "reports", "which failed, and why")]
+    for k, (n, a, b) in enumerate(steps):
+        y = by + 76 + k * 48
+        body.append(f'  <circle cx="{bx + 34}" cy="{y - 7}" r="15" fill="{KARPFEN}"/>\n')
+        body.append(txt(bx + 34, y - 1, n, 17, fill="#ffffff", weight="bold"))
+        body.append(txt(bx + 62, y - 9, a, 19, anchor="start"))
+        body.append(txt(bx + 62, y + 13, b, 16, anchor="start", fill="#444", mono=k < 2))
+    body.append(arrow(bx + bw + 6, 163, bx + bw + 54, 163, sw=3))
+    # report
+    rx, ry = 836, 56
+    body.append(box(rx, ry, 330, 222, fill="#222222", stroke="#222222", rx=8))
+    lines = [("test_panel.py .F", "#ffffff"), ("", ""),
+             ("FAILED test_empty_wave_raises", "#ff8080"), ("  DID NOT RAISE ValueError", "#ff8080"),
+             ("", ""), ("1 failed, 1 passed", "#ffd27f")]
+    for k, (l, c) in enumerate(lines):
+        if l:
+            body.append(txt(rx + 16, ry + 38 + k * 28, l, 17, fill=c, mono=True, anchor="start"))
+    body.append(txt(rx + 165, ry + 246, ". passed    F failed", 17, fill="#444", style="italic"))
+    write("04-pytest.svg", rx + 340, 310, body)
 
 
 if __name__ == "__main__":
@@ -310,9 +652,18 @@ if __name__ == "__main__":
     interpreter()
     compiler()
     class_objects()
+    dict_objects()
+    oop_team()
+    software()
     encapsulation()
     abstraction()
     inheritance()
     polymorphism()
     script_to_software()
     design_pipeline()
+    roles()
+    panel_example()
+    any_coder()
+    test_first()
+    maintenance()
+    pytest_flow()

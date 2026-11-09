@@ -50,6 +50,12 @@ def txt(x, y, t, fs=14, anchor="middle", fill="#111", weight="normal", style="no
             f'font-weight="{weight}" font-style="{style}">{t}</text>\n')
 
 
+def code(x, y, t, fs=14, anchor="middle", fill="#1f6fb2"):
+    """An access path such as head.next or root.left, in monospace."""
+    return (f'  <text x="{x}" y="{y}" text-anchor="{anchor}" font-size="{fs}" fill="{fill}" '
+            f'font-family="Consolas, Menlo, monospace">{t}</text>\n')
+
+
 # ---------------------------------------------------------------- canonical BST
 #            10
 #        4        13
@@ -104,27 +110,48 @@ NODES = [n for n in BASE_POS if n != "6"]
 write("03-bst-base.svg",
       svg(*CANVAS, draw_tree(BASE_POS, BASE_EDGES, base_fills(NODES), only=NODES)))
 
-# 2. root rule: <= and > with two dashed ellipses -------------------------------
+# 1b. how nodes are reached: root, root.left, root.right.left, ... -------------
+acc = (code(272, 29, "root", anchor="start")
+       + code(118, 97, "root.left", anchor="end")
+       + code(382, 97, "root.right", anchor="start")
+       + code(415, 193, "root.right.right")
+       + code(360, 233, "root.right.left.right", anchor="start")
+       + txt(186, 52, "left", 13, fill="#555", style="italic")
+       + txt(314, 52, "right", 13, fill="#555", style="italic"))
+write("03-bst-access.svg", svg(545, 258, draw_tree(BASE_POS, BASE_EDGES, base_fills(NODES), acc, only=NODES)))
+
+
+def rule_caption(left, right):
+    """The BST condition written with node attributes, under each half of the tree."""
+    return code(125, 280, left, 14, fill="#333") + code(360, 280, right, 14, fill="#333")
+
+
+RULE_CANVAS = (470, 296)
+NODE_RULE = rule_caption("node.left.key &#8804; node.key", "node.key &lt; node.right.key")
+
+# 2. root rule: <= and < with two dashed ellipses -------------------------------
 ell = (f'  <ellipse cx="140" cy="165" rx="105" ry="88" fill="none" stroke="#999" '
        f'stroke-width="1.2" stroke-dasharray="5 4"/>\n'
        f'  <ellipse cx="362" cy="163" rx="86" ry="84" fill="none" stroke="#999" '
        f'stroke-width="1.2" stroke-dasharray="5 4"/>\n'
        + txt(198, 52, "&#8804;", 17, weight="bold")
-       + txt(303, 52, "&gt;", 17, weight="bold"))
+       + txt(303, 52, "&lt;", 17, weight="bold"))
+ell += (rule_caption("all keys under root.left", "root.key &lt;").replace('y="280"', 'y="270"')
+        + rule_caption("&#8804; root.key", "all keys under root.right").replace('y="280"', 'y="288"'))
 write("03-bst-root-rule.svg",
-      svg(*CANVAS, draw_tree(BASE_POS, BASE_EDGES, base_fills(NODES), ell, only=NODES)))
+      svg(*RULE_CANVAS, draw_tree(BASE_POS, BASE_EDGES, base_fills(NODES), ell, only=NODES)))
 
 # 3. level-2 rule --------------------------------------------------------------
-lvl2 = (txt(103, 128, "&#8804;", 16, weight="bold") + txt(178, 128, "&gt;", 16, weight="bold")
-        + txt(322, 128, "&#8804;", 16, weight="bold") + txt(398, 128, "&gt;", 16, weight="bold"))
+lvl2 = (txt(103, 128, "&#8804;", 16, weight="bold") + txt(178, 128, "&lt;", 16, weight="bold")
+        + txt(322, 128, "&#8804;", 16, weight="bold") + txt(398, 128, "&lt;", 16, weight="bold"))
 write("03-bst-level2-rule.svg",
-      svg(*CANVAS, draw_tree(BASE_POS, BASE_EDGES, base_fills(NODES), lvl2, only=NODES)))
+      svg(*RULE_CANVAS, draw_tree(BASE_POS, BASE_EDGES, base_fills(NODES), lvl2 + NODE_RULE, only=NODES)))
 
 # 4. level-3 rule --------------------------------------------------------------
-lvl3 = (txt(58, 196, "&#8804;", 16, weight="bold") + txt(112, 196, "&gt;", 16, weight="bold")
-        + txt(310, 196, "&gt;", 16, weight="bold"))
+lvl3 = (txt(58, 196, "&#8804;", 16, weight="bold") + txt(112, 196, "&lt;", 16, weight="bold")
+        + txt(310, 196, "&lt;", 16, weight="bold"))
 write("03-bst-level3-rule.svg",
-      svg(*CANVAS, draw_tree(BASE_POS, BASE_EDGES, base_fills(NODES), lvl3, only=NODES)))
+      svg(*RULE_CANVAS, draw_tree(BASE_POS, BASE_EDGES, base_fills(NODES), lvl3 + NODE_RULE, only=NODES)))
 
 # 5. "is this a BST?" — invalid tree -------------------------------------------
 BAD_POS = dict(BASE_POS)
@@ -449,8 +476,9 @@ CELL_H, KEY_W, PTR_W, LL_GAP = 46, 58, 34, 52
 LL_BLUE = "#cceef9"
 
 
-def ll_figure(doubly=False, delete=None, height=LL_H):
-    """head -> [key|next] -> ... -> NIL ; with doubly=True: [prev|key|next] and back links."""
+def ll_figure(doubly=False, delete=None, height=LL_H, access=False):
+    """head -> [key|next] -> ... -> NIL ; with doubly=True: [prev|key|next] and back links.
+    access=True writes above the first nodes how each one is reached from head."""
     node_w = KEY_W + PTR_W * (2 if doubly else 1)
     n = len(LL_KEYS)
     total = n * node_w + (n - 1) * LL_GAP
@@ -489,6 +517,10 @@ def ll_figure(doubly=False, delete=None, height=LL_H):
     for lab, w in zip(labels, widths):
         body += txt(lx + w / 2, y + CELL_H + 22, lab, 14, fill="#555", style="italic")
         lx += w
+    # how each node is reached: head, head.next, head.next.next
+    if access:
+        for i, path in enumerate(["head", "head.next", "head.next.next"]):
+            body += code(xs[i] + KEY_W / 2, y - 12, path, 15)
     # next pointers
     for i in range(n - 1):
         x_from = xs[i] + node_w - PTR_W / 2
@@ -548,7 +580,7 @@ def ll_figure(doubly=False, delete=None, height=LL_H):
     return svg(LL_W, height, body)
 
 
-write("03-linked-list.svg", ll_figure())
+write("03-linked-list.svg", ll_figure(access=True))
 write("03-linked-list-delete.svg", ll_figure(delete=13))
 # the doubly linked list is explained on exercise sheet 3, no longer in the deck
 open(os.path.join(OUT, "..", "..", "..", "TheoryExercises", "figures", "ex03-doubly-linked-list.svg"),
@@ -808,27 +840,30 @@ def overview():
 write("03-data-structures.svg", overview())
 
 
-# 17. editing vs search: an array and a linked list, sorted by key ---------------
+# 17. editing vs search: an unsorted array and an unsorted linked list ----------------
 def edit_vs_search():
     body = ""
-    # array, sorted: reading position i is one step, inserting 8 shifts everything after it
-    body += txt(20, 28, "Array, sorted", 23, anchor="start", weight="bold")
-    x0, y0, cw = 20, 44, 56
-    for i, v in enumerate([2, 4, 7, 9, 13, 21, ""]):
-        body += ov_cell(x0 + i * cw, y0, cw, 48, str(v), "#fde3e3" if i >= 3 and v != "" else "#fff", fs=20)
-    for i in (3, 4, 5):
+    # array: reading position i is one step, finding a value is not, inserting shifts the rest
+    body += txt(20, 26, "Array", 23, anchor="start", weight="bold")
+    x0, y0, cw = 20, 62, 56
+    for i in range(6):
+        body += txt(x0 + i * cw + cw / 2, y0 - 8, str(i + 1), 14, fill="#777")
+    for i, v in enumerate([9, 2, 13, 7, 21, 4, ""]):
+        body += ov_cell(x0 + i * cw, y0, cw, 48, str(v), "#fde3e3" if i >= 2 and v != "" else "#fff", fs=20)
+    for i in (2, 3, 4, 5):
         xa, xb = x0 + i * cw + cw / 2, x0 + (i + 1) * cw + cw / 2
         body += (f'  <path d="M {xa} {y0+50} Q {(xa+xb)/2} {y0+80} {xb-3} {y0+52}" fill="none" '
                  f'stroke="{BAD}" stroke-width="2" marker-end="url(#ar)"/>\n')
-    body += txt(20, 158, "✓ search: jump to any index by position", 19, anchor="start", fill=OK)
-    body += txt(20, 186, "✗ insert 8 in position 4: shift 9, 13, 21", 19, anchor="start", fill=BAD)
-    # linked list: inserting 8 changes two pointers, searching follows every pointer
-    body += txt(20, 244, "Linked list, sorted", 23, anchor="start", weight="bold")
-    y, kw, pw, gap = 260, 42, 20, 20
+    body += txt(20, 178, "✓ read A[4]: one step, computed from the index", 19, anchor="start", fill=OK)
+    body += txt(20, 205, "✗ find 13: check the cells one by one", 19, anchor="start", fill=BAD)
+    body += txt(20, 232, "✗ insert 8 at position 3: shift 13, 7, 21, 4", 19, anchor="start", fill=BAD)
+    # linked list: inserting 8 changes two pointers, finding anything follows the pointers
+    body += txt(20, 286, "Linked list", 23, anchor="start", weight="bold")
+    y, kw, pw, gap = 302, 42, 20, 20
     xs = [76 + i * (kw + pw + gap) for i in range(4)]
     body += txt(34, y + 29, "head", 17, weight="bold")
     body += arrow(56, y + 23, xs[0] - 3, y + 23)
-    for i, (x, v) in enumerate(zip(xs, [2, 7, 9, 13])):
+    for i, (x, v) in enumerate(zip(xs, [9, 2, 13, 7])):
         body += ov_cell(x, y, kw, 46, str(v), LL_BLUE, fs=20)
         body += ov_cell(x + kw, y, pw, 46, "")
         body += f'  <circle cx="{x+kw+pw/2}" cy="{y+23}" r="3.5" fill="#111"/>\n'
@@ -837,27 +872,27 @@ def edit_vs_search():
             body += arrow(x + kw + pw / 2, y + 23, xs[i + 1] - 3, y + 23, color=col, dash=dash)
     body += arrow(xs[3] + kw + pw / 2, y + 23, xs[3] + kw + pw + 20, y + 23)
     body += txt(xs[3] + kw + pw + 24, y + 29, "NIL", 16, anchor="start", weight="bold")
-    # the new node 8 sits below the gap between 7 and 9
+    # the new node 8 sits below the gap between 2 and 13
     nx, ny = xs[1] + kw + pw + gap / 2 - (kw + pw) / 2, y + 86
     body += ov_cell(nx, ny, kw, 46, "8", "#fde3e3", fs=20)
     body += ov_cell(nx + kw, ny, pw, 46, "")
     body += f'  <circle cx="{nx+kw+pw/2}" cy="{ny+23}" r="3.5" fill="#111"/>\n'
-    x7 = xs[1] + kw + pw / 2                            # 7.next now points down to 8
-    body += (f'  <line x1="{x7}" y1="{y+23}" x2="{x7}" y2="{ny-4}" stroke="{OK}" stroke-width="2.2" '
+    x2 = xs[1] + kw + pw / 2                            # 2.next now points down to 8
+    body += (f'  <line x1="{x2}" y1="{y+23}" x2="{x2}" y2="{ny-4}" stroke="{OK}" stroke-width="2.2" '
              f'marker-end="url(#ag)"/>\n')
-    x9 = xs[2] + kw / 2                                 # 8.next points up to 9
-    body += (f'  <path d="M {nx+kw+pw/2} {ny+23} L {x9-8} {ny+23} Q {x9} {ny+23} {x9} {ny+15} L {x9} {y+50}" '
+    x13 = xs[2] + kw / 2                                # 8.next points up to 13
+    body += (f'  <path d="M {nx+kw+pw/2} {ny+23} L {x13-8} {ny+23} Q {x13} {ny+23} {x13} {ny+15} L {x13} {y+50}" '
              f'fill="none" stroke="{OK}" stroke-width="2.2" marker-end="url(#ag)"/>\n')
-    body += txt(20, 432, "✓ insert 8: change two pointers", 19, anchor="start", fill=OK)
-    body += txt(20, 460, "✗ search: follow every pointer from head", 19, anchor="start", fill=BAD)
+    body += txt(20, 474, "✓ insert 8 after 2: change two pointers", 19, anchor="start", fill=OK)
+    body += txt(20, 501, "✗ find 13 or reach position 3: follow pointers", 19, anchor="start", fill=BAD)
     # what we want
-    body += (f'  <rect x="20" y="486" width="470" height="70" rx="10" fill="#f6fbfd" stroke="#1f6fb2" '
+    body += (f'  <rect x="20" y="526" width="470" height="70" rx="10" fill="#f6fbfd" stroke="#1f6fb2" '
              f'stroke-width="2"/>\n')
-    body += txt(255, 516, "Wanted: fast search and cheap editing", 20, weight="bold")
-    body += txt(255, 543, "next: binary search, then binary search trees", 17, fill="#333", style="italic")
+    body += txt(255, 556, "Neither finds a value faster than linear", 20, weight="bold")
+    body += txt(255, 583, "next: binary search, then binary search trees", 17, fill="#333", style="italic")
     defs = ('  <defs><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" '
             f'orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="{OK}"/></marker></defs>\n')
-    return svg(510, 562, defs + body)
+    return svg(510, 602, defs + body)
 
 
 write("03-edit-vs-search.svg", edit_vs_search())

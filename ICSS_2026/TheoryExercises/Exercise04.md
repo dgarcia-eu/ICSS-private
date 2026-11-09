@@ -2,110 +2,152 @@
 
 *Introduction to Computing for the Social Sciences · Prof. Dr. David Garcia*
 
-> Exercises 1 and 2 are worked through in the exercise session; Exercises 3 and
-> 4 follow the same steps and are for self-study, as is the *Additional
-> practice* section. Worked solutions to every exercise, with pointers to the
-> slides and the handout sections that cover the material, are in
-> [`Solutions/Exercise04-Solutions.md`](Solutions/Exercise04-Solutions.md); try before you open them.
-> Notation: [course conventions](../Transcripts/00-Conventions.md).
+> Exercises 1 and 2 will be covered in the exercise session. The *Additional
+> practice* section is for self-study and to be covered if time allows. Worked
+> solutions, with pointers to the slides and the handout, are in
+> [`Solutions/Exercise04-Solutions.md`](Solutions/Exercise04-Solutions.md). Try
+> the exercises before you open them. Notation: [course conventions](../Transcripts/00-Conventions.md).
 
 ---
 
 ## How to work on these exercises
 
-Each exercise is a small request from a client, the kind of message a
-colleague might send you. You do not write the program. You do the four steps
-of the software engineering process that remain yours when a language model
-can write the code:
+Each exercise is a request from a client, the kind of message a colleague
+might send you. You follow it through the software engineering flow of the
+lecture, from requirements to maintenance. You do not need a computer. The
+code is short, and the point of the exercise is everything around it.
 
-a) **Requirements.** Write down what the software must achieve: at least
+a) **Requirements.** Write down what the software must achieve. Give at least
    three functional requirements and at least one non-functional requirement.
-   List the questions you would ask the client before starting, and for each,
-   the answer you will assume if the client is not available.
+   List the questions you would ask the client before starting, and for each
+   question, the answer you will assume if the client is not available.
 
 b) **Specification.** Write the specification of the main function as a
-   docstring: inputs and what may be assumed about them, the result, what
-   happens in edge cases and errors, and what the function must never do.
+   docstring. State the inputs and what may be assumed about them, the
+   result, what happens in edge cases and errors, and what the function must
+   never do.
 
-c) **Design.** Split the work into two to four small functions, with one line
-   each on what it does, and say which data structure from session 3 (list,
-   dictionary, set, queue, stack) connects them, and why.
+c) **Design.** Split the program into two to four small functions, with one
+   line each on what it does. Say which data structures from session 3
+   connect them, and why.
 
-d) **Tests.** Write at least four test cases for the main function: a
+d) **Tests.** Write at least five test cases for the main function. Include a
    typical case, a boundary or empty case, a case with missing or invalid
-   data, and a case for something that must never happen. Write each as a
-   pytest test, or as a table with input and expected result.
+   data, a case for something that must never happen, and one more of your
+   choice. Write each as a pytest test, or as a table with input and expected
+   result.
 
-Keep the design simple: these are programs of 20 to 40 lines. There is more
-than one good answer to every step; what matters is that each choice is
-written down and that the tests follow from the specification.
+e) **Implementation.** The exercise gives code that a coder, a person or a
+   coding agent, wrote from the client's message alone, without your
+   specification. Run your tests on it by hand. Which pass, which fail, and
+   why?
 
----
+f) **Maintenance.** The exercise ends with a second message from the client.
+   Which of your functions change, which stay as they are, and which tests do
+   you add or change?
 
-## Exercise 1: Counting the answers to a survey question
-
-> *"Hi! Our survey has a question about how people get to work, with the
-> options 'car', 'bus', 'bike' and 'walk'. Could you write something that tells
-> me how many people chose each option? I'll send you the answers as a list.
-> Thanks, Lea"*
-
-The answers arrive as a Python list, for example
-`["bus", "bike", None, "car", "bus", "Bus"]`, with `None` where a respondent
-skipped the question.
-
-Work through steps a) to d). In step a), think in particular about the last
-two entries of the example list.
+There is more than one good answer to every step. What matters is that each
+choice is written down and that the tests follow from the specification.
 
 ---
 
-## Exercise 2: The seminar waiting list
+## Exercise 1: The mean age of each survey wave
 
-> *"Our seminar has 20 places and always more people who want in. Could you
-> write a small program for the sign-ups? People register with their student
-> ID. The first 20 get a place, the others go on a waiting list, and when
-> someone drops out, the next person from the waiting list moves up. Best,
-> Tom"*
+> *"Hi! Could you write something that gives me the mean age of the
+> respondents in each wave of our survey? The ages come straight from the
+> online form. Thanks, Lea"*
 
-The program must support three operations: register a student ID, drop a
-student ID, and show who has a place and who is waiting, in order.
+The form data can be read into a list of dictionaries, one per respondent.
+Each dictionary holds the wave as a number and the age as the text that was
+typed, with `""` if the question was skipped.
 
-Work through steps a) to d). Write a specification for each of the two
-functions `register(student_id)` and `drop(student_id)`, and tests for both. In
-step c), say which data structure holds the participants and which holds the
-waiting list.
+```python
+rows = [{"wave": 1, "age": "34"}, {"wave": 1, "age": ""},
+        {"wave": 1, "age": " 27"}, {"wave": 2, "age": "19"},
+        {"wave": 2, "age": "340"}, {"wave": 2, "age": "thirty"}]
+```
+
+Work through steps a) to f). The lecture specified `mean_age(ages)` for a
+clean list of ages. Here the ages arrive as text, and per wave. In step a),
+think about the entries `""`, `" 27"`, `"340"` and `"thirty"`.
+
+For step e), this is the coder's function.
+
+```python
+def mean_age_by_wave(rows):
+    total, count = {}, {}
+    for row in rows:
+        w = row["wave"]
+        total[w] = total.get(w, 0) + int(row["age"] or 0)
+        count[w] = count.get(w, 0) + 1
+    return {w: total[w] / count[w] for w in total}
+```
+
+Also say what it returns, or what happens, on the example `rows` above.
+
+For step f), two months later the client writes again.
+
+> *"Great, thanks! Could you also give me the number of people who answered,
+> and the median next to the mean? From now on the form has a drop-down menu
+> for the age, and we are adding a third wave. Lea"*
 
 ---
 
-## Exercise 3: Who took part in both waves?
+## Exercise 2: How often do parties talk about climate?
 
-> *"We ran our panel survey twice, in spring and in autumn. I have two files of
-> respondent IDs, one per wave. I need to know how many people answered both
-> times, and the list of their IDs, sorted, so I can merge their answers. The
-> files also have the respondents' email addresses, by the way. Cheers, Ana"*
+> *"Hi! I have all speeches in the UK House of Commons from 2015 to 2024,
+> with the speaker's name, party, date and text. Could you write something
+> that tells me how often each party talks about climate, per year? I want to
+> see whether the topic grew after 2019. Best, Tom"*
 
-Each file can be read into a list of pairs `(respondent_id, email)`. The same
-ID can appear twice in a file if someone submitted the survey twice.
+The speeches can be read into a list of dictionaries, one per speech.
 
-Work through steps a) to d). In step a), decide what the email addresses
-have to do with the requirements.
+```python
+speeches = [
+    {"speaker": "A. Smith", "party": "Labour", "date": "2019-05-01",
+     "text": "The Climate Change Act was a start, but..."},
+    {"speaker": "B. Jones", "party": "Conservative", "date": "2019-05-01",
+     "text": "The business climate in my constituency..."},
+    ...]
+```
 
----
+Work through steps a) to f). In step a), think about what "talks about
+climate" means. Which words count? Does one speech with ten mentions count
+more than ten speeches with one mention each? What about the two example
+texts? And parties differ in how many speeches they give. Note that the
+specification is where the measurement of a social science concept, here the
+salience of a topic, gets decided.
 
-## Exercise 4: Grades from exercise points
+For step e), the client's message went, as it was, to two coders, A and B.
+Each wrote a function from it.
 
-> *"For my course I have the exercise points of every student: up to 10 points
-> for each of the 12 sheets. Students pass the exercise part if they have at
-> least 50% of the points. Could you write something that gives me, for every
-> student, the total and whether they passed? The points are in a table that
-> the teaching assistants keep updating. Thanks, David"*
+```python
+def climate_counts(speeches):              # coder A
+    counts = {}
+    for s in speeches:
+        key = (s["party"], s["date"][:4])
+        counts[key] = counts.get(key, 0) + s["text"].count("climate")
+    return counts
 
-The table can be read into a dictionary from student ID to a list of points,
-for example `{"01/123": [10, 8, None, 7, ...], ...}`, with `None` for a sheet
-that was not handed in.
+def climate_counts(speeches):              # coder B
+    counts = {}
+    for s in speeches:
+        if "climate" in s["text"].lower():
+            key = (s["party"], int(s["date"][:4]))
+            counts[key] = counts.get(key, 0) + 1
+    return counts
+```
 
-Work through steps a) to d). In step a), think about what "at least 50% of
-the points" means when a student has not handed in every sheet, and about the
-table that "the teaching assistants keep updating".
+Run your tests on both. Then answer two questions. What do the two functions
+measure, and on which kind of input do they give different results? What does
+this mean for a result whose coder worked from the client's message instead
+of a specification?
+
+For step f), six months later the client writes again.
+
+> *"Reviewer 2 says that 'climate' alone misses a lot. Can we add 'global
+> warming' and 'net zero'? And can you run it on the 2025 speeches too? A
+> colleague also wants the same numbers for migration. Tom"*
 
 ---
 
@@ -113,9 +155,9 @@ table that "the teaching assistants keep updating".
 
 ### A1. Functional or non-functional?
 
-For each requirement, say whether it is functional or non-functional, and for
-the non-functional ones, which kind (security, privacy, safety, performance,
-reproducibility).
+For each requirement, say whether it is functional or non-functional. For the
+non-functional ones, say which kind it is (security, privacy, safety,
+performance or reproducibility).
 
 a) The mean is computed only over the answered questions.
 b) The program finishes in under a minute on the full survey of 50,000
@@ -127,19 +169,19 @@ f) Running the analysis twice on the same data gives the same result, also on
    a colleague's computer.
 g) Only the course instructors can see the grades of all students.
 
-### A2. The questions a model will not ask
+### A2. The questions a coder will not ask
 
-A colleague sends a language model the prompt *"write a function that
-computes the age of each respondent from their birth date"*. Write five
-questions whose answers the prompt leaves open, and rewrite the prompt so that
-it answers them.
+A colleague gives a coder, a person or a coding agent, the instructions
+*"write a function that computes the age of each respondent from their birth
+date"*. Write five questions whose answers the instructions leave open, and
+rewrite the instructions so that they answer them.
 
 ### A3. Which test is missing?
 
 The specification of `share_yes(answers)` says: *"answers is a list of "yes",
 "no" or None. Returns the share of "yes" among the "yes" and "no" answers.
 Raises ValueError if there is no "yes" or "no" answer. The list is not
-modified."* These are the tests:
+modified."* These are the tests.
 
 ```python
 def test_typical():
@@ -174,25 +216,58 @@ b) Python is interpreted. Why can an error in a part of the script that your
    test data never reaches stay hidden, and what does that mean for the test
    cases you choose?
 
-### A6. Rules that do not belong in a prompt
+### A6. Rules that need more than instructions
 
-For each rule, say whether it is enough to state it in the prompt to a coding
-agent, and if not, how the system should enforce it.
+For each rule, say whether it is enough to state it in the instructions to a
+coder, a person or a coding agent. If it is not enough, say how the system
+should enforce the rule.
 
 a) Use only the standard library.
 b) Never delete files outside the project folder.
 c) Name the functions in English.
 d) Do not change the production database during the code freeze.
 
+### A7. Counting survey answers
+
+For A7 to A9, work through steps a) to d) of the session exercises.
+
+*"Our survey has a question about how people get to work, with the options
+'car', 'bus', 'bike' and 'walk'. Could you write something that tells me
+how many people chose each option? I'll send you the answers as a list."*
+The answers arrive as a list such as
+`["bus", "bike", None, "car", "bus", "Bus"]`, with `None` where a
+respondent skipped the question.
+
+### A8. The seminar waiting list
+
+*"Our seminar has 20 places and always more people who want in. People
+register with their student ID. The first 20 get a place, the others go on
+a waiting list, and when someone drops out, the next person from the
+waiting list moves up."* Specify and test the two functions
+`register(student_id)` and `drop(student_id)`, and say which data structure
+holds the participants and which holds the waiting list.
+
+### A9. Grades from exercise points
+
+*"I have the exercise points of every student: up to 10 points for each of
+the 12 sheets. Students pass the exercise part if they have at least 50% of
+the points. Could you write something that gives me, for every student, the
+total and whether they passed? The points are in a table that the teaching
+assistants keep updating."* The table can be read into a dictionary from
+student ID to a list of points, such as `{"01/123": [10, 8, None, 7]}`,
+with `None` for a sheet that was not handed in.
+
 ---
 
 ## Sources
 
-- The exercises are new in 2026/27; the earlier sheet 4 (object-oriented
+- The exercises are new in 2026/27. The earlier sheet 4 (object-oriented
   programming, debugging, problem-solving) is no longer used.
 - **Zelle, J. M. (2016).** *Python Programming: An Introduction to Computer
-  Science*, 3rd ed., ch. 2, 6–8: reading for this session.
+  Science*, 3rd ed., ch. 2, 6–8, the reading for this session.
 - **Guttag, J. V. (2016).** *Introduction to Computation and Programming Using
   Python*, 2nd ed., MIT Press, ch. 6 (testing and debugging).
 - **pytest documentation.** <https://docs.pytest.org/>
 - **PEP 257, Docstring Conventions.** <https://peps.python.org/pep-0257/>
+- **Hansard**, the official record of the UK Parliament, publishes the
+  speeches of the House of Commons at <https://hansard.parliament.uk/>.

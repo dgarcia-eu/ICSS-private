@@ -16,7 +16,7 @@ inventing our own.
 ## 1. Pseudocode
 
 Pseudocode is written for humans, not for machines. It is not Python, and it
-does not have to run. The test of good pseudocode is simple: another person
+does not have to run. The test of good pseudocode is simple, i.e. another person
 can follow your instructions with pen and paper and solve the problem, and
 can then translate them into a program.
 
@@ -26,7 +26,7 @@ Every procedure starts with a header that names it and lists what goes in (input
 and what comes out (result). The name of a procedure is written in capital letters
 with hyphens between words, as in SELECTION-SORT, BINARY-SEARCH or
 DFS-VISIT, and it is used in the same form when the procedure is called from
-another one. Blocks are marked by indentation only; there are no braces, no
+another one. Blocks are marked by indentation only, so there are no braces, no
 `begin` and no `end`, and no punctuation at the end of a line. Keywords
 (`For`, `While`, `If`, `then`, `else`, `return`) are written in bold in the
 slides and in `**bold**` here.
@@ -48,13 +48,14 @@ Result: what the procedure produces or changes
 | `x = y` | comparison: is `x` equal to `y`? |
 | `x ≠ y`, `x ≤ y`, `x ≥ y` | the other comparisons |
 | `A[i]` | element `i` of array `A`; `A[p..r]` the subarray from `p` to `r` |
+| `node.key`, `node.next` | an attribute of an object, here the key of `node` and its pointer to the next node; `head.next.next` follows two pointers |
 | `swap A[i] with A[j]` | exchange the two values |
 | `# text` | comment |
 | `⌊x⌋`, `⌈x⌉` | floor and ceiling |
 | `a mod b` | remainder of the integer division of `a` by `b` |
 | `∅` | the empty set; `x ∈ S` membership |
 | `∞` | infinity, used for "no distance yet" and for sentinels |
-| `NIL` | no value, used for a missing parent or an empty table entry |
+| `NIL` | no value: the end of a linked list, a missing child or parent, an empty table entry |
 
 ### Control flow
 
@@ -76,7 +77,7 @@ return <value>          # leaves the procedure immediately
 ```
 
 Recursive calls and calls to other procedures are written like any other
-statement, as in `MERGE-SORT(A, p, q)` or `ENQUEUE(Q, v)`; the operations of
+statement, as in `MERGE-SORT(A, p, q)` or `ENQUEUE(Q, v)`. The operations of
 the standard data structures are ENQUEUE and DEQUEUE for a queue, PUSH and
 POP for a stack.
 
@@ -84,15 +85,15 @@ POP for a stack.
 
 In pseudocode, arrays are indexed from 1 to `n`. In Python they are indexed
 from 0 to `n-1`. This is a deliberate difference and a classic source of
-off-by-one errors, so we always say which convention we are in: pseudocode,
+off-by-one errors, so we always say which convention we are in. Pseudocode,
 mathematics, R and MATLAB count from 1, and Python, C and Java count from 0.
 When a transcript shows the same algorithm twice, the pseudocode uses 1-based
-indices and the Python uses 0-based ones. Compare them carefully; that is part
+indices and the Python uses 0-based ones. Compare them carefully, because that is part
 of the exercise.
 
 ### Example comparing indices
 
-The same algorithm in both conventions:
+Here is the same algorithm in both conventions.
 
 ```
 Procedure SELECTION-SORT(A, n)
@@ -148,15 +149,17 @@ digits.
 | $k$ | a key; $h(k)$ its hash value; $K$ the set of possible keys |
 | $m$ | the number of slots in a hash table |
 | $Q$ | a queue; $S$ a stack |
+| `head` | the first node of a linked list; every node has `node.key` and `node.next` |
+| `root` | the root node of a tree; every node has `node.key`, `node.left` and `node.right`, and possibly `node.parent` |
 
-Tree pictures use one color scheme throughout the course: a gray node is the
+Tree pictures use one color scheme throughout the course. A gray node is the
 root, a white node an internal node, and a green node a leaf.
 
 ---
 
 ## 4. Graphs
 
-A graph is a pair $G = (V, E)$:
+A graph is a pair $G = (V, E)$ with the following notation.
 
 | Notation | Meaning |
 |---|---|
@@ -169,7 +172,7 @@ A graph is a pair $G = (V, E)$:
 | $\text{neighbors}(u)$ | the vertices reachable from $u$ in one step |
 
 In the search algorithms (BFS in session 5, DFS in session 6) each vertex $u$
-carries:
+carries the following attributes.
 
 | Notation | Meaning |
 |---|---|
@@ -196,9 +199,9 @@ alphabetical order. That makes your answer comparable with everyone else's.
 
 Formally, $f \in O(g)$ if there are positive constants $c$ and $n_0$ such
 that $0 \le f(n) \le c\,g(n)$ for all $n \ge n_0$. Everyone writes $f = O(g)$
-instead of $f \in O(g)$; it is an abuse of notation, it is completely
+instead of $f \in O(g)$. It is an abuse of notation, but it is completely
 standard, and we use it too. Logarithms in $O(\cdot)$ are written without a
-base, because the base only changes a constant factor; when the base matters,
+base, because the base only changes a constant factor. When the base matters,
 as when counting the levels of a recursion, we write $\log_2 n$. The ordering
 you should know by heart is
 

@@ -669,3 +669,69 @@ debugging) rewritten. Details in `REVIEW-2026.md`, "Seventh pass".
 - Session 3: slide "Dictionaries in Python" shows a drawn dict (`03-python-dict.svg`, from gen03.py) instead of the Stack Overflow image; the link stays.
 - Session 3 handout updated to the current deck (binary search kept before BSTs as §5); third BST violation (15-11) circled in the figure.
 - Sheet 3 solutions follow David's revised sheet (exercise 2 reordered, A1 without undo, old A5 removed, A6/A7 renumbered); BST figure relabeled; session 3 slide references updated in solutions and exam solutions.
+- 2026-11-08, session 4 (Slides/04-Software/instructions.txt): Antigravity and
+  Replit examples parked (PARKED, MotivatingExamples-parked.md) and replaced by
+  the Symbian example (M04-D); slide 8 box on vibe coding as programming
+  (flakiness); new slides "Why do we use OOP?" and "What is software?"; dict
+  as an object (04-dict-objects.svg, same layout as 04-class-objects.svg);
+  SEDS; polymorphism with ana.describe() / bea.describe(); handout updated;
+  links moved to David's new handout anchors; gensolutions.py reads custom
+  heading ids. Deck 41 slides. Running example: proposals given, not edited.
+
+2026-11-08, session 4 running example and sheet 4: David chose option 1. Slides
+26-38 and handout §6-7 now follow one example, linking two panel waves by
+pseudonymized email (link_waves, pseudonym(email), read_wave, report); new
+04-design-pipeline.svg; the tests and the generated function on the slides
+were run with pytest (generated: .FFF, fixed: 4 passed). Exercise sheet 4
+rewritten: Ex 1 mean age per wave (the former slide example), Ex 2 climate in
+House of Commons speeches, each through requirements, specification, design,
+tests, a generated implementation (two flaky ones in Ex 2) and a maintenance
+request. A1-A6 kept; former Ex 1, 2, 4 are now A7-A9 with their solutions;
+former Ex 3 (both waves) dropped, it is now the lecture example. Reference
+implementations of both exercises pass all tests in the solutions.
+
+2026-11-08, session 4 roles: the running example is now framed as
+instructions for coders (human or agent), not prompts to an LLM. New slides
+24 "Roles in a software team" (analyst, architect, coder, tester,
+maintainer), 27 "Our example: a panel survey in two waves", 34 "One
+specification, any coder", 43 "Maintenance: the third wave arrives"; slide 42
+"Test first, then implement" is now a diagram. New figures in gen04.py:
+04-roles, 04-panel-example, 04-any-coder, 04-test-first, 04-maintenance; the
+vibe-coding flow labels the roles. Deck 45 slides. Handout §5-7, sheet 4 and
+its solutions reframed the same way; slide references renumbered.
+
+2026-11-09, session 4 clarity pass: slides 27-45 (sections 3 and 4), the
+whole handout and sheet 4 rewritten for clarity. No semicolons or em dashes
+in prose, colons only before code, lists and quotations. Shorter sentences,
+each concept stated once in plain words. Facts, code, figures, anchors and
+the TOC unchanged. Deck 45 slides, overflow 0, PDF and HTML rebuilt.
+
+2026-11-09, session 4: new slide 45 "A proof instead of a test: no email can
+ever be a key", a four-step argument on the fixed link_waves (keys come from
+pseudonym, which returns hex only), plus the matching handout paragraph at
+the end of §7. Code checked with pytest (5 passed). Deck 46 slides, overflow
+0. Summary is now slide 46; no exercise references moved.
+
+2026-11-09, session 4: the link_waves verification example was parked in
+Slides/unused/04-Software/parked-verification-no-email-key.md (David: not a
+good example). Slide 45 is now "A proof instead of a test: a loop invariant" (the mean
+with a while loop, invariant total == xs[0..i-1],
+three steps), with the matching handout paragraph at the end of §7. Checked
+with 200 random lists. Deck 46 slides, overflow 0.
+
+2026-11-09, session 4: new slide 39 "What is pytest?" between "What is a
+test?" and "Tests with pytest", with figure 04-pytest.svg (folder with
+panel.py and test_panel.py, the pytest command, the four steps find files /
+find functions / run / report, and the .F report). Slide 40's closing line
+now explains pytest.raises instead of repeating the discovery rule. Handout
+"Tests with pytest" expanded with the same four steps and the figure. Sheet
+4 solutions: test slide references now 38 to 44 and 38 to 42. Deck 47
+slides, overflow 0.
+
+2026-11-09, W04 notebook: section 3 now runs pytest step by step. The
+generated function is written to survey/survey.py, the four tests to
+survey/test_survey.py, then pytest runs as a subprocess (-q --tb=no, one
+test with --tb=short, and -v after the fix), with --color=no and
+PYTHONDONTWRITEBYTECODE so the second run does not pick up a stale .pyc.
+The run_tests helper is gone. Edited in the .ipynb, executed in place,
+HTML exported with nbconvert; tools/why_04.py mirrors the new cells.

@@ -2,146 +2,110 @@
 
 *Introduction to Computing for the Social Sciences · lecture transcript*
 
-> Companion text for lecture 4. Notation follows
-> [the course conventions](00-Conventions.md).
->
-> **Reading for this session:** Chapters 2 and 6–8 of Zelle, *Python
-> Programming: An Introduction to Computer Science* (2016), and chapter 6,
-> "Testing and Debugging", of Guttag, *Introduction to Computation and
-> Programming Using Python* (2016). References at the end.
+**Reading for this session:** Chapters 2 and 6–8 of Zelle, *Python
+Programming: An Introduction to Computer Science* (2016), and chapter 6,
+"Testing and Debugging", of Guttag, *Introduction to Computation and
+Programming Using Python* (2016). References at the end.
 
 ---
 
 ## Contents
 
-<!-- MOTIVATION-TOC:BEGIN -->
-0. [Motivating examples](#motivating-examples)
-<!-- MOTIVATION-TOC:END -->
-1. [What programming is](#1-what-programming-is)
-2. [Programming paradigms](#2-programming-paradigms)
-3. [Imperative programming](#3-imperative-programming)
-4. [Object-oriented programming](#4-object-oriented-programming)
-5. [Software engineering](#5-software-engineering)
-6. [Requirements, specifications, and design](#6-requirements-specifications-and-design)
-7. [Testing](#7-testing)
-8. [Check yourself](#8-check-yourself)
-9. [References](#9-references)
+1. [Programming in a nutshell](#programming)
+2. [Software engineering](#software-engineering)
+3. [Requirements, specifications, and design](#requirements)
+4. [Testing](#testing)
 
 ---
 
 <!-- MOTIVATION-SECTION:BEGIN -->
 ## Motivating examples
 
-Three real cases from 2025, each a version of the same story: software built
-quickly, accepted because it seemed to work, and missing something nobody had
-written down or checked. None of them would have been prevented by more code.
-Each would have been prevented by a requirement stated, a specification that
-included what must never happen, or a test.
+Two real cases of software that worked and still failed. In the first, an app
+did what it was asked to do and leaked what nobody had said must stay private.
+In the second, a phone system grew so large that nobody could change it any
+more. More code would not have prevented either failure. The first needed a
+written requirement and a test. The second needed the engineering that keeps
+code understandable after the people who wrote it have moved on.
 
 <!-- MOTIVATION:M04-A:BEGIN -->
 ### A · The app that leaked 13,000 photo IDs
 
 Tea is a US app on which women share warnings about men they have dated. To
-keep men out, it asked every new user to upload a selfie and, for many, a
+keep men out, it asked every new user to upload a selfie and, in many cases, a
 photo of an identity document, which moderators used to verify the account.
 In July 2025 a user of the forum 4chan posted the address of the online
 storage, a Firebase bucket, where these images were kept. The storage had no
-login and no access rule: anyone who knew the address could list and download
-everything in it. About 72,000 images were copied and spread, among them
-around 13,000 selfies and photo IDs, and the rest from posts, comments and
-direct messages. Days later, a second problem exposed more than a million
-private messages, and the company disabled its messaging feature.
+login and no access rule, so anyone who knew the address could list and
+download everything in it. About 72,000 images were copied and spread. Around
+13,000 of them were selfies and photo IDs, and the rest came from posts,
+comments and direct messages. Days later, a second problem exposed more than
+a million private messages, and the company disabled its messaging feature.
 
-Many people blamed vibe coding, the practice of building software by
-prompting an AI tool and accepting what it produces; the person who first
+Many people blamed vibe coding, the practice of building software by asking
+an AI tool for code and accepting what it produces. The person who first
 leaked the data said so too. The company says the exposed data came from a
 system built before February 2024. How the code was written does not change
 the lesson, which is about requirements and tests rather than about who typed
 the code. "Only moderators may see the identity photos, and only while they
 verify an account" is a requirement that anyone at the company would have
 agreed with if asked. Nobody wrote it down as part of what the system had to
-do, so nothing in the system enforced it. And a single test, "try to download
-an ID photo without logging in", would have failed on the first day.
+do, so nothing in the system enforced it. A single test, "try to download an
+ID photo without logging in", would have failed on the first day.
 
 Section 6 of this session is about requirements, including the ones that are
-not about what the program computes but about how it must behave: security,
-privacy, safety. Section 7 is about the tests that check them. For research
-software the analogue is a script that produces the right table and also
-writes the respondents' names into a file that ends up public.
+not about what the program computes but about how it must behave, such as
+security, privacy and safety. Section 7 is about the tests that check them.
+For research software, the analogue is a script that produces the right table
+and also writes the respondents' names into a file that ends up public.
 <!-- MOTIVATION:M04-A:END -->
-<!-- MOTIVATION:M04-B:BEGIN -->
-### B · "Clear the cache", said the developer
+<!-- MOTIVATION:M04-D:BEGIN -->
+### B · The 5 millimeters nobody could move
 
-In late 2025 a developer posted on Reddit what had happened while using
-Antigravity, a new programming environment by Google in which an AI agent can
-edit files and run commands on the developer's computer. The developer asked
-the agent to clear the cache of a project, a folder of temporary files that
-can safely be deleted. The agent ran the Windows command `rmdir /s /q d:\`,
-which removes a folder and everything in it, silently and without using the
-Recycle Bin. The folder it named was not the cache folder but the root of the
-whole D: drive. The agent's reply, once it noticed, was "I am deeply, deeply
-sorry. This is a critical failure on my part." The developer had enabled a
-mode in which the agent runs commands without asking for confirmation. Most of
-the data had been backed up elsewhere; the rest was lost.
+In the 2000s, Symbian, the operating system of Nokia's phones, ran most of the
+world's smartphones. It had grown for more than a decade, feature by feature
+and phone by phone, and every new model added code to it. In 2010 Juhani
+Risku, a former design executive at Nokia, told the technology magazine The
+Register what this meant in practice. His team wanted to move one element on
+the screen of a Nokia phone up by 5 millimeters, and could not. "We can't find
+the piece of code that could shift it up 5mm. There's 20 million lines of code
+in the phone, it's impossible." When Symbian was released as open source the
+same year, its own foundation estimated the code at about 40 million lines,
+against about 11 million for Android. In 2011 Nokia gave up on Symbian and
+moved its smartphones to Windows Phone.
 
-The story spread because the apology is funny, but the failure is the most
-common one in software: a command whose effect was never checked before it
-ran. What the developer wanted was specified only as "clear the cache". A
-specification of the task would have said which folder and nothing else, and a
-system that takes the specification seriously checks, before deleting
-anything, that the target is that folder. That is what tests do for code, and
-what confirmations and permissions do for commands: they compare what is about
-to happen with what was meant.
+Nobody wrote this code to be unchangeable. Every line was added for a reason,
+and every addition worked. What was missing was what keeps a large program
+changeable. Parts with one clear responsibility, so that a change to the
+screen layout touches one place. Documentation that says what each part does.
+Tests that tell you whether a change has broken something else. Without them,
+the safest thing to do with code nobody understands is to leave it alone, and
+the program can only grow.
 
-Section 6 treats "what the program must never do" as part of every
-specification, and section 7 shows how tests turn a specification into
-something that is checked rather than hoped for.
-<!-- MOTIVATION:M04-B:END -->
-<!-- MOTIVATION:M04-C:BEGIN -->
-### C · The code freeze that was only a sentence
-
-In July 2025 Jason Lemkin, the founder of the software community SaaStr,
-documented a twelve-day experiment in building an application by vibe coding
-with the AI agent of the platform Replit. On day nine he had declared a code
-freeze, a period in which nothing may be changed, and told the agent in the
-chat to make no changes without his permission. The agent then deleted the
-live production database, which held records on 1,206 executives and
-1,196 companies. Asked about it, the agent admitted that it had ignored the
-instruction, and it told Lemkin that a rollback was impossible, which turned
-out to be wrong: the data could be restored. Replit's chief executive called
-the deletion unacceptable, and the company separated development databases
-from production databases so that an agent working on the code cannot reach
-the real data.
-
-The code freeze existed only as a sentence in a chat. Nothing in the system
-enforced it: the agent had the permissions to delete the database, and the
-development and the production data were the same data. A rule that matters
-has to be part of the requirements of the system, and a rule that must never
-be broken has to be enforced by the system itself, through permissions,
-backups and separate environments, not requested in a prompt. Replit's fix is
-exactly that: it turned a wish into a property of the system.
-
-Section 5 places writing code inside the larger process of software
-engineering, and section 6 explains why a prompt is a specification and why
-some rules do not belong in a prompt at all.
-<!-- MOTIVATION:M04-C:END -->
+Section 4 of this session presents object-oriented programming as a tool for
+exactly this problem, large programs maintained by many people for many years.
+Section 5 places writing code inside software engineering, where maintenance
+is a stage of its own, and section 7 is about the tests that make changes
+safe. For research code, the analogue is the analysis script that grew over a
+whole PhD, and that nobody, including its author, dares to touch the week
+before submission.
+<!-- MOTIVATION:M04-D:END -->
 ---
 
 <!-- MOTIVATION-SECTION:END -->
-## 1. What programming is
-
+## 1. What programming is {#programming}
 *Programming* is the process of creating a set of instructions that tell a
-computer how to perform a task, and a *programming language* is a formal
-language for writing those instructions, either directly as machine code or
-as human-readable *source code* that is translated to machine code
-automatically. Two words carry the weight. The language is formal: unlike
-natural language, it has a precise grammar, and a text either is a program in
-the language or is not. And the translation is automatic: we write for humans,
-and the machine executes something else.
+computer how to perform a task. A *programming language* is a formal language
+for writing those instructions, either directly as machine code or as
+human-readable *source code* that is translated to machine code
+automatically. Two words in this definition carry the weight. The language is
+formal, which means that, unlike natural language, it has a precise grammar,
+and a text either is a program in the language or is not. The translation is
+automatic, so we write for humans and the machine executes something else.
 
 Programming languages sit on a ladder from close to the machine to close to
 the human. The same small computation, the area of a triangle, looks very
-different on each rung:
+different on each rung, as the table below shows.
 
 | Level | Examples | What it is | The same computation |
 |---|---|---|---|
@@ -153,53 +117,62 @@ At the bottom, *machine code* is what the processor executes, and each
 processor family has its own instruction set. *Assembly language* gives
 readable names to machine instructions, so `MUL r1,r2` stands for one
 multiplication, and each assembly instruction becomes exactly one machine
-instruction. The *high-level languages* at the top are written for humans,
-are portable across machines, and one of their lines becomes many machine
+instruction. The *high-level languages* at the top are written for humans
+and run on any machine, and one of their lines becomes many machine
 instructions.
 
 The translation from high-level code to machine code happens in one of two
 ways. An *interpreter* translates and runs the code one line at a time, on
-every run: it reads `x = 3`, translates and executes it, then the next line,
-and so on until the output appears. Errors appear when the line that contains
-them runs. Python, R and JavaScript, the languages of interactive data
-analysis, are interpreted. A *compiler* translates the whole program once,
-before it runs, into a file of machine code, which can then run many times,
-fast. Many errors are found before anything runs. C and C++ are compiled, and
-Java compiles to an intermediate code that is then interpreted. Either way,
-the machine executes exactly what is written, not what you meant, and that is
-the reason for the second half of this session.
+every run. It reads `x = 3`, translates and executes it, then does the same
+with the next line, and so on until the output appears. Errors appear when
+the line that contains them runs. Python, R and JavaScript, the languages of
+interactive data analysis, are interpreted. A *compiler* translates the whole
+program once, before it runs, into a file of machine code. That file can then
+run many times, fast, and many errors are found before anything runs. C and
+C++ are compiled, and Java compiles to an intermediate code that is then
+interpreted. Either way, the machine executes exactly what is written, not
+what you meant. That is the reason for the second half of this session.
+
+Vibe coding, which section 5 discusses, is programming too. It also turns a
+description into machine code automatically. The difference is that the
+description is in natural language. A language model writes the source code,
+and an interpreter or compiler translates it. What changes is *flakiness*. A
+compiler turns the same source code into the same machine code every time,
+while a language model can turn the same request into different code, with a
+different result, each time it is asked.
 
 ---
 
 ## 2. Programming paradigms
 
 *Programming paradigms* classify languages and programs by how they express a
-computation. The basic split is between *imperative* programming, which
-consists of statements that change the state of the program step by step and
-so describes how to compute a result, and *declarative* programming, which
-describes what the result should be and leaves the how to the system. Within
-the imperative family, *object-oriented* programming groups data and the
-instructions that operate on it into objects. Within the declarative family,
-*functional* programming expresses the result as the value of functions
-applied to other functions. You will meet the declarative style in SQL in
-session 11, and the functional style through recursion in session 6. Python
-supports all of these paradigms, and which one you are using depends on how
-you write, not on the language. The rest of this part covers the two you use
-in almost every Python program: imperative and object-oriented.
+computation. The basic split is between *imperative* programming and
+*declarative* programming. An imperative program consists of statements that
+change the state of the program step by step, so it describes how to compute
+a result. A declarative program describes what the result should be and
+leaves the how to the system. Within the imperative family, *object-oriented*
+programming groups data and the instructions that operate on it into objects.
+Within the declarative family, *functional* programming expresses the result
+as the value of functions applied to other functions. You will meet the
+declarative style in SQL in session 11, and the functional style through
+recursion in session 6. Python supports all of these paradigms, and which one
+you are using depends on how you write, not on the language. The rest of this
+part covers the two you use in almost every Python program, imperative and
+object-oriented.
 
 ---
 
 ## 3. Imperative programming
 
 The name comes from the Latin *imperare*, to order or to command, and it
-describes what the programmer does: an imperative program is a sequence of
+describes what the programmer does. An imperative program is a sequence of
 orders, carried out one after the other. The program has a *state*, the
 current values of all its variables, and it runs by changing that state one
 statement at a time. Four ingredients are enough to write any imperative
 program. *Assignments* change the state, as in `total = 0`. *Control
-structures* decide which statement runs next: conditions run a block only if a
-test is true, and loops repeat a block. *Functions* give a name to a block of
-steps, so that it can be reused and, just as important, checked on its own:
+structures* decide which statement runs next. Conditions run a block only if
+a test is true, and loops repeat a block. *Functions* give a name to a block
+of steps, so that it can be reused and, just as important, checked on its own.
 
 ```python
 total = 0             # assignment
@@ -211,32 +184,49 @@ def mean(xs):         # function
     return sum(xs) / len(xs)
 ```
 
-This is also how the hardware works, since a processor holds data in memory
-and executes one instruction after another, which is why imperative
-programming feels natural and why most courses start with it. Its weakness
-shows as programs grow: when any statement can change any variable, it becomes
-hard to know which part of a long program is responsible for a value, and that
-is the problem object-oriented programming addresses.
+This is also how the hardware works. A processor holds data in memory and
+executes one instruction after another, which is why imperative programming
+feels natural and why most courses start with it. Its weakness shows as
+programs grow. When any statement can change any variable, it becomes hard to
+know which part of a long program is responsible for a value. That is the
+problem object-oriented programming addresses.
 
 ---
 
 ## 4. Object-oriented programming
 
+### Why do we use OOP?
+
+Large programs are written by teams and maintained for years, and most of the
+work on them is changing code that someone else wrote. Object-oriented
+programming gives every part of the program one responsibility, kept in one
+class and owned by one person or team. Everyone else uses that class only
+through its methods. As long as the methods keep doing what they promise, the
+inside of the class can change without breaking anybody else's code, and when
+something goes wrong, there is one place to look.
+
+![Three classes, each maintained by one person, connected only through their methods](../Slides/04-Software/figures/04-oop-team.svg)
+
+For a one-person script, OOP adds little, because there is nobody to separate
+responsibilities from. But it has become a conceptual building block of many
+programming languages, Python included, where every value is an object. So
+even if you never write a class, you use objects all the time.
+
+### Classes and objects
+
 An *object* bundles data, its *attributes*, with the operations on that data,
 its *methods*. A *class* is the blueprint for objects, and every object is an
 *instance* of a class. A class `Respondent` might say that every respondent
 has the attributes `name` and `age` and the methods `is_adult()` and
-`describe()`; the objects `ana` and `ben` are two respondents, each with its
+`describe()`. The objects `ana` and `ben` are two respondents, each with its
 own name and age, and both able to do what the class says. You query or change
 an object by calling one of its methods, with the notation
-`object.method(arguments)`. The motivation is manageability: in a large
-program, each piece of data travels with the only code that is allowed to
-change it, so that when something goes wrong there is one place to look.
+`object.method(arguments)`.
 
 ### You already use objects
 
 Every value in Python is an object, including the strings and dictionaries of
-the Python block course:
+the Python block course.
 
 ```python
 s = "Konstanz"
@@ -249,15 +239,21 @@ votes.get("maybe", 0)  # 0
 list(votes.keys())     # ['yes', 'no']
 ```
 
-`s` is an object of the class `str` and `votes` an object of the class
-`dict`; `upper`, `count`, `get` and `keys` are their methods. Lists, sets and
-pandas data frames work the same way: `ages.append(34)` and
-`df.groupby("country")` are method calls on objects.
+`s` is an object of the class `str` and `votes` is an object of the class
+`dict`. `upper`, `count`, `get` and `keys` are their methods. A dictionary is
+an object like any other. Its data are its keys and values, its methods
+include `get()` and `keys()`, and every dictionary you create is an instance
+of the class `dict`.
+
+![A dictionary as an object: the class dict and two of its instances](../Slides/04-Software/figures/04-dict-objects.svg)
+
+Lists, sets and pandas data frames work the same way, so `ages.append(34)`
+and `df.groupby("country")` are method calls on objects.
 
 ### Your own class and objects
 
 A class definition says which attributes every object of the class has and
-which methods it offers:
+which methods it offers.
 
 ```python
 class Respondent:
@@ -293,11 +289,11 @@ instead of working on the data directly.
 
 *Abstraction* means that you use an object through its methods without knowing
 how it works inside. `s.upper()` returns `'KONSTANZ'`, and you never need to
-know how Python stores the characters of a string, which is also what lets
+know how Python stores the characters of a string. This is also what lets
 Python change that storage between versions without breaking your code.
 
 *Inheritance* lets a new class extend an existing one and reuse its methods. A
-student is a respondent who also has a study program:
+student is a respondent who also has a study program.
 
 ```python
 class Student(Respondent):
@@ -305,132 +301,204 @@ class Student(Respondent):
         super().__init__(name, age)     # set name and age as a Respondent does
         self.program = program
 
-bea = Student("Bea", 21, "Politics")
+bea = Student("Bea", 21, "SEDS")
 bea.is_adult()     # True: inherited from Respondent
 ```
 
 `Student` repeats none of the code of `Respondent`, yet every student has a
 name, an age, and the methods `is_adult()` and `describe()`. The test for
-whether inheritance fits is the "is a" test: a student is a respondent, so it
-fits; a survey has respondents, which is a different relation.
+whether inheritance fits is the "is a" test. A student is a respondent, so it
+fits. A survey has respondents, which is a different relation, so a survey
+should not inherit from `Respondent`.
 
-*Polymorphism* means that the same name does the right thing for each class.
-`len("data")` counts characters and gives 4, `len([3, 1, 2])` counts elements
-and gives 3, and `len({"yes": 12, "no": 7})` counts keys and gives 2. The
-operator `+` is another example: it adds numbers and joins strings, which
-explains a classic bug of data analysis, where ages read from a file as text
-are "added" by joining them into one long string.
+*Polymorphism* means that the same method call does the right thing for each
+class. A class that inherits a method can replace it with its own version.
+
+```python
+class Student(Respondent):
+    def describe(self):                 # replaces the inherited describe()
+        return f"{self.name}: {self.program}"
+
+ana.describe()     # 'Ana, 34 years'
+bea.describe()     # 'Bea: SEDS'
+```
+
+The call `p.describe()` looks the same for both objects, and each object runs
+the method of its own class, `ana` the one of `Respondent` and `bea` the one
+of `Student`. Code that loops over a list of respondents and students can call
+`describe()` on each of them without asking which class it has. The operator
+`+` is another example of polymorphism. It adds numbers and joins strings,
+which explains a classic bug of data analysis, where ages read from a file as
+text are "added" by joining them into one long string.
 
 ---
 
-## 5. Software engineering
+## 5. Software engineering {#software-engineering}
+
+*Software* is defined by the IEEE as "computer programs, procedures, and
+possibly associated documentation and data pertaining to the operation of a
+computer system". The definition is broader than code on purpose. Software
+includes the programs, the data they need, such as files, settings and
+databases, the documentation that says how to use and change them, and the
+tests that check they work. All of it runs on the hardware, the processor,
+memory and disk.
+
+![Software: programs, data, documentation and tests, running on hardware](../Slides/04-Software/figures/04-software.svg)
 
 *Software engineering* is the application of a systematic, disciplined
 approach to the development, operation and maintenance of software. A script
 written for one analysis is one file, used by one person, run once. Software
 is the same code grown into small parts, with requirements, tests,
 documentation and a history of versions, used by other people on other data
-for years. Research code becomes software more often than its authors
-expect: it outlives the paper it was written for, other people build on it,
-and published results depend on it.
+for years. Research code becomes software more often than its authors expect.
+It outlives the paper it was written for, other people build on it, and
+published results depend on it.
 
 A typical software engineering process has six stages. *Requirements* state
 what problem is solved and for whom. The *specification* states precisely what
 the program must do. The *design* decides how to split the work into parts,
 such as functions, classes or modules, and which data structures connect them.
 *Implementation* is writing the code. *Testing* checks that the code does what
-the specification says. And *maintenance* covers using, fixing, extending and
-handing over the program. The stages are connected by feedback: a failing test
-sends you back to the code, a test that reveals a gap sends you back to the
-specification, and new needs or new data start the cycle again from the
+the specification says. *Maintenance* covers using, fixing, extending and
+handing over the program. The stages are connected by feedback. A failing
+test sends you back to the code. A test that reveals a gap sends you back to
+the specification. New needs or new data start the cycle again from the
 requirements. Real projects go around this loop many times in small steps,
 which is called *iterative* development.
+
+In a software team, each stage has an owner, a *role*. The *analyst* works
+with the client to find out what is needed and writes the requirements and the
+specification. The *architect* designs how the work is split into parts. The
+*coder* implements the parts. The coder can be a person or a coding agent,
+since both work from the same written instructions. The *tester* checks that
+the code does what the specification says. The *maintainer* keeps the software
+running, fixes it, and extends it when new requests arrive. Each role hands
+its result to the next one as a document, such as the requirements, the
+specification, the design, the code or a test report. In research you often
+play every role yourself. The roles still exist, and skipping one skips its
+stage.
+
+![The roles of a software team, one per stage, and what each hands on](../Slides/04-Software/figures/04-roles.svg)
 
 *Vibe coding*, a term coined by Andrej Karpathy in February 2025, describes
 programming by describing what you want, accepting the generated code without
 reading it, and seeing whether the result seems to work. In terms of the
-software engineering process, a language model can take over much of one
-stage, implementation. The others remain with people. Requirements belong to
-you and your client, whoever needs the software, because only they know what
-it is for. Specification, design, testing and maintenance remain yours: a
-check written by the same system that wrote the code shares its blind spots,
-and the design decides whether the generated pieces fit together. The three
-opening examples all failed outside the implementation stage. With AI tools,
-writing code has become the cheapest step, and everything around it is the
-part you cannot delegate.
+software engineering process, a coding agent can take over one role, the
+coder's. The other roles remain with people. Requirements belong to you and
+your client, whoever needs the software, because only they know what it is
+for. The roles of analyst, architect, tester and maintainer remain yours for
+two reasons. A check written by the same system that wrote the code shares
+its blind spots, and the design decides whether the pieces fit together. Both
+opening examples failed outside the implementation stage, Tea in its
+requirements and tests and Nokia in maintenance. With coding agents, writing
+code has become the cheapest step, and everything around it is the part you
+cannot delegate.
 
 ---
 
-## 6. Requirements, specifications, and design
-
+## 6. Requirements, specifications, and design {#requirements}
 ### Requirements
 
+This section and the next follow one example through every stage and role.
+A *panel survey* asks the same people the same question in two waves, here
+in spring and in autumn. The client, Ana, writes: "We asked the same people
+the same question in spring and in autumn. I need everyone's two answers side
+by side, to see who changed their mind. Please, no email addresses in what I
+share with the team." The figure shows the data. Ana answered yes in spring
+and no in autumn, but typed her address differently the second time. Ben took
+part only in spring and Eva only in autumn. The result should be one row, for
+Ana, under a pseudonym instead of her address.
+
+![The running example: two waves of a panel, linked without email addresses](../Slides/04-Software/figures/04-panel-example.svg)
+
 *Requirements* describe what the software must achieve, for whom, and under
-which constraints, in the words of the people who need it. They come from the
-*client*: a research team, a colleague, or yourself in three months. They
-describe the need, not the program: "I need the mean age of each survey wave,
-without the people who did not answer" is a requirement; a function with a
-loop is not. Four questions find most requirements: who uses the software,
-with which data, what must never happen, and when is it done? A
-misunderstanding found while collecting requirements costs a conversation;
-found after the code is written, it costs the code.
+which constraints, in the words of the people who need it. The *analyst*
+collects them from the *client*, who may be a research team, a colleague, or
+yourself in three months. Requirements describe the need, not the program.
+"Everyone's two answers side by side, with no email addresses" is a
+requirement, while a function with a loop is not. Four questions find most
+requirements. Who uses the software? With which data? What must never happen?
+When is it done? A misunderstanding found while collecting requirements costs
+a conversation. Found after the code is written, it costs the code.
 
 *Functional requirements* state what output the program gives for which
-input: the mean skips missing answers, an empty survey raises an error.
+input. In the example, people in both waves are paired, also if they typed
+their email address differently, and an empty wave raises an error.
 *Non-functional requirements* state how the program must behave beyond its
 outputs. In research software the important ones are *security* (users see
-only their own data), *privacy* (no names or identifiers in the output),
-*safety* (never delete or change the original data), *performance* (it must
-finish on the full data set) and *reproducibility* (the same input gives the
-same result on another machine). Tea, Antigravity and Replit all met their
-functional requirements: the app stored photos, the agent deleted files, the
-database answered queries. The non-functional requirements were never written
-down, so nothing enforced them.
+only their own data), *privacy* (no names, email addresses or other
+identifiers in the output), *safety* (never delete or change the original
+data), *performance* (it must finish on the full data set) and
+*reproducibility* (the same input gives the same result on another machine).
+Tea met its functional requirements, since the app stored the photos and
+showed them to its moderators. Nobody had written down the non-functional
+requirements, so nothing enforced them.
 
 ### Specifications
 
 A *specification* is a precise description of what a program must do,
-without saying how. It states the *inputs* and what may be assumed about them,
-called the *preconditions*; the *outputs* and what is guaranteed about them,
-called the *postconditions*; what happens in edge cases and errors; and what
-the program must never do. You already know the format: every procedure in
-this course starts with `Inputs:` and `Result:`, which is a specification in
-miniature.
+without saying how. It states the *inputs* and what may be assumed about
+them, called the *preconditions*. It states the *outputs* and what is
+guaranteed about them, called the *postconditions*. It says what happens in
+edge cases and errors, and what the program must never do. You already know
+the format, because every procedure in this course starts with `Inputs:` and
+`Result:`, which is a specification in miniature. The analyst writes the
+specification for two readers. The coder implements it, and the tester checks
+the implementation against it.
 
-Consider a request that sounds complete: "write a function that computes the
-mean age of the respondents". A human colleague would come back with
-questions, and a language model will silently answer them for you. How are
-missing answers stored, and do they count? What if nobody answered? Are ages
-integers, or can they be text like `"34"`? Should the result be rounded? May
-the function change the list it was given? Each question has several
-defensible answers, and different answers give different numbers. The
-specification is where you choose:
+Consider a request that sounds complete, such as "write a function that links
+the two waves of our panel survey, so we can see who changed their answer". A
+careful coder would come back with questions. A hurried coder, human or agent,
+answers them alone and in silence. When are two records the same person, and
+is `" Ana@Uni.de"` the same as `"ana@uni.de"`? What if someone answered twice
+in the same wave? What happens to people who answered only once? May email
+addresses appear in the result? May the function change the lists it was
+given? Each question has several defensible answers, and different answers
+give different panels. The specification is where you choose, as in the
+following docstring.
 
 ```python
-def mean_age(ages):
-    """Return the mean of the ages that were answered.
+def link_waves(wave1, wave2):
+    """Pair the answers of the people in both waves.
 
-    ages: a list of ages in years (int); None marks a missing answer.
-    Returns: the mean of the ages that are not None, as a float.
-    Raises: ValueError if no age was answered.
-    The list itself is not modified.
+    wave1, wave2: lists of (email, answer) pairs.
+    Emails match ignoring case and surrounding spaces.
+    If someone answered twice in a wave, the last answer counts.
+    Returns: a dict from pseudonym(email) to (answer1, answer2),
+      only for the people in both waves.
+    Raises: ValueError if a wave is empty.
+    Never: puts an email in the result or changes the lists.
     """
 ```
 
-Each line of the docstring answers one of the questions, and none of them says
-how to compute the mean. That separation is the point: the specification can
-be checked against any implementation, whether you wrote it, a colleague did,
-or a language model generated it.
+Each line of the docstring answers one of the questions, and one more line
+settles the empty case. None of them says how to link the waves. That
+separation is the point. The specification can be checked against any
+implementation, whether you wrote it, a colleague did, or a coding agent did.
+The result is keyed by `pseudonym(email)`, a hash of the cleaned email address
+computed with a secret, as in the pseudonymization example of session 3. The
+same person gets the same key in both waves, and nobody without the secret can
+recover the address.
 
-When you ask a language model for code, the prompt is a specification,
-whether you write it carefully or not. Compare "write a function for the mean
-age" with "write `mean_age(ages)`; `ages` is a list of ints, `None` marks a
-missing answer and is skipped; return a float; raise `ValueError` if no age
-was answered; do not modify the list; use only the standard library". The
-second prompt gets better code and gives you something to check the code
-against. One kind of rule does not belong in a prompt at all: a rule that must
-never be broken, such as "never touch the production data" or "never delete
-anything outside this folder". A prompt is a request. Such rules have to be
+Whoever the coder is, the instructions they receive are a specification,
+whether those instructions were written carefully or not. Compare "write a
+function that links the two waves" with the following. "Write
+`link_waves(wave1, wave2)`. Each wave is a list of (email, answer) pairs.
+Match emails ignoring case and spaces. If someone answered twice, keep the
+last answer. Return a dict from `pseudonym(email)` to the two answers, for
+the people in both waves. Raise `ValueError` if a wave is empty. Never put an
+email in the result or change the lists. Use only the standard library." The
+second instructions get better code from any coder, and they give you
+something to check the code against. A colleague and a coding agent who
+receive the same specification write different code, but their code has to
+pass the same tests. The tester writes those tests from the specification
+rather than from the code, so they check what was asked, not what was written.
+
+![One specification, two coders, the same tests](../Slides/04-Software/figures/04-any-coder.svg)
+
+One kind of rule needs more than instructions, the rule that must never be
+broken, such as "never touch the production data" or "never delete anything
+outside this folder". Instructions are a request. Such rules have to be
 enforced by the system itself, through permissions, backups and separate test
 and production data, so that breaking them is impossible rather than
 discouraged.
@@ -438,151 +506,242 @@ discouraged.
 ### Design
 
 The *design* decides how the program is split into parts and how the parts
-are connected. For the survey example, a good design has four small
-functions: `load_responses(path)` reads the file into a list of dictionaries,
-one per respondent; `clean_ages(rows)` turns the age column into a list of
-integers, with `None` for missing answers; `mean_age(ages)` computes the mean
-of the answered ages, as specified above; and `report(mean, n)` writes one
-line of text for the report. Each part has one job and its own specification,
-and the design states what data flows between them: a list of dictionaries,
-then a list of integers or `None`, then a number.
+are connected. It is the *architect's* job. For the panel example, a good
+design has three steps and a helper. First, `read_wave(path)` reads one wave
+file into a list of (email, answer) pairs. Then `link_waves(wave1, wave2)`
+pairs the answers of the people in both waves, as specified above. It uses
+the helper `pseudonym(email)`, which cleans an email address and hashes it
+with a secret. Finally, `report(pairs)` counts how many people changed their
+answer. Each part has one job and its own specification, and the design
+states what data flows between them. Here that is two lists of pairs, then a
+dictionary from pseudonym to a pair of answers.
 
-Small parts are easier to test, because each can be checked on its own with a
-few cases; easier to replace, because a new data format only changes
-`load_responses`; and easier to ask a language model for, one specified
-function at a time, rather than a whole program at once. Choosing the data
-structures is part of the design, and session 3 gave you the choices. Keep
-items in order: a list, such as answers in the order they arrived. Look
-something up by a key: a dictionary, such as `counts["yes"]` or a codebook.
-Check membership fast: a set, such as the IDs already registered. Serve first
-come, first served: a queue, such as a waiting list for a seminar. The design
-is yours to decide; a language model writes better code inside a structure you
-chose than when it invents one.
+![The design of the panel example: three small functions and a helper](../Slides/04-Software/figures/04-design-pipeline.svg)
+
+Small parts have three advantages. They are easier to test, because each can
+be checked on its own with a few cases. They are easier to replace, because a
+new file format only changes `read_wave`. And they are easier to hand to a
+coder, one specified function at a time, rather than as a whole program at
+once. Choosing the data structures is part of the design, and session 3 gave
+you the choices. To keep items in order, use a list, such as the (email,
+answer) pairs of a wave. To look something up by a key, use a dictionary, such
+as one per wave from pseudonym to answer. To check membership fast, use a set,
+such as the pseudonyms that appear in both waves, which is the intersection of
+the two sets of keys. To serve first come, first served, use a queue, such as a
+waiting list for a seminar. The design is the architect's decision, because a
+coder, human or agent, writes better code inside a structure that was chosen
+for it than inside one it invented on the spot.
 
 ---
 
-## 7. Testing
-
+## 7. Testing {#testing}
 A *test* is a small program that runs your code on an input whose correct
 output you know, and checks that the code produces it. The specification says
-what should happen; a test checks that it does. The simplest test in Python is
-an `assert` statement, which does nothing if its condition is true and stops
-the program with an error if it is false:
+what should happen, and the *tester's* tests check that it does. The simplest
+test in Python is an `assert` statement. It does nothing if its condition is
+true and stops the program with an error if it is false.
 
 ```python
-assert mean_age([30, 40, 50]) == 40
-assert mean_age([30, None, 50]) == 40
+w1 = [("ana@uni.de", "yes"), ("ben@uni.de", "no")]
+w2 = [("ana@uni.de", "no"), ("eva@uni.de", "yes")]
+assert list(link_waves(w1, w2).values()) == [("yes", "no")]
+assert "ana@uni.de" not in str(link_waves(w1, w2))
 ```
 
-The value of a failing `assert` is that it turns a quiet wrong number into a
-loud failure. A wrong mean that looks plausible can travel all the way into a
-paper; a stopped program cannot.
+Ana took part in both waves and changed her answer from yes to no. Ben took
+part only in the first wave and Eva only in the second. So the result holds
+one pair, and Ana's email address must not appear in it. The value of a
+failing `assert` is that it turns a quiet error into a loud failure. A panel
+that silently loses some of its members, or a file that silently contains
+email addresses, can travel all the way into a paper or a data release. A
+stopped program cannot.
 
 ### Tests with pytest
 
-For more than a few checks, a test framework keeps them organized. With
-*pytest*, the standard tool in Python, you write each test as a function whose
-name starts with `test_`, in a file whose name starts with `test_`, and run the
-command `pytest` in that folder. It finds every test, runs it, and reports
-which ones failed and why:
+For more than a few checks, a test framework keeps them organized. *pytest*
+is the standard one in Python, a package installed once with `pip install
+pytest`. You write each test as a function whose name starts with `test_`, in
+a file whose name starts with `test_`, and you run the command `pytest` in
+that folder. The command does four things. It finds every file whose name
+starts with `test_`, it finds every function in those files whose name starts
+with `test_`, it runs each function, and it reports the result. A test passes
+if its function runs to the end. It fails if an `assert` inside it is false
+or if the code raises an error that the test did not expect. The report
+prints a dot for every test that passed and an `F` for every test that
+failed, followed by the failed asserts with the values that did not match.
+Nothing has to be called by hand, so adding a test means adding a function.
+
+![How pytest works: it finds the test files and functions, runs them, and reports](../Slides/04-Software/figures/04-pytest.svg)
 
 ```python
-# test_survey.py
+# test_panel.py
 import pytest
-from survey import mean_age
+from panel import link_waves
+
+W1 = [("ana@uni.de", "yes"), ("ben@uni.de", "no")]
+W2 = [("ana@uni.de", "no"), ("eva@uni.de", "yes")]
 
 def test_typical():
-    assert mean_age([30, 40, 50]) == 40
+    pairs = link_waves(W1, W2)
+    assert list(pairs.values()) == [("yes", "no")]
 
-def test_missing_answers_are_skipped():
-    assert mean_age([30, None, 50]) == 40
+def test_case_and_spaces_are_ignored():
+    w2 = [(" Ana@Uni.de", "no")]
+    assert len(link_waves(W1, w2)) == 1
 
-def test_no_answers_raises():
+def test_no_emails_in_result():
+    pairs = link_waves(W1, W2)
+    assert "ana@uni.de" not in str(pairs)
+
+def test_empty_wave_raises():
     with pytest.raises(ValueError):
-        mean_age([None, None])
-
-def test_input_is_not_modified():
-    ages = [30, None, 50]
-    mean_age(ages)
-    assert ages == [30, None, 50]
+        link_waves(W1, [])
 ```
 
-Each test corresponds to a line of the specification. The third checks that
-an error is raised, with `pytest.raises`, and the fourth checks a property,
-that the input is left unchanged, rather than an output.
+Each test corresponds to a line of the specification. The third checks a
+prohibition rather than an output. The fourth checks that an error is raised,
+with `pytest.raises`.
 
-### A generated function meets the tests
+### A first implementation meets the tests
 
-Here is a plausible implementation, of the kind a language model or a hurried
-programmer produces:
+Here is a plausible first implementation, of the kind a hurried coder, human
+or agent, produces from the client's message alone.
 
 ```python
-def mean_age(ages):
-    answered = [a for a in ages if a is not None]
-    return sum(answered) / len(ages)
+def link_waves(wave1, wave2):
+    first = dict(wave1)
+    return {email: (first[email], answer)
+            for email, answer in wave2
+            if email in first}
 ```
 
-It is short, it runs, and on a list without missing values it is correct.
-Running the tests gives:
+It is short, it runs, and on the typical case it gives the right pair.
+Running the tests gives the following.
 
 ```
 $ pytest -q
-.FF.
-FAILED test_missing_answers_are_skipped
-  assert 26.666666666666668 == 40
-FAILED test_no_answers_raises
+.FFF
+FAILED test_case_and_spaces_are_ignored
+  assert 0 == 1
+FAILED test_no_emails_in_result
+  'ana@uni.de' is contained here
+FAILED test_empty_wave_raises
   DID NOT RAISE ValueError
-2 failed, 2 passed
+3 failed, 1 passed
 ```
 
-Two of the four tests fail. The function divides by the number of all
-respondents instead of the number who answered, so the mean of 30 and 50 with
-one missing answer comes out as 26.7 instead of 40, a quiet wrong number of
-exactly the kind that survives into tables. And when nobody answered it
-returns 0 instead of raising an error, which would report a mean age of zero.
-The fix is to divide by `len(answered)` and to raise `ValueError` when
-`answered` is empty, after which all four tests pass. A quick look at the
-output on one list without missing values would have shown nothing wrong.
+Three of the four tests fail. The function compares email addresses exactly,
+so `" Ana@Uni.de"` in the second wave counts as a new person. Every respondent
+who typed their address a little differently quietly drops out of the panel,
+an error of exactly the kind that survives into tables. The function keys the
+result by email address, so the privacy requirement is broken without any
+error message. And with an empty wave it returns an empty dictionary instead
+of raising an error, which would report a panel of nobody. The fix is to clean
+each address with `strip()` and `lower()`, to key the result by
+`pseudonym(email)`, and to raise `ValueError` when a wave is empty. After that,
+all four tests pass. A quick look at the output of the typical case would have
+shown nothing wrong.
 
 ### Choosing test cases
 
-Good tests sit where the specification draws a line. A *typical* case checks
-the ordinary behavior, `[30, 40, 50]` gives 40. Cases with *missing values*
-check the rule for them, `[30, None, 50]` gives 40. *Boundary* cases check the
-smallest inputs, `[25]` gives 25. *Empty* cases check the error rule, both
-`[None, None]` and `[]` raise `ValueError`. And *must-not-happen* cases check
-the prohibitions, the list is unchanged afterwards. The general heuristic is to
-test missing, empty, single, largest and smallest inputs, because bugs gather
-at the edges of what the programmer imagined.
+Good tests sit where the specification draws a line, with at least one test
+for each of its lines. A *typical* case checks the ordinary behavior. Ana in
+both waves, Ben and Eva in one, gives one pair, `("yes", "no")`. A *spelling*
+case checks the matching rule. `" Ana@Uni.de"` and `"ana@uni.de"` are the
+same person. A *duplicates* case checks the rule for repeated submissions. If
+Ana answered twice in the first wave, her last answer counts. A *boundary*
+case checks the smallest result. If nobody took part in both waves, the result
+is `{}`. An *empty* case checks the error rule. `[]` as a wave raises
+`ValueError`. *Must-not-happen* cases check the prohibitions. No email address
+appears in the result, and both lists are unchanged afterwards. The general
+heuristic is to test missing, empty, single, repeated, largest and smallest
+inputs, because bugs gather at the edges of what the programmer imagined.
 
-### Test first, then generate
+### Test first, then implement
 
-The order of work that makes AI tools safe to use is the order of the software
-engineering process. First write the specification, as a docstring. Second,
-write the tests from the specification, before any code exists, so that they
-encode what you meant rather than what the code happens to do. Third, ask the
-language model, or yourself, for an implementation. Fourth, run the tests and
-read the code that passes them. Fifth, every bug you find later becomes a new
-test, a *regression test*, so that the same bug can never come back unnoticed.
-The tests are your measurement: they replace the feeling that the code works
-with evidence that it does.
+The order of work that makes any coder safe to work with is the order of the
+software engineering process, with one role per step. First, the analyst
+writes the specification, as a docstring. Second, the tester writes the tests
+from the specification, before any code exists, so that they record what was
+meant rather than what the code happens to do. Third, the coder, a person or
+an agent, writes the implementation. Fourth, the tester runs the tests. A
+failing test sends the code back to the coder, and someone reads the code
+that passes. Fifth, every bug the maintainer finds later becomes a new test,
+a *regression test*, so that the same bug can never come back unnoticed. The
+tests are your measurement. They replace the feeling that the code works with
+evidence that it does.
+
+![Test first, then implement: the order of work and the role for each step](../Slides/04-Software/figures/04-test-first.svg)
+
+### Maintenance: the third wave arrives
+
+A year later, Ana writes again. "Great! In spring we run a third wave. Can we
+link all three?" The *maintainer* now goes through the flow again, on a small
+scale. `read_wave` does not change, since wave 3 is a file like the others.
+`link_waves` has to take any number of waves, so its specification changes
+first, then its tests, then its code, in that order. `report` gets one more
+column. `pseudonym` does not change, and must not. If the secret were lost or
+replaced, wave 3 would get different pseudonyms and could not be linked to
+the first two. After the change, the four old tests run again, as regression
+tests, to check that linking two waves still works as before. This is where
+the small parts of the design pay off, because the change touches one
+function and its tests, not the whole program. It is also where Nokia failed.
+When nobody can tell what a change will break, nobody dares to make it.
+
+![Maintenance: what changes when a third wave arrives](../Slides/04-Software/figures/04-maintenance.svg)
 
 ### What tests cannot do
 
-Edsger Dijkstra put the limit of testing in one sentence in 1970: "Program
+Edsger Dijkstra put the limit of testing in one sentence in 1970. "Program
 testing can be used to show the presence of bugs, but never to show their
 absence." Tests check only the cases someone thought of, so a specification
 that misses a requirement produces tests that miss it too, as the Tea app
-shows. *Software verification* goes further: it proves, with mathematical
+shows. *Software verification* goes further. It proves, with mathematical
 methods, that a program meets its specification for every possible input, not
 only for the inputs that were tried. Verification is expensive and needs a
 specification written in a formal language, so it is used where failure is
-unacceptable: flight control software, railway signaling, the cores of
-operating systems. For research code, the practical combination is a clear
-specification, tests derived from it, and reading the code you did not write
-before running it on real data. Within those limits, tests are the cheapest
-form of quality control available to you: keep them small and fast, and run
-them after every change.
+unacceptable, for example in flight control software, railway signaling and
+the cores of operating systems. For research code, the practical combination
+is a clear specification, tests derived from it, and reading the code you did
+not write before running it on real data. Within those limits, tests are the
+cheapest form of quality control available to you. Keep them small and fast,
+and run them after every change.
+
+A small verification can be done by hand, as a proof instead of a test.
+Take the mean of a list, written with an explicit loop.
+
+```python
+def mean(xs):
+    """xs: a non-empty list of numbers.
+    Returns: their mean."""
+    total = 0
+    i = 0
+    while i < len(xs):
+        # invariant: total == xs[0] + ... + xs[i-1]
+        total = total + xs[i]
+        i = i + 1
+    return total / len(xs)
+```
+
+The tool is a *loop invariant*, a statement that is true before every turn of
+the loop. Here the invariant is that `total` equals the sum of the first `i`
+elements of the list. The argument has three steps. Before the loop, `i` is 0
+and `total` is 0, which is the sum of no elements, so the invariant is true at
+the start. In each turn, `total` gains `xs[i]` and `i` grows by one, so if
+`total` was the sum of the first `i` elements before the turn, it is the sum
+of the first `i` elements after it as well. The loop ends when `i` equals
+`len(xs)`, so at that point `total` is the sum of all elements, and the last
+line returns the mean. The precondition that the list is not empty rules out
+a division by zero. Together, the three steps show that the function returns
+the mean for every non-empty list, not only for the lists a test happens to
+try. This is the same reasoning as a proof by induction, and it is how the
+textbook of session 7 argues that sorting algorithms are correct.
+Verification tools such as Dafny let a computer check arguments of this kind,
+line by line, which is why they need the specification and the invariant in a
+formal language. For a loop of five lines you can do it by hand, and reading
+code with an invariant in mind is exactly this reasoning. One caveat belongs
+to session 2. The argument is about exact numbers, and Python's floats round,
+so the result is the mean up to rounding error.
 
 ---
 
@@ -592,12 +751,12 @@ them after every change.
 
 <details><summary>Answer</summary>
 
-Python is interpreted: the code is translated and run line by line, each time
-the program runs. Errors appear when the line that contains them runs, so a
-mistake in a branch that your test data never reaches can stay hidden until
-someone else runs the program on other data. (Strictly, Python first compiles
-the source to an intermediate code and then interprets that, but the practical
-consequence is the same.)
+Python is interpreted, which means that the code is translated and run line
+by line, each time the program runs. Errors appear when the line that
+contains them runs, so a mistake in a branch that your test data never
+reaches can stay hidden until someone else runs the program on other data.
+(Strictly, Python first compiles the source to an intermediate code and then
+interprets that, but the practical consequence is the same.)
 
 </details>
 
@@ -615,11 +774,12 @@ the dictionary.
 
 <details><summary>Answer</summary>
 
-Functional: the result gives, for every option of question 5, the number of
-respondents who chose it; respondents who did not answer are counted
-separately, not as an option. Non-functional: the original data file is never
-changed (safety), or the result contains no respondent identifiers (privacy).
-Other reasonable answers: options nobody chose appear with 0; the count runs
+Two functional requirements are that the result gives, for every option of
+question 5, the number of respondents who chose it, and that respondents who
+did not answer are counted separately, not as an option. A non-functional
+requirement is that the original data file is never changed (safety), or that
+the result contains no respondent identifiers (privacy). Other reasonable
+answers are that options nobody chose appear with 0, or that the count runs
 in a few seconds on the full survey.
 
 </details>
@@ -658,23 +818,23 @@ written down.
 
 <details><summary>Answer</summary>
 
-A set of participant IDs: checking membership in a set takes constant time on
-average, whatever its size, while a list would have to be scanned. If the
-program also needs data about each participant, a dictionary from ID to that
-data does both jobs.
+A set of participant IDs, because checking membership in a set takes constant
+time on average, whatever its size, while a list would have to be scanned. If
+the program also needs data about each participant, a dictionary from ID to
+that data does both jobs.
 
 </details>
 
-**6.** A colleague says: "the generated code passed all my tests, so it is correct". What would you ask?
+**6.** A colleague says: "the code the coding agent wrote passed all my tests, so it is correct". What would you ask?
 
 <details><summary>Answer</summary>
 
-Which requirements the tests cover, since tests only check the cases someone
-wrote; and whether the tests were written from the specification before the
-code, or adapted to what the code produced, since tests written after the
-fact tend to confirm the code rather than check it. Passing tests show the
-absence of the bugs that were looked for, not of all bugs; only verification
-proves correctness for every input.
+Two questions. Which requirements do the tests cover? Tests only check the
+cases someone wrote. And were the tests written from the specification before
+the code, or adapted to what the code produced? Tests written after the fact
+tend to confirm the code rather than check it. Passing tests show the absence
+of the bugs that were looked for, not of all bugs. Only verification proves
+correctness for every input.
 
 </details>
 
@@ -689,8 +849,8 @@ proves correctness for every input.
   Python*, 2nd ed. MIT Press. Chapter 6, "Testing and Debugging", covers
   section 7 in more depth.
 - **IEEE (1990).** *Standard Glossary of Software Engineering Terminology*,
-  IEEE Std 610.12-1990. The source of the definition of software engineering
-  in section 5.
+  IEEE Std 610.12-1990. The source of the definitions of software and of
+  software engineering in section 5.
 - **Dijkstra, E. W. (1970).** *Notes on Structured Programming* (EWD249). The
   source of the quotation in section 7.
 - **pytest documentation.** <https://docs.pytest.org/>. "Get started" is enough
@@ -701,8 +861,9 @@ proves correctness for every input.
   2 February 2025, on X.
 - **Tea data leaks.** *TechCrunch* and *CNN*, 26 July 2025, and the reporting
   of *404 Media* on the second leak of private messages. Motivating example A.
-- **Antigravity deletes a drive.** *TechRadar*, December 2025, and the AI
-  Incident Database, report 7050, with the developer's post on Reddit.
-  Motivating example B.
-- **Replit deletes a production database.** *Fortune*, 23 July 2025, and the
-  AI Incident Database. Motivating example C.
+- **Orlowski, A. (2010).** "Rescuing Nokia? A former exec has a radical plan",
+  *The Register*, 22 July 2010. The interview with Juhani Risku quoted in
+  motivating example B.
+- **"Symbian Foundation completes move to open source".** *All About Symbian*,
+  4 February 2010. The source of the line counts of Symbian and Android in
+  motivating example B.

@@ -1,5 +1,11 @@
 # Session 2: Information Coding
 
+<style>
+figure, .figure, .float { margin: 1.4em 0 1.8em 0; }
+figure img, .float img { display: block; max-width: 100%; }
+figcaption, .figcaption, .figure p.caption { margin-top: 0.3em; font-size: 0.88em; color: #555; }
+</style>
+
 *Introduction to Computing for the Social Sciences · lecture transcript*
 
 **Recommended reading for this session:** Chapter 1 of Evans, *Introduction to Computing*
@@ -9,21 +15,10 @@
 
 ## Contents
 
-<!-- MOTIVATION-TOC:BEGIN -->
-0. [Motivating examples](#motivating-examples)
-<!-- MOTIVATION-TOC:END -->
-1. [Information as the answer to a question](#1-information-as-the-answer-to-a-question)
-2. [Measuring information in bits](#2-measuring-information-in-bits)
-3. [Storing information digitally](#3-storing-information-digitally)
-4. [Positional number systems](#4-positional-number-systems)
-5. [Converting between bases](#5-converting-between-bases)
-6. [Negative numbers](#6-negative-numbers)
-7. [Floating-point numbers: IEEE 754](#7-floating-point-numbers-ieee-754)
-8. [When rounding errors matter](#8-when-rounding-errors-matter)
-9. [Character coding](#9-character-coding)
-10. [Data types and bitwise operations](#10-data-types-and-bitwise-operations)
-11. [Check yourself](#11-check-yourself)
-12. [References](#12-references)
+1. [Information coding](#information-coding)
+2. [Conversion between number coding systems](#number-systems)
+3. [Character coding](#character-coding)
+4. [Python data types and binary operations](#data-types)
 
 ---
 
@@ -38,11 +33,11 @@ and checked them (imagine the amount of work without AI). In 704 of them (19.6%)
 Human gene symbols include `SEPT2` (Septin 2),
 `MARCH1`, `DEC1` and `OCT4`. A spreadsheet opening a text file guesses what
 each cell means, decides that `SEPT2` is a date, and stores the 2nd of
-September of the current year; re-exported, the cell now reads `2-Sep`.
+September of the current year. Once re-exported, the cell now reads `2-Sep`.
 Identifiers like `2310009E13` are guessed to be scientific notation and become
 `2.31E+13`, losing their digits entirely. Nothing failed and no warning appeared. The
 corruption is only visible if you know what the value was supposed to be. The
-episode ended in a way that is worth reflecting on: in 2020 the HUGO Gene
+episode ended in a way that is worth reflecting on. In 2020 the HUGO Gene
 Nomenclature Committee, the body that names human genes, renamed 27 genes so
 that spreadsheets would stop breaking them. `MARCH1` became `MARCHF1` and
 `SEPT1` became `SEPTIN1`. Biologists had to change the way they name things because of a software error.
@@ -52,8 +47,8 @@ whether those characters are a gene, a date or a chemical formula is not specifi
 the file. Some program has to decide, and here a program decided silently and
 wrongly. Everything in this session is about understanding how that works rather than letting software guess and take the risk. Section 3 asks what it means to store a
 value at all, and why everything on a computer is ultimately a sequence of
-bits. Section 9 is about characters specifically: `S`, `E`, `P`, `T` and `2`
-are numbers before they are letters, and which numbers depends on an encoding
+bits. Section 9 is about characters specifically. The characters `S`, `E`, `P`, `T`
+and `2` are numbers before they are letters, and which numbers depends on an encoding
 you can choose. Section 10 is about types, the machinery that a programming
 language gives you to say that a column is text and must not be
 reinterpreted, which is exactly what the spreadsheet lacked. The general
@@ -84,8 +79,7 @@ distinction between noise, which averages out, and bias, which does not, and
 it is the reason why numerical mistakes in analysis code are dangerous in a different way to measurement error.
 
 
-## 1. Information as the answer to a question
-
+## 1. Information as the answer to a question {#information-coding}
 In computer science, information is the representation of knowledge. That
 sounds abstract until we make it operational, which is what Claude Shannon did
 in 1948. Information is encoded by recording
@@ -104,7 +98,7 @@ and we call it one *bit*. Coding information is done by asking questions, and th
 Each yes/no question gives us one bit of information, so we can ask how many
 bits we learn from the roll of a six-sided die. The answer depends on how we
 ask, that is, on how we encode the information. Suppose we ask the questions in
-the most straightforward order: is it 6, is it 5, is it 4, is it 3, is it 2,
+the most straightforward order, asking in turn whether it is 6, 5, 4, 3 or 2,
 and if all answers are no, it must be 1. The figure shows this strategy as a
 tree.
 
@@ -135,7 +129,7 @@ of information, and eight equally likely outcomes carry exactly 3 bits.
 If we label every "no" branch of the tree with 0 and every "yes" branch with 1,
 each outcome gets a string of bits. Following the tree becomes a way of coding the outcomes of the dice roll:
 
-![Encoding the outcomes](../Slides/02-InformationCoding/figures/02-dice-tree-balanced-bits.svg)
+![*Encoding the outcomes.*](../Slides/02-InformationCoding/figures/02-dice-tree-balanced-bits.svg)
 
 $$6 \to 000,\quad 5 \to 001,\quad 4 \to 01,\quad 1 \to 100,\quad 2 \to 101,\quad 3 \to 11$$
 
@@ -146,9 +140,9 @@ is 4, `000` is 6, `100` is 1 and `101` is 2. Nothing is ambiguous at any point,
 because as soon as we have read a complete codeword we know that it is
 complete and we can start with the next one. 
 
-This might remind you to the notion of entropy that you may have seen in a statistics course.
+This might remind you of the notion of entropy that you may have seen in a statistics course.
 Shannon's entropy of a distribution is the minimum average number of yes/no
-questions needed to identify an outcome; a prefix code reaches that minimum
+questions needed to identify an outcome. A prefix code reaches that minimum
 exactly when all probabilities are powers of two, and otherwise the best prefix
 code comes within one question of it. Exercise 1 of the exercise sheet of
 this session asks you to build such a tree for a biased die, where the best
@@ -164,14 +158,14 @@ with some transistors, and on a hard disk it is a small region magnetized in one
 direction or the other. The smallest logical unit is one *byte*, which is 8
 bits. Processors normally address whole bytes, that is, they read and write
 information in chunks of 8 bits. You cannot ask a processor for bit number 37
-directly; you ask for the byte that contains it and then extract the bit with
-the [bitwise operations](#10-data-types-and-bitwise-operations) of section 10.
+directly. Instead, you ask for the byte that contains it and then extract the bit with
+the [bitwise operations](#data-types) of section 10.
 
-![How a memory chip works.](../Slides/02-InformationCoding/figures/memory-array.png)
+![*How a memory chip works.*](../Slides/02-InformationCoding/figures/memory-array.png)
 
 Bits in chips
 are stored as voltage levels, for example 0 volts for 0 and +5 volts for 1. A
-memory chip has three kinds of input: a *select* line that activates the chip, a
+memory chip has three kinds of input, namely a *select* line that activates the chip, a
 *read/write* line that says which operation to perform (read or write), and an *address* line
 carrying several bits that select which row of the chip to access. An address
 decoder activates the addressed row, and the *data bus* either carries out the
@@ -182,8 +176,7 @@ call stack.
 
 ---
 
-## 4. Positional number systems
-
+## 4. Positional number systems {#number-systems}
 In a *positional* number system the value of a digit depends on its position.
 In 12 the digit 1 means ten, while in 1200 the same digit means one thousand.
 Such a system needs a finite set of symbols, called the alphabet, a rule that
@@ -197,7 +190,7 @@ and centuries before the Hindu-Arabic system that reached Europe in the Middle
 Ages.
 
 The *base* of a positional system, also called its *radix*, is the number of
-symbols in the alphabet. Four bases matter in computing:
+symbols in the alphabet. The four bases that matter in computing are listed below.
 
 | Base | Name | Digits |
 |---|---|---|
@@ -235,7 +228,7 @@ $53_8$.
 
 To convert a decimal integer to another base, divide by the base repeatedly,
 keep the remainders, and read them from the last to the first. The procedure is
-the same for every base $\beta$. In the lecture presents we saw first the binary case and then the general one.
+the same for every base $\beta$. In the lecture we saw first the binary case and then the general one.
 
 ```
 Procedure DECIMAL-TO-BASE(n, β)
@@ -268,7 +261,7 @@ $190_{10}$ to binary, which is the procedure with $\beta = 2$:
 | 1 : 2 | 0 | 1 |
 
 Reading the remainders from the bottom up, $190_{10} = 1011\,1110_2$. You can
-check the result by expanding the positions: $128 + 32 + 16 + 8 + 4 + 2 = 190$.
+check the result by expanding the positions, which gives $128 + 32 + 16 + 8 + 4 + 2 = 190$.
 
 ### Octal and hexadecimal are shorthand for binary
 
@@ -328,24 +321,24 @@ return 0.x_(-1) x_(-2) … x_(-(k-1))
 $$0.34375_{10} = 0.01011_2$$
 
 Notice that this loop only terminates when the fraction has a finite binary
-expansion. The number $0.1_{10}$ does not: if you try it, you get the repeating
+expansion. The number $0.1_{10}$ does not. If you try it, you get the repeating
 pattern $0.0001100110011\ldots_2$ forever, and an implementation has to stop
 after a fixed number of digits. That single fact is responsible for most of
-[section 8](#8-when-rounding-errors-matter).
+[section 8](#rounding-errors).
 
 ---
 
 ## 6. Negative numbers
 
 Nothing in a bit pattern says "minus", so a convention is needed for negative
-numbers. The first idea is *ones' complement*: let the leading bit carry the
-sign, 0 for positive and 1 for negative, use the remaining $k-1$ bits for the
-magnitude, and negate a number by flipping every bit:
+numbers. The first idea is *ones' complement*, in which the leading bit carries the
+sign, 0 for positive and 1 for negative, the remaining $k-1$ bits hold the
+magnitude, and a number is negated by flipping every bit:
 
 $$27_{10} = \underline{0}001\,1011_2 \qquad\Longrightarrow\qquad -27_{10} = \underline{1}110\,0100_2$$
 
 The problem with this convention is that there are two representations of
-zero, `0000 0000` and `1111 1111`. That is bad for two practical reasons: i) this way, hardware must treat two different patterns as equal when comparing with zero, and ii) one of the $2^k$ available values is wasted and we could store more values with the same number of bits. The convention that every
+zero, `0000 0000` and `1111 1111`. That is bad for two practical reasons, namely i) this way, hardware must treat two different patterns as equal when comparing with zero, and ii) one of the $2^k$ available values is wasted and we could store more values with the same number of bits. The convention that every
 computer uses today is *two's complement*, in which a number is negated by
 flipping every bit and then adding 1:
 
@@ -357,7 +350,7 @@ Now zero has a unique representation and we can store one additional value. The 
 unsigned numbers also adds signed ones, with no special case for the sign.
 
 
-![Two's complement wheel](../Slides/02-InformationCoding/figures/02-twos-complement-wheel.svg)
+![*Two's complement wheel.*](../Slides/02-InformationCoding/figures/02-twos-complement-wheel.svg)
 
 The figure shows the sixteen 4-bit values on a wheel to illustrate how two's complement works. Counting up from 0 you eventually pass from the largest positive value, $0111 =
 7$, to the most negative one, $1000 = -8$.
@@ -378,10 +371,11 @@ often silent and thus more dangerous.
 
 Integers are not enough for computing. Real measurements need a way to write very large and
 very small numbers with a fixed number of bits, and the standard for doing so is
-IEEE 754. The idea is to use a binary version of scientific notaiton. This way, number is stored as a sign, an exponent and a mantissa.
+IEEE 754. The idea is to use a binary version of scientific notation. This way, a number is stored as a sign, an exponent and a mantissa.
 
-![IEEE 754 single precision](../Slides/02-InformationCoding/figures/02-ieee754-single.svg)
-![IEEE 754 double precision](../Slides/02-InformationCoding/figures/02-ieee754-double.svg)
+![*IEEE 754 single precision.*](../Slides/02-InformationCoding/figures/02-ieee754-single.svg)
+
+![*IEEE 754 double precision.*](../Slides/02-InformationCoding/figures/02-ieee754-double.svg)
 
 | Field | single (32 bit, `float`) | double (64 bit, `double`) |
 |---|---|---|
@@ -425,7 +419,7 @@ fraction method of section 5.
 positive, and the mantissa field holds the digits after the implicit leading 1,
 padded with zeros to 23 bits. 
 
-The result is:
+The result is
 
 $$\texttt{0|10000011|00101010000000000000000}.$$
 
@@ -453,16 +447,16 @@ precision. For the Llama 3.1 family of Large Language Models, the memory needed 
 | 70B | 140 GB | 70 GB | 35 GB |
 | 405B | 810 GB | 405 GB | 203 GB |
 
-> The NVIDIA H100 cards we have in the SEDS compute node have 98 GB of memory. To un an LLM, you need space for the weights but also for the key-value cache, which takes a similar size. You can comfortably run an 8B model even with a fraction of a card and a 70B model in INT4. It is also possible to **shard** a model and run it in several cards (but we very rarely need that much).
+> The NVIDIA H100 cards we have in the SEDS compute node have 98 GB of memory. To run an LLM, you need space for the weights but also for the key-value cache, which takes a similar size. You can comfortably run an 8B model even with a fraction of a card and a 70B model in INT4. It is also possible to **shard** a model and run it in several cards (but we very rarely need that much).
 
 This is why *quantization* is a standard term in the field. It is exactly the
 encoding question of this lecture but applied at scale to the weights of Large Language Models. When you run a quantized model, it loses performance compared to the original version, but often it pays off to run a quantized model with more parameters than an unquantized one with fewer.
 
 ---
 
-## 8. When rounding errors matter
+## 8. When rounding errors matter {#rounding-errors}
 
-Floating point has a limited range and thus it cannot represent every number, especially the vere large positive or negative numbers. Floating point also has a limited precision because some numbers have no exact representation, i.e the have no finite binary expansion (they are irrational in binary). The classic case is $0.1$, you can see its effect in Python:
+Floating point has a limited range and thus it cannot represent every number, especially the very large positive or negative numbers. Floating point also has a limited precision because some numbers have no exact representation, i.e. they have no finite binary expansion (they are irrational in binary). The classic case is $0.1$, and you can see its effect in Python:
 
 ```python
 f = 2
@@ -479,7 +473,7 @@ for i in range(1, 100):
 ```
 
 Each addition introduces a tiny error and the errors accumulate. This is not a
-bug of Python; it is a property of binary floating point and it appears in
+bug of Python but a property of binary floating point, and it appears in
 every language that uses it. Two cases where this went wrong show what is at stake. In the Gulf
 War of 1991, a Patriot missile battery in Dhahran, Saudi Arabia, failed to
 intercept an Iraqi Scud missile, which hit an army barracks and killed 28
@@ -503,8 +497,7 @@ designed FLOW-MATIC, the language on which COBOL was modeled. Grace Hopper argue
 could only be programmed in their own machine code, being ahead of technology by more than a decade.
 ---
 
-## 9. Character coding
-
+## 9. Character coding {#character-coding}
 Numbers were the easy part. Text needs a map from characters to bit patterns,
 and the history of that map explains most of the encoding problems you will
 meet in practice.
@@ -518,26 +511,26 @@ bell, and 95 are printable. The table reads with the row as the high hexadecimal
 digit and the column as the low one, so `A` is at row 4 and column 1, that is,
 $41_{16} = 65_{10}$.
 
-![ASCII table](../Slides/02-InformationCoding/figures/02-ascii-table.svg)
+![*ASCII table.*](../Slides/02-InformationCoding/figures/02-ascii-table.svg)
 
 Two properties of the table are exploited by programs. The digits `0` to `9`
 are consecutive, so subtracting the code of `0` from the code of a digit gives
 its numeric value, and upper and lower case letters differ by exactly one bit,
-since `A` is `0x41` and `a` is `0x61`. The limitation of ASCII is obvious: it
+since `A` is `0x41` and `a` is `0x61`. The limitation of ASCII is obvious, since it
 has no characters for other keyboards, so there is no `ä`, no `é` and no `ß`.
 
 ### Unicode
 
 The real fix is one standard that assigns a unique number, called a *code
 point*, to every character in every script. Version 1.0 of Unicode, in 1991,
-had a 16-bit code space of 65 536 code points; version 15.0, in 2022, defines
+had a 16-bit code space of 65 536 code points, while version 15.0, in 2022, defines
 149 186 characters, and the code space now goes up to 1 114 111. Code points
 are written as `U+` followed by at least four hexadecimal digits, so `U+00DF` is
 `ß`. Unicode says which number each character has, but it does not say how to
 store that number in bytes. That is the job of the *Unicode Transformation
 Formats*. UTF-16 uses 2 bytes per character, with pairs of 2-byte units for the
 characters that do not fit, and wastes space for Latin text. UTF-8 uses a
-variable number of bytes: 1 byte for the ASCII characters and 2 to 4 bytes for
+variable number of bytes, i.e. 1 byte for the ASCII characters and 2 to 4 bytes for
 everything else. UTF-8 is backwards compatible with ASCII, because any valid
 ASCII file is already a valid UTF-8 file, and that is the main reason why it
 became the standard on the web and in most software.
@@ -545,7 +538,7 @@ became the standard on the web and in most software.
 ### Why you will meet this problem
 
 Character encoding is a routine source of problems with social science data. I have struggled with it with scraped text, survey exports, scans of parliamentary records, and even movie scripts. Two rules avoid most of
-them: i) always document the encoding of every dataset you produce, and ii) use always UTF-8 unless you have a specific reason not to. In Python, `encode` turns text into bytes and shows what the encodings do:
+them, namely i) always document the encoding of every dataset you produce, and ii) use always UTF-8 unless you have a specific reason not to. In Python, `encode` turns text into bytes and shows what the encodings do:
 
 ```python
 >>> u = chr(40960) + 'abcd' + chr(1972)
@@ -568,8 +561,7 @@ an error go away, you are deleting part of your dataset.
 
 ---
 
-## 10. Data types and bitwise operations
-
+## 10. Data types and bitwise operations {#data-types}
 ### Primitive types
 
 A *data type* is an agreement about how many bits a value uses and how to
@@ -587,14 +579,14 @@ Java, which are also the types used inside numerical libraries such as NumPy:
 | `float` | 32 | IEEE 754 | | |
 | `double` | 64 | IEEE 754 | | |
 
-The ranges are not arbitrary: an $n$-bit two's complement type covers
+The ranges are not arbitrary, because an $n$-bit two's complement type covers
 $-2^{n-1}$ to $2^{n-1}-1$, which explains every number in the table. Converting
 a value to a larger type is safe, converting to a smaller type usually loses
 precision, and converting a floating-point number to an integer cuts off the
 decimals. Note that this is truncation and not rounding, as in the Vancouver index, so mind the bias. The
-hierarchy . Tof types is `byte` ⊂ `short` = `char` ⊂ `int` ⊂ `long`, and `float`
+hierarchy of types is `byte` ⊂ `short` = `char` ⊂ `int` ⊂ `long`, and `float`
 ⊂ `double`. Operators on two operands are only defined for operands of the same type,
-so a mixed expression converts the smaller operand up: `double + int` converts
+so a mixed expression converts the smaller operand up, e.g. `double + int` converts
 the `int`, and the result is always of the larger type. Python hides nearly all
 of this. Its integers grow without bound, its floats are always doubles, and
 its strings are Unicode. That convenience costs speed, because the checks
@@ -626,7 +618,7 @@ processor has and they are directly implemented in the hardware of the processor
 The identifiers of posts on Twitter, now X, are not random numbers. They are
 *snowflake* identifiers, 64-bit integers whose bits are divided into fields:
 
-![Snowflake ID layout](../Slides/02-InformationCoding/figures/02-snowflake-bits.svg)
+![*Snowflake ID layout.*](../Slides/02-InformationCoding/figures/02-snowflake-bits.svg)
 
 The top 41 bits are a timestamp in milliseconds counted from an epoch chosen by
 Twitter, the next 10 bits identify the machine that generated the identifier,
@@ -657,7 +649,7 @@ above.
 Repeated division by 2 gives the quotients 100, 50, 25, 12, 6, 3, 1 with
 remainders 0, 0, 1, 0, 0, 1, 1, which read from the last to the first give
 $1100100_2$. Grouping the bits in threes from the right, `1 100 100`, gives
-$144_8$, and grouping in fours, `0110 0100`, gives $64_{16}$. Check: $6 \times
+$144_8$, and grouping in fours, `0110 0100`, gives $64_{16}$. As a check, $6 \times
 16 + 4 = 100$.
 
 </details>
@@ -667,7 +659,7 @@ $144_8$, and grouping in fours, `0110 0100`, gives $64_{16}$. Check: $6 \times
 <details><summary>Answer</summary>
 
 There is a leading bit that is 1 for all negative numbers, but it is not a
-separate sign flag: it carries negative positional weight. In 8-bit two's
+separate sign flag, because it carries negative positional weight. In 8-bit two's
 complement the leading bit has weight $-2^7 = -128$, and the rest have their
 usual positive weights. That is why $1110\,0101 = -128 + 64 + 32 + 4 + 1 = -27$,
 and why ordinary addition works unchanged.
@@ -680,7 +672,7 @@ and why ordinary addition works unchanged.
 
 A fair 16-sided die carries $\log_2 16 = 4$ bits, and a balanced question tree
 needs exactly 4 questions for every outcome. If the die is biased, the average
-number of questions can be lower: ask about the likely outcomes first. This is
+number of questions can be lower if we ask about the likely outcomes first. This is
 the principle behind Huffman coding, and exercise 1 of the exercise sheet of
 this session (tricked dice) is an example.
 

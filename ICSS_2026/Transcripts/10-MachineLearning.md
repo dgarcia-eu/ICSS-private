@@ -2,34 +2,18 @@
 
 *Introduction to Computing for the Social Sciences · lecture transcript*
 
-> Companion text for lecture 10. Notation follows
-> [the course conventions](00-Conventions.md).
->
-> **Reading for this session:** lecture materials; for going deeper, Hastie,
-> Tibshirani & Friedman, *The Elements of Statistical Learning* (2009), free at
-> <https://hastie.su.domains/ElemStatLearn/>. References at the end.
+**Reading for this session:** lecture materials. For going deeper, Hastie,
+Tibshirani & Friedman, *The Elements of Statistical Learning* (2009), free at
+<https://hastie.su.domains/ElemStatLearn/>. References at the end.
 
 ---
 
 ## Contents
 
-<!-- MOTIVATION-TOC:BEGIN -->
-0. [Motivating examples](#motivating-examples)
-<!-- MOTIVATION-TOC:END -->
-1. [A short history of AI](#1-a-short-history-of-ai)
-2. [What machine learning is](#2-what-machine-learning-is)
-3. [Supervised learning: the setup](#3-supervised-learning-the-setup)
-4. [Features](#4-features)
-5. [Error, loss and the traps of accuracy](#5-error-loss-and-the-traps-of-accuracy)
-6. [Generalization: the train/test split](#6-generalization-the-traintest-split)
-7. [A first model: k nearest neighbors](#7-a-first-model-k-nearest-neighbors)
-8. [Overfitting, underfitting, bias and variance](#8-overfitting-underfitting-bias-and-variance)
-9. [Two more models: Naive Bayes and the MLP](#9-two-more-models-naive-bayes-and-the-mlp)
-10. [Unsupervised learning and clustering](#10-unsupervised-learning-and-clustering)
-11. [Generative models and LLMs](#11-generative-models-and-llms)
-12. [Ethics and responsible AI](#12-ethics-and-responsible-ai)
-13. [Check yourself](#13-check-yourself)
-14. [References](#14-references)
+1. [A brief history of AI and machine learning](#history)
+2. [Supervised machine learning](#supervised)
+3. [Unsupervised machine learning](#unsupervised)
+4. [Generative AI and ML nowadays](#generative)
 
 ---
 
@@ -37,8 +21,8 @@
 ## Motivating examples
 
 Three candidate openings for this session, each a real situation the
-material is the answer to. **One of these will be used in the lecture**;
-the others are kept here because they are worth reading anyway.
+material is the answer to. **One of these will be used in the lecture**,
+and the others are kept here because they are worth reading anyway.
 
 <!-- MOTIVATION:M10-A:BEGIN -->
 ### A · Google predicted the flu, until it didn't
@@ -50,7 +34,7 @@ figures of the CDC closely while being available two weeks earlier, because
 the data of the CDC depends on doctors filing reports. It was selected from
 50 million candidate search terms by finding the 45 that best fitted the CDC
 series. And then it broke. It missed the 2009 H1N1 pandemic entirely, a
-non-seasonal outbreak; it ran persistently high from 2011; and in the
+non-seasonal outbreak, it ran persistently high from 2011, and in the
 2012–13 season it predicted more than double the actual rate. The service
 was quietly retired in 2015.
 
@@ -58,19 +42,19 @@ The post-mortem by Lazer and colleagues in *Science* named two causes, and
 both are squarely in this session. The first is overfitting. Searching 50
 million terms for the 45 that best match 128 weekly data points is nearly
 guaranteed to find terms that fit the past and mean nothing, and some of the
-selected terms had no plausible connection to influenza; they were seasonal
+selected terms had no plausible connection to influenza, because they were seasonal
 for other reasons, such as the high-school basketball season, which peaks in
 winter. The model had learned "it is winter" with great accuracy. A model that
 fits the training data almost perfectly is reporting a symptom, not an
 achievement, and the standard defense, evaluating on data the model has never
 seen, is what this session builds. The second cause is algorithmic
 confounding. The measuring instrument was not independent of what it
-measured: Google changed its search product repeatedly over the period,
+measured, since Google changed its search product repeatedly over the period,
 adding suggestions and related-search features that themselves increase the
 volume of health-related queries, so the model was partly measuring Google's
 own interface changes. This is a problem specific to digital trace data and
 has no counterpart in survey methodology, because the platform is not a
-passive sensor. The episode does not show that search data is useless; later
+passive sensor. The episode does not show that search data is useless, and later
 work found that Google Flu Trends combined with CDC data outperformed either
 alone. What it shows is that a predictive instrument needs the same scrutiny
 as any other instrument, validation against something external and a check
@@ -97,19 +81,19 @@ that predicts "will not drop out" for every single student, a model
 containing no information whatsoever, is correct 93% of the time. If the
 reported model is doing anything at all, the report does not show it, and the
 report does not distinguish the two cases. This is class imbalance, and it is
-the normal condition rather than a special case: fraud is rare, disease is
+the normal condition rather than a special case. Fraud is rare, disease is
 rare, hate speech is rare, dropping out is rare. Accuracy weights every case
 equally, so it is dominated by the majority class, precisely the class nobody
 cares about. The metrics that reveal the problem are all computed on the
 minority class. Precision asks, of the students we flagged, how many really
-were at risk, $TP/(TP+FP)$; recall asks, of the students really at risk, how
-many we caught, $TP/(TP+FN)$; and $F_1$ is the harmonic mean of the two,
+were at risk, $TP/(TP+FP)$. Recall asks, of the students really at risk, how
+many we caught, $TP/(TP+FN)$. Finally, $F_1$ is the harmonic mean of the two,
 $2PR/(P+R)$. The always-"no" model has recall 0, so $F_1 = 0$. The metric
 collapses to zero the instant the model stops finding anything, which is
 exactly the behavior you want from a metric.
 
 The second half of the question is the one that carries the real weight, and
-it has no purely technical answer: precision and recall trade off against
+it has no purely technical answer, because precision and recall trade off against
 each other, and which one you want depends on what happens next. If flagged
 students are automatically enrolled in a mandatory program, a false positive
 imposes something unwanted on someone who did not need it, so you optimize
@@ -123,7 +107,7 @@ needs to be stated in terms that a committee can actually discuss.
 Section 5 of this session covers error, loss, class imbalance, precision,
 recall and $F_1$, with this exact arithmetic worked through. Section 3
 presents the supervised setup, so that $TP$ and $FN$ refer to something
-concrete. Section 12 is about responsible use: whether a prediction should be
+concrete. Section 12 is about responsible use, i.e. whether a prediction should be
 made at all, what happens to the person on the receiving end, and who is
 accountable when it is wrong. The rule to carry out is never to report
 accuracy alone on imbalanced data, and always to state the base rate
@@ -135,7 +119,7 @@ yourself.
 
 Content analysis is one of the oldest methods in the social sciences, and it
 does not scale. Two trained coders, a codebook, an intercoder reliability
-check, and a sample of a few hundred documents: this is rigorous, well
+check, and a sample of a few hundred documents. This is rigorous, well
 understood, and it caps out at roughly the number of documents two people can
 read. Now the corpus is every Bundestag speech since 1949, around a million
 documents. At five minutes each, one person needs about 83 000 hours, some
@@ -143,7 +127,7 @@ forty working years, and two coders with double coding make it eighty. The
 method that is correct is not available. The obvious move is to sample. Two
 thousand speeches, coded properly, is a week's work and supports perfectly
 good inference about the population, but it forecloses the questions that
-made the corpus interesting: how the rhetoric of one party shifted across a
+made the corpus interesting, for example how the rhetoric of one party shifted across a
 specific decade, what happened in the three months after a particular event,
 how a single speaker changed over a career. Those are questions about
 subsets, and a sample of 2 000 has too few documents in any of them.
@@ -151,17 +135,17 @@ subsets, and a sample of 2 000 has too few documents in any of them.
 The move this session is about is different. Instead of using the 2 000
 coded documents as the data, use them as examples of the judgment you want
 made, and train a model to reproduce that judgment on the other 998 000. That
-reframing is the whole of supervised learning: the 2 000 hand-coded speeches
+reframing is the whole of supervised learning. The 2 000 hand-coded speeches
 are the training data, pairs of an input $x$, the text, and a label $y$, your
-judgment; a model $f$ is fitted so that $f(x) \approx y$ on those examples;
+judgment. A model $f$ is fitted so that $f(x) \approx y$ on those examples,
 and the model is then applied to documents no human has read. It immediately
-raises the question that decides whether the study is any good: how do you
+raises the question that decides whether the study is any good, namely how do you
 know that the model reproduces your judgment rather than something correlated
 with it? Hold out part of your coded data, never let the model see it, and
 measure the agreement there. That measurement, not the confidence of the
 model and not how sensible the output looks, is your evidence. Two warnings
 belong in the same breath, and both are developed later in the session. The
-model learns what your coders did, including their systematic mistakes; it
+model learns what your coders did, including their systematic mistakes, which means that it
 industrializes your codebook, biases and all. And agreement can be high
 overall and poor exactly where it matters, on rare categories, on the years
 you care about, or on the speeches of one party, so check by subgroup and not
@@ -181,10 +165,9 @@ changes nothing about that obligation.
 ---
 
 <!-- MOTIVATION-SECTION:END -->
-## 1. A short history of AI
-
+## 1. A short history of AI {#history}
 There is no agreed definition of intelligence, and the lecture offers two
-that are commonly used: the problem-solving ability of a system, and "you
+that are commonly used, namely the problem-solving ability of a system, and "you
 know it when you see it", which is the Turing test of session 9. The history
 of the field fits in six lines. The foundations were laid in the 1950s, in
 parallel in the United States, where the 1956 Dartmouth workshop coined the
@@ -195,7 +178,7 @@ the methods did not deliver. The 1980s brought expert systems and the return
 of neural networks, the 1990s and 2000s a second AI winter, and the 2010s
 deep learning, made possible by compute and data rather than by new ideas.
 The 2020s are the decade of the AI bubble, whether or not it bursts. The
-pattern is worth noticing: the core ideas of neural networks date from the
+pattern worth noticing is that the core ideas of neural networks date from the
 1950s to the 1980s, and what changed in the 2010s was the availability of
 GPUs, which we will see in session 12, and of large datasets. Sometimes an
 idea is waiting for a substrate, which is the same argument we made about
@@ -212,59 +195,58 @@ problem from data. Expert systems dominated before the 1980s and again in the
 early 2000s, but machine learning is now the main approach to artificial
 intelligence, and historically it has also been called pattern recognition
 and statistical learning. Machine learning trains a *model* from data, and
-here lies the vocabulary trap of session 5: the word "algorithm" is often
+here lies the vocabulary trap of session 5, because the word "algorithm" is often
 used to refer to the resulting model and not to the procedure that produced
 it. In practice, AI systems may contain expert rules, but they mainly depend
 on learning from data.
 
 Machine learning has three families. *Supervised learning* is learning with
-labeled examples: the model learns from data where the correct answers are
+labeled examples, which means that the model learns from data where the correct answers are
 already known, for example predicting election outcomes from historical
 voting data and demographics, and its common tasks are classification and
-regression. *Unsupervised learning* is finding hidden patterns: the algorithm
+regression. *Unsupervised learning* is finding hidden patterns, i.e. the algorithm
 explores data without labels to discover structure and relationships, for
 example grouping survey respondents into distinct segments based on their
 attitudes, and its common tasks are clustering and dimensionality reduction.
 *Reinforcement learning*, which we do not cover, is learning through trial
-and error: the algorithm learns by receiving rewards or penalties for its
+and error, i.e. the algorithm learns by receiving rewards or penalties for its
 actions in an environment, for example in adaptive language teaching. The key
-distinction is what each needs: supervised learning needs labeled data,
+distinction is what each needs. Supervised learning needs labeled data,
 unsupervised learning finds patterns on its own, and reinforcement learning
 needs access to an environment to learn from feedback.
 
 ---
 
-## 3. Supervised learning: the setup
-
+## 3. Supervised learning: the setup {#supervised}
 The goal of supervised learning is to learn a function $f: X \rightarrow Y$
 that maps inputs to outputs, using a dataset of example input-output pairs.
 On the input side, the *features* $X$ are the input variables used to make
 predictions, also called predictors, independent variables or covariates,
-for example age, income and education level; a *feature vector* $x$ is a
+for example age, income and education level. A *feature vector* $x$ is a
 single observation with all its features, such as `x = [35, $50k,
-Bachelor's]`; and the *training data* is a collection of $n$ examples $(x_1,
+Bachelor's]`, and the *training data* is a collection of $n$ examples $(x_1,
 y_1), \dots, (x_n, y_n)$. On the output side, the *target* $Y$ is the
 outcome we want to predict, also called label, response or dependent
-variable, for example a voting choice or mortality; the *prediction*
-$\hat{y} = f(x)$ is the output of the model for a given input; and the
+variable, for example a voting choice or mortality. The *prediction*
+$\hat{y} = f(x)$ is the output of the model for a given input, and the
 *model* $f$ is the learned function that makes the predictions. The hat in
 $\hat{y}$ always means estimated, and keeping $y$ and $\hat{y}$ apart in your
 notation is not pedantry, because almost every concept below is about the
 difference between them.
 
 Supervised tasks come in two kinds. In *classification*, $Y$ is categorical,
-for example true or false, or a label, and an error is binary: you get the
+for example true or false, or a label, and an error is binary, i.e. you get the
 right class or you do not. In *regression*, $Y$ is a continuous number, for
 example an income or a probability, and errors can be measured with a
 number. That distinction determines which loss function you can use, which
-is the subject of [section 5](#5-error-loss-and-the-traps-of-accuracy).
+is the subject of [section 5](#error-and-loss).
 
 ---
 
 ## 4. Features
 
 *Features* are the measurable properties or characteristics we use to
-describe our data; they are the input variables that the algorithm uses to
+describe our data. They are the input variables that the algorithm uses to
 learn patterns and make predictions. Think of features as the questions we
 ask about each data point. In social science they are things like age,
 education and income, and in text analysis word counts, sentence length or
@@ -291,16 +273,16 @@ $$\text{TF} = \frac{\text{count of word}}{\text{total words in document}},
 
 Read the IDF carefully. If a word appears in every document, the ratio is 1
 and the logarithm is 0, so the word gets a score of zero no matter how often
-it occurs; if it appears in one document out of a thousand, the logarithm is
+it occurs. If it appears in one document out of a thousand, the logarithm is
 large. Words that are frequent in a document but rare overall get high
-scores. This is a nice example of feature engineering doing real work: the
+scores. This is a nice example of feature engineering doing real work, because the
 same text, represented differently, becomes far more learnable. The exercise
 of the lecture is to guess the highest and lowest TF-IDF scores in the review
 cards of the previous slide.
 
 ---
 
-## 5. Error, loss and the traps of accuracy
+## 5. Error, loss and the traps of accuracy {#error-and-loss}
 
 The *error* is the difference between what the model predicted and the true
 value for a single example, $\hat{y} - y$. The *loss* is a function that
@@ -324,7 +306,7 @@ cross-entropy.
 
 *Class imbalance* occurs when one class appears much more frequently than
 the others in the dataset, and it is extremely common in real-world
-problems: fraud detection has 99% legitimate transactions and 1% fraud, rare
+problems. For example, fraud detection has 99% legitimate transactions and 1% fraud, rare
 disease diagnosis 95% healthy and 5% sick, hate speech detection 90% normal
 posts and 10% hate speech. Accuracy is misleading under class imbalance. Take
 1 000 social media posts, 900 normal and 100 hate speech, and a naive model
@@ -343,12 +325,12 @@ $$\text{precision} = \frac{TP}{TP + FP}, \qquad \text{recall} = \frac{TP}{TP + F
 
 where $TP$, $FP$ and $FN$ are the numbers of true positives, false positives
 and false negatives, and the $F_1$ score is the harmonic mean of precision
-$P$ and recall $R$. Check the naive model against these: its recall is 0, so
+$P$ and recall $R$. Check the naive model against these. Its recall is 0, so
 $F_1 = 0$, and the metric catches immediately what accuracy hid. The reason
 for the harmonic mean rather than the arithmetic one is that it punishes
-imbalance: a model with precision 1.0 and recall 0.0 has an arithmetic mean of
+imbalance. For example, a model with precision 1.0 and recall 0.0 has an arithmetic mean of
 0.5 and a harmonic mean of 0, and 0 is the honest answer. In multi-class
-problems, $F_1$ can be computed for each class separately; the
+problems, $F_1$ can be computed for each class separately. The
 *macro-average* $F_1$ is the mean of the per-class scores, and the
 *micro-average* $F_1$ is a single score over all classifications together, so
 that larger classes weigh more. Which one you report matters, because the
@@ -360,14 +342,14 @@ does not.
 ## 6. Generalization: the train/test split
 
 The ultimate goal of machine learning is generalization. We do not just want
-a model that memorizes the training data; we want a model that performs well
+a model that memorizes the training data. We want a model that performs well
 on new, unseen data from the real world, and that is what makes machine
 learning valuable. To evaluate generalization we split our data into two
 separate sets before training begins. The *training set*, typically 70 to
 80% of the data, is used to train the model, and the algorithm learns
-patterns from it; it is like the practice exams of a student. The *test
+patterns from it, so it is like the practice exams of a student. The *test
 set*, the remaining 20 to 30%, is held back from training and used only to
-evaluate the final performance; it is like the final exam, never seen before.
+evaluate the final performance, so it is like the final exam, never seen before.
 The critical rule is that the test set must remain completely separate and
 unseen during training.
 
@@ -378,9 +360,9 @@ and ignoring correlations between samples, for example power users or
 high-activity periods in social media data. If the same user appears in both
 sets, the model can recognize the user rather than the phenomenon, and the
 test score is a fiction. That second source is the trap in social science
-data specifically, and it is worth stating as a rule: split by the unit of
+data specifically, and it is worth stating as a rule, namely to split by the unit of
 dependence, not by row. *Cross-validation* partitions the data into many
-train/test splits and reports the average performance; it uses the data more
+train/test splits and reports the average performance. It uses the data more
 efficiently and gives a sense of the variance of the estimate.
 
 ---
@@ -398,7 +380,7 @@ is no training beyond storing the data, which is why kNN is the cleanest
 possible illustration of the next section. With $k = 15$ the decision
 boundary of the example from Hastie et al. is smooth, because each prediction
 averages fifteen neighbors and individual noisy points cannot move it much.
-With $k = 1$ the boundary is jagged: every training point is classified
+With $k = 1$ the boundary is jagged. Every training point is classified
 correctly by definition, since its nearest neighbor is itself, and the
 boundary wraps around every outlier. The exercise of the lecture is to extend
 the model to more than two classes.
@@ -410,10 +392,10 @@ the model to more than two classes.
 The lecture shows the misclassification curves of kNN from Hastie et al.,
 with a training set of 200 points and a test set of 10 000, plotted against
 $k$. Models with a very high $k$, around 100, have high training and test
-errors, because the model is too simple to capture the pattern; this is
+errors, because the model is too simple to capture the pattern. This is
 *underfitting*, and the error is called *bias*. Models with a very low $k$,
 around 1, have a very low training error but a high test error, because the
-model has memorized the training set, including its noise; this is
+model has memorized the training set, including its noise. This is
 *overfitting*, and the error is called *variance*. Stated generally in terms
 of *model complexity*, for example the number of parameters, the training
 error falls monotonically as complexity rises, because a more flexible model
@@ -422,7 +404,7 @@ rises again. Minimizing the training error is therefore a mistake that leads
 to high variance, and the *bias-variance tradeoff* is the observation that a
 middle range of complexity gives the lowest possible test error. This is the
 single most important idea of the lecture, and it is not specific to machine
-learning: it is the same reason why a regression with one predictor per
+learning. It is the same reason why a regression with one predictor per
 observation fits perfectly and predicts nothing.
 
 ---
@@ -451,37 +433,37 @@ all possible classes, $X = (X_1, \dots, X_d)$ the feature vector with $d$
 features, $P(Y = c)$ the prior probability of class $c$, and $P(X_j = x_j \mid
 Y = c)$ the likelihood of feature $j$ having the value $x_j$ given the class
 $c$. The assumption is obviously false for text, since "New" and "York" are
-not independent, and Naive Bayes works well anyway; a model can be wrong in
+not independent, and Naive Bayes works well anyway, which shows that a model can be wrong in
 its assumptions and still be useful for prediction. Naive Bayes is a linear
 model because its decision boundary can be written as a hyperplane in the
 feature space $X$.
 
 The multi-layer perceptron (MLP) is the example of a nonlinear model. It is
-inspired by how neurons work: each unit computes a linear combination of its
+inspired by how neurons work, in that each unit computes a linear combination of its
 inputs followed by a nonlinear activation function. The features are the
 inputs of the first layer, the final output is a class or a probability, and
 the complexity of the model grows with the number of hidden layers, since
 more layers mean more parameters. Fitting the model means finding the
 connection weights that minimize the loss, and being nonlinear, the model
 can fit more than just a hyperplane separating the classes. Connect this
-back to section 8: adding layers adds parameters, which moves you to the
+back to section 8, since adding layers adds parameters, which moves you to the
 right on the complexity axis, and deep networks are exactly the regime where
 overfitting is a constant concern.
 
 ---
 
-## 10. Unsupervised learning and clustering
-
+## 10. Unsupervised learning and clustering {#unsupervised}
 *Unsupervised learning* finds structures or patterns in data without a
 target variable that we try to predict. In supervised learning we have pairs
 of feature vectors $X$ and target values $Y$, but in unsupervised learning we
 only have the feature vectors $X$. Its typical tasks are *clustering*,
 partitioning the data into $K$ groups where elements are similar within
-groups; *dimensionality reduction*, transforming $X$ into a low-dimensional
+groups, and *dimensionality reduction*, transforming $X$ into a low-dimensional
 space that maintains similarity or variance, as in principal component
-analysis; *density estimation*, learning the underlying distribution of the
-data values; and *association discovery*, finding correlations or
-co-occurrence patterns. The example of the lecture is document topics: given
+analysis. Other tasks are *density estimation*, learning the underlying
+distribution of the data values, and *association discovery*, finding
+correlations or co-occurrence patterns. The example of the lecture is
+document topics. Given
 a large collection of unlabeled documents, such as articles, tweets,
 research papers or survey responses, we want to automatically discover the
 main topics and group similar documents together, and this is unsupervised
@@ -494,7 +476,7 @@ observation $i$, $N_k$ for the number of observations in cluster $k$, and
 $m_k$ for the mean of cluster $k$. The algorithm alternates two steps. For a
 given cluster assignment $C$, it minimizes the total cluster variance with
 respect to the means $\{m_1, \dots, m_K\}$, which means setting each cluster
-mean to the average of its members; then, given the means, it assigns each
+mean to the average of its members. Then, given the means, it assigns each
 observation to the closest current cluster mean,
 
 $$C(i) = \arg\min_{1 \le k \le K} \|x_i - m_k\|^2,$$
@@ -508,7 +490,7 @@ which weighs each cluster by its size. Each step can only decrease the
 objective, so the algorithm always converges, but to a local minimum, which
 is why K-means is usually run several times with different starting points.
 
-To choose $K$ we assume that there is a natural number of clusters: too small
+To choose $K$ we assume that there is a natural number of clusters, because too small
 a $K$ merges distinct groups and too large a $K$ splits real groups apart.
 The *elbow method* plots the within-cluster sum of squares,
 
@@ -516,7 +498,7 @@ $$\text{WSS} = \sum_{k=1}^{K} \sum_{C(i)=k} \| x_i - m_k \|^2,$$
 
 against $K$. Note that WSS is the same sum as the objective above without the
 weights $N_k$, which is the version usually plotted. WSS always falls as $K$
-grows, and with $K = n$ it is zero, so you cannot simply minimize it; the
+grows, and with $K = n$ it is zero, so you cannot simply minimize it. The
 elbow is the point after which additional clusters barely reduce the WSS,
 because before it each new cluster buys a lot and after it almost nothing.
 The elbow method is a heuristic, not a test. It often gives an ambiguous
@@ -525,8 +507,7 @@ no natural $K$.
 
 ---
 
-## 11. Generative models and LLMs
-
+## 11. Generative models and LLMs {#generative}
 *Predictive* models aim to predict just one variable $Y$, while *generative*
 models aim to produce new examples of data points $X$. For text, a
 predictive or discriminative model represents the conditional probability of
@@ -534,7 +515,7 @@ a label given the text, $P(y \mid x)$, for example $P(\text{sentiment} =
 \text{positive} \mid \text{"I loved this movie"})$. A generative model
 represents the probability of the text itself, $P(x)$, or the probability of
 the next token given the previous ones, $P(x_t \mid x_1, \dots, x_{t-1})$,
-for example $P(\text{"movie"} \mid \text{"I loved this"})$; a model that
+for example $P(\text{"movie"} \mid \text{"I loved this"})$. A model that
 predicts the next token from the previous ones is called *autoregressive*.
 
 Large language models are trained with exactly this objective, next-word
@@ -555,10 +536,10 @@ pioneering work on neural networks laid the foundation for modern AI,
 including generative models like ChatGPT, DALL-E and Stable Diffusion. He
 received the 2018 Turing Award with Bengio and LeCun and the 2024 Nobel Prize
 in Physics for neural networks. Hinton describes AI as a kind of intuition
-rather than intelligence: our intuition discovers patterns that we cannot
+rather than intelligence. Our intuition discovers patterns that we cannot
 explain and that might not be useful for intervention or design, but it is a
 very useful tool for creativity and prediction. That framing is worth taking
-seriously for research: a model that predicts well has found a pattern, not
+seriously for research, because a model that predicts well has found a pattern, not
 necessarily the mechanism, and only a mechanism lets you intervene.
 
 ---
@@ -578,17 +559,17 @@ with a loss of labor as consequence. Can we trust an AI model? People have a
 right to an explanation of a prediction, and credit scores are the classic
 case. And who is responsible for the mistakes of a model? *Responsible AI*
 is not just about preventing harm, but about preventing AI from shifting
-power to the already powerful; it compels us toward AI development, but
+power to the already powerful. It compels us toward AI development, but
 safely.
 
-The appendix of the lecture collects cautionary cases worth knowing: Clever
-Hans, a horse that appeared to do arithmetic and was reading the posture of
-its trainer, the original example of a model learning the wrong feature; the
-double descent phenomenon; "one parameter is always enough", the
-demonstration that a single real number with enough digits can fit any
-dataset; the adversarial 3D-printed turtle classified as a rifle from every
-angle; Microsoft Tay; the prediction of sensitive attributes from Facebook
-likes; and shadow profiles.
+The appendix of the lecture collects cautionary cases worth knowing. The first is
+Clever Hans, a horse that appeared to do arithmetic and was reading the
+posture of its trainer, the original example of a model learning the wrong
+feature. Then come the double descent phenomenon and "one parameter is
+always enough", the demonstration that a single real number with enough
+digits can fit any dataset. The last ones are the adversarial 3D-printed
+turtle classified as a rifle from every angle, Microsoft Tay, the prediction
+of sensitive attributes from Facebook likes, and shadow profiles.
 
 ---
 

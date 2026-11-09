@@ -433,123 +433,66 @@ writes the respondents' names into a file that ends up public.
 """
     )
 
-add("M04-B", '"Clear the cache", said the developer',
-    "Asked to clear a cache, Google's Antigravity agent deleted a developer's whole D: drive, then apologized: a command nobody checked against what was meant.",
-    r"""
 
+add("M04-D", 'The 5 millimeters nobody could move',
+    "Nokia's Symbian grew to 20 million lines in one phone, and nobody could find the code to move a screen element by 5 mm.",
+    r"""
 ::: {.motivation}
 [Motivating example]{.label}
-Late 2025, posted on Reddit: a developer asks Google's coding agent
-**Antigravity** to clear a project's cache. The agent runs
-`rmdir /s /q d:\`, which deletes **the entire D: drive**, past the Recycle Bin.
-Its answer: *"I am deeply, deeply sorry. This is a critical failure on my part."*
+In the 2000s, **Symbian**, the system of Nokia's phones, ran most of the world's
+smartphones. In 2010 a former Nokia design executive told how his team wanted to
+move one element of a phone's screen up by 5 mm: *"We can't find the piece of code
+that could shift it up 5mm."*
 :::
 
 :::: {.figures}
 ::: {.fq}
-[1]{.big}[command]{.cap}
+[20 million]{.big}[lines of code in one phone]{.cap}
 :::
 ::: {.fq}
-[1 drive]{.big}[deleted instead of 1 folder]{.cap}
+[40 million]{.big}[lines of Symbian released as open source, 2010]{.cap}
 :::
 ::: {.fq}
-[0]{.big}[confirmations asked ("Turbo mode")]{.cap}
+[11 million]{.big}[lines of Android at the time]{.cap}
 :::
 ::::
 
-[What should have been specified, and checked, before a command that deletes files is allowed to run?]{.ask}
+[Nobody wrote this code to be unchangeable. What makes working code impossible to change, and what keeps it changeable?]{.ask}
 
 ::: {.source}
-TechRadar, December 2025; AI Incident Database, report 7050
+Juhani Risku in The Register, 22 July 2010; All About Symbian, 4 February 2010. In 2011 Nokia replaced Symbian with Windows Phone.
 :::
 """,
     r"""
-In late 2025 a developer posted on Reddit what had happened while using
-Antigravity, a new programming environment by Google in which an AI agent can
-edit files and run commands on the developer's computer. The developer asked
-the agent to clear the cache of a project, a folder of temporary files that
-can safely be deleted. The agent ran the Windows command `rmdir /s /q d:\`,
-which removes a folder and everything in it, silently and without using the
-Recycle Bin. The folder it named was not the cache folder but the root of the
-whole D: drive. The agent's reply, once it noticed, was "I am deeply, deeply
-sorry. This is a critical failure on my part." The developer had enabled a
-mode in which the agent runs commands without asking for confirmation. Most of
-the data had been backed up elsewhere; the rest was lost.
+In the 2000s, Symbian, the operating system of Nokia's phones, ran most of the
+world's smartphones. It had grown for more than a decade, feature by feature
+and phone by phone, and every new model added code to it. In 2010 Juhani
+Risku, a former design executive at Nokia, told the technology magazine The
+Register what this meant in practice. His team wanted to move one element on
+the screen of a Nokia phone up by 5 millimeters, and could not: "We can't find
+the piece of code that could shift it up 5mm. There's 20 million lines of code
+in the phone, it's impossible." When Symbian was released as open source the
+same year, its own foundation estimated the code at about 40 million lines,
+against about 11 million for Android. In 2011 Nokia gave up on Symbian and moved
+its smartphones to Windows Phone.
 
-The story spread because the apology is funny, but the failure is the most
-common one in software: a command whose effect was never checked before it
-ran. What the developer wanted was specified only as "clear the cache". A
-specification of the task would have said which folder and nothing else, and a
-system that takes the specification seriously checks, before deleting
-anything, that the target is that folder. That is what tests do for code, and
-what confirmations and permissions do for commands: they compare what is about
-to happen with what was meant.
+Nobody wrote this code to be unchangeable. Every line was added for a reason,
+and every addition worked. What was missing was what keeps a large program
+changeable: parts with one clear responsibility, so that a change to the screen
+layout touches one place; documentation that says what each part does; and
+tests that tell you a change has not broken something else. Without them, the
+safest thing to do with code nobody understands is to leave it alone, and the
+program can only grow.
 
-Section 6 treats "what the program must never do" as part of every
-specification, and section 7 shows how tests turn a specification into
-something that is checked rather than hoped for.
+Section 4 of this session presents object-oriented programming as a tool for
+exactly this problem: large programs maintained by many people for many years.
+Section 5 places writing code inside software engineering, where maintenance is
+a stage of its own, and section 7 is about the tests that make changes safe.
+For research code the analogue is the analysis script that grew over a whole
+PhD, and that nobody, including its author, dares to touch the week before
+submission.
 """
     )
-
-add("M04-C", 'The code freeze that was only a sentence',
-    "Replit's AI agent deleted a production database during a code freeze that existed only as a sentence in a chat.",
-    r"""
-
-::: {.motivation}
-[Motivating example]{.label}
-July 2025: the founder of SaaStr spends twelve days vibe coding an app with
-Replit's AI agent. On day nine, during a code freeze he had declared in the
-chat, the agent **deletes the production database**, then reports that a
-rollback is impossible. It was not; the data came back.
-:::
-
-:::: {.figures}
-::: {.fq}
-[1,206]{.big}[executives' records deleted]{.cap}
-:::
-::: {.fq}
-[1,196]{.big}[companies' records deleted]{.cap}
-:::
-::: {.fq}
-[0]{.big}[barriers between the agent and production]{.cap}
-:::
-::::
-
-[A rule in a chat message is a wish. What would have made "never touch production" impossible to break?]{.ask}
-
-::: {.source}
-Fortune, 23 July 2025; AI Incident Database. Replit then separated development and production databases.
-:::
-""",
-    r"""
-In July 2025 Jason Lemkin, the founder of the software community SaaStr,
-documented a twelve-day experiment in building an application by vibe coding
-with the AI agent of the platform Replit. On day nine he had declared a code
-freeze, a period in which nothing may be changed, and told the agent in the
-chat to make no changes without his permission. The agent then deleted the
-live production database, which held records on 1,206 executives and
-1,196 companies. Asked about it, the agent admitted that it had ignored the
-instruction, and it told Lemkin that a rollback was impossible, which turned
-out to be wrong: the data could be restored. Replit's chief executive called
-the deletion unacceptable, and the company separated development databases
-from production databases so that an agent working on the code cannot reach
-the real data.
-
-The code freeze existed only as a sentence in a chat. Nothing in the system
-enforced it: the agent had the permissions to delete the database, and the
-development and the production data were the same data. A rule that matters
-has to be part of the requirements of the system, and a rule that must never
-be broken has to be enforced by the system itself, through permissions,
-backups and separate environments, not requested in a prompt. Replit's fix is
-exactly that: it turned a wish into a property of the system.
-
-Section 5 places writing code inside the larger process of software
-engineering, and section 6 explains why a prompt is a specification and why
-some rules do not belong in a prompt at all.
-"""
-    )
-
-
 
 # ===========================================================================
 #  Session 5 -- Algorithms
@@ -2327,4 +2270,122 @@ without realizing that they were choosing.
     "Removed from session 3 on 2026-10-30, to be used when stacks, queues and "
     "heaps are covered (sessions 5 and 6). The slide is the deck version as it was "
     "on that day; see also MotivatingExamples-parked.md."
+    )
+
+park("M04-B", '"Clear the cache", said the developer',
+    "Asked to clear a cache, Google's Antigravity agent deleted a developer's whole D: drive, then apologized: a command nobody checked against what was meant.",
+    r"""
+
+::: {.motivation}
+[Motivating example]{.label}
+Late 2025, posted on Reddit: a developer asks Google's coding agent
+**Antigravity** to clear a project's cache. The agent runs
+`rmdir /s /q d:\`, which deletes **the entire D: drive**, past the Recycle Bin.
+Its answer: *"I am deeply, deeply sorry. This is a critical failure on my part."*
+:::
+
+:::: {.figures}
+::: {.fq}
+[1]{.big}[command]{.cap}
+:::
+::: {.fq}
+[1 drive]{.big}[deleted instead of 1 folder]{.cap}
+:::
+::: {.fq}
+[0]{.big}[confirmations asked ("Turbo mode")]{.cap}
+:::
+::::
+
+[What should have been specified, and checked, before a command that deletes files is allowed to run?]{.ask}
+
+::: {.source}
+TechRadar, December 2025; AI Incident Database, report 7050
+:::
+""",
+    r"""
+In late 2025 a developer posted on Reddit what had happened while using
+Antigravity, a new programming environment by Google in which an AI agent can
+edit files and run commands on the developer's computer. The developer asked
+the agent to clear the cache of a project, a folder of temporary files that
+can safely be deleted. The agent ran the Windows command `rmdir /s /q d:\`,
+which removes a folder and everything in it, silently and without using the
+Recycle Bin. The folder it named was not the cache folder but the root of the
+whole D: drive. The agent's reply, once it noticed, was "I am deeply, deeply
+sorry. This is a critical failure on my part." The developer had enabled a
+mode in which the agent runs commands without asking for confirmation. Most of
+the data had been backed up elsewhere; the rest was lost.
+
+The story spread because the apology is funny, but the failure is the most
+common one in software: a command whose effect was never checked before it
+ran. What the developer wanted was specified only as "clear the cache". A
+specification of the task would have said which folder and nothing else, and a
+system that takes the specification seriously checks, before deleting
+anything, that the target is that folder. That is what tests do for code, and
+what confirmations and permissions do for commands: they compare what is about
+to happen with what was meant.
+
+Section 6 treats "what the program must never do" as part of every
+specification, and section 7 shows how tests turn a specification into
+something that is checked rather than hoped for.
+""",
+    'Removed from session 4 on 2026-11-08 (David: replaced by the Symbian example M04-D). Kept for later use.'
+    )
+
+park("M04-C", 'The code freeze that was only a sentence',
+    "Replit's AI agent deleted a production database during a code freeze that existed only as a sentence in a chat.",
+    r"""
+
+::: {.motivation}
+[Motivating example]{.label}
+July 2025: the founder of SaaStr spends twelve days vibe coding an app with
+Replit's AI agent. On day nine, during a code freeze he had declared in the
+chat, the agent **deletes the production database**, then reports that a
+rollback is impossible. It was not; the data came back.
+:::
+
+:::: {.figures}
+::: {.fq}
+[1,206]{.big}[executives' records deleted]{.cap}
+:::
+::: {.fq}
+[1,196]{.big}[companies' records deleted]{.cap}
+:::
+::: {.fq}
+[0]{.big}[barriers between the agent and production]{.cap}
+:::
+::::
+
+[A rule in a chat message is a wish. What would have made "never touch production" impossible to break?]{.ask}
+
+::: {.source}
+Fortune, 23 July 2025; AI Incident Database. Replit then separated development and production databases.
+:::
+""",
+    r"""
+In July 2025 Jason Lemkin, the founder of the software community SaaStr,
+documented a twelve-day experiment in building an application by vibe coding
+with the AI agent of the platform Replit. On day nine he had declared a code
+freeze, a period in which nothing may be changed, and told the agent in the
+chat to make no changes without his permission. The agent then deleted the
+live production database, which held records on 1,206 executives and
+1,196 companies. Asked about it, the agent admitted that it had ignored the
+instruction, and it told Lemkin that a rollback was impossible, which turned
+out to be wrong: the data could be restored. Replit's chief executive called
+the deletion unacceptable, and the company separated development databases
+from production databases so that an agent working on the code cannot reach
+the real data.
+
+The code freeze existed only as a sentence in a chat. Nothing in the system
+enforced it: the agent had the permissions to delete the database, and the
+development and the production data were the same data. A rule that matters
+has to be part of the requirements of the system, and a rule that must never
+be broken has to be enforced by the system itself, through permissions,
+backups and separate environments, not requested in a prompt. Replit's fix is
+exactly that: it turned a wish into a property of the system.
+
+Section 5 places writing code inside the larger process of software
+engineering, and section 6 explains why a prompt is a specification and why
+some rules do not belong in a prompt at all.
+""",
+    'Removed from session 4 on 2026-11-08 (David: replaced by the Symbian example M04-D). Kept for later use.'
     )

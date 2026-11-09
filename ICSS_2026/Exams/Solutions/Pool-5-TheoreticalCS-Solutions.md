@@ -34,7 +34,7 @@ the language as "three more a than b" have missed the modular arithmetic.)*
 
 ## TC-01 · The 5-tuple of a finite-state automaton · 3 pts · [2023-Ex Q6a, 2023-E2 Q5a, `TE-09` Ex. 1a]
 
-**Where to look.** Slides: session 9, slides 10 to 20 (*Finite-state automaton and examples*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §2 Finite-state automata](../../Transcripts/09-TheoreticalCS.md#2-finite-state-automata).
+**Where to look.** Slides: session 9, slides 10 to 20 (*Finite-state automaton and examples*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §2 Finite-state automata](../../Transcripts/09-TheoreticalCS.md#automata).
 
 **Solution.**
 
@@ -63,7 +63,7 @@ which is what makes the automaton deterministic *and* complete, and matters for
 
 ## TC-02 · Which inputs are accepted · 2 pts · [2023-Ex Q6b, 2023-E2 Q5b, 2024-E2 Q5a, 2025-E1 Q5a, 2025-E2 Q4a]
 
-**Where to look.** Slides: session 9, slides 10 to 20 (*Finite-state automaton and examples*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §2 Finite-state automata](../../Transcripts/09-TheoreticalCS.md#2-finite-state-automata).
+**Where to look.** Slides: session 9, slides 10 to 20 (*Finite-state automaton and examples*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §2 Finite-state automata](../../Transcripts/09-TheoreticalCS.md#automata).
 
 **Solution.**
 
@@ -120,7 +120,7 @@ non-deterministic finite state automata?"*, same content, phrased generally.
 
 ## TC-04 · Design a DFA for a substring · 3 pts · [2023-Ex Q6e, 2023-E1 Q5d, 2024-Ex Q5d, 2025-E1 Q5c, `TE-09` Ex. 1e]
 
-**Where to look.** Slides: session 9, slides 10 to 20 (*Finite-state automaton and examples*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`; session 9, slides 33 (*Pac-Man ghosts DFA*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §2 Finite-state automata](../../Transcripts/09-TheoreticalCS.md#2-finite-state-automata).
+**Where to look.** Slides: session 9, slides 10 to 20 (*Finite-state automaton and examples*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`; session 9, slides 33 (*Pac-Man ghosts DFA*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §2 Finite-state automata](../../Transcripts/09-TheoreticalCS.md#automata).
 
 **Solution.** The automaton cannot store the input; it can only be in one of
 finitely many states. What it must remember is **how much of the pattern it has
@@ -164,7 +164,7 @@ transitions. Missing $q_1 \xrightarrow{I} q_1$ is the single most common error.
 
 ## TC-05 · Design a DFA for parity conditions · 3 pts · [2025-E2 Q4c]
 
-**Where to look.** Slides: session 9, slides 10 to 20 (*Finite-state automaton and examples*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §2 Finite-state automata](../../Transcripts/09-TheoreticalCS.md#2-finite-state-automata).
+**Where to look.** Slides: session 9, slides 10 to 20 (*Finite-state automaton and examples*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §2 Finite-state automata](../../Transcripts/09-TheoreticalCS.md#automata).
 
 **Solution.** The automaton must remember two independent bits: the parity of the
 `a` count and the parity of the `b` count. Four states, one per combination.
@@ -190,7 +190,7 @@ letter that is irrelevant to the condition still needs a transition.
 
 ## TC-06 · Push-down automaton: trace, examples and grammar · 3+2+3 pts · [2023-E1 Q5a–c, 2024-Ex Q5a–c]
 
-**Where to look.** Slides: session 9, slides 23 to 32 (*Formal languages and grammars; Grammar ≡ automaton; Regular languages*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`; session 9, slides 40 (*The problem with DFA and the Chomsky hierarchy*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §4 Formal languages and grammars](../../Transcripts/09-TheoreticalCS.md#4-formal-languages-and-grammars), [09 §5 Regular languages](../../Transcripts/09-TheoreticalCS.md#5-regular-languages), [09 §6 Turing machines](../../Transcripts/09-TheoreticalCS.md#6-turing-machines).
+**Where to look.** Slides: session 9, slides 23 to 32 (*Formal languages and grammars; Grammar ≡ automaton; Regular languages*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`; session 9, slides 40 (*The problem with DFA and the Chomsky hierarchy*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §4 Formal languages and grammars](../../Transcripts/09-TheoreticalCS.md#formal-languages), [09 §5 Regular languages](../../Transcripts/09-TheoreticalCS.md#5-regular-languages), [09 §6 Turing machines](../../Transcripts/09-TheoreticalCS.md#turing-machines).
 
 **Solution.**
 
@@ -272,7 +272,7 @@ The full correspondence, worth having memorized:
 
 ## TC-08 · Non-deterministic finite automaton · 1+3+2–3+3 pts · [2024-E1 Q5a–d, 2025-Ex Q5a–d]
 
-**Where to look.** Slides: session 9, slides 21 to 22 (*Nondeterministic finite-state automata*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`; session 9, slides 10 to 20 (*Finite-state automaton*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §3 Nondeterministic automata](../../Transcripts/09-TheoreticalCS.md#3-nondeterministic-automata), [09 §2 Finite-state automata](../../Transcripts/09-TheoreticalCS.md#2-finite-state-automata).
+**Where to look.** Slides: session 9, slides 21 to 22 (*Nondeterministic finite-state automata*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`; session 9, slides 10 to 20 (*Finite-state automaton*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §3 Nondeterministic automata](../../Transcripts/09-TheoreticalCS.md#3-nondeterministic-automata), [09 §2 Finite-state automata](../../Transcripts/09-TheoreticalCS.md#automata).
 
 **Solution.**
 
@@ -342,7 +342,7 @@ merged states that differ.
 
 ## TC-09 · Is the language context-free? · 2 pts · [2024-E1 Q5c, 2024-E2 Q5d]
 
-**Where to look.** Slides: session 9, slides 31 to 32 (*Formal languages; Regular languages*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`; session 9, slides 40 (*The Chomsky hierarchy*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §5 Regular languages](../../Transcripts/09-TheoreticalCS.md#5-regular-languages), [09 §6 Turing machines](../../Transcripts/09-TheoreticalCS.md#6-turing-machines).
+**Where to look.** Slides: session 9, slides 31 to 32 (*Formal languages; Regular languages*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`; session 9, slides 40 (*The Chomsky hierarchy*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §5 Regular languages](../../Transcripts/09-TheoreticalCS.md#5-regular-languages), [09 §6 Turing machines](../../Transcripts/09-TheoreticalCS.md#turing-machines).
 
 **Solution.** **Yes.** Anything recognized by a finite-state automaton is a
 **regular** language (type 3), and the Chomsky hierarchy is nested: every regular
@@ -359,7 +359,7 @@ partial credit with the explanation.
 
 ## TC-10 · NP-completeness and P vs NP · 3 pts · [2024-E2 Q5e, 2025-Ex Q5e]
 
-**Where to look.** Slides: session 9, slides 69 to 81 (*Complexity classes; P; NP; P vs NP; Reducing problems; NP-complete problems*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §9 Complexity classes](../../Transcripts/09-TheoreticalCS.md#9-complexity-classes).
+**Where to look.** Slides: session 9, slides 69 to 81 (*Complexity classes; P; NP; P vs NP; Reducing problems; NP-complete problems*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §9 Complexity classes](../../Transcripts/09-TheoreticalCS.md#complexity-classes).
 
 **Solution.**
 
@@ -402,7 +402,7 @@ correctly and then saying NP-complete means "very hard", with no reduction.
 
 ## TC-11 · A fast algorithm for 3-SAT · 3 pts · [2025-E1 Q5d, 2025-E2 Q4d]
 
-**Where to look.** Slides: session 9, slides 69 to 81 (*Complexity classes; NP-complete problems; SAT*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §9 Complexity classes](../../Transcripts/09-TheoreticalCS.md#9-complexity-classes).
+**Where to look.** Slides: session 9, slides 69 to 81 (*Complexity classes; NP-complete problems; SAT*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §9 Complexity classes](../../Transcripts/09-TheoreticalCS.md#complexity-classes).
 
 **Solution.** **Yes.** $N^{1.001}$ is a polynomial in $N$, the exponent need not
 be an integer, only a constant, so an $O(N^{1.001})$ algorithm places 3-SAT in
@@ -434,7 +434,7 @@ The non-integer exponent in the first is the deliberate trap.
 
 ## TC-12 · Satisfiability by hand · 3 pts · [2023-E2 Q5e, `TE-09` Ex. 4c]
 
-**Where to look.** Slides: session 9, slides 80 (*NP-complete example: boolean satisfiability (SAT)*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`; session 9, slides 73 to 74 (*Problem verifiers; The NP class*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §9 Complexity classes](../../Transcripts/09-TheoreticalCS.md#9-complexity-classes).
+**Where to look.** Slides: session 9, slides 80 (*NP-complete example: boolean satisfiability (SAT)*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`; session 9, slides 73 to 74 (*Problem verifiers; The NP class*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §9 Complexity classes](../../Transcripts/09-TheoreticalCS.md#complexity-classes).
 
 **Solution.**
 
@@ -466,7 +466,7 @@ inefficiently and has missed the point.
 
 ## TC-13 · Turing machine trace · 3 pts · [`TE-09` Ex. 3, 2024 sheet 10] · **figure**
 
-**Where to look.** Slides: session 9, slides 41 to 56 (*Turing machines; Formalization; Functioning; Tape trace example*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §6 Turing machines](../../Transcripts/09-TheoreticalCS.md#6-turing-machines).
+**Where to look.** Slides: session 9, slides 41 to 56 (*Turing machines; Formalization; Functioning; Tape trace example*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §6 Turing machines](../../Transcripts/09-TheoreticalCS.md#turing-machines).
 
 **Solution.**
 
@@ -524,7 +524,7 @@ deliberate and makes this affordable in exam time.
 
 ## TC-14 · Verifying a clique · 5 pts · [`TE-09` Ex. 4, 2024 sheet 10] · **figure**
 
-**Where to look.** Slides: session 9, slides 71 to 76 (*Decision problems; The P class; Problem verifiers; The NP class; Hamiltonian path*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §9 Complexity classes](../../Transcripts/09-TheoreticalCS.md#9-complexity-classes).
+**Where to look.** Slides: session 9, slides 71 to 76 (*Decision problems; The P class; Problem verifiers; The NP class; Hamiltonian path*), in `Slides/09-TheoreticalCS/ICSS-2026-09-TheoreticalCS.qmd`. Handout: [09 §9 Complexity classes](../../Transcripts/09-TheoreticalCS.md#complexity-classes).
 
 **Solution.**
 

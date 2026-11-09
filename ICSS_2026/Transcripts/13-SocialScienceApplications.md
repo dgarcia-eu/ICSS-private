@@ -2,51 +2,33 @@
 
 *Introduction to Computing for the Social Sciences · lecture transcript*
 
-> Companion text for lecture 13. Notation follows
-> [the course conventions](00-Conventions.md).
->
-> This is the closing lecture: it puts everything from sessions 1 to 12 to
-> work on actual research. It is also the most heavily referenced session,
-> since every claim here points to a paper you can read. Full references at
-> the end.
+This is the closing lecture, which puts everything from sessions 1 to 12 to
+work on actual research. It is also the most heavily referenced session,
+since every claim here points to a paper you can read. Full references at
+the end.
 
 ---
 
 ## Contents
 
-1. [What Computational Social Science is](#1-what-computational-social-science-is)
-2. [Neighboring labels](#2-neighboring-labels)
-3. [The three meanings of "computational"](#3-the-three-meanings-of-computational)
-4. [The three ages of CSS](#4-the-three-ages-of-css)
-5. [Combining disciplines and methods](#5-combining-disciplines-and-methods)
-6. [Digital behavioral data](#6-digital-behavioral-data)
-7. [Four research examples](#7-four-research-examples)
-8. [Issues with digital data: representation](#8-issues-with-digital-data-representation)
-9. [New methods: three generations](#9-new-methods-three-generations)
-10. [Method examples](#10-method-examples)
-11. [Issues with methods: privacy](#11-issues-with-methods-privacy)
-12. [The end of theory?](#12-the-end-of-theory)
-13. [Agent-based modeling](#13-agent-based-modeling)
-14. [Schelling's segregation model](#14-schellings-segregation-model)
-15. [Simulating anti-COVID policies](#15-simulating-anti-covid-policies)
-16. [Courses outlook](#16-courses-outlook)
-17. [Summary](#17-summary)
-18. [Check yourself](#18-check-yourself)
-19. [References](#19-references)
+1. [Computational social science](#css)
+2. [Digital behavioral data](#digital-data)
+3. [New methods in the social sciences](#new-methods)
+4. [Computational analysis of social science theory](#theory)
+5. [Courses outlook](#outlook)
 
 ---
 
-## 1. What Computational Social Science is
-
+## 1. What Computational Social Science is {#css}
 *Computational Social Science* (CSS) is the quantitative testing of theories
 from the social sciences at unprecedented breadth, depth and scale, in the
 words of the manifesto by Lazer et al. (2009) in *Science*. That definition
-commits to three things: using new, large-scale data to inform social science
-theory; being quantitative and empirical, and not just theoretical; and being
-interdisciplinary research rather than data-driven studies. Read the last
+commits to three things. These are using new, large-scale data to inform
+social science theory, being quantitative and empirical, and not just
+theoretical, and being interdisciplinary research rather than data-driven studies. Read the last
 point carefully, because it is the one students most often get backwards.
 CSS is not social science done with big data. The theory comes first, and the
-data and the computation are in service of testing it; a study that finds a
+data and the computation are in service of testing it. A study that finds a
 striking pattern in a billion tweets and stops there is not CSS but a
 description in search of a question. The word "unprecedented" in the
 definition is nevertheless doing honest work. Breadth, that is, how many
@@ -66,7 +48,7 @@ of the Web as a socio-technical system, with empirical studies but also the
 development of computer science methods. *Digital Sociology* is the sociology
 of the digital transformation and of the social phenomena affected by the new
 uses of information and communication technology. The distinctions are of
-emphasis and not of substance: CSS emphasizes theory, Social Data Science
+emphasis and not of substance, i.e. CSS emphasizes theory, Social Data Science
 emphasizes methods, Web Science takes the Web as its object, and Digital
 Sociology studies digitalization as a social phenomenon.
 
@@ -81,15 +63,15 @@ media. *Computerized* means the quantitative analysis of data in an
 automated, tractable, repeatable and extensible fashion. *Generative* means
 the application of data and results to the design of agent-based models that
 explain complex social phenomena and motivate interventions. This
-tripartition organizes the rest of the lecture: the digital meaning is the
-subject of [section 6](#6-digital-behavioral-data), the computerized meaning
-of [section 9](#9-new-methods-three-generations), and the generative meaning
-of [section 13](#13-agent-based-modeling). It is worth noticing what
+tripartition organizes the rest of the lecture, with the digital meaning as
+the subject of [section 6](#digital-data), the computerized meaning
+of [section 9](#new-methods), and the generative meaning
+of [section 13](#agent-based-modeling). It is worth noticing what
 "computerized" demands. Automated means that there is no manual step you
 cannot describe, tractable that the analysis finishes in reasonable time, as
 in session 8, repeatable that someone else running your code gets your
 numbers, and extensible that the next study can build on it. Those four words
-are why this whole course exists: they are properties of your code, not of
+are why this whole course exists, because they are properties of your code, not of
 your data.
 
 Before this maturity there was a phase of pure enthusiasm, which the lecture
@@ -97,7 +79,7 @@ illustrates with early data-driven CSS. The satirical Urban Dictionary entry
 for "data piñata", a big data method that consists of whacking data with a
 stick in the hope that some insights will come out, captures it, and the
 cover of Simon Lindgren's book *Data Theory* makes the same joke seriously.
-The warning is worth taking: without a question, more data just means more
+The warning is worth taking, since without a question, more data just means more
 patterns, and most patterns in a large enough dataset are noise.
 
 ---
@@ -108,13 +90,13 @@ Salganik's *Bit by Bit* places CSS on the Gartner hype curve, the standard
 shape of the reputation of a technology, with a peak of inflated
 expectations, a trough of disillusionment, and a slope of enlightenment
 leading to a plateau of productivity. The lecture's version labels the phases
-by what people got excited about. The age of data is the peak: enthusiasm
+by what people got excited about. The age of data is the peak, with enthusiasm
 about the digital traces themselves, their sheer volume, and the belief that
-they would answer everything. The age of theory is the trough: the field
+they would answer everything. The age of theory is the trough, when the field
 discovers that data without a question produces nothing, and turns back to
 social theory to say what it is actually measuring. The age of methods is the
-recovery: sustained progress, built on developing and validating measurement
-instruments rather than on acquiring more data. We are, on this account, in
+recovery, with sustained progress built on developing and validating
+measurement instruments rather than on acquiring more data. We are, on this account, in
 the third phase, which is the optimistic reading of why a methods course like
 this one is worth taking.
 
@@ -132,7 +114,7 @@ hype │      ╱‾╲
 
 CSS sits at the intersection of three fields, computer science, mathematics
 and statistics, and the behavioral and social sciences, and the slide of the
-lecture carries a caption worth memorizing: statistics is about making sound
+lecture carries a caption worth memorizing, namely that statistics is about making sound
 inferences from too little data, and data science about making meaningful
 inferences from too much data. That contrast is exact. Classical statistics
 was built for the regime where data is expensive and scarce, hence
@@ -161,10 +143,9 @@ least two of them.
 
 ---
 
-## 6. Digital behavioral data
-
+## 6. Digital behavioral data {#digital-data}
 Sensors and connectivity are increasingly pervasive, and more and more of our
-actions happen through digital technologies: searching for a job online,
+actions happen through digital technologies, e.g. searching for a job online,
 talking with a family member over the phone, sharing open source code,
 posting a video on a social networking site, paying at the supermarket with a
 credit card, or chatting on a company instant messenger. All of these
@@ -174,21 +155,21 @@ designed data. Nobody paid respondents, wrote a questionnaire or drew a
 sample. That gives three advantages, since the traces are cheap, they are
 longitudinal by default, and they record behavior rather than self-reported
 behavior, and one large disadvantage, which is the subject of [section
-8](#8-issues-with-digital-data-representation).
+8](#digital-data-issues).
 
 ---
 
 ## 7. Four research examples
 
 The first example is earthquakes on Twitter. XKCD 723, *Seismic Waves*, gets
-there first: a character notices that they can tell that an earthquake
+there first, since in it a character notices that they can tell that an earthquake
 happened elsewhere because the tweets about it arrive faster than the seismic
 wave. That is a joke about the speed of light versus the speed of rock, and it
-is also a research design. Earle, Bowden and Guy (2012) built it: Twitter
+is also a research design. Earle, Bowden and Guy (2012) built it. Twitter
 earthquake detection can produce alerts within a couple of minutes of an
 event, in some cases faster than the instrumental networks in regions with
 sparse sensor coverage, and the signal is a sudden spike in the rate of tweets
-containing "earthquake" from a geographic region. Note what makes this work:
+containing "earthquake" from a geographic region. What makes this work is that
 humans are the sensors, and there are a lot of them. The method fails exactly
 where there are few users, which is section 8 again.
 
@@ -205,16 +186,16 @@ used the advertising interface of Facebook, which reports the size of
 audiences by gender, age and country, to construct a worldwide indicator of
 the gender gap in Facebook use, and validated it against established offline
 indices of gender inequality in the economy, health and education. The
-methodological trick is worth noting: the data is not scraped from users at
+methodological trick is worth noting, as the data is not scraped from users at
 all, but read off a public marketing tool as aggregate counts. This is a
 cheap, privacy-preserving way to obtain population-level measures, and it
 updates monthly rather than every ten years like a census. The fourth
 example, social media as an emotion macroscope, is covered in [section
-10](#10-method-examples).
+10](#method-examples).
 
 ---
 
-## 8. Issues with digital data: representation
+## 8. Issues with digital data: representation {#digital-data-issues}
 
 The central problem of digital trace data is that the people who produce
 them are not the population. Data of the Pew Research Center on the social
@@ -229,7 +210,7 @@ media use of US adults by age group makes the size of the gap concrete:
 | Twitter | 42% | 7% | **+35** |
 | Facebook | 70% | 50% | **+20** |
 
-A study of Snapchat is, demographically, a study of the young; a 63-point gap
+A study of Snapchat is, demographically, a study of the young, and a 63-point gap
 is not a nuisance to be weighted away but a different population. And the
 gaps differ by platform, so "social media users" is not one group either.
 Lazer et al. (2021), in *Meaningful measures of human society in the
@@ -247,22 +228,21 @@ company.
 
 ---
 
-## 9. New methods: three generations
-
+## 9. New methods: three generations {#new-methods}
 Social science data used to have few formats, such as the annotations of
 experiment outcomes or survey responses. Now there are many more formats and
 data sources, such as text, social networks, locations and timestamps, and
 likes, and sometimes these formats are even related to each other. The
 methods to handle them have been improving over time in three generations.
-The first generation adapted previous social science methods; the example
-is the use of dictionaries in text analysis, where you take a hand-built
+The first generation adapted previous social science methods, for example
+the use of dictionaries in text analysis, where you take a hand-built
 list of words scored for a construct and count them, which is transparent,
 cheap, and exactly as good as the list. The second generation uses machine
 learning models to generalize measurement from many examples of
-measurements; the example is sentiment analysis, where you label a few
+measurements, for example sentiment analysis, where you label a few
 thousand texts and train a classifier, as in session 10, to reproduce your
 labeling on millions more. The third generation uses large models to analyze
-highly dimensional data; the example is word embeddings, which are treated in
+highly dimensional data, for example word embeddings, which are treated in
 the document analysis course. The trajectory is a steady move from rules you
 write to patterns learned from data, buying coverage and nuance at the cost
 of transparency, which matters because you then have to validate the
@@ -270,16 +250,16 @@ instrument rather than read it.
 
 ---
 
-## 10. Method examples
+## 10. Method examples {#method-examples}
 
 The first example is VADER sentiment analysis. Hutto and Gilbert (2014) built
 VADER, the Valence Aware Dictionary and sEntiment Reasoner, a rule-based
 model tuned specifically for social media text. It is first-generation in
 the sense of section 9, with a lexicon at its core, but with rules that
-handle the things social media text actually does: negation, since "not good"
-is not "good"; intensifiers, since "very good" is more than "good";
-punctuation, since "good!!!" is more than "good"; capitalization, since
-"GOOD" is more than "good"; and emoticons and slang. The lexicon itself was
+handle the things social media text actually does. These are negation, since
+"not good" is not "good", intensifiers, since "very good" is more than "good",
+punctuation, since "good!!!" is more than "good", capitalization, since
+"GOOD" is more than "good", and emoticons and slang. The lexicon itself was
 built by having crowdworkers rate each term, so the scores are empirical
 rather than an author's intuition. VADER is a good demonstration that a
 well-designed simple method can match a machine-learned one on the domain it
@@ -288,12 +268,12 @@ was built for, and it has the enormous advantage that you can read it.
 The second example is social media emotion macroscopes. Garcia, Pellert,
 Lasser and Metzler (2021), in *Social media emotion macroscopes reflect
 emotional experiences in society at large*, address the obvious objection to
-all of the above: does aggregated social media sentiment measure anything
-real? The answer comes from validation against surveys, comparing time series
+all of the above, which is whether aggregated social media sentiment measures
+anything real. The answer comes from validation against surveys, comparing time series
 of text-derived emotion with population surveys of self-reported affect. The
 finding is that aggregate signals do track the emotional experience of
 society, while individual-level inferences are far weaker. That asymmetry is
-a general lesson: an instrument can be reliable at the population level and
+a general lesson, i.e. an instrument can be reliable at the population level and
 useless at the person level, because the errors average out in one case and
 not in the other.
 
@@ -303,7 +283,7 @@ accurate than those made by humans* that, using only the Facebook likes of a
 person, a model predicted their self-reported Big Five personality traits
 more accurately than the friends of the person could, and, with about 300
 likes, more accurately than their spouse. Take this as the transition to the
-next section: the same result is a methodological triumph and a privacy
+next section, because the same result is a methodological triumph and a privacy
 catastrophe.
 
 ---
@@ -313,50 +293,49 @@ catastrophe.
 Kosinski, Stillwell and Graepel (2013), in *Private traits and attributes are
 predictable from digital records of human behavior*, showed that Facebook
 likes, each of them individually innocuous, predict sensitive attributes
-with high accuracy: sexual orientation, ethnicity, religious and political
+with high accuracy, such as sexual orientation, ethnicity, religious and political
 views, personality traits, intelligence, substance use and parental
 separation. The point is not that anyone disclosed those attributes. It is
 that they did not have to. Aggregations of innocuous data are not innocuous,
 and no individual consent decision can anticipate this, because the
 inference lives in the pattern across thousands of people. Garcia et al.
 (2018), in *Collective aspects of privacy in the Twitter social network*,
-push this further: the data of your friends predicts your attributes even if
+push this further, showing that the data of your friends predicts your attributes even if
 you are not on the platform at all, which is the shadow profile problem.
 Privacy is therefore not an individual property that you can protect by your
-own choices; it is collective, and someone else's decision to share leaks
+own choices. It is collective, and someone else's decision to share leaks
 information about you. For research practice this means that the consent
 framework inherited from survey methodology is not sufficient. Consider what
 your model can infer, not just what your data contains.
 
 ---
 
-## 12. The end of theory?
-
+## 12. The end of theory? {#theory}
 In 2008 *Wired* published Chris Anderson's essay "The End of Theory: The Data
 Deluge Makes the Scientific Method Obsolete", which argued that with enough
 data, correlation supersedes causation and models become unnecessary,
 because the numbers speak for themselves. The response of the lecture is a
 large red cross drawn over it, and the reasons why the essay is wrong can be
-stated in the terms of this course. Data does not interpret itself: without a
-theory, you cannot say which of the millions of correlations in a large
-dataset is meaningful. Prediction is not explanation: recall Hinton's framing
+stated in the terms of this course. Data does not interpret itself, because
+without a theory, you cannot say which of the millions of correlations in a
+large dataset is meaningful. Prediction is not explanation. Recall Hinton's framing
 in session 10, that a model that predicts well has found a pattern, not the
 mechanism, and only a mechanism licenses intervention, so a social scientist
 who wants to change something needs more than a good predictor. Measurement
-requires theory: to claim that your variable measures polarization you need a
+requires theory, since to claim that your variable measures polarization you need a
 theory of what polarization is, and there is no theory-free measurement. And
-sampling bias does not go away with size: a biased sample of a billion is
+sampling bias does not go away with size, as a biased sample of a billion is
 still biased, as section 8 showed, because volume reduces variance and not
 bias. The version of the same argument in the 2020s is that large language
 models make theory unnecessary, and the counterarguments are the same ones.
 
 ---
 
-## 13. Agent-based modeling
+## 13. Agent-based modeling {#agent-based-modeling}
 
 Agent-based modeling is the generative meaning of "computational" from
-section 3. It models humans as agents that symbolize a simplified behavior;
-the agents have quantifiable variables and properties, and all the
+section 3. It models humans as agents that symbolize a simplified behavior.
+The agents have quantifiable variables and properties, and all the
 interaction rules are explicitly defined and parametrized. Simulations and
 mathematical analysis can then be applied to derive properties of the system
 that might not be easy to conclude from intuition alone. An agent-based model
@@ -367,8 +346,8 @@ that is, that these rules can generate this outcome. It does not show that
 this is what happens in the world, because other rules might generate the
 same outcome. In Epstein's phrase, if you did not grow it, you did not
 explain it, but growing it is a necessary and not a sufficient condition.
-Note also the real content of the requirement that the rules be explicit:
-writing a model as code forces you to be explicit, because a verbal theory can
+Note also the real content of the requirement that the rules be explicit,
+which is that writing a model as code forces you to be explicit, because a verbal theory can
 hide ambiguity indefinitely while a program cannot compile it. That is a
 benefit of computational modeling independent of any simulation result.
 
@@ -408,7 +387,7 @@ in a neighborhood where they are outnumbered four to one, an extremely
 tolerant population by any reasonable reading. The grid still segregates into
 large single-color blocks. With $F = 0.6$ the segregation is very strong, and
 with $F = 0.4$, where agents actively prefer to be in the minority, the grid
-is also clearly segregated. This is the point of the model: strongly
+is also clearly segregated. This is the point of the model, i.e. strongly
 segregated macro-outcomes do not require intolerant micro-preferences, and a
 mild individual preference not to be completely isolated, iterated over many
 small moves, is sufficient. The methodological lesson generalizes far beyond
@@ -433,7 +412,7 @@ and the disease process is calibrated to the parameters of the Omicron
 variant. Then policies are simulated, such as masking, ventilation, testing
 frequency, vaccination coverage and class size caps, and the sizes of the
 outbreaks are compared. The value of doing it this way is that these
-interventions cannot be randomized: you cannot run a controlled trial of
+interventions cannot be randomized, since you cannot run a controlled trial of
 university-wide mask policies during a wave. The model gives a way to
 compare counterfactuals, with its assumptions written down where they can be
 argued with, which is exactly the generative contribution of section 3, and
@@ -442,8 +421,7 @@ the sense of a trial.
 
 ---
 
-## 16. Courses outlook
-
+## 16. Courses outlook {#outlook}
 The lecture closes with the courses that continue from here. *Deep Learning
 for the Social Sciences*, 9 ECTS (2+2 SWS), taught next summer semester by
 Giordano De Marzo, covers machine learning concepts, multilayer perceptrons
@@ -460,7 +438,7 @@ assignments in which you get and analyze your own data. *Computational
 Modelling of Social Systems*, a seminar with exercises of 6 ECTS (2+2 SWS),
 to be taught in 2027 by David Garcia
 (<https://github.com/dgarcia-eu/CMSS-Konstanz>), has lectures and exercises
-on agent-based modeling and complexity science: Schelling's model of
+on agent-based modeling and complexity science, such as Schelling's model of
 segregation, Axelrod's model of cultures, the spreading of behavior, opinion
 dynamics, network growth models and social resilience, with Python exercises
 in Mesa.
@@ -469,7 +447,7 @@ For the path to the master thesis, the recommendation is to take the
 *Colloquium in Social Data Science* the semester before your master thesis,
 and to prepare by joining the research updates of the group (Tuesdays
 13:30–15:00). Students prepare their thesis plan during the semester and
-present it for input at the end; registration is manual, so contact David
+present it for input at the end. Registration is manual, so contact David
 Garcia beforehand to discuss coursework and potential topics. The second
 recommendation is to take the courses of the group and to read its papers.
 
@@ -485,7 +463,7 @@ representation. The new methods of the social sciences, with text analysis
 as the example, bring privacy risks. And the computational analysis of social
 science theory uses agent-based modeling to analyze models of social
 systems. The next sessions are the exam review and a Q&A. An exam example
-can be found in the folder of theory exercises on Ilias; in the upcoming
+can be found in the folder of theory exercises on Ilias. In the upcoming
 sessions we can discuss any previous exercise, the exam example, or go back
 to any slides from the lectures, and the extra time will be used for
 questions about the practical projects. Questions and requests are
@@ -500,13 +478,15 @@ collected 24 hours before each session from the form
 
 <details><summary>Answer</summary>
 
-Coverage: Twitter users are younger, more urban and more politically engaged
-than the electorate, so the sample is not the population and no amount of
-$n$ fixes that. Behavioral distortion: tweeting about a candidate is not
-voting for them, and posting is dominated by a small hyperactive minority, so
-the unit of analysis, tweets, is not the unit of interest, people.
-Algorithmic confounding: what is visible and collectable depends on the
-ranking and the API of the platform, which the researcher does not control.
+- **Coverage:** Twitter users are younger, more urban and more politically engaged
+  than the electorate, so the sample is not the population and no amount of
+  $n$ fixes that.
+- **Behavioral distortion:** tweeting about a candidate is not
+  voting for them, and posting is dominated by a small hyperactive minority, so
+  the unit of analysis, tweets, is not the unit of interest, people.
+- **Algorithmic confounding:** what is visible and collectable depends on the
+  ranking and the API of the platform, which the researcher does not control.
+
 A fourth problem, if you like, is that inferring support from text requires a
 validated instrument, not just keyword counting.
 
@@ -517,10 +497,10 @@ validated instrument, not just keyword counting.
 <details><summary>Answer</summary>
 
 Because satisfaction is evaluated locally and iteratively. An agent that
-happens to fall below the threshold moves; its departure changes the
+happens to fall below the threshold moves, and its departure changes the
 composition of its old neighborhood, which can push a neighbor below the
 threshold, and so on. Small local adjustments compound into large-scale
-sorting. Nothing in the rule of any agent mentions the global pattern; the
+sorting. Nothing in the rule of any agent mentions the global pattern. The
 pattern is emergent, and this is why you cannot infer preferences from
 outcomes.
 
@@ -530,7 +510,7 @@ outcomes.
 
 <details><summary>Answer</summary>
 
-You have shown generative sufficiency: this set of micro-rules is enough to
+You have shown generative sufficiency, that is, this set of micro-rules is enough to
 produce the pattern. You have not shown that these are the operating rules,
 since other mechanisms may produce the same pattern, which is called
 equifinality, nor have you produced empirical evidence. The model generates a
@@ -560,7 +540,7 @@ recommending, translating and forecasting, a model that predicts accurately
 is all anyone needs, and modern systems achieve that without any theory of
 the domain. That is genuinely true, and it is why machine translation works
 without linguistics. It fails for social science because the goal is usually
-not prediction but explanation and intervention: a predictor tells you what
+not prediction but explanation and intervention. A predictor tells you what
 will happen if nothing changes, while a policy is precisely a change.
 Moreover, deciding what to measure, and claiming that a variable measures a
 social construct, is theoretical work that no amount of data performs for

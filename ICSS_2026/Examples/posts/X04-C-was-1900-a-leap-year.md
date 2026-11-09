@@ -87,10 +87,10 @@ with valid syntax.
 
 ## What we used from the lecture
 
-- [Specifications](../../Transcripts/04-Software.md#6-requirements-specifications-and-design): the rule has three clauses, and
+- [Specifications](../../Transcripts/04-Software.md#requirements): the rule has three clauses, and
   the edge cases are where implementations disagree.
 - [Imperative programming: conditions](../../Transcripts/04-Software.md#3-imperative-programming)
-- [Testing](../../Transcripts/04-Software.md#7-testing): 1900 and 2000 are the boundary cases.
+- [Testing](../../Transcripts/04-Software.md#testing): 1900 and 2000 are the boundary cases.
 - [Flowcharts](../../Transcripts/05-Algorithms.md#5-flowcharts) (session 5):
   the rule as a diagram.
 

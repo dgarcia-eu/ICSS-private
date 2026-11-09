@@ -2,37 +2,18 @@
 
 *Introduction to Computing for the Social Sciences · lecture transcript*
 
-> Companion text for lecture 11. Notation follows
-> [the course conventions](00-Conventions.md).
->
-> **Reading for this session:** chapter 4, "Databases", of Foster, Ghani,
-> Jarmin, Kreuter & Lane (eds.), *Big Data and Social Science* (2017). For SQL
-> practice, the W3Schools tutorial: <https://www.w3schools.com/sql/default.asp>.
-> Full references at the end.
+**Reading for this session:** chapter 4, "Databases", of Foster, Ghani,
+Jarmin, Kreuter & Lane (eds.), *Big Data and Social Science* (2017). For SQL
+practice, the W3Schools tutorial at <https://www.w3schools.com/sql/default.asp>.
+Full references at the end.
 
 ---
 
 ## Contents
 
-<!-- MOTIVATION-TOC:BEGIN -->
-0. [Motivating examples](#motivating-examples)
-<!-- MOTIVATION-TOC:END -->
-1. [Why databases exist: two examples](#1-why-databases-exist-two-examples)
-2. [Databases and DBMS](#2-databases-and-dbms)
-3. [What a DBMS does](#3-what-a-dbms-does)
-4. [Why use a database?](#4-why-use-a-database)
-5. [Transactions and ACID](#5-transactions-and-acid)
-6. [Database models: flat and relational](#6-database-models-flat-and-relational)
-7. [Keys and normal forms](#7-keys-and-normal-forms)
-8. [SQL: what kind of language it is](#8-sql-what-kind-of-language-it-is)
-9. [Tables, types, schemas and keys in SQL](#9-tables-types-schemas-and-keys-in-sql)
-10. [Data definition and manipulation](#10-data-definition-and-manipulation)
-11. [Queries: selection, projection, aggregation](#11-queries-selection-projection-aggregation)
-12. [Joins](#12-joins)
-13. [SQL injection](#13-sql-injection)
-14. [Summary](#14-summary)
-15. [Check yourself](#15-check-yourself)
-16. [References](#16-references)
+1. [Databases](#databases)
+2. [Relational databases](#relational-databases)
+3. [Structured Query Language (SQL)](#sql)
 
 ---
 
@@ -40,8 +21,8 @@
 ## Motivating examples
 
 Three candidate openings for this session, each a real situation the
-material is the answer to. **One of these will be used in the lecture**;
-the others are kept here because they are worth reading anyway.
+material is the answer to. **One of these will be used in the lecture**,
+and the others are kept here because they are worth reading anyway.
 
 <!-- MOTIVATION:M11-A:BEGIN -->
 ### A · The 15 841 cases that fell off the end of a spreadsheet
@@ -60,17 +41,17 @@ completed successfully every day.
 It is easy to file this under "someone used the wrong tool", and the tabloid
 version did. The more useful reading is to ask what a proper database would
 have given, item by item, because each item is a topic of this session. Scale
-is not the point; silence is. Any storage system has limits, and what matters
-is whether exceeding one produces an error or a wrong answer; a database
+is not the point, but silence is. Any storage system has limits, and what matters
+is whether exceeding one produces an error or a wrong answer. A database
 rejects an insert it cannot perform and tells you, and it does not quietly
 keep the first 65 536 rows. Constraints are enforced by the store and not by
-the user: a schema declaring that a test result must have a patient
+the user. For example, a schema declaring that a test result must have a patient
 identifier, a date and a valid result code makes malformed data impossible to
 insert, while in a spreadsheet the rules live in the head of whoever is doing
-the work. Transactions are all or nothing: a load that fails halfway leaves
+the work. Transactions are all or nothing, so a load that fails halfway leaves
 the database as it was, not partially updated with no record of which part,
-and that is atomicity, one of the ACID properties. Concurrency is handled:
-multiple labs writing at once is the normal case for a database and a recipe
+and that is atomicity, one of the ACID properties. Concurrency is handled,
+since multiple labs writing at once is the normal case for a database and a recipe
 for lost updates with files on a shared drive. And there is one copy, so the
 question of how many positives there were on 28 September has exactly one
 answer, rather than one per person who has a copy of the file. None of this
@@ -106,7 +87,7 @@ Trace the interleaving. Agent A reads 1. Before A writes, agent B also reads
 1. Both see a free seat, both write 0, both issue a ticket. The seat has been
 sold twice, and the seat count says 0, which is consistent with either one
 sale or a hundred. Read the code of either program in isolation and it is
-flawless. The defect does not exist in either one; it exists in the
+flawless. The defect does not exist in either one. Instead, it exists in the
 interleaving, and interleavings are not visible in the source of any single
 program. This is a race condition, and it is the reason why concurrent
 systems are hard in a way that sequential ones are not. It is also not a rare
@@ -125,8 +106,8 @@ Isolation means that the outcome of running transactions concurrently must
 equal the outcome of running them one after another in some order, and this
 is the property that rules out the interleaving above. Durability means that
 once a transaction is confirmed, it survives a crash, a power cut, or the
-server catching fire. Isolation is the deep one and worth stating carefully:
-it does not say that transactions run one at a time, which would be unusably
+server catching fire. Isolation is the deep one and worth stating carefully.
+It does not say that transactions run one at a time, which would be unusably
 slow. It says that the result must be indistinguishable from some serial
 order, and the database is free to interleave as aggressively as it likes,
 provided that nobody can tell.
@@ -138,14 +119,14 @@ standardization. Section 1 introduces the flight-reservation and
 vaccine-distribution examples that run through the lecture, both of which
 are this problem at scale. The connection forward is that session 12 meets
 the same problem in the hardware, two threads incrementing a shared counter,
-and reaches for the same solution: any time two things share mutable state,
+and reaches for the same solution, namely that any time two things share mutable state,
 "check, then act" is unsafe unless something guarantees that it is one step.
 <!-- MOTIVATION:M11-B:END -->
 <!-- MOTIVATION:M11-C:BEGIN -->
 ### C · Whose number is right?
 
 This one has no dramatic outcome and no news coverage, which is why it is
-worth including: it is what actually happens in research groups. A project
+worth including, because it is what actually happens in research groups. A project
 keeps a participant list. It starts as one file. Someone needs it for an
 analysis and copies it. Someone else needs a version with the new wave merged
 in. A third person keeps the master but is on leave when a participant
@@ -156,13 +137,13 @@ differ by 47, nobody knows which file is authoritative, and the only way to
 find out is to reconcile three files by hand, assuming that the changes are
 even recoverable, which they usually are not, because none of them was
 recorded as a change. Nobody was careless. Each person did a correct and
-necessary thing to the copy in front of them. The failure is architectural:
-the same fact was stored in more than one place, so it became possible for
+necessary thing to the copy in front of them. The failure is architectural,
+because the same fact was stored in more than one place, so it became possible for
 the copies to disagree, and once that is possible it is only a matter of
 time.
 
 The answer of the relational model is a design principle, and it is the
-through-line of this session: every fact should be stored in exactly one
+through-line of this session, namely that every fact should be stored in exactly one
 place. That is what a primary key enforces within a table, one row per
 participant, identified by an identifier that never changes even if the name
 does. It is what a foreign key enforces between tables, since other tables
@@ -175,7 +156,7 @@ above. An insertion anomaly means that you cannot record a fact because there
 is nowhere to put it without inventing unrelated data. A deletion anomaly
 means that removing one record silently destroys unrelated information that
 happened to live in the same row. A shared database does not make people more
-careful. It makes the careless outcome structurally impossible: there is one
+careful. It makes the careless outcome structurally impossible, because there is one
 row for each participant, one place to change the name, and a record of who
 changed it and when.
 
@@ -186,23 +167,22 @@ store beats a folder of files. Section 5 is about transactions, which is the
 same argument for simultaneous edits rather than sequential ones. The
 question to ask of your own project is how many files you have to edit if a
 value changes. If the answer is more than one, you have already built the
-failure above; it just has not surfaced yet.
+failure above, and it just has not surfaced yet.
 <!-- MOTIVATION:M11-C:END -->
 ---
 
 <!-- MOTIVATION-SECTION:END -->
-## 1. Why databases exist: two examples
-
+## 1. Why databases exist: two examples {#databases}
 The lecture opens with two examples. A flight reservation system has to know,
 at every instant, which seats on which flights are free, and it has to answer
-that question for thousands of agents at once; two people must not be sold
+that question for thousands of agents at once. Two people must not be sold
 the same seat, and a booking that fails halfway, with the seat taken but the
 payment not charged, must leave no trace. A vaccine distribution system
 receives doses at a warehouse, ships them to vaccination centers,
-administers them to named people on given dates, and schedules second doses;
-the same person appears in several places, the same batch appears in several
+administers them to named people on given dates, and schedules second doses.
+The same person appears in several places, the same batch appears in several
 places, and everything has to stay consistent as the information flows
-through the system. Both examples share the same three problems: many users
+through the system. Both examples share the same three problems, namely many users
 at the same time, data that refers to other data, and operations that must
 not be left half done. Those three problems are what the rest of this lecture
 is about.
@@ -218,11 +198,11 @@ way. A *database management system* (DBMS) is a software application that
 enables the interaction between the user and the actual database. It
 implements the definition, creation, querying, updating and administration
 of a database, the data may be distributed at different locations, and
-examples are MySQL, PostgreSQL, Access and Oracle; SQLite, a whole DBMS in a
+examples are MySQL, PostgreSQL, Access and Oracle, while SQLite, a whole DBMS in a
 single file, is the one you will probably use first. Formally, a *database*
 (DB) is a set of related data together with the formal organization and
 interdependence of these data, and access to and manipulation of the data are
-provided through a corresponding DBMS. The distinction matters: the database
+provided through a corresponding DBMS. The distinction matters, because the database
 is the data plus its organization, and the DBMS is the program that stands
 between you and it. When people say "we use Postgres" they are naming the
 DBMS, not the database. The familiar cylinder icon of a database, by the way,
@@ -267,22 +247,22 @@ users.
 ## 4. Why use a database?
 
 There are three reasons to use a database, and each of them solves a problem
-you have already met in this course. The first is *data independence*:
-applications and users do not need to worry about how the data are
+you have already met in this course. The first is *data independence*,
+which means that applications and users do not need to worry about how the data are
 structured and stored. Logical data independence protects them from changes
 to the logical structure of the data, so that a new entity or attribute can
 be added without affecting existing usage, and physical data independence
 protects them from changes of the physical layout, so that the user does not
 have to care about information coding, disk space and the like. The second
-connects directly to session 2: whether a date is stored as a 32-bit integer
+connects directly to session 2, since whether a date is stored as a 32-bit integer
 or as a string is exactly the sort of thing you do not want in your analysis
-script. The second reason is *standardization*: data formats and methods of
+script. The second reason is *standardization*, which means that data formats and methods of
 accessing data are platform independent. Recall the problems of parsing a
 CSV file with conflict events in Python, where every reader has to guess the
 encoding, the separator, the quoting convention and what a missing value
 looks like, because a CSV file has no schema. A database has one, and it can
 serve flexible output schemas to different users and purposes from the same
-stored data. The third reason is *concurrency*: a database allows the
+stored data. The third reason is *concurrency*, which means that a database allows the
 simultaneous usage by many users without the problem of conflicting
 updates, using robust protocols that avoid database corruption. This is the
 flight booking problem, and it is the subject of the next section and, at
@@ -293,7 +273,7 @@ the hardware level, of session 12.
 ## 5. Transactions and ACID
 
 A *transaction* is a series of data manipulations that must not be
-interrupted: all the operations in a transaction have to be fully performed
+interrupted, i.e. all the operations in a transaction have to be fully performed
 or completely rewound. Database transactions have four properties,
 remembered by the acronym ACID. *Atomicity* means that each transaction
 stands on its own and that a rewind is possible. *Consistency* ensures that
@@ -308,14 +288,13 @@ the money has left A and not arrived at B. Isolation says that if someone
 reads both balances while the transfer runs, they see either the state
 before or the state after, never the middle. Durability says that once the
 DBMS reports success, pulling the plug does not undo it. Isolation is the
-deep one, and it is worth stating in the vocabulary of session 12:
-concurrent execution is only acceptable if its result is indistinguishable
+deep one, and it is worth stating in the vocabulary of session 12.
+Concurrent execution is only acceptable if its result is indistinguishable
 from some serial execution.
 
 ---
 
-## 6. Database models: flat and relational
-
+## 6. Database models: flat and relational {#relational-databases}
 *Database models* fundamentally define the structure of a database. They set
 its logical structure in terms of data storage, organization and
 manipulation, and they are ultimately about how the relationship between
@@ -323,8 +302,8 @@ related pieces of information is represented. The *flat model*, also known as
 the spreadsheet, is a single two-dimensional array of data elements in which
 the members of a row are related, forming an entry, and the members of a
 column describe the same property or characteristic. The *relational model*
-represents the data through sets of linked tables that share a common key;
-the intuition is that of many spreadsheets, each storing a specific piece of
+represents the data through sets of linked tables that share a common key,
+and the intuition is that of many spreadsheets, each storing a specific piece of
 information, linked through a unique key. The lecture shows what is wrong
 with the flat model on the purchase table:
 
@@ -341,7 +320,7 @@ with the flat model on the purchase table:
 
 Data is repeated across the table. That is an inefficient use of space, since
 the birth year of Hans is stored three times, and it creates problems when
-updating: if the Productnr of Milk is now 00333, you must find and change
+updating. For example, if the Productnr of Milk is now 00333, you must find and change
 every row where the product is Milk, and if you miss one, the table contains
 two contradictory facts. That second failure mode is called an *update
 anomaly* in the literature, and it is the reason why the relational model
@@ -385,7 +364,7 @@ update, and it cannot be done inconsistently.
 
 The *primary key* is the `Nr` column of each table, a value that uniquely
 identifies a row. *Foreign keys* reference primary keys, on another table or
-on the same table: in `purchase`, the columns `Name` and `Product` are
+on the same table. For example, in `purchase`, the columns `Name` and `Product` are
 foreign keys that hold `Nr` values of `Names` and `Product`. A foreign key is
 a promise that the DBMS can enforce, because you cannot insert a purchase
 that refers to product 7 if there is no product 7. That is *referential
@@ -411,15 +390,14 @@ forms*. In the example above, `Class` is still stored as a string inside
 | 2 | W1 |
 
 Now we can update the name of a class without having to edit the `Names`
-table, let alone the `purchase` table: renaming class T1 to "Tuesday-1" is a
+table, let alone the `purchase` table, since renaming class T1 to "Tuesday-1" is a
 single-cell edit. The general recipe behind normalization is that every
 fact should be stored in exactly one place. When you find yourself repeating
 a value, that value probably wants its own table with its own key.
 
 ---
 
-## 8. SQL: what kind of language it is
-
+## 8. SQL: what kind of language it is {#sql}
 SQL is a special-purpose language specifically developed for managing data
 through relational database systems. It consists of three co-dependent
 language definitions. The *data definition language* (DDL) defines relational
@@ -431,17 +409,17 @@ and modifies user access rights. SQL is a very high-level programming
 language. Its performance is good because the actual operations are well
 optimized, there are many different standards but typical DBMSs support
 all of them, and its execution is highly parallelizable by construction. SQL
-is also a *declarative* language: you define what you want, and the DBMS
+is also a *declarative* language, which means that you define what you want, and the DBMS
 takes care of how to do it. You can also write procedural SQL with special
 instructions, but it is very inefficient.
 
 This is the sharpest contrast with everything else in the course. In session
-4 you wrote how: loop over this, test that, append to the other. In SQL you
+4 you wrote how, e.g. loop over this, test that, append to the other. In SQL you
 state the property that the answer has, and the query planner of the DBMS
 chooses the algorithm, that is, which index to use, which join order, and
 whether to sort or to hash. That is also why SQL parallelizes so well, as we
-will see in session 12: you never committed to an order of operations, so the
-system is free to choose one. The flow is always the same: the query goes as
+will see in session 12, because you never committed to an order of operations, so the
+system is free to choose one. The flow is always the same. The query goes as
 SQL to the DBMS, the DBMS works on the database, and the result comes back.
 
 ---
@@ -463,17 +441,17 @@ lecture is a product table:
 | MultiTouch | $203.99 | Hitachi |
 
 Can we have the same row twice? Yes, and the word "multiset" is doing real
-work in the definition: a SQL table is a bag, not a set, so duplicate rows
+work in the definition, because a SQL table is a bag, not a set, so duplicate rows
 are allowed unless a key or a constraint forbids them. This is one of the
 places where SQL departs from the pure relational model of the theory.
 Regarding types, SQL has atomic types for characters, such as `CHAR(20)` and
 `VARCHAR(50)`, for numbers, such as `INT`, `BIGINT`, `SMALLINT` and `FLOAT`,
 and others such as `MONEY` and `DATETIME`. Every attribute must have an atomic
-type, and consequently tables in SQL are always flat: cells, in principle,
-should not contain lists or matrices. Compare with session 3: a Python list
+type, and consequently tables in SQL are always flat, i.e. cells, in principle,
+should not contain lists or matrices. Compare with session 3, where a Python list
 can contain a list and a dictionary can contain a dictionary, but a SQL cell
 cannot. If you want a one-to-many relationship, you do not put a list in a
-cell; you make another table. That is the relational model in one sentence.
+cell. Instead, you make another table. That is the relational model in one sentence.
 
 The *schema* of a table is its name, its attributes and their types. In our
 example it is
@@ -484,9 +462,9 @@ Product: (PName: string, Price: float, Manufacturer: string)
 
 A *key* is a minimal subset of attributes that acts as a unique identifier
 for the tuples of a relation. It is an implicit constraint on which tuples
-can be in the relation: if two tuples in the same table agree on the values
+can be in the relation, i.e. if two tuples in the same table agree on the values
 of the key, they must be the same tuple. In the schema the key is underlined,
-and in our example it is `PName`. Note the word minimal: `(PName, Price)`
+and in our example it is `PName`. Note the word minimal, because `(PName, Price)`
 also identifies rows uniquely, but it is not a key, because a proper subset
 of it already does.
 
@@ -500,7 +478,7 @@ The data definition language creates tables. The statement
 CREATE TABLE extable(col1 INTEGER, col2 VARCHAR(50), PRIMARY KEY (col1));
 ```
 
-initializes an empty table with the specified schema: its name, its
+initializes an empty table with the specified schema, i.e. its name, its
 attributes and its keys. The data manipulation language changes their
 content. An `INSERT` adds a row,
 
@@ -524,16 +502,16 @@ UPDATE Table1 SET C1 = C1 + 1 WHERE C2 = 'a';
 | 3 | a | | **4** | a |
 | 4 | x | | 4 | x |
 
-Read it carefully: `SET C1 = C1 + 1` is an assignment and not an equation,
+Read it carefully, because `SET C1 = C1 + 1` is an assignment and not an equation,
 the same distinction as between `←` and `=` in our pseudocode conventions,
 and the `WHERE` clause is the only thing standing between you and updating
 every row of the table. `DELETE FROM example WHERE column2 = 'N';` removes
-rows, and `DROP TABLE table_name;` removes a whole table; many things can be
+rows, and `DROP TABLE table_name;` removes a whole table, and many things can be
 dropped, including indices, columns and whole databases. Finally,
 `ROLLBACK` discards all the data changes since the last `COMMIT` or
 `ROLLBACK`. By default, a set of manipulations is part of a transaction that
 is executed and finished when we call `COMMIT`, so `ROLLBACK` is the
-atomicity of section 5 made operational: it is the rewind.
+atomicity of section 5 made operational, i.e. it is the rewind.
 
 ---
 
@@ -560,7 +538,7 @@ SELECT PName, Price FROM Product WHERE Manufacturer = 'GizmoWorks'
 ```
 
 returns the same two rows but only the `PName` and `Price` columns. The two
-words are worth keeping straight: selection cuts horizontally, choosing rows,
+words are worth keeping straight. Selection cuts horizontally, choosing rows,
 and projection cuts vertically, choosing columns. `WHERE` does the selection
 and the attribute list after `SELECT` does the projection, despite the name
 of the keyword. *Aggregation* collapses the rows into a summary:
@@ -573,7 +551,7 @@ SELECT AVG(Price) FROM Product WHERE Manufacturer = 'GizmoWorks'
 |---|
 | $24.99 |
 
-The whole table, after selection, collapses to a single row; other aggregate
+The whole table, after selection, collapses to a single row. Other aggregate
 functions are `COUNT`, `SUM`, `MIN` and `MAX`. *Grouping* applies the
 aggregate to each group separately:
 
@@ -639,15 +617,15 @@ The lecture asks three questions about this result. Why are there only four
 rows when `purchase` had eight? Because rows 5 to 8 of `purchase` refer to
 products 3 and 4, which do not exist in `Product`, so the condition
 `purchase.Product = Product.Nr` is never satisfied for them and they are
-dropped. This is exactly what an inner join does: unmatched rows disappear
+dropped. This is exactly what an inner join does. Unmatched rows disappear
 silently, and in real data that silence is dangerous, so always check the row
 count of a join against what you expected. Why are there new column names?
 Because both tables have a column called `Product`, so the result would be
 ambiguous, and SQL qualifies them with the table name as `purchase.Product`
-and `Product.Product`. The same happens to `Nr`, which both tables have; a
+and `Product.Product`. The same happens to `Nr`, which both tables have. A
 real DBMS returns both `purchase.Nr` and `Product.Nr`, and the slide shows
 only the first for space. And how many rows would we get with `SELECT * FROM
-purchase, Product;`? Sixteen, that is, $8 \times 2$: without a `WHERE`
+purchase, Product;`? Sixteen, that is, $8 \times 2$, because without a `WHERE`
 condition, listing two tables in `FROM` produces the Cartesian product, every
 row of the first paired with every row of the second, which is why a
 forgotten join condition on two large tables is a classic way to bring a
@@ -673,7 +651,7 @@ SELECT * FROM purchase INNER JOIN Product USING (ProductID);
 | 4 | 06.03.2020 | 3 | 1 | Milk | 00111 |
 
 This is the same result as the manual join, but the shared key appears once
-and the intent is explicit. Prefer the explicit `JOIN` syntax: a missing
+and the intent is explicit. Prefer the explicit `JOIN` syntax, because a missing
 `WHERE` in the manual form is a silent Cartesian product, whereas a missing
 `ON` or `USING` in the explicit form is a syntax error. There are different
 kinds of joins, based on set operations. An `INNER JOIN` keeps only the rows
@@ -681,7 +659,7 @@ that match in both tables, a `LEFT JOIN` keeps all the rows of the left table
 and matches them where possible, a `RIGHT JOIN` keeps all the rows of the
 right table, and a `FULL OUTER JOIN` keeps all the rows of both. If values
 are missing from one of the columns, they are set to `NULL`. That last
-sentence is the practical difference: a `LEFT JOIN` of `purchase` with
+sentence is the practical difference. A `LEFT JOIN` of `purchase` with
 `Product` would keep all eight purchases and put `NULL` in the product
 columns of rows 5 to 8, which makes the missing products visible instead of
 silently dropping them, and when you are doing data analysis that is usually
@@ -714,7 +692,7 @@ separately from the query text and the DBMS never confuses data with code:
 cursor.execute("SELECT * FROM Students WHERE name = ?", (name,))
 ```
 
-This is the same class of bug as the encoding confusions of session 2: something
+This is the same class of bug as the encoding confusions of session 2, in which something
 that is data gets interpreted as instructions. The pattern is worth recognizing, because it recurs everywhere
 in computing.
 
@@ -749,7 +727,7 @@ stored once.
 
 <details><summary>Answer</summary>
 
-It identifies rows uniquely, but it is not a key, because it is not minimal:
+It identifies rows uniquely, but it is not a key, because it is not minimal, since
 `PName` alone already does. A non-minimal set of attributes with the
 uniqueness property is called a superkey.
 
@@ -774,7 +752,7 @@ and, worse, to a shared mutable structure, as we will see in session 12.
 The join key is not unique in at least one table. Each row on one side
 matched several on the other, so the result has one row per matching pair.
 This is correct behavior, but it is almost always a sign that you
-misunderstood the grain of your data; check with `SELECT key, COUNT(*) …
+misunderstood the grain of your data. Check with `SELECT key, COUNT(*) …
 GROUP BY key HAVING COUNT(*) > 1`.
 
 </details>
@@ -785,7 +763,7 @@ GROUP BY key HAVING COUNT(*) > 1`.
 
 The first is atomicity, because the transaction was not all-or-nothing, and
 also durability if the partial state survives the crash. The second is
-isolation: a concurrent reader observed a state that no serial execution
+isolation, because a concurrent reader observed a state that no serial execution
 would ever produce.
 
 </details>
