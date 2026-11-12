@@ -21,43 +21,36 @@ Programming Using Python* (2016). References at the end.
 <!-- MOTIVATION-SECTION:BEGIN -->
 ## Motivating examples
 
-Two real cases of software that worked and still failed. In the first, an app
-did what it was asked to do and leaked what nobody had said must stay private.
-In the second, a phone system grew so large that nobody could change it any
-more. More code would not have prevented either failure. The first needed a
-written requirement and a test. The second needed the engineering that keeps
-code understandable after the people who wrote it have moved on.
-
 <!-- MOTIVATION:M04-A:BEGIN -->
 ### A · The app that leaked 13,000 photo IDs
 
-Tea is a US app on which women share warnings about men they have dated. To
+[Tea](https://en.wikipedia.org/wiki/Tea_%28app%29) is a US app on which women share warnings about men they have dated. To
 keep men out, it asked every new user to upload a selfie and, in many cases, a
-photo of an identity document, which moderators used to verify the account.
+photo of an identity document. Moderators used them to verify the gender of the account's user.
 In July 2025 a user of the forum 4chan posted the address of the online
 storage, a Firebase bucket, where these images were kept. The storage had no
 login and no access rule, so anyone who knew the address could list and
 download everything in it. About 72,000 images were copied and spread. Around
 13,000 of them were selfies and photo IDs, and the rest came from posts,
 comments and direct messages. Days later, a second problem exposed more than
-a million private messages, and the company disabled its messaging feature.
+a million private messages, so the company had to disable its messaging feature.
 
 Many people blamed vibe coding, the practice of building software by asking
-an AI tool for code and accepting what it produces. The person who first
-leaked the data said so too. The company says the exposed data came from a
-system built before February 2024. How the code was written does not change
+an AI tool for code and accepting what it produces. The company says the exposed data came from a
+system built before February 2024, thus saying it was not vibe coded. How the code was written does not change
 the lesson, which is about requirements and tests rather than about who typed
-the code. "Only moderators may see the identity photos, and only while they
-verify an account" is a requirement that anyone at the company would have
-agreed with if asked. Nobody wrote it down as part of what the system had to
+the code. *"Only moderators may see the identity photos, and only while they
+verify an account"* is a requirement that anyone at the company would have
+agreed with if anyone asked about it. But nobody wrote it down as part of what the system had to
 do, so nothing in the system enforced it. A single test, "try to download an
-ID photo without logging in", would have failed on the first day.
+ID photo without logging in", would have failed on the first day and exposed the problem.
 
-Section 6 of this session is about requirements, including the ones that are
+In this session you will learn about requirements, including the ones that are
 not about what the program computes but about how it must behave, such as
-security, privacy and safety. Section 7 is about the tests that check them.
+security, privacy and safety. We will also learn about the tests that check them.
 For research software, the analogue is a script that produces the right table
-and also writes the respondents' names into a file that ends up public.
+and also writes the respondents' names into a file that ends up public, while it should have been anonymized or pseudonymized.
+
 <!-- MOTIVATION:M04-A:END -->
 <!-- MOTIVATION:M04-D:BEGIN -->
 ### B · The 5 millimeters nobody could move
@@ -67,29 +60,29 @@ world's smartphones. It had grown for more than a decade, feature by feature
 and phone by phone, and every new model added code to it. In 2010 Juhani
 Risku, a former design executive at Nokia, told the technology magazine The
 Register what this meant in practice. His team wanted to move one element on
-the screen of a Nokia phone up by 5 millimeters, and could not. "We can't find
+the screen of a Nokia phone up by 5 millimeters but could not. *"We can't find
 the piece of code that could shift it up 5mm. There's 20 million lines of code
-in the phone, it's impossible." When Symbian was released as open source the
+in the phone, it's impossible."* When Symbian was released as open source the
 same year, its own foundation estimated the code at about 40 million lines,
 against about 11 million for Android. In 2011 Nokia gave up on Symbian and
 moved its smartphones to Windows Phone.
 
 Nobody wrote this code to be unchangeable. Every line was added for a reason,
 and every addition worked. What was missing was what keeps a large program
-changeable. Parts with one clear responsibility, so that a change to the
-screen layout touches one place. Documentation that says what each part does.
-Tests that tell you whether a change has broken something else. Without them,
+changeable and manageable. The code could not be navigated and separated into parts with one clear responsibility, so that a change to the
+screen layout touches one place, for example just a file. Beyond structure, this also requires documentation that says what each part does and tests that tell you whether a change has broken something else. Without them,
 the safest thing to do with code nobody understands is to leave it alone, and
-the program can only grow.
+the program can only grow and the problem gets larger and larger.
 
-Section 4 of this session presents object-oriented programming as a tool for
+In this session you will learn about object-oriented programming as a tool for
 exactly this problem, large programs maintained by many people for many years.
-Section 5 places writing code inside software engineering, where maintenance
-is a stage of its own, and section 7 is about the tests that make changes
+We will see the place of writing code inside software engineering, where maintenance
+is a stage of its own, and we will learn about the tests that make changes
 safe. For research code, the analogue is the analysis script that grew over a
 whole PhD, and that nobody, including its author, dares to touch the week
-before submission.
+before submission. Then another PhD student inherits the code and lots of headaches before they can start with their research.
 <!-- MOTIVATION:M04-D:END -->
+
 ---
 
 <!-- MOTIVATION-SECTION:END -->
@@ -98,14 +91,33 @@ before submission.
 computer how to perform a task. A *programming language* is a formal language
 for writing those instructions, either directly as machine code or as
 human-readable *source code* that is translated to machine code
-automatically. Two words in this definition carry the weight. The language is
-formal, which means that, unlike natural language, it has a precise grammar,
-and a text either is a program in the language or is not. The translation is
-automatic, so we write for humans and the machine executes something else.
+automatically. Programming languages are formal, which means that, unlike natural languages, they have a precise grammar that has been designed by humans and we can determine whether a text is written in a programming language or not. The translation between programming language and machine language is automatic, such that the programming language is to be written and read by humans while the machine executes something else that can be generated from the program code.
 
-Programming languages sit on a ladder from close to the machine to close to
-the human. The same small computation, the area of a triangle, looks very
-different on each rung, as the table below shows.
+<figure style="float:right; width:50%; margin:0.3em 0 0.8em 1.2em">
+<img src="../Slides/04-Software/figures/lovelace-program.jpg" alt="Note G" style="width:100%">
+<figcaption style="font-size:0.85em">Note G, Lovelace's program for the Analytical Engine to compute the Bernoulli numbers (1843)</figcaption>
+</figure>
+
+The first program was written before any computer existed. In 1843 Ada
+Lovelace (1815–1852), a mathematician and the daughter of the poet Lord
+Byron, translated an Italian engineer's article on the *Analytical Engine*, a
+mechanical computer designed by Charles Babbage. She added notes three times
+as long as the article. The last one, *Note G*, is a table of instructions,
+step by step, for the engine to compute the Bernoulli numbers, a sequence of
+numbers used in mathematics. It is considered the first published computer
+program, which makes Lovelace the first programmer. Babbage had written
+simpler examples before, but never published them. The engine was never
+built, so the program never ran. When it was run on modern computers, it
+turned out to contain a bug. In operation 4, the division goes the wrong way
+round. Lovelace also saw further than Babbage. She wrote that the engine
+could act on any symbols, not only on numbers, and "might compose elaborate
+and scientific pieces of music". The programming language Ada, developed for
+the US Department of Defense around 1980, is named after her.
+
+<div style="clear:both"></div>
+
+Programming languages are placed into levels that go from close to the machine to close to the human. The same small computation, the area of a triangle, looks very
+different on each level, as shown in the table below.
 
 | Level | Examples | What it is | The same computation |
 |---|---|---|---|
@@ -117,29 +129,26 @@ At the bottom, *machine code* is what the processor executes, and each
 processor family has its own instruction set. *Assembly language* gives
 readable names to machine instructions, so `MUL r1,r2` stands for one
 multiplication, and each assembly instruction becomes exactly one machine
-instruction. The *high-level languages* at the top are written for humans
-and run on any machine, and one of their lines becomes many machine
-instructions.
+instruction in binary code. The *high-level languages* at the top are written for humans and run on any machine, and one of their lines usually becomes many assembly lines that then are translated into many machine instructions.
 
 The translation from high-level code to machine code happens in one of two
-ways. An *interpreter* translates and runs the code one line at a time, on
-every run. It reads `x = 3`, translates and executes it, then does the same
-with the next line, and so on until the output appears. Errors appear when
-the line that contains them runs. Python, R and JavaScript, the languages of
-interactive data analysis, are interpreted. A *compiler* translates the whole
-program once, before it runs, into a file of machine code. That file can then
-run many times, fast, and many errors are found before anything runs. C and
-C++ are compiled, and Java compiles to an intermediate code that is then
-interpreted. Either way, the machine executes exactly what is written, not
-what you meant. That is the reason for the second half of this session.
+ways. An *interpreter* translates and runs the code one line at a time each time the program is run. It reads `x = 3`, translates and executes it, then does the same
+with the next line, and so on until the lines in the input are over. Errors appear when the interpreter runs the line that contains the error. Python, R and JavaScript, the languages of
+interactive data analysis, are all interpreted. 
 
-Vibe coding, which section 5 discusses, is programming too. It also turns a
-description into machine code automatically. The difference is that the
-description is in natural language. A language model writes the source code,
-and an interpreter or compiler translates it. What changes is *flakiness*. A
+![An interpreter translates and runs one line at a time, on every run](../Slides/04-Software/figures/04-interpreter.svg)
+
+A *compiler* translates the whole
+program once, before it runs, into a file of machine code that is commonly called a binary file. That file can then
+run many times, fast, and many errors are found before anything runs at compilation time. Finding errors after compilation requires a special program called a debugger to find how the errors map to lines in the original code.
+C and C++ are both compiled languages. Java is something close to a compiled language but instead of generating a binary that depends on the machine where it is run, it generates an intermediate code that is machine-independent and interpreted. 
+
+![A compiler translates the whole program once into a binary file, which then runs many times](../Slides/04-Software/figures/04-compiler.svg)
+
+Vibe coding, which we will discuss in section 5, is a kind of programming. It also turns a description of how to perform a task into a programming language that then can be compiled or interpreted into machine code, all automatically. The difference is that the description is in natural language rather than in a formal programming language. An unavoidable difference with traditional programming is *flakiness*. A
 compiler turns the same source code into the same machine code every time,
 while a language model can turn the same request into different code, with a
-different result, each time it is asked.
+different result, each time it is asked. 
 
 ---
 
@@ -151,7 +160,7 @@ computation. The basic split is between *imperative* programming and
 change the state of the program step by step, so it describes how to compute
 a result. A declarative program describes what the result should be and
 leaves the how to the system. Within the imperative family, *object-oriented*
-programming groups data and the instructions that operate on it into objects.
+programming groups data and the instructions into objects.
 Within the declarative family, *functional* programming expresses the result
 as the value of functions applied to other functions. You will meet the
 declarative style in SQL in session 11, and the functional style through
@@ -516,7 +525,7 @@ answer. Each part has one job and its own specification, and the design
 states what data flows between them. Here that is two lists of pairs, then a
 dictionary from pseudonym to a pair of answers.
 
-![The design of the panel example: three small functions and a helper](../Slides/04-Software/figures/04-design-pipeline.svg)
+![The design of the panel example: link_waves encapsulates its parts, read_wave feeds it and report uses its result](../Slides/04-Software/figures/04-design-pipeline.svg)
 
 Small parts have three advantages. They are easier to test, because each can
 be checked on its own with a few cases. They are easier to replace, because a
@@ -531,6 +540,21 @@ the two sets of keys. To serve first come, first served, use a queue, such as a
 waiting list for a seminar. The design is the architect's decision, because a
 coder, human or agent, writes better code inside a structure that was chosen
 for it than inside one it invented on the spot.
+
+Skipping the design does not save the work, it moves it to later and makes it
+larger. Without a design, every new need is patched into the program wherever
+it fits. The same email cleaning ends up in three places, so a fix in one of
+them leaves the other two wrong. A global variable that every function reads
+and changes connects everything with everything, so nobody can tell which part
+changed a value. Old functions stay because nobody knows whether something
+still calls them. The result is called *spaghetti code*, because following one
+strand means pulling at all the others. Every later change touches many parts,
+and no part can be tested on its own, since each depends on the state the
+others leave behind. Design is pre-work. An hour spent splitting the program
+into parts with clear connections saves days of coding, debugging and testing
+down the road.
+
+![With a design, each part has one job; without one, the parts are tangled into spaghetti code](../Slides/04-Software/figures/04-spaghetti.svg)
 
 ---
 
@@ -690,6 +714,20 @@ When nobody can tell what a change will break, nobody dares to make it.
 
 ![Maintenance: what changes when a third wave arrives](../Slides/04-Software/figures/04-maintenance.svg)
 
+What makes this maintenance possible is that the earlier stages left
+something behind. Each stage of the flow produces a document. The
+requirements are written down, the specification lives in the docstrings,
+the design is a diagram of the parts and their connections, the code is
+readable and commented, the tests form a suite that runs in seconds, and
+maintenance keeps a change log and the history of versions. Together these
+are the documentation of the software. The next iteration starts from it,
+instead of guessing from the code what each part does and what a change
+might break. Symbian shows what happens without it. With 20 million lines of
+code and no map of them, moving an element on the screen by 5 millimeters
+first required finding which part draws the screen and what depends on it.
+A design document would have said where, and tests would have said what
+breaks.
+
 ### What tests cannot do
 
 Edsger Dijkstra put the limit of testing in one sentence in 1970. "Program
@@ -717,7 +755,7 @@ def mean(xs):
     total = 0
     i = 0
     while i < len(xs):
-        # invariant: total == xs[0] + ... + xs[i-1]
+        # invariant: total == sum(xs[:i])
         total = total + xs[i]
         i = i + 1
     return total / len(xs)
@@ -859,6 +897,9 @@ correctness for every input.
   How to write the docstrings that serve as specifications.
 - **Karpathy, A. (2025).** The post that introduced the term "vibe coding",
   2 February 2025, on X.
+- **Tea (app).** Wikipedia, <https://en.wikipedia.org/wiki/Tea_%28app%29>.
+  Basic information on the app, officially *Tea Dating Advice*, its founding
+  and its 2025 data leaks. Motivating example A.
 - **Tea data leaks.** *TechCrunch* and *CNN*, 26 July 2025, and the reporting
   of *404 Media* on the second leak of private messages. Motivating example A.
 - **Orlowski, A. (2010).** "Rescuing Nokia? A former exec has a radical plan",

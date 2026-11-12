@@ -147,6 +147,30 @@ A formal language for writing those instructions, either directly as machine cod
 A coding agent automatically converts natural language into machine code, thus vibe coding is a type of programming. The main difference with traditional coding is **flakiness**: the same natural language request can lead to very different codes as a result.
 :::
 
+## The first programmer: Ada Lovelace
+
+:::: {.columns}
+::: {.column width="41%"}
+::: {.center-h}
+![](figures/ada-lovelace.jpg){height="6em"}
+
+:::
+
+::: {.xs}
+- **1843**: Ada Lovelace (1815–1852) writes notes on Babbage's **Analytical Engine**
+- **Note G** (right): a program for the engine to compute Bernoulli numbers, the first published program
+:::
+:::
+
+::: {.column width="59%"}
+![](figures/lovelace-program.jpg){width="96%"}
+
+::: {.source}
+Portrait: A. E. Chalon, c. 1840. Note G: Lovelace, 1843
+:::
+:::
+::::
+
 ## Levels of programming languages
 
 ::: {.tbl-lang}
@@ -401,12 +425,16 @@ False
 :::: {.columns}
 ::: {.column width="42%"}
 ::: {.sm}
-- **Encapsulation:** data and the methods that use it live together in one object
+- **Encapsulation:** data and the methods that use it live together in one object.
 :::
 :::
 
 ::: {.column width="58%"}
+
+::: {.center-h}
 ![](figures/04-oop-encapsulation.svg){height="8.4em"}
+
+:::
 
 ::: {style="font-size:1.2em"}
 ```python
@@ -429,7 +457,9 @@ ana.is_adult()  # True
 :::
 
 ::: {.column width="58%"}
+::: {.center-h}
 ![](figures/04-oop-abstraction.svg){height="8.4em"}
+:::
 
 ::: {style="font-size:0.99em"}
 ```python
@@ -452,7 +482,10 @@ s.upper()   # 'KONSTANZ', but how?
 :::
 
 ::: {.column width="58%"}
+::: {.center-h}
 ![](figures/04-oop-inheritance.svg){height="8.4em"}
+
+:::
 
 ::: {style="font-size:0.81em"}
 ```python
@@ -481,7 +514,10 @@ bea.is_adult()  # True: inherited
 :::
 
 ::: {.column width="58%"}
+::: {.center-h}
 ![](figures/04-oop-polymorphism.svg){height="8.4em"}
+
+:::
 
 ::: {style="font-size:0.79em"}
 ```python
@@ -534,11 +570,11 @@ The application of a systematic, disciplined approach to the development, operat
 :::
 
 ::: {.sm}
-Research code needs this too: it outlives the paper, and others build on it.
+Research code needs this too. Software outlives the paper and others build on it.
 :::
 
 ## A typical software engineering flow
-
+</br>
 ![](figures/04-se-flow.svg){width="100%"}
 
 ::: {.sm}
@@ -548,21 +584,26 @@ Research code needs this too: it outlives the paper, and others build on it.
 
 ## Roles in a software team {.fit1}
 
+::: {.center-h}
 ![](figures/04-roles.svg){height="9.4em"}
+:::
 
 ::: {.sm}
 - Each stage has an owner: the **analyst** finds out what is needed, the **architect** splits the work, the **coder** implements, the **tester** checks, the **maintainer** keeps it running
 - The **coder** can be a person or a coding agent: both work from the same instructions
-- In research you often play every role yourself; skipping a role skips its stage
+- In academic research you often play every role yourself but in industry you will have to work with more people
 :::
 
-## Vibe coding in the flow
+## Vibe coding done right
 
+::: {.center-h}
 ![](figures/04-se-flow-vibe.svg){width="100%"}
+
+:::
 
 ::: {.sm}
 - **Vibe coding**: describe what you want, accept the generated code without reading it, and see whether it seems to work
-- A coding agent can take the **coder's** role. **Every other role remains yours**: those stages failed at Tea and at Nokia
+- A coding agent can take the **coder's** role. Agents can sometimes help on the design and the testing but especially requirements and specifications are dangerous to vibe code
 :::
 
 ## Requirements, specifications, and design
@@ -577,13 +618,16 @@ Research code needs this too: it outlives the paper, and others build on it.
 ## Our example: a panel survey in two waves {.fit2}
 
 ::: {.example .sm}
-*"We asked the same people the same question in spring and in autumn. I need everyone's two answers side by side, to see who changed their mind. Please, no email addresses in what I share with the team."* (Ana, the client)
+Ana, the client, says: *"We asked the same people the same question in spring and in autumn. I need everyone's two answers side by side to see who changed their mind. Please, no email addresses in what I share with the team."*
 :::
 
+::: {.center-h}
+
 ![](figures/04-panel-example.svg){width="100%"}
+:::
 
 ::: {.sm}
-This request goes through every stage and every role with us, from requirements to maintenance
+Here we use this request as an example that goes over each stage of the sofware engineering flow, from requirements to maintenance
 :::
 
 ## What are requirements? {.fit1}
@@ -592,15 +636,15 @@ This request goes through every stage and every role with us, from requirements 
 [Definition: Requirements]{.label}
 
 ::: {.sm}
-What the software must achieve, for whom, and under which constraints, in the words of the people who need it.
+Description of what the software must achieve, for whom, and under which constraints and conditions. This is written in the words of the people who need it.
 :::
 :::
 
 ::: {.sm}
-- The **analyst** collects them from the **client**, who may be a research team, a colleague, or yourself in three months
+- The **analyst** collects requirements from the **client**, who may be a research team, a colleague, a target user, or yourself in three months
 - They describe the need, not the program. *"Everyone's two answers side by side, with no email addresses"* is a requirement
 - Four questions find most of them. **Who** uses it? With **which data**? What must **never** happen? When is it **done**?
-- A misunderstanding found here costs a conversation. Found after the code is written, it costs the code
+- A misunderstanding found here costs a conversation with the client. Found after the code is written, it costs work and risks that can be avoided.
 :::
 
 ## Functional and non-functional requirements {.fit1}
@@ -609,17 +653,26 @@ What the software must achieve, for whom, and under which constraints, in the wo
 ::: {.column width="50%"}
 ::: {.concept .sm}
 [Functional]{.label}
-What output for what input
 
-- people in both waves are paired, also if they typed their email differently
-- an empty wave raises an error
+**Functional requirements map inputs to outputs.**
+
+In the example:
+
+- Only people in both waves are paired, also if they typed their email differently. 
+
+- People only in one wave do not appear in the output
+
+- An empty wave raises an error
+
 :::
 :::
 
 ::: {.column width="50%"}
 ::: {.concept .sm}
 [Non-functional]{.label}
-How the program must behave beyond its outputs
+**How the program must behave beyond its outputs**
+
+In the example: 
 
 - **security**: users see only their own data
 - **privacy**: no email addresses in the output
@@ -630,7 +683,7 @@ How the program must behave beyond its outputs
 ::::
 
 ::: {.sm}
-Tea met its functional requirements. Nobody had written down the non-functional ones.
+Tea met its functional requirements because users could talk with each other as intended. Nobody had written down the non-functional requirements, especially not the one about who is allowed to access user pictures.
 :::
 
 ## What is a specification?
@@ -644,18 +697,18 @@ A precise description of **what** a program must do, without saying **how**.
 :::
 
 ::: {.sm}
+- Essentially a better-written version of a requirement.
 - The **inputs**, and what may be assumed about them (the *preconditions*)
 - The **outputs**, and what is guaranteed about them (the *postconditions*)
-- What happens in **edge cases and errors**
-- What the program must **never** do
+- What happens in **edge cases and errors** and what the program must **never** do
 - The analyst writes it for two readers. The **coder** implements it, and the **tester** checks the code against it
 :::
 
 ::: {.xs}
-You already know the format. Every procedure in this course starts with `Inputs:` and `Result:`
+In this course, you find specifications for each algorithm next to `Inputs:` and `Result:`
 :::
 
-## An ambiguous request
+## From ambiguous request to specification
 
 ::: {.example}
 ::: {.sm}
@@ -694,8 +747,9 @@ def link_waves(wave1, wave2):
 :::
 
 ::: {.sm}
-- Each line answers one of the five questions, and one more line settles the empty case
-- Nothing here says **how** to link the waves
+- Each line answers one of the five questions
+- One extra line settles the empty case
+- Nothing here says **how** to link the waves, only **what** we want
 :::
 
 ## The specification is the coder's instructions {.fit2}
@@ -718,28 +772,58 @@ def link_waves(wave1, wave2):
 :::
 ::::
 
-::: {.sm}
-- Precise instructions get better code from any coder, and they give you something to **check** the code against
+- Precise instructions get better code from any coder.
+- **Important:** specifications give you something to **test** the code against
 - A rule that must never be broken needs more than instructions. Enforce it with permissions, backups, and separate test and production data
-:::
+
 
 ## One specification, any coder
 
-![](figures/04-any-coder.svg){width="100%"}
+::: {.center-h}
+![](figures/04-any-coder.svg){width="90%"}
 
-::: {.sm}
-- A colleague and a coding agent receive **the same instructions**, and their code has to pass **the same tests**
-- The tester writes the tests from the specification, not from the code, so they check what was asked rather than what was written
 :::
 
-## Design: small parts with clear connections
+::: {.sm}
+- A colleague and a coding agent receive **the same instructions** and their code has to pass **the same tests**
+- The tester writes the tests from the specification, not from the code. Tests are done against was asked rather than what was coded.  
+- Ideally, coders and testers are different people (and tend to hate each other)
+:::
 
-![](figures/04-design-pipeline.svg){width="100%"}
+## What, not how
+
+:::: {.columns}
+::: {.column width="30%"}
+::: {.center-h}
+![](figures/xkcd-1425-tasks.png){height="12.4em"}
+:::
+:::
+
+::: {.column width="70%"}
+::: {.sm}
+- Requirements and the specification say **what** the software must do. The design says **how**
+- Clients and analysts describe the need and the result, not the solution. *"Everyone's two answers side by side"* leaves the how open
+- The how decides the **cost**. Two requests that sound alike can differ by years of work, as in the comic
+- Estimates of cost and effort are made at the **design** stage, once the architect knows how the work will be split
+:::
+:::
+::::
+
+::: {.source}
+xkcd 1425, "Tasks", by Randall Munroe (2014), CC BY-NC 2.5
+:::
+
+## Design: Small subtasks with clear connections {.fit1}
+
+::: {.center-h}
+![](figures/04-design-pipeline.svg){width="88%"}
+
+:::
 
 ::: {.sm}
-- The **architect** splits the program into **small parts**, each with one job and its own specification
-- The architect also decides **what data flows between the parts**, and in which data structure
-- Small parts are easier to test, easier to replace, and easier to hand to a coder, one specified function at a time
+- The **architect** designs how to implement the specifications by breaking the  program into **small parts**, each with one job and its own specification
+- The architect also decides **what data flows between the parts** and in which data structure
+- Small parts are easier to test, easier to replace, and easier to hand to a coder. They are usually the size of a function or a kind of atomic component
 :::
 
 ## Design: choosing the data structures
@@ -750,12 +834,25 @@ def link_waves(wave1, wave2):
 | keep items in order | list | the (email, answer) pairs of a wave |
 | look something up by a key | dictionary | pseudonym → answer, one per wave |
 | check membership fast | set | the pseudonyms in both waves |
-| serve first come, first served | queue | a waiting list for a seminar |
+| serve first come, first served | queue | a waiting list for a seminar (to be covered in session 5)|
+:::
+
+</br>
+
+A coder, human or agent, writes better code inside a structure the architect chose than inside one it invented on the spot
+
+## Skipping the design: spaghetti code
+
+::: {.center-h}
+![](figures/04-spaghetti.svg){height="8.1em"}
 :::
 
 ::: {.sm}
-A coder, human or agent, writes better code inside a structure the architect chose than inside one it invented on the spot
+- Without a design, every new need is patched in wherever it fits: duplicated parts, a global variable that everything changes, code nobody dares to remove
+- Every later change then touches many parts, and no part can be tested on its own
+- Design is **pre-work**: an hour of design saves days of coding, debugging and testing down the road
 :::
+
 
 ## Testing
 
@@ -772,7 +869,7 @@ A coder, human or agent, writes better code inside a structure the architect cho
 [Definition: Test]{.label}
 
 ::: {.sm}
-A small program that runs your code on an input whose correct output you know, and checks that the code produces it.
+A small program that runs your code on an input whose correct output you know, and checks that the code produces the expected output.
 :::
 :::
 
@@ -785,26 +882,29 @@ assert "ana@uni.de" not in str(link_waves(w1, w2))
 ```
 :::
 
-::: {.sm}
 - The specification says what should happen. The **tester's** tests check that it does
-- A failing `assert` stops the program with an error. That is a loud failure instead of a quiet wrong number
-:::
+
+- A failing `assert` stops the program with an error. This makes errors loud and prevent quiet errors that are only detected later
+
 
 ## What is pytest?
 
+::: {.center-h}
 ![](figures/04-pytest.svg){height="7.9em"}
+:::
 
 ::: {.sm}
-- **pytest** is a Python package for running tests, installed once with `pip install pytest`
+- **pytest** is a Python package for running tests
+- You can install it with `pip install pytest`
 - A test is a function named `test_...` in a file named `test_...`. It **passes** if it runs to the end and **fails** on a failed `assert` or an unexpected error
 - One command finds all the tests, runs them, and reports which ones failed and why
 :::
 
-## Tests with pytest
+## Tests with pytest: the test file
 
 :::: {.columns}
-::: {.column width="50%"}
-::: {style="font-size:0.61em"}
+::: {.column width="64%"}
+::: {style="font-size:0.78em"}
 ```python
 # test_panel.py
 import pytest
@@ -822,8 +922,18 @@ def test_typical():
 :::
 :::
 
-::: {.column width="50%"}
-::: {style="font-size:0.61em"}
+::: {.column width="36%"}
+::: {.sm}
+- The test file imports the function it tests from `panel.py`
+- `W1` and `W2` are small test data, shared by all tests
+- `test_typical` checks the ordinary case. Ana answered in both waves, so there is one pair
+:::
+:::
+::::
+
+## Tests with pytest: edge cases
+
+::: {style="font-size:0.9em"}
 ```python
 def test_case_and_spaces_are_ignored():
     w2 = [(" Ana@Uni.de", "no")]
@@ -838,14 +948,12 @@ def test_empty_wave_raises():
         link_waves(W1, [])
 ```
 :::
-:::
-::::
 
 ::: {.sm}
 Each test checks one line of the specification. The last one uses `pytest.raises` to check that an error is raised
 :::
 
-## A first implementation meets the tests
+# Example: A quick implementation meets the tests
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -906,23 +1014,39 @@ Write one test for every line of the specification, and more wherever it draws a
 
 ## Test first, then implement
 
-![](figures/04-test-first.svg){width="100%"}
 
-::: {.sm}
-- The tests exist **before** the code, so they record what was meant and not what the code happens to do
-- The tests are your measurement. They replace the feeling that the code works with evidence that it does
+::: {.center-h}
+![](figures/04-test-first.svg){width="100%"}
 :::
 
-## Maintenance: the third wave arrives
+- The tests exist **before** the code, so they record what was meant and not what the code happens to do
+- The tests are your measurement. They replace the feeling that the code works with evidence that it does. Adapting tests to existing code is a mistake that invalidates the original purpose of testing
+
+
+## Maintenance example: the third wave arrives
 
 ::: {.example .sm}
 *"Great! In spring we run a third wave. Can we link all three?"* (Ana, a year later)
 :::
 
+::: {.center-h}
 ![](figures/04-maintenance.svg){width="88%"}
+
+:::
 
 ::: {.sm}
 The **maintainer** goes through the flow again on a small scale. First the specification changes, then the tests, then the code
+:::
+
+## The flow leaves documentation behind
+
+::: {.center-h}
+![](figures/04-documentation.svg){height="8.4em"}
+:::
+
+::: {.example .sm}
+[Symbian]{.label}
+20 million lines of code and no map of them. Moving an element by 5 mm needs to know which part draws the screen and what depends on it. A design document would have said where; tests would have said what breaks
 :::
 
 ## What tests cannot do
@@ -940,11 +1064,16 @@ Edsger W. Dijkstra, *Notes on Structured Programming* (1970)
 - For research code, the practical combination is a specification, tests, and **reading** the code you did not write
 :::
 
-## A proof instead of a test: a loop invariant {.fit2}
+## A proof instead of a test: a loop invariant {.fit1}
+
+::: {.concept .sm}
+[Loop invariant]{.label}
+A statement that is true before every turn of a loop. Here: `total` is the sum of the first `i` elements
+:::
 
 :::: {.columns}
-::: {.column width="50%"}
-::: {style="font-size:0.7em"}
+::: {.column width="52%"}
+::: {style="font-size:0.82em"}
 ```python
 def mean(xs):
     """xs: a non-empty list of numbers.
@@ -952,7 +1081,7 @@ def mean(xs):
     total = 0
     i = 0
     while i < len(xs):
-        # invariant: total == xs[0] + ... + xs[i-1]
+        # invariant: total == sum(xs[:i])
         total = total + xs[i]
         i = i + 1
     return total / len(xs)
@@ -960,25 +1089,20 @@ def mean(xs):
 :::
 :::
 
-::: {.column width="50%"}
-::: {.concept .sm}
-[Loop invariant]{.label}
-A statement that is true before every turn of a loop
-:::
-
+::: {.column width="48%"}
 ::: {.sm}
-1. **Before the loop**: `i` is 0 and `total` is 0, the sum of no elements. True
-2. **Each turn**: `total` gains `xs[i]` and `i` grows by 1, so `total` is again the sum of the first `i` elements. Still true
-3. **After the loop**: `i == len(xs)`, so `total` is the sum of all elements and line 10 returns the mean. The list is not empty, so there is no division by zero
+1. **Before the loop**: `i` and `total` are 0, the sum of no elements
+2. **Each turn**: `total` gains `xs[i]` and `i` grows by 1, so the invariant still holds
+3. **After the loop**: `i == len(xs)`, so `total` is the sum of all elements. The list is not empty, so there is no division by zero
 :::
 :::
 ::::
 
 ::: {.sm}
-A test checks one list. This argument covers **every** non-empty list. Verification tools check such arguments by computer, which is why they need a formal specification
+A test checks one list. This argument covers **every** non-empty list. Verification tools check such arguments by computer
 :::
 
-## Summary {.fit1}
+## Summary {.fit2}
 
 ::: {.sm}
 - A **program** is a precise list of instructions, run by an **interpreter** or translated by a **compiler**
@@ -987,6 +1111,10 @@ A test checks one list. This argument covers **every** non-empty list. Verificat
 - **Requirements** say what is needed, the **specification** says exactly what the program must do, and the **design** splits it into small parts
 - A **test** runs the code on cases with known answers. Write the tests first, then implement, whoever the coder is
 - With coding agents, implementation is cheap. **Everything around it** is the part you cannot delegate
+:::
+
+::: {.concept .xs}
+**Research assistant job opening:** help review the psychological literature for simulations of human behavior with LLMs. Interested? Drop me an email or talk to me after class
 :::
 
 **Next session:** Algorithms

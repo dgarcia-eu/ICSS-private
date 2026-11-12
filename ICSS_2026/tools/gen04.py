@@ -15,6 +15,7 @@ FONT = 'font-family="Arial, Helvetica, sans-serif"'
 MONO = 'font-family="DejaVu Sans Mono, Consolas, monospace"'
 SEEBLAU, SEEBLAU1, SEEBLAU2, SEEBLAU4 = "#00a9e0", "#cceef9", "#a6e1f4", "#59c7eb"
 KARPFEN, BORDEAUX, GREY, LIGHT = "#3e5496", "#8e2043", "#666666", "#f2f2f2"
+ORANGE = "#e07b00"
 
 
 def txt(x, y, t, fs=18, fill="#111", weight="normal", style="normal", anchor="middle", mono=False):
@@ -342,43 +343,52 @@ def script_to_software():
 
 # ============================================================ design: small parts with specifications
 def design_pipeline():
-    """The panel-wave example: three steps in a row, a helper below the main one."""
-    steps = [("read_wave(path)", "read one wave file", "into a list of pairs"),
-             ("link_waves(w1, w2)", "pair the answers of", "the people in both waves"),
-             ("report(pairs)", "how many changed", "their answer")]
-    data = ["2 lists of (email, answer)", "dict: pseudonym → pair"]
-    bw, gap, y = 300, 96, 20
+    """The panel-wave example: link_waves encapsulates its parts; read_wave feeds it, report uses it."""
     body = []
-    xs = [6 + k * (bw + gap) for k in range(3)]
-    for k, (fn, a, b) in enumerate(steps):
-        x = xs[k]
-        hl = k == 1
-        body.append(box(x, y, bw, 120, fill=SEEBLAU2 if hl else SEEBLAU1, stroke=KARPFEN if hl else SEEBLAU))
-        body.append(txt(x + bw / 2, y + 34, fn, 18, mono=True, weight="bold"))
-        body.append(txt(x + bw / 2, y + 70, a, 19, fill="#444"))
-        body.append(txt(x + bw / 2, y + 96, b, 19, fill="#444"))
-        if k < len(steps) - 1:
-            body.append(arrow(x + bw + 3, y + 60, x + bw + gap - 3, y + 60))
-    # data on the arrows, below the boxes
-    body.append(txt(xs[0] + bw / 2 + 40, y + 152, data[0], 18, fill=KARPFEN, style="italic"))
-    body.append(txt(xs[2] + bw / 2 - 40, y + 152, data[1], 18, fill=KARPFEN, style="italic"))
-    # the helper, used by link_waves
-    hx, hy = xs[1] + 10, y + 196
-    body.append(arrow(xs[1] + bw / 2, hy - 2, xs[1] + bw / 2, y + 123, dash="6 5"))
-    body.append(txt(xs[1] + bw / 2 + 8, y + 172, "uses", 17, fill=KARPFEN, style="italic", anchor="start"))
-    body.append(box(hx, hy, bw - 20, 100, fill=SEEBLAU1, stroke=SEEBLAU))
-    body.append(txt(hx + (bw - 20) / 2, hy + 32, "pseudonym(email)", 18, mono=True, weight="bold"))
-    body.append(txt(hx + (bw - 20) / 2, hy + 62, "clean the email, then a", 18, fill="#444"))
-    body.append(txt(hx + (bw - 20) / 2, hy + 86, "hash with a secret (session 3)", 18, fill="#444"))
-    body.append(txt(xs[2] + bw / 2, hy + 56, "link_waves is specified and", 18, fill=KARPFEN, style="italic"))
-    body.append(txt(xs[2] + bw / 2, hy + 80, "tested in the next sections", 18, fill=KARPFEN, style="italic"))
-    write("04-design-pipeline.svg", xs[2] + bw + 6, hy + 106, body)
+    ox, oy, ow, oh = 248, 12, 652, 316            # the enclosing link_waves(wave1, wave2)
+    body.append(box(ox, oy, ow, oh, fill="#f3fafd", stroke=KARPFEN, sw=3, rx=14))
+    body.append(txt(ox + 20, oy + 34, "link_waves(wave1, wave2)", 21, mono=True, weight="bold", anchor="start"))
+    body.append(txt(ox + ow - 18, oy + 34, "the step that was specified", 16, fill=KARPFEN, style="italic", anchor="end"))
+    # outside, before: read_wave
+    body.append(box(6, 112, 196, 116, fill=SEEBLAU1, stroke=SEEBLAU))
+    body.append(txt(104, 144, "read_wave(path)", 17, mono=True, weight="bold"))
+    body.append(txt(104, 176, "one file into a list", 16, fill="#444"))
+    body.append(txt(104, 198, "of (email, answer)", 16, fill="#444"))
+    # inside: by_person twice
+    for k, w in enumerate(["wave1", "wave2"]):
+        y = 66 + k * 96
+        body.append(box(290, y, 250, 76, fill=SEEBLAU2, stroke=SEEBLAU))
+        body.append(txt(415, y + 30, f"by_person({w})", 17, mono=True, weight="bold"))
+        body.append(txt(415, y + 56, "pseudonym → last answer", 16, fill="#444"))
+        body.append(arrow(204, 150 + k * 42, 286, y + 38))
+    body.append(txt(212, 116, "wave1", 15, fill=KARPFEN, style="italic", anchor="start"))
+    body.append(txt(212, 222, "wave2", 15, fill=KARPFEN, style="italic", anchor="start"))
+    # inside: the helper both use
+    body.append(arrow(415, 240, 415, 262, dash="5 4"))
+    body.append(txt(424, 256, "both use", 15, fill=KARPFEN, style="italic", anchor="start"))
+    body.append(box(300, 266, 230, 54, fill=SEEBLAU1, stroke=SEEBLAU))
+    body.append(txt(415, 288, "pseudonym(email)", 16, mono=True, weight="bold"))
+    body.append(txt(415, 310, "clean, then hash with a secret", 14, fill="#444"))
+    # inside: pair_up
+    body.append(box(612, 104, 262, 110, fill=SEEBLAU2, stroke=SEEBLAU))
+    body.append(txt(743, 136, "pair_up(first, second)", 17, mono=True, weight="bold"))
+    body.append(txt(743, 166, "pseudonyms in both:", 16, fill="#444"))
+    body.append(txt(743, 190, "a set intersection", 16, fill="#444"))
+    body.append(arrow(542, 104, 608, 140))
+    body.append(arrow(542, 200, 608, 178))
+    body.append(txt(743, 256, "and first of all:", 15, fill=ORANGE, style="italic"))
+    body.append(txt(743, 278, "an empty wave raises ValueError", 15, fill=ORANGE, style="italic"))
+    # outside, after: report
+    body.append(arrow(876, 159, 954, 159))
+    body.append(txt(929, 146, "pairs", 15, fill=KARPFEN, style="italic"))
+    body.append(box(958, 112, 210, 116, fill=SEEBLAU1, stroke=SEEBLAU))
+    body.append(txt(1063, 144, "report(pairs)", 17, mono=True, weight="bold"))
+    body.append(txt(1063, 176, "how many changed", 16, fill="#444"))
+    body.append(txt(1063, 198, "their answer", 16, fill="#444"))
+    write("04-design-pipeline.svg", 1176, 334, body)
 
 
 # ============================================================ roles and the panel example
-ORANGE = "#e07b00"
-
-
 def person(cx, cy, s=1.0, color=SEEBLAU4):
     """A person glyph: head and shoulders, centered at (cx, cy)."""
     r, w = 13 * s, 22 * s
@@ -646,6 +656,105 @@ def pytest_flow():
     write("04-pytest.svg", rx + 340, 310, body)
 
 
+# ============================================================ skipping the design: spaghetti
+def curve(x1, y1, x2, y2, bend=40, color=KARPFEN, sw=2.2, dash=""):
+    mx, my = (x1 + x2) / 2, (y1 + y2) / 2
+    dx, dy = x2 - x1, y2 - y1
+    n = max((dx * dx + dy * dy) ** 0.5, 1)
+    cx, cy = mx - dy / n * bend, my + dx / n * bend
+    d = f' stroke-dasharray="{dash}"' if dash else ""
+    return (f'  <path d="M {x1} {y1} Q {cx:.0f} {cy:.0f} {x2} {y2}" fill="none" stroke="{color}" '
+            f'stroke-width="{sw}"{d} marker-end="url(#a)"/>\n')
+
+
+def spaghetti():
+    body = []
+    # ---- left: with a design
+    body.append(txt(215, 26, "with a design", 22, weight="bold", fill=KARPFEN))
+    body.append(box(6, 120, 104, 70, fill=SEEBLAU1, stroke=SEEBLAU))
+    body.append(txt(58, 160, "read_wave", 14, mono=True, weight="bold"))
+    body.append(box(140, 50, 160, 220, fill="#f3fafd", stroke=KARPFEN, sw=2.5, rx=12))
+    body.append(txt(220, 72, "link_waves", 15, mono=True, weight="bold"))
+    for k, name in enumerate(["by_person", "pair_up", "pseudonym"]):
+        y = 88 + k * 58
+        body.append(box(156, y, 128, 44, fill=SEEBLAU2, stroke=SEEBLAU, sw=1.8))
+        body.append(txt(220, y + 28, name, 14, mono=True))
+    body.append(arrow(220, 133, 220, 144, sw=2))
+    body.append(box(330, 120, 100, 70, fill=SEEBLAU1, stroke=SEEBLAU))
+    body.append(txt(380, 160, "report", 14, mono=True, weight="bold"))
+    body.append(arrow(112, 155, 136, 155))
+    body.append(arrow(302, 155, 326, 155))
+    for k, line in enumerate(["each part has one job,", "one place to change,", "can be tested alone"]):
+        body.append(txt(215, 304 + k * 22, line, 16, fill="#333"))
+    # divider
+    body.append(f'  <line x1="460" y1="10" x2="460" y2="364" stroke="#cccccc" stroke-width="2" stroke-dasharray="6 6"/>\n')
+    # ---- right: without a design
+    body.append(txt(820, 26, "without a design: spaghetti code", 22, weight="bold", fill=ORANGE))
+    nodes = {"main": (500, 60, "analysis.py"), "load": (700, 52, "load_all()"), "clean": (930, 60, "clean()"),
+             "fix": (520, 170, "fix_emails()"), "merge": (760, 150, "merge_v2_final()"), "clean2": (1010, 170, "clean2()"),
+             "table": (560, 280, "make_table()"), "helper": (800, 270, "helper()"), "old": (1030, 280, "link_old()")}
+    W, H = 150, 46
+    def c(k):
+        x, y, _ = nodes[k]
+        return x + W / 2, y + H / 2
+    edges = [("main", "load", 30), ("load", "clean", -30), ("clean", "fix", 60), ("fix", "merge", -40),
+             ("merge", "clean2", 40), ("clean2", "load", 50), ("merge", "table", 30), ("table", "fix", -50),
+             ("helper", "merge", 40), ("main", "helper", -70), ("table", "clean", 80), ("helper", "clean2", -30),
+             ("fix", "load", 40), ("clean2", "table", 90)]
+    for a_, b_, bend in edges:
+        (x1, y1), (x2, y2) = c(a_), c(b_)
+        body.append(curve(x1, y1, x2, y2, bend, color="#9aa5c9", sw=2))
+    for k, (x, y, label) in nodes.items():
+        dead = k == "old"
+        body.append(box(x, y, W, H, fill="#ffffff" if dead else "#fff3e0", stroke=GREY if dead else ORANGE, sw=2,
+                        dash="6 4" if dead else ""))
+        body.append(txt(x + W / 2, y + 29, label, 14, mono=True, fill=GREY if dead else "#111"))
+    # global variable everyone touches
+    body.append(f'  <ellipse cx="850" cy="232" rx="56" ry="18" fill="#ffe0cc" stroke="{ORANGE}" stroke-width="2"/>\n')
+    body.append(txt(850, 237, "global DATA", 13, mono=True, weight="bold"))
+    for k in ["fix", "merge", "table", "clean2", "helper"]:
+        x, y = c(k)
+        body.append(f'  <line x1="{x}" y1="{y}" x2="850" y2="232" stroke="{ORANGE}" stroke-width="1.4" stroke-dasharray="3 3"/>\n')
+    notes = [(480, 350, "emails cleaned in three places"), (760, 350, "everything changes DATA"),
+             (1000, 350, "link_old(): nobody knows")]
+    for x, y, t in notes:
+        body.append(txt(x, y, t, 15, fill=ORANGE, style="italic", anchor="start"))
+    write("04-spaghetti.svg", 1190, 372, body)
+
+
+# ============================================================ the flow leaves documentation behind
+def documentation():
+    docs = [("Requirements", "requirements", "document"), ("Specification", "docstrings", ""),
+            ("Design", "design", "diagram"), ("Implementation", "readable code,", "comments"),
+            ("Testing", "test suite", ""), ("Maintenance", "change log,", "versions")]
+    body = []
+    xs = [X0 + i * (BW + GAP) for i in range(6)]
+    for i, (stage, d1, d2) in enumerate(docs):
+        x, cx = xs[i], xs[i] + BW / 2
+        body.append(box(x, 10, BW, 50, fill=SEEBLAU1, stroke=SEEBLAU))
+        body.append(txt(cx, 42, stage, 19, weight="bold"))
+        if i < 5:
+            body.append(arrow(x + BW + 3, 35, x + BW + GAP - 3, 35))
+        body.append(arrow(cx, 63, cx, 90, sw=2))
+        body += document(x + 18, 94, BW - 36, 92, "", lines=0)
+        for k in range(2):
+            body.append(f'  <line x1="{x + 32}" y1="{160 + 14 * k}" x2="{x + BW - 32 - 30 * k}" y2="{160 + 14 * k}" '
+                        f'stroke="#c8c8c8" stroke-width="5"/>\n')
+        body.append(txt(cx, 120, d1, 16, weight="bold"))
+        if d2:
+            body.append(txt(cx, 140, d2, 16, weight="bold"))
+    # the shelf
+    sy = 222
+    body.append(box(X0, sy, FLOW_W - 2 * X0, 64, fill=SEEBLAU2, stroke=KARPFEN, sw=2.5))
+    body.append(txt(FLOW_W / 2, sy + 28, "the documentation of the software", 20, weight="bold"))
+    body.append(txt(FLOW_W / 2, sy + 52, "what it must do, how it is split, where each part is, how to check it", 16,
+                    fill="#333", style="italic"))
+    for i in range(6):
+        body.append(arrow(xs[i] + BW / 2, 189, xs[i] + BW / 2, sy - 4, sw=1.8))
+    write("04-documentation.svg", FLOW_W, sy + 70, body)
+
+
+
 if __name__ == "__main__":
     flow("04-se-flow.svg")
     flow("04-se-flow-vibe.svg", vibe=True)
@@ -667,3 +776,5 @@ if __name__ == "__main__":
     test_first()
     maintenance()
     pytest_flow()
+    spaghetti()
+    documentation()

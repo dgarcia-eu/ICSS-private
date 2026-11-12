@@ -9,7 +9,7 @@
 
 ---
 
-**Where to look, for Exercises 1 and 2.** The flow and its roles: slides 22 to 25 (*From a script to software*, *A typical software engineering flow*, *Roles in a software team*, *Vibe coding in the flow*); handout [04 §5 Software engineering](../../Transcripts/04-Software.md#software-engineering). Requirements, specification and design: slides 27 to 36, where the lecture's running example, linking two panel waves, goes through the same steps; handout [04 §6](../../Transcripts/04-Software.md#requirements). Tests, the first implementation and maintenance: slides 38 to 44; handout [04 §7 Testing](../../Transcripts/04-Software.md#testing). Flakiness of generated code: slide 7 (*What is programming?*). Data structures: session 3, handout [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries).
+**Where to look, for Exercises 1 and 2.** The flow and its roles: slides 23 to 26 (*From a script to software*, *A typical software engineering flow*, *Roles in a software team*, *Vibe coding done right*); handout [04 §5 Software engineering](../../Transcripts/04-Software.md#software-engineering). Requirements, specification and design: slides 28 to 39, where the lecture's running example, linking two panel waves, goes through the same steps; handout [04 §6](../../Transcripts/04-Software.md#requirements). Tests, the first implementation, maintenance and documentation: slides 41 to 49; handout [04 §7 Testing](../../Transcripts/04-Software.md#testing). Flakiness of generated code: slide 7 (*What is programming?*). Data structures: session 3, handout [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries).
 
 These are model answers. Other choices are just as good if they are written
 down and the tests follow from them. The questions to the client are the part
@@ -378,7 +378,7 @@ whatever wrote it.
 
 ### A1. Functional or non-functional?
 
-**Where to look.** Slide 29 (*Functional and non-functional requirements*). Handout: [04 §6](../../Transcripts/04-Software.md#requirements).
+**Where to look.** Slide 30 (*Functional and non-functional requirements*). Handout: [04 §6](../../Transcripts/04-Software.md#requirements).
 
 a) functional. b) non-functional, performance. c) non-functional, privacy.
 d) functional: it says what output (an error) the program gives for an input.
@@ -387,7 +387,7 @@ g) non-functional, security.
 
 ### A2. The questions a coder will not ask
 
-**Where to look.** Slides 31 to 33 (*An ambiguous request*, *Writing the specification*, *The specification is the coder's instructions*).
+**Where to look.** Slides 32 to 34 (*From ambiguous request to specification*, *Writing the specification*, *The specification is the coder's instructions*).
 
 Open questions: in which format are the birth dates written (`"1990-03-05"`,
 `"05.03.1990"`, or date objects)? Age at which date: today, or the date of the
@@ -403,7 +403,7 @@ modify the input lists; use only the standard library."*
 
 ### A3. Which test is missing?
 
-**Where to look.** Slides 38 to 42 (*What is a test?* to *Choosing test cases*).
+**Where to look.** Slides 41 to 46 (*What is a test?* to *Choosing test cases*).
 
 Not tested: that `None` answers are ignored, that the `ValueError` is raised,
 and that the list is not modified. Missing tests:
@@ -431,7 +431,7 @@ the lines of the specification they did not cover.
 
 ### A4. Choosing a data structure
 
-**Where to look.** Slide 36 (*Design: choosing the data structures*); session 3.
+**Where to look.** Slide 38 (*Design: choosing the data structures*); session 3.
 
 a) A list: the order of the questions matters. b) A dictionary from code to
 label: lookup by key. c) A set: the only question is membership, and a set
@@ -440,7 +440,7 @@ in, first out, so the most recent step is undone first.
 
 ### A5. Compilers, interpreters and research code
 
-**Where to look.** Slides 8 and 9 (*Levels of programming languages*, *Interpreter vs. compiler*). Handout: [04 §1 What programming is](../../Transcripts/04-Software.md#programming).
+**Where to look.** Slides 9 and 10 (*Levels of programming languages*, *Interpreter vs. compiler*). Handout: [04 §1 What programming is](../../Transcripts/04-Software.md#programming).
 
 a) (i) The 50× may be irrelevant if the bottleneck is reading data, or if the
 slow part already runs in a compiled library like NumPy: you would rewrite the
@@ -456,7 +456,7 @@ the rare codes, the missing values, the empty input.
 
 ### A6. Rules that need more than instructions
 
-**Where to look.** Slides 25 and 33 (*Vibe coding in the flow*, *The specification is the coder's instructions*).
+**Where to look.** Slides 26 and 34 (*Vibe coding done right*, *The specification is the coder's instructions*).
 
 a) and c) can go in the instructions. They are wishes about the code, and you can
 check them by reading the code or with a test; if the coder ignores them, the

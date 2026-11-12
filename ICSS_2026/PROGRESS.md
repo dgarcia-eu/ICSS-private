@@ -750,3 +750,28 @@ ICSS-private/ICSS_2026, the git repo copy; the old folder is
 ICSS-local/ICSS_2026-old (delete once happy). Generated files and
 Slides/unused are kept out of git by ICSS_2026/.gitignore, so committing
 needs no sync step.
+
+2026-11-12, session 4 (Slides/04-Software/instructions.txt): deck now 52
+slides. New: "The first programmer: Ada Lovelace" (slide 8, portrait and
+Note G from the session 1 figures), "What, not how" (36, xkcd 1425 "Tasks"),
+"Skipping the design: spaghetti code" (39, 04-spaghetti.svg), "The flow
+leaves documentation behind" (49, 04-documentation.svg, Symbian box).
+04-design-pipeline.svg redrawn: link_waves(wave1, wave2) encloses
+by_person, pair_up and pseudonym; read_wave and report outside. "Tests
+with pytest" split in two; loop-invariant slide restructured; job opening
+on the summary. Transcript: Tea link and reference, Ada paragraph and
+figures in §1, interpreter and compiler schemas in §1, spaghetti paragraph
+and figure in §6, typo fixes only in David's revised text. Overflows left
+for David (his text): 35, 42, 47.
+
+2026-11-12, session 4 layout: slide 8 in two columns (portrait and short
+bullets left, Note G large right); xkcd on slide 36 at 12.4em; spaghetti
+(39) and documentation (49) figures centered with heights instead of widths
+(the r-stretch shrink); the dashed return arrow and its label removed from
+04-documentation.svg. Overflows left for David: 35, 42, 47.
+
+2026-11-12, transcript 04: Ada portrait removed; Note G floats right at
+half width with the Lovelace paragraph wrapped around it (raw HTML figure,
+cleared after the paragraph). New paragraph on documentation at the end of
+"Maintenance: the third wave arrives", with the Symbian link, no figure.
+No xkcd in the transcript.

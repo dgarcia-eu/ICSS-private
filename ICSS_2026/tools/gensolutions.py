@@ -173,7 +173,7 @@ REFS = {
  "DB-04": [(S, "11", "50-54", "SQL manual join; INNER JOIN; Other JOIN operations"), (H, "11", "12")],
  "DB-05": [(S, "11", "22-29", "Relational databases; Building a relational database"), (S, "11", "33-40", "Tables in SQL; SQL schema"), (H, "11", "6"), (H, "11", "7"), (H, "11", "9")],
  "DB-06": [(S, "11", "50-54", "SQL joins"), (H, "11", "12")],
- "DB-07": [(S, "05", "16-20", "Representation of algorithms; Pseudocode"), (S, "04", "11", "Imperative programming"), (H, "05", "4"), (H, "04", "3"), (H, "08", "4")],
+ "DB-07": [(S, "05", "16-20", "Representation of algorithms; Pseudocode"), (S, "04", "12", "Imperative programming"), (H, "05", "4"), (H, "04", "3"), (H, "08", "4")],
  "DB-08": [(S, "11", "45-54", "SQL queries; Aggregation; Joins"), (S, "11", "26-29", "Building a relational database"), (H, "11", "11"), (H, "11", "12"), (H, "11", "7")],
  "DB-09": [(S, "11", "48-54", "Aggregation; Grouping; Joins"), (H, "11", "11"), (H, "11", "12")],
  "DB-10": [(S, "10", "16-18", "Error and loss; Class imbalance; The F1 score"), (H, "10", "5")],

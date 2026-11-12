@@ -203,7 +203,7 @@ Three points of technique:
 
 ## DB-07 · A naive algorithm over registrations · 5 pts · [2023-E1 Q6a, 2024-Ex Q6a, 2025-E2 Q5a]
 
-**Where to look.** Slides: session 5, slides 16 to 20 (*Representation of algorithms; Pseudocode*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 4, slides 11 (*Imperative programming*), in `Slides/04-Software/ICSS-2026-04-Software.qmd`. Handout: [05 §4 Pseudocode](../../Transcripts/05-Algorithms.md#4-pseudocode), [04 §3 Imperative programming](../../Transcripts/04-Software.md#3-imperative-programming), [08 §4 Runtime analysis](../../Transcripts/08-TimeComplexity.md#runtime-analysis).
+**Where to look.** Slides: session 5, slides 16 to 20 (*Representation of algorithms; Pseudocode*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 4, slides 12 (*Imperative programming*), in `Slides/04-Software/ICSS-2026-04-Software.qmd`. Handout: [05 §4 Pseudocode](../../Transcripts/05-Algorithms.md#4-pseudocode), [04 §3 Imperative programming](../../Transcripts/04-Software.md#3-imperative-programming), [08 §4 Runtime analysis](../../Transcripts/08-TimeComplexity.md#runtime-analysis).
 
 **Solution.** Load `Registrations` into an array `R[1..N]` of records with fields
 `.id`, `.date` and `.block`, accessed by index in $O(1)$.
