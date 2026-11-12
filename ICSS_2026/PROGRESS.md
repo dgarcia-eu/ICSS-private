@@ -775,3 +775,18 @@ half width with the Lovelace paragraph wrapped around it (raw HTML figure,
 cleared after the paragraph). New paragraph on documentation at the end of
 "Maintenance: the third wave arrives", with the Symbian link, no figure.
 No xkcd in the transcript.
+
+2026-11-12, transcripts: session 4 captions now follow sessions 2-3 and 5-9
+(the shared <style> block after the title, captions in italics ending with
+a period, Note G figcaption included). Sessions 5-9 already matched. Sessions
+10-13 have no figures yet; they got the same style block so future captions
+look the same.
+
+2026-11-12, links: transcript 4 links the session notebook (now published
+as PythonExamples/Examples04-Software.ipynb in the public repo) from §1 and
+§7 and in a new §8; Check yourself and References are §9 and §10. Notebooks
+W02-W04 (and why_02-04.py) link to the published transcript pages
+(dgarcia-eu.github.io/ICSS/Transcripts/*.html#id), since GitHub's markdown
+view ignores custom {#id} anchors. 00-Conventions is linked as .html.
+Public repo: README links session 4; missing figures added; all internal
+links checked live after deploy.

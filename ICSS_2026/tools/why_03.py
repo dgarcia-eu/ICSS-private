@@ -112,8 +112,8 @@ answer. Sorting once costs more than one scan, so the trade-off is the one the
 lecture describes: sort or hash when you will search many times, scan when you
 will search once.
 
-**What we used:** [the trade-off between editing and searching](../Transcripts/03-DataStructures.md#4-the-trade-off-editing-versus-searching),
-[binary search](../Transcripts/03-DataStructures.md#5-binary-search),
-[hashing and hash tables](../Transcripts/03-DataStructures.md#8-hashing-and-hash-tables) and
-[dictionaries](../Transcripts/03-DataStructures.md#9-dictionaries) from session 3."""),
+**What we used:** [the trade-off between editing and searching](https://dgarcia-eu.github.io/ICSS/Transcripts/03-DataStructures.html#binary-search-trees),
+[binary search](https://dgarcia-eu.github.io/ICSS/Transcripts/03-DataStructures.html#binary-search),
+[hashing and hash tables](https://dgarcia-eu.github.io/ICSS/Transcripts/03-DataStructures.html#hash-tables) and
+[dictionaries](https://dgarcia-eu.github.io/ICSS/Transcripts/03-DataStructures.html#dictionaries) from session 3."""),
 ]

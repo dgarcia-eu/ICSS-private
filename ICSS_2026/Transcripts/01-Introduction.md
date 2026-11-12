@@ -183,7 +183,7 @@ For i = 1 to n - 1:
 ```
 
 The same algorithm can be written in Python. Note the shift in the indices,
-which is explained in the [conventions](00-Conventions.md). Pseudocode counts
+which is explained in the [conventions](00-Conventions.html). Pseudocode counts
 from 1 and Python counts from 0.
 
 ```python

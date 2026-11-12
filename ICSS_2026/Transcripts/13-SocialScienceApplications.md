@@ -1,5 +1,11 @@
 # Session 13: Social Science Applications
 
+<style>
+figure, .figure, .float { margin: 1.4em 0 1.8em 0; }
+figure img, .float img { display: block; max-width: 100%; }
+figcaption, .figcaption, .figure p.caption { margin-top: 0.3em; font-size: 0.88em; color: #555; }
+</style>
+
 *Introduction to Computing for the Social Sciences · lecture transcript*
 
 This is the closing lecture, which puts everything from sessions 1 to 12 to

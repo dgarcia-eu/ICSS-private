@@ -240,8 +240,8 @@ them took a few minutes and needed only the specification, not the code. That
 is the division of labor of the lecture: a coding agent can write the
 implementation, and the specification and the tests remain your job.
 
-**What we used:** [interpreters and compilers](../Transcripts/04-Software.md#programming),
-[vibe coding](../Transcripts/04-Software.md#software-engineering),
-[specifications](../Transcripts/04-Software.md#requirements) and
-[testing](../Transcripts/04-Software.md#testing) from session 4."""),
+**What we used:** [interpreters and compilers](https://dgarcia-eu.github.io/ICSS/Transcripts/04-Software.html#programming),
+[vibe coding](https://dgarcia-eu.github.io/ICSS/Transcripts/04-Software.html#software-engineering),
+[specifications](https://dgarcia-eu.github.io/ICSS/Transcripts/04-Software.html#requirements) and
+[testing](https://dgarcia-eu.github.io/ICSS/Transcripts/04-Software.html#testing) from session 4."""),
 ]

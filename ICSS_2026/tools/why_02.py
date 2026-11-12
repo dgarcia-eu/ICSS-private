@@ -137,8 +137,8 @@ string, so a group of respondents disappears from every filter and every group
 mean that names it. The fix is one argument, `encoding="utf-8"`, but you have
 to know that the question exists.
 
-**What we used:** [floating-point numbers](../Transcripts/02-InformationCoding.md#7-floating-point-numbers-ieee-754),
-[when rounding errors matter](../Transcripts/02-InformationCoding.md#8-when-rounding-errors-matter),
-[data types](../Transcripts/02-InformationCoding.md#10-data-types-and-bitwise-operations) and
-[character coding](../Transcripts/02-InformationCoding.md#9-character-coding) from session 2."""),
+**What we used:** [floating-point numbers](https://dgarcia-eu.github.io/ICSS/Transcripts/02-InformationCoding.html#floating-point-numbers-ieee-754),
+[when rounding errors matter](https://dgarcia-eu.github.io/ICSS/Transcripts/02-InformationCoding.html#rounding-errors),
+[data types](https://dgarcia-eu.github.io/ICSS/Transcripts/02-InformationCoding.html#data-types) and
+[character coding](https://dgarcia-eu.github.io/ICSS/Transcripts/02-InformationCoding.html#character-coding) from session 2."""),
 ]

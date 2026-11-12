@@ -1,5 +1,11 @@
 # Session 4: Software
 
+<style>
+figure, .figure, .float { margin: 1.4em 0 1.8em 0; }
+figure img, .float img { display: block; max-width: 100%; }
+figcaption, .figcaption, .figure p.caption { margin-top: 0.3em; font-size: 0.88em; color: #555; }
+</style>
+
 *Introduction to Computing for the Social Sciences · lecture transcript*
 
 **Reading for this session:** Chapters 2 and 6–8 of Zelle, *Python
@@ -95,7 +101,7 @@ automatically. Programming languages are formal, which means that, unlike natura
 
 <figure style="float:right; width:50%; margin:0.3em 0 0.8em 1.2em">
 <img src="../Slides/04-Software/figures/lovelace-program.jpg" alt="Note G" style="width:100%">
-<figcaption style="font-size:0.85em">Note G, Lovelace's program for the Analytical Engine to compute the Bernoulli numbers (1843)</figcaption>
+<figcaption><em>Note G, Lovelace's program for the Analytical Engine to compute the Bernoulli numbers (1843).</em></figcaption>
 </figure>
 
 The first program was written before any computer existed. In 1843 Ada
@@ -136,19 +142,24 @@ ways. An *interpreter* translates and runs the code one line at a time each time
 with the next line, and so on until the lines in the input are over. Errors appear when the interpreter runs the line that contains the error. Python, R and JavaScript, the languages of
 interactive data analysis, are all interpreted. 
 
-![An interpreter translates and runs one line at a time, on every run](../Slides/04-Software/figures/04-interpreter.svg)
+![*An interpreter translates and runs one line at a time, on every run.*](../Slides/04-Software/figures/04-interpreter.svg)
 
 A *compiler* translates the whole
 program once, before it runs, into a file of machine code that is commonly called a binary file. That file can then
 run many times, fast, and many errors are found before anything runs at compilation time. Finding errors after compilation requires a special program called a debugger to find how the errors map to lines in the original code.
 C and C++ are both compiled languages. Java is something close to a compiled language but instead of generating a binary that depends on the machine where it is run, it generates an intermediate code that is machine-independent and interpreted. 
 
-![A compiler translates the whole program once into a binary file, which then runs many times](../Slides/04-Software/figures/04-compiler.svg)
+![*A compiler translates the whole program once into a binary file, which then runs many times.*](../Slides/04-Software/figures/04-compiler.svg)
+
+The difference is easy to measure. Section 1 of the [Python examples notebook of
+this session](https://github.com/dgarcia-eu/ICSS/blob/main/PythonExamples/Examples04-Software.ipynb) adds up ten million numbers twice, once
+with a Python loop, which is interpreted step by step, and once with NumPy,
+whose loop is compiled code. The compiled version is about a hundred times
+faster.
 
 Vibe coding, which we will discuss in section 5, is a kind of programming. It also turns a description of how to perform a task into a programming language that then can be compiled or interpreted into machine code, all automatically. The difference is that the description is in natural language rather than in a formal programming language. An unavoidable difference with traditional programming is *flakiness*. A
 compiler turns the same source code into the same machine code every time,
-while a language model can turn the same request into different code, with a
-different result, each time it is asked. 
+while a language model will often turn the same request into different code and different results.
 
 ---
 
@@ -165,8 +176,8 @@ Within the declarative family, *functional* programming expresses the result
 as the value of functions applied to other functions. You will meet the
 declarative style in SQL in session 11, and the functional style through
 recursion in session 6. Python supports all of these paradigms, and which one
-you are using depends on how you write, not on the language. The rest of this
-part covers the two you use in almost every Python program, imperative and
+you are using depends on how you write in Python. You can even mix them in the same program. The rest of this
+part covers the two you use in almost every Python program, which are imperative and
 object-oriented.
 
 ---
@@ -174,7 +185,7 @@ object-oriented.
 ## 3. Imperative programming
 
 The name comes from the Latin *imperare*, to order or to command, and it
-describes what the programmer does. An imperative program is a sequence of
+describes what the program must do. An imperative program is a sequence of
 orders, carried out one after the other. The program has a *state*, the
 current values of all its variables, and it runs by changing that state one
 statement at a time. Four ingredients are enough to write any imperative
@@ -195,10 +206,8 @@ def mean(xs):         # function
 
 This is also how the hardware works. A processor holds data in memory and
 executes one instruction after another, which is why imperative programming
-feels natural and why most courses start with it. Its weakness shows as
-programs grow. When any statement can change any variable, it becomes hard to
-know which part of a long program is responsible for a value. That is the
-problem object-oriented programming addresses.
+feels natural and why most courses start with it. The weaknesses of imperative programming appear when programs grow and have to deal with many files and thousands of lines of code. When any statement can change any variable, it becomes hard to
+know which part of a long program is responsible for a value.
 
 ---
 
@@ -212,9 +221,9 @@ programming gives every part of the program one responsibility, kept in one
 class and owned by one person or team. Everyone else uses that class only
 through its methods. As long as the methods keep doing what they promise, the
 inside of the class can change without breaking anybody else's code, and when
-something goes wrong, there is one place to look.
+something goes wrong, there is only one place to look.
 
-![Three classes, each maintained by one person, connected only through their methods](../Slides/04-Software/figures/04-oop-team.svg)
+![*Three classes, each maintained by one person, connected only through their methods.*](../Slides/04-Software/figures/04-oop-team.svg)
 
 For a one-person script, OOP adds little, because there is nobody to separate
 responsibilities from. But it has become a conceptual building block of many
@@ -225,12 +234,27 @@ even if you never write a class, you use objects all the time.
 
 An *object* bundles data, its *attributes*, with the operations on that data,
 its *methods*. A *class* is the blueprint for objects, and every object is an
-*instance* of a class. A class `Respondent` might say that every respondent
+*instance* of a class.  For example, a class `Respondent` might say that every respondent
 has the attributes `name` and `age` and the methods `is_adult()` and
 `describe()`. The objects `ana` and `ben` are two respondents, each with its
 own name and age, and both able to do what the class says. You query or change
 an object by calling one of its methods, with the notation
 `object.method(arguments)`.
+
+![*The class Respondent and two of its instances, ana and ben.*](../Slides/04-Software/figures/04-class-objects.svg)
+
+In code, creating the two objects and calling their methods looks like this.
+
+```python
+ana = Respondent("Ana", 34)
+ben = Respondent("Ben", 16)
+ana.describe()     # 'Ana, 34 years'
+ben.is_adult()     # False
+```
+
+Each object answers with its own data. `ana.describe()` uses Ana's name and
+age, and `ben.is_adult()` checks Ben's age. How the class `Respondent` itself
+is written comes below, in *Your own class and objects*.
 
 ### You already use objects
 
@@ -254,7 +278,7 @@ an object like any other. Its data are its keys and values, its methods
 include `get()` and `keys()`, and every dictionary you create is an instance
 of the class `dict`.
 
-![A dictionary as an object: the class dict and two of its instances](../Slides/04-Software/figures/04-dict-objects.svg)
+![*A dictionary as an object: the class dict and two of its instances.*](../Slides/04-Software/figures/04-dict-objects.svg)
 
 Lists, sets and pandas data frames work the same way, so `ages.append(34)`
 and `df.groupby("country")` are method calls on objects.
@@ -289,7 +313,7 @@ ben.is_adult()     # False
 method, `self` is the object the method was called on, so `ana.describe()`
 reads Ana's attributes and `ben.is_adult()` reads Ben's.
 
-### The four concepts
+### Four useful concepts in OOP
 
 *Encapsulation* means that the data and the methods that use it live together
 in one object. The object `ana` holds her name and age together with the
@@ -314,7 +338,7 @@ bea = Student("Bea", 21, "SEDS")
 bea.is_adult()     # True: inherited from Respondent
 ```
 
-`Student` repeats none of the code of `Respondent`, yet every student has a
+`Student` repeats none of the code of `Respondent`, but thanks to inheritance every student has a
 name, an age, and the methods `is_adult()` and `describe()`. The test for
 whether inheritance fits is the "is a" test. A student is a respondent, so it
 fits. A survey has respondents, which is a different relation, so a survey
@@ -352,24 +376,27 @@ databases, the documentation that says how to use and change them, and the
 tests that check they work. All of it runs on the hardware, the processor,
 memory and disk.
 
-![Software: programs, data, documentation and tests, running on hardware](../Slides/04-Software/figures/04-software.svg)
+![*Software: programs, data, documentation and tests, running on hardware.*](../Slides/04-Software/figures/04-software.svg)
 
 *Software engineering* is the application of a systematic, disciplined
 approach to the development, operation and maintenance of software. A script
-written for one analysis is one file, used by one person, run once. Software
+written for one analysis is one file used by one person. Software
 is the same code grown into small parts, with requirements, tests,
 documentation and a history of versions, used by other people on other data
 for years. Research code becomes software more often than its authors expect.
 It outlives the paper it was written for, other people build on it, and
 published results depend on it.
 
-A typical software engineering process has six stages. *Requirements* state
-what problem is solved and for whom. The *specification* states precisely what
-the program must do. The *design* decides how to split the work into parts,
-such as functions, classes or modules, and which data structures connect them.
-*Implementation* is writing the code. *Testing* checks that the code does what
-the specification says. *Maintenance* covers using, fixing, extending and
-handing over the program. The stages are connected by feedback. A failing
+A typical software engineering process has six stages. 
+
+- The **requirements** state what problem is solved and for whom. 
+- The **specification** states precisely what the program must do. 
+- The **design** decides how to split the work into parts, such as functions, classes or modules, and which data structures connect them.
+- **Implementation** is writing the code. 
+- **Testing** checks that the code does what the specification says. 
+- **Maintenance** covers using, fixing, extending and handing over the program. 
+
+The stages are connected by feedback. A failing
 test sends you back to the code. A test that reveals a gap sends you back to
 the specification. New needs or new data start the cycle again from the
 requirements. Real projects go around this loop many times in small steps,
@@ -383,11 +410,11 @@ since both work from the same written instructions. The *tester* checks that
 the code does what the specification says. The *maintainer* keeps the software
 running, fixes it, and extends it when new requests arrive. Each role hands
 its result to the next one as a document, such as the requirements, the
-specification, the design, the code or a test report. In research you often
+specification, the design, the code or a test report. In research and during your education you often
 play every role yourself. The roles still exist, and skipping one skips its
 stage.
 
-![The roles of a software team, one per stage, and what each hands on](../Slides/04-Software/figures/04-roles.svg)
+![*The roles of a software team, one per stage, and what each hands on.*](../Slides/04-Software/figures/04-roles.svg)
 
 *Vibe coding*, a term coined by Andrej Karpathy in February 2025, describes
 programming by describing what you want, accepting the generated code without
@@ -400,25 +427,25 @@ two reasons. A check written by the same system that wrote the code shares
 its blind spots, and the design decides whether the pieces fit together. Both
 opening examples failed outside the implementation stage, Tea in its
 requirements and tests and Nokia in maintenance. With coding agents, writing
-code has become the cheapest step, and everything around it is the part you
-cannot delegate.
+code has become the cheapest step, and everything around it is the part you should be very careful about. Coding agents can assist you in the design and implementation of tests but without the right requirements, specifications, and tests, you will never know what vibe-coded software actually does.
 
 ---
 
 ## 6. Requirements, specifications, and design {#requirements}
 ### Requirements
 
-This section and the next follow one example through every stage and role.
-A *panel survey* asks the same people the same question in two waves, here
-in spring and in autumn. The client, Ana, writes: "We asked the same people
-the same question in spring and in autumn. I need everyone's two answers side
+Let's follow an example of a small software project. A *panel survey* asks the same people the same question in two waves. The client, Ana, writes: 
+
+> "We asked the same people the same question in spring and in autumn. I need everyone's two answers side
 by side, to see who changed their mind. Please, no email addresses in what I
-share with the team." The figure shows the data. Ana answered yes in spring
+share with the team."
+
+The figure shows an example of the data. Ana answered yes in spring
 and no in autumn, but typed her address differently the second time. Ben took
 part only in spring and Eva only in autumn. The result should be one row, for
 Ana, under a pseudonym instead of her address.
 
-![The running example: two waves of a panel, linked without email addresses](../Slides/04-Software/figures/04-panel-example.svg)
+![*The running example: two waves of a panel, linked without email addresses.*](../Slides/04-Software/figures/04-panel-example.svg)
 
 *Requirements* describe what the software must achieve, for whom, and under
 which constraints, in the words of the people who need it. The *analyst*
@@ -428,7 +455,7 @@ yourself in three months. Requirements describe the need, not the program.
 requirement, while a function with a loop is not. Four questions find most
 requirements. Who uses the software? With which data? What must never happen?
 When is it done? A misunderstanding found while collecting requirements costs
-a conversation. Found after the code is written, it costs the code.
+a conversation. A misunderstanding in requirements found after the code is written costs much more.
 
 *Functional requirements* state what output the program gives for which
 input. In the example, people in both waves are paired, also if they typed
@@ -480,9 +507,10 @@ def link_waves(wave1, wave2):
     """
 ```
 
+What you see above is an example of a docstring, which is a way to write specifications of functions in Python.
 Each line of the docstring answers one of the questions, and one more line
-settles the empty case. None of them says how to link the waves. That
-separation is the point. The specification can be checked against any
+settles the empty case. None of them says how to link the waves, which is the main point of writing a specification before designing and implementing the solution directly.
+The specification can be checked against any
 implementation, whether you wrote it, a colleague did, or a coding agent did.
 The result is keyed by `pseudonym(email)`, a hash of the cleaned email address
 computed with a secret, as in the pseudonymization example of session 3. The
@@ -490,24 +518,30 @@ same person gets the same key in both waves, and nobody without the secret can
 recover the address.
 
 Whoever the coder is, the instructions they receive are a specification,
-whether those instructions were written carefully or not. Compare "write a
-function that links the two waves" with the following. "Write
-`link_waves(wave1, wave2)`. Each wave is a list of (email, answer) pairs.
+whether those instructions were written carefully or not. Compare 
+
+> "write a function that links the two waves"
+
+with the following:
+
+> "Write `link_waves(wave1, wave2)`. Each wave is a list of (email, answer) pairs.
 Match emails ignoring case and spaces. If someone answered twice, keep the
 last answer. Return a dict from `pseudonym(email)` to the two answers, for
 the people in both waves. Raise `ValueError` if a wave is empty. Never put an
-email in the result or change the lists. Use only the standard library." The
-second instructions get better code from any coder, and they give you
+email in the result or change the lists. Use only the standard library." 
+
+The
+second instructions get better code from any coder and they give you
 something to check the code against. A colleague and a coding agent who
 receive the same specification write different code, but their code has to
 pass the same tests. The tester writes those tests from the specification
 rather than from the code, so they check what was asked, not what was written.
 
-![One specification, two coders, the same tests](../Slides/04-Software/figures/04-any-coder.svg)
+![*One specification, two coders, the same tests.*](../Slides/04-Software/figures/04-any-coder.svg)
 
 One kind of rule needs more than instructions, the rule that must never be
 broken, such as "never touch the production data" or "never delete anything
-outside this folder". Instructions are a request. Such rules have to be
+outside this folder". Think about instructions as a request and not as an order that is guaranteed to be followed. Such rules have to be
 enforced by the system itself, through permissions, backups and separate test
 and production data, so that breaking them is impossible rather than
 discouraged.
@@ -515,24 +549,27 @@ discouraged.
 ### Design
 
 The *design* decides how the program is split into parts and how the parts
-are connected. It is the *architect's* job. For the panel example, a good
-design has three steps and a helper. First, `read_wave(path)` reads one wave
-file into a list of (email, answer) pairs. Then `link_waves(wave1, wave2)`
-pairs the answers of the people in both waves, as specified above. It uses
-the helper `pseudonym(email)`, which cleans an email address and hashes it
-with a secret. Finally, `report(pairs)` counts how many people changed their
-answer. Each part has one job and its own specification, and the design
+are connected. The person responsible for that is the *architect*, sometimes also called tech lead or designer.
+For the panel example, a good
+design has three steps and a helper:
+
+- First, `read_wave(path)` reads one wave file into a list of (email, answer) pairs. 
+- Then `link_waves(wave1, wave2)` pairs the answers of the people in both waves, as specified above. 
+  - It uses the helper `pseudonym(email)`, which cleans an email address and hashes it with a secret. 
+- Finally, `report(pairs)` counts how many people changed their answer. 
+
+ Each part has one job and its own specification, and the design
 states what data flows between them. Here that is two lists of pairs, then a
 dictionary from pseudonym to a pair of answers.
 
-![The design of the panel example: link_waves encapsulates its parts, read_wave feeds it and report uses its result](../Slides/04-Software/figures/04-design-pipeline.svg)
+![*The design of the panel example: link_waves encapsulates its parts, read_wave feeds it and report uses its result.*](../Slides/04-Software/figures/04-design-pipeline.svg)
 
 Small parts have three advantages. They are easier to test, because each can
 be checked on its own with a few cases. They are easier to replace, because a
 new file format only changes `read_wave`. And they are easier to hand to a
 coder, one specified function at a time, rather than as a whole program at
-once. Choosing the data structures is part of the design, and session 3 gave
-you the choices. To keep items in order, use a list, such as the (email,
+once. Choosing the data structures is part of the design, session 3 gave
+you some choices but we will learn about more in later sessions. To keep items in order, use a list, such as the (email,
 answer) pairs of a wave. To look something up by a key, use a dictionary, such
 as one per wave from pseudonym to answer. To check membership fast, use a set,
 such as the pseudonyms that appear in both waves, which is the intersection of
@@ -541,20 +578,20 @@ waiting list for a seminar. The design is the architect's decision, because a
 coder, human or agent, writes better code inside a structure that was chosen
 for it than inside one it invented on the spot.
 
-Skipping the design does not save the work, it moves it to later and makes it
+Skipping the design does not save the work, it moves it to later moments and makes it
 larger. Without a design, every new need is patched into the program wherever
 it fits. The same email cleaning ends up in three places, so a fix in one of
 them leaves the other two wrong. A global variable that every function reads
 and changes connects everything with everything, so nobody can tell which part
-changed a value. Old functions stay because nobody knows whether something
+changed a value. Old functions stay forever because nobody knows whether something
 still calls them. The result is called *spaghetti code*, because following one
 strand means pulling at all the others. Every later change touches many parts,
 and no part can be tested on its own, since each depends on the state the
-others leave behind. Design is pre-work. An hour spent splitting the program
+others leave behind. An hour spent splitting the program
 into parts with clear connections saves days of coding, debugging and testing
 down the road.
 
-![With a design, each part has one job; without one, the parts are tangled into spaghetti code](../Slides/04-Software/figures/04-spaghetti.svg)
+![*With a design, each part has one job. Without one, the parts are tangled into spaghetti code.*](../Slides/04-Software/figures/04-spaghetti.svg)
 
 ---
 
@@ -568,6 +605,7 @@ true and stops the program with an error if it is false.
 ```python
 w1 = [("ana@uni.de", "yes"), ("ben@uni.de", "no")]
 w2 = [("ana@uni.de", "no"), ("eva@uni.de", "yes")]
+
 assert list(link_waves(w1, w2).values()) == [("yes", "no")]
 assert "ana@uni.de" not in str(link_waves(w1, w2))
 ```
@@ -577,8 +615,8 @@ part only in the first wave and Eva only in the second. So the result holds
 one pair, and Ana's email address must not appear in it. The value of a
 failing `assert` is that it turns a quiet error into a loud failure. A panel
 that silently loses some of its members, or a file that silently contains
-email addresses, can travel all the way into a paper or a data release. A
-stopped program cannot.
+email addresses, can travel all the way into a paper or a data release but a test stops the program instead, warning everyone involved.
+
 
 ### Tests with pytest
 
@@ -594,8 +632,11 @@ or if the code raises an error that the test did not expect. The report
 prints a dot for every test that passed and an `F` for every test that
 failed, followed by the failed asserts with the values that did not match.
 Nothing has to be called by hand, so adding a test means adding a function.
+To see pytest run step by step on a real example, from writing the files to
+reading the report and fixing the code, follow section 3 of the [Python
+examples notebook of this session](https://github.com/dgarcia-eu/ICSS/blob/main/PythonExamples/Examples04-Software.ipynb).
 
-![How pytest works: it finds the test files and functions, runs them, and reports](../Slides/04-Software/figures/04-pytest.svg)
+![*How pytest works: it finds the test files and functions, runs them, and reports.*](../Slides/04-Software/figures/04-pytest.svg)
 
 ```python
 # test_panel.py
@@ -669,15 +710,20 @@ shown nothing wrong.
 ### Choosing test cases
 
 Good tests sit where the specification draws a line, with at least one test
-for each of its lines. A *typical* case checks the ordinary behavior. Ana in
-both waves, Ben and Eva in one, gives one pair, `("yes", "no")`. A *spelling*
-case checks the matching rule. `" Ana@Uni.de"` and `"ana@uni.de"` are the
-same person. A *duplicates* case checks the rule for repeated submissions. If
-Ana answered twice in the first wave, her last answer counts. A *boundary*
-case checks the smallest result. If nobody took part in both waves, the result
-is `{}`. An *empty* case checks the error rule. `[]` as a wave raises
-`ValueError`. *Must-not-happen* cases check the prohibitions. No email address
-appears in the result, and both lists are unchanged afterwards. The general
+for each of its lines. 
+
+- A *typical* case checks the ordinary behavior. Ana in both waves, Ben and Eva in one, gives one pair, `("yes", "no")`. 
+- A *spelling* case checks the matching rule. `" Ana@Uni.de"` and `"ana@uni.de"` are the
+same person. 
+- A *duplicates* case checks the rule for repeated submissions. If Ana answered twice in the first wave, only her last answer counts. 
+- A *boundary* case checks the smallest result. If nobody took part in both waves, the result
+is `{}`. 
+- An *empty* case checks the error rule. `[]` as a wave raises
+`ValueError`. 
+- *Must-not-happen* cases check the prohibitions. No email address
+appears in the result, and both lists are unchanged afterwards. 
+
+The general
 heuristic is to test missing, empty, single, repeated, largest and smallest
 inputs, because bugs gather at the edges of what the programmer imagined.
 
@@ -692,12 +738,12 @@ an agent, writes the implementation. Fourth, the tester runs the tests. A
 failing test sends the code back to the coder, and someone reads the code
 that passes. Fifth, every bug the maintainer finds later becomes a new test,
 a *regression test*, so that the same bug can never come back unnoticed. The
-tests are your measurement. They replace the feeling that the code works with
+tests are your measurement. They replace the *vibe* that the code works with
 evidence that it does.
 
-![Test first, then implement: the order of work and the role for each step](../Slides/04-Software/figures/04-test-first.svg)
+![*Test first, then implement: the order of work and the role for each step.*](../Slides/04-Software/figures/04-test-first.svg)
 
-### Maintenance: the third wave arrives
+### Maintenance
 
 A year later, Ana writes again. "Great! In spring we run a third wave. Can we
 link all three?" The *maintainer* now goes through the flow again, on a small
@@ -712,7 +758,7 @@ the small parts of the design pay off, because the change touches one
 function and its tests, not the whole program. It is also where Nokia failed.
 When nobody can tell what a change will break, nobody dares to make it.
 
-![Maintenance: what changes when a third wave arrives](../Slides/04-Software/figures/04-maintenance.svg)
+![*Maintenance: what changes when a third wave arrives.*](../Slides/04-Software/figures/04-maintenance.svg)
 
 What makes this maintenance possible is that the earlier stages left
 something behind. Each stage of the flow produces a document. The
@@ -763,13 +809,18 @@ def mean(xs):
 
 The tool is a *loop invariant*, a statement that is true before every turn of
 the loop. Here the invariant is that `total` equals the sum of the first `i`
-elements of the list. The argument has three steps. Before the loop, `i` is 0
-and `total` is 0, which is the sum of no elements, so the invariant is true at
-the start. In each turn, `total` gains `xs[i]` and `i` grows by one, so if
+elements of the list. The argument has three steps:
+
+1. Before the loop, `i` is 0 and `total` is 0, which is the sum of no elements, so the invariant is true at
+the start. 
+2. In each turn, `total` gains `xs[i]` and `i` grows by one, so if
 `total` was the sum of the first `i` elements before the turn, it is the sum
-of the first `i` elements after it as well. The loop ends when `i` equals
+of the first `i` elements after it as well. 
+3. The loop ends when `i` equals
 `len(xs)`, so at that point `total` is the sum of all elements, and the last
-line returns the mean. The precondition that the list is not empty rules out
+line returns the mean. 
+
+The precondition that the list is not empty rules out
 a division by zero. Together, the three steps show that the function returns
 the mean for every non-empty list, not only for the lists a test happens to
 try. This is the same reasoning as a proof by induction, and it is how the
@@ -777,13 +828,21 @@ textbook of session 7 argues that sorting algorithms are correct.
 Verification tools such as Dafny let a computer check arguments of this kind,
 line by line, which is why they need the specification and the invariant in a
 formal language. For a loop of five lines you can do it by hand, and reading
-code with an invariant in mind is exactly this reasoning. One caveat belongs
-to session 2. The argument is about exact numbers, and Python's floats round,
-so the result is the mean up to rounding error.
+code with an invariant in mind is exactly this reasoning. 
 
 ---
 
-## 8. Check yourself
+## 8. Why does this matter? Practical Python examples
+
+Check the [practical Python examples in this Jupyter notebook](https://github.com/dgarcia-eu/ICSS/blob/main/PythonExamples/Examples04-Software.ipynb).
+There, you will see a Python loop run about a hundred times slower than the
+same computation in compiled NumPy, a mean that is quietly wrong until a
+one-line test catches it, and a generated function whose wrong date format is
+found and fixed by running pytest step by step.
+
+---
+
+## 9. Check yourself
 
 **1.** Is Python compiled or interpreted, and what does that mean for when you see an error?
 
@@ -863,22 +922,10 @@ that data does both jobs.
 
 </details>
 
-**6.** A colleague says: "the code the coding agent wrote passed all my tests, so it is correct". What would you ask?
-
-<details><summary>Answer</summary>
-
-Two questions. Which requirements do the tests cover? Tests only check the
-cases someone wrote. And were the tests written from the specification before
-the code, or adapted to what the code produced? Tests written after the fact
-tend to confirm the code rather than check it. Passing tests show the absence
-of the bugs that were looked for, not of all bugs. Only verification proves
-correctness for every input.
-
-</details>
 
 ---
 
-## 9. References
+## 10. References
 
 - **Zelle, J. M. (2016).** *Python Programming: An Introduction to Computer
   Science*, 3rd ed. Franklin, Beedle & Associates. Chapters 2 and 6–8 are the
