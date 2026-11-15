@@ -1,8 +1,8 @@
 # The join that returned more rows than the table
 
-*Session 11 · Databases · example X11-B ·
-[notebook](../notebooks/X11-B.ipynb) ·
-[slides](../../Slides/Examples/11-Examples/ICSS-2026-11-Examples.qmd)*
+*Session 10 · Databases · example X10-B ·
+[notebook](../notebooks/X10-B.ipynb) ·
+[slides](../../Slides/Examples/10-Examples/ICSS-2026-10-Examples.qmd)*
 
 > Eight purchases, two products, sixteen rows, and total sales doubled in
 > the report. Nothing crashed. The query did precisely what it said.
@@ -23,7 +23,7 @@ written, and what did the analyst forget?
 
 ## Try it first
 
-The [notebook](../notebooks/X11-B.ipynb) creates both tables in SQLite,
+The [notebook](../notebooks/X10-B.ipynb) creates both tables in SQLite,
 counts the rows of the join without a condition, computes the doubled total,
 and then shows the two correct forms, and that a forgotten `ON` is a syntax
 error while a forgotten `WHERE` is not.
@@ -31,7 +31,7 @@ error while a forgotten `WHERE` is not.
 ## What is going on
 
 <!-- FIG -->
-<figure class="full"><img src="../../Slides/Examples/11-Examples/figures/11-join-explosion.svg" alt="Eight purchases × two products = sixteen rows: the Cartesian product."><figcaption>Eight purchases × two products = sixteen rows: the Cartesian product.</figcaption></figure>
+<figure class="full"><img src="../../Slides/Examples/10-Examples/figures/10-join-explosion.svg" alt="Eight purchases × two products = sixteen rows: the Cartesian product."><figcaption>Eight purchases × two products = sixteen rows: the Cartesian product.</figcaption></figure>
 <!-- /FIG -->
 Two tables listed in `FROM` with no condition means every row of the first
 paired with every row of the second. That is the Cartesian product, with
@@ -86,9 +86,9 @@ down a database server.
 
 ## What we used from the lecture
 
-- [Tables, tuples and schemas](../../Transcripts/11-Databases.md#9-tables-types-schemas-and-keys-in-sql)
-- [Queries: selection](../../Transcripts/11-Databases.md#11-queries-selection-projection-aggregation)
-- [Joins](../../Transcripts/11-Databases.md#12-joins): manual joins, `INNER
+- [Tables, tuples and schemas](../../Transcripts/10-Databases.md#9-tables-types-schemas-and-keys-in-sql)
+- [Queries: selection](../../Transcripts/10-Databases.md#11-queries-selection-projection-aggregation)
+- [Joins](../../Transcripts/10-Databases.md#12-joins): manual joins, `INNER
   JOIN`, and what happens without a condition.
 
 ## Further reading

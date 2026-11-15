@@ -51,7 +51,7 @@ numbers, and instructions on punched cards borrowed from the weaving
 <!-- /FIG -->
 industry. Neither was built in his lifetime. What survives of the Analytical
 Engine's intellectual life is largely due to Ada Lovelace, whose 1843 notes on
-it, the subject of the person slide of session 4, contain a worked procedure
+it, the subject of the person slide of the Software session, contain a worked procedure
 for the machine to follow and the first clear statement that such a machine
 could manipulate symbols of any kind, not only numbers. Her notes are where
 the idea of programming a machine, as distinct from building one, first
@@ -79,7 +79,7 @@ Philadelphia, were built for war work and were programmed by rewiring. The
 decisive idea, written down in 1945, was to store the program in the same
 memory as the data, so that a machine could be told what to do by loading
 numbers rather than by moving cables. Every computer since has been built
-that way, and session 4 draws the architecture. The programmers of ENIAC were
+that way, and the Software session draws the architecture. The programmers of ENIAC were
 six women recruited from the pool of human computers, who worked out how to
 set up a trajectory calculation from wiring diagrams before they were allowed
 into the room with the machine. When it was presented to the press in 1946
@@ -92,7 +92,7 @@ marketed to boys, and that has not recovered.
 
 ## The thread to the lecture
 
-Session 1 asks what a computer is and what computer science is. The history
+This session asks what a computer is and what computer science is. The history
 adds what the definitions leave out: computation has always been a way of
 organizing people's work, a procedure written by one person, executed by
 others and checked by a third, and the machine is a late arrival in that

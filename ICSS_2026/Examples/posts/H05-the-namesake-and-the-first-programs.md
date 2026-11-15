@@ -26,7 +26,7 @@ Latin Europe in the twelfth century its opening words, *Dixit Algorizmi*, "so
 said al-Khwarizmi", turned his name into the word for the method.
 
 Procedures are older than he is. Euclid's *Elements*, from around 300 BC,
-contains the greatest-common-divisor recipe that session 6 uses, and
+contains the greatest-common-divisor recipe that the Recursion session uses, and
 Babylonian clay tablets a thousand years before that show worked recipes for
 square roots. What al-Khwarizmi's books put into the Western tradition was
 the idea of a *general* method, a recipe that works for every problem of a
@@ -51,7 +51,7 @@ result the physics community ignored for thirty years, and under the Nazi
 regime she worked in the political resistance before emigrating. Her thesis
 marks a shift that the list of properties in the lecture, input, output,
 definiteness and finiteness, takes for granted: it is not enough for a
-procedure to work when tried, it must be shown to finish. Session 9 follows
+procedure to work when tried, it must be shown to finish. The Theoretical Computer Science session follows
 that demand to its conclusion, where some questions turn out to have no
 finishing procedure at all.
 
@@ -60,7 +60,7 @@ finishing procedure at all.
 <!-- FIG -->
 <figure class="side"><img src="img/euler.jpg" alt="Leonhard Euler"><figcaption><b>Leonhard Euler (1707–1783).</b> Photo: Jakob Emanuel Handmann, Public domain, via <a href="https://commons.wikimedia.org/wiki/File:Leonhard_Euler_-_Jakob_Emanuel_Handmann_(Kunstmuseum_Basel).jpg">Wikimedia Commons</a>.</figcaption></figure>
 <!-- /FIG -->
-The graph problems of session 5 begin with Leonhard Euler and the bridges of
+The graph problems of this session begin with Leonhard Euler and the bridges of
 Königsberg, presented to the St Petersburg Academy in 1735, the first problem
 solved by throwing away the geometry and keeping only which things were
 connected to which. Graph theory as a subject took another two centuries to
@@ -81,7 +81,7 @@ clearly enough to stick, which is what pseudocode is for.
 
 ## The thread to the lecture
 
-Session 5 defines an algorithm and gives ways to write one down. The history
+This session defines an algorithm and gives ways to write one down. The history
 says where the pieces came from, the general method from Baghdad, the demand
 for a termination proof from Göttingen and the search itself from engineers
 who needed to route wires, and what it took for each to become common

@@ -82,7 +82,7 @@ opening of the main deck, rests on a probabilistic version of the same
 layer-by-layer expansion. The representation matters as much as the
 procedure, because "all co-authors of $u$" has to be cheap, which means
 adjacency lists, as X05-C shows. And queue versus stack is not a detail. It
-decides whether you get shortest paths or just paths, and session 6 makes the
+decides whether you get shortest paths or just paths, and the Recursion session makes the
 stack version a topic in its own right.
 
 ## What we used from the lecture

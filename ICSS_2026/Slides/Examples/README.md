@@ -25,8 +25,8 @@ Wikimedia Commons (CC BY-SA 3.0 / CC BY 2.0 / public domain, as noted).
 | 7 Sorting Algorithms | `07-Examples/ICSS-2026-07-Examples.qmd` | How the post office sorts 20 million letters a night | Can you sort 8 things in 10 comparisons? | The median of a billion salaries, without sorting |
 | 8 Time Complexity | `08-Examples/ICSS-2026-08-Examples.qmd` | Tr0ub4dor&3 or correct horse battery staple? | The clustering script that ran out of memory at 100 000 | Computers got 1 000× faster. Solving got 43 000 000× faster. |
 | 9 Theoretical Computer Science | `09-Examples/ICSS-2026-09-Examples.qmd` | Design a coffee machine that cannot be cheated | Can a finite machine check your brackets? | Is there a fast way to solve any Sudoku? |
-| 10 Machine Learning | `10-Examples/ICSS-2026-10-Examples.qmd` | The wolf detector that only saw snow | Predict who survived the Titanic in five words | How many groups are there? |
-| 11 Databases | `11-Examples/ICSS-2026-11-Examples.qmd` | Little Bobby Tables | The join that returned more rows than the table | Find the customers who never ordered |
+| 10 Databases | `10-Examples/ICSS-2026-10-Examples.qmd` | Little Bobby Tables | The join that returned more rows than the table | Find the customers who never ordered |
+| 11 Machine Learning | `11-Examples/ICSS-2026-11-Examples.qmd` | The wolf detector that only saw snow | Predict who survived the Titanic in five words | How many groups are there? |
 | 12 Parallel Programming | `12-Examples/ICSS-2026-12-Examples.qmd` | One million increments, and the counter says 712 431 | Why is the GPU 50× faster, and 10× slower? | Count every word in Wikipedia in two minutes |
 | 13 Social Science Applications | `13-Examples/ICSS-2026-13-Examples.qmd` | Two point four million ballots, and the wrong president | Is every segregated city full of racists? | How many Likes does it take to know you better than your spouse? |
 

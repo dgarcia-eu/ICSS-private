@@ -2,20 +2,11 @@
 
 *Introduction to Computing for the Social Sciences · Prof. Dr. David Garcia*
 
-> Solutions to [Exercise Sheet 4](../Exercise04.md). Each solution
-> starts with where the material is in the slides and in the handout (the
-> lecture transcript). Slide numbers count the title slide as 1 and refer to
-> `Slides/04-Software/ICSS-2026-04-Software.qmd`.
-
----
-
-**Where to look, for Exercises 1 and 2.** The flow and its roles: slides 23 to 26 (*From a script to software*, *A typical software engineering flow*, *Roles in a software team*, *Vibe coding done right*); handout [04 §5 Software engineering](../../Transcripts/04-Software.md#software-engineering). Requirements, specification and design: slides 28 to 39, where the lecture's running example, linking two panel waves, goes through the same steps; handout [04 §6](../../Transcripts/04-Software.md#requirements). Tests, the first implementation, maintenance and documentation: slides 41 to 49; handout [04 §7 Testing](../../Transcripts/04-Software.md#testing). Flakiness of generated code: slide 7 (*What is programming?*). Data structures: session 3, handout [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries).
-
 These are model answers. Other choices are just as good if they are written
 down and the tests follow from them. The questions to the client are the part
 that matters most, because each one is a decision that would otherwise be
-made silently, by you or by whoever writes the code. All code below was run: the
-reference implementations pass every test shown.
+made silently, by you or by whoever writes the code. All code below was run and the
+reference implementations pass every test included here.
 
 ## Exercise 1: The mean age of each survey wave
 
@@ -148,8 +139,8 @@ fail with the `ValueError` on `"thirty"`; `test_boundaries_of_the_age_range` and
 instead of the specified dictionary, and on content it would have failed too,
 with a mean of 63.5 that includes 17 and 120, and a mean of 0.0 for a wave in
 which nobody answered. `test_empty_list` and `test_rows_are_not_modified` pass.
-A function that fails on the format alone would be easy to fix; the content
-failures are the ones the tests are for.
+A function that fails on the format alone would be easy to fix. The tests are for the content
+failures.
 
 **f) Maintenance.**
 
@@ -378,16 +369,12 @@ whatever wrote it.
 
 ### A1. Functional or non-functional?
 
-**Where to look.** Slide 30 (*Functional and non-functional requirements*). Handout: [04 §6](../../Transcripts/04-Software.md#requirements).
-
 a) functional. b) non-functional, performance. c) non-functional, privacy.
 d) functional: it says what output (an error) the program gives for an input.
 e) non-functional, safety. f) non-functional, reproducibility.
 g) non-functional, security.
 
 ### A2. The questions a coder will not ask
-
-**Where to look.** Slides 32 to 34 (*From ambiguous request to specification*, *Writing the specification*, *The specification is the coder's instructions*).
 
 Open questions: in which format are the birth dates written (`"1990-03-05"`,
 `"05.03.1990"`, or date objects)? Age at which date: today, or the date of the
@@ -402,8 +389,6 @@ date and raise ValueError for a birth date after the interview date. Do not
 modify the input lists; use only the standard library."*
 
 ### A3. Which test is missing?
-
-**Where to look.** Slides 41 to 46 (*What is a test?* to *Choosing test cases*).
 
 Not tested: that `None` answers are ignored, that the `ValueError` is raised,
 and that the list is not modified. Missing tests:
@@ -429,48 +414,7 @@ divides by all answers including `None`; it returns 0.0 instead of raising
 `ValueError` for `[None, None]`, and raises `ZeroDivisionError` for `[]`. Two passing tests said nothing about
 the lines of the specification they did not cover.
 
-### A4. Choosing a data structure
-
-**Where to look.** Slide 38 (*Design: choosing the data structures*); session 3.
-
-a) A list: the order of the questions matters. b) A dictionary from code to
-label: lookup by key. c) A set: the only question is membership, and a set
-answers it in constant time. d) A queue: first in, first out. e) A stack: last
-in, first out, so the most recent step is undone first.
-
-### A5. Compilers, interpreters and research code
-
-**Where to look.** Slides 9 and 10 (*Levels of programming languages*, *Interpreter vs. compiler*). Handout: [04 §1 What programming is](../../Transcripts/04-Software.md#programming).
-
-a) (i) The 50× may be irrelevant if the bottleneck is reading data, or if the
-slow part already runs in a compiled library like NumPy: you would rewrite the
-part that is already fast. (ii) Your time is a cost: six hours of computer
-time once is cheaper than two weeks of your time plus a new class of bugs, and
-the C version would need its own tests. Measure first which part is slow,
-then improve that part (session 8).
-
-b) An interpreter translates each line only when it runs, so an error in a
-branch that never runs, say the `else` for a rare answer code, is never
-reported. Test cases should therefore make every branch run at least once:
-the rare codes, the missing values, the empty input.
-
-### A6. Rules that need more than instructions
-
-**Where to look.** Slides 26 and 34 (*Vibe coding done right*, *The specification is the coder's instructions*).
-
-a) and c) can go in the instructions. They are wishes about the code, and you can
-check them by reading the code or with a test; if the coder ignores them, the
-result is inconvenient, not harmful. b) and d) must be enforced by the system,
-because breaking them once does damage that cannot be undone. b): run the
-agent with permission to change only the project folder, ask for confirmation
-before any delete command, and keep backups. d): give the agent no access to
-the production database at all, with separate development and production
-data, which is what the platform Replit did in July 2025 after its AI agent
-deleted a production database during a code freeze.
-
-### A7. Counting survey answers
-
-**Where to look.** As for Exercises 1 and 2, at the top of this file; the queue of A8 is in session 3, handout [03 §3 Linked lists](../../Transcripts/03-DataStructures.md#linked-lists).
+### A4. Counting survey answers
 
 **a) Requirements.**
 
@@ -566,9 +510,7 @@ version a coder writes from the one-line request alone often gives bus
 2 and a separate key `"Bus"` with 1, and fails on `None` or counts it as a
 key: both are caught by the second and third tests.
 
-### A8. The seminar waiting list
-
-**Where to look.** As for Exercises 1 and 2, at the top of this file; the queue of A8 is in session 3, handout [03 §3 Linked lists](../../Transcripts/03-DataStructures.md#linked-lists).
+### A5. The seminar waiting list
 
 **a) Requirements.**
 
@@ -689,9 +631,7 @@ def test_never_more_places_than_capacity():
     assert len(s["places"]) == 2
 ```
 
-### A9. Grades from exercise points
-
-**Where to look.** As for Exercises 1 and 2, at the top of this file; the queue of A8 is in session 3, handout [03 §3 Linked lists](../../Transcripts/03-DataStructures.md#linked-lists).
+### A6. Grades from exercise points
 
 **a) Requirements.**
 

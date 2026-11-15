@@ -37,7 +37,7 @@ measure the serial fraction before buying nodes, is what they agree on.
 <!-- FIG -->
 <figure class="side wide"><img src="img/cray-1.jpg" alt="Cray-1"><figcaption><b>A Cray-1 in the Deutsches Museum; the bench around the base hides the power supplies.</b> Photo: Irid Escent, CC BY-SA 2.0, via <a href="https://commons.wikimedia.org/wiki/File:Science_Museum_20180227_132902_(49362732462).jpg">Wikimedia Commons</a>.</figcaption></figure>
 <!-- /FIG -->
-The four-way classification of session 12, single or multiple instruction
+The four-way classification of this session, single or multiple instruction
 streams and single or multiple data streams, was proposed in 1966, and for
 the next thirty years the fastest computers in the world were of the
 single-instruction, multiple-data kind: vector supercomputers, of which the
@@ -87,7 +87,7 @@ section of the lecture became routine in social research.
 
 ## The thread to the lecture
 
-Session 12 runs from Moore's law to Amdahl's law by way of the kinds of
+This session runs from Moore's law to Amdahl's law by way of the kinds of
 parallel machine and MapReduce. The history is a fifty-year argument about
 whether many slow processors can beat one fast one, resolved in practice by
 two things: compilers that could find parallelism a human had not written,

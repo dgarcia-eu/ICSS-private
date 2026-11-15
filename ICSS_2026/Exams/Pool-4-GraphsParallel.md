@@ -671,8 +671,8 @@ the natural wrong answer and should get at most one point.
 
 | Sheet | Contents | Suitable as |
 |---|---|---|
-| [`Exercise05.md`](../TheoryExercises/Exercise05.md) | Graph representations, BFS by hand | Trace items |
-| [`Exercise12.md`](../TheoryExercises/Exercise12.md) | Ex. 1 Amdahl, Ex. 2 distributed Pearson, Ex. 3 conceptual; A1 Amdahl arithmetic, A2 which statistics distribute exactly, A3 race conditions, A4 concurrency vs parallelism cases, A5 Flynn, A6 pipelining arithmetic, A7 designing a distributed analysis | A2, A3, A6 and A7 have never been examined |
+| [`Exercise05.md`](../TheoryExercises/Exercise05.md) | Graph representations, BFS with pen and paper | Trace items |
+| [`Exercise12.md`](../TheoryExercises/Exercise12.md) | Ex. 1 Amdahl, Ex. 2 distributed Pearson, Ex. 3 conceptual; A1 Amdahl arithmetic, A2 which statistics distribute exactly, A3 race conditions, A4 concurrency vs parallelism cases, A5 Flynn, A6 pipelining arithmetic | A2, A3 and A6 have never been examined |
 
 **Never examined and worth considering:** Flynn's taxonomy (`TE-12` A5), the
 pipelining arithmetic of `TE-12` A6 (how many cycles for 100 instructions with

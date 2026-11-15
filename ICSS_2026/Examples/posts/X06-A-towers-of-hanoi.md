@@ -72,7 +72,7 @@ everywhere in social science: organizational hierarchies, nested comment
 threads, family trees, file systems, grammatical parses, and the recursive
 definition of a citizen of Simpleland in the main deck. The count is also a
 warning. A correct recursive procedure can do an exponential amount of work;
-session 8 gives the notation, and the dynamic-programming section of session
+the Time Complexity session gives the notation, and the dynamic-programming section of session
 6 gives the cure when the subproblems overlap.
 
 ## What we used from the lecture

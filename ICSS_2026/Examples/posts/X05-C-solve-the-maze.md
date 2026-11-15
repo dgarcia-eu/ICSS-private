@@ -73,7 +73,7 @@ sake:
 | memory | the whole frontier | one path |
 | typical use | distances, contact tracing, Erdős numbers | recursion, cycle detection, exhaustive search |
 
-Session 6 makes DFS a topic in its own right, because a recursive procedure
+The Recursion session makes DFS a topic in its own right, because a recursive procedure
 is a depth-first search of its call tree.
 
 ## What we used from the lecture

@@ -140,5 +140,5 @@ to know that the question exists.
 **What we used:** [floating-point numbers](https://dgarcia-eu.github.io/ICSS/Transcripts/02-InformationCoding.html#floating-point-numbers-ieee-754),
 [when rounding errors matter](https://dgarcia-eu.github.io/ICSS/Transcripts/02-InformationCoding.html#rounding-errors),
 [data types](https://dgarcia-eu.github.io/ICSS/Transcripts/02-InformationCoding.html#data-types) and
-[character coding](https://dgarcia-eu.github.io/ICSS/Transcripts/02-InformationCoding.html#character-coding) from session 2."""),
+[character coding](https://dgarcia-eu.github.io/ICSS/Transcripts/02-InformationCoding.html#character-coding) from this session."""),
 ]

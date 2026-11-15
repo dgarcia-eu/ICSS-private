@@ -25,13 +25,13 @@ format:
 :::: {.columns}
 ::: {.column width="50%"}
 ::: {.sm}
-- Session 1: Introduction
-- Session 2: Information Coding
-- Session 3: Data Structures
-- Session 4: Software
-- Session 5: Algorithms
-- Session 6: Recursion
-- Session 7: Sorting Algorithms
+- *Session 1: Introduction*
+- *Session 2: Information Coding*
+- *Session 3: Data Structures*
+- *Session 4: Software*
+- *Session 5: Algorithms*
+- *Session 6: Recursion*
+- **Session 7: Sorting Algorithms**
 :::
 :::
 
@@ -39,8 +39,8 @@ format:
 ::: {.sm}
 - Session 8: Time Complexity
 - Session 9: Theoretical Computer Science
-- Session 10: Machine Learning (8.01)<br><span class="xs">K503, lecture 13:30-15:00, practice 15:15-16:45</span>
-- Session 11: Databases
+- Session 10: Databases
+- Session 11: Machine Learning
 - Session 12: Parallel Programming
 - Session 13: Social Science Applications
 - Session 14: Exam Review
@@ -63,16 +63,16 @@ format:
 
 ::: {.motivation}
 [Motivating example]{.label}
-You sort a respondent table by **region**, then sort the same table by **age**
-to inspect the age distribution. The regions, which were in a deliberate order,
-come back shuffled, because the second sort was allowed to move equal-aged rows
-past one another. Nothing warned you. The appendix tables are wrong.
+You sort a respondent table by **region** and then sort the same table by
+**age** to inspect the age distribution. The regions, which were in a deliberate
+order, come back shuffled, because the second sort was allowed to move rows of
+equal age past one another. There was no warning and the appendix tables are wrong.
 :::
 
 - Both sorts produced a **correctly sorted** table.
 - Only one of them preserved the work of the first.
 
-[Two algorithms, the same sorted order, different results. What property separates them, and which do you have?]{.ask}
+[Two algorithms give the same sorted order but different results. Which property separates them, and which one do you have?]{.ask}
 <!-- MOTIVATION:M07-A:END -->
 
 <!-- MOTIVATION:M07-B:BEGIN -->
@@ -80,10 +80,10 @@ past one another. Nothing warned you. The appendix tables are wrong.
 
 ::: {.motivation}
 [Motivating example]{.label}
-A million records. **Selection sort** compares every element against every
-other: about **5 × 10¹¹** comparisons. **Mergesort** halves the problem
-repeatedly: about **2 × 10⁷**. At ten million comparisons a second, that is the
-difference between **fourteen hours** and **two seconds**.
+You have to sort a million records. **Selection sort** compares every element
+against every other, i.e. about **5 × 10¹¹** comparisons. **Mergesort** halves
+the problem repeatedly and needs about **2 × 10⁷**. At ten million comparisons a
+second, that is the difference between **fourteen hours** and **two seconds**.
 :::
 
 :::: {.figures}
@@ -94,11 +94,11 @@ difference between **fourteen hours** and **two seconds**.
 [2 × 10⁷]{.big}[comparisons, mergesort]{.cap}
 :::
 ::: {.fq}
-[25 000×]{.big}[fewer, same result]{.cap}
+[25,000×]{.big}[fewer, same result]{.cap}
 :::
 ::::
 
-[Both are correct. What is it about the *shape* of one procedure that makes it collapse at scale?]{.ask}
+[Both are correct. What in the *structure* of one procedure makes it so slow at scale?]{.ask}
 <!-- MOTIVATION:M07-B:END -->
 
 <!-- MOTIVATION:M07-C:BEGIN -->
@@ -106,32 +106,32 @@ difference between **fourteen hours** and **two seconds**.
 
 ::: {.motivation}
 [Motivating example]{.label}
-A codebook lookup costs **13** comparisons if the list is sorted and **6 000** if
-it is not. But sorting the codebook costs something too. With **one** lookup,
-sorting is wasted effort. With **forty million**, it is the only thing that makes
-the job possible.
+A codebook lookup costs **13** comparisons if the list is sorted and **6,000** if
+it is not. However, sorting the codebook costs something too. With **one** lookup,
+sorting is wasted effort. With **forty million**, sorting is what makes the job
+possible.
 :::
 
 :::: {.figures}
 ::: {.fq}
-[1]{.big}[lookup: don't sort, you would pay more than you save]{.cap}
+[1]{.big}[lookup, where sorting costs more than it saves]{.cap}
 :::
 ::: {.fq}
-[25]{.big}[lookups: the break-even point]{.cap}
+[25]{.big}[lookups, the break-even point]{.cap}
 :::
 ::: {.fq}
-[40 × 10⁶]{.big}[lookups: sorting is the whole difference]{.cap}
+[40 × 10⁶]{.big}[lookups, where sorting makes the whole difference]{.cap}
 :::
 ::::
 
-[Sorting is an **investment**. How do you work out whether it pays?]{.ask}
+[Sorting has a cost up front. How do you calculate whether it pays?]{.ask}
 <!-- MOTIVATION:M07-C:END -->
 
-## Sorting
+## Why do we sort? Finding duplicates
 
 :::: {.columns}
 ::: {.column width="58%"}
-![](figures/tiles-scattered.jpg){height="10.6em"}
+![](figures/tiles-scattered.jpg){height="13.5em"}
 :::
 
 ::: {.column width="42%"}
@@ -141,11 +141,11 @@ the job possible.
 :::
 ::::
 
-## Sorting
+## Why do we sort? Finding duplicates
 
 :::: {.columns}
 ::: {.column width="42%"}
-![](figures/tiles-sorted.jpg){height="11.4em"}
+![](figures/tiles-sorted.jpg){height="15em"}
 :::
 
 ::: {.column width="58%"}
@@ -155,40 +155,40 @@ the job possible.
 :::
 ::::
 
-## Sorting
+## Why do we sort? Comparing sets
 
 ::: {.center-h .sm}
 **Are the number sets different?**
 :::
 
 ::: {.imgrow .middle}
-![](figures/tiles-setA-scattered.jpg){height="8.4em"}
-![](figures/tiles-setB-scattered.jpg){height="8.4em"}
+![](figures/tiles-setA-scattered.jpg){height="11em"}
+![](figures/tiles-setB-scattered.jpg){height="11em"}
 :::
 
-## Sorting
+## Why do we sort? Comparing sets
 
 ::: {.center-h .sm}
 **Are the number sets different?**
 :::
 
 ::: {.imgrow .middle}
-![](figures/tiles-setA-sorted.png){height="10.0em"}
-![](figures/tiles-setB-sorted.png){height="10.0em"}
+![](figures/tiles-setA-sorted.png){height="13em"}
+![](figures/tiles-setB-sorted.png){height="13em"}
 :::
 
-## Sorting
+## Why do we sort? Comparing sets
 
 ::: {.center-h .sm}
 **Are the number sets different?**
 :::
 
 ::: {.imgrow .middle}
-![](figures/tiles-setA-sorted.png){height="10.0em"}
-![](figures/tiles-setB-sorted.png){height="10.0em"}
+![](figures/tiles-setA-sorted.png){height="13em"}
+![](figures/tiles-setB-sorted.png){height="13em"}
 :::
 
-## Sorting
+## The sorting problem
 
 ::: {}
 - **Fundamentals**
@@ -208,16 +208,15 @@ $$\forall\, 1 \leq k \leq n-1: \; s(u_{i_k}) \leq s(u_{i_{k+1}})$$
 ::: {.xs}
 - **Stable sorting methods**
   - different objects can have the same key value used for sorting, e.g., students with the exact same name
-  - If a sorting algorithm, after sorting the contents, does not change the sequence of similar content in which they appear, it is called **stable** sorting. Otherwise it is **unstable** sorting.
-  - stable sorting methods ensure that
-    - objects with the same value for a given sorting function $s_1$ have different values for another function $s_2$
-    - sorting according to $s_1$ in this case does not change the order of the objects
+  - a sorting algorithm is **stable** if it does not change the sequence in which objects with the same key appear. Otherwise it is **unstable**.
+  - objects with the same value for a sorting function $s_1$ can have different values for another function $s_2$
+  - stable sorting according to $s_1$ does not change the order of these objects by $s_2$
 :::
 
 :::: {.columns}
 ::: {.column width="30%"}
 ::: {.xs}
-**example: sort by first name**
+**Example: sort by first name**
 
 | | |
 |---|---|
@@ -280,12 +279,12 @@ $$\forall\, 1 \leq k \leq n-1: \; s(u_{i_k}) \leq s(u_{i_{k+1}})$$
   - split list into two parts
     - sorted part on left, $L$
     - unsorted part on right, $R$
-  - at start: sorted part is empty, i.e. $L = \emptyset$, unsorted part $R$ is the entire list
+  - at the start the sorted part is empty, i.e. $L = \emptyset$, and the unsorted part $R$ is the entire list
   - find minimum in unsorted $R$ and append to sorted $L$
   - stop if $\text{length}(R) = 1$
 :::
 
-## Repeated minimum search
+## Example: Repeated minimum search
 
 ::: {.center-h}
 ![](figures/07-repeated-minimum.svg){height="15.3em"}
@@ -347,7 +346,7 @@ Swap it to be the last of L
 From *Algorithms Unlocked*. Thomas Cormen, 2013, pp. 32&ndash;34
 :::
 
-## Selection sort example
+## Example: Selection sort
 
 ::: {.center-h}
 ![](figures/07-selection-sort.svg){height="15.3em"}
@@ -359,12 +358,12 @@ From *Algorithms Unlocked*. Thomas Cormen, 2013, pp. 32&ndash;34
 **Characteristics of iterative sorting algorithms**
 
 - both algorithms are **partially correct**
-  - any element still in $R$ is larger or equal to any in $L$, $L$ is sorted
+  - any element still in $R$ is larger or equal to any in $L$, and $L$ is sorted
 - both algorithms **terminate**
-  - remaining part $R$ shrinks in every step, eventually it has to have length 1
+  - remaining part $R$ shrinks in every step, so eventually it has length 1
 - different use depending on data structure of list:
-  - repeated minimum appends in the middle of the list: better for **linked lists**
-  - selection sort uses swaps: better for **arrays**
+  - repeated minimum appends in the middle of the list, so it is better for **linked lists**
+  - selection sort uses swaps, so it is better for **arrays**
 - **stability**:
   - repeated minimum is *stable*:
     - in case of ambiguity, takes the first minimum in $R$
@@ -401,7 +400,7 @@ Exercise: write the pseudocode of repeated minimum search
 4. Data structures for sorting: Heapsort
 :::
 
-## Divide and Conquer
+## Divide and Conquer: the principle
 
 :::: {.columns}
 ::: {.column width="46%"}
@@ -418,7 +417,7 @@ Exercise: write the pseudocode of repeated minimum search
 :::
 ::::
 
-## Divide and Conquer
+## Divide and Conquer is not recursion
 
 ::: {}
 **Divide and conquer $\neq$ recursion**
@@ -427,10 +426,10 @@ Exercise: write the pseudocode of repeated minimum search
 - recursion is a natural implementation strategy for algorithms following a divide and conquer approach
   - by definition, the sub-problems in divide and conquer are self-similar
   - generate overall solution by combining solutions of sub-problems
-- BUT we can also implement a divide and conquer strategy iteratively
+- However, we can also implement a divide and conquer strategy iteratively
 :::
 
-## Mergesort
+## Mergesort: the idea
 
 ::: {.sm}
 - **Mergesort** first divides the list into equal halves and then combines them in a sorted manner. Mergesort sorts by *merging* (sub-)lists
@@ -445,7 +444,7 @@ Exercise: write the pseudocode of repeated minimum search
   - repeated merging of sorted sub-lists until only one sorted list remains
 :::
 
-## Mergesort
+## The MERGE-SORT procedure
 
 ::: {.codewrap style="font-size:1.30em"}
 <pre class="pseudocode" style="width:88%"><b>Procedure</b> MERGE-SORT(<i>A</i>, <i>p</i>, <i>r</i>)
@@ -465,7 +464,7 @@ Exercise: write the pseudocode of repeated minimum search
 From *Algorithms Unlocked*. Thomas Cormen, 2013, pp. 40&ndash;47
 :::
 
-## The MERGE function
+## The MERGE procedure
 
 ::: {.codewrap style="font-size:1.10em"}
 <pre class="pseudocode" style="width:88%"><b>Procedure</b> MERGE(<i>A</i>, <i>p</i>, <i>q</i>, <i>r</i>)
@@ -483,59 +482,59 @@ From *Algorithms Unlocked*. Thomas Cormen, 2013, pp. 40&ndash;47
             <b>else</b> <i>A</i>[<i>k</i>] &larr; <i>C</i>[<i>j</i>]; <i>j</i> &larr; <i>j</i> + 1</pre>
 :::
 
-## MERGE example
+## Example: MERGE on two sorted lists
 
 ::: {.center-h}
 ![](figures/07-merge-1.svg){height="15.0em"}
 :::
 
-## MERGE example
+## Example: MERGE on two sorted lists
 
 ::: {.center-h}
 ![](figures/07-merge-2.svg){height="15.0em"}
 :::
 
-## Mergesort
+## Example: Mergesort
 
 ::: {.sm}
-- **Mergesort split:** first divides the whole list iteratively into equal halves (no change in sequence of items in the original) until atomic values are achieved.
+- **Mergesort split:** the whole list is first divided repeatedly into equal halves, without changing the sequence of items, until single elements are reached
 :::
 
 ::: {.center-h}
 ![](figures/07-mergesort-split.svg){height="12.2em"}
 :::
 
-## Mergesort
+## Example: Mergesort
 
 ::: {.sm}
-- **Mergesort algorithm** &ndash; merge them into another list in a sorted manner
+- **Mergesort merge:** the sublists are then merged into another list in a sorted manner
 :::
 
 ::: {.center-h}
 ![](figures/07-mergesort-merge-1.svg){height="12.2em"}
 :::
 
-## Mergesort
+## Example: Mergesort
 
 ::: {.sm}
-- **Mergesort algorithm** &ndash; merge them into another list in a sorted manner
+- **Mergesort merge:** the sublists are then merged into another list in a sorted manner
 :::
 
 ::: {.center-h}
 ![](figures/07-mergesort-merge-2.svg){height="12.2em"}
 :::
 
-## Mergesort
+## Example: Mergesort
 
 ::: {.sm}
-- **Mergesort algorithm** &ndash; merge them into another list in a sorted manner
+- **Mergesort merge:** the sublists are then merged into another list in a sorted manner
 :::
 
 ::: {.center-h}
 ![](figures/07-mergesort-merge-3.svg){height="12.2em"}
 :::
 
-## Mergesort
+## Mergesort: divide and combine
 
 ::: {}
 **Mergesort as a divide and conquer strategy**
@@ -550,7 +549,7 @@ From *Algorithms Unlocked*. Thomas Cormen, 2013, pp. 40&ndash;47
   - see *Algorithms Unlocked* (Cormen, 2013) for MERGE pseudocode
 :::
 
-## Mergesort
+## Mergesort: properties
 
 ::: {}
 **Characteristics of mergesort**
@@ -585,18 +584,18 @@ From *Algorithms Unlocked*. Thomas Cormen, 2013, pp. 40&ndash;47
 :::
 ::::
 
-## Quicksort
+## Quicksort: the idea
 
 ::: {}
-- Similar divide and conquer logic to mergesort but division into sub-lists not necessarily regular
+- Similar divide and conquer logic to mergesort, but the division into sub-lists is not necessarily regular
 - **Quicksort rationale:**
   - pick **pivot** element from list
   - sort list such that all elements left (right) of pivot are smaller (larger) than its value
-  - after this **partition** operation the pivot element is already in its final (sorted) position, sorting now occurs only right/left of the pivot element
+  - after this **partition** operation the pivot element is already in its final (sorted) position, so sorting now occurs only right/left of the pivot element
   - split list at pivot and apply logic recursively to left and right sub-list
 :::
 
-## Quicksort
+## The QUICK-SORT procedure
 
 ::: {.codewrap style="font-size:1.40em"}
 <pre class="pseudocode" style="width:76%;margin:0.6em auto"><b>Procedure</b> QUICK-SORT(<i>A</i>, <i>p</i>, <i>r</i>)
@@ -608,14 +607,14 @@ From *Algorithms Unlocked*. Thomas Cormen, 2013, pp. 40&ndash;47
             QUICK-SORT(<i>A</i>, <i>q</i> + 1, <i>r</i>)</pre>
 :::
 
-## The PARTITION function
+## The PARTITION procedure
 
 ::: {.center-h}
 ![](figures/cormen-partition.png){height="11.7em"}
 :::
 
 ::: {.refresh}
-Exercise: run quicksort on pen and paper on the same example as mergesort
+Exercise: run quicksort with pen and paper on the same example as mergesort
 :::
 
 ## Quicksort: properties
@@ -623,11 +622,11 @@ Exercise: run quicksort on pen and paper on the same example as mergesort
 ::: {.sm}
 - **advantages**
   - very memory efficient
-  - in-place procedure: is (usually) faster than merge sort
+  - in-place procedure that is (usually) faster than mergesort
 - **disadvantages**
-  - efficiency depends on choice of pivot and the partition scheme chosen (more next week)
+  - efficiency depends on choice of pivot and the partition scheme chosen (more in the Time Complexity session)
 - **differences from mergesort:**
-  - in quicksort all the heavy lifting is done while dividing the array into subarrays, while in mergesort all the real work happens during merging the subarrays
+  - in quicksort all the work is done while dividing the array into subarrays, while in mergesort all the real work happens during merging the subarrays
   - in quicksort, the combine step does absolutely nothing
 :::
 
@@ -644,12 +643,12 @@ Exercise: run quicksort on pen and paper on the same example as mergesort
 
 :::: {.columns}
 ::: {.column width="52%"}
-- Search algorithms can use data structures for help: **heaps** as an example
+- Sorting algorithms can use data structures for help, for example **heaps**
 - partially ordered binary trees without gaps (or holes)
   - children of any node not larger than the node
-  - not a binary search tree: only local ordering of nodes and children
+  - not a binary search tree, because the ordering is only local
   - all levels filled, the last one from the left
-- example: does this tree satisfy the heap property?
+- Example: does this tree satisfy the heap property?
 :::
 
 ::: {.column width="48%"}
@@ -662,12 +661,12 @@ Exercise: run quicksort on pen and paper on the same example as mergesort
 
 :::: {.columns}
 ::: {.column width="52%"}
-- Search algorithms can use data structures for help: **heaps** as an example
+- Sorting algorithms can use data structures for help, for example **heaps**
 - partially ordered binary trees without gaps (or holes)
   - children of any node not larger than the node
-  - not a binary search tree: only local ordering of nodes and children
+  - not a binary search tree, because the ordering is only local
   - all levels filled, the last one from the left
-- example: does this tree satisfy the heap property?
+- Example: does this tree satisfy the heap property?
 :::
 
 ::: {.column width="48%"}
@@ -683,7 +682,8 @@ Exercise: run quicksort on pen and paper on the same example as mergesort
 ::: {}
 - partially ordered binary trees without gaps (or holes)
   - children of any node not larger than the node
-  - not a binary search tree, i.e., just require local ordering of nodes and children. All levels filled, last filled from the left
+  - not a binary search tree, because the ordering is only local
+  - all levels filled, the last one from the left
 :::
 
 ::: {}
@@ -699,9 +699,9 @@ Exercise: run quicksort on pen and paper on the same example as mergesort
 ## Min-Heaps
 
 ::: {}
-- Same as a heap but:
+- Same as a heap, with one difference:
   - children of any node not **smaller** than the node
-  - All levels filled, last filled from the left
+  - all levels filled, the last one from the left
 :::
 
 ::: {.center-h}
@@ -711,16 +711,16 @@ Exercise: run quicksort on pen and paper on the same example as mergesort
 ## Min-Heaps
 
 ::: {.sm}
-- Same as a heap but:
+- Same as a heap, with one difference:
   - children of any node not **smaller** than the node
-  - All levels filled, last filled from the left
+  - all levels filled, the last one from the left
 :::
 
 ::: {.center-h}
 ![](figures/07-min-heap-array.svg){height="10.4em"}
 :::
 
-## Heapsort
+## Heapsort: the idea
 
 ::: {}
 - **conceptual foundation:**
@@ -734,7 +734,7 @@ Exercise: run quicksort on pen and paper on the same example as mergesort
   - recover the heap property through permuting elements
 :::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -748,7 +748,7 @@ Extract top (minimum)<br>and place it first
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -762,7 +762,7 @@ Move last to top
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -776,7 +776,7 @@ Recover min-heap<br>property
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -790,7 +790,7 @@ Recover min-heap<br>property
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -804,7 +804,7 @@ Extract min
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -818,7 +818,7 @@ Move last to top
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -832,7 +832,7 @@ Recover min-heap<br>property
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -846,7 +846,7 @@ Recover min-heap<br>property
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -860,7 +860,7 @@ Extract min
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -874,7 +874,7 @@ Move last to top
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -888,7 +888,7 @@ Recover min-heap<br>property
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -902,7 +902,7 @@ Recover min-heap<br>property
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -916,7 +916,7 @@ Extract min
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -930,7 +930,7 @@ Move last to top
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -944,7 +944,7 @@ Recover min-heap<br>property
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -958,7 +958,7 @@ Recover min-heap<br>property
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -972,7 +972,7 @@ Extract min
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -986,7 +986,7 @@ Move last to top
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1000,7 +1000,7 @@ Recover min-heap<br>property
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1014,7 +1014,7 @@ Extract min
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1028,7 +1028,7 @@ Move last to top
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1042,7 +1042,7 @@ Recover min-heap<br>property
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1056,7 +1056,7 @@ Extract min
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1070,7 +1070,7 @@ Move last to top
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1084,7 +1084,7 @@ Recover min-heap<br>property
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1098,7 +1098,7 @@ Extract min
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1112,7 +1112,7 @@ Move last to top
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1126,7 +1126,7 @@ Recover min-heap<br>property
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1140,7 +1140,7 @@ Extract min
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1154,7 +1154,7 @@ Move last to top
 :::
 ::::
 
-## Heapsort: Example
+## Example: Heapsort
 
 :::: {.columns}
 ::: {.column width="82%"}
@@ -1213,12 +1213,32 @@ into nondecreasing order
 :::
 ::::
 
+## Why does this matter? Practical Python examples
+
+:::: {.columns}
+::: {.column width="55%"}
+![](figures/07-python-examples-notebook.png){width="100%"}
+:::
+
+::: {.column width="45%"}
+::: {.sm}
+- **Three algorithms, one list:** selection sort, mergesort and Python's `sorted` timed on growing lists
+- **Stability and ties:** selection sort reorders respondents of the same age
+- **Gains of a sorted list:** ten thousand lookups by binary search instead of linear scans
+:::
+:::
+::::
+
+::: {.source}
+<https://github.com/dgarcia-eu/ICSS/blob/main/PythonExamples/Examples07-SortingAlgorithms.ipynb>
+:::
+
 ## Summary
 
 - A **stable** sort keeps equal keys in their original order
 - **Selection sort** needs about $n^2/2$ comparisons
-- **Mergesort** splits in halves and merges: about $n \log_2 n$ comparisons
-- **Quicksort** partitions around a pivot: fast on average, $n^2$ at worst
+- **Mergesort** splits in halves and merges with about $n \log_2 n$ comparisons
+- **Quicksort** partitions around a pivot, which is fast on average but needs about $n^2$ comparisons at worst
 - **Heapsort** extracts the minimum of a **min-heap** $n$ times
 - Sorted data can be searched and merged much faster
 

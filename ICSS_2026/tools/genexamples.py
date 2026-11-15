@@ -33,7 +33,7 @@ SESSIONS = {
     "04": ("Software", "11.11.2025"), "05": ("Algorithms", "18.11.2025"),
     "06": ("Recursion", "25.11.2025"), "07": ("Sorting Algorithms", "02.12.2025"),
     "08": ("Time Complexity", "09.12.2025"), "09": ("Theoretical Computer Science", "16.12.2025"),
-    "10": ("Machine Learning", "06.01.2026"), "11": ("Databases", "13.01.2026"),
+    "10": ("Databases", "13.01.2026"), "11": ("Machine Learning", "20.01.2026"),
     "12": ("Parallel Programming", "20.01.2026"), "13": ("Social Science Applications", "27.01.2026"),
 }
 DECKFILE = {
@@ -41,19 +41,19 @@ DECKFILE = {
     "04": "ICSS-2026-04-Software", "05": "ICSS-2026-05-Algorithms",
     "06": "ICSS-2026-06-Recursion", "07": "ICSS-2026-07-SortingAlgorithms",
     "08": "ICSS-2026-08-TimeComplexity", "09": "ICSS-2026-09-TheoreticalCS",
-    "10": "ICSS-2026-10-MachineLearning", "11": "ICSS-2026-11-Databases",
+    "10": "ICSS-2026-10-Databases", "11": "ICSS-2026-11-MachineLearning",
     "12": "ICSS-2026-12-ParallelProgramming", "13": "ICSS-2026-13-SocialScienceApplications",
 }
 
 # Supplementary slides: (example id) -> list of (title, markdown body)
 EXTRA = {
-    "X10-C": [("C · How many groups? · choosing K, and when K-means is wrong", """
+    "X11-C": [("C · How many groups? · choosing K, and when K-means is wrong", """
 :::: {.columns}
 ::: {.column width="50%"}
-![](figures/10-kmeans-elbow.png){height="10.4em"}
+![](figures/11-kmeans-elbow.png){height="10.4em"}
 :::
 ::: {.column width="50%"}
-![](figures/10-kmeans-rings.png){height="10.4em"}
+![](figures/11-kmeans-rings.png){height="10.4em"}
 :::
 ::::
 

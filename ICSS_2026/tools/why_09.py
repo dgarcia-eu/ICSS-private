@@ -136,7 +136,7 @@ tool can tell you whether it is slow or stuck. Only you can, by reasoning about
 the code, which is what the rest of the course is for.
 
 **What we used:** finite-state automata and regular languages
-([session 9, sections 2 and 5](../Transcripts/09-TheoreticalCS.md#5-regular-languages)),
+([this session, sections 2 and 5](../Transcripts/09-TheoreticalCS.md#5-regular-languages)),
 computability and the halting problem ([section 7](../Transcripts/09-TheoreticalCS.md#7-computability)),
 complexity classes, P, NP and NP-completeness ([section 9](../Transcripts/09-TheoreticalCS.md#9-complexity-classes)),
 and the motivating example of the regular expression that took down a large part of the web."""),

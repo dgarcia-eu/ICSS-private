@@ -1,8 +1,8 @@
 # Little Bobby Tables
 
-*Session 11 · Databases · example X11-A ·
-[notebook](../notebooks/X11-A.ipynb) ·
-[slides](../../Slides/Examples/11-Examples/ICSS-2026-11-Examples.qmd)*
+*Session 10 · Databases · example X10-A ·
+[notebook](../notebooks/X10-A.ipynb) ·
+[slides](../../Slides/Examples/10-Examples/ICSS-2026-10-Examples.qmd)*
 
 > A boy's name deletes a school's records. The bug is one line, the fix is one
 > character, and the lesson is the same one as mojibake and `eval`: data that
@@ -11,7 +11,7 @@
 ## The puzzle
 
 <!-- FIG -->
-<figure class="full"><img src="../../Slides/Examples/11-Examples/figures/xkcd-327-exploits-of-a-mom.png" alt="XKCD 327, Exploits of a Mom."><figcaption>XKCD 327, Exploits of a Mom. Randall Munroe, CC BY-NC 2.5, xkcd.com/327.</figcaption></figure>
+<figure class="full"><img src="../../Slides/Examples/10-Examples/figures/xkcd-327-exploits-of-a-mom.png" alt="XKCD 327, Exploits of a Mom."><figcaption>XKCD 327, Exploits of a Mom. Randall Munroe, CC BY-NC 2.5, xkcd.com/327.</figcaption></figure>
 <!-- /FIG -->
 XKCD 327: a school enrolls a child whose registered name is
 `Robert'); DROP TABLE Students;--`, and shortly afterwards has no student
@@ -20,7 +20,7 @@ was wrong, and what is the correct version?
 
 ## Try it first
 
-The [notebook](../notebooks/X11-A.ipynb) uses SQLite in memory, so there is
+The [notebook](../notebooks/X10-A.ipynb) uses SQLite in memory, so there is
 nothing to install. It builds a query by string concatenation, shows the
 `' OR '1'='1` injection returning every row, runs Bobby's name through
 `executescript` to drop the table, and then does it properly with a
@@ -79,18 +79,18 @@ ID or a date typed by a user, is vulnerable, and research code that grew out
 of a notebook is full of exactly that. Parameterized queries cost nothing and
 every database library supports them. The general one is that this is the
 third appearance of one failure pattern in the course. UTF-8 bytes read as
-Latin-1 in session 2 is data misinterpreted. `eval` on a string from a file in
-session 4 and SQL from a concatenated name here are data executed. The same
+Latin-1 in the Information Coding session is data misinterpreted. `eval` on a string from a file in
+the Software session and SQL from a concatenated name here are data executed. The same
 defense applies each time: decide explicitly what is data and what is code,
 and never let the boundary be drawn by the content of a string.
 
 ## What we used from the lecture
 
-- [SQL: what kind of language it is](../../Transcripts/11-Databases.md#8-sql-what-kind-of-language-it-is):
+- [SQL: what kind of language it is](../../Transcripts/10-Databases.md#8-sql-what-kind-of-language-it-is):
   text that can be executed.
-- [Data definition and manipulation](../../Transcripts/11-Databases.md#10-data-definition-and-manipulation):
+- [Data definition and manipulation](../../Transcripts/10-Databases.md#10-data-definition-and-manipulation):
   `INSERT` and `DROP`.
-- [SQL injection](../../Transcripts/11-Databases.md#13-sql-injection):
+- [SQL injection](../../Transcripts/10-Databases.md#13-sql-injection):
   parameterized queries.
 
 ## Further reading

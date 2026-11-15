@@ -71,7 +71,7 @@ foreseeable hardware improvement catches up with a couple of extra words.
 Beyond choosing a password, this is the shape to recognize whenever a problem
 has a length. Brute-force search over sequences, whether assignments,
 schedules or model specifications, costs $|A|^L$ and becomes impossible at
-modest $L$, which is why the NP-complete problems of session 9 are hard.
+modest $L$, which is why the NP-complete problems of the Theoretical Computer Science session are hard.
 Enumerating all subsets of $n$ variables is $2^n$, so trying every combination
 of controls stops being a plan at about $n = 30$. A grid search over $k$
 hyperparameters with $m$ values each is $m^k$. The defense is always the same:

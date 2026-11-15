@@ -43,7 +43,7 @@ safe, so the demonstration inserts an explicit "let another thread run"
 between the read and the write. That is not cheating; it makes visible what
 the hardware does uninvited in C, Java, Go or any compiled numerical code.
 
-There are two fixes, and the choice between them is most of session 12. The
+There are two fixes, and the choice between them is most of this session. The
 first is a lock: wrap the three steps so that only one thread can be inside
 at a time. That is correct, and the wrapped section is now serial. Amdahl's
 law charges for that, because whatever fraction of the run is spent in locked
@@ -87,6 +87,6 @@ the first place.
 
 ## Further reading
 
-- The candidate opening M11-B of session 11, two seats on one airplane, is
+- The candidate opening M10-B of the Databases session, two seats on one airplane, is
   the same race at the level of a booking system; the answer there, a
   transaction, is a lock with better manners.

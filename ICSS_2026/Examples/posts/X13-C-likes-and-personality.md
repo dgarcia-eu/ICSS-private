@@ -37,7 +37,7 @@ the self-reports at about $r = 0.49$ on average, and a linear model on Likes,
 nothing more exotic, reached $r = 0.56$ with the average number of Likes. It
 matched a work colleague at 10 Likes, a friend at 70, a family member at 150
 and a spouse at 300, and the average user had 227. Nothing about this is
-beyond session 10. The Likes matrix is $X$, the questionnaire score is $Y$,
+beyond the Machine Learning session. The Likes matrix is $X$, the questionnaire score is $Y$,
 the model is fitted on some people and evaluated on others, and the accuracy
 is a correlation on held-out data. The notebook reproduces the shape with
 synthetic pages: each one carries a weak signal, and a few hundred weak
@@ -67,7 +67,7 @@ you. Individual consent cannot fix a collective leak.
 ## Why this matters if you work with data
 
 <!-- FIG -->
-<figure class="side"><img src="img/gebru.jpg" alt="Timnit Gebru"><figcaption><b>Timnit Gebru: the questions this raises about inference and consent are the ones session 10's ethics list asks.</b> Photo: TechCrunch, CC BY 2.0, via <a href="https://commons.wikimedia.org/wiki/File:Timnit_Gebru_crop.jpg">Wikimedia Commons</a>.</figcaption></figure>
+<figure class="side"><img src="img/gebru.jpg" alt="Timnit Gebru"><figcaption><b>Timnit Gebru: the questions this raises about inference and consent are the ones the Machine Learning session's ethics list asks.</b> Photo: TechCrunch, CC BY 2.0, via <a href="https://commons.wikimedia.org/wiki/File:Timnit_Gebru_crop.jpg">Wikimedia Commons</a>.</figcaption></figure>
 <!-- /FIG -->
 For research practice this sets an obligation the survey era did not have.
 When you collect or model digital traces, the question is not only what your
@@ -84,8 +84,8 @@ risk is shared.
 - [Method examples: personality from Likes](../../Transcripts/13-SocialScienceApplications.md#10-method-examples)
 - [Issues with methods: privacy](../../Transcripts/13-SocialScienceApplications.md#11-issues-with-methods-privacy):
   inference and shadow profiles.
-- [Supervised learning: the setup](../../Transcripts/10-MachineLearning.md#3-supervised-learning-the-setup)
-  (session 10).
+- [Supervised learning: the setup](../../Transcripts/11-MachineLearning.md#3-supervised-learning-the-setup)
+  (the Machine Learning session).
 
 ## Further reading
 

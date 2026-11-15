@@ -134,9 +134,9 @@ unlucky, and a search for something that is not there is not unlucky at all,
 it is the most common query in a cleaning script.
 
 **What we used:** why complexity matters, with numbers
-([session 8, section 3](../Transcripts/08-TimeComplexity.md#3-why-it-matters-some-numbers)),
+([this session, section 3](../Transcripts/08-TimeComplexity.md#3-why-it-matters-some-numbers)),
 runtime analysis ([section 4](../Transcripts/08-TimeComplexity.md#4-runtime-analysis)),
 best, average and worst case ([section 5](../Transcripts/08-TimeComplexity.md#5-best-average-and-worst-case)),
 O-notation ([sections 8 and 9](../Transcripts/08-TimeComplexity.md#8-asymptotic-behavior-and-o-notation)),
-and hash sets from [session 3, section 8](../Transcripts/03-DataStructures.md#8-hashing-and-hash-tables)."""),
+and hash sets from [the Data Structures session, section 8](../Transcripts/03-DataStructures.md#8-hashing-and-hash-tables)."""),
 ]

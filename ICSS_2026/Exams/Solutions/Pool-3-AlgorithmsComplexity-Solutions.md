@@ -483,7 +483,7 @@ the whole pool about what O-notation means.
 
 ## AC-15 · Posts, comments and users · 2+2+2+3+3 pts · [2024-E1 Q3a–e, 2025-Ex Q3a–e]
 
-**Where to look.** Slides: session 3, slides 33 to 45 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 3, slides 49 to 51 (*Appendix: binary search*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 8, slides 30 to 40 (*O-notation and its use*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [03 §5 Binary search](../../Transcripts/03-DataStructures.md#5-binary-search), [07 §9 Why sorting matters for us](../../Transcripts/07-SortingAlgorithms.md#9-why-sorting-matters-for-us), [08 §8 Asymptotic behavior and O-notation](../../Transcripts/08-TimeComplexity.md#o-notation), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
+**Where to look.** Slides: session 3, slides 38 to 50 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 3, slides 15 to 17 (*Binary search*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 8, slides 30 to 40 (*O-notation and its use*), in `Slides/08-TimeComplexity/ICSS-2026-08-TimeComplexity.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [03 §5 Binary search](../../Transcripts/03-DataStructures.md#5-binary-search), [07 §9 Why sorting matters for us](../../Transcripts/07-SortingAlgorithms.md#9-why-sorting-matters-for-us), [08 §8 Asymptotic behavior and O-notation](../../Transcripts/08-TimeComplexity.md#o-notation), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
 
 **Solution.**
 
@@ -575,7 +575,7 @@ mechanical for anyone who has done the exercise sheets.
 
 ## AC-16 · Building a comment network · 3+2+3+2 pts · [2024-E2 Q3a–d]
 
-**Where to look.** Slides: session 3, slides 33 to 45 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 5, slides 34 to 37 (*Graphs: formalization; Adjacency matrix; Adjacency list*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [05 §8 Representing graphs](../../Transcripts/05-Algorithms.md#8-representing-graphs), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
+**Where to look.** Slides: session 3, slides 38 to 50 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 5, slides 34 to 37 (*Graphs: formalization; Adjacency matrix; Adjacency list*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [05 §8 Representing graphs](../../Transcripts/05-Algorithms.md#8-representing-graphs), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
 
 **Solution.**
 

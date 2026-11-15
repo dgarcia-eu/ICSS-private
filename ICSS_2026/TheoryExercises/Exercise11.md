@@ -1,191 +1,190 @@
-# Exercise Sheet 11: Databases
+# Exercise Sheet 11: Machine Learning
 
 *Introduction to Computing for the Social Sciences · Prof. Dr. David Garcia*
 
-> Exercises 1–2 are worked through in the exercise session. The *Additional
-> practice* section is for self-study. Worked solutions to every exercise, with
-> pointers to the slides and the handout sections that cover the material, are
-> in [`Solutions/Exercise11-Solutions.md`](Solutions/Exercise11-Solutions.md); try before you open them.
-> Notation: [course conventions](../Transcripts/00-Conventions.md).
+Exercises 1 to 3 will be covered in the exercise session. The *Additional practice* section is for self-study and to be covered if time allows.
 
 ---
 
-## Exercise 1: From a flat table to a relational database
+## Exercise 1: Evaluating a classifier
 
-You receive the following table from the sales department:
+A research group builds a classifier to detect hate speech in social media posts.
+They evaluate it on a test set of 1,000 posts, of which 100 are actually hate
+speech. The results are:
 
-| UserNumber | UserName | PurchaseTime | ProductName | N | ProductID | Delivered |
-|---|---|---|---|---|---|---|
-| 011011 | Hans | 2020.03.06 11:15:55 | Milk | 1 | 011011 | True |
-| 012311 | Hans | 2020.04.07 01:50:50 | Milk | 2 | 011011 | True |
-| 011011 | Hans | 2020.05.06 10:05:00 | Coffee | 1 | 215511 | True |
-| 405444 | Marie | 2020.12.06 21:15:05 | Coffee | 45 | 215511 | False |
-| 556677 | Peter | 2021.03.06 03:50:50 | Coffee | 4 | 215511 | True |
+|  | Predicted: hate speech | Predicted: normal |
+|---|---|---|
+| **Actually hate speech** | 60 | 40 |
+| **Actually normal** | 30 | 870 |
 
-a) Without adding any columns, what combination of columns can you use as a
-   **primary key**? Explain the assumptions of your solution.
+a) Compute the **accuracy**, **precision**, **recall** and **F1 score** of the
+   classifier. Show your calculations.
 
-b) Assuming the table above is the only one of a SQL database, write a query that
-   lists all rows that correspond to **delivered purchases of more than one
-   unit**.
+b) A colleague proposes a much simpler classifier that always predicts "normal".
+   Compute the same four metrics for it. If one of them is not defined, say so
+   and explain why. Which classifier looks better under which metric, and why?
 
-c) Show how to restructure the above table into the tables of a relational
-   database that increases the efficiency of **changing the name of products
-   while keeping the same ProductID**. Indicate the primary key of this new table
-   and give it a name.
+c) The group wants to use the classifier to automatically delete posts. Would you
+   advise them to optimize for precision or for recall? What if instead they want
+   to use it to flag posts for a human moderator to review? Justify both answers.
 
-d) Based on your tables of the previous result, write a SQL query that gives the
-   delivery status of all purchases of the product named "Milk".
-
-> For (a), remember that a key must be **minimal** and must uniquely identify a
-> row *for every possible content of the table*, not just for these five rows.
-> Say explicitly what you are assuming about the world for your key to hold.
+d) The group reports that "the model is 93% accurate". Write two sentences
+   explaining to a non-technical reader why that number alone is not informative
+   here.
 
 ---
 
-## Exercise 2: Designing a schema
+## Exercise 2: Training, testing and overfitting
 
-A research project collects data on parliamentary debates. For every **speech**
-they record who gave it, when, in which debate, and its full text. Every
-**speaker** has a name, a party, a birth year and a constituency. Every **debate**
-has a title, a date and a topic. Parties have a name and a founding year, and
-speakers can change party over time.
+A team has a dataset of 5,000 tweets, each labeled by a human as positive or
+negative. They want to train a classifier and report how well it performs.
 
-a) Design a relational schema for this data. Give each table a name, list its
-   attributes with plausible types, and **underline** (or mark) the primary key.
-   Indicate the foreign keys and which table they reference.
+a) Describe how they should split the data, and explain **why** the test set must
+   not be touched during training.
 
-b) Explain why storing the party name directly in the speech table would be a bad
-   idea, and give a concrete update that would go wrong.
+b) The team builds their feature set by looking at which words are most strongly
+   associated with the labels **across the whole dataset**, and then trains and
+   tests with a 80/20 split. What is wrong with this procedure, and what would
+   the consequence be for the reported performance?
 
-c) The requirement that speakers can change party over time is the hard part.
-   Explain why a single `party` column in the speaker table is not enough, and
-   propose a solution.
+c) The dataset contains tweets from 300 users, and some users contributed more
+   than 100 tweets each. The team splits the tweets at random. Explain the
+   problem and describe a better splitting strategy.
 
-d) Write SQL queries for:
+d) The team tries a $k$ nearest neighbors classifier and finds that with $k = 1$
+   the training error is 0% while the test error is 31%. With $k = 50$ the
+   training error is 24% and the test error is 26%. Explain both results in terms
+   of **bias** and **variance**, and say which model you would choose.
 
-   i) the number of speeches per party;
-   ii) all speeches given in debates on the topic "climate" by speakers born
-       after 1970;
-   iii) the average speech length per party, ordered from longest to shortest.
+---
 
-   *(Assume a column `Length` in the speech table for (iii).)*
+## Exercise 3: Clustering
 
-> Part (c) is the one to think about longest. Ask yourself what a "fact" is here:
-> is "Hans is in party X" a fact about Hans, or a fact about Hans *during a
-> period of time*? Where a fact lives determines which table it belongs in.
+A researcher has survey responses from 2,000 people on 12 attitude items and wants
+to identify groups of respondents with similar attitude profiles. They decide to
+use K-means.
+
+a) Is this supervised or unsupervised learning? Justify your answer by saying
+   what plays the role of $X$ and of $Y$.
+
+b) Write the pseudocode of the K-means algorithm, following the course
+   conventions for pseudocode.
+
+c) The researcher computes the within-cluster sum of squares for
+   $K = 1, 2, \dots, 10$ and obtains:
+
+   | $K$ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+   |---|---|---|---|---|---|---|---|---|---|---|
+   | WSS | 8400 | 5100 | 3200 | 2900 | 2700 | 2560 | 2440 | 2340 | 2250 | 2170 |
+
+   Which $K$ would you choose, and why? Explain why simply choosing the $K$ with
+   the lowest WSS is not an option.
+
+d) The researcher runs K-means twice with $K = 4$ and gets two different
+   clusterings. Explain why this can happen and what to do about it.
+
+As a hint for (b), remember that K-means alternates two steps until nothing
+changes. Be explicit about the stopping condition, because an algorithm that
+does not say when it stops is not an algorithm, as we saw in the Algorithms
+session.
 
 ---
 
 ## Additional practice
 
-### A1. ACID in practice
+### A1. Features and TF-IDF
 
-For each scenario, name which ACID property is at stake and what would go wrong
-without it.
+A small corpus has 4 documents. The word *crisis* appears 3 times in document 1,
+which has 100 words in total, and appears in 2 of the 4 documents. The word *the*
+appears 6 times in document 1 and in all 4 documents.
 
-a) A bank transfer crashes after debiting the sender.
-b) Two agents sell the same seat on a flight at the same instant.
-c) A power cut hits the server one second after a booking is confirmed.
-d) An insert adds a purchase referring to a product that does not exist.
+a) Compute the TF, IDF and TF-IDF of *crisis* and of *the* in document 1 (use the
+   natural logarithm).
+b) Explain in one sentence why the result is what feature engineering is for.
+c) Give two examples of engineered features for a task of detecting sarcasm in
+   tweets, and say what each one is meant to capture.
 
-### A2. Normalizing
+### A2. Naive Bayes with pen and paper
 
-Here is a table of course enrollments:
+A spam filter is trained on 100 emails, of which 40 are spam and 60 are not spam. In the spam emails
+the word *free* appears in 24 of them and the word *meeting* in 2. In the
+non-spam emails *free* appears in 6 and *meeting* in 30.
 
-| Student | StudentEmail | Course | Lecturer | LecturerOffice | Grade |
-|---|---|---|---|---|---|
-| Anna | anna@uni.de | ICSS | Garcia | D 233 | 1.7 |
-| Ben | ben@uni.de | ICSS | Garcia | D 233 | 2.3 |
-| Anna | anna@uni.de | Statistics | Meier | C 105 | 2.0 |
+a) Estimate $P(Y = \text{spam})$, $P(\text{free} \mid \text{spam})$ and the other
+   three conditional probabilities.
+b) Using Naive Bayes, classify an email that contains both *free* and *meeting*.
+   Show the two scores.
+c) Which assumption did you use in (b), and why is it questionable here?
+d) What would happen if the word *free* had never appeared in a non-spam email,
+   and how is that usually fixed?
 
-a) List every piece of information that is stored redundantly.
-b) Give three distinct anomalies (one insert, one update, one delete) that this
-   design permits.
-c) Restructure it into a set of tables in which each fact is stored once. Mark
-   keys and foreign keys.
+### A3. Bias and variance
 
-### A3. Reading joins
+For each situation, say whether the model is more likely to be **underfitting**
+or **overfitting**, and what you would change.
 
-With these two tables:
+a) Training error 2%, test error 30%.
+b) Training error 28%, test error 30%.
+c) A decision tree grown until every leaf contains a single training example.
+d) A linear regression fitted to data that clearly follows a U-shape.
+e) A neural network with 10 million parameters trained on 500 examples.
 
-**Author**
+### A4. kNN with pen and paper
 
-| AuthorID | Name |
-|---|---|
-| 1 | Lazer |
-| 2 | Salganik |
-| 3 | Schelling |
+Six labeled points in one dimension:
 
-**Paper**
+| $x$ | 1 | 2 | 4 | 7 | 8 | 10 |
+|---|---|---|---|---|---|---|
+| $y$ | A | A | B | A | B | B |
 
-| PaperID | Title | AuthorID |
-|---|---|---|
-| 10 | Computational Social Science | 1 |
-| 11 | Bit by Bit | 2 |
-| 12 | Meaningful measures | 1 |
-| 13 | Anonymous preprint | NULL |
+a) Classify $x = 5$ with $k = 1$, $k = 3$ and $k = 5$.
+b) Which value of $k$ gives the smoothest decision boundary, and why?
+c) What is the training error of the $k = 1$ classifier on these six points?
+d) kNN requires no training. What is the cost of that?
 
-a) How many rows does `SELECT * FROM Author, Paper;` return?
-b) How many rows does `SELECT * FROM Author INNER JOIN Paper USING (AuthorID);`
-   return? Which rows are lost?
-c) Write a query returning every author together with their papers, **including
-   authors with no papers**.
-d) Write a query returning the number of papers per author, including zeros.
+### A5. Supervised, unsupervised, or neither
 
-### A4. Writing queries
+For each research task, say which family of machine learning it belongs to, and
+name the specific task type (classification, regression, clustering,
+dimensionality reduction).
 
-Using the `Product(PName, Price, Manufacturer)` table from the lecture, write SQL
-for each request.
+a) Predicting a country's GDP next year from this year's indicators.
+b) Grouping parliamentary speeches into themes without a predefined list.
+c) Deciding whether a tweet is about climate change, given 5,000 labeled tweets.
+d) Reducing 40 survey items to a small number of underlying attitude dimensions.
+e) Training a robot to walk by rewarding forward movement.
 
-a) All products costing more than $50.
-b) The names of products made by Canon or Hitachi.
-c) The number of products per manufacturer.
-d) The most expensive product.
-e) Manufacturers with an average price above $100.
+### A6. Ethics of prediction
 
-### A5. SQL injection
+For each proposed system, name the main ethical problem from the list of
+questions of this session and say what you would ask the developers.
 
-A web form looks up a student by name with this Python code:
-
-```python
-query = "SELECT * FROM Students WHERE name = '" + name + "'"
-cursor.execute(query)
-```
-
-a) What query results if a user enters `Robert'; DROP TABLE Students;--`?
-b) Give a different input that would return **all** rows regardless of the name.
-c) Rewrite the code so the attack is impossible, and explain why your version
-   works.
-d) Would restricting the database user's permissions to `SELECT` only prevent
-   every kind of injection attack? Explain.
-
-### A6. Declarative vs procedural
-
-a) Explain, in the terms of session 4, what makes SQL a **declarative** language.
-b) Give one reason why declarative code can be *faster* than the loop you would
-   have written yourself.
-c) Session 12 will say that SQL is "highly parallelizable by construction". Why
-   does being declarative help with that?
-d) When would you nevertheless prefer to pull the data into Python and loop?
+a) A model predicting recidivism, trained on historical arrest records.
+b) A face recognition system for university entrance, trained on a public
+   photo dataset.
+c) A model that predicts students' final grades in week 2 and routes low
+   predictions to a "support track".
+d) An LLM trained on the full text of a newspaper archive without asking the
+   journalists.
 
 ---
 
 ## Sources
 
-- Exercise 1 is adapted from the 2024 sheet 11 of this course.
-- **Codd, E. F. (1970).** "A Relational Model of Data for Large Shared Data
-  Banks". *Communications of the ACM* 13(6), 377–387.: The relational model
-  underlying exercises 1c, 2 and A2.
-- **Garcia-Molina, H., Ullman, J. D. & Widom, J. (2008).** *Database Systems: The
-  Complete Book*, 2nd ed. Pearson.: Source of the `Product` table used in A4 and
-  of the join semantics in A3.
-- **Elmasri, R. & Navathe, S. B. (2016).** *Fundamentals of Database Systems*,
-  7th ed. Pearson.: Normal forms and the anomalies enumerated in A2.
-- **Härder, T. & Reuter, A. (1983).** "Principles of Transaction-Oriented
-  Database Recovery". *ACM Computing Surveys* 15(4), 287–317.: ACID, A1.
-- **W3Schools SQL tutorial:** <https://www.w3schools.com/sql/default.asp>,
-  Reference for the SQL syntax in exercises 1b, 1d, 2d and A4.
-- **OWASP, *SQL Injection*:**
-  <https://owasp.org/www-community/attacks/SQL_Injection>: A5.
-- **Munroe, R.** *Exploits of a Mom*, XKCD 327: <https://xkcd.com/327/>: A5(a).
+- This sheet is built from the slides of this session and the references below.
+- **Hastie, T., Tibshirani, R. & Friedman, J. (2009).** *The Elements of
+  Statistical Learning*, 2nd ed. Springer. Free at
+  <https://hastie.su.domains/ElemStatLearn/>, ch. 2 (kNN and the bias–variance
+  tradeoff: exercise 2d, A3, A4), ch. 7 (model assessment: exercise 2), ch. 14.3
+  (K-means: exercise 3).
+- **Bishop, C. M. (2006).** *Pattern Recognition and Machine Learning*. Springer.
+  Naive Bayes and smoothing (A2).
+- **Manning, C. D., Raghavan, P. & Schütze, H. (2008).** *Introduction to
+  Information Retrieval*. Cambridge University Press.
+  <https://nlp.stanford.edu/IR-book/>: TF-IDF (A1) and the evaluation measures
+  of exercise 1.
+- **Wikipedia, *Precision and recall*:**
+  <http://en.wikipedia.org/wiki/Precision_and_recall>, used in the slides and
+  in exercise 1.
+- **Buolamwini, J. & Gebru, T. (2018).** "Gender Shades". *FAccT*. Used in A6(b).
+- **Angwin, J. et al. (2016).** "Machine Bias". *ProPublica*. Used in A6(a).

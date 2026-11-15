@@ -54,13 +54,13 @@ PEOPLE = {
     "church": "Alonzo Church", "kleene": "Stephen Cole Kleene", "post": "Emil Leon Post", "rabin": "Michael O. Rabin",
     "scott": "Dana Scott", "chomsky": "Noam Chomsky", "robinson": "Julia Robinson", "matiyasevich": "Yuri Matiyasevich",
     "bletchley": "Bombe",
-    # session 10
+    # session 11
     "laplace": "Pierre-Simon Laplace", "gauss": "Carl Friedrich Gauss", "bayes": "Thomas Bayes", "fisher": "Ronald Fisher",
     "mcculloch": "Warren Sturgis McCulloch", "pitts": "Walter Pitts", "rosenblatt": "Frank Rosenblatt", "perceptron": "Perceptron",
     "minsky": "Marvin Minsky", "papert": "Seymour Papert", "hinton": "Geoffrey Hinton", "lecun": "Yann LeCun",
     "bengio": "Yoshua Bengio", "fukushima": "Kunihiko Fukushima", "fei-fei-li": "Fei-Fei Li", "buolamwini": "Joy Buolamwini",
     "gebru": "Timnit Gebru", "vapnik": "Vladimir Vapnik",
-    # session 11
+    # session 10
     "bachman": "Charles Bachman", "codd": "Edgar F. Codd", "chamberlin": "Donald D. Chamberlin", "selinger": "Patricia Selinger",
     "stonebraker": "Michael Stonebraker", "gray": "Jim Gray (computer scientist)", "ellison": "Larry Ellison", "hipp": "D. Richard Hipp",
     # session 12

@@ -498,7 +498,7 @@ submission.
 #  Session 5 -- Algorithms
 # ===========================================================================
 
-add("M05-A", "Six handshakes, and how you would check",
+park("M05-A", "Six handshakes, and how you would check",
     "Milgram needed volunteers and postage; Facebook measured the same thing "
     "over 1.59 billion people. What is the procedure?",
     r"""
@@ -563,8 +563,8 @@ breadth-first search, ending with exactly the computation described above.
 The transferable point is that a research question becomes computable at the
 moment you can say, without ambiguity, what to do next. Most of the work is
 in getting to that sentence.
-"""
-    )
+""",
+    "Removed from the Algorithms session on 2026-11-15 (David). Kept for later use.")
 
 add("M05-B", "Whose contacts, within two steps?",
     "Contact tracing as a graph search: thousands of people, answered in "
@@ -1545,10 +1545,10 @@ never change.
     )
 
 # ===========================================================================
-#  Session 10 -- Machine Learning
+#  Session 11 -- Machine Learning
 # ===========================================================================
 
-add("M10-A", "Google predicted the flu, until it didn't",
+add("M11-A", "Google predicted the flu, until it didn't",
     "Google Flu Trends beat the CDC in 2009 and predicted more than double the "
     "real rate in 2013. It fitted the past almost perfectly.",
     r"""
@@ -1625,7 +1625,7 @@ model works on data it has never seen.
 """
     )
 
-add("M10-B", "93% accurate, and it never finds anyone",
+add("M11-B", "93% accurate, and it never finds anyone",
     "A dropout-risk model with 93% accuracy that identifies nobody. Which "
     "number should have been on the report?",
     r"""
@@ -1694,7 +1694,7 @@ yourself.
 """
     )
 
-add("M10-C", "A million speeches nobody can read",
+add("M11-C", "A million speeches nobody can read",
     "Every Bundestag speech since 1949: forty person-years to hand-code. You "
     "can code 2 000. Now what?",
     r"""
@@ -1769,10 +1769,10 @@ changes nothing about that obligation.
     )
 
 # ===========================================================================
-#  Session 11 -- Databases
+#  Session 10 -- Databases
 # ===========================================================================
 
-add("M11-A", "The 15 841 cases that fell off the end of a spreadsheet",
+add("M10-A", "The 15 841 cases that fell off the end of a spreadsheet",
     "Public Health England lost 16 000 COVID results to a 65 536-row limit. "
     "No error appeared. 50 000 contacts were never traced.",
     r"""
@@ -1848,7 +1848,7 @@ answer is no, the format is the problem.
 """
     )
 
-add("M11-B", "Two seats, one airplane",
+add("M10-B", "Two seats, one airplane",
     "Two agents book the last seat in the same second. Each program checked "
     "availability and found one. Neither has a bug.",
     r"""
@@ -1916,7 +1916,7 @@ and reaches for the same solution: any time two things share mutable state,
 """
     )
 
-add("M11-C", "Whose number is right?",
+add("M10-C", "Whose number is right?",
     "Three copies of the participant list, three people doing their jobs, and "
     "three different answers to 'how many participants'.",
     r"""

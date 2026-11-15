@@ -778,8 +778,8 @@ question 3 when the anchor item is a trace.
 | Sheet | Contents | Suitable as |
 |---|---|---|
 | [`Exercise05.md`](../TheoryExercises/Exercise05.md) | Algorithm definition, flowcharts, pseudocode, search, BFS | Constructive 3–5 point items |
-| [`Exercise07.md`](../TheoryExercises/Exercise07.md) | Selection sort, mergesort, quicksort, heapsort, stability, lower bound | Trace and comparison items |
-| [`Exercise08.md`](../TheoryExercises/Exercise08.md) | A1 code→complexity, A2 formal proofs, A3 best/average/worst, A4 recurrences, A5 real code, A6 the course's algorithms, A7 memory complexity | A2 and A4 are directly reusable as `AC-04`-style items with different functions |
+| [`Exercise07.md`](../TheoryExercises/Exercise07.md) | Selection sort, mergesort, quicksort, heapsort, stability | Trace and comparison items |
+| [`Exercise08.md`](../TheoryExercises/Exercise08.md) | A1 code→complexity, A2 formal proofs, A3 best/average/worst, A4 recurrences, A5 real code, A6 the course's algorithms | A2 and A4 are directly reusable as `AC-04`-style items with different functions |
 
 Sheet 8's A4 (recurrences) covers ground no exam has touched: $T(n) = 2T(n/2) +
 n$, $T(n) = T(n-1) + n$, $T(n) = T(n/2) + 1$. Solving a recurrence would be a

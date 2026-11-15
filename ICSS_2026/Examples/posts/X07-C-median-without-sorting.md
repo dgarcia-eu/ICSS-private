@@ -71,7 +71,7 @@ between $n$ and $n \log n$ is the difference between one pass and thirty. The
 broader lesson is the one this session keeps returning to: do not compute
 what you did not ask for. Sorting is a means, and when the end is a single
 value there may be a shorter route. The same question, whether you need the
-whole ordering or one fact about it, applies to membership, where session 3
+whole ordering or one fact about it, applies to membership, where the Data Structures session
 gives you a hash set rather than a sort, to the maximum, which is one pass,
 and to the top ten, which is a heap of size ten.
 
@@ -80,7 +80,7 @@ and to the top ten, which is a heap of size ten.
 - [Divide and conquer](../../Transcripts/07-SortingAlgorithms.md#5-divide-and-conquer)
 - [Quicksort](../../Transcripts/07-SortingAlgorithms.md#7-quicksort): the
   PARTITION procedure.
-- The geometric series is [session 8](../../Transcripts/08-TimeComplexity.md).
+- The geometric series is [the Time Complexity session](../../Transcripts/08-TimeComplexity.md).
 
 ## Further reading
 

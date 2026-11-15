@@ -31,7 +31,7 @@ procedure could do something, you first needed a definition of "procedure".
 Three definitions arrived in one year, from Princeton and Cambridge, one
 based on a notation for functions, one on a machine with a tape and a finite
 set of rules, and one on the recursive functions whose story the history post
-of session 6 tells, and all three were proved to describe exactly the same
+of the Recursion session tells, and all three were proved to describe exactly the same
 set of computable things. That agreement is the *Church-Turing thesis*: this
 is what "computable" means, and there is nothing beyond it. Two of the three
 papers also showed that Hilbert's decision procedure could not exist. Alan
@@ -39,10 +39,10 @@ Turing's version is the one that stuck, because it was a machine. A tape, a
 head that reads and writes one cell at a time, a table of rules: the Turing
 machine of the lecture is his 1936 model unchanged, and his proof that no
 machine can decide whether another machine will halt is the halting problem
-of session 9. Within ten years there were real machines built on the idea.
+of this session. Within ten years there were real machines built on the idea.
 Turing went on to break the German naval cipher at Bletchley Park, to design
 one of the first stored-program computers, and to propose the test for
-machine intelligence that session 10 mentions. He was prosecuted for
+machine intelligence that the Machine Learning session mentions. He was prosecuted for
 homosexuality in 1952, sentenced to chemical castration, and died of cyanide
 poisoning in 1954. The British government apologized in 2009.
 
@@ -78,7 +78,7 @@ barred her from a position there, and she worked for two decades without a
 salary or a title. In 1950 she made the first serious attack on the tenth
 problem, and in 1961, with two collaborators, reduced it to a single
 remaining conjecture. In 1970 a twenty-two-year-old in Leningrad proved that
-conjecture, using the Fibonacci numbers of session 6, and the problem was
+conjecture, using the Fibonacci numbers of the Recursion session, and the problem was
 closed: no such algorithm exists. Robinson insisted that the result be named
 for him; the literature names all four. Berkeley made her a professor in
 1976, the year she became the first woman mathematician elected to the US
@@ -87,7 +87,7 @@ of the American Mathematical Society.
 
 ## The thread to the lecture
 
-Session 9 presents automata, grammars, Turing machines and the halting
+This session presents automata, grammars, Turing machines and the halting
 problem as a ladder of what machines can do. The history shows that the top
 rung was built first, in 1936, to answer a question about mathematics rather
 than about machines, and that the lower rungs were reverse-engineered from

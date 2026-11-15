@@ -43,7 +43,7 @@ pointer.
 
 A structure that supports "add at the back, remove from the front" is a
 *queue*, FIFO, first in, first out, and it is the right abstraction for a
-waiting room, a print spooler, a request buffer and, in session 5,
+waiting room, a print spooler, a request buffer and, in the Algorithms session,
 breadth-first search. Python's `collections.deque` is one; it is implemented
 as a chain of small arrays and gets $O(1)$ at both ends. What was given up is
 access by position. The third patient in a linked queue is found by walking
@@ -77,7 +77,7 @@ and the trade-off table of the lecture is the answer sheet.
 - [Linked lists](../../Transcripts/03-DataStructures.md#3-linked-lists)
 - [The trade-off: editing versus searching](../../Transcripts/03-DataStructures.md#4-the-trade-off-editing-versus-searching)
 - [Queues and stacks](../../Transcripts/05-Algorithms.md#6-abstract-data-structures-queues-and-stacks)
-  (session 5).
+  (the Algorithms session).
 
 ## Further reading
 

@@ -1,8 +1,8 @@
 # Find the customers who never ordered
 
-*Session 11 · Databases · example X11-C ·
-[notebook](../notebooks/X11-C.ipynb) ·
-[slides](../../Slides/Examples/11-Examples/ICSS-2026-11-Examples.qmd)*
+*Session 10 · Databases · example X10-C ·
+[notebook](../notebooks/X10-C.ipynb) ·
+[slides](../../Slides/Examples/10-Examples/ICSS-2026-10-Examples.qmd)*
 
 > The query is short, reads correctly and returns zero rows, and it can never
 > return anything else, whatever the data. The rows it is looking for were
@@ -22,7 +22,7 @@ and what kind of join does the question actually need?
 
 ## Try it first
 
-The [notebook](../notebooks/X11-C.ipynb) builds four customers and three
+The [notebook](../notebooks/X10-C.ipynb) builds four customers and three
 orders in SQLite, runs the query as written (zero rows) and with `LEFT JOIN`
 (the two inactive customers), prints what each join produces, and ends with
 the `COUNT(*)` versus `COUNT(o.id)` trap.
@@ -30,7 +30,7 @@ the `COUNT(*)` versus `COUNT(o.id)` trap.
 ## What is going on
 
 <!-- FIG -->
-<figure class="full"><img src="../../Slides/Examples/11-Examples/figures/11-left-join-null.svg" alt="What INNER JOIN and LEFT JOIN each produce; the NULL rows are the customers you were looking for."><figcaption>What INNER JOIN and LEFT JOIN each produce; the NULL rows are the customers you were looking for.</figcaption></figure>
+<figure class="full"><img src="../../Slides/Examples/10-Examples/figures/10-left-join-null.svg" alt="What INNER JOIN and LEFT JOIN each produce; the NULL rows are the customers you were looking for."><figcaption>What INNER JOIN and LEFT JOIN each produce; the NULL rows are the customers you were looking for.</figcaption></figure>
 <!-- /FIG -->
 The order in which a query is evaluated is the whole explanation. `FROM` and
 `JOIN` run first and produce a set of rows, `WHERE` filters that set, and
@@ -79,8 +79,8 @@ a phantom observation.
 
 ## What we used from the lecture
 
-- [Queries: selection happens after the join](../../Transcripts/11-Databases.md#11-queries-selection-projection-aggregation)
-- [Joins](../../Transcripts/11-Databases.md#12-joins): INNER versus LEFT, and
+- [Queries: selection happens after the join](../../Transcripts/10-Databases.md#11-queries-selection-projection-aggregation)
+- [Joins](../../Transcripts/10-Databases.md#12-joins): INNER versus LEFT, and
   NULL for missing matches.
 
 ## Further reading

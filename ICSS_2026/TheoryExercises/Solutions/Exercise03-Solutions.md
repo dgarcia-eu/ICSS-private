@@ -166,7 +166,7 @@ c) **Hash table**. Only exact-match lookup by URL is needed, and the number of
 possible URLs is astronomically larger than the number observed.
 d) A **linked list** with a pointer to each end: new responses are appended
 at the end and processed from the head, both in one step. This is a queue,
-which session 5 covers explicitly.
+which the Algorithms session covers explicitly.
 
 ### A2. Hash function quality
 

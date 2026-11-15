@@ -25,26 +25,25 @@ format:
 :::: {.columns}
 ::: {.column width="50%"}
 ::: {.sm}
-- Session 1: Introduction
-- Session 2: Information Coding
-- Session 3: Data Structures
-- Session 4: Software
-- Session 5: Algorithms
-- Session 6: Recursion
-- Session 7: Sorting Algorithms
+- *Session 1: Introduction*
+- *Session 2: Information Coding*
+- *Session 3: Data Structures*
+- *Session 4: Software*
+- *Session 5: Algorithms*
+- *Session 6: Recursion*
+- *Session 7: Sorting Algorithms*
 :::
 :::
 
 ::: {.column width="50%"}
 ::: {.sm}
-- Session 8: Time Complexity
-- Session 9: Theoretical Computer Science
-- Session 10: Machine Learning
-- Session 11: Databases
-- Session 12: Parallel Programming
-- Session 13: Social Science Applications
-  - Thursday: Exercises & exam recap
-- Session 14: Exam Review: Lectures recap
+- *Session 8: Time Complexity*
+- *Session 9: Theoretical Computer Science*
+- *Session 10: Databases*
+- *Session 11: Machine Learning*
+- *Session 12: Parallel Programming*
+- **Session 13: Social Science Applications**
+- Session 14: Exam Review
 :::
 :::
 ::::
@@ -71,7 +70,7 @@ Quantitative testing of theories from the social sciences at unprecedented bread
 ::: {.sm}
 - Using new, large-scale data to inform social science theory
 - Quantitative and empirical, not just theoretical
-- Not data-driven studies: **interdisciplinary research**
+- **Interdisciplinary research** rather than data-driven studies
 :::
 
 ::: {.source}
@@ -101,10 +100,10 @@ Study of the Web as a socio-technical system. Empirical studies but also compute
 Sociology of the digital transformation and social phenomena affected by the new use of Information and Communication Technology.
 :::
 
-## Computational in Computational Social Science {.fit2}
+## The three meanings of *Computational* in CSS {.fit2}
 
 ::: {.sm}
-It can have three meanings, all related to computation but different:
+The word *computational* can have three meanings, all related to computation but different:
 :::
 
 ::: {.definition}
@@ -177,7 +176,7 @@ Application of data and results to the design of agent-based models that explain
 :::: {.columns}
 ::: {.column width="58%"}
 ::: {.sm}
-More and more of our actions happen through digital technologies, e.g.:
+More and more of our actions happen through digital technologies, for example:
 
 - Searching for a job online
 - Talking with a family member over the phone
@@ -274,20 +273,19 @@ Meaningful measures of human society in the twenty-first century. David Lazer et
 <https://twitter.com/mszll/status/1332245497617190913>
 :::
 
-## Heterogenous Data Sources and Methods {.fit1}
+## Heterogeneous Data Sources and Methods {.fit1}
 
 ::: {.xs}
-- Social science data used to have few formats: e.g. experiment outcome annotations or survey responses
-- Now many more formats and data sources:
-  - text, social networks, locations and timestamps, likes…
+- Social science data used to have few formats, for example experiment outcome annotations or survey responses
+- Now there are many more formats and data sources, such as text, social networks, locations and timestamps, likes…
 - Sometimes these formats are even related to each other
-- Methods have been improving over time:
+- Methods have been improving over time in three generations:
   - **First generation of methods:** adapting previous social science methods
-    - example: dictionaries in text analysis
+    - for example dictionaries in text analysis
   - **Second generation of methods:** using Machine Learning models to generalize measurement from many examples of measurements
-    - example: sentiment analysis
+    - for example sentiment analysis
   - **Third generation of methods:** using large models to analyze highly-dimensional data
-    - example: word embeddings &ndash; see the "document analysis" course
+    - for example word embeddings (see the "document analysis" course)
 :::
 
 ## Research Example: VADER sentiment analysis
@@ -392,7 +390,7 @@ Collective aspects of privacy in the Twitter social network. Garcia et al. (2018
 - Low but nonzero fraction of empty cells
 - Cells have a neighborhood of 8 cells around the central cell
 - Corners and borders have fewer neighbors
-- Agents are aware of the fraction of similar agents in their neighborhood: $f$
+- Agents are aware of the fraction $f$ of similar agents in their neighborhood
 - Agents are satisfied with $f \geq F$
 - If unsatisfied, they jump to the closest satisfying cell
 - $F$ is a parameter that measures **intolerance**
@@ -513,7 +511,7 @@ Assessment of the Effectiveness of Omicron Transmission Mitigation Strategies fo
 :::: {.columns}
 ::: {.column width="60%"}
 ::: {.sm}
-- Seminar with exercises: 6 ECTS (2 + 2 SWS)
+- Seminar with exercises, 6 ECTS (2 + 2 SWS)
 - To be taught in 2027 by David Garcia
 - <https://github.com/dgarcia-eu/CMSS-Konstanz>
 - Lectures and exercises on Agent-Based Modeling and Complexity Science
@@ -541,7 +539,7 @@ Assessment of the Effectiveness of Omicron Transmission Mitigation Strategies fo
 - **Recommendation:** take *Colloquium in Social Data Science* the semester before your master thesis
 - Preparation by joining group research updates (Tuesdays 13:30-15:00)
 - Students prepare their thesis plan during the semester and present it for input at the end
-- Manual registration by me &ndash; contact me before to discuss coursework and potential topics
+- Registration is manual, so contact me before to discuss coursework and potential topics
 - **Second recommendation:** take my group's courses and read our papers
 :::
 :::
@@ -551,15 +549,35 @@ Assessment of the Effectiveness of Omicron Transmission Mitigation Strategies fo
 :::
 ::::
 
+## Why does this matter? Practical Python examples
+
+:::: {.columns}
+::: {.column width="55%"}
+![](figures/13-python-examples-notebook.png){width="100%"}
+:::
+
+::: {.column width="45%"}
+::: {.sm}
+- **Algorithmic confounding:** a ranking change almost doubles the share of climate posts while the users behave the same
+- **Generative sufficiency:** two different mechanisms produce the same unequal popularity of songs
+- **An experiment decides:** running history again in parallel worlds tells the two mechanisms apart
+:::
+:::
+::::
+
+::: {.source}
+<https://github.com/dgarcia-eu/ICSS/blob/main/PythonExamples/Examples13-SocialScienceApplications.ipynb>
+:::
+
 ## Summary
 
 ::: {.sm}
 - **Computational Social Science**
-  - Using new sources of data and computational methods in the social sciences: the three meanings of the word *computational*
+  - Using new sources of data and computational methods in the social sciences, with three meanings of the word *computational*
 - **Digital Behavioral Data in the Social Sciences**
-  - Social media, search, mobile phones… Risks: representation problems
+  - Social media, search, mobile phones… The main risk is representation
 - **New Methods in the Social Sciences**
-  - Text analysis as an example. Risks: privacy
+  - Text analysis as an example. The main risk is privacy
 - **Computational Analysis of Social Science Theory**
   - Agent-Based Modeling to analyze models of social systems
 :::

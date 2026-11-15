@@ -65,7 +65,7 @@ stack of previous states; redo is the forward stack, and it is cleared when
 you make a new edit, for exactly the reason above. The call stack that session
 6 uses to explain recursion is the same structure: the most recently called
 function is the one that returns first. And depth-first search, also in
-session 6, is breadth-first search with the queue replaced by a stack, and
+the Recursion session, is breadth-first search with the queue replaced by a stack, and
 that one substitution changes which path you find. The contrast case is just
 as important. A support helpline built on a stack would be a disaster, because
 a helpline needs the *oldest* request served first, which is a queue. Same structure, opposite verdict, and the
@@ -77,7 +77,7 @@ deciding question is always what should come out next.
 - [Linked lists](../../Transcripts/03-DataStructures.md#3-linked-lists): the
   structure a stack is built on, and why push and pop are $O(1)$.
 - [Stacks and queues](../../Transcripts/05-Algorithms.md#6-abstract-data-structures-queues-and-stacks)
-  (session 5): the formal definitions.
+  (the Algorithms session): the formal definitions.
 
 ## Further reading
 

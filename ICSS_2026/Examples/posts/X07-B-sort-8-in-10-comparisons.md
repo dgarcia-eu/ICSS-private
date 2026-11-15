@@ -65,7 +65,7 @@ argument about decision trees, and it does not need to see the code.
 <figure class="side"><img src="img/knuth.jpg" alt="Donald Knuth"><figcaption><b>Donald Knuth, whose Art of Computer Programming vol. 3 settles the small cases exactly.</b> Photo: Alex Handy, CC BY-SA 2.0, via <a href="https://commons.wikimedia.org/wiki/File:Donald_Ervin_Knuth_(cropped).jpg">Wikimedia Commons</a>.</figcaption></figure>
 <!-- /FIG -->
 The rhetorical point is the important one: this is a statement about every
-possible program, proved on one slide. Session 9 is built out of statements
+possible program, proved on one slide. The Theoretical Computer Science session is built out of statements
 like that, about what finite automata cannot recognize and what no program
 can decide, and this is the first one you meet in the course. It is worth
 noticing how different it feels from timing a script. The practical points

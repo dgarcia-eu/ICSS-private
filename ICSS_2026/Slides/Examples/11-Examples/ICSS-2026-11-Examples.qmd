@@ -1,5 +1,5 @@
 ---
-title: "<span class='course'>Introduction to Computing for the Social Sciences</span><br><span class='session'>Session 11 &ndash; Databases</span><br><span class='session' style='font-size:.7em'>Question &amp; answer examples</span>"
+title: "<span class='course'>Introduction to Computing for the Social Sciences</span><br><span class='session'>Session 11 &ndash; Machine Learning</span><br><span class='session' style='font-size:.7em'>Question &amp; answer examples</span>"
 author: "David Garcia<br><span class='semester'>Winter Semester 2026-2027</span>"
 format:
   revealjs:
@@ -31,225 +31,249 @@ end, followed by a notes slide. Copy the slides you want into the main deck.
 ::: {.xs}
 | | Question | Hook | id |
 |-|-----------|---------------|---|
-| **A** | Little Bobby Tables | A boy's name deletes a school's records. The bug is in one line, and it is a lesson about data versus code. | `X11-A` |
-| **B** | The join that returned more rows than the table | Eight purchases, two products, sixteen rows. Nothing crashed. The report is wrong. | `X11-B` |
-| **C** | Find the customers who never ordered | The query returned zero, but marketing knows there are hundreds. The rows were dropped before you could count them. | `X11-C` |
+| **A** | The wolf detector that only saw snow | Right on eight test images out of ten, useless at the zoo, and how to find out why. | `X11-A` |
+| **B** | Predict who survived the Titanic in five words | A one-feature rule gets 79%. Every model you build must beat it. | `X11-B` |
+| **C** | How many groups are there? | 240 survey respondents, two scores, no labels, and the algorithm that finds groups even when there are none. | `X11-C` |
 :::
 
 ::: {.xs}
-Main deck `Slides/11-Databases/` · transcript `Transcripts/11-…md` (the § in the answers)
+Main deck `Slides/11-MachineLearning/` · transcript `Transcripts/10-…md` (the § in the answers)
 :::
 
 <!-- EXAMPLE:X11-A:BEGIN -->
-## A · Little Bobby Tables
+## A · The wolf detector that only saw snow
 
 [Opening question · place after the Overview slide]{.tag .ex-open}
 
-![](figures/xkcd-327-exploits-of-a-mom.png){width="860px"}
-
-::: {.source}
-XKCD 327, Randall Munroe, CC BY-NC 2.5, xkcd.com/327
-:::
+![](figures/11-husky-wolf-q.svg){width="1150px"}
 
 ::: {.sm}
-A school enrolls a child whose registered name is
-`Robert'); DROP TABLE Students;--`. Shortly afterwards, the school has no
-student records.
+Researchers trained a classifier to tell **wolves from huskies** from photos. On
+the held-out test images it got eight out of ten right. Then it failed on the
+obvious ones: a husky in a snowy garden was a wolf, a wolf on grass was a husky.
 
-[What did the school's software do with that name? Which single line was wrong, and what is the correct version?]{.ask}
+[The model passed its test. What did it actually learn, and what question would have caught it before deployment?]{.ask}
 :::
 
-## A · Little Bobby Tables · answer {.fit2}
+## A · The wolf detector that only saw snow · answer
+
+[The answer · place before the Summary slide]{.tag .ex-close}
+
+![](figures/11-husky-wolf.svg){width="1145px"}
+
+## A · The wolf detector that only saw snow · why
 
 [The answer · place before the Summary slide]{.tag .ex-close}
 
 ::: {.sm}
-The school built its query by pasting the name into a string:
-
-```python
-query = "INSERT INTO Students (name) VALUES ('" + name + "')"
-```
-
-With the boy's name that string becomes **two statements**:
-
-```sql
-INSERT INTO Students (name) VALUES ('Robert'); DROP TABLE Students;--')
-```
-
-- The name was **data**; concatenation turned it into **code**. This is SQL
-  injection, and it is still in the top three web vulnerabilities.
-- The fix is to keep data and code separate: a **parameterized query**
-  `cursor.execute("INSERT INTO Students (name) VALUES (?)", (name,))`.
-  The database never parses the value as SQL, whatever it contains.
+- In the training photos, wolves were mostly **in snow** and huskies mostly not.
+  Snow was a cheaper feature than fur or ears, so the model learned **snow**.
+- An explanation method (LIME) that highlights the pixels driving each decision
+  showed the **background**, never the animal.
+- The test set had the same bias, so the test score was honest *and* useless. The
+  question to ask: **does the feature the model uses exist in the world where the
+  model will be used?** Otherwise the model has learned a correlation, not the concept.
 :::
 
 ::: {.uses}
-**What we used:** §8 SQL is a language: text can be executed · §10 data manipulation: INSERT, DROP · §13 SQL injection and parameterized queries
+**What we used:** §4 features and what the model can see · §6 generalization and why a test set can lie · §8 overfitting to spurious structure · §12 trust and explanation
 :::
 
-## A · Little Bobby Tables · notes {.fit1}
+## A · The wolf detector that only saw snow · notes {.fit1}
 
 [X11-A]{.tag .ex-id}
 
 ::: {.xxs}
-**Source.** XKCD 327, "Exploits of a Mom" (CC BY-NC 2.5, attribution on the
-slide). The OWASP Top 10 lists injection in every edition. The comic's own
-line, "I hope you've learned to sanitize your database inputs", is slightly
-wrong advice: the robust answer is parameterization, not sanitization.
+**Source.** Ribeiro, Singh & Guestrin (2016), "Why Should I Trust You?
+Explaining the Predictions of Any Classifier", *KDD*; the husky/wolf experiment
+is §6.4, with the figure of LIME highlighting snow. The diagram here is
+schematic; the paper's actual images are copyrighted.
 
-**Facts.** `--` starts a comment in SQL, which swallows the trailing `')`.
-Whether two statements execute in one call depends on the driver (SQLite's
-`execute` refuses; `executescript` and many web stacks allow it). Exercise A5
-of the exercise sheet has the `' OR '1'='1` variant that needs no `DROP`.
+**Facts.** 20 wolf and husky images, hand-picked so that the wolves had snow
+behind them, a logistic regression on image features; 10 test images, of which
+one husky in snow and one wolf without snow were misclassified. Shown to
+graduate students, 10 of 27 trusted the model before seeing the explanations
+and 3 of 27 after.
 
-**How to present.** Open with the comic; it is the best-known joke in
-computing and half the room has seen it, which does not matter. Ask what the
-code must have looked like. Close by writing the concatenation line and the
-resulting SQL on the board, then the `?` version. Connect to sessions 2 and 4:
-the same "data interpreted as instructions" failure as encoding bugs and
-`eval`.
+**How to present.** Open with the four-panel figure but *without* the dashed
+box, and ask what the model learned. Close with the box: the explanation looks
+at the background. Then the generalization, which is the real content: the
+Clever Hans horse, Google Flu's basketball season (M11-A), a dropout model that
+learned the campus wifi log. The check is always the same: interrogate the
+feature, not the score.
 
-**Where it plugs in.** The SQL-injection slide of the main deck already uses
-the comic; this deck supplies the question-then-code structure around it.
+**Where it plugs in.** Between the features slides and the train/test material;
+it motivates §12's "right to an explanation" concretely.
 
 **Self-study:** post `Examples/posts/X11-A-….md` · notebook `Examples/notebooks/X11-A.ipynb`, the problem and the solution in a few cells.
 :::
 
 <!-- EXAMPLE:X11-A:END -->
 <!-- EXAMPLE:X11-B:BEGIN -->
-## B · The join that returned more rows than the table
+## B · Predict who survived the Titanic in five words
 
 [Opening question · place after the Overview slide]{.tag .ex-open}
 
+![](figures/11-titanic-rates.png){width="546px"}
+
 ::: {.sm}
-An analyst joins the `purchase` table (8 rows) with the `product` table (2 rows)
-to add product names to the report. The result has **16 rows**, and total sales
-in the report have **doubled**.
+The Titanic passenger list is the standard first dataset in machine learning:
+891 passengers, with sex, age, class, fare, and whether they survived.
 
-```sql
-SELECT * FROM purchase, product;
-```
+Before any model: the survival rates by sex and by class, above.
 
-The query ran without error. The numbers went to the board meeting.
-
-[Where did the extra rows come from? Why is this *correct* behavior for the query as written, and what did the analyst forget?]{.ask}
+[State a prediction rule in **five words**. What accuracy does it get, and how would you know whether a neural network with 10 000 parameters is actually better?]{.ask}
 :::
 
-## B · The join that returned more rows than the table · answer
+## B · Predict who survived the Titanic in five words · answer
 
 [The answer · place before the Summary slide]{.tag .ex-close}
 
-![](figures/11-join-explosion.svg){width="1150px"}
+![](figures/11-titanic-confusion.svg){width="1149px"}
 
-## B · The join that returned more rows than the table · why {.fit1}
+::: {.sm}
+*The question was:* State a prediction rule in **five words**. What accuracy does it get, and how would you know whether a neural network with 10 000 parameters is actually better?
+:::
+
+## B · Predict who survived the Titanic in five words · why
 
 [The answer · place before the Summary slide]{.tag .ex-close}
 
 ::: {.sm}
-- Two tables in `FROM` with no condition is the **Cartesian product**: every row
-  of one paired with every row of the other, $8 \times 2 = 16$.
-- The missing piece is the **join condition**: `WHERE purchase.product_id =
-  product.id`, or better `INNER JOIN product ON …`, which keeps only matching pairs.
-- Prefer the explicit `JOIN … ON` syntax: a forgotten `WHERE` silently multiplies,
-  a forgotten `ON` is a syntax error. **Check the row count of every join** against
-  what it should be; a join can never *silently* be wrong if you do that.
+- "**Women survive, men do not.**" Accuracy $(233 + 468)/891 = \mathbf{78.7\%}$,
+  precision 0.74, recall 0.68 on the survivors.
+- That is the **baseline**. A model that reports 80% has added one point over a
+  rule anyone could state; a model that reports 78% has learned nothing.
+- Always compute the trivial rule first: majority class, one feature, a domain
+  fact. Then the confusion matrix, so that the errors have names.
 :::
 
 ::: {.uses}
-**What we used:** §9 tables as sets of tuples · §11 selection · §12 joins: manual joins, INNER JOIN, and what happens without a condition
+**What we used:** §3 the supervised setup: features, target, prediction · §5 error, loss, precision and recall · §6 test performance means nothing without a baseline
 :::
 
-## B · The join that returned more rows than the table · notes {.fit1}
+## B · Predict who survived the Titanic in five words · notes {.fit1}
 
 [X11-B]{.tag .ex-id}
 
 ::: {.xxs}
-**Source.** The `purchase`/`product` tables are the ones in the main deck; the
-exam's `DB-03` and `DB-04` restructure a similar purchases table. The figure
-enumerates the product. The doubled total is what happens when you `SUM` a
-column after a two-row Cartesian join.
+**Source.** Kaggle "Titanic: Machine Learning from Disaster" training set,
+891 rows; counts by sex: women 314 (233 survived), men 577 (109 survived); by
+class: 1st 136/216, 2nd 87/184, 3rd 119/491. Confusion matrix and metrics are
+computed in the figure script from those counts.
 
-**Facts.** $|A \times B| = |A| \cdot |B|$; two million-row tables give
-$10^{12}$ rows, which is how a forgotten join condition takes down a database
-server. The other direction, *fewer* rows than expected, is the inner join
-dropping unmatched rows (X11-C).
+**Facts.** The rule "survived iff female" has accuracy 0.787. Adding
+"or a child in 1st or 2nd class" reaches about 0.80. Good published models
+reach about 0.82 to 0.84; the ceiling is low because the outcome is genuinely
+noisy.
 
-**How to present.** Open with the query, the 16, and the doubled total; the
-"went to the board meeting" line is the hook. Close with the figure, then the
-`ON` syntax, then the habit: print the row count before and after every join.
-That habit is worth more than any SQL feature.
+**How to present.** Open with the two bar charts and ask for a five-word rule.
+Close by filling the confusion matrix on the board from the counts (they are on
+the slide) and computing accuracy, precision and recall live: three exam
+formulas, one dataset. Then the framing: this number is what the models of the
+practical part have to beat, and most first attempts will not.
 
-**Where it plugs in.** At the manual-join slide of the main deck, whose three
-questions ("why four rows? why new column names? how many with no WHERE?") this
-answers.
+**Where it plugs in.** With the error/loss slides; use again in session 13 when
+representation and base rates return.
 
 **Self-study:** post `Examples/posts/X11-B-….md` · notebook `Examples/notebooks/X11-B.ipynb`, the problem and the solution in a few cells.
 :::
 
 <!-- EXAMPLE:X11-B:END -->
 <!-- EXAMPLE:X11-C:BEGIN -->
-## C · Find the customers who never ordered
+## C · How many groups are there?
 
 [Opening question · place after the Overview slide]{.tag .ex-open}
 
-::: {.sm}
-```sql
-SELECT c.name
-FROM customers c JOIN orders o ON o.customer_id = c.id
-WHERE o.id IS NULL;
-```
-
-"Customers with no orders": the query is short, reads correctly, and returns
-**zero rows**. The marketing team is certain there are hundreds of inactive
-customers.
-
-[Why can this query *never* return a row, no matter what the data contains? What kind of join does the question actually need?]{.ask}
+:::: {.columns}
+::: {.column width="46%"}
+![](figures/11-kmeans-data.png){width="528px"}
 :::
+::: {.column width="54%"}
+::: {.sm}
+Two attitude scores for 240 respondents. No labels: nobody has said how many
+"types" of respondent there are, or which respondent is which.
 
-## C · Find the customers who never ordered · answer
+Look at it. Now imagine it had 12 dimensions instead of 2, and 24 000 points.
+
+[Write the procedure that finds the groups. How do you choose how many? And what does it do when the data has no groups at all?]{.ask}
+:::
+:::
+::::
+
+## C · How many groups are there? · answer
 
 [The answer · place before the Summary slide]{.tag .ex-close}
 
-![](figures/11-left-join-null.svg){width="1149px"}
+:::: {.columns}
+::: {.column width="52%"}
+![](figures/11-kmeans-k3.png){width="527px"}
+:::
+::: {.column width="48%"}
+::: {.sm}
+*The question was:* Write the procedure that finds the groups. How do you choose how many? And what does it do when the data has no groups at all?
+:::
+:::
+::::
 
-## C · Find the customers who never ordered · why
+## C · How many groups are there? · why
 
 [The answer · place before the Summary slide]{.tag .ex-close}
 
 ::: {.sm}
-- An `INNER JOIN` keeps only rows that **match** in both tables. A customer with
-  no orders has nothing to match, so the row is gone before `WHERE` ever sees it.
-  `o.id IS NULL` is then checked on a set that cannot contain such rows.
-- A **`LEFT JOIN`** keeps every customer and fills the order columns with **NULL**
-  where there is no match. Now `WHERE o.id IS NULL` selects exactly the inactive ones.
-- `NULL` is not a value; it means *absent*. It matches nothing, not even itself,
-  which is why `= NULL` is always false and `IS NULL` exists.
+- **K-means**: pick $K$ centers; assign each point to the nearest; move each
+  center to the mean of its points; repeat until nothing changes. Unsupervised:
+  there is no $Y$.
+- **Choosing $K$**: the within-cluster sum of squares falls with every extra
+  cluster, to zero at $K = n$. The **elbow** is where it stops falling steeply:
+  here $K = 3$.
+- **The warning**: K-means always returns $K$ clusters. On two concentric rings
+  it confidently splits them in half. A clustering is a *hypothesis*, not a finding.
 :::
 
 ::: {.uses}
-**What we used:** §12 joins: INNER versus LEFT, and NULL for missing matches · §11 selection happens *after* the join · exam item DB-09a (COUNT with a LEFT JOIN)
+**What we used:** §2 the three families: unsupervised learning · §10 clustering, K-means and the elbow method · §12 what a model's output is evidence of
 :::
 
-## C · Find the customers who never ordered · notes
+## C · How many groups? · choosing K, and when K-means is wrong {.fit1}
+
+:::: {.columns}
+::: {.column width="50%"}
+![](figures/11-kmeans-elbow.png){height="10.4em"}
+:::
+::: {.column width="50%"}
+![](figures/11-kmeans-rings.png){height="10.4em"}
+:::
+::::
+
+::: {.sm}
+Left: within-cluster sum of squares for $K = 1 \ldots 8$; the elbow is at 3. Right: two rings with $K = 2$: K-means
+splits them down the middle because it can only make convex, roughly round clusters. It returned two clusters
+because it was asked for two, not because there are two.
+:::
+
+## C · How many groups are there? · notes
 
 [X11-C]{.tag .ex-id}
 
 ::: {.xxs}
-**Source.** Standard SQL semantics (SQL-92 onward); the "anti-join" pattern
-`LEFT JOIN … WHERE right.key IS NULL` is the idiomatic answer, with `NOT EXISTS`
-as the alternative. The tables in the figure are illustrative.
+**Source.** Synthetic data generated in the figure script (three Gaussian
+blobs; two rings), K-means implemented there so that the elbow values are real
+(WSS: 3489, 1503, 299, 256, …). MacQueen (1967) for K-means; Hastie et al.
+§14.3.
 
-**Facts.** Evaluation order: `FROM`/`JOIN` first, then `WHERE`, then `SELECT`.
-`COUNT(*)` after a left join counts the NULL row as 1; `COUNT(o.id)` counts it
-as 0, which is the trap in the exam's `DB-09a`.
+**Facts.** The elbow at $K = 3$ is unambiguous on this data by design; on real
+survey data it rarely is, and that ambiguity is honest information. K-means
+assumes spherical clusters of similar size; the ring figure shows the failure.
 
-**How to present.** Open with the query and "zero rows"; ask why. Many students
-will say "there must be no such customers". Close with the two result tables of
-the figure side by side; the highlighted NULL rows are the answer. Then state
-the evaluation order; it explains both this bug and X11-B.
+**How to present.** Open with the unlabeled scatter; ask for a number of
+groups and a procedure. Close with the colored result and the elbow plot
+(both on the extra slide of this deck), then the rings as a final beat. The
+sentence to land: the algorithm never says "there are no groups". That is the
+researcher's job.
 
-**Where it plugs in.** With the join-types slide of the main deck ("if values
-are missing, they are set to NULL"); this is that sentence turned into a bug.
+**Where it plugs in.** With the K-means slides of the main deck; the elbow and
+ring figures are supplementary and can be dropped into the main deck directly.
 
 **Self-study:** post `Examples/posts/X11-C-….md` · notebook `Examples/notebooks/X11-C.ipynb`, the problem and the solution in a few cells.
 :::

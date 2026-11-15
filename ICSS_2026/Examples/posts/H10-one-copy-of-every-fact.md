@@ -1,7 +1,7 @@
 # One copy of every fact
 
-*Session 11 · Databases · a historical background ·
-[slides](../../Slides/11-Databases/ICSS-2026-11-Databases.qmd)*
+*Session 10 · Databases · a historical background ·
+[slides](../../Slides/10-Databases/ICSS-2026-10-Databases.qmd)*
 
 > The relational model was a mathematician's protest against his employer's
 > product line, SQL was a summer project, and the reason your query runs in a
@@ -14,7 +14,7 @@
 <figure class="side wide"><img src="img/punched-card.jpg" alt="Punched card"><figcaption><b>Before databases: one record per card, filed in drawers.</b> Photo: José Antonio González Nieto - cropped by Eyesint, CC BY 4.0, via <a href="https://commons.wikimedia.org/wiki/File:2punchCards-square.jpg">Wikimedia Commons</a>.</figcaption></figure>
 <!-- /FIG -->
 Before databases there were files, and before files there were cards. The
-punched-card record of the history of session 3 became, in the 1950s, the
+punched-card record of the history of the Data Structures session became, in the 1950s, the
 tape record: batch jobs that read one tape and wrote another. The 1960s
 brought disks, which could reach any record without rewinding, and with them
 the first systems that deserved the name. The two dominant designs, records
@@ -28,14 +28,14 @@ lists as the first reason to use a database.
 ## Codd's tables
 
 <!-- FIG -->
-<figure class="side wide"><img src="../../Slides/Examples/11-Examples/figures/11-left-join-null.svg" alt="Codd's proposal in one picture: tables related by matching values, not by pointers."><figcaption>Codd's proposal in one picture: tables related by matching values, not by pointers.</figcaption></figure>
+<figure class="side wide"><img src="../../Slides/Examples/10-Examples/figures/10-left-join-null.svg" alt="Codd's proposal in one picture: tables related by matching values, not by pointers."><figcaption>Codd's proposal in one picture: tables related by matching values, not by pointers.</figcaption></figure>
 <!-- /FIG -->
 Edgar F. Codd, an English mathematician who had flown in the RAF and then
 joined IBM, published *A Relational Model of Data for Large Shared Data
 Banks* in 1970. Its proposal was that data should be presented as tables,
 relations in the mathematical sense, with no pointers, no navigation and no
 visible storage structure, and queried in a language derived from logic.
-Everything in the middle of session 11 is in that paper: keys, the separation
+Everything in the middle of this session is in that paper: keys, the separation
 of the logical from the physical, and the insistence that the same fact be
 stored once. IBM, which was selling the hierarchical system, did not welcome
 it. Codd spent the 1970s arguing, sometimes in public against his own
@@ -61,7 +61,7 @@ between a second and a day. Patricia Selinger, who had joined the team of the
 prototype after a Harvard doctorate, wrote the 1979 paper that solved it:
 estimate the cost of each candidate plan from statistics about the data, and
 choose the cheapest. Cost-based optimization is the reason a declarative
-language is fast, the reason session 11 can say that the DBMS "takes care of
+language is fast, the reason this session can say that the DBMS "takes care of
 how to do it" without irony, and every serious database since has used her
 design. IBM was slow to turn the prototype into a product; a start-up that
 had read the published papers shipped Oracle in 1979, and IBM's own DB2
@@ -78,7 +78,7 @@ the on-board software of a warship and placed in the public domain.
 
 ## The thread to the lecture
 
-Session 11 moves from "why a database" through the relational model to SQL
+This session moves from "why a database" through the relational model to SQL
 and joins. The history is compact, with the network and hierarchical models
 in the 1960s, Codd's tables in 1970, SQL in 1974, the optimizer in 1979 and
 transactions in 1981, and almost all of it happened inside two laboratories

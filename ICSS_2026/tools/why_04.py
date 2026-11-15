@@ -243,5 +243,5 @@ implementation, and the specification and the tests remain your job.
 **What we used:** [interpreters and compilers](https://dgarcia-eu.github.io/ICSS/Transcripts/04-Software.html#programming),
 [vibe coding](https://dgarcia-eu.github.io/ICSS/Transcripts/04-Software.html#software-engineering),
 [specifications](https://dgarcia-eu.github.io/ICSS/Transcripts/04-Software.html#requirements) and
-[testing](https://dgarcia-eu.github.io/ICSS/Transcripts/04-Software.html#testing) from session 4."""),
+[testing](https://dgarcia-eu.github.io/ICSS/Transcripts/04-Software.html#testing) from this session."""),
 ]

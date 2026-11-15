@@ -13,7 +13,7 @@
 <figure class="side wide"><img src="img/punched-card.jpg" alt="Punched card"><figcaption><b>An 80-column punched card, the fixed-width record that preceded the array.</b> Photo: José Antonio González Nieto - cropped by Eyesint, CC BY 4.0, via <a href="https://commons.wikimedia.org/wiki/File:2punchCards-square.jpg">Wikimedia Commons</a>.</figcaption></figure>
 <!-- /FIG -->
 The oldest data structure in the course is the punched card: one record per
-card, one attribute per column, a fixed-width row that session 11 will call a
+card, one attribute per column, a fixed-width row that the Databases session will call a
 table. For seventy years, from the 1890 census to the 1960s, that was what
 data was, and the machines that sorted and counted cards were the whole of
 data processing. The *array* arrived with the stored-program computer of
@@ -31,7 +31,7 @@ trade-off table of the lecture for the one operation it is good at.
 <!-- /FIG -->
 The *linked list* was invented not to store data but to make a machine
 reason. In 1956 Herbert Simon, the political scientist whose *Sciences of the
-Artificial* opens this course and who returns in session 13, was building
+Artificial* opens this course and who returns in the Social Science Applications session, was building
 with two colleagues a program to prove theorems from *Principia
 Mathematica*. Logical expressions of unknown and changing length would not
 fit in arrays, so they designed a language whose basic object was a chain of
@@ -39,7 +39,7 @@ cells, each pointing to the next. The list, the stack and the idea of a
 symbol as an addressable thing all date from that project, which is also
 usually counted as the first artificial-intelligence program. LISP took up
 the same idea in 1958 and made the list its only structure, and the recursion
-of session 6 is what it looks like in practice.
+of the Recursion session is what it looks like in practice.
 
 Hashing came out of an IBM memo of 1953 on how to put records into buckets by
 a number computed from their key, and how to chain the ones that collided.
@@ -65,7 +65,7 @@ science. At MIT in 1974 she designed a language, CLU, around a new idea: an
 *abstract data type* is a set of operations and the guarantees they make, and
 a program should be able to use a stack or a queue without knowing, or being
 able to depend on, how it is laid out in memory. That separation is why
-session 3 can treat the operations of a stack, push and pop in $O(1)$, as
+this session can treat the operations of a stack, push and pop in $O(1)$, as
 the thing that matters and the linked list underneath as an implementation
 choice. Every modern language's notion of a class, an interface or a module
 descends from CLU, and the examples in this course that turn on choosing the
@@ -85,7 +85,7 @@ in 1962 as a book about compilers. Its first volume (1968) collected
 everything then known about lists, trees, stacks and queues, with proofs,
 exercises and histories, and its third (1973) did the same for searching and
 sorting. The analysis of hashing, the history of the binary search tree and
-the O-notation of session 8 all come, in the form now taught, from those
+the O-notation of the Time Complexity session all come, in the form now taught, from those
 volumes, and Knuth is still writing them.
 
 ## The thread to the lecture

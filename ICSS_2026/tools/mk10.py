@@ -1,6 +1,6 @@
-OUT = "/home/dgarcia/Dropbox/Teaching/Konstanz/ICSS-local/ICSS_2026/Slides/11-Databases/ICSS-2026-11-Databases.qmd"
+OUT = "/home/dgarcia/Dropbox/Teaching/Konstanz/ICSS-local/ICSS_2026/Slides/10-Databases/ICSS-2026-10-Databases.qmd"
 s = ['''---
-title: "<span class='course'>Introduction to Computing for the Social Sciences</span><br><span class='session'>Session 11 &ndash; Databases</span>"
+title: "<span class='course'>Introduction to Computing for the Social Sciences</span><br><span class='session'>Session 10 &ndash; Databases</span>"
 author: "David Garcia<br><span class='semester'>Winter Semester 2026-2027</span>"
 format:
   revealjs:
@@ -15,7 +15,7 @@ format:
     controls: true
     history: true
     logo: ../theme/unikn-logo.png
-    footer: "<span class='fbar-left'>Session 11</span><span class='fbar-mid'>Introduction to Computing for the Social Sciences</span><span class='fbar-right'>Winter Semester 2026-2027</span>"
+    footer: "<span class='fbar-left'>Session 10</span><span class='fbar-mid'>Introduction to Computing for the Social Sciences</span><span class='fbar-right'>Winter Semester 2026-2027</span>"
     highlight-style: github
     link-external-newwindow: true
     fig-align: left
@@ -40,8 +40,8 @@ format:
 ::: {.sm}
 - Session 8: Time Complexity
 - Session 9: Theoretical Computer Science
-- Session 10: Machine Learning
-- Session 11: Databases
+- Session 10: Databases
+- Session 11: Machine Learning
   - Tutorial: Databases (swap)
   - Exercise: DB + projects Q&A
 - Session 12: Parallel Programming
@@ -344,7 +344,7 @@ sl("SQL Programming Language", """::: {.sm}
 :::
 
 ::: {.center-h}
-![](figures/11-sql-flow.svg){height="5.4em"}
+![](figures/10-sql-flow.svg){height="5.4em"}
 :::""")
 
 PRODUCT_SQL_ROWS = [["Gizmo","$19.99","GizmoWorks"],["Powergizmo","$29.99","GizmoWorks"],

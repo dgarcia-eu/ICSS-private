@@ -467,7 +467,7 @@ def fig_09_pda_stack():
     save(fig, "sol-09-pda-stack.svg")
 
 
-# ================================================================ sheet 10
+# ================================================================ sheet 11
 def fig_10_metrics():
     fig, (a1, a2) = plt.subplots(1, 2, figsize=(9, 3.2), gridspec_kw={"width_ratios": [1, 1.3]})
     cm = [[60, 40], [30, 870]]
@@ -493,7 +493,7 @@ def fig_10_metrics():
     a2.set_xticks(x, names); a2.set_ylim(0, 1.1); a2.legend(fontsize=8.5, loc="upper right"); a2.set_title("the accuracy trap", fontsize=10)
     a2.spines[["top", "right"]].set_visible(False)
     fig.tight_layout()
-    save(fig, "sol-10-metrics.svg")
+    save(fig, "sol-11-metrics.svg")
 
 
 def fig_10_elbow():
@@ -507,10 +507,10 @@ def fig_10_elbow():
     ax.set_xlabel("K"); ax.set_ylabel("WSS"); ax.set_xticks(K); ax.grid(alpha=0.3)
     ax.spines[["top", "right"]].set_visible(False)
     fig.tight_layout()
-    save(fig, "sol-10-elbow.svg")
+    save(fig, "sol-11-elbow.svg")
 
 
-# ================================================================ sheet 11
+# ================================================================ sheet 10
 def fig_11_schema():
     fig, ax = plt.subplots(figsize=(9.5, 4.2))
     tables = {
@@ -544,7 +544,7 @@ def fig_11_schema():
                                  color=BLUE, lw=1.4, connectionstyle="arc3,rad=0.0", zorder=1))
     ax.text(4.8, -0.85, "arrows: foreign key → the table whose primary key it references", ha="center", fontsize=9, color=GREY)
     clean(ax, (-0.1, 9.7), (-1.1, 4.1))
-    save(fig, "sol-11-schema.svg")
+    save(fig, "sol-10-schema.svg")
 
 
 # ================================================================ sheet 12

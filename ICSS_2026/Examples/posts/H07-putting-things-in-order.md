@@ -22,7 +22,7 @@ came out in order. That is radix sort, the example in this course of a sort
 that beats the comparison lower bound, and for the next sixty years "to
 sort" in an office meant to feed cards through such a machine. The clerks who
 did it relied on a property they had no name for: the deck stayed ordered by
-the last column while it was being ordered by the next. Session 7 calls it
+the last column while it was being ordered by the next. This session calls it
 stability.
 
 ## The first programs
@@ -46,7 +46,7 @@ slide is about, and the choice of a sort as his test case was not a whim.
 <!-- /FIG -->
 Six years later the first program that wrote programs was also a sort. Betty
 Holberton had been one of the six women who programmed ENIAC, whose story
-the history post of session 1 tells. At Remington Rand in 1951 she wrote a
+the history post of the Introduction session tells. At Remington Rand in 1951 she wrote a
 sort-merge generator for the UNIVAC I, a program that, given a description
 of the records and keys, produced the sorting program automatically. It is
 usually counted as the first generative program and a direct ancestor of the
@@ -68,7 +68,7 @@ tape. The method he thought of, pick an element, partition the rest around
 it and recurse, he could not express in any language he knew, because none of
 them allowed recursion. He published it in 1961, after learning ALGOL 60 and
 finding that its newly legal recursive procedures, whose story the history
-post of session 6 tells, made it five lines. Quicksort is still, sixty years
+post of the Recursion session tells, made it five lines. Quicksort is still, sixty years
 on, the default sort in most system libraries, and its partition routine is
 the one the exam prints.
 

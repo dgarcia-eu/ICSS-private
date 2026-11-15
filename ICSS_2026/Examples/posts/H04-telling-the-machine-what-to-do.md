@@ -21,7 +21,7 @@ longer than the original. Note G contains a step-by-step procedure for the
 engine to compute Bernoulli numbers, a loop with variables whose values change
 as it runs, and something more: the observation that a machine which
 manipulates symbols by rule "might act upon other things besides number",
-might compose music, and, in a passage that reads as a reply to session 10,
+might compose music, and, in a passage that reads as a reply to the Machine Learning session,
 "has no pretensions whatever to originate anything". The engine was never
 built and the program was never run. It is still recognizably a program.
 
@@ -55,7 +55,7 @@ machine, so that the same program could run on the next computer. That is the
 the argument. The paradigms the lecture surveys are later chapters of it.
 FORTRAN (1957) made the array and the loop standard. A 1968 letter to the ACM
 argued that programs should be readable as blocks rather than as jumps,
-which is the structured style of the flowcharts of session 5. Simula (1967),
+which is the structured style of the flowcharts of the Algorithms session. Simula (1967),
 built in Oslo to write simulations, found that an object carrying its own data
 and procedures was the natural unit for modeling anything, and
 object-oriented programming was born. Python, the language of this course,
@@ -69,7 +69,7 @@ guarding a company's new computer. He was forbidden to touch it, so he read
 the manuals instead, and when the company ran short of punched cards he
 showed them how to reuse the old ones. In 1969 he received a doctorate in
 computer science from the University of Illinois, the first African American
-to do so. He worked on one of the first parallel computers, which session 12
+to do so. He worked on one of the first parallel computers, which the Parallel Programming session
 mentions, and at Xerox PARC in the 1970s on the systems from which the
 graphical desktop came. His later work on how several people can edit the
 same document at once without overwriting each other is the mechanism inside
@@ -77,11 +77,11 @@ Google Docs. His route in, reading the manuals when barred from the machine,
 is not an anecdote but the pattern. Programming was, for its first decades,
 learned on the job by whoever was in the room, which made it briefly more
 open than engineering and then, as it professionalized, less so. The history
-post of session 1 tells the same story for women.
+post of the Introduction session tells the same story for women.
 
 ## The thread to the lecture
 
-Session 4 presents languages, interpreters, compilers and paradigms briefly,
+This session presents languages, interpreters, compilers and paradigms briefly,
 and then turns to how software is specified and tested. The history shows one
 argument, repeated: programs should be
 written for people, and the machine should be made to accommodate that, by a

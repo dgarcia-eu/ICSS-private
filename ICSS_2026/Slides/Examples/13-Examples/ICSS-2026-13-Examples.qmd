@@ -243,7 +243,7 @@ schematic after Youyou, Kosinski & Stillwell (2015)
 :::
 
 ::: {.uses}
-**What we used:** §10 method examples: personality from Likes · §11 issues with methods: privacy and shadow profiles · §7 digital traces as measurement · session 10 §3 supervised learning
+**What we used:** §10 method examples: personality from Likes · §11 issues with methods: privacy and shadow profiles · §7 digital traces as measurement · session 11 §3 supervised learning
 :::
 
 ## C · How many Likes does it take to know you better than your spouse? · notes {.fit1}
@@ -266,8 +266,8 @@ on the Like matrix, nothing exotic.
 **How to present.** Open with the setup and ask for the four numbers; guesses
 are usually far too high for the colleague and too low for the spouse. Close
 with the anchored curve, then the two implications in the last two bullets;
-the second is the one students have not thought about. Connect to session 10
-(this is plain supervised learning) and to the ethics list of session 10.
+the second is the one students have not thought about. Connect to session 11
+(this is plain supervised learning) and to the ethics list of session 11.
 
 **Where it plugs in.** With the "Personality and Facebook likes" and "New
 privacy risks" slides of the main deck.

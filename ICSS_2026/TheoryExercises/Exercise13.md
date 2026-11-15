@@ -2,15 +2,11 @@
 
 *Introduction to Computing for the Social Sciences · Prof. Dr. David Garcia*
 
-> Exercises 1–3 are worked through in the exercise session. The *Additional
-> practice* section is for self-study. Worked solutions to every exercise, with
-> pointers to the slides and the handout sections that cover the material, are
-> in [`Solutions/Exercise13-Solutions.md`](Solutions/Exercise13-Solutions.md); try before you open them.
-> Notation: [course conventions](../Transcripts/00-Conventions.md).
->
-> This session's exercises are more discursive than the earlier ones. Answers are
-> expected in complete sentences, and there is usually more than one defensible
-> position, what is graded is the reasoning.
+Exercises 1 to 3 will be covered in the exercise session. The *Additional practice* section is for self-study and to be covered if time allows.
+
+The exercises of this session are more discursive than the earlier ones.
+Answers are expected in complete sentences. There is usually more than one
+defensible position, so what counts is the reasoning.
 
 ---
 
@@ -21,28 +17,28 @@ increased after a major flood in Germany. They propose to count the number of
 posts on a social media platform mentioning "Klimawandel" in the four weeks
 before and the four weeks after the flood.
 
-a) Which of the **three meanings of "computational"** from the lecture does this
-   study use? Could it be extended to use the other two? Say how.
+a) Which of the **three meanings of "computational"** does this study use?
+   Could it be extended to use the other two? Say how.
 
-b) Name three distinct threats to the validity of this design, drawn from the
-   lecture's discussion of digital behavioral data. For each one, say concretely
-   how it could produce a spurious increase.
+b) Name three distinct threats to the validity of this design, drawn from our
+   discussion of digital behavioral data. For each one, say concretely how it
+   could produce a spurious increase.
 
 c) The group finds a 40% increase and concludes that "public attention to climate
    change rose by 40%". Rewrite that conclusion so that it says only what the
    data supports.
 
 d) Propose one additional data source and one validation strategy that would
-   strengthen the study. Refer to the methodological cycle from the lecture
+   strengthen the study. Refer to the methodological cycle of this session
    (traces, surveys, models, experiments).
 
 ---
 
 ## Exercise 2: Schelling's model
 
-Consider Schelling's segregation model as presented in the lecture: a grid with
-agents of two kinds, a small fraction of empty cells, neighborhoods of the 8
-surrounding cells, and a satisfaction threshold $F$.
+Consider Schelling's segregation model as presented in this session, i.e. a
+grid with agents of two kinds, a small fraction of empty cells, neighborhoods
+of the 8 surrounding cells, and a satisfaction threshold $F$.
 
 a) Write the pseudocode of the model's update loop, following the course
    conventions. Be explicit about the stopping condition.
@@ -61,26 +57,26 @@ b) Consider the following $3 \times 3$ neighborhood, with the agent under
    State clearly whether empty cells count in the denominator, and justify your
    choice.
 
-c) The lecture reports that the grid segregates even for $F = 0.4$, i.e. when
-   agents actively prefer to be in the minority. Explain the mechanism in your own
-   words: why does a preference that no individual would call intolerant produce a
-   segregated outcome?
+c) The grid segregates even for $F = 0.4$, i.e. when agents actively prefer to
+   be in the minority. Explain the mechanism in your own words. Why does a
+   preference that no individual would call intolerant produce a segregated
+   outcome?
 
 d) A politician reads about the result and concludes that "residential
    segregation proves that people are prejudiced". Explain, using the model, why
    the inference is invalid. Name the general methodological error.
 
-> Part (d) is the exam-relevant one. The model is a *counterexample*: it shows
-> that segregated outcomes are compatible with tolerant preferences, and
-> therefore that you cannot read the preferences off the outcome.
+> Part (d) is the exam-relevant one. The model is a *counterexample*, because
+> it shows that segregated outcomes are compatible with tolerant preferences
+> and therefore that you cannot infer the preferences from the outcome.
 
 ---
 
 ## Exercise 3: Methods and their risks
 
-a) The lecture distinguishes **three generations** of methods for measuring
-   social science constructs from text. Name them, give one example of each, and
-   say what is gained and what is lost when moving from one generation to the
+a) We distinguished **three generations** of methods for measuring social
+   science constructs from text. Name them, give one example of each, and say
+   what is gained and what is lost when moving from one generation to the
    next.
 
 b) A study uses a dictionary of positive and negative words to measure the
@@ -93,8 +89,8 @@ c) Explain the finding of Kosinski et al. (2013) in two sentences, and then
 
 d) You are designing a study that predicts individuals' political attitudes from
    their public social media activity. Write down three questions from the
-   lecture's responsible-AI list that you would have to answer before proceeding,
-   and answer them for this specific study.
+   responsible-AI list of the Machine Learning session that you would have to
+   answer before proceeding, and answer them for this specific study.
 
 ---
 
@@ -102,8 +98,8 @@ d) You are designing a study that predicts individuals' political attitudes from
 
 ### A1. Representation
 
-Using the Pew data from the lecture (share of U.S. adults using each platform, by
-age group):
+Use the Pew data of this session, i.e. the share of U.S. adults using each
+platform by age group, shown in the table below.
 
 | Platform | 18–29 | 65+ |
 |---|---|---|
@@ -118,18 +114,18 @@ a) Which platform would you choose to study attitudes of the general adult
    population, and why? What would still be wrong with it?
 b) A study of TikTok concludes that "the public is increasingly concerned about
    housing costs". Restate the conclusion so it is defensible.
-c) Explain why increasing the sample from 10 000 to 10 million posts does not fix
+c) Explain why increasing the sample from 10,000 to 10 million posts does not fix
    the problem.
-d) Name the three failure modes of digital trace data from the lecture and give
-   one example of each.
+d) Name the three failure modes of digital trace data and give one example of
+   each.
 
 ### A2. Agent-based modeling
 
 a) What does an agent-based model demonstrate when it reproduces an observed
    macro-pattern? What does it *not* demonstrate?
 b) Give two reasons to build a model even if you never run a simulation.
-c) The COVID university model of the lecture compares mitigation policies. Why
-   was a model used instead of a randomized experiment?
+c) The COVID university model of this session compares mitigation policies.
+   Why was a model used instead of a randomized experiment?
 d) Two different agent-based models, with different rules, both reproduce the
    same observed pattern. What is this called and what does it imply for how you
    should report your model?
@@ -145,13 +141,13 @@ c) In what domain is Anderson closest to right? Why does that domain differ from
 
 ### A4. Reading a CSS paper
 
-Pick one of the studies from the lecture: Earle et al. (2012) on earthquake
-detection, Preis et al. (2013) on Google Trends and trading, or Garcia et al.
-(2018) on Facebook advertising data, and answer:
+Pick one of the studies of this session, namely Earle et al. (2012) on
+earthquake detection, Preis et al. (2013) on Google Trends and trading, or
+Garcia et al. (2018) on Facebook advertising data, and answer:
 
 a) What is the theoretical question, and what is the digital trace used to answer
    it?
-b) What is the measurement claim, that is, what is the trace assumed to measure?
+b) What is the measurement claim, i.e. what is the trace assumed to measure?
 c) How is that assumption validated, if at all?
 d) Which population does the result generalize to?
 
@@ -165,7 +161,8 @@ d) Give one research-practice rule and one policy rule that follow from all this
 
 ### A6. Vocabulary
 
-Match each term to its definition and give one example not used in the lecture.
+Match each term to its definition and give one example that we did not use in
+this session.
 
 Terms: Computational Social Science, Social Data Science, Web Science, Digital
 Sociology, generative modeling, generative sufficiency.
@@ -174,8 +171,8 @@ Sociology, generative modeling, generative sufficiency.
 
 ## Sources
 
-- There was no 2024 theory sheet for this session; this sheet is new, built from
-  the lecture slides and the references below.
+- There was no 2024 theory sheet for this session. This sheet is new and built
+  from the slides and the references below.
 - **Lazer, D. et al. (2009).** "Computational Social Science". *Science*
   323(5915), 721–723.: Exercise 1a, A6.
 - **Lazer, D. et al. (2021).** "Meaningful measures of human society in the
@@ -185,8 +182,8 @@ Sociology, generative modeling, generative sufficiency.
   The table in A1.
 - **Salganik, M. J. (2017).** *Bit by Bit: Social Research in the Digital Age.*
   Princeton University Press. <https://www.bitbybitbook.com/>: Ch. 2 on
-  observing behavior (exercise 1, A1) and ch. 3 on asking questions; the best
-  companion for this sheet.
+  observing behavior (exercise 1, A1) and ch. 3 on asking questions. It is the
+  best companion for this sheet.
 - **Schelling, T. C. (1971).** "Dynamic Models of Segregation". *Journal of
   Mathematical Sociology* 1(2), 143–186.: Exercise 2.
 - **Epstein, J. M. (2006).** *Generative Social Science.* Princeton University

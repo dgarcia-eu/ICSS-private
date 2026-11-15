@@ -13,8 +13,8 @@ One sheet per lecture, for the pen-and-paper exercise sessions.
 | 07 | [Sorting Algorithms](Exercise07.md) | selection sort, mergesort, bubblesort, stability |
 | 08 | [Time Complexity](Exercise08.md) | O-notation proofs, runtime analysis |
 | 09 | [Theoretical Computer Science](Exercise09.md) | automata, grammars, Turing machines, CLIQUE and SAT |
-| 10 | [Machine Learning](Exercise10.md) | evaluation metrics, train/test splits, clustering |
-| 11 | [Databases](Exercise11.md) | keys and normal forms, schema design, SQL, injection |
+| 10 | [Databases](Exercise10.md) | keys and normal forms, schema design, SQL, injection |
+| 11 | [Machine Learning](Exercise11.md) | evaluation metrics, train/test splits, clustering |
 | 12 | [Parallel Programming](Exercise12.md) | Amdahl's law, MapReduce, concurrency, pipelining |
 | 13 | [Social Science Applications](Exercise13.md) | trace-data validity, Schelling's model, privacy |
 

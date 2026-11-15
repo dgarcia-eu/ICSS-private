@@ -157,31 +157,31 @@ FIGS = {
     ("## The puzzle", D("sudoku-example.svg", "A newspaper Sudoku.", "Public domain, via Wikimedia Commons.")),
     ("## Why this matters", P("cook", "Stephen Cook, who proved the first problem NP-complete in 1971.")),
 ],
-"X10-A": [
+"X11-A": [
     ("## The puzzle", F("10-husky-wolf-q.svg", "The four cases: two the model saw in training, two it met later.")),
     ("## What is going on", F("10-husky-wolf.svg", "What the explanation highlights: the background.")),
     ("## Why this matters", P("husky", "A Siberian husky on snow, which is the problem.")),
 ],
-"X10-B": [
+"X11-B": [
     ("## The puzzle", P("titanic", "RMS Titanic leaving Southampton, 10 April 1912.", wide=True)),
     ("## What is going on", F("10-titanic-confusion.svg", "The confusion matrix of the five-word rule on 891 passengers.")),
     ("## Why this matters", F("10-titanic-rates.png", "Survival by sex and by ticket class in the training set.")),
 ],
-"X10-C": [
+"X11-C": [
     ("## The puzzle", F("10-kmeans-data.png", "240 respondents, two scores, no labels.", full=False)),
     ("## What is going on", F("10-kmeans-k3.png", "K-means with K = 3; the crosses are the centers.", full=False)),
     ("The next question is how to choose $K$", F("10-kmeans-elbow.png", "Within-cluster sum of squares against K: the elbow at 3.", full=False)),
     ("The rings are the warning", F("10-kmeans-rings.png", "Two rings, K = 2: the algorithm splits them down the middle.", full=False)),
 ],
-"X11-A": [
+"X10-A": [
     ("## The puzzle", D("xkcd-327-exploits-of-a-mom.png", "XKCD 327, Exploits of a Mom.", "Randall Munroe, CC BY-NC 2.5, xkcd.com/327.", full=True)),
     ("## Why this matters", P("bobby", "SQL injection is still in the OWASP top three, twenty years after the comic.")),
 ],
-"X11-B": [
+"X10-B": [
     ("## What is going on", F("11-join-explosion.svg", "Eight purchases × two products = sixteen rows: the Cartesian product.")),
     ("## Why this matters", P("selinger", "Patricia Selinger, whose 1979 optimizer is why a correct join is also a fast one.")),
 ],
-"X11-C": [
+"X10-C": [
     ("## What is going on", F("11-left-join-null.svg", "What INNER JOIN and LEFT JOIN each produce; the NULL rows are the customers you were looking for.")),
     ("## Why this matters", P("chamberlin", "Donald Chamberlin, co-designer of SQL in 1974.")),
 ],
@@ -209,7 +209,7 @@ FIGS = {
 ],
 "X13-C": [
     ("## What is going on", F("13-likes-accuracy.png", "Accuracy against the number of Likes available, with the human judges' thresholds from the paper.")),
-    ("## Why this matters", P("gebru", "Timnit Gebru: the questions this raises about inference and consent are the ones session 10's ethics list asks.")),
+    ("## Why this matters", P("gebru", "Timnit Gebru: the questions this raises about inference and consent are the ones session 11's ethics list asks.")),
 ],
 # ======================================================================= history
 "H01": [

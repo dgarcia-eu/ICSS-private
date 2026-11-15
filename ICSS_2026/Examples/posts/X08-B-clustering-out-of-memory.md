@@ -86,7 +86,7 @@ function of $n$. If the exponent is 2, decide now whether the full $n$ fits.
 - [Asymptotic behavior and O-notation](../../Transcripts/08-TimeComplexity.md#8-asymptotic-behavior-and-o-notation)
 - [Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation):
   reading the $n^2$ off the code.
-- K-means itself is [session 10](../../Transcripts/10-MachineLearning.md#10-unsupervised-learning-and-clustering).
+- K-means itself is [the Machine Learning session](../../Transcripts/11-MachineLearning.md#10-unsupervised-learning-and-clustering).
 
 ## Further reading
 

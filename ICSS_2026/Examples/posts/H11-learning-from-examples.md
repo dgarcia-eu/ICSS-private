@@ -1,7 +1,7 @@
 # Learning from examples
 
-*Session 10 · Machine Learning · a historical background ·
-[slides](../../Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd)*
+*Session 11 · Machine Learning · a historical background ·
+[slides](../../Slides/11-MachineLearning/ICSS-2026-11-MachineLearning.qmd)*
 
 > The person slide of the lecture calls Geoffrey Hinton the godfather of AI.
 > The ideas he championed were forty years old when they finally worked, the
@@ -15,7 +15,7 @@ Learning a rule from examples is older than the field. Least squares was
 developed around 1805 to predict the orbits of comets from noisy sightings, a
 regression in the sense of the lecture, with the orbit as the model. Bayes's
 rule for updating beliefs from evidence was published in 1763 and sat mostly
-unused for a century and a half, and the Naive Bayes classifier of session 10
+unused for a century and a half, and the Naive Bayes classifier of this session
 is its simplest application. The linear discriminant of 1936, fitted to three
 species of iris, was the first standard classification dataset and still
 ships with every library. It belongs to the history to note that its author
@@ -63,7 +63,7 @@ risk. Using crowd-sourced labor, her team built ImageNet, fourteen million
 images in twenty-two thousand categories, released it in 2009, and attached
 an annual competition. In 2012 two of Hinton's students entered a deep
 convolutional network, trained on two consumer graphics cards, the GPUs of
-session 12, and cut the error rate by more than a third. Every group in the
+the Parallel Programming session, and cut the error rate by more than a third. Every group in the
 field switched to deep networks within two years. Li's dataset, not any
 single idea, was the substrate the lecture says the field had been waiting
 for, and Hinton shared the 2018 Turing Award and the 2024 Nobel Prize in
@@ -89,7 +89,7 @@ models of the final section of the lecture.
 
 ## The thread to the lecture
 
-Session 10 presents supervised learning, generalization and the bias-variance
+This session presents supervised learning, generalization and the bias-variance
 trade-off, then ends with a list of ethical questions. The history puts
 people to the turning points: a stubborn researcher who kept an unfashionable
 idea alive, a dataset built against advice that made it work, and an audit

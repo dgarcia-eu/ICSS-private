@@ -112,7 +112,7 @@ print(f"n = 100,000, K = 5: {nbytes / 1e6:.1f} MB for the distances instead of 8
 """),
 md("""
 **What we used:** memory complexity as a growth rate you can read off the code
-before running it (session 8, sections 2, 8 and 9); K-means is session 10.
+before running it (session 8, sections 2, 8 and 9); K-means is session 11.
 """),
 ])
 
@@ -382,7 +382,7 @@ md("""
 ])
 
 # ---------------------------------------------------------------- 10-A
-NB["X10-A"] = ("The wolf detector that only saw snow", [
+NB["X11-A"] = ("The wolf detector that only saw snow", [
 md("""
 # The wolf detector that only saw snow
 
@@ -431,12 +431,12 @@ print("fair model on the biased test set:", fair.score(X_test, y_test), "   at t
 """),
 md("""
 **What we used:** features, generalization, why a test set can share the
-bias of the training set, and explanation (session 10, sections 4, 6, 8 and 12).
+bias of the training set, and explanation (session 11, sections 4, 6, 8 and 12).
 """),
 ])
 
 # ---------------------------------------------------------------- 10-B
-NB["X10-B"] = ("Predict who survived the Titanic in five words", [
+NB["X11-B"] = ("Predict who survived the Titanic in five words", [
 md("""
 # Predict who survived the Titanic in five words
 
@@ -486,12 +486,12 @@ Published models reach 0.82 to 0.84; the ceiling is low because the outcome is
 noisy.
 
 **What we used:** the supervised setup, accuracy versus precision and recall,
-and the confusion matrix (session 10, sections 3 and 5).
+and the confusion matrix (session 11, sections 3 and 5).
 """),
 ])
 
 # ---------------------------------------------------------------- 10-C
-NB["X10-C"] = ("How many groups are there?", [
+NB["X11-C"] = ("How many groups are there?", [
 md("""
 # How many groups are there?
 
@@ -547,12 +547,12 @@ K-means returned two clusters because it was asked for two. It never says "there
 are no groups"; that judgment is yours.
 
 **What we used:** unsupervised learning, K-means and the elbow method
-(session 10, sections 2 and 10).
+(session 11, sections 2 and 10).
 """),
 ])
 
 # ---------------------------------------------------------------- 11-A
-NB["X11-A"] = ("Little Bobby Tables", [
+NB["X10-A"] = ("Little Bobby Tables", [
 md("""
 # Little Bobby Tables
 
@@ -609,12 +609,12 @@ The value is sent separately from the query text and is never parsed as SQL,
 whatever it contains.
 
 **What we used:** SQL as an executable language, INSERT/DROP, and parameterized
-queries (session 11, sections 8, 10 and 13).
+queries (session 10, sections 8, 10 and 13).
 """),
 ])
 
 # ---------------------------------------------------------------- 11-B
-NB["X11-B"] = ("The join that returned more rows than the table", [
+NB["X10-B"] = ("The join that returned more rows than the table", [
 md("""
 # The join that returned more rows than the table
 
@@ -659,12 +659,12 @@ The habit: print the row count before and after every join. A join can be
 silently wrong only if nobody looks.
 
 **What we used:** tables as sets of tuples, selection, and joins with and
-without a condition (session 11, sections 9, 11 and 12).
+without a condition (session 10, sections 9, 11 and 12).
 """),
 ])
 
 # ---------------------------------------------------------------- 11-C
-NB["X11-C"] = ("Find the customers who never ordered", [
+NB["X10-C"] = ("Find the customers who never ordered", [
 md("""
 # Find the customers who never ordered
 
@@ -710,7 +710,7 @@ md("""
 is the difference between "Ben has 1 order" and the truth.
 
 **What we used:** INNER versus LEFT joins, NULL, and the order in which a query
-is evaluated (session 11, sections 11 and 12).
+is evaluated (session 10, sections 11 and 12).
 """),
 ])
 
@@ -1103,7 +1103,7 @@ code("""
 print(f"a model that never saw the test people: r = {fit_predict(400):.2f} on them")
 """),
 md("""
-**What we used:** supervised learning as a measurement instrument (session 10,
+**What we used:** supervised learning as a measurement instrument (session 11,
 section 3) and its privacy consequences, inference and shadow profiles
 (session 13, sections 10 and 11).
 """),

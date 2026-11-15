@@ -1,11 +1,11 @@
 """Why it matters, session 6: Recursion."""
 
-TITLE = "The same function, 1.6 million calls or 31"
+TITLE = "The same function, 2.7 million calls or 59"
 HOOK = ("A recursive definition can be run as written or with its results saved, "
         "and the difference between the two is the difference between a second and a century.")
 
 CELLS = [
-("md", """# The same function, 1.6 million calls or 31
+("md", """# The same function, 2.7 million calls or 59
 
 Recursion lets you write a definition and run it. This notebook shows two things
 that follow from how recursion runs: a definition run as written can repeat the
@@ -158,7 +158,7 @@ cryptographic keys. Recursion is a way of writing algorithms, not a cost in
 itself; what costs is repeated work, and what limits you is depth.
 
 **What we used:** the three parts of a recursive definition
-([session 6, section 2](../Transcripts/06-Recursion.md#2-the-three-parts-of-a-recursive-definition)),
+([this session, section 2](../Transcripts/06-Recursion.md#2-the-three-parts-of-a-recursive-definition)),
 how recursion runs on the program stack
 ([section 4](../Transcripts/06-Recursion.md#4-how-recursion-runs-the-program-stack)),
 Euclid's algorithm ([section 5](../Transcripts/06-Recursion.md#5-euclids-algorithm)),

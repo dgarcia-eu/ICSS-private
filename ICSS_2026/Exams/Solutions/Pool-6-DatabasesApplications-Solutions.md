@@ -11,7 +11,7 @@
 
 ## DB-01 · Primary key of a flat table · 2 pts · [2023-E2 Q6a, `TE-11` Ex. 1a]
 
-**Where to look.** Slides: session 11, slides 22 to 29 (*Relational databases; Database models; Building a relational database; Normal form example*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`; session 11, slides 33 to 40 (*Tables in SQL; SQL schema*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §6 Database models: flat and relational](../../Transcripts/11-Databases.md#relational-databases), [11 §7 Keys and normal forms](../../Transcripts/11-Databases.md#7-keys-and-normal-forms), [11 §9 Tables, types, schemas and keys in SQL](../../Transcripts/11-Databases.md#9-tables-types-schemas-and-keys-in-sql).
+**Where to look.** Slides: session 10, slides 22 to 29 (*Relational databases; Database models; Building a relational database; Normal form example*), in `Slides/10-Databases/ICSS-2026-10-Databases.qmd`; session 10, slides 33 to 40 (*Tables in SQL; SQL schema*), in `Slides/10-Databases/ICSS-2026-10-Databases.qmd`. Handout: [10 §6 Database models: flat and relational](../../Transcripts/10-Databases.md#relational-databases), [10 §7 Keys and normal forms](../../Transcripts/10-Databases.md#7-keys-and-normal-forms), [10 §9 Tables, types, schemas and keys in SQL](../../Transcripts/10-Databases.md#9-tables-types-schemas-and-keys-in-sql).
 
 **Solution.** **(UserNumber, PurchaseTime)**, under the assumption that **one
 user makes at most one purchase per second**, the timestamps have
@@ -40,7 +40,7 @@ for it to be a key has answered half the question.
 
 ## DB-02 · Query a flat table · 2 pts · [2023-E2 Q6b, 2024-E2 Q6a, `TE-11` Ex. 1b]
 
-**Where to look.** Slides: session 11, slides 45 to 47 (*SQL queries: selection and projection*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §11 Queries: selection, projection, aggregation](../../Transcripts/11-Databases.md#11-queries-selection-projection-aggregation).
+**Where to look.** Slides: session 10, slides 45 to 47 (*SQL queries: selection and projection*), in `Slides/10-Databases/ICSS-2026-10-Databases.qmd`. Handout: [10 §11 Queries: selection, projection, aggregation](../../Transcripts/10-Databases.md#11-queries-selection-projection-aggregation).
 
 **Solution.**
 
@@ -65,7 +65,7 @@ acceptable here since the column type is not specified.
 
 ## DB-03 · Restructure into a relational database · 2–3 pts · [2023-E2 Q6c, 2024-E2 Q6b, 2025-E2 Q5c, `TE-11` Ex. 1c]
 
-**Where to look.** Slides: session 11, slides 26 to 29 (*Building a relational database; Normal form example*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §6 Database models: flat and relational](../../Transcripts/11-Databases.md#relational-databases), [11 §7 Keys and normal forms](../../Transcripts/11-Databases.md#7-keys-and-normal-forms).
+**Where to look.** Slides: session 10, slides 26 to 29 (*Building a relational database; Normal form example*), in `Slides/10-Databases/ICSS-2026-10-Databases.qmd`. Handout: [10 §6 Database models: flat and relational](../../Transcripts/10-Databases.md#relational-databases), [10 §7 Keys and normal forms](../../Transcripts/10-Databases.md#7-keys-and-normal-forms).
 
 **Solution.** The product name is currently repeated once per purchase, so
 renaming a product means updating every row that mentions it, and missing one
@@ -103,7 +103,7 @@ the facts that genuinely belong to a purchase.
 
 ## DB-04 · Query the restructured database · 2 pts · [2023-E2 Q6d, 2024-E2 Q6c, `TE-11` Ex. 1d]
 
-**Where to look.** Slides: session 11, slides 50 to 54 (*SQL manual join; INNER JOIN; Other JOIN operations*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §12 Joins](../../Transcripts/11-Databases.md#12-joins).
+**Where to look.** Slides: session 10, slides 50 to 54 (*SQL manual join; INNER JOIN; Other JOIN operations*), in `Slides/10-Databases/ICSS-2026-10-Databases.qmd`. Handout: [10 §12 Joins](../../Transcripts/10-Databases.md#12-joins).
 
 **Solution.**
 
@@ -133,7 +133,7 @@ WHERE u.UserName = 'Adam';
 
 ## DB-05 · Design a schema from a specification · 5 pts · [2024-E1 Q6a, 2025-Ex Q6a]
 
-**Where to look.** Slides: session 11, slides 22 to 29 (*Relational databases; Building a relational database*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`; session 11, slides 33 to 40 (*Tables in SQL; SQL schema*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §6 Database models: flat and relational](../../Transcripts/11-Databases.md#relational-databases), [11 §7 Keys and normal forms](../../Transcripts/11-Databases.md#7-keys-and-normal-forms), [11 §9 Tables, types, schemas and keys in SQL](../../Transcripts/11-Databases.md#9-tables-types-schemas-and-keys-in-sql).
+**Where to look.** Slides: session 10, slides 22 to 29 (*Relational databases; Building a relational database*), in `Slides/10-Databases/ICSS-2026-10-Databases.qmd`; session 10, slides 33 to 40 (*Tables in SQL; SQL schema*), in `Slides/10-Databases/ICSS-2026-10-Databases.qmd`. Handout: [10 §6 Database models: flat and relational](../../Transcripts/10-Databases.md#relational-databases), [10 §7 Keys and normal forms](../../Transcripts/10-Databases.md#7-keys-and-normal-forms), [10 §9 Tables, types, schemas and keys in SQL](../../Transcripts/10-Databases.md#9-tables-types-schemas-and-keys-in-sql).
 
 **Solution.** Six tables. Primary keys **bold**, foreign keys marked →.
 
@@ -158,7 +158,7 @@ WHERE u.UserName = 'Adam';
    relations: a person likes many beverages and a beverage is liked by many
    people; a bar serves many beverages and a beverage is served by many bars.
    A many-to-many relation always needs its own table, you cannot put a list in
-   a cell (session 11: every SQL attribute has an atomic type).
+   a cell (session 10: every SQL attribute has an atomic type).
 3. **`price` belongs on `Serves`, not on `Beverage`.** The price is a property of
    the *pair* (bar, beverage), since the same beer costs different amounts in
    different bars. Putting it on `Beverage` loses information; putting it on
@@ -177,7 +177,7 @@ price placement. A schema that is workable but stores the alcohol content on
 
 ## DB-06 · Query across a many-to-many schema · 2 pts · [2024-E1 Q6b, 2025-Ex Q6b]
 
-**Where to look.** Slides: session 11, slides 50 to 54 (*SQL joins*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §12 Joins](../../Transcripts/11-Databases.md#12-joins).
+**Where to look.** Slides: session 10, slides 50 to 54 (*SQL joins*), in `Slides/10-Databases/ICSS-2026-10-Databases.qmd`. Handout: [10 §12 Joins](../../Transcripts/10-Databases.md#12-joins).
 
 **Solution.**
 
@@ -254,7 +254,7 @@ then indexes it randomly has not explained anything.
 
 ## DB-08 · SQL over two related tables · 2–3 pts · [2023-E1 Q6b, 2024-Ex Q6b, 2025-E2 Q5b]
 
-**Where to look.** Slides: session 11, slides 45 to 54 (*SQL queries; Aggregation; Joins*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`; session 11, slides 26 to 29 (*Building a relational database*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §11 Queries: selection, projection, aggregation](../../Transcripts/11-Databases.md#11-queries-selection-projection-aggregation), [11 §12 Joins](../../Transcripts/11-Databases.md#12-joins), [11 §7 Keys and normal forms](../../Transcripts/11-Databases.md#7-keys-and-normal-forms).
+**Where to look.** Slides: session 10, slides 45 to 54 (*SQL queries; Aggregation; Joins*), in `Slides/10-Databases/ICSS-2026-10-Databases.qmd`; session 10, slides 26 to 29 (*Building a relational database*), in `Slides/10-Databases/ICSS-2026-10-Databases.qmd`. Handout: [10 §11 Queries: selection, projection, aggregation](../../Transcripts/10-Databases.md#11-queries-selection-projection-aggregation), [10 §12 Joins](../../Transcripts/10-Databases.md#12-joins), [10 §7 Keys and normal forms](../../Transcripts/10-Databases.md#7-keys-and-normal-forms).
 
 **Solution.**
 
@@ -300,7 +300,7 @@ also makes explicit that "Hans Zimmermann" with IDs 00164684 and 78945987 are
 
 ## DB-09 · Aggregation and a self-join · 3+3 pts · [2025-E1 Q6a+b]
 
-**Where to look.** Slides: session 11, slides 48 to 54 (*Aggregation; Grouping; Joins*), in `Slides/11-Databases/ICSS-2026-11-Databases.qmd`. Handout: [11 §11 Queries: selection, projection, aggregation](../../Transcripts/11-Databases.md#11-queries-selection-projection-aggregation), [11 §12 Joins](../../Transcripts/11-Databases.md#12-joins).
+**Where to look.** Slides: session 10, slides 48 to 54 (*Aggregation; Grouping; Joins*), in `Slides/10-Databases/ICSS-2026-10-Databases.qmd`. Handout: [10 §11 Queries: selection, projection, aggregation](../../Transcripts/10-Databases.md#11-queries-selection-projection-aggregation), [10 §12 Joins](../../Transcripts/10-Databases.md#12-joins).
 
 **Solution.**
 
@@ -339,9 +339,9 @@ table can be joined to itself. Part (a) is the standard `LEFT JOIN` + `GROUP BY`
 
 ---
 
-## DB-10 · Evaluating a classifier · 4 pts · `new` (session 10)
+## DB-10 · Evaluating a classifier · 4 pts · `new` (session 11)
 
-**Where to look.** Slides: session 10, slides 16 to 18 (*Error and loss; Class imbalance; The F1 score*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`. Handout: [10 §5 Error, loss and the traps of accuracy](../../Transcripts/10-MachineLearning.md#error-and-loss).
+**Where to look.** Slides: session 11, slides 16 to 18 (*Error and loss; Class imbalance; The F1 score*), in `Slides/11-MachineLearning/ICSS-2026-11-MachineLearning.qmd`. Handout: [11 §5 Error, loss and the traps of accuracy](../../Transcripts/11-MachineLearning.md#error-and-loss).
 
 **Solution.**
 
@@ -377,15 +377,15 @@ can go.
 error in the deployment**, and the same model can be right for one use and wrong
 for another.
 
-**Notes.** Written for this pool because session 10 has never been examined.
+**Notes.** Written for this pool because session 11 has never been examined.
 Part (c) is the discriminating half and is unbluffable. All arithmetic is doable
 without a calculator.
 
 ---
 
-## DB-11 · Train/test splitting and overfitting · 3 pts · `new` (session 10)
+## DB-11 · Train/test splitting and overfitting · 3 pts · `new` (session 11)
 
-**Where to look.** Slides: session 10, slides 19 (*Training/test split: bias and variance*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`; session 10, slides 22 to 23 (*Overfitting and underfitting; The bias-variance tradeoff*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`. Handout: [10 §6 Generalization: the train/test split](../../Transcripts/10-MachineLearning.md#6-generalization-the-traintest-split), [10 §8 Overfitting, underfitting, bias and variance](../../Transcripts/10-MachineLearning.md#8-overfitting-underfitting-bias-and-variance).
+**Where to look.** Slides: session 11, slides 19 (*Generalization and the Training/Test split*), in `Slides/11-MachineLearning/ICSS-2026-11-MachineLearning.qmd`; session 11, slides 22 to 23 (*Overfitting and underfitting; The bias-variance tradeoff*), in `Slides/11-MachineLearning/ICSS-2026-11-MachineLearning.qmd`. Handout: [11 §6 Generalization: the train/test split](../../Transcripts/11-MachineLearning.md#6-generalization-the-traintest-split), [11 §8 Overfitting, underfitting, bias and variance](../../Transcripts/11-MachineLearning.md#8-overfitting-underfitting-bias-and-variance).
 
 **Solution.**
 
@@ -414,9 +414,9 @@ and sometimes the time period or the conversation.
 
 ---
 
-## DB-12 · K-means and choosing K · 4 pts · `new` (session 10)
+## DB-12 · K-means and choosing K · 4 pts · `new` (session 11)
 
-**Where to look.** Slides: session 10, slides 26 to 31 (*Unsupervised machine learning; Clustering with K-means; The elbow method*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`. Handout: [10 §10 Unsupervised learning and clustering](../../Transcripts/10-MachineLearning.md#unsupervised).
+**Where to look.** Slides: session 11, slides 26 to 31 (*Unsupervised machine learning; Clustering with K-means; The elbow method*), in `Slides/11-MachineLearning/ICSS-2026-11-MachineLearning.qmd`. Handout: [11 §10 Unsupervised learning and clustering](../../Transcripts/11-MachineLearning.md#unsupervised).
 
 **Solution.**
 
@@ -467,9 +467,9 @@ also necessary, since it converges to a *local* minimum.
 
 ---
 
-## DB-13 · Which kind of learning? · 3 pts · `new` (session 10)
+## DB-13 · Which kind of learning? · 3 pts · `new` (session 11)
 
-**Where to look.** Slides: session 10, slides 10 to 13 (*Machine learning approaches; Supervised learning; Classification and regression*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`; session 10, slides 26 to 27 (*Unsupervised machine learning*), in `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd`. Handout: [10 §2 What machine learning is](../../Transcripts/10-MachineLearning.md#2-what-machine-learning-is), [10 §3 Supervised learning: the setup](../../Transcripts/10-MachineLearning.md#supervised), [10 §10 Unsupervised learning and clustering](../../Transcripts/10-MachineLearning.md#unsupervised).
+**Where to look.** Slides: session 11, slides 10 to 13 (*Machine learning approaches; Supervised learning; Classification and regression*), in `Slides/11-MachineLearning/ICSS-2026-11-MachineLearning.qmd`; session 11, slides 26 to 27 (*Unsupervised machine learning*), in `Slides/11-MachineLearning/ICSS-2026-11-MachineLearning.qmd`. Handout: [11 §2 What machine learning is](../../Transcripts/11-MachineLearning.md#2-what-machine-learning-is), [11 §3 Supervised learning: the setup](../../Transcripts/11-MachineLearning.md#supervised), [11 §10 Unsupervised learning and clustering](../../Transcripts/11-MachineLearning.md#unsupervised).
 
 **Solution.**
 

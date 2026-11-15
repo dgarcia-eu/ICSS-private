@@ -790,3 +790,72 @@ W02-W04 (and why_02-04.py) link to the published transcript pages
 view ignores custom {#id} anchors. 00-Conventions is linked as .html.
 Public repo: README links session 4; missing figures added; all internal
 links checked live after deploy.
+
+2026-11-15, style pass after David's review of sessions 1 to 4 (rules and
+decisions in STYLE-PROPOSAL.md):
+- Sessions 10 and 11 swapped: 10 is Databases, 11 is Machine Learning. Files,
+  folders, figure prefixes, notebooks, posts, example decks, tool lookup tables,
+  READMEs, Calendar, outline slides (also the published decks 2 to 4).
+- Sessions are referred to by topic name everywhere (transcripts, decks,
+  sheets, solutions, notebooks, posts), also in the published copies of 1 to 4.
+- Pseudocode If: then/else on their own lines one level deeper; else-if chains
+  nested; BFS blocks of decks 5 and 8 re-indented; Fibonacci one-liners split.
+- Sheets 5 to 13: one-sentence header, at most 6 additional exercises (A7
+  removed from 5, 6, 7, 8, 9, 12; A5 from 11, rest renumbered). Solutions 5 to
+  13: no header blockquote, no "Where to look". Exam pool index updated; exam
+  solutions regenerated (deck 3 slide ranges corrected).
+- Transcripts, deck text, sheets, solutions and notebooks of sessions 5 to 13
+  rewritten by the rules (one agent per session, then checked). Every
+  transcript has "Why does this matter? Practical Python examples" before
+  Check yourself; every deck 2 to 13 has that slide before the summary.
+- Decks 5 to 13 checked at 1280 x 720: overflow 0 in all nine, PDF pages equal
+  slides. New tools: tools/layoutdeck.py (empty space, small text),
+  tools/contactsheet.py.
+- W06 notebook title corrected to its own output (2.7 million calls or 59).
+Nothing committed.
+
+2026-11-15, rule: no body text larger than the slide title (title 1.18em of
+37.5 px). tools/layoutdeck.py flags it as TEXT>TITLE (MathJax may exceed by
+2 px). Theme: .figures .big 1.5em -> 1.15em (both repos). Deck 5 slide 7
+"What is an algorithm?": definition at .sm plus new figure
+05-algorithm-examples.svg (gen05.py: input -> steps -> output and three
+examples). Deck 6 slides 22-23: definitions at normal size with the 4! example
+and two bullets. Deck 10 slide 41: second CREATE example (respondent table),
+tables at 1.25em; slide 45: example query on Product with its result. Deck 3
+motivating stats as plain text instead of math. No deck has TEXT>TITLE now.
+
+2026-11-15, session 5 (David's list): deck 51 slides, overflow 0. Milgram
+example M05-A parked (MotivatingExamples-parked.md, motivation_data.py) and
+removed from deck and transcript; network example now Facebook, 3 billion
+users (9 x 10^18 cells, 3 x 10^11 friendships, ~500,000x), with the
+calculation as a box on "Adjacency Matrix vs Adjacency List". Slides 9-14:
+K-SMALLEST-ELEMENT pseudocode left with highlighted lines, text right, same
+size; Python removed there. New figures (gen05.py): 05-flowchart-kth (replaces
+the exercise slide, also in transcript 5 section 5), 05-graph-problems; queue
+and stack arrowheads smaller; "Examples" label on 05-algorithm-examples.
+Blockchain slide removed. BFS: one pseudocode (conventions indentation),
+comments in a column (.cc), executed lines shaded (.hl), bold step captions;
+theme gained .hl and .cc (both repos). Transcript 5: Check yourself 4 removed,
+figures centered except the BFS trace. All transcripts: details spacing.
+Sheet 5: A1 and A3 removed, A2..A6 -> A1..A4; solutions with the Exercise 2
+graph and the two flowcharts of A1 (TheoryExercises/figures, from gen05.py).
+W05 notebook retitled.
+Deck 5 flowchart: last diamond enlarged (300x104, two-line text), canvas
+700x700; slide 23 flowchart at 14.4em (columns 54/46); new slide 24
+"Pseudocode and flowchart side by side". Deck now 52 slides, overflow 0,
+PDF reprinted. Only flag left: slide 34 SMALL-TEXT (the 15 px is the
+calculation box on Adjacency Matrix vs Adjacency List).
+Deck 5 graph slides (2026-11-15): graph examples at 5.1em, company ownership
+cropped to panel D (figures/graph-company-ownership-d.jpg) with caption
+"Company ownerships"; v1..v8 figure with lowercase, larger labels;
+adjacency matrix definition at .sm (reworded slightly to fit); adjacency list
+with the bullets on top, figure 9.6em, table .sm; graph problems figure now
+three textless panels (problems, spanning tree, coloring) with colored lead
+words; BFS trace figures on a wider 400x300 canvas, nodes filled by BFS color,
+orange ring for u, shown at 12.4em; Social Science Applications outtake
+removed. Deck 51 slides, overflow 0, PDF reprinted. Transcript 5 describes
+the colors and uses 05-bfs-e2 for "after processing e".
+Deck 5: flowchart on slides 23-24 at 16.4em (full height); slide 34 graph at 10.8em in a 55% column, same size as on slide 35.
+Transcript 5, Graphs: Königsberg bridges figure floated right of the first paragraph (figure.wrap-right in the style block, cleared after the paragraph).
+Sheet 5: ex05-flowchart-unknown.svg recolored with the deck colors (terminal green, data tan, operation gray, condition red); matrix tables in sheet 5 and the vertex tables in its solutions centered (first column left).
+Public repo: a1ce988 (session 5 + pending 1-4), d090c86 (README links, Examples05-Algorithms.ipynb, notebook anchors), 722ecf6 (transcript 5 color/ring sentences, bfs-e2, References = 12; Exercise05-Solutions.md published).

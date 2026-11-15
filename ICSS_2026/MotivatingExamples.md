@@ -74,8 +74,6 @@ decks. After selection it will be off by however many you kept, usually one.
 
 <small>Deck: `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd` · Transcript: `Transcripts/05-Algorithms.md`</small>
 
-- [ ] **M05-A**: *Six handshakes, and how you would check*  
-  <small>Milgram needed volunteers and postage; Facebook measured the same thing over 1.59 billion people. What is the procedure?</small>
 - [ ] **M05-B**: *Whose contacts, within two steps?*  
   <small>Contact tracing as a graph search: thousands of people, answered in seconds, and every step of the recipe has to be pinned down.</small>
 - [ ] **M05-C**: *The network that would not fit*  
@@ -130,28 +128,28 @@ decks. After selection it will be off by however many you kept, usually one.
   <small>A marking system that rejects submissions which loop forever. Turing proved in 1936 that no such program can exist.</small>
 
 
-## Session 10: Machine Learning
+## Session 10: Databases
 
-<small>Deck: `Slides/10-MachineLearning/ICSS-2026-10-MachineLearning.qmd` · Transcript: `Transcripts/10-MachineLearning.md`</small>
+<small>Deck: `Slides/10-Databases/ICSS-2026-10-Databases.qmd` · Transcript: `Transcripts/10-Databases.md`</small>
 
-- [ ] **M10-A**: *Google predicted the flu, until it didn't*  
-  <small>Google Flu Trends beat the CDC in 2009 and predicted more than double the real rate in 2013. It fitted the past almost perfectly.</small>
-- [ ] **M10-B**: *93% accurate, and it never finds anyone*  
-  <small>A dropout-risk model with 93% accuracy that identifies nobody. Which number should have been on the report?</small>
-- [ ] **M10-C**: *A million speeches nobody can read*  
-  <small>Every Bundestag speech since 1949: forty person-years to hand-code. You can code 2 000. Now what?</small>
-
-
-## Session 11: Databases
-
-<small>Deck: `Slides/11-Databases/ICSS-2026-11-Databases.qmd` · Transcript: `Transcripts/11-Databases.md`</small>
-
-- [ ] **M11-A**: *The 15 841 cases that fell off the end of a spreadsheet*  
+- [ ] **M10-A**: *The 15 841 cases that fell off the end of a spreadsheet*  
   <small>Public Health England lost 16 000 COVID results to a 65 536-row limit. No error appeared. 50 000 contacts were never traced.</small>
-- [ ] **M11-B**: *Two seats, one airplane*  
+- [ ] **M10-B**: *Two seats, one airplane*  
   <small>Two agents book the last seat in the same second. Each program checked availability and found one. Neither has a bug.</small>
-- [ ] **M11-C**: *Whose number is right?*  
+- [ ] **M10-C**: *Whose number is right?*  
   <small>Three copies of the participant list, three people doing their jobs, and three different answers to 'how many participants'.</small>
+
+
+## Session 11: Machine Learning
+
+<small>Deck: `Slides/11-MachineLearning/ICSS-2026-11-MachineLearning.qmd` · Transcript: `Transcripts/11-MachineLearning.md`</small>
+
+- [ ] **M11-A**: *Google predicted the flu, until it didn't*  
+  <small>Google Flu Trends beat the CDC in 2009 and predicted more than double the real rate in 2013. It fitted the past almost perfectly.</small>
+- [ ] **M11-B**: *93% accurate, and it never finds anyone*  
+  <small>A dropout-risk model with 93% accuracy that identifies nobody. Which number should have been on the report?</small>
+- [ ] **M11-C**: *A million speeches nobody can read*  
+  <small>Every Bundestag speech since 1949: forty person-years to hand-code. You can code 2 000. Now what?</small>
 
 
 ## Session 12: Parallel Programming

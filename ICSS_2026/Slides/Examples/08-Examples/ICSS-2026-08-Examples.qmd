@@ -188,7 +188,7 @@ implies about the exponent. Close with the log-log plot: two lines, slopes 1 and
 reveal a quadratic term; only reading the code can.
 
 **Where it plugs in.** With the memory-complexity slides of the main deck
-(§2 and §8 of the transcript); connects to K-means in session 10, which is the
+(§2 and §8 of the transcript); connects to K-means in session 11, which is the
 linear-memory alternative.
 
 **Self-study:** post `Examples/posts/X08-B-….md` · notebook `Examples/notebooks/X08-B.ipynb`, the problem and the solution in a few cells.

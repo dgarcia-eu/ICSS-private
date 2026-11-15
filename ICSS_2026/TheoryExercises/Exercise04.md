@@ -2,11 +2,7 @@
 
 *Introduction to Computing for the Social Sciences · Prof. Dr. David Garcia*
 
-> Exercises 1 and 2 will be covered in the exercise session. The *Additional
-> practice* section is for self-study and to be covered if time allows. Worked
-> solutions, with pointers to the slides and the handout, are in
-> [`Solutions/Exercise04-Solutions.md`](Solutions/Exercise04-Solutions.md). Try
-> the exercises before you open them. Notation: [course conventions](../Transcripts/00-Conventions.md).
+Exercises 1 and 2 will be covered in the exercise session. The *Additional practice* section is for self-study and to be covered if time allows. 
 
 ---
 
@@ -28,8 +24,7 @@ b) **Specification.** Write the specification of the main function as a
    never do.
 
 c) **Design.** Split the program into two to four small functions, with one
-   line each on what it does. Say which data structures from session 3
-   connect them, and why.
+   line each on what it does. Say which data structures connect them and why.
 
 d) **Tests.** Write at least five test cases for the main function. Include a
    typical case, a boundary or empty case, a case with missing or invalid
@@ -37,9 +32,8 @@ d) **Tests.** Write at least five test cases for the main function. Include a
    choice. Write each as a pytest test, or as a table with input and expected
    result.
 
-e) **Implementation.** The exercise gives code that a coder, a person or a
-   coding agent, wrote from the client's message alone, without your
-   specification. Run your tests on it by hand. Which pass, which fail, and
+e) **Implementation.** The exercise gives code that a coder wrote from the client's message alone, without your
+   specification. Run your tests on it with pen and paper. Which pass, which fail, and
    why?
 
 f) **Maintenance.** The exercise ends with a second message from the client.
@@ -194,42 +188,9 @@ def test_all_yes():
 Which lines of the specification are not tested? Write the missing tests.
 Then write an implementation that passes both tests above and is still wrong.
 
-### A4. Choosing a data structure
+### A4. Counting survey answers
 
-For each task, which data structure belongs in the design, and why?
-
-a) The answers of one respondent, in the order of the questions.
-b) A codebook that translates answer codes such as `3` into labels such as
-   `"agree"`.
-c) The email addresses that have already received an invitation, so that
-   nobody is invited twice.
-d) Help requests in a chat service, answered in the order they arrived.
-e) The steps a user took in an editor, so that "undo" reverses the most
-   recent one first.
-
-### A5. Compilers, interpreters and research code
-
-a) You have a Python script that takes 6 hours on your data. A colleague says
-   "rewrite it in C, it will be 50 times faster". Give two reasons why that
-   may be bad advice.
-b) Python is interpreted. Why can an error in a part of the script that your
-   test data never reaches stay hidden, and what does that mean for the test
-   cases you choose?
-
-### A6. Rules that need more than instructions
-
-For each rule, say whether it is enough to state it in the instructions to a
-coder, a person or a coding agent. If it is not enough, say how the system
-should enforce the rule.
-
-a) Use only the standard library.
-b) Never delete files outside the project folder.
-c) Name the functions in English.
-d) Do not change the production database during the code freeze.
-
-### A7. Counting survey answers
-
-For A7 to A9, work through steps a) to d) of the session exercises.
+For A4 to A6, work through steps a) to d) of the session exercises.
 
 *"Our survey has a question about how people get to work, with the options
 'car', 'bus', 'bike' and 'walk'. Could you write something that tells me
@@ -238,7 +199,7 @@ The answers arrive as a list such as
 `["bus", "bike", None, "car", "bus", "Bus"]`, with `None` where a
 respondent skipped the question.
 
-### A8. The seminar waiting list
+### A5. The seminar waiting list
 
 *"Our seminar has 20 places and always more people who want in. People
 register with their student ID. The first 20 get a place, the others go on
@@ -247,7 +208,7 @@ waiting list moves up."* Specify and test the two functions
 `register(student_id)` and `drop(student_id)`, and say which data structure
 holds the participants and which holds the waiting list.
 
-### A9. Grades from exercise points
+### A6. Grades from exercise points
 
 *"I have the exercise points of every student: up to 10 points for each of
 the 12 sheets. Students pass the exercise part if they have at least 50% of
@@ -261,8 +222,6 @@ with `None` for a sheet that was not handed in.
 
 ## Sources
 
-- The exercises are new in 2026/27. The earlier sheet 4 (object-oriented
-  programming, debugging, problem-solving) is no longer used.
 - **Zelle, J. M. (2016).** *Python Programming: An Introduction to Computer
   Science*, 3rd ed., ch. 2, 6–8, the reading for this session.
 - **Guttag, J. V. (2016).** *Introduction to Computation and Programming Using

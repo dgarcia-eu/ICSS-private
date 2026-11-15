@@ -12,23 +12,23 @@
 <!-- FIG -->
 <figure class="full"><img src="../../Slides/Examples/08-Examples/figures/08-algorithms-vs-hardware.png" alt="Algorithms against hardware, 1988–2003: the growth rate, not the clock speed, is what the notation measures."><figcaption>Algorithms against hardware, 1988–2003: the growth rate, not the clock speed, is what the notation measures.</figcaption></figure>
 <!-- /FIG -->
-The big O of session 8 was invented to talk about primes. It appears in an
+The big O of this session was invented to talk about primes. It appears in an
 1894 textbook on analytic number theory and was made standard by a 1909
 handbook on the distribution of prime numbers, and for fifty years it was a
 tool of pure mathematicians that had nothing to do with computers. Its use
 for running times came with the first analyses of algorithms in the late
 1950s, and the conventions the lecture uses, including $\Omega$ and $\Theta$,
 were fixed in a two-page letter of 1976 titled "Big Omicron and Big Omega and
-Big Theta", written by the author of the encyclopedia of session 3 because
+Big Theta", written by the author of the encyclopedia of the Data Structures session because
 everyone had been using the symbols differently. The same volumes that gave
-session 3 its data structures gave session 8 its way of counting steps.
+the Data Structures session its data structures gave this session its way of counting steps.
 
 ## A subject is born
 
 The question of how many steps a computation takes, as a function of the
 input size, was asked precisely for the first time in a 1965 paper whose
 title, *On the Computational Complexity of Algorithms*, named the field. Using
-the Turing machine of session 9 as the definition of a step, it showed that
+the Turing machine of the Theoretical Computer Science session as the definition of a step, it showed that
 more time genuinely buys more: there are problems solvable in $n^2$ steps and
 not in $n$. The same year, two other papers independently proposed the
 dividing line the lecture draws between feasible and infeasible, that
@@ -87,7 +87,7 @@ someone thinks, not when someone buys a faster machine.
 
 ## The thread to the lecture
 
-Session 8 gives you a notation, a definition of "fast" and a table of growth
+This session gives you a notation, a definition of "fast" and a table of growth
 rates. Each has a date: the notation from number theory, from 1894 to 1909
 and fixed for computing in 1976; the definition of fast in 1965; the class of
 hard problems in 1971 and 1972; and a demonstration in 2002 that a classical

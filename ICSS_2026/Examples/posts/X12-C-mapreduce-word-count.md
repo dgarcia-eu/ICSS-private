@@ -12,7 +12,7 @@
 
 English Wikipedia is about 20 GB of text. Counting how often every word
 occurs takes a laptop about three hours, one pass with one dictionary from
-session 3. A cluster of a hundred machines does it in about two minutes.
+the Data Structures session. A cluster of a hundred machines does it in about two minutes.
 Three hours divided by a hundred is under two minutes, but not by much, and
 adding a hundred more machines barely helps. How do a hundred machines share
 one counting job without a shared dictionary? And where does the missing time

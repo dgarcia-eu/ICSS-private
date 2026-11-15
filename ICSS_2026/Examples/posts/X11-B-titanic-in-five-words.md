@@ -1,8 +1,8 @@
 # Predict who survived the Titanic in five words
 
-*Session 10 · Machine Learning · example X10-B ·
-[notebook](../notebooks/X10-B.ipynb) ·
-[slides](../../Slides/Examples/10-Examples/ICSS-2026-10-Examples.qmd)*
+*Session 11 · Machine Learning · example X11-B ·
+[notebook](../notebooks/X11-B.ipynb) ·
+[slides](../../Slides/Examples/11-Examples/ICSS-2026-11-Examples.qmd)*
 
 > A rule anyone could state gets 79%. Every model you ever build has to beat
 > the rule first, and most first attempts do not.
@@ -21,7 +21,7 @@ actually better?
 
 ## Try it first
 
-The [notebook](../notebooks/X10-B.ipynb) loads the data with pandas, prints
+The [notebook](../notebooks/X11-B.ipynb) loads the data with pandas, prints
 the two rate tables, applies the rule, fills in the confusion matrix, computes
 accuracy, precision and recall, and compares with the majority-class baseline
 and one slightly better rule.
@@ -29,7 +29,7 @@ and one slightly better rule.
 ## What is going on
 
 <!-- FIG -->
-<figure class="full"><img src="../../Slides/Examples/10-Examples/figures/10-titanic-confusion.svg" alt="The confusion matrix of the five-word rule on 891 passengers."><figcaption>The confusion matrix of the five-word rule on 891 passengers.</figcaption></figure>
+<figure class="full"><img src="../../Slides/Examples/11-Examples/figures/11-titanic-confusion.svg" alt="The confusion matrix of the five-word rule on 891 passengers."><figcaption>The confusion matrix of the five-word rule on 891 passengers.</figcaption></figure>
 <!-- /FIG -->
 "Women survive, men do not." On the 891 passengers:
 
@@ -66,7 +66,7 @@ matrix second.
 ## Why this matters if you work with data
 
 <!-- FIG -->
-<figure class="full"><img src="../../Slides/Examples/10-Examples/figures/10-titanic-rates.png" alt="Survival by sex and by ticket class in the training set."><figcaption>Survival by sex and by ticket class in the training set.</figcaption></figure>
+<figure class="full"><img src="../../Slides/Examples/11-Examples/figures/11-titanic-rates.png" alt="Survival by sex and by ticket class in the training set."><figcaption>Survival by sex and by ticket class in the training set.</figcaption></figure>
 <!-- /FIG -->
 The baseline habit is the cheapest and most skipped step in applied machine
 learning, and skipping it is how a 93%-accurate model that identifies nobody
@@ -80,11 +80,11 @@ over the baseline, which is the honest measure of what the method added.
 
 ## What we used from the lecture
 
-- [Supervised learning: the setup](../../Transcripts/10-MachineLearning.md#3-supervised-learning-the-setup):
+- [Supervised learning: the setup](../../Transcripts/11-MachineLearning.md#3-supervised-learning-the-setup):
   features, target, prediction.
-- [Error, loss and the traps of accuracy](../../Transcripts/10-MachineLearning.md#5-error-loss-and-the-traps-of-accuracy):
+- [Error, loss and the traps of accuracy](../../Transcripts/11-MachineLearning.md#5-error-loss-and-the-traps-of-accuracy):
   confusion matrix, precision, recall.
-- [Generalization](../../Transcripts/10-MachineLearning.md#6-generalization-the-traintest-split):
+- [Generalization](../../Transcripts/11-MachineLearning.md#6-generalization-the-traintest-split):
   a score means nothing without a baseline.
 
 ## Further reading

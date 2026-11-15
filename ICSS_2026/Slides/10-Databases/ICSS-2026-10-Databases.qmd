@@ -1,5 +1,5 @@
 ---
-title: "<span class='course'>Introduction to Computing for the Social Sciences</span><br><span class='session'>Session 11 &ndash; Databases</span>"
+title: "<span class='course'>Introduction to Computing for the Social Sciences</span><br><span class='session'>Session 10 &ndash; Databases</span>"
 author: "David Garcia<br><span class='semester'>Winter Semester 2026-2027</span>"
 format:
   revealjs:
@@ -14,7 +14,7 @@ format:
     controls: true
     history: true
     logo: ../theme/unikn-logo.png
-    footer: "<span class='fbar-left'>Session 11</span><span class='fbar-mid'>Introduction to Computing for the Social Sciences</span><span class='fbar-right'>Winter Semester 2026-2027</span>"
+    footer: "<span class='fbar-left'>Session 10</span><span class='fbar-mid'>Introduction to Computing for the Social Sciences</span><span class='fbar-right'>Winter Semester 2026-2027</span>"
     highlight-style: github
     link-external-newwindow: true
     fig-align: left
@@ -25,24 +25,22 @@ format:
 :::: {.columns}
 ::: {.column width="50%"}
 ::: {.sm}
-- Session 1: Introduction
-- Session 2: Information Coding
-- Session 3: Data Structures
-- Session 4: Software
-- Session 5: Algorithms
-- Session 6: Recursion
-- Session 7: Sorting Algorithms
+- *Session 1: Introduction*
+- *Session 2: Information Coding*
+- *Session 3: Data Structures*
+- *Session 4: Software*
+- *Session 5: Algorithms*
+- *Session 6: Recursion*
+- *Session 7: Sorting Algorithms*
 :::
 :::
 
 ::: {.column width="50%"}
 ::: {.sm}
-- Session 8: Time Complexity
-- Session 9: Theoretical Computer Science
-- Session 10: Machine Learning
-- Session 11: Databases
-  - Tutorial: Databases (swap)
-  - Exercise: DB + projects Q&A
+- *Session 8: Time Complexity*
+- *Session 9: Theoretical Computer Science*
+- **Session 10: Databases**
+- Session 11: Machine Learning
 - Session 12: Parallel Programming
 - Session 13: Social Science Applications
 - Session 14: Exam Review
@@ -81,37 +79,37 @@ Recommended: Chapter 4
 ::::
 
 
-<!-- MOTIVATION:M11-A:BEGIN -->
-## The 15 841 cases that fell off the end of a spreadsheet {.fit1}
+<!-- MOTIVATION:M10-A:BEGIN -->
+## The 15,841 cases that fell off the end of a spreadsheet {.fit1}
 
 ::: {.motivation}
 [Motivating example]{.label}
-Between 25 September and 2 October 2020, Public Health England lost **15 841
-positive COVID-19 test results**. Labs sent results as CSV; the collating process
-used an old spreadsheet format whose worksheets hold **65 536 rows**. When a file
+Between 25 September and 2 October 2020, Public Health England lost **15,841
+positive COVID-19 test results**. Labs sent results as CSV, but the collating process
+used an old spreadsheet format whose worksheets hold **65,536 rows**. When a file
 exceeded that, the extra rows were simply not read. **No error appeared.**
 :::
 
 :::: {.figures}
 ::: {.fq}
-[15 841]{.big}[positive cases lost]{.cap}
+[15,841]{.big}[positive cases lost]{.cap}
 :::
 ::: {.fq}
-[65 536]{.big}[row limit, silently applied]{.cap}
+[65,536]{.big}[row limit, silently applied]{.cap}
 :::
 ::: {.fq}
-[~50 000]{.big}[contacts never traced]{.cap}
+[~50,000]{.big}[contacts never traced]{.cap}
 :::
 ::::
 
 [What does a database give you that a file on someone's computer does not?]{.ask}
 
 ::: {.source}
-BBC News and *The Guardian*, 5 October 2020; Public Health England statement
+BBC News and *The Guardian*, 5 October 2020, and the Public Health England statement
 :::
-<!-- MOTIVATION:M11-A:END -->
+<!-- MOTIVATION:M10-A:END -->
 
-<!-- MOTIVATION:M11-B:BEGIN -->
+<!-- MOTIVATION:M10-B:BEGIN -->
 ## Two seats, one airplane
 
 ::: {.motivation}
@@ -125,9 +123,9 @@ it. Both passengers have a valid booking and a boarding pass.
 - The failure only exists **between** them.
 
 [What has to be guaranteed for "check, then book" to be safe when thousands of people do it at once?]{.ask}
-<!-- MOTIVATION:M11-B:END -->
+<!-- MOTIVATION:M10-B:END -->
 
-<!-- MOTIVATION:M11-C:BEGIN -->
+<!-- MOTIVATION:M10-C:BEGIN -->
 ## Whose number is right?
 
 ::: {.motivation}
@@ -142,7 +140,7 @@ participants there are, by **47**.
 - There is **no version that is right**, and no way to reconstruct one.
 
 [Where should a fact live, so that changing it once changes it everywhere?]{.ask}
-<!-- MOTIVATION:M11-C:END -->
+<!-- MOTIVATION:M10-C:END -->
 
 ## Database example: Flight reservations
 
@@ -184,14 +182,14 @@ participants there are, by **47**.
 
 ::: {.sm}
 - **What is a database?**
-  - Informal definition: an organized collection of data
+  - Informally, a database is an organized collection of data
     - an Excel table is a (very simple) database
     - enables fast access and the ability to access data in a structured way
 - **What is a database management system (DBMS)?**
   - software application that enables interaction between the user and the actual database
   - implements defining, creating, querying, updating and administering a database
   - data may be distributed at different locations
-  - examples: MySQL, PostgreSQL, Access, Oracle
+  - examples are MySQL, PostgreSQL, Access and Oracle
 :::
 
 ## Databases and DBMS
@@ -344,7 +342,7 @@ Product = Tea and Birth < 1999 ?
 :::
 ::::
 
-## Why to use a database? {.fit2}
+## Why use a database? {.fit2}
 
 ::: {.sm}
 - **data independence:** applications (and users) do not need to worry about how data are structured and stored
@@ -352,7 +350,7 @@ Product = Tea and Birth < 1999 ?
   - *physical data independence:* protection from physical layout changes, e.g. the user does not have to care about information coding, disk space, etc.
 - **standardization**
   - data formats, methods of accessing data, etc. are platform independent
-    - recall: problems parsing a `.csv` file with conflict events in Python
+    - recall the problems parsing a `.csv` file with conflict events in Python
   - flexible output schemas serving different users and purposes
 - **concurrency**
   - allows simultaneous usage by many users without the problem of conflicting updates
@@ -367,7 +365,7 @@ A **transaction** is a series of data manipulations that must not be interrupted
 Database transactions have the following properties:
 
 - **A**tomicity
-  - each transaction stands on its own; a rewind is possible
+  - each transaction stands on its own and a rewind is possible
 - **C**onsistency
   - ensures that any transaction that succeeds maintains the validity of the database
 - **I**solation
@@ -398,7 +396,7 @@ Database transactions have the following properties:
     - members of a column describe the same property or characteristic
   - **relational model**:
     - representation through sets of linked tables that share a common key
-    - intuition: many spreadsheets storing specific pieces of information, linked via a unique key
+    - the intuition is many spreadsheets storing specific pieces of information, linked via a unique key
 :::
 
 ## Flat model example
@@ -435,7 +433,7 @@ Database transactions have the following properties:
 **Data is repeated across the table**
 
 - Inefficient use of space
-- Problems updating: what if the Productnr of Milk is now 00333?
+- Problems when updating, for example what if the Productnr of Milk is now 00333?
 :::
 
 ## Building a relational database
@@ -608,7 +606,7 @@ Database transactions have the following properties:
 
 ::: {.xs}
 - Relational database designs can be standardized using **normal forms**
-- For example here: Class should be its own table
+- For example, Class should be its own table here
 :::
 
 ## Relational database: normal form example
@@ -709,12 +707,12 @@ Now we can update the name of a class to another one without having to edit the 
   - many different standards, but typical DBMS support all
   - execution is highly parallelizable by construction
 - SQL is a **declarative** language
-  - You define *what* you want, the DBMS takes care of *how* to do it
+  - You define *what* you want and the DBMS takes care of *how* to do it
   - You can also do "procedural SQL" with special instructions, but it is very inefficient
 :::
 
 ::: {.center-h}
-![](figures/11-sql-flow.svg){height="6.6em"}
+![](figures/10-sql-flow.svg){height="6.6em"}
 :::
 
 ## Tables in SQL
@@ -935,14 +933,14 @@ Product
 
 ## SQL Data types
 
-::: {.sm}
+::: {}
 - **Data Types**
   - atomic types:
     - characters: `CHAR(20)`, `VARCHAR(50)`
     - numbers: `INT`, `BIGINT`, `SMALLINT`, `FLOAT`
     - others: `MONEY`, `DATETIME`, …
   - every attribute (column) must have an **atomic** type
-    - consequently tables in SQL are always **flat**: cells (in principle) should not contain lists or matrices
+    - consequently tables in SQL are always **flat**, i.e. cells (in principle) should not contain lists or matrices
 :::
 
 ## SQL Schema
@@ -954,22 +952,25 @@ Product
   - a **key** is a minimal subset of attributes that acts as a unique identifier for tuples in a relation
     - an implicit constraint on which tuples can be in a relation
       - if two tuples in the same table agree on the values of the key, they must be the same tuple!
-    - notation: in the schema the key is <u>underlined</u> &ndash; `PName` in our example
+    - in the schema the key is <u>underlined</u>, which is `PName` in our example
 :::
 
 ## SQL data definition language
 
 ::: {.sm}
-- **CREATE:**
+- **CREATE** initializes an empty table with the specified schema, i.e. name, attributes and keys
 :::
 
-::: {style="font-size:0.88em"}
+::: {style="font-size:0.76em"}
 ```sql
 CREATE TABLE extable(col1 INTEGER, col2 VARCHAR(50), PRIMARY KEY (col1));
+CREATE TABLE respondent(id INTEGER, age INTEGER, country VARCHAR(2), PRIMARY KEY (id));
 ```
 :::
 
-::: {.center-h style="font-size:1.4em"}
+:::: {.columns}
+::: {.column width="45%"}
+::: {.center-h style="font-size:1.25em"}
 ::: {.tbl-name}
 extable
 :::
@@ -980,9 +981,25 @@ extable
 | &nbsp; | &nbsp; |
 :::
 :::
+:::
+
+::: {.column width="55%"}
+::: {.center-h style="font-size:1.25em"}
+::: {.tbl-name}
+respondent
+:::
+
+::: {.tbl-product}
+| id | age | country |
+|---|---|---|
+| &nbsp; | &nbsp; | &nbsp; |
+:::
+:::
+:::
+::::
 
 ::: {.center-h .sm}
-Initializes an empty table with the specified schema: name, attributes and keys
+Both tables exist now but hold no rows yet. INSERT fills them.
 :::
 
 ## SQL data manipulation language
@@ -1109,7 +1126,7 @@ DROP TABLE table_name;
 :::
 
 ::: {.sm}
-  - Many things can be dropped: indices, columns, whole databases…
+  - Many things can be dropped, for example indices, columns and whole databases
 - **ROLLBACK**
   - Discards all data changes since the last `COMMIT` or `ROLLBACK`
   - By default, a set of manipulations are part of a *transaction* that is executed and finished when we call `COMMIT`
@@ -1121,19 +1138,59 @@ SQL tutorial: <https://www.w3schools.com/sql/default.asp>
 
 ## SQL Queries
 
-::: {.sm}
+::: {}
 SQL **queries** allow us to define what data to receive from a database.
 :::
 
-::: {.example style="width:94%;margin:0.8em auto"}
+::: {.example style="width:94%;margin:0.4em auto"}
 [Basic form of a SQL query:]{.label}
 
-::: {style="font-size:0.8em"}
+::: {style="font-size:0.91em"}
 ```sql
 SELECT <attributes> FROM <one or more relations> WHERE <conditions>
 ```
 :::
 :::
+
+::: {style="font-size:0.91em"}
+```sql
+SELECT PName, Price FROM Product WHERE Price < 50
+```
+:::
+
+:::: {.columns}
+::: {.column width="58%"}
+::: {style="font-size:0.94em"}
+::: {.tbl-name}
+Product
+:::
+
+::: {.tbl-product}
+| PName | Price | Manufacturer |
+|---|---|---|
+| Gizmo | $19.99 | GizmoWorks |
+| Powergizmo | $29.99 | GizmoWorks |
+| SingleTouch | $149.99 | Canon |
+| MultiTouch | $203.99 | Hitachi |
+:::
+:::
+:::
+
+::: {.column width="42%"}
+::: {style="font-size:0.94em"}
+::: {.tbl-name}
+Result: products under $50
+:::
+
+::: {.tbl-product}
+| PName | Price |
+|---|---|
+| Gizmo | $19.99 |
+| Powergizmo | $29.99 |
+:::
+:::
+:::
+::::
 
 ## SQL Queries: selection
 
@@ -1434,6 +1491,26 @@ More on the SQL tutorial: <https://www.w3schools.com/sql/default.asp>
 XKCD 327, *Exploits of a Mom*: <https://xkcd.com/327/>
 :::
 
+## Why does this matter? Practical Python examples
+
+:::: {.columns}
+::: {.column width="55%"}
+![](figures/10-python-examples-notebook.png){width="100%"}
+:::
+
+::: {.column width="45%"}
+::: {.sm}
+- **Finding one user:** an index makes lookups in half a million rows hundreds to thousands of times faster
+- **Where the work happens:** grouping in the database returns 8 rows instead of moving 500,000
+- **The transfer that crashes halfway:** a transaction rolls it back and no money is lost
+:::
+:::
+::::
+
+::: {.source}
+<https://github.com/dgarcia-eu/ICSS/blob/main/PythonExamples/Examples10-Databases.ipynb>
+:::
+
 ## Summary {.fit1}
 
 ::: {.sm}
@@ -1442,10 +1519,10 @@ XKCD 327, *Exploits of a Mom*: <https://xkcd.com/327/>
   - A DBMS is software that handles the DB while we just operate with it
   - Transactions are atomic, consistent, isolated and durable (ACID)
 - **Relational Databases**
-  - Tables linked through primary and foreign keys: each fact is stored once, so updates stay consistent
+  - Tables are linked through primary and foreign keys, so each fact is stored once and updates stay consistent
 - **Structured Query Language (SQL)**
-  - The most used language for relational databases, and a declarative one
+  - SQL is the most used language for relational databases and it is declarative
   - Define tables, change their rows, and query them with selection, projection, aggregation and joins
 :::
 
-**Next session:** Parallel Programming
+**Next session:** Machine Learning

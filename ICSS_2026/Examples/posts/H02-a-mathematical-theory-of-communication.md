@@ -79,11 +79,11 @@ advice to keep money out of floating point has a precedent more than sixty
 years old. Hopper had programmed the first American computers in the 1940s,
 built the first compiler in 1952, and retired from the Navy as a rear admiral
 at 79. Her insistence that programs be written for people rather than
-machines is the story of session 4.
+machines is the story of the Software session.
 
 ## The thread to the lecture
 
-Every topic of session 2 was settled in a known year by a known argument:
+Every topic of this session was settled in a known year by a known argument:
 bits and entropy in 1948, error correction in 1950, optimal codes in 1952,
 character sets in 1963, 1988 and 1992, floating point in 1985. It is a young
 field, and its conventions are decisions that someone won, which is worth

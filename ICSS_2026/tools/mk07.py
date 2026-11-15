@@ -44,8 +44,8 @@ format:
 ::: {.sm}
 - Session 8: Time Complexity
 - Session 9: Theoretical Computer Science
-- Session 10: Machine Learning (8.01)<br><span class="xs">K503, lecture 13:30-15:00, practice 15:15-16:45</span>
-- Session 11: Databases
+- Session 10: Databases
+- Session 11: Machine Learning
 - Session 12: Parallel Programming
 - Session 13: Social Science Applications
 - Session 14: Exam Review

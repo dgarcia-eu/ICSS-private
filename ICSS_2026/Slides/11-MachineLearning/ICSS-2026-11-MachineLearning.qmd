@@ -1,5 +1,5 @@
 ---
-title: "<span class='course'>Introduction to Computing for the Social Sciences</span><br><span class='session'>Session 10 &ndash; Machine Learning</span>"
+title: "<span class='course'>Introduction to Computing for the Social Sciences</span><br><span class='session'>Session 11 &ndash; Machine Learning</span>"
 author: "David Garcia<br><span class='semester'>Winter Semester 2026-2027</span>"
 format:
   revealjs:
@@ -14,7 +14,7 @@ format:
     controls: true
     history: true
     logo: ../theme/unikn-logo.png
-    footer: "<span class='fbar-left'>Session 10</span><span class='fbar-mid'>Introduction to Computing for the Social Sciences</span><span class='fbar-right'>Winter Semester 2026-2027</span>"
+    footer: "<span class='fbar-left'>Session 11</span><span class='fbar-mid'>Introduction to Computing for the Social Sciences</span><span class='fbar-right'>Winter Semester 2026-2027</span>"
     highlight-style: github
     link-external-newwindow: true
     fig-align: left
@@ -25,25 +25,23 @@ format:
 :::: {.columns}
 ::: {.column width="50%"}
 ::: {.sm}
-- Session 1: Introduction
-- Session 2: Information Coding
-- Session 3: Data Structures
-- Session 4: Software
-- Session 5: Algorithms
-- Session 6: Recursion
-- Session 7: Sorting Algorithms
+- *Session 1: Introduction*
+- *Session 2: Information Coding*
+- *Session 3: Data Structures*
+- *Session 4: Software*
+- *Session 5: Algorithms*
+- *Session 6: Recursion*
+- *Session 7: Sorting Algorithms*
 :::
 :::
 
 ::: {.column width="50%"}
 ::: {.sm}
-- Session 8: Time Complexity
-- Session 9: Theoretical Computer Science
-- Session 10: Machine Learning
-  - Tutorial: Databases (swap)
-- Session 11: Databases
+- *Session 8: Time Complexity*
+- *Session 9: Theoretical Computer Science*
+- *Session 10: Databases*
+- **Session 11: Machine Learning**
 - Session 12: Parallel Programming
-  - Tutorial: Machine Learning (swap)
 - Session 13: Social Science Applications
 - Session 14: Exam Review
 :::
@@ -60,7 +58,7 @@ format:
 :::
 
 
-<!-- MOTIVATION:M10-A:BEGIN -->
+<!-- MOTIVATION:M11-A:BEGIN -->
 ## Google predicted the flu, until it didn't {.fit1}
 
 ::: {.motivation}
@@ -68,7 +66,8 @@ format:
 In 2009, Google Flu Trends estimated influenza rates from search queries **two
 weeks ahead** of the CDC, and it worked. By the 2012–13 season it was predicting
 **more than double** the real rate. It had been fitted to millions of queries and
-had learned seasonal search patterns, winter, basketball, snow, rather than flu.
+had learned seasonal search patterns such as winter, basketball and snow rather
+than flu.
 :::
 
 :::: {.figures}
@@ -88,9 +87,9 @@ had learned seasonal search patterns, winter, basketball, snow, rather than flu.
 ::: {.source}
 Ginsberg et al., *Nature* (2009); Lazer, Kennedy, King & Vespignani, "The Parable of Google Flu", *Science* (2014)
 :::
-<!-- MOTIVATION:M10-A:END -->
+<!-- MOTIVATION:M11-A:END -->
 
-<!-- MOTIVATION:M10-B:BEGIN -->
+<!-- MOTIVATION:M11-B:BEGIN -->
 ## 93% accurate, and it never finds anyone
 
 ::: {.motivation}
@@ -114,9 +113,9 @@ identifies **nobody**.
 ::::
 
 [Which number should have been on the report instead, and what does the right answer depend on?]{.ask}
-<!-- MOTIVATION:M10-B:END -->
+<!-- MOTIVATION:M11-B:END -->
 
-<!-- MOTIVATION:M10-C:BEGIN -->
+<!-- MOTIVATION:M11-C:BEGIN -->
 ## A million speeches nobody can read
 
 ::: {.motivation}
@@ -124,7 +123,7 @@ identifies **nobody**.
 You have every speech given in the Bundestag since 1949, on the order of a
 **million** of them. You want to know how the tone changed. Coding them by hand
 at five minutes each would take one person about **forty working years**. Coding
-a sample of **2 000** takes a week.
+a sample of **2,000** takes a week.
 :::
 
 :::: {.figures}
@@ -135,12 +134,12 @@ a sample of **2 000** takes a week.
 [~40 yr]{.big}[to hand-code them all]{.cap}
 :::
 ::: {.fq}
-[2 000]{.big}[you can actually code]{.cap}
+[2,000]{.big}[you can actually code]{.cap}
 :::
 ::::
 
-[How do you turn 2 000 human judgments into a measurement of a million documents, and how do you know whether to believe it?]{.ask}
-<!-- MOTIVATION:M10-C:END -->
+[How do you turn 2,000 human judgments into a measurement of a million documents, and how do you know whether to believe it?]{.ask}
+<!-- MOTIVATION:M11-C:END -->
 
 ## Brief History of Artificial Intelligence {.fit1}
 
@@ -153,7 +152,7 @@ a) Problem-solving ability of a system
 b) "You know it when you see it" &ndash; The Turing Test
 
 - **1950s:** Foundations in the US and Soviet Union
-- **1970s:** The Perceptron Problem: first AI Winter
+- **1970s:** The Perceptron Problem leads to the first AI Winter
 - **1980s:** Expert systems and the return of Neural Networks
 - **1990s-2000s:** Second AI Winter
 - **2010s:** Deep Learning thanks to compute and data
@@ -187,7 +186,8 @@ Two historical approaches to Artificial Intelligence:
 
 - Expert systems were dominant prior to the 80s and in the early 2000s, but now Machine Learning is the main approach to Artificial Intelligence
 - Historically, Machine Learning has also been called "Pattern Recognition" and "Statistical Learning"
-- Machine Learning trains a **Model** from data &ndash; the word "algorithm" is often used to refer to the resulting model
+- Machine Learning trains a **Model** from data
+- The word "algorithm" is often used to refer to the resulting model
 - In practice, AI systems might have expert rules but they mainly depend on learning from data
 :::
 
@@ -212,19 +212,19 @@ Recommended readings:
 - **Supervised Learning: Learning with labeled examples**
   - Model learning from data where the correct answers are already known
   - e.g. predicting election outcomes based on historical voting data and demographics
-  - Common tasks: Classification, Regression
+  - Common tasks are classification and regression
 - **Unsupervised Learning: Finding hidden patterns**
   - The algorithm explores data without labels to discover structure and relationships
   - e.g. grouping survey respondents into distinct segments based on their attitudes
-  - Common tasks: Clustering, Dimensionality reduction
+  - Common tasks are clustering and dimensionality reduction
 - **Reinforcement Learning: Learning through trial and error** (not covered today)
   - The algorithm learns by receiving rewards or penalties for its actions in an environment
   - e.g. adaptive language teaching or tests based on student performance
-  - Common tasks: Sequential decision-making, Optimization
+  - Common tasks are sequential decision-making and optimization
 :::
 
 ::: {.tag .xs}
-Key distinctions: supervised learning needs labeled data, unsupervised learning finds patterns on its own, and reinforcement learning needs access to an environment to learn from feedback
+**Key distinctions:** supervised learning needs labeled data, unsupervised learning finds patterns on its own, and reinforcement learning needs access to an environment to learn from feedback
 :::
 
 ## Supervised Machine Learning
@@ -236,12 +236,10 @@ Key distinctions: supervised learning needs labeled data, unsupervised learning 
 4. Generative AI and ML nowadays
 :::
 
-## Supervised Machine Learning {.fit1}
+## Supervised Machine Learning
 
 ::: {.sm}
-**The Goal**
-
-Learn a function $f: X \rightarrow Y$ that maps inputs to outputs, using a dataset of example input-output pairs.
+**The Goal:** learn a function $f: X \rightarrow Y$ that maps inputs to outputs, using a dataset of example input-output pairs.
 :::
 
 :::: {.columns}
@@ -281,7 +279,7 @@ $\hat{y} = f(x)$
 
 ::: {.sm}
 - **Classification:** $Y$ is categorical, for example True/False or a label
-  - Errors are either you get the right class or not
+  - Errors are binary, i.e. you get the right class or not
 - **Regression:** $Y$ is a continuous number, for example income or probability
   - Errors can be measured with a number
 :::
@@ -299,15 +297,15 @@ Classification and regression examples from *Elements of Statistical Learning*
 
 ::: {.xs}
 - **Features** are the measurable properties or characteristics we use to describe our data. They are the input variables that the algorithm uses to learn patterns and make predictions.
-- Think of features as the "questions we ask" about each data point. In social science: age, education, income. In text analysis: word counts, sentence length, sentiment scores.
+- Think of features as the "questions we ask" about each data point. In social science they are age, education and income. In text analysis they are word counts, sentence length or sentiment scores.
 :::
 
 ::: {.center-h}
-![](figures/features-review-cards.png){height="6.0em"}
+![](figures/features-review-cards.png){height="5.0em"}
 :::
 
 ::: {.xxs}
-**Feature Engineering:** the process of creating, selecting, and transforming features to improve model performance. It's about deciding *which* features to use and *how* to represent them. Examples: instead of just word counts, we might create features for word combinations (bigrams), the ratio of positive to negative words, or the presence of exclamation marks.
+**Feature Engineering:** the process of creating, selecting, and transforming features to improve model performance. It's about deciding *which* features to use and *how* to represent them. For example, instead of just word counts we might create features for word combinations (bigrams), the ratio of positive to negative words, or the presence of exclamation marks.
 :::
 
 ## Features in Text Classification: TF-IDF {.fit3}
@@ -336,7 +334,7 @@ Words that are frequent in a document BUT rare overall get high scores.
 Exercise: guess the highest and lowest TF-IDF scores in the example of the previous slide
 :::
 
-## Error and Loss {.fit2}
+## Error and Loss {.fit1}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -345,7 +343,9 @@ Exercise: guess the highest and lowest TF-IDF scores in the example of the previ
 
 The difference between what the model predicted and the true value for a **single example**.
 
+::: {style="font-size:0.86em"}
 $$\text{Error} = \text{Prediction} - \text{True Value} \quad \text{or } \hat{y} - y$$
+:::
 :::
 :::
 
@@ -355,13 +355,15 @@ $$\text{Error} = \text{Prediction} - \text{True Value} \quad \text{or } \hat{y} 
 
 A function that measures the total error across **all examples** in the dataset. The goal of training is to minimize the loss.
 
+::: {style="font-size:0.86em"}
 $$\text{Loss} = \text{Average of errors (with different formulas)}$$
+:::
 :::
 :::
 ::::
 
 :::: {.columns}
-::: {.column width="62%"}
+::: {.column width="67%"}
 ::: {.tbl-grid .xxs}
 | Review | True Label ($y$) | Prediction ($\hat{y}$) | Correct? | Error |
 |---|---|---|---|---|
@@ -373,8 +375,8 @@ $$\text{Loss} = \text{Average of errors (with different formulas)}$$
 :::
 :::
 
-::: {.column width="38%"}
-::: {.xxs}
+::: {.column width="33%"}
+::: {.xs}
 **Examples of Loss calculation:**
 
 Number of Errors: **2 out of 5**
@@ -406,7 +408,7 @@ Examples: fraud detection (99% legitimate, 1% fraud), rare disease diagnosis (95
 ::: {.xs}
 **Example: Hate Speech Detection.**
 
-Dataset: 1,000 social media posts: 900 normal posts, 100 hate speech posts (10% imbalance)
+The dataset has 1,000 social media posts, namely 900 normal posts and 100 hate speech posts (10% imbalance)
 
 **Naive "Always Predict Normal" Model:**
 
@@ -462,7 +464,7 @@ In multi-class problems, the F1 Score can be calculated:
 :::
 ::::
 
-## Training/Test split - Bias and Variance {.fit1}
+## Generalization and the Training/Test split {.fit1}
 
 ::: {.xs}
 **The Ultimate Goal of (Machine) Learning: Generalization**
@@ -557,21 +559,21 @@ Example for $k = 1$:
 
 :::: {.columns}
 ::: {.column width="50%"}
-![](figures/knn-misclassification.png){height="14.9em"}
+![](figures/knn-misclassification.png){height="14.6em"}
 :::
 
 ::: {.column width="50%"}
 ::: {.xs}
 - Misclassification curves for kNN
   - Training size: 200
-  - Test size: 10000
+  - Test size: 10,000
 - **Orange:** test error
 - **Blue:** training error
 
 <br>
 
-- **Bias:** models with very high $k$ (ca. 100) have high train and test errors &ndash; *underfitting!*
-- **Variance:** models with very low $k$ (ca. 1) have very low train error but high test error &ndash; *overfitting!*
+- **Bias:** models with very high $k$ (ca. 100) have high train and test errors, i.e. *underfitting!*
+- **Variance:** models with very low $k$ (ca. 1) have very low train error but high test error, i.e. *overfitting!*
 :::
 :::
 ::::
@@ -636,10 +638,10 @@ Naive Bayes is a **linear model** because it has a decision boundary that can be
 
 ::: {.column width="46%"}
 ::: {.xs}
-- Inspired by how neurons work: linear combination of inputs and nonlinear activation function
+- Inspired by how neurons work, with a linear combination of inputs and a nonlinear activation function
 - **Features are the inputs of the first layer**
 - The final output is a class or probability
-- The complexity of the model grows with the number of hidden layers &ndash; more layers, more parameters
+- The complexity of the model grows with the number of hidden layers, because more layers mean more parameters
 - **Fitting:** find connection weights that minimize loss
 - **Nonlinear model:** it can fit more than just a hyperplane separating classes
 :::
@@ -670,7 +672,7 @@ Typical tasks for unsupervised learning:
 - **Association discovery:** finding correlations or co-occurrence patterns
 :::
 
-## Clustering Example: Document Topics
+## Example: Clustering documents by topic
 
 ::: {.xs}
 **The Problem**
@@ -841,7 +843,7 @@ Note: some of today's slides were co-created with Claude. But this works thanks 
 
 :::: {.columns}
 ::: {.column width="34%"}
-![](figures/geoffrey-hinton.png){height="8.0em"}
+![](figures/geoffrey-hinton.png){height="9.5em"}
 :::
 
 ::: {.column width="66%"}
@@ -855,7 +857,9 @@ Geoffrey Hinton (born 1947) is a British-Canadian cognitive psychologist and com
 ::::
 
 ::: {.example .sm}
-Hinton describes AI as a kind of **intuition** rather than intelligence. Our intuition discovers patterns we cannot explain and that might not be useful for intervention or design. But it is a very useful tool for creativity and prediction.
+**Hinton describes AI as a kind of intuition rather than intelligence.**
+
+Our intuition discovers patterns we cannot explain and that might not be useful for intervention or design. But it is a very useful tool for creativity and prediction.
 :::
 
 ## Ethical issues with ML and Responsible AI {.fit1}
@@ -872,7 +876,27 @@ Hinton describes AI as a kind of **intuition** rather than intelligence. Our int
 - **Can we trust an AI model?**
   - people have a right to an explanation of a prediction (credit scores)
 - **Who is responsible for model mistakes?**
-- **Responsible AI:** not just preventing harm, but preventing AI from shifting power to the already powerful. Compels to AI development but safely.
+- **Responsible AI:** not just preventing harm, but preventing AI from shifting power to the already powerful. It compels us to develop AI, but safely.
+:::
+
+## Why does this matter? Practical Python examples
+
+:::: {.columns}
+::: {.column width="55%"}
+![](figures/11-python-examples-notebook.png){width="100%"}
+:::
+
+::: {.column width="45%"}
+::: {.sm}
+- **A perfect fit that predicts badly:** kNN with $k = 1$ has zero training error and a high test error
+- **91% on pure noise:** feature selection that uses the test set leaks information
+- **95% accurate and mostly blind:** accuracy hides what precision, recall and F1 show under class imbalance
+:::
+:::
+::::
+
+::: {.source}
+<https://github.com/dgarcia-eu/ICSS/blob/main/PythonExamples/Examples11-MachineLearning.ipynb>
 :::
 
 ## Summary {.fit1}
@@ -886,22 +910,22 @@ Hinton describes AI as a kind of **intuition** rather than intelligence. Our int
   - Linear and nonlinear models: Naive Bayes and MLP
 - **Unsupervised Machine Learning**
   - Finding patterns and structures in feature space $X$
-  - Clustering as example &ndash; K-Means
+  - Clustering as an example with K-Means
 - **AI nowadays:** Generative models, ML ethics and Responsible AI
 :::
 
-**Next session:** Databases
+**Next session:** Parallel Programming
 
 ## Appendix: Clever Hans
 
 ::: {.center-h}
-![](figures/clever-hans.png){height="11.4em"}
+![](figures/clever-hans.png){height="14.5em"}
 :::
 
 ## Appendix: Flocksourcing
 
 ::: {.center-h}
-![](figures/flocksourcing.jpg){height="11.4em"}
+![](figures/flocksourcing.jpg){height="14.5em"}
 :::
 
 ## Appendix: The Double Descent
@@ -919,23 +943,23 @@ Hinton describes AI as a kind of **intuition** rather than intelligence. Our int
 ## Appendix: Adversarial 3D-printed Turtle
 
 ::: {.center-h}
-![](figures/adversarial-turtle.jpg){height="11.6em"}
+![](figures/adversarial-turtle.jpg){height="15.0em"}
 :::
 
 ## Appendix: Microsoft Tay
 
 ::: {.center-h}
-![](figures/microsoft-tay.jpg){height="11.4em"}
+![](figures/microsoft-tay.jpg){height="14.0em"}
 :::
 
 ## Appendix: Fooling Gaydars
 
 ::: {.center-h}
-![](figures/fooling-gaydars.jpg){height="9.0em"}
+![](figures/fooling-gaydars.jpg){height="10.2em"}
 :::
 
 ## Appendix: Shadow Profiles
 
 ::: {.center-h}
-![](figures/shadow-profiles.png){height="10.4em"}
+![](figures/shadow-profiles.png){height="13.0em"}
 :::

@@ -32,10 +32,10 @@ ICSS
 23.12 - No class
 
 12.01 - Exercise 09
-13.01 - Session 10 -- Machine Learning
+13.01 - Session 10 -- Databases
 
 19.01 - Exercise 10
-20.01 - Session 11 -- Databases
+20.01 - Session 11 -- Machine Learning
 
 26.01 - Exercise 11
 27.01 - Session 12 -- Parallel Programming

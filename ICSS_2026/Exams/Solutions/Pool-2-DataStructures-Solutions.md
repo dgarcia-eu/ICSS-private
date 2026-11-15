@@ -67,7 +67,7 @@ lists are dynamic arrays. The comparison that shows understanding is
 
 ## DS-03 · Hash tables versus arrays · 2 pts · [2024-E2 Q2a, 2025-Ex Q2a]
 
-**Where to look.** Slides: session 3, slides 8 to 9 (*Arrays*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 3, slides 33 to 45 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §2 Arrays](../../Transcripts/03-DataStructures.md#2-arrays), [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries).
+**Where to look.** Slides: session 3, slides 8 to 9 (*Arrays*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 3, slides 38 to 50 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §2 Arrays](../../Transcripts/03-DataStructures.md#2-arrays), [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries).
 
 **Solution.**
 
@@ -86,7 +86,7 @@ without extra work.
 
 ## DS-04 · Hash table with linear probing · 3–4 pts · [2025-E1 Q2c, 2025-E2 Q2a] · needs no figure
 
-**Where to look.** Slides: session 3, slides 34 to 43 (*Hashing; Hash functions; Hash collisions; Linear and random probing*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables).
+**Where to look.** Slides: session 3, slides 39 to 48 (*Hashing; Hash functions; Hash collisions; Linear and random probing*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables).
 
 **Solution.** Compute $f$, then probe forward on a collision.
 
@@ -110,7 +110,7 @@ Final state:
 
 ## DS-05 · What is wrong with that hash function · 2 pts · [2025-E1 Q2d]
 
-**Where to look.** Slides: session 3, slides 34 to 43 (*Hashing; Hash functions; Hash collisions; Linear and random probing*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables).
+**Where to look.** Slides: session 3, slides 39 to 48 (*Hashing; Hash functions; Hash collisions; Linear and random probing*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables).
 
 **Solution.** $f(x) = 2x \bmod 16$ can only produce **even** values, because
 $\gcd(2, 16) = 2$ divides every output. Eight of the sixteen slots, all the odd
@@ -140,7 +140,7 @@ are themselves not uniformly distributed. With $f(x) = (2x+1) \bmod 10$
 
 ## DS-06 · Binary search trace · 3 pts · [2023-E2 Q2a]
 
-**Where to look.** Slides: session 3, slides 49 to 51 (*Appendix: binary search*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §5 Binary search](../../Transcripts/03-DataStructures.md#5-binary-search).
+**Where to look.** Slides: session 3, slides 15 to 17 (*Binary search*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §5 Binary search](../../Transcripts/03-DataStructures.md#5-binary-search).
 
 **Solution.** Indices 1–11.
 
@@ -169,7 +169,7 @@ element that is present, because the invariant it relies on (everything left of
 
 ## DS-07 · Build a binary search tree · 1–2 pts · [2023-E1 Q2c, 2024-Ex Q2c, 2024-E1 Q2b, 2025-Ex Q2d]
 
-**Where to look.** Slides: session 3, slides 15 to 32 (*Binary trees; Binary search trees*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §6 Binary trees and binary search trees](../../Transcripts/03-DataStructures.md#6-binary-trees-and-binary-search-trees), [03 §7 Operations on a BST](../../Transcripts/03-DataStructures.md#7-operations-on-a-bst).
+**Where to look.** Slides: session 3, slides 18 to 37 (*Binary trees; Binary search trees*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §6 Binary trees and binary search trees](../../Transcripts/03-DataStructures.md#6-binary-trees-and-binary-search-trees), [03 §7 Operations on a BST](../../Transcripts/03-DataStructures.md#7-operations-on-a-bst).
 
 **Solution.** Each new key walks down from the root, going left when smaller and
 right when larger, and becomes a leaf where it stops.
@@ -320,7 +320,7 @@ makes it a natural bridge item between questions 2 and 4. Students who sift
 
 ## DS-11 · Recursive minimum of a BST · 3 pts · [2024-E1 Q2c, 2025-Ex Q2e]
 
-**Where to look.** Slides: session 3, slides 15 to 32 (*Binary search trees*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 6, slides 13 to 15 (*Components of recursion*), in `Slides/06-Recursion/ICSS-2026-06-Recursion.qmd`; session 6, slides 77 (*Types of recursive algorithms*), in `Slides/06-Recursion/ICSS-2026-06-Recursion.qmd`. Handout: [03 §6 Binary trees and binary search trees](../../Transcripts/03-DataStructures.md#6-binary-trees-and-binary-search-trees), [06 §2 The three parts of a recursive definition](../../Transcripts/06-Recursion.md#2-the-three-parts-of-a-recursive-definition), [06 §7 Types of recursion](../../Transcripts/06-Recursion.md#7-types-of-recursion).
+**Where to look.** Slides: session 3, slides 18 to 37 (*Binary search trees*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 6, slides 13 to 15 (*Components of recursion*), in `Slides/06-Recursion/ICSS-2026-06-Recursion.qmd`; session 6, slides 77 (*Types of recursive algorithms*), in `Slides/06-Recursion/ICSS-2026-06-Recursion.qmd`. Handout: [03 §6 Binary trees and binary search trees](../../Transcripts/03-DataStructures.md#6-binary-trees-and-binary-search-trees), [06 §2 The three parts of a recursive definition](../../Transcripts/06-Recursion.md#2-the-three-parts-of-a-recursive-definition), [06 §7 Types of recursion](../../Transcripts/06-Recursion.md#7-types-of-recursion).
 
 **Solution.** By the BST property every key in the left subtree is smaller, so
 the minimum is the leftmost node.
@@ -425,7 +425,7 @@ Fibonacci, where both calls run and the recursion tree branches.
 
 ## DS-14 · Fixing a slow dictionary loop · 3 pts · [2024-E1 Q2e]
 
-**Where to look.** Slides: session 3, slides 33 to 45 (*Hash tables; Dictionaries in Python*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
+**Where to look.** Slides: session 3, slides 38 to 50 (*Hash tables; Dictionaries in Python*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`. Handout: [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [03 §9 Dictionaries](../../Transcripts/03-DataStructures.md#9-dictionaries), [08 §9 Using O-notation](../../Transcripts/08-TimeComplexity.md#9-using-o-notation).
 
 **Solution.** The problem is `.keys()` combined with `in`. In Python 2 (and in
 any code that materializes the keys into a list) `mydictionary.keys()` builds a
@@ -464,7 +464,7 @@ printing, is the cost.
 
 ## DS-15 · Choosing a data structure · 3 pts · `new`
 
-**Where to look.** Slides: session 3, slides 7 to 14 (*Data structures; Arrays; Linked lists; The question of editing vs search*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 3, slides 33 to 45 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 5, slides 26 to 29 (*Queues; Stacks*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 5, slides 35 to 37 (*Adjacency matrix; Adjacency list*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 7, slides 41 to 46 (*Heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [03 §4 The linked list trade-off: editing versus searching](../../Transcripts/03-DataStructures.md#binary-search-trees), [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [05 §6 Abstract data structures: queues and stacks](../../Transcripts/05-Algorithms.md#abstract-data-structures), [05 §8 Representing graphs](../../Transcripts/05-Algorithms.md#8-representing-graphs), [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#heapsort).
+**Where to look.** Slides: session 3, slides 7 to 14 (*Data structures; Arrays; Linked lists; The question of editing vs search*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 3, slides 38 to 50 (*Hash tables; Dictionaries*), in `Slides/03-DataStructures/ICSS-2026-03-DataStructures.qmd`; session 5, slides 26 to 29 (*Queues; Stacks*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 5, slides 35 to 37 (*Adjacency matrix; Adjacency list*), in `Slides/05-Algorithms/ICSS-2026-05-Algorithms.qmd`; session 7, slides 41 to 46 (*Heaps*), in `Slides/07-SortingAlgorithms/ICSS-2026-07-SortingAlgorithms.qmd`. Handout: [03 §4 The linked list trade-off: editing versus searching](../../Transcripts/03-DataStructures.md#binary-search-trees), [03 §8 Hashing and hash tables](../../Transcripts/03-DataStructures.md#hash-tables), [05 §6 Abstract data structures: queues and stacks](../../Transcripts/05-Algorithms.md#abstract-data-structures), [05 §8 Representing graphs](../../Transcripts/05-Algorithms.md#8-representing-graphs), [07 §8 Heaps and heapsort](../../Transcripts/07-SortingAlgorithms.md#heapsort).
 
 **Solution.**
 

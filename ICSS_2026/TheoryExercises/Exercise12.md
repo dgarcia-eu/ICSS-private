@@ -2,11 +2,7 @@
 
 *Introduction to Computing for the Social Sciences · Prof. Dr. David Garcia*
 
-> Exercises 1–3 are worked through in the exercise session. The *Additional
-> practice* section is for self-study. Worked solutions to every exercise, with
-> pointers to the slides and the handout sections that cover the material, are
-> in [`Solutions/Exercise12-Solutions.md`](Solutions/Exercise12-Solutions.md); try before you open them.
-> Notation: [course conventions](../Transcripts/00-Conventions.md).
+Exercises 1 to 3 will be covered in the exercise session. The *Additional practice* section is for self-study and to be covered if time allows.
 
 ---
 
@@ -42,9 +38,9 @@ b) Within the framework of MapReduce, write the pseudocode of:
    - a `reduce()` function to calculate Pearson's correlation based on the
      results of the executions of `map()`, which are received as a list.
 
-> The whole exercise turns on one question: **what should `map()` send?** If it
-> sends a correlation, the reducer cannot recover the right answer. Look at the
-> formula and find the quantities that are additive across subsets.
+The main question of this exercise is what `map()` should send. If it sends a
+correlation, the reducer cannot recover the right answer. Look at the formula
+and find the quantities that are additive across subsets.
 
 ---
 
@@ -84,7 +80,7 @@ d) Your manager proposes buying 64 processors instead of 16 for a program with
 
 For each statistic, say whether it can be computed **exactly** by a single
 MapReduce round in which each machine sends a fixed number of summary values.
-If yes, give the values; if no, explain what fails.
+If yes, give the values. If no, explain what fails.
 
 a) The sum of $x$.
 b) The mean of $x$.
@@ -119,7 +115,8 @@ a) Downloading 500 web pages.
 b) Multiplying two 5000×5000 matrices.
 c) Reading one 4 GB file line by line and counting words.
 d) A text editor that autosaves while you type.
-e) Computing Fibonacci numbers with the naive recursion (session 6).
+e) Computing Fibonacci numbers with the naive recursion of the Recursion
+   session.
 
 ### A5. Flynn's taxonomy
 
@@ -142,41 +139,26 @@ d) A branch misprediction occurs every 20 instructions and costs 4 cycles.
    Recompute (c).
 e) State in one sentence what pipelining improves and what it does not.
 
-### A7. Designing a distributed analysis
-
-You have 10 billion social media posts spread over 200 machines and want to
-compute, for each of 50 topics, the average sentiment score of posts mentioning
-it.
-
-a) Sketch the Map and Reduce functions.
-b) How much data does each machine send to the reducer? Why does this matter more
-   than the size of the input?
-c) The topic "election" appears in 60% of all posts while the other 49 topics
-   share the rest. What problem does this create, and how would you address it?
-d) You are then asked for the *median* sentiment per topic instead of the mean.
-   What changes?
-
 ---
 
 ## Sources
 
-- Exercises 1 and 2 are taken from the 2024 sheet 12 of this course; exercise 3
-  is taken from its V2 variant.
+- Exercises 1 and 2 are taken from the 2024 sheet 12 of this course and
+  exercise 3 is taken from its V2 variant.
 - **Amdahl, G. M. (1967).** "Validity of the single processor approach to
-  achieving large scale computing capabilities". *AFIPS* 30, 483–485.,
+  achieving large scale computing capabilities". *AFIPS* 30, 483–485.
   Exercise 1 and A1.
 - **Flynn, M. J. (1972).** "Some Computer Organizations and Their
-  Effectiveness". *IEEE Transactions on Computers* C-21(9), 948–960.: A5.
+  Effectiveness". *IEEE Transactions on Computers* C-21(9), 948–960. A5.
 - **Dean, J. & Ghemawat, S. (2008).** "MapReduce: Simplified Data Processing on
-  Large Clusters". *Communications of the ACM* 51(1), 107–113.: Exercise 2, A7;
-  the combiner and straggler discussion in A7 follows this paper.
+  Large Clusters". *Communications of the ACM* 51(1), 107–113. Exercise 2.
 - **Hennessy, J. L. & Patterson, D. A. (2019).** *Computer Architecture: A
-  Quantitative Approach*, 6th ed. Morgan Kaufmann.: Pipelining numbers in A6.
+  Quantitative Approach*, 6th ed. Morgan Kaufmann. Pipelining numbers in A6.
 - **Chan, T. F., Golub, G. H. & LeVeque, R. J. (1983).** "Algorithms for
-  Computing the Sample Variance". *The American Statistician* 37(3), 242–247.,
+  Computing the Sample Variance". *The American Statistician* 37(3), 242–247.
   The numerical caveat in A2c.
 - **Flajolet, P. et al. (2007).** "HyperLogLog: the analysis of a near-optimal
-  cardinality estimation algorithm". *AofA '07*.: A2f.
+  cardinality estimation algorithm". *AofA '07*. A2f.
 - **Lawrence Livermore National Laboratory, *Introduction to Parallel
   Computing*:** <https://hpc.llnl.gov/documentation/tutorials/introduction-parallel-computing-tutorial>
-  Race conditions and the thread/process distinction in A3, A4.
+  Race conditions and the thread/process distinction in A3 and A4.

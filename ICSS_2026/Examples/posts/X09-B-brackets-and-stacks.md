@@ -12,7 +12,7 @@
 
 Your editor knows at once that `((a + b) * (c − d)` is missing a bracket and
 that `(()(()))` is fine. A JSON file with forty thousand nested objects is
-validated in milliseconds. Session 9 has just given you a machine with
+validated in milliseconds. This session has just given you a machine with
 finitely many states. Can a finite-state automaton decide whether the
 brackets in a string are balanced? If not, what is the smallest addition that
 makes it possible?
@@ -71,11 +71,11 @@ context-free, regular expressions recognize regular languages, and the moment
 your data has brackets inside brackets a regex is the wrong tool and will fail
 on some depth you did not test. Use a parser, which is a push-down automaton
 in disguise, usually one that borrows the program's own call stack from
-session 6. The pairing with X09-A is deliberate. The coffee machine needs to
+the Recursion session. The pairing with X09-A is deliberate. The coffee machine needs to
 remember a bounded quantity, so a finite automaton suffices and its
 guarantees are strong. Brackets need an unbounded one. Learning to tell those
 two cases apart is the skill: it decides whether a regex, a state machine, a
-parser or, in the later sections of session 9, a full program is called for.
+parser or, in the later sections of this session, a full program is called for.
 
 ## What we used from the lecture
 

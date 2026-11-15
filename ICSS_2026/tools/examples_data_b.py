@@ -96,7 +96,7 @@ implies about the exponent. Close with the log-log plot: two lines, slopes 1 and
 reveal a quadratic term; only reading the code can.
 
 **Where it plugs in.** With the memory-complexity slides of the main deck
-(§2 and §8 of the transcript); connects to K-means in session 10, which is the
+(§2 and §8 of the transcript); connects to K-means in session 11, which is the
 linear-memory alternative.
 """)
 
@@ -285,16 +285,16 @@ seminar-assignment candidate (M09-B) is the same story with a scheduling face.
 #  10  Machine Learning
 # ===========================================================================
 
-ex("X10-A", "The wolf detector that only saw snow",
+ex("X11-A", "The wolf detector that only saw snow",
    "Right on eight test images out of ten, useless at the zoo, and how to find out why.",
-   dict(img="figures/10-husky-wolf-q.svg", imgh=7.6, wide=True, credit="",
+   dict(img="figures/11-husky-wolf-q.svg", imgh=7.6, wide=True, credit="",
         body=r"""
 Researchers trained a classifier to tell **wolves from huskies** from photos. On
 the held-out test images it got eight out of ten right. Then it failed on the
 obvious ones: a husky in a snowy garden was a wolf, a wolf on grass was a husky.
 """,
         ask="The model passed its test. What did it actually learn, and what question would have caught it before deployment?"),
-   dict(img="figures/10-husky-wolf.svg", imgh=7.0, wide=True, credit="",
+   dict(img="figures/11-husky-wolf.svg", imgh=7.0, wide=True, credit="",
         body=r"""
 - In the training photos, wolves were mostly **in snow** and huskies mostly not.
   Snow was a cheaper feature than fur or ears, so the model learned **snow**.
@@ -320,7 +320,7 @@ and 3 of 27 after.
 **How to present.** Open with the four-panel figure but *without* the dashed
 box, and ask what the model learned. Close with the box: the explanation looks
 at the background. Then the generalization, which is the real content: the
-Clever Hans horse, Google Flu's basketball season (M10-A), a dropout model that
+Clever Hans horse, Google Flu's basketball season (M11-A), a dropout model that
 learned the campus wifi log. The check is always the same: interrogate the
 feature, not the score.
 
@@ -328,9 +328,9 @@ feature, not the score.
 it motivates §12's "right to an explanation" concretely.
 """)
 
-ex("X10-B", "Predict who survived the Titanic in five words",
+ex("X11-B", "Predict who survived the Titanic in five words",
    "A one-feature rule gets 79%. Every model you build must beat it.",
-   dict(img="figures/10-titanic-rates.png", imgh=8.6, wide=True, credit="",
+   dict(img="figures/11-titanic-rates.png", imgh=8.6, wide=True, credit="",
         body=r"""
 The Titanic passenger list is the standard first dataset in machine learning:
 891 passengers, with sex, age, class, fare, and whether they survived.
@@ -338,7 +338,7 @@ The Titanic passenger list is the standard first dataset in machine learning:
 Before any model: the survival rates by sex and by class, above.
 """,
         ask="State a prediction rule in **five words**. What accuracy does it get, and how would you know whether a neural network with 10 000 parameters is actually better?"),
-   dict(img="figures/10-titanic-confusion.svg", imgh=7.2, wide=True, credit="",
+   dict(img="figures/11-titanic-confusion.svg", imgh=7.2, wide=True, credit="",
         body=r"""
 - "**Women survive, men do not.**" Accuracy $(233 + 468)/891 = \mathbf{78.7\%}$,
   precision 0.74, recall 0.68 on the survivors.
@@ -369,9 +369,9 @@ practical part have to beat, and most first attempts will not.
 representation and base rates return.
 """)
 
-ex("X10-C", "How many groups are there?",
+ex("X11-C", "How many groups are there?",
    "240 survey respondents, two scores, no labels, and the algorithm that finds groups even when there are none.",
-   dict(img="figures/10-kmeans-data.png", imgh=10.0, wide=False, credit="",
+   dict(img="figures/11-kmeans-data.png", imgh=10.0, wide=False, credit="",
         body=r"""
 Two attitude scores for 240 respondents. No labels: nobody has said how many
 "types" of respondent there are, or which respondent is which.
@@ -379,7 +379,7 @@ Two attitude scores for 240 respondents. No labels: nobody has said how many
 Look at it. Now imagine it had 12 dimensions instead of 2, and 24 000 points.
 """,
         ask="Write the procedure that finds the groups. How do you choose how many? And what does it do when the data has no groups at all?"),
-   dict(img="figures/10-kmeans-k3.png", imgh=10.0, wide=False, credit="",
+   dict(img="figures/11-kmeans-k3.png", imgh=10.0, wide=False, credit="",
         body=r"""
 - **K-means**: pick $K$ centers; assign each point to the nearest; move each
   center to the mean of its points; repeat until nothing changes. Unsupervised:
@@ -415,7 +415,7 @@ ring figures are supplementary and can be dropped into the main deck directly.
 #  11  Databases
 # ===========================================================================
 
-ex("X11-A", "Little Bobby Tables",
+ex("X10-A", "Little Bobby Tables",
    "A boy's name deletes a school's records. The bug is in one line, and it is a lesson about data versus code.",
    dict(img="figures/xkcd-327-exploits-of-a-mom.png", imgh=6.0, wide=True,
         credit="XKCD 327, Randall Munroe, CC BY-NC 2.5, xkcd.com/327",
@@ -468,7 +468,7 @@ the same "data interpreted as instructions" failure as encoding bugs and
 the comic; this deck supplies the question-then-code structure around it.
 """)
 
-ex("X11-B", "The join that returned more rows than the table",
+ex("X10-B", "The join that returned more rows than the table",
    "Eight purchases, two products, sixteen rows. Nothing crashed. The report is wrong.",
    dict(img="", imgh=0, wide=False, credit="",
         body=r"""
@@ -483,7 +483,7 @@ SELECT * FROM purchase, product;
 The query ran without error. The numbers went to the board meeting.
 """,
         ask="Where did the extra rows come from? Why is this *correct* behavior for the query as written, and what did the analyst forget?"),
-   dict(img="figures/11-join-explosion.svg", imgh=9.0, wide=True, credit="",
+   dict(img="figures/10-join-explosion.svg", imgh=9.0, wide=True, credit="",
         body=r"""
 - Two tables in `FROM` with no condition is the **Cartesian product**: every row
   of one paired with every row of the other, $8 \times 2 = 16$.
@@ -503,7 +503,7 @@ column after a two-row Cartesian join.
 **Facts.** $|A \times B| = |A| \cdot |B|$; two million-row tables give
 $10^{12}$ rows, which is how a forgotten join condition takes down a database
 server. The other direction, *fewer* rows than expected, is the inner join
-dropping unmatched rows (X11-C).
+dropping unmatched rows (X10-C).
 
 **How to present.** Open with the query, the 16, and the doubled total; the
 "went to the board meeting" line is the hook. Close with the figure, then the
@@ -515,7 +515,7 @@ questions ("why four rows? why new column names? how many with no WHERE?") this
 answers.
 """)
 
-ex("X11-C", "Find the customers who never ordered",
+ex("X10-C", "Find the customers who never ordered",
    "The query returned zero, but marketing knows there are hundreds. The rows were dropped before you could count them.",
    dict(img="", imgh=0, wide=False, credit="",
         body=r"""
@@ -530,7 +530,7 @@ WHERE o.id IS NULL;
 customers.
 """,
         ask="Why can this query *never* return a row, no matter what the data contains? What kind of join does the question actually need?"),
-   dict(img="figures/11-left-join-null.svg", imgh=9.0, wide=True, credit="",
+   dict(img="figures/10-left-join-null.svg", imgh=9.0, wide=True, credit="",
         body=r"""
 - An `INNER JOIN` keeps only rows that **match** in both tables. A customer with
   no orders has nothing to match, so the row is gone before `WHERE` ever sees it.
@@ -553,7 +553,7 @@ as 0, which is the trap in the exam's `DB-09a`.
 **How to present.** Open with the query and "zero rows"; ask why. Many students
 will say "there must be no such customers". Close with the two result tables of
 the figure side by side; the highlighted NULL rows are the answer. Then state
-the evaluation order; it explains both this bug and X11-B.
+the evaluation order; it explains both this bug and X10-B.
 
 **Where it plugs in.** With the join-types slide of the main deck ("if values
 are missing, they are set to NULL"); this is that sentence turned into a bug.
@@ -602,7 +602,7 @@ is the pattern with *no* shared mutable state, and it is exactly Map + Reduce.
 **How to present.** Open with the two runs and the question; let the room
 argue. Close with the timeline figure, then the two fixes, and make the second
 one the bridge to MapReduce: the entire design of that framework is "avoid
-this figure". Connects back to the two-seats booking example (M11-B), which is
+this figure". Connects back to the two-seats booking example (M10-B), which is
 the same race at the database level.
 
 **Where it plugs in.** With the multithreading slides; before MapReduce.
@@ -810,7 +810,7 @@ The judges knew the person for years. The model had a list of Likes.
 - **Shadow profiles**: your friends' Likes predict *you*. Privacy is **collective**;
   no individual opt-out removes the information others' data carries about you.
 """,
-        uses="§10 method examples: personality from Likes · §11 issues with methods: privacy and shadow profiles · §7 digital traces as measurement · session 10 §3 supervised learning"),
+        uses="§10 method examples: personality from Likes · §11 issues with methods: privacy and shadow profiles · §7 digital traces as measurement · session 11 §3 supervised learning"),
    r"""
 **Source.** Youyou, W., Kosinski, M. & Stillwell, D. (2015), "Computer-based
 personality judgments are more accurate than those made by humans", *PNAS*
@@ -827,8 +827,8 @@ on the Like matrix, nothing exotic.
 **How to present.** Open with the setup and ask for the four numbers; guesses
 are usually far too high for the colleague and too low for the spouse. Close
 with the anchored curve, then the two implications in the last two bullets;
-the second is the one students have not thought about. Connect to session 10
-(this is plain supervised learning) and to the ethics list of session 10.
+the second is the one students have not thought about. Connect to session 11
+(this is plain supervised learning) and to the ethics list of session 11.
 
 **Where it plugs in.** With the "Personality and Facebook likes" and "New
 privacy risks" slides of the main deck.

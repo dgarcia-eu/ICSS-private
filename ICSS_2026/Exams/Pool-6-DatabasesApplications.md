@@ -5,7 +5,7 @@
 See [README](README.md) for the item format, [Blueprint](Blueprint.md) for
 assembly.
 
-Databases have appeared in every exam. **Machine learning (session 10) has never
+Databases have appeared in every exam. **Machine learning (session 11) has never
 been examined**, and social science applications only once; items `DB-10` to
 `DB-16` fill those gaps and are all unseen.
 
@@ -197,7 +197,7 @@ WHERE u.UserName = 'Adam';
    relations: a person likes many beverages and a beverage is liked by many
    people; a bar serves many beverages and a beverage is served by many bars.
    A many-to-many relation always needs its own table, you cannot put a list in
-   a cell (session 11: every SQL attribute has an atomic type).
+   a cell (session 10: every SQL attribute has an atomic type).
 3. **`price` belongs on `Serves`, not on `Beverage`.** The price is a property of
    the *pair* (bar, beverage), since the same beer costs different amounts in
    different bars. Putting it on `Beverage` loses information; putting it on
@@ -428,7 +428,7 @@ table can be joined to itself. Part (a) is the standard `LEFT JOIN` + `GROUP BY`
 
 ---
 
-## DB-10 · Evaluating a classifier · 4 pts · `new` (session 10)
+## DB-10 · Evaluating a classifier · 4 pts · `new` (session 11)
 
 > A research group builds a classifier to detect hate speech in social media
 > posts and evaluates it on 1000 posts, of which 100 are actually hate speech:
@@ -480,13 +480,13 @@ can go.
 error in the deployment**, and the same model can be right for one use and wrong
 for another.
 
-**Notes.** Written for this pool because session 10 has never been examined.
+**Notes.** Written for this pool because session 11 has never been examined.
 Part (c) is the discriminating half and is unbluffable. All arithmetic is doable
 without a calculator.
 
 ---
 
-## DB-11 · Train/test splitting and overfitting · 3 pts · `new` (session 10)
+## DB-11 · Train/test splitting and overfitting · 3 pts · `new` (session 11)
 
 > A team has 5000 tweets from 300 users, each labeled positive or negative, and
 > wants to train a classifier.
@@ -525,7 +525,7 @@ and sometimes the time period or the conversation.
 
 ---
 
-## DB-12 · K-means and choosing K · 4 pts · `new` (session 10)
+## DB-12 · K-means and choosing K · 4 pts · `new` (session 11)
 
 > A researcher has survey responses from 2000 people on 12 attitude items and
 > wants to identify groups of respondents with similar profiles, using K-means.
@@ -593,7 +593,7 @@ also necessary, since it converges to a *local* minimum.
 
 ---
 
-## DB-13 · Which kind of learning? · 3 pts · `new` (session 10)
+## DB-13 · Which kind of learning? · 3 pts · `new` (session 11)
 
 > For each research task, say which family of machine learning it belongs to and
 > name the specific task type (classification, regression, clustering,
@@ -777,15 +777,15 @@ scenarios, not evidence of the kind a trial produces.
 
 | Sheet | Contents | Never examined? |
 |---|---|---|
-| [`Exercise10.md`](../TheoryExercises/Exercise10.md) | Ex. 1 classifier evaluation, Ex. 2 train/test and overfitting, Ex. 3 clustering; A1 TF-IDF, A2 Naive Bayes by hand, A3 bias/variance, A4 kNN by hand, A5 macro vs micro F1, A6 learning families, A7 ethics | **entirely**, session 10 has never been on an exam |
-| [`Exercise11.md`](../TheoryExercises/Exercise11.md) | Ex. 1 the purchases table, Ex. 2 designing a schema for parliamentary debates; A1 ACID, A2 normalizing, A3 reading joins, A4 writing queries, A5 SQL injection, A6 declarative vs procedural | A1, A3, A5, A6 never examined |
+| [`Exercise11.md`](../TheoryExercises/Exercise11.md) | Ex. 1 classifier evaluation, Ex. 2 train/test and overfitting, Ex. 3 clustering; A1 TF-IDF, A2 Naive Bayes with pen and paper, A3 bias/variance, A4 kNN with pen and paper, A5 learning families, A6 ethics | **entirely**, session 11 has never been on an exam |
+| [`Exercise10.md`](../TheoryExercises/Exercise10.md) | Ex. 1 the purchases table, Ex. 2 designing a schema for parliamentary debates; A1 ACID, A2 normalizing, A3 reading joins, A4 writing queries, A5 SQL injection, A6 declarative vs procedural | A1, A3, A5, A6 never examined |
 | [`Exercise13.md`](../TheoryExercises/Exercise13.md) | Ex. 1 designing a trace-data study, Ex. 2 Schelling, Ex. 3 methods and risks; A1 representation, A2 ABM, A3 the end of theory, A4 reading a CSS paper, A5 privacy, A6 vocabulary | almost entirely |
 
 **Three database topics have never been examined** despite being lecture
 content, and each is a ready 2–3 point subquestion:
 
 1. **ACID and transactions** (`TE-11` A1), name the property at stake in a
-   scenario. The single most important idea in session 11 that has never reached
+   scenario. The single most important idea in session 10 that has never reached
    a paper.
 2. **SQL injection** (`TE-11` A5), what query results from a given input, and
    how parameterized queries prevent it.

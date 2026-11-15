@@ -119,5 +119,5 @@ like one, says which mechanism is real."""),
 [agent-based modeling](../Transcripts/13-SocialScienceApplications.md#13-agent-based-modeling),
 [combining disciplines and methods](../Transcripts/13-SocialScienceApplications.md#5-combining-disciplines-and-methods)
 and [the three meanings of "computational"](../Transcripts/13-SocialScienceApplications.md#3-the-three-meanings-of-computational)
-from session 13."""),
+from this session."""),
 ]

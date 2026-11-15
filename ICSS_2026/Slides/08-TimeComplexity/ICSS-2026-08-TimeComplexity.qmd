@@ -25,22 +25,22 @@ format:
 :::: {.columns}
 ::: {.column width="50%"}
 ::: {.sm}
-- Session 1: Introduction
-- Session 2: Information Coding
-- Session 3: Data Structures
-- Session 4: Software
-- Session 5: Algorithms
-- Session 6: Recursion
-- Session 7: Sorting Algorithms
+- *Session 1: Introduction*
+- *Session 2: Information Coding*
+- *Session 3: Data Structures*
+- *Session 4: Software*
+- *Session 5: Algorithms*
+- *Session 6: Recursion*
+- *Session 7: Sorting Algorithms*
 :::
 :::
 
 ::: {.column width="50%"}
 ::: {.sm}
-- Session 8: Time Complexity
+- **Session 8: Time Complexity**
 - Session 9: Theoretical Computer Science
-- Session 10: Machine Learning (8.01)<br><span class="xs">K503, lecture 13:30-15:00, practice 15:15-16:45</span>
-- Session 11: Databases
+- Session 10: Databases
+- Session 11: Machine Learning
 - Session 12: Parallel Programming
 - Session 13: Social Science Applications
 - Session 14: Exam Review
@@ -61,14 +61,14 @@ format:
 
 ::: {.motivation}
 [Motivating example]{.label}
-Your script processes the 1 000-row pilot in **four seconds**. The full dataset
-has 1 000 000 rows, a thousand times bigger. You start it on Friday expecting it
-on Saturday. It is still running three weeks later.
+Your script processes the 1,000-row pilot in **four seconds**. The full dataset
+has 1,000,000 rows, i.e. it is a thousand times bigger. You start it on Friday
+and expect it to finish on Saturday, but it is still running three weeks later.
 :::
 
 :::: {.figures}
 ::: {.fq}
-[4 s]{.big}[at n = 1 000]{.cap}
+[4 s]{.big}[at n = 1,000]{.cap}
 :::
 ::: {.fq}
 [~1 hour]{.big}[at n = 10⁶ if the cost is linear]{.cap}
@@ -82,11 +82,11 @@ on Saturday. It is still running three weeks later.
 <!-- MOTIVATION:M08-A:END -->
 
 <!-- MOTIVATION:M08-B:BEGIN -->
-## Two students, the same answer, 20 000× apart
+## Two students, the same answer, 20,000× apart
 
 ::: {.motivation}
 [Motivating example]{.label}
-Both are asked to keep only the posts written by users in a list of 20 000. One
+Both are asked to keep only the posts written by users in a list of 20,000. One
 writes a loop inside a loop. The other builds a lookup table first. **Both are
 correct and both hand in the same numbers.** On a million posts, one finishes in
 about **an hour and a half** and the other in **under a second**.
@@ -100,7 +100,7 @@ about **an hour and a half** and the other in **under a second**.
 [10⁶]{.big}[operations, with a hash set]{.cap}
 :::
 ::: {.fq}
-[20 000×]{.big}[fewer, identical output]{.cap}
+[20,000×]{.big}[fewer, identical output]{.cap}
 :::
 ::::
 
@@ -114,7 +114,7 @@ about **an hour and a half** and the other in **under a second**.
 [Motivating example]{.label}
 A web search returns results from an index of well over **10¹⁰ pages** in about
 **0.3 seconds**. Looking at each page just once, even at a billion per second,
-would take **ten seconds**, and that is only to *look*, before any ranking.
+would take **ten seconds** only to *look*, before any ranking.
 :::
 
 :::: {.figures}
@@ -146,36 +146,33 @@ would take **ten seconds**, and that is only to *look*, before any ranking.
                   <b>then</b> <i>smallest</i> &larr; <i>j</i>
       swap <i>A</i>[<i>i</i>] with <i>A</i>[<i>smallest</i>]</pre>
 
-## Selection sort
+## Efficiency of selection sort
 
 ::: {.sm}
-- Efficiency of selection sort:
-  - for a list of length $n$ we have to search $n-1$ times for the minimum on a list of decreasing length
-    - first search: $n-1$ elements
-    - after first swap: $n-2$ elements
-    - after second swap: $n-3$ elements, etc.
-    - in total: &nbsp; $\sum_{i=1}^{n-1} i = \dfrac{(n-1)\,n}{2} \simeq \dfrac{n^2}{2}$
-  - What does that mean?
-    - sorting a list of **double** the size takes **four times** as long
-    - sorting a list of **ten times** the size takes **100 times** as long
+- For a list of length $n$ we have to search $n-1$ times for the minimum on a list of decreasing length
+  - the first search looks at $n-1$ elements
+  - the search after the first swap looks at $n-2$ elements
+  - the search after the second swap looks at $n-3$ elements, etc.
+  - in total we look at &nbsp; $\sum_{i=1}^{n-1} i = \dfrac{(n-1)\,n}{2} \simeq \dfrac{n^2}{2}$ &nbsp; elements
+- What does that mean?
+  - sorting a list of **double** the size takes **four times** as long
+  - sorting a list of **ten times** the size takes **100 times** as long
 :::
 
-## Complexity {.fit2}
+## What is complexity in Computer Science? {.fit1}
 
 ::: {.sm}
-**What do we mean by complexity in Computer Science?**
-
 - **algorithmic complexity**
-  - typically, refers to time complexity of a given algorithm
+  - typically refers to the time complexity of a given algorithm
   - depends on a particular implementation
 - **memory complexity**
   - required memory during calculation
-  - mergesort: stack (due to recursion) and temporary second list
-  - quicksort: optimal implementation only requires stack
+  - mergesort needs a stack (due to recursion) and a temporary second list
+  - the optimal implementation of quicksort only requires the stack
 - **problem complexity**
   - minimal effort needed to solve a problem
   - analyzed for typical cases
-  - classification is independent of the specific algorithm &ndash; but depends on the algorithms known to solve a problem (more in Session 9)
+  - classification is independent of the specific algorithm but depends on the algorithms known to solve a problem (more in the Theoretical Computer Science session)
 :::
 
 ## A more general meaning of Complexity
@@ -194,20 +191,18 @@ would take **ten seconds**, and that is only to *look*, before any ranking.
 - A **complicated** system has many pieces with specific functions and well-defined relationships. It has been carefully engineered or designed
 - A **complex** system is composed of many particles that interact following some forces or dynamics. Its behavior follows from natural principles
 - A program with lots of lines of code, functions, objects, etc. is *complicated*
-- A problem with elements that depend on each other (e.g. a graph) can be *complex* &ndash; the time required to solve a problem depends on its complexity **and** our algorithms to solve it
+- A problem with elements that depend on each other (e.g. a graph) can be *complex*
+- The time required to solve a problem depends on its complexity **and** our algorithms to solve it
 :::
 :::
 ::::
 
-## Complexity {.fit1}
+## Why do we care about complexity?
 
 ::: {.sm}
-- Why do we care about complexity?
-  - problem complexity decides whether we can in principle solve a problem in a reasonable amount of time
-  - algorithmic and memory complexity determine whether solutions are feasible to implement with the available memory of computers
-    - example: run time estimates (algorithmic complexity)
-      - home computer executes $10^8$ operations per second
-      - supercomputer executes $10^{12}$ operations per second
+- Problem complexity decides whether we can in principle solve a problem in a reasonable amount of time
+- Algorithmic and memory complexity determine whether solutions are feasible to implement with the available memory of computers
+  - Example of run time estimates (algorithmic complexity) if a home computer executes $10^8$ operations per second and a supercomputer executes $10^{12}$
 :::
 
 :::: {.columns}
@@ -238,7 +233,7 @@ would take **ten seconds**, and that is only to *look*, before any ranking.
 :::
 ::::
 
-## Complexity {.fit2}
+## Time complexity and its simplified analysis {.fit2}
 
 ::: {.sm}
 - memory complexity and time complexity could be different
@@ -247,7 +242,7 @@ would take **ten seconds**, and that is only to *look*, before any ranking.
 - time complexity varies in how it changes with the number of elements $n$
   - e.g., slowly rising, then sharp increase vs. sharp increase then slowly rising
   - makes certain algorithms more favorable for small $n$ or for large $n$
-- depending on data, complexity may vary; distinguish between
+- complexity may vary depending on the data, so we distinguish between
   - worst case complexity | average case complexity | best case complexity
 - simplified analysis of an algorithm's efficiency
   - **approximate calculation of time complexity in terms of input size $n$**
@@ -404,16 +399,16 @@ $(n-1) \times \big(3 + 1 + (n-1) \times (3 + 1 + 1) + 2\big) = 6n - 6 + 5 (n-1)^
 
 ::: {.sm}
 - The **average** running time is the mean over all possible problem cases, assuming that they are all equally likely
-- **Worst-case** running time: total maximum over any possible problem case
-- **Best-case** running time: total minimum over any possible problem case
+- The **worst-case** running time is the total maximum over any possible problem case
+- The **best-case** running time is the total minimum over any possible problem case
 :::
 
 ::: {.example style="width:80%;margin:0.6em auto"}
 ::: {.sm}
-For sorting:
+**What the cases are depends on the problem.** In the example of sorting:
 
 - Problem cases are possible initial orders of the list
-- When selecting algorithms: we should have an idea of the distribution of problem cases to measure average running time
+- When selecting algorithms we should have an idea of the distribution of problem cases to measure average running time
 - We mostly care about the average but should check that the worst case is not too bad or too frequent
 :::
 :::
@@ -464,13 +459,13 @@ For sorting:
 Loop $n - 1$ times
 
 
-Loop backwards potentially until $j = 0$: up to $n - 1$ iterations
+Loop backwards potentially until $j = 0$, i.e. up to $n - 1$ iterations
 :::
 :::
 ::::
 
 ::: {.center-h .sm}
-worst-case running time: $(n-1) \times \big(2 + (n-1) \times (2 + 2) + 1\big)$ &nbsp;&ndash; grows with $n^2$
+worst-case running time: $(n-1) \times \big(2 + (n-1) \times (2 + 2) + 1\big)$ <br>which grows with $n^2$
 :::
 
 ## Insertion sort: best case
@@ -495,7 +490,7 @@ worst-case running time: $(n-1) \times \big(2 + (n-1) \times (2 + 2) + 1\big)$ &
 ::::
 
 ::: {.center-h .sm}
-For an already sorted list: inner loop always stops at the first iteration
+For an already sorted list the inner loop always stops at the first iteration
 :::
 
 ## Insertion sort: best case
@@ -516,9 +511,9 @@ For an already sorted list: inner loop always stops at the first iteration
 
 ::: {.column width="42%"}
 ::: {.sm}
-- Average and worst-case: $n^2$
-- Best case: $n$
-  - Input is already sorted
+- Average and worst case grow with $n^2$
+- Best case grows with $n$
+  - when the input is already sorted
 :::
 
 ::: {.refresh .xs}
@@ -547,7 +542,7 @@ Exercise: what is the best and worst-case runtime for quicksort?
 ::: {.column width="48%"}
 ::: {.sm}
 - $n$ is the length of $A$
-- Time for best case: one operation
+- The best case takes one operation
 - Two recursive calls to arrays of length $n/2$
 - Call to MERGE with an array of length $n$ takes $c \cdot n$ steps, where $c$ is some constant
 :::
@@ -607,14 +602,14 @@ INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
 ENQUEUE(<i>Q</i>, <i>s</i>)
 <b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+      <i>u</i> &larr; DEQUEUE(<i>Q</i>)
+      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
+            <b>If</b> color[<i>v</i>] = WHITE
+                  <b>then</b> color[<i>v</i>] &larr; GRAY
+                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
+                       &pi;[<i>v</i>] &larr; <i>u</i>
+                       ENQUEUE(<i>Q</i>, <i>v</i>)
+      color[<i>u</i>] &larr; BLACK</pre>
 :::
 
 ::: {.column width="46%"}
@@ -638,14 +633,14 @@ INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
 ENQUEUE(<i>Q</i>, <i>s</i>)
 <b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+      <i>u</i> &larr; DEQUEUE(<i>Q</i>)
+      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
+            <b>If</b> color[<i>v</i>] = WHITE
+                  <b>then</b> color[<i>v</i>] &larr; GRAY
+                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
+                       &pi;[<i>v</i>] &larr; <i>u</i>
+                       ENQUEUE(<i>Q</i>, <i>v</i>)
+      color[<i>u</i>] &larr; BLACK</pre>
 :::
 
 ::: {.column width="46%"}
@@ -672,14 +667,14 @@ INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
 ENQUEUE(<i>Q</i>, <i>s</i>)
 <b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+      <i>u</i> &larr; DEQUEUE(<i>Q</i>)
+      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
+            <b>If</b> color[<i>v</i>] = WHITE
+                  <b>then</b> color[<i>v</i>] &larr; GRAY
+                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
+                       &pi;[<i>v</i>] &larr; <i>u</i>
+                       ENQUEUE(<i>Q</i>, <i>v</i>)
+      color[<i>u</i>] &larr; BLACK</pre>
 :::
 
 ::: {.column width="46%"}
@@ -707,14 +702,14 @@ INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
 ENQUEUE(<i>Q</i>, <i>s</i>)
 <b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+      <i>u</i> &larr; DEQUEUE(<i>Q</i>)
+      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
+            <b>If</b> color[<i>v</i>] = WHITE
+                  <b>then</b> color[<i>v</i>] &larr; GRAY
+                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
+                       &pi;[<i>v</i>] &larr; <i>u</i>
+                       ENQUEUE(<i>Q</i>, <i>v</i>)
+      color[<i>u</i>] &larr; BLACK</pre>
 :::
 
 ::: {.column width="46%"}
@@ -781,11 +776,9 @@ The **asymptotic behavior** of a function $f(x)$ describes its value towards inf
 ![](figures/08-asymptotic.svg){height="11.6em"}
 :::
 
-## O-Notation {.fit1}
+## Definition of O-Notation
 
 ::: {.sm}
-**Definition:**
-
 - O-Notation describes **classes of functions** with specific asymptotic properties
 - also referred to as *Big O* notation (pronounced big-oh, Landau's symbol)
 - values of a given function are after a given (large) value $n_0$
@@ -822,11 +815,9 @@ The **asymptotic behavior** of a function $f(x)$ describes its value towards inf
 ![](figures/bound-exact.png){height="10.6em"}
 :::
 
-## O-Notation {.fit1}
+## Using O-Notation to classify functions
 
 ::: {.sm}
-**Use of the O-Notation for classification of functions:**
-
 - people often write $f = O(g)$ instead of $f \in O(g)$
   - this is a tolerated abuse of notation
 - describes asymptotic upper, lower and exact bounds of a given function for large values
@@ -834,8 +825,8 @@ The **asymptotic behavior** of a function $f(x)$ describes its value towards inf
   - more precise analyses are often very cumbersome and unnecessary
   - constant factors may often not be of interest
   - linear acceleration is typically easy to achieve (new hardware, …)
-- goal: description of complexity through classes of functions
-  - literally: "it can not get worse than $f$" if complexity is $O(f)$
+- the goal is to describe complexity through classes of functions
+  - literally, "it cannot get worse than $f$" if the complexity is $O(f)$
 :::
 
 ## O-Notation - General rules
@@ -863,20 +854,19 @@ The **asymptotic behavior** of a function $f(x)$ describes its value towards inf
 ![](figures/growth-table.png){width="100%"}
 :::
 
-## O-Notation
+## What does O-Notation imply?
 
 ::: {.sm}
-- What does this imply?
-  - remember our earlier examples:
+- Remember our earlier examples of run time estimates
 :::
 
 :::: {.columns}
 ::: {.column width="48%"}
-::: {.center-h .xs}
+::: {.center-h .sm}
 **selection sort $O(n^2)$**
 :::
 
-::: {.tbl-seeblau .xs}
+::: {.tbl-seeblau style="font-size:0.84em"}
 | computer | thousand | million | billion |
 |---|---|---|---|
 | home | instant | 2.8 hours | 317 years |
@@ -885,11 +875,11 @@ The **asymptotic behavior** of a function $f(x)$ describes its value towards inf
 :::
 
 ::: {.column width="48%"}
-::: {.center-h .xs}
+::: {.center-h .sm}
 **mergesort $O(n \log n)$**
 :::
 
-::: {.tbl-seeblau .xs}
+::: {.tbl-seeblau style="font-size:0.84em"}
 | computer | thousand | million | billion |
 |---|---|---|---|
 | home | instant | 0.2 sec | 5 min |
@@ -932,19 +922,40 @@ O-notation is a language to describe **upper bounds** on complexity
     - algorithmic efficiency is often a precondition to doing any kind of data analysis in a reasonable time
     - understanding which implementation choices make an algorithm inefficient is thus basic tradecraft
     - there are often simple problems in day-to-day code that can lead to massive slow-downs
-    - constants can matter, be cognizant of best case and average case (vs. worst case)
+    - constants can matter, so be aware of the best case and the average case (vs. worst case)
   - **"Hard" social science problems**
     - there are a number of rather common social science applications that have very high problem complexity
     - many of those examples are related to graphs/networks, e.g., the "traveling salesman" problem, graph isomorphisms
 :::
 
+## Why does this matter? Practical Python examples
+
+:::: {.columns}
+::: {.column width="55%"}
+![](figures/08-python-examples-notebook.png){width="100%"}
+:::
+
+::: {.column width="45%"}
+::: {.sm}
+- **Three ways to find duplicates:** comparing every pair, sorting, or one pass with a hash set
+- **Reading the exponent off a plot:** the slope on a log-log plot predicts seconds, hours or centuries on large data
+- **The same code, three running times:** best, average and worst case of a linear search
+:::
+:::
+::::
+
+::: {.source}
+<https://github.com/dgarcia-eu/ICSS/blob/main/PythonExamples/Examples08-TimeComplexity.ipynb>
+:::
+
 ## Summary {.fit1}
 
-- **Time complexity** counts basic steps as a function of the input size $n$; it is a property of the algorithm, not of the machine
+- **Time complexity** counts basic steps as a function of the input size $n$ and is a property of the algorithm, independent of the machine
 - **Runtime analysis** adds up the cost of each instruction, multiplied by how often loops and recursive calls run
-- Best, average and **worst case** can differ for the same algorithm (insertion sort: $n$ against $n^2$)
-- **O-notation** keeps only the dominant term: $O$ is an upper bound, $\Omega$ a lower bound, $\Theta$ an exact bound
-- Selection sort is $O(n^2)$, mergesort $O(n \log n)$, BFS $O(|V| + |E|)$: the growth rate decides what is feasible on large data
+- Best, average and **worst case** can differ for the same algorithm (for insertion sort, $n$ against $n^2$)
+- **O-notation** keeps only the dominant term, where $O$ is an upper bound, $\Omega$ a lower bound, $\Theta$ an exact bound
+- Selection sort is $O(n^2)$, mergesort is $O(n \log n)$ and BFS is $O(|V| + |E|)$
+- The growth rate decides what is feasible on large data
 
 **Next session:** Theoretical Computer Science
 

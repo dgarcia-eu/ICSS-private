@@ -652,7 +652,6 @@ sheet in the course for this pool.
 | A4 | Turing machines in words: even length, binary increment, TM vs PDA | **yes** |
 | A5 | Computability: which properties of programs are decidable | **yes** |
 | A6 | Classifying problems into P, NP, NP-complete, NP-hard | partly (`TC-10`) |
-| A7 | Reductions, and why they prove hardness rather than easiness | **yes** |
 
 **The strongest never-examined item** is A1(d): a DFA over $\{0,1\}$ accepting
 binary numbers divisible by 3, which needs only three states (one per remainder,

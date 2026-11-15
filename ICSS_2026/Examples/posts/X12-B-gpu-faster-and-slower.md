@@ -73,7 +73,7 @@ NumPy, pandas or R vectors, is SIMD code even on a CPU, and the speed-up over
 element-by-element loops is typically one to two orders of magnitude for
 free. If, after that, the work is still dominated by large regular array
 arithmetic, a GPU will help. If it is dominated by per-item decisions, no GPU
-will, and the path to speed is the algorithm, as in session 8, or more CPU
+will, and the path to speed is the algorithm, as in the Time Complexity session, or more CPU
 cores with no shared state, as in X12-A.
 
 ## What we used from the lecture

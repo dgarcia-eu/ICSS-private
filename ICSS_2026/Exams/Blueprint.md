@@ -60,7 +60,7 @@ question draws on one or two adjacent sessions:
 
 Parallelization (session 12) has always been an appendix to question 4 or 6
 rather than a question of its own, usually a single Amdahl's law item worth 2–4
-points. Machine learning (session 10) and social science applications (session
+points. Machine learning (session 11) and social science applications (session
 13) have historically been **absent** from the exam; the 2025/26 example is the
 first to include Schelling's model. See §5.
 
@@ -151,7 +151,7 @@ solutions that no cohort has seen. They are indexed at the end of each pool file
 
 Worth deciding on before the 2026/27 exam:
 
-- **Session 10 (Machine Learning) has never been examined.** The lecture has been
+- **Session 11 (Machine Learning) has never been examined.** The lecture has been
   in the course since 2024/25. Pool 6 now has items for it (`DB-10` to `DB-13`),
   all tagged `new`. Decide whether ML is examinable and tell the students either
   way, the exam review session is the place.

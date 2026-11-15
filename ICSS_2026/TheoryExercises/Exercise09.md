@@ -2,11 +2,7 @@
 
 *Introduction to Computing for the Social Sciences · Prof. Dr. David Garcia*
 
-> Exercises 1–4 are worked through in the exercise session. The *Additional
-> practice* section is for self-study. Worked solutions to every exercise, with
-> pointers to the slides and the handout sections that cover the material, are
-> in [`Solutions/Exercise09-Solutions.md`](Solutions/Exercise09-Solutions.md); try before you open them.
-> Notation: [course conventions](../Transcripts/00-Conventions.md).
+Exercises 1 to 4 will be covered in the exercise session. The *Additional practice* section is for self-study and to be covered if time allows.
 
 ---
 
@@ -27,7 +23,7 @@ b) Which of the following input sequences are accepted by the above finite state
    ii) `cbbbbbbc`
 
 c) What language is accepted by the finite state automaton depicted above?
-   *(Hint: you do not have to give a formal definition; describing the language
+   *(Hint: you do not have to give a formal definition. Describing the language
    in your own words is enough.)*
 
 d) Is the automaton above a **non-deterministic** finite state automaton? Explain
@@ -38,8 +34,8 @@ e) Design a **deterministic** finite state automaton that recognizes strings
    Show a diagram with its states and transitions.
 
 > For (e), think about what the automaton has to *remember*. It cannot store the
-> input, it can only be in one of finitely many states. What is the minimum it
-> needs to know at each point?
+> input because it can only be in one of finitely many states. What is the
+> minimum it needs to know at each point?
 
 ---
 
@@ -66,8 +62,8 @@ $Q_D$:
 The input alphabet is composed of the symbols `0`, `1`, `X`, and `□` as the
 symbol that marks the end of the input. The stack alphabet is `A`, `B`, and `#`
 as the symbol that starts as the bottom of the stack. An input string is
-**accepted** if `#` is popped from the stack when reaching `□`; otherwise it is
-rejected.
+**accepted** if `#` is popped from the stack when reaching `□`, and otherwise it
+is rejected.
 
 a) Show how the above push-down automaton runs for the input `0111X1110□` by
    writing down the state of the automaton and of the stack after each input
@@ -79,9 +75,9 @@ b) Describe in your own words the language recognized by the above push-down
 c) Write a formal definition of the above language as a **grammar**. Is it a
    type 3 grammar? Justify your answer.
 
-> The push-down automaton is the machine of **type 2** in the Chomsky hierarchy
-> from the lecture: a finite automaton plus a stack. Part (c) asks you to notice
-> what that extra stack buys, and why no type 3 grammar can do the same job.
+> The push-down automaton is the machine of **type 2** in the Chomsky
+> hierarchy, i.e. a finite automaton plus a stack. Part (c) asks you to notice
+> what the stack adds and why no type 3 grammar can do the same job.
 
 ---
 
@@ -100,8 +96,9 @@ $M = (Q, \Sigma, \Gamma, \delta, q_1, q_{accept}, q_{reject})$, where:
 
 ![Transition diagram of the Turing machine](figures/ex09-turing-machine.svg)
 
-Notation on the arrows: `0→␣,R` means "on reading `0`, write `␣` and move
-right"; `x→R` means "on reading `x`, leave it and move right" (no write).
+In the notation on the arrows, `0→␣,R` means "on reading `0`, write `␣` and
+move right" and `x→R` means "on reading `x`, leave it and move right" without
+writing.
 
 a) Show how the Turing machine processes the string `0000`.
 
@@ -109,8 +106,8 @@ b) Show how the Turing machine processes the string `000`.
 
 c) Describe in your own words what language is recognized by the Turing machine.
 
-> For (a) and (b), write one line per step: the tape contents, the position of
-> the head, and the current state. The machine is not long, but it is easy to
+> For (a) and (b), write one line per step with the tape contents, the position
+> of the head and the current state. The machine is not long, but it is easy to
 > lose track, so be systematic.
 
 ---
@@ -121,7 +118,7 @@ A **$k$-clique** is a fully connected graph of $k$ vertices, i.e. there is an
 edge between each pair of vertices. Consider the **CLIQUE** problem, which is the
 decision problem of determining whether a graph $G$ contains a $k$-clique of a
 given size $k$. The example below (Sipser, 2012) is a graph that contains a
-5-clique but not a 6-clique, the edges of the 5-clique are drawn thick.
+5-clique but not a 6-clique, and the edges of the 5-clique are drawn thick.
 
 ![A graph with a 5-clique](figures/ex09-clique.svg)
 
@@ -138,9 +135,9 @@ c) Determine the satisfiability of the following formulas and reason your
 
    ii) $\bar{x}_1 \wedge (x_1 \vee x_2) \wedge (x_1 \vee \bar{x}_2)$
 
-> Part (a) asks for a **verifier**, not a solver: you are given the candidate
-> clique and only have to check it. Keep that distinction sharp, it is exactly
-> the difference between NP and P.
+> Part (a) asks for a **verifier** and not a solver, i.e. you are given the
+> candidate clique and only have to check it. Keep that distinction in mind,
+> because it is the difference between NP and P.
 
 ---
 
@@ -174,7 +171,8 @@ $P = \{S \rightarrow aA,\; A \rightarrow bS,\; A \rightarrow b\}$:
 
 a) Derive three strings in the language.
 b) Describe $L(G)$ in words and in set notation.
-c) Convert the grammar to an automaton using the mapping from the lecture.
+c) Convert the grammar to an automaton using the mapping between regular
+   grammars and automata.
 d) Is this a type 3 (regular) grammar? Why?
 
 ### A4. Turing machines
@@ -191,7 +189,7 @@ Decide whether each problem is computable. Justify.
 
 a) Given a Python program, does it contain a syntax error?
 b) Given a Python program, will it ever print the word "hello"?
-c) Given a Python program and an input, will it terminate within 1000 steps?
+c) Given a Python program and an input, will it terminate within 1,000 steps?
 d) Given two Python programs, do they compute the same function?
 
 ### A6. Complexity classes
@@ -205,34 +203,22 @@ c) Deciding whether a graph has a Hamiltonian path.
 d) Finding the shortest Hamiltonian path (the traveling salesman problem).
 e) Deciding whether a boolean formula is satisfiable.
 
-### A7. Reductions
-
-a) You have an algorithm that solves SAT. Explain informally how you could use it
-   to decide whether a graph has a Hamiltonian path.
-b) You discover a polynomial-time algorithm for the Hamiltonian path problem.
-   What follows?
-c) Why is reduction the standard tool for proving hardness rather than for
-   proving easiness?
-
 ---
 
 ## Sources
 
 - Exercises 1–2 are adapted from the 2023/24 sheet 9 of this course and
-  exercises 3–4 from the 2024 sheet 10; all diagrams have been redrawn as
+  exercises 3–4 from the 2024 sheet 10. All diagrams have been redrawn as
   vector graphics.
 - **Sipser, M. (2012).** *Introduction to the Theory of Computation*, 3rd ed.,
   Cengage. Ch. 1 (automata and regular languages, source for exercise 1 and A1),
   ch. 2 (context-free languages and push-down automata, exercise 2 and A2),
-  ch. 3–5 (Turing machines and undecidability: A4, A5), ch. 7 (P, NP,
-  NP-completeness: A6, A7).
+  ch. 3–5 (Turing machines and undecidability, A4 and A5), ch. 7 (P, NP and
+  NP-completeness, A6).
 - **Evans, D. (2011).** *Introduction to Computing*, ch. 6 and 12.
   <https://computingbook.org/>
 - **Cormen, T. H. (2013).** *Algorithms Unlocked*, ch. 10.
 - **Turing, A. M. (1936).** "On Computable Numbers…". *Proc. London Math. Soc.*
-  2(42), 230–265.: The undecidability results in A5.
+  2(42), 230–265. The undecidability results in A5.
 - **Cook, S. A. (1971).** "The complexity of theorem-proving procedures".
-  *STOC '71*.: SAT's NP-completeness, used in A6 and A7.
-- **Karp, R. M. (1972).** "Reducibility Among Combinatorial Problems". In
-  *Complexity of Computer Computations*, 85–103.: The paper that reduced 21
-  problems to each other and made reduction the standard technique of A7.
+  *STOC '71*. SAT's NP-completeness, used in A6.

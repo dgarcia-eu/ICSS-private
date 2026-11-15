@@ -47,7 +47,7 @@ This is a proof, and the brute force of the notebook is an algorithm, and it
 is worth holding the two side by side. The brute force checks 5 040 orderings
 and reports zero. It is correct, it is finite, and it tells you nothing about
 a city with eight bridges. Euler's argument takes one line and settles every
-city there will ever be. Session 9 is largely about the fact that computing
+city there will ever be. The Theoretical Computer Science session is largely about the fact that computing
 has both kinds of thing in it, procedures that produce answers and arguments
 that some answers are impossible.
 
@@ -75,7 +75,7 @@ obvious one is that an impossibility result saves you the search. Before
 building an algorithm to find something, it is worth asking whether a
 counting argument shows that it does not exist. The exam question about
 sorting eight things in ten comparisons has the same shape, and so does much
-of session 9.
+of the Theoretical Computer Science session.
 
 ## What we used from the lecture
 

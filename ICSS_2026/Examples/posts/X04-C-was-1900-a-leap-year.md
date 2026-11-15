@@ -38,7 +38,7 @@ year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
 ```
 
 This is control flow in its purest form, the `if`, `and` and `or` material of
-the lecture, and the flowcharts of session 5 are what the slide draws. Two
+the lecture, and the flowcharts of the Algorithms session are what the slide draws. Two
 things about the line deserve the attention the exam gives them. The first is
 that every parenthesis matters. Python reads `A and B or C` as `(A and B) or
 C`, because `and` binds tighter than `or`. For this particular rule that
@@ -91,7 +91,7 @@ with valid syntax.
   the edge cases are where implementations disagree.
 - [Imperative programming: conditions](../../Transcripts/04-Software.md#3-imperative-programming)
 - [Testing](../../Transcripts/04-Software.md#testing): 1900 and 2000 are the boundary cases.
-- [Flowcharts](../../Transcripts/05-Algorithms.md#5-flowcharts) (session 5):
+- [Flowcharts](../../Transcripts/05-Algorithms.md#5-flowcharts) (the Algorithms session):
   the rule as a diagram.
 
 ## Further reading

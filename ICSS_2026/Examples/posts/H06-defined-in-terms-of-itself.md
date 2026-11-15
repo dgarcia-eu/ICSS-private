@@ -32,7 +32,7 @@ what could be proved at all. Kurt Gödel's incompleteness paper of 1931 used a
 precisely defined class of "primitive recursive" functions, those buildable
 from zero, successor and recursion, as the machinery of its proof, and it was
 already known that some perfectly computable functions grew too fast to be in
-that class. What "computable" should mean was an open question, and session 9
+that class. What "computable" should mean was an open question, and the Theoretical Computer Science session
 tells how it was answered in 1936.
 
 ## Rózsa Péter
@@ -63,7 +63,7 @@ John McCarthy, had read the logicians and set out to make their notation
 executable. In LISP a function defined in terms of itself was the normal case
 rather than a special one, and the tree-shaped procedures of this session
 are LISP's native style. It entered the mainstream through a committee. ALGOL
-60, the language whose grammar notation session 9 uses, was designed by an
+60, the language whose grammar notation the Theoretical Computer Science session uses, was designed by an
 international group that had not agreed on recursion, and the sentence making
 recursive procedures legal is usually said to have been added to the report
 at the last moment by two of its Dutch and Danish members. The run-time
@@ -86,7 +86,7 @@ object to it.
 
 ## The thread to the lecture
 
-Session 6 asks you to recognize self-similar structure and write a definition
+This session asks you to recognize self-similar structure and write a definition
 with a base case and a recursive case. The history is a warning against
 treating that as a coding trick. Recursion was the mechanism by which
 mathematicians first made "computable" precise, decades before a machine could

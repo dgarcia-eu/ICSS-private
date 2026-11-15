@@ -25,24 +25,23 @@ format:
 :::: {.columns}
 ::: {.column width="50%"}
 ::: {.sm}
-- Session 1: Introduction
-- Session 2: Information Coding
-- Session 3: Data Structures
-- Session 4: Software
-- Session 5: Algorithms
-- Session 6: Recursion
-- Session 7: Sorting Algorithms
+- *Session 1: Introduction*
+- *Session 2: Information Coding*
+- *Session 3: Data Structures*
+- *Session 4: Software*
+- *Session 5: Algorithms*
+- *Session 6: Recursion*
+- *Session 7: Sorting Algorithms*
 :::
 :::
 
 ::: {.column width="50%"}
 ::: {.sm}
-- Session 8: Time Complexity
-- Session 9: Theoretical Computer Science
-- Session 10: Machine Learning
-- Session 11: Databases
-- Session 12: Parallel Programming
-  - Exercise: JQ + Parallelization exercises
+- *Session 8: Time Complexity*
+- *Session 9: Theoretical Computer Science*
+- *Session 10: Databases*
+- *Session 11: Machine Learning*
+- **Session 12: Parallel Programming**
 - Session 13: Social Science Applications
 - Session 14: Exam Review
 :::
@@ -74,10 +73,10 @@ format:
 
 ::: {.motivation}
 [Motivating example]{.label}
-For thirty years, slow code got faster by waiting: the same program ran twice as
+For thirty years, slow code got faster by waiting, because the same program ran twice as
 quickly on the hardware of two years later. Then clock speeds flattened, around
 **3 GHz, where they still are**, while the transistor count kept doubling. The
-extra transistors went into **more cores, not faster ones**.
+extra transistors went into **more cores instead of faster ones**.
 :::
 
 :::: {.figures}
@@ -92,7 +91,7 @@ extra transistors went into **more cores, not faster ones**.
 :::
 ::::
 
-[The free lunch is over. Making the extra cores useful is now a software problem, which means it is yours.]{.ask}
+[The free lunch is over. Making the extra cores useful is now a software problem that you have to solve.]{.ask}
 <!-- MOTIVATION:M12-A:END -->
 
 <!-- MOTIVATION:M12-B:BEGIN -->
@@ -100,9 +99,9 @@ extra transistors went into **more cores, not faster ones**.
 
 ::: {.motivation}
 [Motivating example]{.label}
-A simulation takes **40 hours**. You move it to a 16-core machine expecting two
-and a half. It takes **16 hours**. You move it to **64 cores**. It takes
-**15**.
+A simulation takes **40 hours**. You move it to a 16-core machine and expect two
+and a half hours, but it takes **16 hours**. You move it to **64 cores** and it
+takes **15 hours**.
 :::
 
 :::: {.figures}
@@ -117,7 +116,7 @@ and a half. It takes **16 hours**. You move it to **64 cores**. It takes
 :::
 ::::
 
-[Where did the other thirteen cores go? There is an exact formula, and it was written down in 1967.]{.ask}
+[Where did the other thirteen cores go? An exact formula from 1967 gives the answer.]{.ask}
 <!-- MOTIVATION:M12-B:END -->
 
 <!-- MOTIVATION:M12-C:BEGIN -->
@@ -127,7 +126,7 @@ and a half. It takes **16 hours**. You move it to **64 cores**. It takes
 [Motivating example]{.label}
 You are asked for the **correlation** between likes and reshares across
 **3 billion** posts. Your machine holds **one million** at a time. Computing the
-correlation on each chunk and averaging gives a number, and it is **the wrong
+correlation on each chunk and averaging gives a number, but it is **the wrong
 number**.
 :::
 
@@ -157,11 +156,11 @@ number**.
 :::: {.columns}
 ::: {.column width="76%"}
 ::: {.sm}
-- **Moore's law** predicts that the number of transistors per microchip doubles every two years &ndash; exponential growth in computing power
+- **Moore's law** predicts that the number of transistors per microchip doubles every two years, i.e. exponential growth in computing power
 - While the increase is still exponential, the rate is slower and doubling takes more than two years
-- There is a **physical limit**: a transistor cannot be smaller than an atom
+- There is a **physical limit**, because a transistor cannot be smaller than an atom
 - The limit is expected to be reached in this decade unless radically different models of computation become feasible
-- **Parallelization is a workaround to this limit:** using several processors
+- **Parallelization is a workaround to this limit**, i.e. using several processors
 :::
 :::
 
@@ -180,24 +179,24 @@ To learn more about Moore's law: <https://ourworldindata.org/technological-chang
 
 ## The brain as an inspiration for parallelization
 
-:::: {.columns}
-::: {.column width="68%"}
-::: {.tbl-grid .xs}
+::: {.tbl-grid}
 | | Operations/sec | Power [Watts] | Cores | sec/cycle |
 |---|---|---|---|---|
 | **Brain** | $10^{13}$ | 15&ndash;20 | ? | $10^{-3}$ |
 | **Intel Terascale** | $10^{12}$ | 85 | 80 | $10^{-9}$ |
-| **Supercomputer Blue Gene** | $3.6 \times 10^{14}$ | $1.2 \times 10^{6}$ | 130 000 | $10^{-9}$ |
+| **Supercomputer Blue Gene** | $3.6 \times 10^{14}$ | $1.2 \times 10^{6}$ | 130,000 | $10^{-9}$ |
 :::
 
+:::: {.columns}
+::: {.column width="66%"}
 ::: {.sm}
 - Brains work **slowly** but are **massively parallel**
-- Example of various regions active at the same time
+- For example, fMRI shows various regions active at the same time
 :::
 :::
 
-::: {.column width="32%"}
-![](figures/fmri-brain.png){height="7.4em"}
+::: {.column width="34%"}
+![](figures/fmri-brain.png){height="6.4em"}
 :::
 ::::
 
@@ -223,9 +222,9 @@ To learn more about Moore's law: <https://ourworldindata.org/technological-chang
   - can use cheap commodity components to build parallel processors
 - **Solve larger, more complex problems**
   - some problems are so large they are infeasible to solve using serial computation, especially with limited memory
-  - example: web search engines and databases processing millions of transactions every second
+  - for example web search engines and databases processing millions of transactions every second
 - **Provide concurrency**
-  - a single compute resource can only do one thing at a time; multiple compute resources can do many things simultaneously
+  - a single compute resource can only do one thing at a time, while multiple compute resources can do many things simultaneously
 :::
 
 ## Types of parallelization
@@ -260,19 +259,19 @@ Different ways to "multiply" processing:
 :::
 ::::
 
-## Single-thread vs Parallel
+## Single-thread vs parallel execution
 
 ::: {.center-h}
 ![](figures/12-single-vs-parallel.svg){height="12.8em"}
 :::
 
-## Concurrent vs Parallel
+## Concurrent vs parallel execution
 
 ::: {.center-h}
 ![](figures/12-concurrent-vs-parallel.svg){height="14.4em"}
 :::
 
-## Concurrent vs Parallel
+## Concurrency vs parallelism
 
 ::: {.sm}
 **Concurrency**
@@ -355,7 +354,7 @@ Multi-processor computer architecture (hardware) classification along two dimens
 - CPU architectures have instructions that are divided into **microinstructions**
 - Each microinstruction takes a hardware clock cycle
 - The example is an architecture with five microinstructions
-    - **IF:** instruction fetch &ndash; get next instruction code
+    - **IF:** instruction fetch, i.e. get the next instruction code
 :::
 
 ## Instruction-level parallelism {.fit1}
@@ -368,8 +367,8 @@ Multi-processor computer architecture (hardware) classification along two dimens
 - CPU architectures have instructions that are divided into **microinstructions**
 - Each microinstruction takes a hardware clock cycle
 - The example is an architecture with five microinstructions
-    - **IF:** instruction fetch &ndash; get next instruction code
-    - **ID:** instruction decode &ndash; convert code into hardware activation flags
+    - **IF:** instruction fetch, i.e. get the next instruction code
+    - **ID:** instruction decode, i.e. convert the code into hardware activation flags
 :::
 
 ## Instruction-level parallelism {.fit1}
@@ -382,9 +381,9 @@ Multi-processor computer architecture (hardware) classification along two dimens
 - CPU architectures have instructions that are divided into **microinstructions**
 - Each microinstruction takes a hardware clock cycle
 - The example is an architecture with five microinstructions
-    - **IF:** instruction fetch &ndash; get next instruction code
-    - **ID:** instruction decode &ndash; convert code into hardware activation flags
-    - **EX:** execute &ndash; perform calculation based on register contents
+    - **IF:** instruction fetch, i.e. get the next instruction code
+    - **ID:** instruction decode, i.e. convert the code into hardware activation flags
+    - **EX:** execute, i.e. perform the calculation based on register contents
 :::
 
 ## Instruction-level parallelism {.fit1}
@@ -397,10 +396,10 @@ Multi-processor computer architecture (hardware) classification along two dimens
 - CPU architectures have instructions that are divided into **microinstructions**
 - Each microinstruction takes a hardware clock cycle
 - The example is an architecture with five microinstructions
-    - **IF:** instruction fetch &ndash; get next instruction code
-    - **ID:** instruction decode &ndash; convert code into hardware activation flags
-    - **EX:** execute &ndash; perform calculation based on register contents
-    - **MEM:** memory access &ndash; write results to main memory if necessary
+    - **IF:** instruction fetch, i.e. get the next instruction code
+    - **ID:** instruction decode, i.e. convert the code into hardware activation flags
+    - **EX:** execute, i.e. perform the calculation based on register contents
+    - **MEM:** memory access, i.e. write results to main memory if necessary
 :::
 
 ## Instruction-level parallelism {.fit1}
@@ -413,11 +412,11 @@ Multi-processor computer architecture (hardware) classification along two dimens
 - CPU architectures have instructions that are divided into **microinstructions**
 - Each microinstruction takes a hardware clock cycle
 - The example is an architecture with five microinstructions
-    - **IF:** instruction fetch &ndash; get next instruction code
-    - **ID:** instruction decode &ndash; convert code into hardware activation flags
-    - **EX:** execute &ndash; perform calculation based on register contents
-    - **MEM:** memory access &ndash; write results to main memory if necessary
-    - **WB:** register write back &ndash; change registers (e.g. next instruction pointer)
+    - **IF:** instruction fetch, i.e. get the next instruction code
+    - **ID:** instruction decode, i.e. convert the code into hardware activation flags
+    - **EX:** execute, i.e. perform the calculation based on register contents
+    - **MEM:** memory access, i.e. write results to main memory if necessary
+    - **WB:** register write back, i.e. change registers (e.g. next instruction pointer)
 :::
 
 ## Instruction-level parallelism {.fit1}
@@ -430,11 +429,11 @@ Multi-processor computer architecture (hardware) classification along two dimens
 - CPU architectures have instructions that are divided into **microinstructions**
 - Each microinstruction takes a hardware clock cycle
 - The example is an architecture with five microinstructions
-    - **IF:** instruction fetch &ndash; get next instruction code
-    - **ID:** instruction decode &ndash; convert code into hardware activation flags
-    - **EX:** execute &ndash; perform calculation based on register contents
-    - **MEM:** memory access &ndash; write results to main memory if necessary
-    - **WB:** register write back &ndash; change registers (e.g. next instruction pointer)
+    - **IF:** instruction fetch, i.e. get the next instruction code
+    - **ID:** instruction decode, i.e. convert the code into hardware activation flags
+    - **EX:** execute, i.e. perform the calculation based on register contents
+    - **MEM:** memory access, i.e. write results to main memory if necessary
+    - **WB:** register write back, i.e. change registers (e.g. next instruction pointer)
 - Not all instructions need all five cycles. Details depend on the architecture
 - Different parts of the hardware are used for each microinstruction
 :::
@@ -446,7 +445,7 @@ Multi-processor computer architecture (hardware) classification along two dimens
 :::
 
 ::: {.sm}
-- A canonical processor **without** parallelism: takes 5 clock cycles per instruction
+- A canonical processor **without** parallelism takes 5 clock cycles per instruction
 :::
 
 :::: {.columns}
@@ -457,7 +456,7 @@ Multi-processor computer architecture (hardware) classification along two dimens
 ::: {.column width="40%"}
 ::: {.sm}
 - A **pipelined** processor can simultaneously execute five instructions
-- It can take up to only **one clock cycle per instruction**
+- It can take as little as **one clock cycle per instruction**
 :::
 :::
 ::::
@@ -471,7 +470,7 @@ Multi-processor computer architecture (hardware) classification along two dimens
 ::: {.xs}
 - **Speculative execution:** future instructions start before we finish one
   - control flow usually makes the CPU throw away future instructions
-  - e.g. an `if` statement changes the next instruction &rarr; need to clean the pipeline
+  - e.g. an `if` statement changes the next instruction, so the pipeline has to be cleaned
 - **Security risks:** speculative execution leaves traces that can be read by other programs
   - the **Spectre** and **Meltdown** vulnerabilities make it possible to read private data of other programs left in the processor cache by speculatively executed instructions
 :::
@@ -500,7 +499,7 @@ Multi-processor computer architecture (hardware) classification along two dimens
 - Designed for **multiplications of matrices** to calculate how to display 3D models
 - Performs the same calculation over a large set of data (a vector)
 - GPUs have large memories with very high bandwidth
-- **Cannot do every operation efficiently!** Designed for matrix operations
+- GPUs **cannot do every operation efficiently** because they are designed for matrix operations
 - Applications beyond graphics:
   - mining cryptocurrencies: solving modular algebra equations for many possible solutions
   - training machine learning models: applying matrix operations to fit many parameters on large datasets
@@ -520,7 +519,7 @@ Multi-processor computer architecture (hardware) classification along two dimens
   - Infiniband: 56 Gbit/s, 0.7 µs latency
   - Intel Broadwell HPC compute nodes
     - 28 cores per node
-    - up to 1024 GB RAM
+    - up to 1,024 GB RAM
   - large RAID (redundant array of independent disks) memory
 - The Politics & Public Administration department is an SCC **shareholder** with 4 compute nodes, i.e. 112 cores
   - part of the larger SCC infrastructure
@@ -542,8 +541,8 @@ Multi-processor computer architecture (hardware) classification along two dimens
 - **Multiple threads or processes in the same computer**
   - e.g. running mergesort with calls in separate parts of memory
   - *Issues:* coordinating memory access
-  - *Solutions:* Inter-Process Communication (IPC) and Message Passing Interfaces (MPI) &ndash; not covered here
-- **Multiple machines connected through a network: distributed computing**
+  - *Solutions:* Inter-Process Communication (IPC) and Message Passing Interfaces (MPI), which are not covered here
+- **Multiple machines connected through a network, i.e. distributed computing**
   - e.g. splitting parts of mergesort to different machines and merging results in more central machines
   - *Issues:* network communication is the bottleneck for computation
   - *Solutions:* distributed paradigms like **MapReduce**
@@ -578,16 +577,16 @@ Multi-processor computer architecture (hardware) classification along two dimens
 :::
 ::::
 
-## Distributed statistical inference example
+## Example: Distributed statistical inference
 
 ::: {.center-h}
-![](figures/inference-problem.jpg){height="6.6em"}
+![](figures/inference-problem.jpg){height="7.6em"}
 :::
 
 ::: {.sm}
 - Billions of data points distributed over several thousand data servers
 - Objectives:
-  - Save time by using a distributed architecture: **bring the code to the data**
+  - Save time by using a distributed architecture, i.e. **bring the code to the data**
   - Warning! Communication time matters (vs. plain parallel processing)
   - Inference should have desirable statistical properties and minimize additional error
 :::
@@ -601,11 +600,11 @@ Multi-processor computer architecture (hardware) classification along two dimens
 ## When things are easy: averaging
 
 :::: {.columns}
-::: {.column width="62%"}
-![](figures/inference-averaging.jpg){height="10.4em"}
+::: {.column width="68%"}
+![](figures/inference-averaging.jpg){height="12.4em"}
 :::
 
-::: {.column width="38%"}
+::: {.column width="32%"}
 ::: {.sm}
 - **Map:** compute the same estimator in each local sample
 - **Reduce:** aggregate to the final estimator by averaging each Map result
@@ -628,11 +627,11 @@ Multi-processor computer architecture (hardware) classification along two dimens
 ## Problems with averaging: Pearson's correlation
 
 :::: {.columns}
-::: {.column width="60%"}
-![](figures/inference-correlation-1.jpg){height="10.0em"}
+::: {.column width="66%"}
+![](figures/inference-correlation-1.jpg){height="12.0em"}
 :::
 
-::: {.column width="40%"}
+::: {.column width="34%"}
 ::: {.sm}
 - **Map:** compute Pearson's correlation in each local sample
 - **Reduce:** aggregate to the final estimator by averaging each Map result
@@ -667,7 +666,7 @@ Multi-processor computer architecture (hardware) classification along two dimens
 :::
 
 ::: {.tag .xs}
-Added communication time tradeoff to avoid added variance in the estimate
+We accept added communication time to avoid added variance in the estimate
 :::
 
 ## Limitations
@@ -683,7 +682,7 @@ Added communication time tradeoff to avoid added variance in the estimate
 
 ::: {.sm}
 - Can you actually achieve an optimal speedup?
-- **Gene Amdahl (1967): there is an upper limit**
+- **Gene Amdahl showed in 1967 that there is an upper limit**
 - Intuition:
   - there is always a part of the code that **cannot** be parallelized
   - with increasing parallelization, this part dominates the overall runtime of the program
@@ -709,6 +708,26 @@ Added communication time tradeoff to avoid added variance in the estimate
 ![](figures/amdahl-plot.png){height="13.0em"}
 :::
 ::::
+
+## Why does this matter? Practical Python examples
+
+:::: {.columns}
+::: {.column width="55%"}
+![](figures/12-python-examples-notebook.png){width="100%"}
+:::
+
+::: {.column width="45%"}
+::: {.sm}
+- **Speedup and its ceiling:** a bootstrap runs on 1, 2, 4 and 8 workers and we compare the speedup with Amdahl's law
+- **Statistics that can be split:** means, standard deviations and correlations are combined exactly from six sums per machine
+- **Threads:** they make waiting for downloads faster but not computing
+:::
+:::
+::::
+
+::: {.source}
+<https://github.com/dgarcia-eu/ICSS/blob/main/PythonExamples/Examples12-ParallelProgramming.ipynb>
+:::
 
 ## Summary {.fit1}
 

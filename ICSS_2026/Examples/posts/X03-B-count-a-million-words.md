@@ -57,7 +57,7 @@ makes the table degrade into exactly the list we started with.
 The 49 seconds are spent searching the list. The dictionary replaces search
 with a computation, the hash, and that one change turns a quadratic loop into
 a linear one. The log-log plot in the slides makes the difference visible as a
-slope, 2 for the list and 1 for the dictionary. Session 8 will give this a
+slope, 2 for the list and 1 for the dictionary. The Time Complexity session will give this a
 name and a notation, $O(n^2)$ against $O(n)$; for now the intuition is
 enough. The gap is not a constant factor that a faster laptop could buy you
 out of. It keeps widening.
@@ -70,9 +70,9 @@ question "is this key already in my collection?", asked millions of times. The
 habit to build is simple. Whenever you write `for x in big_list: if x in
 other_list`, stop, because `in` on a list is a search, and put `other_list`
 in a set or a dictionary first. That single move, stop searching and start
-indexing, returns in session 5 with adjacency lists, in session 7 with the
-reasons to sort, in session 8 with the post-filtering question of the exam,
-and in session 11 with database indexes. It is the same idea each time.
+indexing, returns in the Algorithms session with adjacency lists, in the Sorting Algorithms session with the
+reasons to sort, in the Time Complexity session with the post-filtering question of the exam,
+and in the Databases session with database indexes. It is the same idea each time.
 
 ## What we used from the lecture
 

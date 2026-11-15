@@ -25,12 +25,12 @@ format:
 :::: {.columns}
 ::: {.column width="50%"}
 ::: {}
-- Session 1: Introduction
-- Session 2: Information Coding
-- Session 3: Data Structures
-- Session 4: Software
-- Session 5: Algorithms
-- Session 6: Recursion
+- *Session 1: Introduction*
+- *Session 2: Information Coding*
+- *Session 3: Data Structures*
+- *Session 4: Software*
+- *Session 5: Algorithms*
+- **Session 6: Recursion**
 - Session 7: Sorting Algorithms
 :::
 :::
@@ -39,8 +39,8 @@ format:
 ::: {}
 - Session 8: Time Complexity
 - Session 9: Theoretical Computer Science
-- Session 10: Machine Learning
-- Session 11: Databases
+- Session 10: Databases
+- Session 11: Machine Learning
 - Session 12: Parallel Programming
 - Session 13: Social Science Applications
 - Session 14: Exam Review
@@ -56,12 +56,12 @@ format:
 [Motivating example]{.label}
 An organizational chart has a chief executive, division heads, department heads,
 team leads and staff, and **nobody knows how deep it goes**, because it differs
-by division. You are asked a simple question: how many people, in total, sit
-below any given manager?
+by division. You are asked how many people, in total, work below any given
+manager.
 :::
 
 - A loop over levels needs to know **how many levels** to go through.
-- You don't. And the answer changes next month.
+- You do not know that number, and it can change next month.
 
 [How do you write a procedure that works without knowing in advance how deep the structure is?]{.ask}
 <!-- MOTIVATION:M06-A:END -->
@@ -72,9 +72,9 @@ below any given manager?
 ::: {.motivation}
 [Motivating example]{.label}
 A discussion thread has replies, replies to replies, and replies to those. To
-count the posts, render the page, or measure how deep an argument went, something
-has to walk the whole structure, and the structure is **defined in terms of
-itself**:
+count the posts, render the page, or measure how deep an argument went, a
+procedure has to go through the whole structure, and the structure is
+**defined in terms of itself**.
 :::
 
 ::: {.definition}
@@ -86,13 +86,13 @@ a post, plus a list of **comments**.
 <!-- MOTIVATION:M06-B:END -->
 
 <!-- MOTIVATION:M06-C:BEGIN -->
-## The algorithm that is 2 300 years old {.fit1}
+## The algorithm that is 2,300 years old {.fit1}
 
 ::: {.motivation}
 [Motivating example]{.label}
 Euclid's *Elements*, Book VII, around 300 BC, gives a procedure for the greatest
-common divisor: **replace the larger number by its remainder against the
-smaller, and repeat.** It is still the algorithm your computer uses today.
+common divisor, namely to **replace the larger number by its remainder against
+the smaller and repeat.** It is still the algorithm your computer uses today.
 :::
 
 ::: {.example}
@@ -100,14 +100,14 @@ smaller, and repeat.** It is still the algorithm your computer uses today.
 gcd(270, 192) → gcd(192, 78) → gcd(78, 36) → gcd(36, 6) → gcd(6, 0) = **6**
 :::
 
-[What makes this procedure *stop*? And what happens to a procedure that calls itself and forgets to?]{.ask}
+[What makes this procedure *stop*, and what happens to a procedure that calls itself and never stops?]{.ask}
 
 ::: {.source}
 Euclid, *Elements*, Book VII, Propositions 1–2
 :::
 <!-- MOTIVATION:M06-C:END -->
 
-## Recursion example
+## Example: Citizens of Simpleland
 
 ::: {.center-h}
 ![](figures/simpleland-map.png){height="11.6em"}
@@ -115,7 +115,7 @@ Euclid, *Elements*, Book VII, Propositions 1–2
 **Simpleland**
 :::
 
-## Recursion example {.fit1}
+## Example: Citizens of Simpleland {.fit1}
 
 ::: {.sm}
 A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
@@ -128,7 +128,7 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 <img class="simpleland" src="figures/simpleland-map.png">
 <div class="simpleland-label">Simpleland</div>
 
-## Recursion example {.fit1}
+## Example: Citizens of Simpleland {.fit1}
 
 ::: {.sm}
 A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
@@ -148,7 +148,7 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 <img class="simpleland" src="figures/simpleland-map.png">
 <div class="simpleland-label">Simpleland</div>
 
-## Recursion example {.fit1}
+## Example: Citizens of Simpleland {.fit1}
 
 ::: {.sm}
 A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
@@ -168,7 +168,7 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 <img class="simpleland" src="figures/simpleland-map.png">
 <div class="simpleland-label">Simpleland</div>
 
-## Recursion example {.fit1}
+## Example: Citizens of Simpleland {.fit1}
 
 ::: {.sm}
 A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
@@ -189,7 +189,7 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 <img class="simpleland" src="figures/simpleland-map.png">
 <div class="simpleland-label">Simpleland</div>
 
-## Recursion example {.fit1}
+## Example: Citizens of Simpleland {.fit1}
 
 ::: {.sm}
 A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
@@ -210,7 +210,7 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 <img class="simpleland" src="figures/simpleland-map.png">
 <div class="simpleland-label">Simpleland</div>
 
-## Recursion example {.fit1}
+## Example: Citizens of Simpleland {.fit1}
 
 ::: {.sm}
 A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
@@ -332,17 +332,17 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 
 ## Recursion and Fractals
 
-::: {.imgrow .middle}
-![](figures/recursive-drawing-1.png){height="5.1em"}
-![](figures/recursive-drawing-3.png){height="5.1em"}
-![](figures/recursive-drawing-2.png){height="5.1em"}
+::: {.imgrow .middle style="flex-wrap:wrap;gap:0.4em 1.0em"}
+![](figures/recursive-drawing-1.png){height="6.6em"}
+![](figures/recursive-drawing-3.png){height="6.6em"}
+![](figures/recursive-drawing-2.png){height="6.6em"}
 :::
 
 ::: {.source}
 <http://recursivedrawing.com/>
 :::
 
-## Factorial: An Example
+## Example: Seating four diners
 
 ::: {}
 How many different ways exist for arranging the four diners?
@@ -364,7 +364,7 @@ How many different ways exist for arranging the four diners?
 :::
 ::::
 
-## Factorial: An Example
+## Example: Seating four diners
 
 ::: {}
 How many different ways exist for arranging the four diners?
@@ -386,7 +386,7 @@ How many different ways exist for arranging the four diners?
 :::
 ::::
 
-## Factorial: An Example
+## Example: Seating four diners
 
 ::: {}
 How many different ways exist for arranging the four diners?
@@ -414,22 +414,31 @@ $4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24$ arrangements
 
 ## Factorial: A Recursive Definition
 
-::: {}
-**Iterative definition:** &nbsp;&nbsp; $n! = n \, (n-1) \, (n-2) \dots (1)$
+::: {.definition}
+[Iterative definition]{.label}
+$n! = n \, (n-1) \, (n-2) \cdots 1$, for example $4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24$
+:::
 
-<br>
+::: {.definition}
+[Recursive definition]{.label}
+$n! = n \, (n-1)!$, for example $4! = 4 \cdot 3! = 4 \cdot 3 \cdot 2! = 4 \cdot 3 \cdot 2 \cdot 1! = 24$
+:::
 
-**Recursive definition:** &nbsp;&nbsp; $n! = n \, (n-1)!$
+::: {.sm}
+- The recursive definition uses the factorial itself, one number smaller
+- It needs a place to stop: without $1! = 1$ the unfolding would never end
 :::
 
 ## Factorial: A Recursive Definition
 
-::: {}
-**Iterative definition:** &nbsp;&nbsp; $n! = n \, (n-1) \, (n-2) \dots (1)$
+::: {.definition}
+[Iterative definition]{.label}
+$n! = n \, (n-1) \, (n-2) \cdots 1$, for example $4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24$
+:::
 
-<br>
-
-**Recursive definition:** &nbsp;&nbsp; $n! = n \, (n-1)!$
+::: {.definition}
+[Recursive definition]{.label}
+$n! = n \, (n-1)!$, for example $4! = 4 \cdot 3! = 4 \cdot 3 \cdot 2! = 4 \cdot 3 \cdot 2 \cdot 1! = 24$
 :::
 
 ::: {.center-h}
@@ -484,8 +493,7 @@ $n! = n \, (n-1)!$ &nbsp;&nbsp;&nbsp; $1! = 1$
 ## Factorial: Recursive Execution
 
 ::: {.sm}
-- Calculation can be represented as a tree
-  - example: `fac(4)`
+- The calculation of `fac(4)` can be represented as a tree
 :::
 
 ::: {.imgrow .middle style="flex-wrap:wrap;gap:0.6em 1.4em"}
@@ -501,78 +509,71 @@ $n! = n \, (n-1)!$ &nbsp;&nbsp;&nbsp; $1! = 1$
 ## Factorial: Recursive Execution
 
 ::: {.sm}
-- Calculation can be represented as a tree
-  - example: `fac(4)`
+- The calculation of `fac(4)` can be represented as a tree
 :::
 
 ::: {.center-h}
-![](figures/06-factorial-tree-1.svg){height="10.4em"}
+![](figures/06-factorial-tree-1.svg){height="11.4em"}
 :::
 
 ## Factorial: Recursive Execution
 
 ::: {.sm}
-- Calculation can be represented as a tree
-  - example: `fac(4)`
+- The calculation of `fac(4)` can be represented as a tree
 :::
 
 ::: {.center-h}
-![](figures/06-factorial-tree-2.svg){height="10.4em"}
+![](figures/06-factorial-tree-2.svg){height="11.4em"}
 :::
 
 ## Factorial: Recursive Execution
 
 ::: {.sm}
-- Calculation can be represented as a tree
-  - example: `fac(4)`
+- The calculation of `fac(4)` can be represented as a tree
 :::
 
 ::: {.center-h}
-![](figures/06-factorial-tree-3.svg){height="10.4em"}
+![](figures/06-factorial-tree-3.svg){height="11.4em"}
 :::
 
 ## Factorial: Recursive Execution
 
 ::: {.sm}
-- Calculation can be represented as a tree
-  - example: `fac(4)`
+- The calculation of `fac(4)` can be represented as a tree
 :::
 
 ::: {.center-h}
-![](figures/06-factorial-tree-4.svg){height="10.4em"}
+![](figures/06-factorial-tree-4.svg){height="11.4em"}
 :::
 
 ## Factorial: Recursive Execution
 
 ::: {.sm}
-- Calculation can be represented as a tree
-  - example: `fac(4)`
+- The calculation of `fac(4)` can be represented as a tree
 :::
 
 ::: {.center-h}
-![](figures/06-factorial-tree-5.svg){height="10.4em"}
+![](figures/06-factorial-tree-5.svg){height="11.4em"}
 :::
 
 ## Factorial: Recursive Execution
 
 ::: {.sm}
-- Calculation can be represented as a tree
-  - example: `fac(4)`
+- The calculation of `fac(4)` can be represented as a tree
 :::
 
 ::: {.center-h}
-![](figures/06-factorial-tree-6.svg){height="10.4em"}
+![](figures/06-factorial-tree-6.svg){height="11.4em"}
 :::
 
 ## Factorial: Recursive Execution
 
 ::: {.sm}
-- Calculation can be represented as a tree
-  - example: `fac(4)`
+- The calculation of `fac(4)` can be represented as a tree
 :::
 
 ::: {.center-h}
-![](figures/06-factorial-tree-7.svg){height="10.4em"}
+![](figures/06-factorial-tree-7.svg){height="11.4em"}
 :::
 
 ::: {.center-h .sm}
@@ -653,7 +654,7 @@ A program being run in a machine is called a **process**. Processes require memo
 A program being run in a machine is called a **process**. Processes require memory to run, which is organized as follows:
 
 - Code Segment (CS)
-  - contains executable instructions, i.e., a program loaded from hard disc
+  - contains executable instructions, i.e., a program loaded from hard disk
   - typically read-only and of fixed size
 - Stack Segment (SS)
 - Data Segment or Heap (DS)
@@ -696,7 +697,7 @@ A program being run in a machine is called a **process**. Processes require memo
 - Code Segment (CS)
 - Stack Segment (SS)
 - Data Segment or Heap (DS)
-  - contains global data; Python manages all objects in a (private) heap
+  - contains global data, and Python manages all objects in a (private) heap
   - typically no execute (NX)
   - size is limited by main memory (RAM) or by explicit parameter when run
 :::
@@ -716,7 +717,7 @@ A program being run in a machine is called a **process**. Processes require memo
   - local variables
   - return values
 - stack grows and shrinks automatically with every method call
-  - BUT has a maximum size: **stack overflows** are possible!
+  - but it has a maximum size, so **stack overflows** are possible!
   - Warning: recursion in functions easily leads to stack overflow
 :::
 
@@ -867,7 +868,7 @@ its finishing time <i>f</i> and its parent &pi;
 ![](figures/06-dfs-00.svg){height="9.2em"}
 
 ::: {.sm}
-Example: the For loop takes vertex $c$ first;<br>among neighbors, go alphabetically<br>time = 0<br>Enter For-Loop:<br>call `DFS-VISIT(G, c)`
+Example: the For loop takes vertex $c$ first<br>and neighbors are taken alphabetically<br>time = 0<br>Enter For-Loop:<br>call `DFS-VISIT(G, c)`
 :::
 :::
 ::::
@@ -1584,8 +1585,8 @@ Dynamic programming refers to simplifying a complicated problem by breaking it d
 While some problems cannot be taken apart this way, problems that span several points in time often do break apart recursively.
 
 - both a mathematical optimization method and an algorithm design principle
-- common technique used in engineering and economics; goes back to the idea of Richard Bellman in the 1950s
-- **optimal substructure**: if a problem can be solved optimally by breaking it into sub-problems and recursively finding optimal solutions to sub-problems
+- common technique used in engineering and economics, which goes back to the idea of Richard Bellman in the 1950s
+- **optimal substructure** means that a problem can be solved optimally by breaking it into sub-problems and recursively finding optimal solutions to sub-problems
 :::
 
 ## Dynamic Programming for Recursion
@@ -1602,13 +1603,15 @@ While some problems cannot be taken apart this way, problems that span several p
 
 ## Example: Fibonacci numbers
 
-::: {.codewrap style="font-size:1.70em"}
+::: {.codewrap style="font-size:1.48em"}
 <pre class="pseudocode" style="width:66%;margin:0.4em auto"><b>Procedure</b> FIB(<i>n</i>)                  # recursive version
 <i>Inputs:</i>
   <i>n</i>: a natural number (<i>n</i> &isin; &#8469;)
 <i>Result:</i> the <i>n</i>-th Fibonacci number
-<b>If</b> <i>n</i> = 0 <b>then return</b> 0
-<b>If</b> <i>n</i> = 1 <b>then return</b> 1
+<b>If</b> <i>n</i> = 0
+      <b>then return</b> 0
+<b>If</b> <i>n</i> = 1
+      <b>then return</b> 1
 <b>return</b> FIB(<i>n</i> - 1) + FIB(<i>n</i> - 2)</pre>
 :::
 
@@ -1618,30 +1621,36 @@ The number of calls to `fib(n)` grows **exponentially** with $n$
 
 ## Example: Fibonacci numbers
 
-::: {.codewrap style="font-size:1.30em"}
+::: {.codewrap style="font-size:1.06em"}
 <pre class="pseudocode" style="width:70%;margin:0.4em auto"><b>Procedure</b> FIB(<i>n</i>)                  # recursive, with memoization
 <i>Inputs:</i>
   <i>n</i>: a natural number (<i>n</i> &isin; &#8469;)
 <i>Data:</i> <i>memo</i>: an array indexed from 0 to <i>n</i>, initially all NIL
 <i>Result:</i> the <i>n</i>-th Fibonacci number
-<b>If</b> <i>n</i> = 0 <b>then return</b> 0
-<b>If</b> <i>n</i> = 1 <b>then return</b> 1
-<b>If</b> <i>memo</i>[<i>n</i>] &ne; NIL <b>then return</b> <i>memo</i>[<i>n</i>]
+<b>If</b> <i>n</i> = 0
+      <b>then return</b> 0
+<b>If</b> <i>n</i> = 1
+      <b>then return</b> 1
+<b>If</b> <i>memo</i>[<i>n</i>] &ne; NIL
+      <b>then return</b> <i>memo</i>[<i>n</i>]
 <i>memo</i>[<i>n</i>] &larr; FIB(<i>n</i> - 1) + FIB(<i>n</i> - 2)
 <b>return</b> <i>memo</i>[<i>n</i>]</pre>
 :::
 
 ## Example: Fibonacci numbers
 
-::: {.codewrap style="font-size:1.30em"}
+::: {.codewrap style="font-size:1.06em"}
 <pre class="pseudocode" style="width:70%;margin:0.4em auto"><b>Procedure</b> FIB(<i>n</i>)                  # recursive, with memoization
 <i>Inputs:</i>
   <i>n</i>: a natural number (<i>n</i> &isin; &#8469;)
 <i>Data:</i> <i>memo</i>: an array indexed from 0 to <i>n</i>, initially all NIL
 <i>Result:</i> the <i>n</i>-th Fibonacci number
-<b>If</b> <i>n</i> = 0 <b>then return</b> 0
-<b>If</b> <i>n</i> = 1 <b>then return</b> 1
-<b>If</b> <i>memo</i>[<i>n</i>] &ne; NIL <b>then return</b> <i>memo</i>[<i>n</i>]
+<b>If</b> <i>n</i> = 0
+      <b>then return</b> 0
+<b>If</b> <i>n</i> = 1
+      <b>then return</b> 1
+<b>If</b> <i>memo</i>[<i>n</i>] &ne; NIL
+      <b>then return</b> <i>memo</i>[<i>n</i>]
 <i>memo</i>[<i>n</i>] &larr; FIB(<i>n</i> - 1) + FIB(<i>n</i> - 2)
 <b>return</b> <i>memo</i>[<i>n</i>]</pre>
 :::
@@ -1683,9 +1692,29 @@ The most prevalent problem-solving heuristics you will encounter
   - if necessary, collapse all sub-results to global results
 :::
 
+## Why does this matter? Practical Python examples
+
+:::: {.columns}
+::: {.column width="55%"}
+![](figures/06-python-examples-notebook.png){width="100%"}
+:::
+
+::: {.column width="45%"}
+::: {.sm}
+- **Fibonacci with a memo:** the function as written makes millions of calls, with saved results it makes 59
+- **The stack is finite:** a recursive depth-first search fails on a chain of 5,000 nodes
+- **Euclid's algorithm:** the gcd of two 18-digit numbers is found in 16 calls
+:::
+:::
+::::
+
+::: {.source}
+<https://github.com/dgarcia-eu/ICSS/blob/main/PythonExamples/Examples06-Recursion.ipynb>
+:::
+
 ## Summary
 
-- Recursion: a **base case** plus a **recursive case** that moves towards it
+- Recursion needs a **base case** and a **recursive case** that moves towards it
 - Every call waits on the **program stack** until its own calls return
 - **Factorial** and **Euclid's algorithm** run their recursive definitions
 - **Depth-first search** records discovery and finishing times

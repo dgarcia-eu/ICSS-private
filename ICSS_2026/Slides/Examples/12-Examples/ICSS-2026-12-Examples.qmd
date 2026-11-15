@@ -100,7 +100,7 @@ is the pattern with *no* shared mutable state, and it is exactly Map + Reduce.
 **How to present.** Open with the two runs and the question; let the room
 argue. Close with the timeline figure, then the two fixes, and make the second
 one the bridge to MapReduce: the entire design of that framework is "avoid
-this figure". Connects back to the two-seats booking example (M11-B), which is
+this figure". Connects back to the two-seats booking example (M10-B), which is
 the same race at the database level.
 
 **Where it plugs in.** With the multithreading slides; before MapReduce.

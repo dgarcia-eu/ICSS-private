@@ -1,8 +1,8 @@
 # The wolf detector that only saw snow
 
-*Session 10 · Machine Learning · example X10-A ·
-[notebook](../notebooks/X10-A.ipynb) ·
-[slides](../../Slides/Examples/10-Examples/ICSS-2026-10-Examples.qmd)*
+*Session 11 · Machine Learning · example X11-A ·
+[notebook](../notebooks/X11-A.ipynb) ·
+[slides](../../Slides/Examples/11-Examples/ICSS-2026-11-Examples.qmd)*
 
 > Eight out of ten on the test set, useless at the zoo. The model learned
 > something true about the photos and nothing about the animals, and the test
@@ -11,7 +11,7 @@
 ## The puzzle
 
 <!-- FIG -->
-<figure class="full"><img src="../../Slides/Examples/10-Examples/figures/10-husky-wolf-q.svg" alt="The four cases: two the model saw in training, two it met later."><figcaption>The four cases: two the model saw in training, two it met later.</figcaption></figure>
+<figure class="full"><img src="../../Slides/Examples/11-Examples/figures/11-husky-wolf-q.svg" alt="The four cases: two the model saw in training, two it met later."><figcaption>The four cases: two the model saw in training, two it met later.</figcaption></figure>
 <!-- /FIG -->
 Researchers trained a classifier to tell wolves from huskies from photos. On
 the held-out test images it got eight out of ten right. Then it failed on the
@@ -21,7 +21,7 @@ question would have caught it before deployment?
 
 ## Try it first
 
-The [notebook](../notebooks/X10-A.ipynb) builds the situation on purpose with
+The [notebook](../notebooks/X11-A.ipynb) builds the situation on purpose with
 two numeric features, a weak real signal (ear shape) and a shortcut (snow in
 the background) that correlates with the label in the training data. It fits
 a logistic regression, scores it on a test set with the same bias, then on
@@ -31,7 +31,7 @@ can see which feature the model leaned on.
 ## What is going on
 
 <!-- FIG -->
-<figure class="full"><img src="../../Slides/Examples/10-Examples/figures/10-husky-wolf.svg" alt="What the explanation highlights: the background."><figcaption>What the explanation highlights: the background.</figcaption></figure>
+<figure class="full"><img src="../../Slides/Examples/11-Examples/figures/11-husky-wolf.svg" alt="What the explanation highlights: the background."><figcaption>What the explanation highlights: the background.</figcaption></figure>
 <!-- /FIG -->
 In the original study, the wolf photos had been picked so that they showed
 snow and the husky photos so that they did not. Snow is a large, uniform,
@@ -82,12 +82,12 @@ symptom until you know why it is good.
 
 ## What we used from the lecture
 
-- [Features](../../Transcripts/10-MachineLearning.md#4-features): what the
+- [Features](../../Transcripts/11-MachineLearning.md#4-features): what the
   model can see.
-- [Generalization: the train/test split](../../Transcripts/10-MachineLearning.md#6-generalization-the-traintest-split),
+- [Generalization: the train/test split](../../Transcripts/11-MachineLearning.md#6-generalization-the-traintest-split),
   and why the split alone is not enough.
-- [Overfitting, bias and variance](../../Transcripts/10-MachineLearning.md#8-overfitting-underfitting-bias-and-variance)
-- [Ethics and responsible AI](../../Transcripts/10-MachineLearning.md#12-ethics-and-responsible-ai):
+- [Overfitting, bias and variance](../../Transcripts/11-MachineLearning.md#8-overfitting-underfitting-bias-and-variance)
+- [Ethics and responsible AI](../../Transcripts/11-MachineLearning.md#12-ethics-and-responsible-ai):
   trust and explanation.
 
 ## Further reading

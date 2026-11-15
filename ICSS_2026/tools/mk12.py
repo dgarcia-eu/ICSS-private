@@ -40,8 +40,8 @@ format:
 ::: {.sm}
 - Session 8: Time Complexity
 - Session 9: Theoretical Computer Science
-- Session 10: Machine Learning
-- Session 11: Databases
+- Session 10: Databases
+- Session 11: Machine Learning
 - Session 12: Parallel Programming
   - Exercise: JQ + Parallelization exercises
 - Session 13: Social Science Applications

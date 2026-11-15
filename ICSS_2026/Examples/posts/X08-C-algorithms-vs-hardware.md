@@ -48,9 +48,9 @@ a better exponent keeps giving. The two factors also compound. The 43 000 000
 in the report is the two multiplied, with the algorithmic one dominating
 because it grew with the problems people were actually trying to solve. The
 pattern is not special to optimization. Sorting went from $n^2$ to $n \log n$,
-as session 7 showed. The fast Fourier transform turned $n^2$ into $n \log n$
+as the Sorting Algorithms session showed. The fast Fourier transform turned $n^2$ into $n \log n$
 and made digital signal processing possible. SAT solvers, the workhorse
-behind the hard problems of session 9, improved by orders of magnitude
+behind the hard problems of the Theoretical Computer Science session, improved by orders of magnitude
 between 2000 and 2010 on unchanged hardware.
 
 ## The answer

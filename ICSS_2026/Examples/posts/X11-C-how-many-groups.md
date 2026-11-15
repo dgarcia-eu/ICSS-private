@@ -1,8 +1,8 @@
 # How many groups are there?
 
-*Session 10 · Machine Learning · example X10-C ·
-[notebook](../notebooks/X10-C.ipynb) ·
-[slides](../../Slides/Examples/10-Examples/ICSS-2026-10-Examples.qmd)*
+*Session 11 · Machine Learning · example X11-C ·
+[notebook](../notebooks/X11-C.ipynb) ·
+[slides](../../Slides/Examples/11-Examples/ICSS-2026-11-Examples.qmd)*
 
 > 240 respondents, two scores, no labels. The algorithm that finds the groups
 > in twelve lines, and finds them just as confidently when there are none.
@@ -10,7 +10,7 @@
 ## The puzzle
 
 <!-- FIG -->
-<figure class="side wide"><img src="../../Slides/Examples/10-Examples/figures/10-kmeans-data.png" alt="240 respondents, two scores, no labels."><figcaption>240 respondents, two scores, no labels.</figcaption></figure>
+<figure class="side wide"><img src="../../Slides/Examples/11-Examples/figures/11-kmeans-data.png" alt="240 respondents, two scores, no labels."><figcaption>240 respondents, two scores, no labels.</figcaption></figure>
 <!-- /FIG -->
 Two attitude scores for 240 survey respondents, and nothing else: nobody has
 said how many "types" of respondent exist or which respondent is which. Look
@@ -20,14 +20,14 @@ what does it do when the data has no groups at all?
 
 ## Try it first
 
-The [notebook](../notebooks/X10-C.ipynb) implements K-means in twelve lines
+The [notebook](../notebooks/X11-C.ipynb) implements K-means in twelve lines
 of NumPy, runs it with $K = 3$, plots the within-cluster sum of squares for
 $K = 1$ to $8$, and then runs $K = 2$ on two concentric rings.
 
 ## What is going on
 
 <!-- FIG -->
-<figure class="side wide"><img src="../../Slides/Examples/10-Examples/figures/10-kmeans-k3.png" alt="K-means with K = 3; the crosses are the centers."><figcaption>K-means with K = 3; the crosses are the centers.</figcaption></figure>
+<figure class="side wide"><img src="../../Slides/Examples/11-Examples/figures/11-kmeans-k3.png" alt="K-means with K = 3; the crosses are the centers."><figcaption>K-means with K = 3; the crosses are the centers.</figcaption></figure>
 <!-- /FIG -->
 This is *unsupervised* learning: there is an $X$ and no $Y$. The groups are
 the output, not the input, so there is nothing to score against, which is the
@@ -53,7 +53,7 @@ always converges, to a local minimum, which is why the notebook runs it from
 several starts and keeps the best.
 
 <!-- FIG -->
-<figure class="side wide"><img src="../../Slides/Examples/10-Examples/figures/10-kmeans-elbow.png" alt="Within-cluster sum of squares against K: the elbow at 3."><figcaption>Within-cluster sum of squares against K: the elbow at 3.</figcaption></figure>
+<figure class="side wide"><img src="../../Slides/Examples/11-Examples/figures/11-kmeans-elbow.png" alt="Within-cluster sum of squares against K: the elbow at 3."><figcaption>Within-cluster sum of squares against K: the elbow at 3.</figcaption></figure>
 <!-- /FIG -->
 The next question is how to choose $K$. The within-cluster sum of squares,
 WSS, is what K-means minimizes, so it is tempting to pick the $K$ with the
@@ -67,7 +67,7 @@ bend, and that ambiguity is information: it often means that there is no
 natural $K$.
 
 <!-- FIG -->
-<figure class="side wide"><img src="../../Slides/Examples/10-Examples/figures/10-kmeans-rings.png" alt="Two rings, K = 2: the algorithm splits them down the middle."><figcaption>Two rings, K = 2: the algorithm splits them down the middle.</figcaption></figure>
+<figure class="side wide"><img src="../../Slides/Examples/11-Examples/figures/11-kmeans-rings.png" alt="Two rings, K = 2: the algorithm splits them down the middle."><figcaption>Two rings, K = 2: the algorithm splits them down the middle.</figcaption></figure>
 <!-- /FIG -->
 The rings are the warning. K-means can only make convex, roughly round
 clusters, because each point goes to the nearest center, so on two
@@ -97,10 +97,10 @@ interpretability, before reporting it as found.
 
 ## What we used from the lecture
 
-- [What machine learning is: the three families](../../Transcripts/10-MachineLearning.md#2-what-machine-learning-is)
-- [Unsupervised learning and clustering](../../Transcripts/10-MachineLearning.md#10-unsupervised-learning-and-clustering):
+- [What machine learning is: the three families](../../Transcripts/11-MachineLearning.md#2-what-machine-learning-is)
+- [Unsupervised learning and clustering](../../Transcripts/11-MachineLearning.md#10-unsupervised-learning-and-clustering):
   K-means and the elbow method.
-- [Ethics and responsible AI](../../Transcripts/10-MachineLearning.md#12-ethics-and-responsible-ai):
+- [Ethics and responsible AI](../../Transcripts/11-MachineLearning.md#12-ethics-and-responsible-ai):
   what a model's output is evidence of.
 
 ## Further reading

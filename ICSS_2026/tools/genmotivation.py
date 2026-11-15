@@ -244,8 +244,8 @@ def write_selector():
         "02": "Information Coding", "03": "Data Structures",
         "04": "Software", "05": "Algorithms", "06": "Recursion",
         "07": "Sorting Algorithms", "08": "Time Complexity",
-        "09": "Theoretical Computer Science", "10": "Machine Learning",
-        "11": "Databases", "12": "Parallel Programming",
+        "09": "Theoretical Computer Science", "10": "Databases",
+        "11": "Machine Learning", "12": "Parallel Programming",
     }
     for sess in sessions():
         deck = os.path.relpath(DECKS[sess], SLIDES)

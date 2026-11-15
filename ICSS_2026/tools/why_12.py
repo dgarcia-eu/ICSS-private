@@ -141,5 +141,5 @@ which of the two your program needs is the first decision, before any hardware."
 [software parallelization and MapReduce](../Transcripts/12-ParallelProgramming.md#9-software-parallelization-and-mapreduce),
 [concurrency vs parallelism](../Transcripts/12-ParallelProgramming.md#5-concurrency-vs-parallelism)
 and [Moore's law and why it is running out](../Transcripts/12-ParallelProgramming.md#1-moores-law-and-why-it-is-running-out)
-from session 12."""),
+from this session."""),
 ]

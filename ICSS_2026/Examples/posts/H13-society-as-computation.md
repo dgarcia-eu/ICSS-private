@@ -13,13 +13,13 @@
 <!-- FIG -->
 <figure class="side"><img src="img/simon.jpg" alt="Herbert A. Simon"><figcaption><b>Herbert Simon (1916–2001): political scientist, AI founder, Nobel and Turing laureate.</b> Photo: Rochester Institute of Technology, Public domain, via <a href="https://commons.wikimedia.org/wiki/File:Herbert_Simon,_RIT_NandE_Vol13Num11_1981_Mar19_Complete.jpg">Wikimedia Commons</a>.</figcaption></figure>
 <!-- /FIG -->
-The course opens, in session 1, with Herbert Simon's phrase *the sciences of
-the artificial*, and it is fitting that session 13 returns to him. Simon was
+The course opens, in the Introduction session, with Herbert Simon's phrase *the sciences of
+the artificial*, and it is fitting that this session returns to him. Simon was
 a political scientist by training who concluded in the 1940s that the
 rational actor of economics did not describe how anyone actually decided
 anything, proposed *bounded rationality* in its place, and then, needing a
 way to study how people actually solve problems, built computer programs
-that solved them. The 1956 program that gave the history of session 3 the
+that solved them. The 1956 program that gave the history of the Data Structures session the
 linked list was his; he was among the founders of the workshop that named
 artificial intelligence that year; he received the Turing Award in 1975 and
 the Nobel Prize in economics in 1978. His 1969 book argued that minds,
@@ -90,7 +90,7 @@ on.
 
 ## The thread to the lecture
 
-Session 13 gives three meanings of *computational*, digital, computerized and
+This session gives three meanings of *computational*, digital, computerized and
 generative, and a set of risks. The history puts a person or a paper on each.
 The generative meaning is Simon's and Schelling's, the digital meaning is the
 2009 paper's, and the risks were articulated first and most sharply by

@@ -1,6 +1,6 @@
 """Why it matters, session 5: Algorithms."""
 
-TITLE = "A network of 100 000 people: 80 gigabytes or 8 megabytes"
+TITLE = "Storing a network, measuring distances in it, and why the queue matters"
 HOOK = ("Two ways to store the same social network, breadth-first search giving the "
         "six degrees, and what goes wrong when the queue becomes a stack.")
 
@@ -147,5 +147,5 @@ everyone. The correctness of BFS is not in the loop, it is in the queue.
 **What we used:** [representing graphs](../Transcripts/05-Algorithms.md#8-representing-graphs),
 [queues and stacks](../Transcripts/05-Algorithms.md#6-abstract-data-structures-queues-and-stacks),
 [breadth-first search](../Transcripts/05-Algorithms.md#9-breadth-first-search) and
-[graphs in social science](../Transcripts/05-Algorithms.md#10-graphs-in-social-science) from session 5."""),
+[graphs in social science](../Transcripts/05-Algorithms.md#10-graphs-in-social-science) from this session."""),
 ]

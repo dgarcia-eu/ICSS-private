@@ -115,5 +115,5 @@ will search once.
 **What we used:** [the trade-off between editing and searching](https://dgarcia-eu.github.io/ICSS/Transcripts/03-DataStructures.html#binary-search-trees),
 [binary search](https://dgarcia-eu.github.io/ICSS/Transcripts/03-DataStructures.html#binary-search),
 [hashing and hash tables](https://dgarcia-eu.github.io/ICSS/Transcripts/03-DataStructures.html#hash-tables) and
-[dictionaries](https://dgarcia-eu.github.io/ICSS/Transcripts/03-DataStructures.html#dictionaries) from session 3."""),
+[dictionaries](https://dgarcia-eu.github.io/ICSS/Transcripts/03-DataStructures.html#dictionaries) from this session."""),
 ]

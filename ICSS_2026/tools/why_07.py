@@ -148,9 +148,9 @@ searched, merged and summarized in logarithmic or linear time, unsorted data
 cannot.
 
 **What we used:** the formal sorting problem and stability
-([session 7, sections 2 and 3](../Transcripts/07-SortingAlgorithms.md#3-stable-and-unstable-sorting)),
+([this session, sections 2 and 3](../Transcripts/07-SortingAlgorithms.md#3-stable-and-unstable-sorting)),
 selection sort ([section 4](../Transcripts/07-SortingAlgorithms.md#4-iterative-sorting)),
 mergesort ([section 6](../Transcripts/07-SortingAlgorithms.md#6-mergesort)),
 why sorting matters for us ([section 9](../Transcripts/07-SortingAlgorithms.md#9-why-sorting-matters-for-us))
-and binary search from [session 3, section 5](../Transcripts/03-DataStructures.md#5-binary-search)."""),
+and binary search from [the Data Structures session, section 5](../Transcripts/03-DataStructures.md#5-binary-search)."""),
 ]

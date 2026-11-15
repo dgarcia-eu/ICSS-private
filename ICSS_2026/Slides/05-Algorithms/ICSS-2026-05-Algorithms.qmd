@@ -25,11 +25,11 @@ format:
 :::: {.columns}
 ::: {.column width="50%"}
 ::: {}
-- Session 1: Introduction
-- Session 2: Information Coding
-- Session 3: Data Structures
-- Session 4: Software
-- Session 5: Algorithms
+- *Session 1: Introduction*
+- *Session 2: Information Coding*
+- *Session 3: Data Structures*
+- *Session 4: Software*
+- **Session 5: Algorithms**
 - Session 6: Recursion
 - Session 7: Sorting Algorithms
 :::
@@ -39,8 +39,8 @@ format:
 ::: {}
 - Session 8: Time Complexity
 - Session 9: Theoretical Computer Science
-- Session 10: Machine Learning
-- Session 11: Databases
+- Session 10: Databases
+- Session 11: Machine Learning
 - Session 12: Parallel Programming
 - Session 13: Social Science Applications
 - Session 14: Exam Review
@@ -59,48 +59,21 @@ format:
 :::
 
 
-<!-- MOTIVATION:M05-A:BEGIN -->
-## Six handshakes, and how you would check {.fit1}
-
-::: {.motivation}
-[Motivating example]{.label}
-Milgram's 1967 experiment asked people in Nebraska to get a letter to a stranger
-in Boston by passing it only to someone they knew personally. The chains that
-arrived had a median of **five intermediaries**. Fifty years later the same
-question was answered directly over **1.59 billion people**, giving **3.57**.
-:::
-
-:::: {.figures}
-::: {.fq}
-[5.2]{.big}[Milgram, 1967: mean over the 64 letters that arrived]{.cap}
-:::
-::: {.fq}
-[3.57]{.big}[Facebook, 2016: 1.59 × 10⁹ people]{.cap}
-:::
-::::
-
-[Milgram needed volunteers and postage. What *procedure* answers the same question from the network itself?]{.ask}
-
-::: {.source}
-Milgram, *Psychology Today* (1967); Edunov, Diuk, Filiz, Bhagat & Burke, Facebook Research (2016)
-:::
-<!-- MOTIVATION:M05-A:END -->
-
 <!-- MOTIVATION:M05-B:BEGIN -->
 ## Whose contacts, within two steps?
 
 ::: {.motivation}
 [Motivating example]{.label}
-A case is confirmed on Monday. Public health needs everyone this person met, and
-everyone **those** people met, but not the whole population, and not next week.
-On the contact graph of a mid-sized city that is thousands of people, and it
-must be answered in **seconds**.
+A case is confirmed on Monday. Public health needs everyone this person met and
+everyone **those** people met, without checking the whole population.
+On the contact graph of a mid-sized city this is thousands of people, and the
+answer is needed in **seconds**.
 :::
 
-- "Everyone within two steps" is easy to say and useless until you specify
+- "Everyone within two steps" is easy to say, but a machine needs to know
   *which person you look at next* and *how you know you are finished*.
 
-[What is the exact recipe, and how do you keep from going round in circles?]{.ask}
+[What is the exact recipe to find them and how do you keep from going round in circles?]{.ask}
 <!-- MOTIVATION:M05-B:END -->
 
 <!-- MOTIVATION:M05-C:BEGIN -->
@@ -108,26 +81,26 @@ must be answered in **seconds**.
 
 ::: {.motivation}
 [Motivating example]{.label}
-You want to store who is friends with whom among the **84 million** people in
-Germany. Written as a table of everyone against everyone, that is
-**7 × 10¹⁵ cells**, seven petabits at one bit each, more than most data centers
-hold. Written the other way round it fits on a laptop and answers the same
-questions.
+You want to store who is friends with whom among the **3 billion** users of
+Facebook. Written as a table of everyone against everyone, this takes
+**9 × 10<sup>18</sup> cells**, i.e. about one exabyte at one bit each. Written
+as a list of friends per user, with about 200 friends each, it takes about
+2.4 terabytes and answers the same questions.
 :::
 
 :::: {.figures}
 ::: {.fq}
-[7 × 10¹⁵]{.big}[cells, as a matrix]{.cap}
+[9 × 10<sup>18</sup>]{.big}[cells, as a matrix]{.cap}
 :::
 ::: {.fq}
-[8 × 10⁹]{.big}[friendships, as adjacency lists]{.cap}
+[3 × 10<sup>11</sup>]{.big}[friendships, as adjacency lists]{.cap}
 :::
 ::: {.fq}
-[~10⁶×]{.big}[smaller, same facts]{.cap}
+[~500,000×]{.big}[smaller, same facts]{.cap}
 :::
 ::::
 
-[Same network, same questions. Why does the *representation* decide whether the study can happen?]{.ask}
+[Why are the memory requirements so different and when could they be more similar?]{.ask}
 <!-- MOTIVATION:M05-C:END -->
 
 ## What is an algorithm?
@@ -135,19 +108,23 @@ questions.
 ::: {.definition}
 [Definition]{.label}
 
-::: {}
+::: {.sm}
 An algorithm is a self-contained step-by-step set of operations to solve a given problem. Algorithms perform calculation, data processing, and/or automated reasoning tasks.
 :::
+:::
+
+::: {.center-h}
+![](figures/05-algorithm-examples.svg){height="8.6em"}
 :::
 
 ## Other uses of the word algorithm {.fit1}
 
 :::: {.columns}
-::: {.column width="72%"}
+::: {.column width="66%"}
 ::: {.sm}
 The word *algorithm* is commonly used nowadays with slightly different meanings, especially in the context of Artificial Intelligence:
 
-- Algorithm as **method to fit a predictive model**. Can be as simple as least squares to fit linear regression and as complicated as distributed stochastic gradient descent to fit neural networks
+- Algorithm as **method to fit a predictive model**. It can be as simple as least squares to fit linear regression and as complicated as distributed stochastic gradient descent to fit neural networks
 - Algorithm as **the model after training**. This focuses on the predictive model as a program with a behavior that is not carefully designed, but learned from empirical data.
 :::
 
@@ -156,11 +133,11 @@ Related terms to these other meanings: algorithmic bias, algorithmic media, mach
 :::
 :::
 
-::: {.column width="28%"}
+::: {.column width="34%"}
 ::: {.imgcol}
-![](figures/book-algorithms-of-oppression.png){height="6.0em"}
+![](figures/book-algorithms-of-oppression.png){height="7.4em"}
 
-![](figures/book-weapons-of-math-destruction.jpg){height="5.8em"}
+![](figures/book-weapons-of-math-destruction.jpg){height="7.4em"}
 :::
 :::
 ::::
@@ -179,26 +156,28 @@ Related terms to these other meanings: algorithmic bias, algorithmic media, mach
 :::
 
 ::: {.column width="38%"}
-![](figures/al-khwarizmi.jpg){height="7.4em"}
+::: {.center-h}
+![](figures/al-khwarizmi.jpg){height="9.0em"}
+:::
 :::
 ::::
 
 ::: {.xs}
 - It is clear that algorithms predate him (e.g. in Babylon, Egypt, India, and Greece)
 - He widely popularized the idea of systematic treatment of data (numbers)
-- He emphasized doing this in as few steps as possible - thus using a decimal system with pen and paper rather than Roman numerals with an abacus
+- He emphasized doing this in as few steps as possible, thus using a decimal system with pen and paper rather than Roman numerals with an abacus
 :::
 
-## Algorithms: python example {.fit1}
+## Example: finding the kth smallest element {.fit1}
 
 :::: {.columns}
-::: {.column width="52%"}
-::: {.codewrap style="font-size:1.00em"}
+::: {.column width="56%"}
+::: {.codewrap style="font-size:1.25em"}
 <pre class="pseudocode"><b>Procedure</b> K-SMALLEST-ELEMENT(<i>M</i>, <i>n</i>, <i>k</i>)
 <i>Inputs:</i>
-  <i>M</i>: an array
-  <i>n</i>: the number of elements in <i>M</i>
-  <i>k</i>: which smallest element to find (<i>k</i> = 1 is the minimum)
+      <i>M</i>: an array
+      <i>n</i>: the number of elements in <i>M</i>
+      <i>k</i>: the rank to find (<i>k</i> = 1 is the minimum)
 <i>Result:</i> the <i>k</i>-th smallest element of <i>M</i>
 <b>For</b> <i>i</i> = 1 to <i>k</i>:
       <i>smallest</i> &larr; <i>i</i>
@@ -210,219 +189,181 @@ Related terms to these other meanings: algorithmic bias, algorithmic media, mach
 :::
 :::
 
-::: {.column width="48%"}
-::: {.xs}
-**Example: kth smallest element in a list**
+::: {.column width="44%"}
+::: {.sm}
+**The idea:** in round $i$, find the smallest of the elements not yet placed and swap it to position $i$. After $k$ rounds, position $k$ holds the $k$-th smallest element.
 
-`Inputs:` list `M` of length `n`, index `k`<br>
-`Data:` `i, j, m, min_val`<br>
-`Result:` the `k`-th smallest element of `M`
+**Example:** $M = [34, 51, 27, 46]$, $k = 2$
 
-::: {.codewrap style="font-size:1.00em"}
-```python
-def min_k(M, k):
-    for i in range(0, k):
-        m = i
-        min_val = M[i]
-        for j in range(i+1, len(M)):
-            if M[j] < min_val:
-                m = j
-                min_val = M[j]
-        M[i], M[m] = M[m], M[i]
-    return M[k-1]
-```
-:::
+- Round 1 swaps 27 to the front: $[27, 51, 34, 46]$
+- Round 2 swaps 34 to position 2: $[27, 34, 51, 46]$
+- The algorithm returns $M[2] = 34$
 :::
 :::
 ::::
 
-## Algorithms: properties
+## Properties of algorithms: specification {.fit1}
 
 :::: {.columns}
-::: {.column width="46%"}
+::: {.column width="56%"}
+::: {.codewrap style="font-size:1.25em"}
+<pre class="pseudocode"><b>Procedure</b> K-SMALLEST-ELEMENT(<i>M</i>, <i>n</i>, <i>k</i>)
+<span class="hl"><i>Inputs:</i></span>
+<span class="hl">      <i>M</i>: an array</span>
+<span class="hl">      <i>n</i>: the number of elements in <i>M</i></span>
+<span class="hl">      <i>k</i>: the rank to find (<i>k</i> = 1 is the minimum)</span>
+<span class="hl"><i>Result:</i> the <i>k</i>-th smallest element of <i>M</i></span>
+<b>For</b> <i>i</i> = 1 to <i>k</i>:
+      <i>smallest</i> &larr; <i>i</i>
+      <b>For</b> <i>j</i> = <i>i</i> + 1 to <i>n</i>:
+            <b>If</b> <i>M</i>[<i>j</i>] &lt; <i>M</i>[<i>smallest</i>]
+                  <b>then</b> <i>smallest</i> &larr; <i>j</i>
+      swap <i>M</i>[<i>i</i>] with <i>M</i>[<i>smallest</i>]
+<b>return</b> <i>M</i>[<i>k</i>]</pre>
+:::
+:::
+
+::: {.column width="44%"}
 ::: {.sm}
 **Specification:**
 
-- **input specification:** required input such that a given output can be produced (many or no inputs)
+- **Input specification:** the input required so that the output can be produced (many inputs or none)
+- **Output specification:** the result the algorithm produces
 
-<br>
-
-- **output specification:** result to be produced by the algorithm
-:::
-:::
-
-::: {.column width="54%"}
-::: {.xs}
-**Example: kth smallest element in a list**
-
-::: {.codewrap style="font-size:1.10em"}
-```python
-def min_k(M, k):
-    for i in range(0, k):
-        m = i
-        min_val = M[i]
-        for j in range(i+1, len(M)):
-            if M[j] < min_val:
-                m = j
-                min_val = M[j]
-        M[i], M[m] = M[m], M[i]
-    return M[k-1]
-```
-:::
+**In the example (highlighted):** the inputs are the array $M$, its length $n$ and the rank $k$. The result is the $k$-th smallest element of $M$.
 :::
 :::
 ::::
 
-## Algorithms: properties
+## Properties of algorithms: transferability {.fit1}
 
 :::: {.columns}
-::: {.column width="46%"}
+::: {.column width="56%"}
+::: {.codewrap style="font-size:1.25em"}
+<pre class="pseudocode"><span class="hl"><b>Procedure</b> K-SMALLEST-ELEMENT(<i>M</i>, <i>n</i>, <i>k</i>)</span>
+<i>Inputs:</i>
+      <i>M</i>: an array
+      <i>n</i>: the number of elements in <i>M</i>
+      <i>k</i>: the rank to find (<i>k</i> = 1 is the minimum)
+<i>Result:</i> the <i>k</i>-th smallest element of <i>M</i>
+<b>For</b> <i>i</i> = 1 to <i>k</i>:
+      <i>smallest</i> &larr; <i>i</i>
+      <b>For</b> <i>j</i> = <i>i</i> + 1 to <i>n</i>:
+            <b>If</b> <i>M</i>[<i>j</i>] &lt; <i>M</i>[<i>smallest</i>]
+                  <b>then</b> <i>smallest</i> &larr; <i>j</i>
+      swap <i>M</i>[<i>i</i>] with <i>M</i>[<i>smallest</i>]
+<b>return</b> <i>M</i>[<i>k</i>]</pre>
+:::
+:::
+
+::: {.column width="44%"}
 ::: {.sm}
 **Transferability:**
 
-- input should be parameterizable
-- different instances of the problem must be allowed as inputs
+- The input is given as parameters
+- Different instances of the problem must be allowed as inputs
 
-The example allows lists of any possible length, not just one length
-
-It also allows to find any kth smallest element, not just for one k
-:::
-:::
-
-::: {.column width="54%"}
-::: {.xs}
-**Example: kth smallest element in a list**
-
-::: {.codewrap style="font-size:1.10em"}
-```python
-def min_k(M, k):
-    for i in range(0, k):
-        m = i
-        min_val = M[i]
-        for j in range(i+1, len(M)):
-            if M[j] < min_val:
-                m = j
-                min_val = M[j]
-        M[i], M[m] = M[m], M[i]
-    return M[k-1]
-```
-:::
+**In the example (highlighted):** $M$, $n$ and $k$ are parameters, so the same procedure works for an array of any length and for any $k$ from 1 to $n$, not for one fixed list.
 :::
 :::
 ::::
 
-## Algorithms: properties {.fit1}
+## Properties of algorithms: description and execution {.fit1}
 
 :::: {.columns}
-::: {.column width="46%"}
+::: {.column width="56%"}
+::: {.codewrap style="font-size:1.25em"}
+<pre class="pseudocode"><b>Procedure</b> K-SMALLEST-ELEMENT(<i>M</i>, <i>n</i>, <i>k</i>)
+<i>Inputs:</i>
+      <i>M</i>: an array
+      <i>n</i>: the number of elements in <i>M</i>
+      <i>k</i>: the rank to find (<i>k</i> = 1 is the minimum)
+<i>Result:</i> the <i>k</i>-th smallest element of <i>M</i>
+<span class="hl"><b>For</b> <i>i</i> = 1 to <i>k</i>:</span>
+      <i>smallest</i> &larr; <i>i</i>
+<span class="hl">      <b>For</b> <i>j</i> = <i>i</i> + 1 to <i>n</i>:</span>
+            <b>If</b> <i>M</i>[<i>j</i>] &lt; <i>M</i>[<i>smallest</i>]
+                  <b>then</b> <i>smallest</i> &larr; <i>j</i>
+      swap <i>M</i>[<i>i</i>] with <i>M</i>[<i>smallest</i>]
+<b>return</b> <i>M</i>[<i>k</i>]</pre>
+:::
+:::
+
+::: {.column width="44%"}
 ::: {.sm}
 **Description:**
 
-- **finiteness:** must terminate after a finite number of steps
-- **definiteness:** each step must be clear, well-defined and precise (no ambiguity)
+- **Finiteness:** it must terminate after a finite number of steps
+- **Definiteness:** each step is clear, well defined and precise
 
-**Execution and return, alternatives:**
+**Execution:** **deterministic** (same input, same output) or **stochastic** (a random component makes the output vary)
 
-- **deterministic:** same output for same input(s)
-- **stochastic:** a random component makes the output vary for the same input(s)
-:::
-:::
-
-::: {.column width="54%"}
-::: {.sm}
-**Example: kth smallest element in a list**
-
-::: {.codewrap style="font-size:1.10em"}
-```python
-def min_k(M, k):
-    for i in range(0, k):
-        m = i
-        min_val = M[i]
-        for j in range(i+1, len(M)):
-            if M[j] < min_val:
-                m = j
-                min_val = M[j]
-        M[i], M[m] = M[m], M[i]
-    return M[k-1]
-```
-:::
+**In the example (highlighted):** both loops have fixed bounds, so it stops after at most $k \cdot n$ steps. Nothing is random, so it is deterministic.
 :::
 :::
 ::::
 
-## Algorithms: properties {.fit1}
+## Properties of algorithms: time and memory complexity {.fit1}
 
 :::: {.columns}
-::: {.column width="46%"}
+::: {.column width="56%"}
+::: {.codewrap style="font-size:1.25em"}
+<pre class="pseudocode"><b>Procedure</b> K-SMALLEST-ELEMENT(<i>M</i>, <i>n</i>, <i>k</i>)
+<i>Inputs:</i>
+      <i>M</i>: an array
+      <i>n</i>: the number of elements in <i>M</i>
+      <i>k</i>: the rank to find (<i>k</i> = 1 is the minimum)
+<i>Result:</i> the <i>k</i>-th smallest element of <i>M</i>
+<b>For</b> <i>i</i> = 1 to <i>k</i>:
+      <i>smallest</i> &larr; <i>i</i>
+      <b>For</b> <i>j</i> = <i>i</i> + 1 to <i>n</i>:
+<span class="hl">            <b>If</b> <i>M</i>[<i>j</i>] &lt; <i>M</i>[<i>smallest</i>]</span>
+                  <b>then</b> <i>smallest</i> &larr; <i>j</i>
+      swap <i>M</i>[<i>i</i>] with <i>M</i>[<i>smallest</i>]
+<b>return</b> <i>M</i>[<i>k</i>]</pre>
+:::
+:::
+
+::: {.column width="44%"}
 ::: {.sm}
-**Time complexity:**
+**Time complexity:** the effort the algorithm needs, measured by counting key operations such as comparisons
 
-- effort the given algorithm needs for completion
-- is dependent on specific implementation
-- measured by counting the number of key operations such as comparisons in the sorting algorithm
+**Memory complexity:** the memory needed during execution, measured as the maximum space used
 
-**Memory complexity:**
-
-- required memory during execution
-- measured by counting the maximum memory space required by the algorithm
-:::
-:::
-
-::: {.column width="54%"}
-::: {.sm}
-**Example: kth smallest element in a list**
-
-::: {.codewrap style="font-size:1.10em"}
-```python
-def min_k(M, k):
-    for i in range(0, k):
-        m = i
-        min_val = M[i]
-        for j in range(i+1, len(M)):
-            if M[j] < min_val:
-                m = j
-                min_val = M[j]
-        M[i], M[m] = M[m], M[i]
-    return M[k-1]
-```
-:::
+**In the example (highlighted):** the comparison runs fewer than $k \cdot n$ times. Besides $M$, the algorithm only stores $i$, $j$ and $smallest$, so its extra memory does not grow with $n$.
 :::
 :::
 ::::
 
-## Algorithms: properties
+## Properties of algorithms: correctness {.fit1}
 
 :::: {.columns}
-::: {.column width="46%"}
+::: {.column width="56%"}
+::: {.codewrap style="font-size:1.25em"}
+<pre class="pseudocode"><b>Procedure</b> K-SMALLEST-ELEMENT(<i>M</i>, <i>n</i>, <i>k</i>)
+<i>Inputs:</i>
+      <i>M</i>: an array
+      <i>n</i>: the number of elements in <i>M</i>
+      <i>k</i>: the rank to find (<i>k</i> = 1 is the minimum)
+<i>Result:</i> the <i>k</i>-th smallest element of <i>M</i>
+<b>For</b> <i>i</i> = 1 to <i>k</i>:
+      <i>smallest</i> &larr; <i>i</i>
+      <b>For</b> <i>j</i> = <i>i</i> + 1 to <i>n</i>:
+            <b>If</b> <i>M</i>[<i>j</i>] &lt; <i>M</i>[<i>smallest</i>]
+                  <b>then</b> <i>smallest</i> &larr; <i>j</i>
+<span class="hl">      swap <i>M</i>[<i>i</i>] with <i>M</i>[<i>smallest</i>]</span>
+<span class="hl"><b>return</b> <i>M</i>[<i>k</i>]</span></pre>
+:::
+:::
+
+::: {.column width="44%"}
 ::: {.sm}
 **Correctness:**
 
-- **partial correctness:** whenever the algorithm terminates, its output is correct
+- **Partial correctness:** whenever the algorithm terminates, its output is correct
+- **Termination:** for correct inputs, it always terminates in a finite number of steps
 
-<br>
-
-- **terminates:** for correct inputs, the algorithm must always terminate in a finite number of steps
-:::
-:::
-
-::: {.column width="54%"}
-::: {.xs}
-**Example: kth smallest element in a list**
-
-::: {.codewrap style="font-size:1.10em"}
-```python
-def min_k(M, k):
-    for i in range(0, k):
-        m = i
-        min_val = M[i]
-        for j in range(i+1, len(M)):
-            if M[j] < min_val:
-                m = j
-                min_val = M[j]
-        M[i], M[m] = M[m], M[i]
-    return M[k-1]
-```
-:::
+**In the example (highlighted):** after round $i$, positions 1 to $i$ hold the $i$ smallest elements in order. So $M[k]$ is the $k$-th smallest for any $1 \le k \le n$.
 :::
 :::
 ::::
@@ -500,7 +441,7 @@ bookkeeping</pre>
 
 :::: {.columns}
 ::: {.column width="50%"}
-::: {.codewrap style="font-size:1.50em"}
+::: {.codewrap style="font-size:1.10em"}
 <pre class="pseudocode"><b>Procedure</b> NAME(<i>inputs</i>)
 <i>Inputs:</i> input variables
 <i>Data:</i> auxiliary variables
@@ -542,7 +483,7 @@ Make sure loops and conditional scopes are **unambiguous**
 ![](figures/05-flowchart-profit.svg){height="12.4em"}
 :::
 
-## Flowcharts {.fit2}
+## Flowchart symbols {.fit2}
 
 :::: {.columns}
 ::: {.column width="64%"}
@@ -565,7 +506,7 @@ Make sure loops and conditional scopes are **unambiguous**
 :::
 ::::
 
-## Flowchart example
+## Example: a flowchart with a conditional
 
 :::: {.columns}
 ::: {.column width="42%"}
@@ -580,7 +521,7 @@ Make sure loops and conditional scopes are **unambiguous**
 - If the condition is true, it takes the right path:
   - Calculate profit as SP-CP
   - Output profit
-- if the condition is false, it takes the bottom path:
+- If the condition is false, it takes the bottom path:
   - Calculate loss as CP - SP
   - Then output loss
 - Program ends
@@ -588,42 +529,54 @@ Make sure loops and conditional scopes are **unambiguous**
 :::
 ::::
 
-## Exercise: write pseudocode as a flowchart
+## Example: a flowchart for the kth smallest element {.fit1}
 
-::: {.example style="width:62%;margin:0.6em auto"}
-::: {.xs}
-**Example: kth smallest element in a list**
-
-`Inputs:` list `M` of length `n`, index `k`<br>
-`Data:` `i, j, m, min_val`<br>
-`Result:` the `k`-th smallest element of `M`
-
-::: {.codewrap style="font-size:1.20em"}
-```python
-def min_k(M, k):
-    for i in range(0, k):
-        m = i
-        min_val = M[i]
-        for j in range(i+1, len(M)):
-            if M[j] < min_val:
-                m = j
-                min_val = M[j]
-        M[i], M[m] = M[m], M[i]
-    return M[k-1]
-```
-:::
-:::
-:::
-
-## Another flowchart example
-
+:::: {.columns}
+::: {.column width="54%"}
 ::: {.center-h}
-![](figures/blockchain-flowchart.png){height="14.1em"}
+![](figures/05-flowchart-kth.svg){height="16.4em"}
+:::
 :::
 
-::: {.source}
-<https://www.reddit.com/r/ProgrammerHumor/comments/7etmm1/a_diagram_to_help_you_decide_whether_blockchain/>
+::: {.column width="46%"}
+::: {.sm}
+- **Start and stop** (green): where the program begins and ends
+- **Data** (brown): reads $M$, $n$, $k$ and outputs $M[k]$
+- **Operations** (gray): change values, such as the swap
+- **Conditions** (red): $i \le k$ and $j \le n$ decide whether a loop runs again, $M[j] < M[smallest]$ whether a smaller element was found
+- **Arrows back up** are the loops: the outer one returns to $i \le k$, the inner one to $j \le n$
 :::
+:::
+::::
+
+## Pseudocode and flowchart side by side {.fit1}
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {.codewrap style="font-size:1.30em"}
+<pre class="pseudocode"><b>Procedure</b> K-SMALLEST-ELEMENT(<i>M</i>, <i>n</i>, <i>k</i>)
+<i>Inputs:</i>
+      <i>M</i>: an array
+      <i>n</i>: the number of elements in <i>M</i>
+      <i>k</i>: the rank to find (<i>k</i> = 1 is the minimum)
+<i>Result:</i> the <i>k</i>-th smallest element of <i>M</i>
+<b>For</b> <i>i</i> = 1 to <i>k</i>:
+      <i>smallest</i> &larr; <i>i</i>
+      <b>For</b> <i>j</i> = <i>i</i> + 1 to <i>n</i>:
+            <b>If</b> <i>M</i>[<i>j</i>] &lt; <i>M</i>[<i>smallest</i>]
+                  <b>then</b> <i>smallest</i> &larr; <i>j</i>
+      swap <i>M</i>[<i>i</i>] with <i>M</i>[<i>smallest</i>]
+<b>return</b> <i>M</i>[<i>k</i>]</pre>
+:::
+
+:::
+
+::: {.column width="50%"}
+::: {.center-h}
+![](figures/05-flowchart-kth.svg){height="16.4em"}
+:::
+:::
+::::
 
 ## Abstract Data Structures
 
@@ -649,18 +602,18 @@ def min_k(M, k):
   - binary search trees
   - associative arrays (= dictionaries)
 - Choice of data structure matters a lot for performance of specific algorithms
-  - next: illustrative examples for each structure
+  - we will see illustrative examples next
 :::
 
-## Queues
+## Queues {.fit1}
 
 :::: {.columns}
 ::: {.column width="56%"}
-::: {}
-- Linear data structure following the **FIFO** principle: First In, First Out
+::: {.sm}
+- Linear data structure following the **FIFO** principle, i.e. First In, First Out
 - Two operations:
-  - ENQUEUE($Q$, $v$): add element $v$ to the rear of the queue $Q$
-  - DEQUEUE($Q$): remove and return the element at the front of the queue $Q$
+  - ENQUEUE($Q$, $v$) adds element $v$ to the rear of the queue $Q$
+  - DEQUEUE($Q$) removes and returns the element at the front of the queue $Q$
 - Example applications:
   - processing requests in order
   - having several queues for priority
@@ -677,14 +630,14 @@ def min_k(M, k):
 :::: {.columns}
 ::: {.column width="56%"}
 ::: {.sm}
-- Linear data structure following the **LIFO** principle: Last In, First Out
+- Linear data structure following the **LIFO** principle, i.e. Last In, First Out
 - Two operations:
-  - PUSH($S$, $v$): add an element $v$ to the top of the stack $S$
-  - POP($S$): remove and return the most recently added element, i.e. the top of the stack $S$
+  - PUSH($S$, $v$) adds an element $v$ to the top of the stack $S$
+  - POP($S$) removes and returns the most recently added element, i.e. the top of the stack $S$
 - Example applications:
   - Stack segment of the memory
     - management of layered execution of sub-routines
-  - Recursion: more details in next session
+  - Recursion, with more details in the Recursion session
 :::
 :::
 
@@ -707,7 +660,9 @@ Example of a graph representation in a problem that motivated graph theory
 :::
 
 ::: {.column width="52%"}
+::: {.center-h}
 ![](figures/koenigsberg-bridges.png){height="10.0em"}
+:::
 
 ::: {.source}
 By Peter Berger: *Einführung in die Graphentheorie*
@@ -724,31 +679,31 @@ Many real-world structures can be represented as a graph. Examples are:
 :::: {.columns}
 ::: {.column width="33%"}
 ::: {.center-h}
-![](figures/graph-road-map.png){height="3.5em"}
+![](figures/graph-road-map.png){height="5.1em"}
 
-::: {}
+::: {.xs}
 A road map
 :::
 
-![](figures/graph-company-ownership.jpg){height="3.5em"}
+![](figures/graph-company-ownership-d.jpg){height="5.1em"}
 
-::: {}
-Ownership between companies
+::: {.xs}
+Company ownerships
 :::
 :::
 :::
 
 ::: {.column width="33%"}
 ::: {.center-h}
-![](figures/graph-internet.jpg){height="3.5em"}
+![](figures/graph-internet.jpg){height="5.1em"}
 
-::: {}
+::: {.xs}
 The Internet
 :::
 
-![](figures/graph-web.jpg){height="3.5em"}
+![](figures/graph-web.jpg){height="5.1em"}
 
-::: {}
+::: {.xs}
 The Web
 :::
 :::
@@ -756,15 +711,15 @@ The Web
 
 ::: {.column width="33%"}
 ::: {.center-h}
-![](figures/graph-word-associations.jpg){height="3.5em"}
+![](figures/graph-word-associations.jpg){height="5.1em"}
 
-::: {}
+::: {.xs}
 Word associations
 :::
 
-![](figures/graph-social-relations.png){height="3.5em"}
+![](figures/graph-social-relations.png){height="5.1em"}
 
-::: {}
+::: {.xs}
 Social relations
 :::
 :::
@@ -773,16 +728,16 @@ Social relations
 
 ## Graphs
 
-::: {}
+::: {.sm}
 - consist of **vertices** and **edges**
 - especially suitable to represent interdependencies between data points
 :::
 
 ::: {.center-h}
-![](figures/05-graph-v1v8.svg){height="10.9em"}
+![](figures/05-graph-v1v8.svg){height="11.6em"}
 :::
 
-## Graphs
+## Graphs: vertices and edges
 
 ::: {.sm}
 - **vertices** represent any object
@@ -819,18 +774,18 @@ A graph $G$ is a tuple $G = (V, E)$, where
 ::: {.definition}
 [Definition of Adjacency Matrix]{.label}
 
-::: {.xs}
-If $G = (V, E)$ is a graph then two vertices $v, w \in V$ are **adjacent** if they are connected by an edge $\{v, w\} \in E$.
-The matrix $A(G)$ is called **adjacency matrix** if $a_{v,w} = 1$ if $\{v, w\} \in E$ and $a_{v,w} = 0$ otherwise.
+::: {.sm}
+Two vertices $v, w \in V$ of a graph $G = (V, E)$ are **adjacent** if they are connected by an edge $\{v, w\} \in E$.
+The **adjacency matrix** $A(G)$ has $a_{v,w} = 1$ if $\{v, w\} \in E$ and $a_{v,w} = 0$ otherwise.
 :::
 :::
 
 :::: {.columns}
-::: {.column width="46%"}
-![](figures/05-graph-v1v8.svg){height="9.5em"}
+::: {.column width="55%"}
+![](figures/05-graph-v1v8.svg){height="10.8em"}
 :::
 
-::: {.column width="54%"}
+::: {.column width="45%"}
 ::: {.xxs}
 $$A(G) = \begin{array}{c|cccccccc}
  & v_1 & v_2 & v_3 & v_4 & v_5 & v_6 & v_7 & v_8\\\hline
@@ -847,22 +802,23 @@ v_8 & 0&0&0&0&1&0&1&0
 :::
 ::::
 
-## Adjacency list
+## Adjacency list {.fit1}
 
 ::: {.sm}
 **Adjacency list:** Alternative representation to adjacency matrix
 
 - array of vertices in which all neighbors are stored as a linear list
-- compressed representation of an adjacency matrix where all zeros have been eliminated. More memory efficient for sparse graphs.
+- compressed representation of an adjacency matrix where all zeros have been eliminated
+- more memory efficient for sparse graphs
 :::
 
 :::: {.columns}
-::: {.column width="48%"}
-![](figures/05-graph-v1v8.svg){height="7.9em"}
+::: {.column width="62%"}
+![](figures/05-graph-v1v8.svg){height="9.6em"}
 :::
 
-::: {.column width="52%"}
-::: {.tbl-grid .xs}
+::: {.column width="38%"}
+::: {.tbl-grid .sm}
 | | |
 |---|---|
 | $v_1$ | $\rightarrow v_2$ |
@@ -877,64 +833,82 @@ v_8 & 0&0&0&0&1&0&1&0
 :::
 ::::
 
-## Adjacency Matrix vs Adjacency List {.fit2}
+## Adjacency Matrix vs Adjacency List {.fit1}
 
+:::: {.columns}
+::: {.column width="48%"}
 ::: {.sm}
-Comparing adjacency matrix and list representation
-
-- example 1: does an edge exist between $v_i$ and $v_j$?
-  - adjacency matrix: direct access
-  - adjacency list: iterate through all neighbors
-- example 2: how many edges does a vertex $v_i$ have?
-  - adjacency matrix: iterate through all vertices
-  - adjacency list: iterate only through all neighbors
-- choice of representation clearly matters for access efficiency
+- Does an edge exist between $v_i$ and $v_j$?
+  - the matrix gives direct access
+  - the list iterates through the neighbors
+- How many edges does $v_i$ have?
+  - the matrix iterates through all vertices
+  - the list iterates only through the neighbors
+- Adjacency lists are more memory efficient for **sparse** networks, i.e. networks with few edges per node
+:::
 :::
 
+::: {.column width="52%"}
+::: {.example .sm}
+[The network that would not fit, calculated]{.label}
+Facebook has about $n = 3 \times 10^9$ users with about 200 friends each.
+
+- **Adjacency matrix:** $n^2 = 9 \times 10^{18}$ cells at one bit each, i.e. about 1.1 exabytes
+- **Adjacency lists:** $3 \times 10^{11}$ friendships, each stored twice, i.e. $6 \times 10^{11}$ entries of 4 bytes, about 2.4 terabytes
+- The lists are about 500,000 times smaller and hold the same facts
+:::
+:::
+::::
+
+## Examples of Graph Problems {.fit1}
+
+:::: {.columns}
+::: {.column width="42%"}
 ::: {.sm}
-Adjacency lists are more memory efficient for **sparse** networks (few edges per node)
-
-- If Facebook stored the friendship network data of 2.7 Billion users as an adjacency matrix and each entry in the matrix took just one bit, it would take 455 Petabytes (455,000 Terabytes) to store just the presence or absence of friendships between users.
+- [**Shortest paths**]{style="color:#e07b00"} and distances between nodes
+- [**Connected subgraphs**]{style="color:#00a9e0"}, with a path between every two of their nodes
+- [**Central nodes**]{style="color:#3e5496"}, with the shortest average distance to the others
+- [**Spanning trees**]{style="color:#2e9e4f"} that connect all nodes with the fewest edges
+- **Coloring** nodes so that no two neighbors share a color
+- **Isomorphism**: can two graphs be mapped onto each other?
+:::
 :::
 
-## Examples of Graph Problems
-
-::: {}
-- Finding distances between nodes and shortest paths
-- Finding subgraphs that are connected: i.e. there are paths between every two nodes in the subgraph
-- Coloring nodes such that two neighbors do not have the same color
-- Finding the nodes with the shortest average distance to all other nodes
-- Ranking nodes by the number of shortest paths that go through them
-- Finding a tree that connects all nodes with the lowest number of edges
-- Finding a path connecting all nodes and using edges at most once
-- Finding if two graphs can be mapped into each other (isomorphism)
-:::
-
-## Example: Finding distances {.fit2}
-
-::: {.sm}
-Let's consider this (undirected) graph $G = (V, E)$ with<br>
-$V = \{a,b,c,d,e,f,g\}$ and<br>
-$E = \{\{a,e\}, \{e,b\}, \{b,c\}, \{c,f\}, \{c,g\}, \{d,g\}, \{e,f\}\}$
-:::
-
+::: {.column width="58%"}
 ::: {.center-h}
-![](figures/05-bfs-init.svg){height="7.0em"}
+![](figures/05-graph-problems.svg){height="15.6em"}
 :::
+:::
+::::
+
+## Example: Finding distances {.fit1}
 
 ::: {.sm}
-**Problem:** Given a source node (aka starting node) $s$,
-
-(a) find all reachable nodes from it and
-(b) find a shortest path to each of them from $s$
-
-$\rightarrow$ To do so use the **Breadth-First Search (BFS)** algorithm
+**Problem:** given a source node (also called starting node) $s$, find all nodes reachable from it and a shortest path to each of them
 :::
+
+:::: {.columns}
+::: {.column width="55%"}
+::: {.sm}
+Let's consider this undirected graph $G = (V, E)$ with
+
+- $V = \{a,b,c,d,e,f,g\}$
+- $E = \{\{a,e\}, \{e,b\}, \{b,c\}, \{c,f\},$ $\{c,g\}, \{d,g\}, \{e,f\}\}$
+- source node $s = c$
+
+$\rightarrow$ To solve it we use the **Breadth-First Search (BFS)** algorithm
+:::
+:::
+
+::: {.column width="45%"}
+![](figures/05-bfs-init-full.svg){height="11.6em"}
+:::
+::::
 
 ## Algorithm: Breadth-First Search {.fit1}
 
 ::: {.sm}
-The first step is to initialize the graph with the INITIALIZE-BFS($G$, $s$) procedure.
+**The first step is to initialize the graph with the INITIALIZE-BFS($G$, $s$) procedure**
 :::
 
 :::: {.columns}
@@ -942,10 +916,9 @@ The first step is to initialize the graph with the INITIALIZE-BFS($G$, $s$) proc
 ::: {.codewrap style="font-size:1.10em"}
 <pre class="pseudocode"><b>Procedure</b> INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Inputs:</i>
-  <i>G</i>: an undirected graph
-  <i>s</i>: the starting node
-<i>Result:</i> the graph is initialized for a breadth-first
-search starting at node <i>s</i>
+      <i>G</i>: an undirected graph
+      <i>s</i>: the starting node
+<i>Result:</i> the graph is initialized for a search from <i>s</i>
 <b>For</b> each vertex <i>u</i> in <i>G</i>.<i>V</i> \ {<i>s</i>}:
       color[<i>u</i>] &larr; WHITE
       <i>d</i>[<i>u</i>] &larr; &infin;            # distance
@@ -957,10 +930,10 @@ color[<i>s</i>] &larr; GRAY
 :::
 
 ::: {.column width="45%"}
-![](figures/05-bfs-init-full.svg){height="10.6em"}
+![](figures/05-bfs-init-full.svg){height="9.7em"}
 
 ::: {.xs}
-Initialized with starting node $s = c$. The distance is inside each node, its name above or below it, and its parent in gray capitals (NIL for all nodes so far).
+Initialized with starting node $s = c$. The distance is inside each node, its name above or below it, and its parent in gray capitals. The fill is the color: $c$ is GRAY and all other nodes are WHITE.
 :::
 :::
 ::::
@@ -970,321 +943,329 @@ Initialized with starting node $s = c$. The distance is inside each node, its na
 ::: {.codewrap style="font-size:1.00em"}
 <pre class="pseudocode"><b>Procedure</b> BFS(<i>G</i>, <i>s</i>)
 <i>Inputs:</i>
-  <i>G</i>: an undirected graph
-  <i>s</i>: the starting node
+      <i>G</i>: an undirected graph
+      <i>s</i>: the starting node
 <i>Result:</i> every node reachable from <i>s</i> stores its distance <i>d</i> to <i>s</i> and its parent &pi;
 INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
-ENQUEUE(<i>Q</i>, <i>s</i>)                             # put s in the queue Q
+<span class="cc">ENQUEUE(<i>Q</i>, <i>s</i>)</span># put s in the queue Q
 <b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)                    # take the next element from the queue Q
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):  # check all neighbors of u
-               <b>If</b> color[<i>v</i>] = WHITE           # only continue if v has not been seen yet
-                      <b>then</b> color[<i>v</i>] &larr; GRAY     # mark v as seen
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1   # one step further than u
-                              &pi;[<i>v</i>] &larr; <i>u</i>          # u is the parent of v
-                              ENQUEUE(<i>Q</i>, <i>v</i>)      # put v in the queue Q
-        color[<i>u</i>] &larr; BLACK                   # all neighbors of u have been processed</pre>
+<span class="cc">      <i>u</i> &larr; DEQUEUE(<i>Q</i>)</span># take the next element from the queue Q
+<span class="cc">      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span># check all neighbors of u
+<span class="cc">            <b>If</b> color[<i>v</i>] = WHITE</span># only continue if v has not been seen yet
+<span class="cc">                  <b>then</b> color[<i>v</i>] &larr; GRAY</span># mark v as seen
+<span class="cc">                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1</span># one step further than u
+<span class="cc">                       &pi;[<i>v</i>] &larr; <i>u</i></span># u is the parent of v
+<span class="cc">                       ENQUEUE(<i>Q</i>, <i>v</i>)</span># put v in the queue Q
+<span class="cc">      color[<i>u</i>] &larr; BLACK</span># all neighbors of u have been processed</pre>
 :::
 
 ## Algorithm: Breadth-First Search {.fit1}
 
 ::: {.sm}
-Next initialize the Queue $Q$
+**Next initialize the Queue $Q$**
 :::
 
 :::: {.columns}
 ::: {.column width="55%"}
 ::: {.codewrap style="font-size:1.00em"}
 <pre class="pseudocode"><b>Procedure</b> BFS(<i>G</i>, <i>s</i>)
-<i>Inputs:</i> …
-<i>Result:</i> …
+<i>Inputs:</i> &#8230;
+<i>Result:</i> &#8230;
 INITIALIZE-BFS(<i>G</i>, <i>s</i>)
-<i>Q</i> &larr; &empty;
-ENQUEUE(<i>Q</i>, <i>s</i>)
+<span class="hl"><i>Q</i> &larr; &empty;</span>
+<span class="hl">ENQUEUE(<i>Q</i>, <i>s</i>)</span>
 <b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+      <i>u</i> &larr; DEQUEUE(<i>Q</i>)
+      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
+            <b>If</b> color[<i>v</i>] = WHITE
+                  <b>then</b> color[<i>v</i>] &larr; GRAY
+                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
+                       &pi;[<i>v</i>] &larr; <i>u</i>
+                       ENQUEUE(<i>Q</i>, <i>v</i>)
+      color[<i>u</i>] &larr; BLACK</pre>
 :::
 :::
 
 ::: {.column width="45%"}
-![](figures/05-bfs-q0.svg){height="10.6em"}
+![](figures/05-bfs-q0.svg){height="12.4em"}
 :::
 ::::
 
 ## Algorithm: Breadth-First Search {.fit1}
 
 ::: {.sm}
-Iterate through the first while-loop for $u \leftarrow c$
+**Iterate through the first while-loop for $u \leftarrow c$**
 :::
 
 :::: {.columns}
 ::: {.column width="55%"}
 ::: {.codewrap style="font-size:1.00em"}
 <pre class="pseudocode"><b>Procedure</b> BFS(<i>G</i>, <i>s</i>)
-<i>Inputs:</i> …
-<i>Result:</i> …
+<i>Inputs:</i> &#8230;
+<i>Result:</i> &#8230;
 INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
 ENQUEUE(<i>Q</i>, <i>s</i>)
-<b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+<span class="hl"><b>While</b> <i>Q</i> &ne; &empty;:</span>
+<span class="hl">      <i>u</i> &larr; DEQUEUE(<i>Q</i>)</span>
+<span class="hl">      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">            <b>If</b> color[<i>v</i>] = WHITE</span>
+<span class="hl">                  <b>then</b> color[<i>v</i>] &larr; GRAY</span>
+<span class="hl">                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1</span>
+<span class="hl">                       &pi;[<i>v</i>] &larr; <i>u</i></span>
+<span class="hl">                       ENQUEUE(<i>Q</i>, <i>v</i>)</span>
+<span class="hl">      color[<i>u</i>] &larr; BLACK</span></pre>
 :::
 :::
 
 ::: {.column width="45%"}
-![](figures/05-bfs-c.svg){height="10.6em"}
+![](figures/05-bfs-c.svg){height="12.4em"}
 :::
 ::::
 
 ## Algorithm: Breadth-First Search {.fit1}
 
 ::: {.sm}
-Iterate through the next while-loop for $u \leftarrow b$ (b is next in the queue &ndash; FIFO)
+**Iterate through the next while-loop for $u \leftarrow b$ (b is next in the queue because of FIFO)**
 :::
 
 :::: {.columns}
 ::: {.column width="55%"}
 ::: {.codewrap style="font-size:1.00em"}
 <pre class="pseudocode"><b>Procedure</b> BFS(<i>G</i>, <i>s</i>)
-<i>Inputs:</i> …
-<i>Result:</i> …
+<i>Inputs:</i> &#8230;
+<i>Result:</i> &#8230;
 INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
 ENQUEUE(<i>Q</i>, <i>s</i>)
-<b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+<span class="hl"><b>While</b> <i>Q</i> &ne; &empty;:</span>
+<span class="hl">      <i>u</i> &larr; DEQUEUE(<i>Q</i>)</span>
+<span class="hl">      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">            <b>If</b> color[<i>v</i>] = WHITE</span>
+<span class="hl">                  <b>then</b> color[<i>v</i>] &larr; GRAY</span>
+<span class="hl">                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1</span>
+<span class="hl">                       &pi;[<i>v</i>] &larr; <i>u</i></span>
+<span class="hl">                       ENQUEUE(<i>Q</i>, <i>v</i>)</span>
+<span class="hl">      color[<i>u</i>] &larr; BLACK</span></pre>
 :::
 :::
 
 ::: {.column width="45%"}
-![](figures/05-bfs-b.svg){height="10.6em"}
+![](figures/05-bfs-b.svg){height="12.4em"}
 :::
 ::::
 
 ## Algorithm: Breadth-First Search {.fit1}
 
 ::: {.sm}
-Iterate through the next while-loop for $u \leftarrow f$
+**Iterate through the next while-loop for $u \leftarrow f$**
 :::
 
 :::: {.columns}
 ::: {.column width="55%"}
 ::: {.codewrap style="font-size:1.00em"}
 <pre class="pseudocode"><b>Procedure</b> BFS(<i>G</i>, <i>s</i>)
-<i>Inputs:</i> …
-<i>Result:</i> …
+<i>Inputs:</i> &#8230;
+<i>Result:</i> &#8230;
 INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
 ENQUEUE(<i>Q</i>, <i>s</i>)
-<b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+<span class="hl"><b>While</b> <i>Q</i> &ne; &empty;:</span>
+<span class="hl">      <i>u</i> &larr; DEQUEUE(<i>Q</i>)</span>
+<span class="hl">      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">            <b>If</b> color[<i>v</i>] = WHITE</span>
+                  <b>then</b> color[<i>v</i>] &larr; GRAY
+                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
+                       &pi;[<i>v</i>] &larr; <i>u</i>
+                       ENQUEUE(<i>Q</i>, <i>v</i>)
+<span class="hl">      color[<i>u</i>] &larr; BLACK</span></pre>
 :::
 :::
 
 ::: {.column width="45%"}
-![](figures/05-bfs-f.svg){height="10.6em"}
+![](figures/05-bfs-f.svg){height="12.4em"}
 :::
 ::::
 
 ## Algorithm: Breadth-First Search {.fit1}
 
 ::: {.sm}
-Iterate through the next while-loop for $u \leftarrow g$
+**Iterate through the next while-loop for $u \leftarrow g$**
 :::
 
 :::: {.columns}
 ::: {.column width="55%"}
 ::: {.codewrap style="font-size:1.00em"}
 <pre class="pseudocode"><b>Procedure</b> BFS(<i>G</i>, <i>s</i>)
-<i>Inputs:</i> …
-<i>Result:</i> …
+<i>Inputs:</i> &#8230;
+<i>Result:</i> &#8230;
 INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
 ENQUEUE(<i>Q</i>, <i>s</i>)
-<b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+<span class="hl"><b>While</b> <i>Q</i> &ne; &empty;:</span>
+<span class="hl">      <i>u</i> &larr; DEQUEUE(<i>Q</i>)</span>
+<span class="hl">      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">            <b>If</b> color[<i>v</i>] = WHITE</span>
+<span class="hl">                  <b>then</b> color[<i>v</i>] &larr; GRAY</span>
+<span class="hl">                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1</span>
+<span class="hl">                       &pi;[<i>v</i>] &larr; <i>u</i></span>
+<span class="hl">                       ENQUEUE(<i>Q</i>, <i>v</i>)</span>
+<span class="hl">      color[<i>u</i>] &larr; BLACK</span></pre>
 :::
 :::
 
 ::: {.column width="45%"}
-![](figures/05-bfs-g.svg){height="10.6em"}
+![](figures/05-bfs-g.svg){height="12.4em"}
 :::
 ::::
 
 ## Algorithm: Breadth-First Search {.fit1}
 
 ::: {.sm}
-Iterate through the next while-loop for $u \leftarrow e$
+**Iterate through the next while-loop for $u \leftarrow e$**
 :::
 
 :::: {.columns}
 ::: {.column width="55%"}
 ::: {.codewrap style="font-size:1.00em"}
 <pre class="pseudocode"><b>Procedure</b> BFS(<i>G</i>, <i>s</i>)
-<i>Inputs:</i> …
-<i>Result:</i> …
+<i>Inputs:</i> &#8230;
+<i>Result:</i> &#8230;
 INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
 ENQUEUE(<i>Q</i>, <i>s</i>)
-<b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+<span class="hl"><b>While</b> <i>Q</i> &ne; &empty;:</span>
+<span class="hl">      <i>u</i> &larr; DEQUEUE(<i>Q</i>)</span>
+<span class="hl">      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">            <b>If</b> color[<i>v</i>] = WHITE</span>
+<span class="hl">                  <b>then</b> color[<i>v</i>] &larr; GRAY</span>
+<span class="hl">                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1</span>
+<span class="hl">                       &pi;[<i>v</i>] &larr; <i>u</i></span>
+<span class="hl">                       ENQUEUE(<i>Q</i>, <i>v</i>)</span>
+      color[<i>u</i>] &larr; BLACK</pre>
 :::
 :::
 
 ::: {.column width="45%"}
-![](figures/05-bfs-e.svg){height="10.6em"}
+![](figures/05-bfs-e.svg){height="12.4em"}
 :::
 ::::
 
 ## Algorithm: Breadth-First Search {.fit1}
 
 ::: {.sm}
-The while-loop for $u \leftarrow e$ finishes
+**The while-loop for $u \leftarrow e$ finishes**
 :::
 
 :::: {.columns}
 ::: {.column width="55%"}
 ::: {.codewrap style="font-size:1.00em"}
 <pre class="pseudocode"><b>Procedure</b> BFS(<i>G</i>, <i>s</i>)
-<i>Inputs:</i> …
-<i>Result:</i> …
+<i>Inputs:</i> &#8230;
+<i>Result:</i> &#8230;
 INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
 ENQUEUE(<i>Q</i>, <i>s</i>)
 <b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+      <i>u</i> &larr; DEQUEUE(<i>Q</i>)
+      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
+            <b>If</b> color[<i>v</i>] = WHITE
+                  <b>then</b> color[<i>v</i>] &larr; GRAY
+                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
+                       &pi;[<i>v</i>] &larr; <i>u</i>
+                       ENQUEUE(<i>Q</i>, <i>v</i>)
+<span class="hl">      color[<i>u</i>] &larr; BLACK</span></pre>
 :::
 :::
 
 ::: {.column width="45%"}
-![](figures/05-bfs-e2.svg){height="10.6em"}
+![](figures/05-bfs-e2.svg){height="12.4em"}
 :::
 ::::
 
 ## Algorithm: Breadth-First Search {.fit1}
 
 ::: {.sm}
-Iterate through the next while-loop for $u \leftarrow d$
+**Iterate through the next while-loop for $u \leftarrow d$**
 :::
 
 :::: {.columns}
 ::: {.column width="55%"}
 ::: {.codewrap style="font-size:1.00em"}
 <pre class="pseudocode"><b>Procedure</b> BFS(<i>G</i>, <i>s</i>)
-<i>Inputs:</i> …
-<i>Result:</i> …
+<i>Inputs:</i> &#8230;
+<i>Result:</i> &#8230;
 INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
 ENQUEUE(<i>Q</i>, <i>s</i>)
-<b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+<span class="hl"><b>While</b> <i>Q</i> &ne; &empty;:</span>
+<span class="hl">      <i>u</i> &larr; DEQUEUE(<i>Q</i>)</span>
+<span class="hl">      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">            <b>If</b> color[<i>v</i>] = WHITE</span>
+                  <b>then</b> color[<i>v</i>] &larr; GRAY
+                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
+                       &pi;[<i>v</i>] &larr; <i>u</i>
+                       ENQUEUE(<i>Q</i>, <i>v</i>)
+<span class="hl">      color[<i>u</i>] &larr; BLACK</span></pre>
 :::
 :::
 
 ::: {.column width="45%"}
-![](figures/05-bfs-d.svg){height="10.6em"}
+![](figures/05-bfs-d.svg){height="12.4em"}
 :::
 ::::
 
 ## Algorithm: Breadth-First Search {.fit1}
 
 ::: {.sm}
-Iterate through the next while-loop for $u \leftarrow a$ &nbsp;&nbsp; **BFS Algorithm stops**
+**Iterate through the next while-loop for $u \leftarrow a$. The queue is empty, so BFS stops**
 :::
 
 :::: {.columns}
 ::: {.column width="55%"}
 ::: {.codewrap style="font-size:1.00em"}
 <pre class="pseudocode"><b>Procedure</b> BFS(<i>G</i>, <i>s</i>)
-<i>Inputs:</i> …
-<i>Result:</i> …
+<i>Inputs:</i> &#8230;
+<i>Result:</i> &#8230;
 INITIALIZE-BFS(<i>G</i>, <i>s</i>)
 <i>Q</i> &larr; &empty;
 ENQUEUE(<i>Q</i>, <i>s</i>)
-<b>While</b> <i>Q</i> &ne; &empty;:
-        <i>u</i> &larr; DEQUEUE(<i>Q</i>)
-        <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-               <b>If</b> color[<i>v</i>] = WHITE
-                      <b>then</b> color[<i>v</i>] &larr; GRAY
-                              <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
-                              &pi;[<i>v</i>] &larr; <i>u</i>
-                              ENQUEUE(<i>Q</i>, <i>v</i>)
-        color[<i>u</i>] &larr; BLACK</pre>
+<span class="hl"><b>While</b> <i>Q</i> &ne; &empty;:</span>
+<span class="hl">      <i>u</i> &larr; DEQUEUE(<i>Q</i>)</span>
+<span class="hl">      <b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">            <b>If</b> color[<i>v</i>] = WHITE</span>
+                  <b>then</b> color[<i>v</i>] &larr; GRAY
+                       <i>d</i>[<i>v</i>] &larr; <i>d</i>[<i>u</i>] + 1
+                       &pi;[<i>v</i>] &larr; <i>u</i>
+                       ENQUEUE(<i>Q</i>, <i>v</i>)
+<span class="hl">      color[<i>u</i>] &larr; BLACK</span></pre>
 :::
 :::
 
 ::: {.column width="45%"}
-![](figures/05-bfs-done.svg){height="10.6em"}
+![](figures/05-bfs-done.svg){height="12.4em"}
 :::
 ::::
 
-## Outtake &ndash; Social Science Applications
+## Why does this matter? Practical Python examples
 
-::: {}
-- Graphs in social science research
-  - Social networks can be represented as graphs
-    - classical work in sociology, then later also in political science, economics etc.
-    - recent boom in research on this topic due to online social networks data
-  - Many real-world structures can be represented as graphs
-    - examples are road networks, flight routes, trade connections, treaty networks etc.
-    - suite of tools available from mathematics, computer science, political methodology
+:::: {.columns}
+::: {.column width="55%"}
+![](figures/05-python-examples-notebook.png){width="100%"}
+:::
+
+::: {.column width="45%"}
+::: {.sm}
+- **Matrix or list:** the memory that both representations need for a network of 100,000 people
+- **BFS and six degrees:** the distances from one person to everyone else in a network of 5,000 people
+- **Queue or stack:** changing one method call makes the recorded distances wrong
+:::
+:::
+::::
+
+::: {.source}
+<https://github.com/dgarcia-eu/ICSS/blob/main/PythonExamples/Examples05-Algorithms.ipynb>
 :::
 
 ## Summary

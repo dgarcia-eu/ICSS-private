@@ -2,11 +2,7 @@
 
 *Introduction to Computing for the Social Sciences · Prof. Dr. David Garcia*
 
-> Exercises 1–3 are worked through in the exercise session. The *Additional
-> practice* section is for self-study. Worked solutions to every exercise, with
-> pointers to the slides and the handout sections that cover the material, are
-> in [`Solutions/Exercise07-Solutions.md`](Solutions/Exercise07-Solutions.md); try before you open them.
-> Notation: [course conventions](../Transcripts/00-Conventions.md).
+Exercises 1 to 3 will be covered in the exercise session. The *Additional practice* section is for self-study and to be covered if time allows.
 
 ---
 
@@ -60,7 +56,7 @@ b) Is it a stable sorting algorithm? Why?
 
 ### A1. Stability in practice
 
-You have a dataset of 10 000 social media posts with columns `user`, `timestamp`
+You have a dataset of 10,000 social media posts with columns `user`, `timestamp`
 and `text`.
 
 a) You want it ordered by user, and within each user chronologically. In which
@@ -81,7 +77,7 @@ c) How many comparisons does bubblesort make as written above? How could you
 d) How many comparisons does mergesort make at each level of recursion, and how
    many levels are there?
 
-### A3. Mergesort by hand
+### A3. Mergesort with pen and paper
 
 Sort `[38, 27, 43, 3, 9, 82, 10]` with mergesort.
 
@@ -109,36 +105,26 @@ d) Why is the depth of a heap always about $\log_2 n$, while a BST's can be $n$?
 
 Which sorting algorithm would you choose, and why?
 
-a) 20 items, sorted by hand on paper in an exam.
+a) 20 items, sorted with pen and paper in an exam.
 b) 10 million records on disk, far more than fits in RAM.
-c) A nearly-sorted list of 100 000 items that gains a few new entries daily.
+c) A nearly-sorted list of 100,000 items that gains a few new entries daily.
 d) Records so large that moving one is very expensive.
 e) An embedded device with no spare memory at all.
-
-### A7. Reasoning about lower bounds
-
-a) Any sorting algorithm that works by comparing pairs of elements needs at least
-   about $n \log_2 n$ comparisons in the worst case. Give an informal argument.
-   *(Hint: how many possible orderings of $n$ items are there, and how much
-   information does one comparison give? Session 2 has the tools.)*
-b) Counting sort can sort $n$ integers in the range 0…$k$ in about $n + k$ steps
-   faster than $n \log n$. Does that contradict (a)?
 
 ---
 
 ## Sources
 
-- Exercises 1–3 are adapted from the 2023/24 sheet 7 of this course; the
-  Bubblesort pseudocode has been reset in the course's notation.
-- **Cormen, T. H. (2013).** *Algorithms Unlocked*, MIT Press, ch. 2–3.: Reading
+- Exercises 1–3 are adapted from the 2023/24 sheet on sorting algorithms of
+  this course. The Bubblesort pseudocode has been rewritten in the notation of
+  the course.
+- **Cormen, T. H. (2013).** *Algorithms Unlocked*, MIT Press, ch. 2–3. Reading
   for this session.
 - **Cormen, T. H., Leiserson, C. E., Rivest, R. L. & Stein, C. (2009).**
   *Introduction to Algorithms*, 3rd ed., ch. 2 (bubblesort is problem 2-2),
-  ch. 6 (heapsort), ch. 7 (quicksort and pivot choice), ch. 8 (the
-  $n \log n$ lower bound and counting sort, the source for A7).
+  ch. 6 (heapsort) and ch. 7 (quicksort and pivot choice).
 - **Knuth, D. E. (1998).** *The Art of Computer Programming, Vol. 3*, 2nd ed.
-- **Peters, T.** *Timsort*:
-  <https://github.com/python/cpython/blob/main/Objects/listsort.txt>,
-  background for A6(c).
+- **Peters, T.** *Timsort*, background for A6(c).
+  <https://github.com/python/cpython/blob/main/Objects/listsort.txt>
 - **Musser, D. R. (1997).** "Introspective Sorting and Selection Algorithms".
-  *Software: Practice and Experience* 27(8).: Introsort, for A4(c).
+  *Software: Practice and Experience* 27(8). Introsort, for A4(c).

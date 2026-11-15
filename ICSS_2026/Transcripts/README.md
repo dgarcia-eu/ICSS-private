@@ -20,8 +20,8 @@ Start with the conventions page; everything else assumes it.
 | 07 | [Sorting Algorithms](07-SortingAlgorithms.md) | Cormen ch. 2–3 |
 | 08 | [Time Complexity](08-TimeComplexity.md) | Guttag ch. 9–10 |
 | 09 | [Theoretical Computer Science](09-TheoreticalCS.md) | Sipser ch. 1; Evans ch. 6, 12; Cormen ch. 10 |
-| 10 | [Machine Learning](10-MachineLearning.md) | Hastie, Tibshirani & Friedman ch. 2, 7, 14 |
-| 11 | [Databases](11-Databases.md) | Course reading ch. 4; Garcia-Molina et al. |
+| 10 | [Databases](10-Databases.md) | Course reading ch. 4; Garcia-Molina et al. |
+| 11 | [Machine Learning](11-MachineLearning.md) | Hastie, Tibshirani & Friedman ch. 2, 7, 14 |
 | 12 | [Parallel Programming](12-ParallelProgramming.md) | Hennessy & Patterson; Dean & Ghemawat |
 | 13 | [Social Science Applications](13-SocialScienceApplications.md) | Salganik, *Bit by Bit*; Lazer et al. |
 

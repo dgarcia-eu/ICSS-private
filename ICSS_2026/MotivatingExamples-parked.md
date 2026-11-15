@@ -200,3 +200,55 @@ exactly that: it turned a wish into a property of the system.
 Section 5 places writing code inside the larger process of software
 engineering, and section 6 explains why a prompt is a specification and why
 some rules do not belong in a prompt at all.
+
+---
+
+## M05-A · Six handshakes, and how you would check
+
+*Parked on 2026-11-15 (David: removed from the Algorithms session). Kept for later use.*
+
+### Slide
+
+```markdown
+## Six handshakes, and how you would check {.fit1}
+
+::: {.motivation}
+[Motivating example]{.label}
+Milgram's 1967 experiment asked people in Nebraska to get a letter to a stranger
+in Boston by passing it only to someone they knew personally. The chains that
+arrived had a median of **five intermediaries**. Fifty years later the same
+question was answered directly over **1.59 billion people**, giving **3.57**.
+:::
+
+:::: {.figures}
+::: {.fq}
+[5.2]{.big}[Milgram, 1967: mean over the 64 letters that arrived]{.cap}
+:::
+::: {.fq}
+[3.57]{.big}[Facebook, 2016: 1.59 × 10⁹ people]{.cap}
+:::
+::::
+
+[Milgram needed volunteers and postage. What *procedure* answers the same question from the network itself?]{.ask}
+
+::: {.source}
+Milgram, *Psychology Today* (1967); Edunov, Diuk, Filiz, Bhagat & Burke, Facebook Research (2016)
+:::
+```
+
+### Handout text
+
+### A · Six handshakes, and how you would check
+
+In 1967 Stanley Milgram gave letters to volunteers in Nebraska and Kansas. Each letter was addressed to a stockbroker in Boston and came with one rule, namely that you may only forward it to someone you know personally on a first-name basis. Of 296 chains started, 64 arrived, with a mean length of 5.2 intermediaries and a median of about five. The phrase "six degrees of separation" comes from this experiment by way of a later play. The experiment is famous, but it is a slow and expensive way to measure a graph. It also observes only the chains that were completed, which is a severe selection problem because a chain is more likely to arrive when the path is short. In 2016 the question was answered in a different way. Researchers took the Facebook friendship graph, with 1.59 billion people and hundreds of billions of edges, and computed the average distance between two randomly chosen people directly. The result was 3.57.
+
+The second study is not conceptually harder than the first. The difference is that the researchers did not ask people to pass something through the network. Instead, a program explored the network itself. We start at a person and look at all their friends, who are at distance 1. Then we look at all of their friends who have not been seen yet, who are at distance 2, and we continue until everyone reachable has been seen. This procedure is called breadth-first search. Before it becomes an algorithm, we have to answer four questions:
+
+1. **What exactly is a step?** A step is to look at all the friends of the current person.
+2. **Which person do we look at next?** The answer is given by a queue, and choosing a stack instead gives a different algorithm with a different answer.
+3. **How do we avoid going round in circles?** We mark every person who has already been seen.
+4. **When do we stop?** We stop when nobody is left to look at, and we also need to know that this happens at all.
+
+Without these four answers we only have a good idea, while with them we have a procedure that a machine can execute.
+
+In this session you will learn which properties an algorithm must have, for example finiteness and definiteness, and how each of them rules out a specific way of writing something that looks like a procedure but is not one. You will also learn to write a procedure down as pseudocode or as a flowchart, so that another person and eventually a machine can execute it identically. Finally, we will learn about graphs, how to represent them, and breadth-first search, which is the computation described above. A research question of your own becomes computable when you can say without ambiguity what to do next, and most of the work is usually in getting to that point.

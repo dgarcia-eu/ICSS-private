@@ -1,132 +1,127 @@
-TITLE = "Half a million rows, one lookup, a thousand times faster"
-HOOK = ("An index turns a scan of the whole table into a jump, the database filters before the data moves, "
-        "and a transaction keeps the money from vanishing when the program crashes halfway.")
+TITLE = "The model that learned nothing and scored 91%"
+HOOK = ("A test score that goes up when the model gets worse, and a classifier that reaches 91% on pure "
+        "noise: why the train/test split has to be respected to the letter.")
 
 CELLS = [
-("md", """# Half a million rows, one lookup, a thousand times faster
+("md", """# The model that learned nothing and scored 91%
 
-A database is not a file that happens to hold a table. It answers questions in a
-different way than a loop over rows, it decides where the work happens, and it
-guarantees that half-done changes never become visible. This notebook shows all
-three with SQLite, which is built into Python, on a table of half a million users."""),
+Everything in machine learning rests on one question: does the model work on data
+it has not seen? This notebook shows three ways to get a misleading answer. The
+first is a model that fits the training data perfectly and is bad at prediction.
+The second is a classifier that scores 91% on data that contains no information at
+all, because one step of the analysis peeked at the test set. The third is a model
+that is 95% accurate and misses most of the cases we care about."""),
 
-("code", """import sqlite3, time
-import numpy as np
+("md", """## 1. A perfect fit that predicts badly
 
-rng = np.random.default_rng(0)
-N = 500_000
-db = sqlite3.connect(":memory:")
-db.execute("CREATE TABLE users (user_id INTEGER, country TEXT, score REAL)")
-countries = np.array(["DE", "FR", "IT", "ES", "PL", "NL", "AT", "CH"])
-rows = zip(rng.permutation(N).tolist(),                       # user ids in random order
-           countries[rng.integers(0, 8, N)].tolist(),
-           rng.normal(50, 10, N).round(1).tolist())
-db.executemany("INSERT INTO users VALUES (?, ?, ?)", rows)
-db.commit()
-print(db.execute("SELECT COUNT(*) FROM users").fetchone()[0], "rows")"""),
+We generate 600 points in two classes whose boundary is curved and noisy, keep half
+of them for testing, and fit $k$ nearest neighbors for many values of $k$. Watch the
+two curves: the error on the training points and the error on the test points."""),
 
-("md", """## 1. Finding one user
+("code", """import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_moons
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
 
-We look up 200 users by their id, first as the table is, then after creating an
-index on `user_id`. `EXPLAIN QUERY PLAN` shows what the database does in each
-case."""),
+X, y = make_moons(n_samples=600, noise=0.35, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=0)
 
-("code", """ids = rng.integers(0, N, 200).tolist()
+ks = [1, 2, 3, 5, 7, 10, 15, 20, 30, 50, 75, 100, 150, 200]
+train_err, test_err = [], []
+for k in ks:
+    model = KNeighborsClassifier(n_neighbors=k).fit(X_train, y_train)
+    train_err.append(1 - model.score(X_train, y_train))
+    test_err.append(1 - model.score(X_test, y_test))
 
-def lookups():
-    t0 = time.perf_counter()
-    for i in ids:
-        db.execute("SELECT score FROM users WHERE user_id = ?", (i,)).fetchone()
-    return time.perf_counter() - t0
+plt.semilogx(ks, train_err, "o-", label="training error")
+plt.semilogx(ks, test_err, "s-", label="test error")
+plt.xlabel("k (number of neighbors)"); plt.ylabel("error rate"); plt.legend(); plt.show()
+for k, a, b in zip(ks, train_err, test_err):
+    print(f"k = {k:>3}   training error {a:.2f}   test error {b:.2f}")"""),
 
-print("plan:", db.execute("EXPLAIN QUERY PLAN SELECT score FROM users WHERE user_id = ?", (1,)).fetchone()[-1])
-t_scan = lookups()
-print(f"200 lookups without index: {t_scan:.2f} s")
+("md", """With $k = 1$ the training error is exactly zero: every point is its own nearest
+neighbor, so the model reproduces the training set perfectly, and yet its test
+error is clearly higher than for $k$ between 5 and 100. As $k$ grows, the training
+error rises and the test error falls, and both stay flat over a wide range; for the
+largest values both rise again, because the model averages over so many neighbors
+that it can no longer follow the curved boundary. Only the test error tells you which model to use. The training
+error, the number you would see if you did not split the data, points you to the
+worst model."""),
 
-db.execute("CREATE INDEX idx_user ON users(user_id)")
-print("plan:", db.execute("EXPLAIN QUERY PLAN SELECT score FROM users WHERE user_id = ?", (1,)).fetchone()[-1])
-t_index = lookups()
-print(f"200 lookups with index:    {t_index:.4f} s   ({t_scan / t_index:.0f}x faster)")"""),
+("md", """## 2. Ninety-one percent on pure noise
 
-("md", """Without the index the plan says `SCAN`: every lookup reads the whole table, half a
-million rows, to find one. With the index it says `SEARCH ... USING INDEX`: the
-database walks a tree of ids, a few dozen comparisons, and jumps to the row. The
-lookups become hundreds to thousands of times faster, and the factor grows with the
-table. This is the binary search tree and the hash table of session 3 again, kept up
-to date by the database on every insert so that you never have to think about it.
-A query that filters on a column without an index is the single most common reason
-a database "is slow"."""),
+Now the data has no information at all: 100 respondents, 5 000 features drawn at
+random, and a label tossed by a coin. No model can do better than 50% on new data.
 
-("md", """## 2. Where the work happens
+A common analysis first selects the features most correlated with the label and
+then cross-validates a classifier on the selected features. We do exactly that, with
+the selection computed on the whole dataset."""),
 
-We want the average score per country. One way is to fetch every row into Python
-and aggregate there; the other is to ask the database for the answer. Both are
-correct. Count what crosses the boundary between the database and your program."""),
+("code", """from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import cross_val_score
+from sklearn.feature_selection import SelectKBest, f_classif
+from sklearn.pipeline import make_pipeline
 
-("code", """t0 = time.perf_counter()
-all_rows = db.execute("SELECT country, score FROM users").fetchall()
-sums, counts = {}, {}
-for country, score in all_rows:
-    sums[country] = sums.get(country, 0) + score
-    counts[country] = counts.get(country, 0) + 1
-in_python = {c: round(sums[c] / counts[c], 3) for c in sorted(sums)}
-t_py = time.perf_counter() - t0
-print(f"fetch everything, aggregate in Python: {t_py:.2f} s, {len(all_rows):,} rows moved")
+rng = np.random.default_rng(1)
+n, p = 100, 5000
+X_noise = rng.normal(size=(n, p))
+y_noise = rng.integers(0, 2, size=n)          # a coin toss, unrelated to X
 
-t0 = time.perf_counter()
-in_sql = dict(db.execute("SELECT country, ROUND(AVG(score), 3) FROM users GROUP BY country").fetchall())
-t_sql = time.perf_counter() - t0
-print(f"GROUP BY in the database:              {t_sql:.2f} s, {len(in_sql)} rows moved")
-print("same answer:", in_python == in_sql)"""),
+top20 = SelectKBest(f_classif, k=20).fit(X_noise, y_noise).get_support()   # selected on ALL the data
+leaky = cross_val_score(LogisticRegression(), X_noise[:, top20], y_noise, cv=5)
+print(f"selection outside cross-validation: accuracy {leaky.mean():.2f}")
 
-("md", """The database returns eight rows instead of half a million and is about twice as
-fast even here, where nothing travels further than memory; the gap widens with a real database on another machine, where every
-moved row travels over a network. The rule of the lecture is *bring the computation
-to the data*: say what you want in SQL, and let the database decide how to compute
-it. The mistake to avoid is the opposite one, pulling a million rows into pandas in
-order to keep a hundred."""),
+honest = make_pipeline(SelectKBest(f_classif, k=20), LogisticRegression())   # selection inside each fold
+clean = cross_val_score(honest, X_noise, y_noise, cv=5)
+print(f"selection inside cross-validation:  accuracy {clean.mean():.2f}")"""),
 
-("md", """## 3. The transfer that crashes halfway
+("md", """The first number is far above chance, and it is a fiction. Among 5 000 random
+features, a few happen to correlate with the coin tosses of these 100 people; the
+selection step found them by looking at all 100 labels, including the ones that
+were later used for testing. The classifier then "predicts" test labels that the
+feature selection had already seen. This is information leakage: nothing was
+learned, and the test set was not really unseen. The pipeline version repeats the
+selection inside every training fold, the test fold never influences it, and the
+accuracy drops to chance, which is the truth. Every step that uses the labels,
+including feature selection, scaling with the labels, and choosing hyperparameters,
+has to happen inside the training data only."""),
 
-Two accounts, and a transfer of 30 from Anna to Ben that fails after the debit and
-before the credit, which is what a crash, a lost connection or a bug in the middle
-of an update looks like. First without a transaction, then with one."""),
+("md", """## 3. Ninety-five percent accurate, and mostly blind
 
-("code", """def transfer(conn, amount, crash):
-    conn.execute("UPDATE accounts SET balance = balance - ? WHERE name = 'Anna'", (amount,))
-    if crash:
-        raise RuntimeError("connection lost")
-    conn.execute("UPDATE accounts SET balance = balance + ? WHERE name = 'Ben'", (amount,))
+The last trap is accuracy on an imbalanced problem. We build a task where about 6% of the
+cases are positive, the ones we want to find, and train a logistic regression."""),
 
-def total(conn):
-    return conn.execute("SELECT SUM(balance) FROM accounts").fetchone()[0]
+("code", """from sklearn.datasets import make_classification
+from sklearn.dummy import DummyClassifier
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-for mode in ["autocommit", "transaction"]:
-    conn = sqlite3.connect(":memory:", isolation_level=None if mode == "autocommit" else "DEFERRED")
-    conn.execute("CREATE TABLE accounts (name TEXT, balance REAL)")
-    conn.execute("INSERT INTO accounts VALUES ('Anna', 100), ('Ben', 100)")
-    conn.commit()
-    try:
-        transfer(conn, 30, crash=True)
-        conn.commit()
-    except RuntimeError:
-        if mode == "transaction":
-            conn.rollback()
-    print(f"{mode:<12} after the crash: total = {total(conn):.0f}   "
-          f"{conn.execute('SELECT name, balance FROM accounts').fetchall()}")"""),
+X_imb, y_imb = make_classification(n_samples=4000, n_features=10, n_informative=3,
+                                   weights=[0.95, 0.05], flip_y=0.02, random_state=2)
+Xa, Xb, ya, yb = train_test_split(X_imb, y_imb, test_size=0.5, random_state=0)
+model = LogisticRegression().fit(Xa, ya)
+always_negative = DummyClassifier(strategy="most_frequent").fit(Xa, ya)
 
-("md", """In autocommit mode every statement is final on its own: the debit is written, the
-credit never happens, and 30 units of money no longer exist anywhere. Inside a
-transaction the debit is only provisional until `commit`, and the `rollback` after
-the failure restores the state before the transfer began. That is atomicity, the A
-of ACID: either the whole transfer happens or none of it does. The other three
-letters make the same promise under concurrent users, against invalid states, and
-across a power cut. A CSV file promises none of this."""),
+def report(name, pred):
+    print(f"{name:<32} accuracy {accuracy_score(yb, pred):.3f}   precision {precision_score(yb, pred, zero_division=0):.2f}"
+          f"   recall {recall_score(yb, pred):.2f}   F1 {f1_score(yb, pred):.2f}")
 
-("md", """**What we used:** [what a DBMS does](../Transcripts/11-Databases.md#3-what-a-dbms-does),
-[transactions and ACID](../Transcripts/11-Databases.md#5-transactions-and-acid),
-[tables, types, schemas and keys](../Transcripts/11-Databases.md#9-tables-types-schemas-and-keys-in-sql)
-and [queries: selection, projection, aggregation](../Transcripts/11-Databases.md#11-queries-selection-projection-aggregation)
-from session 11, and [binary search trees](../Transcripts/03-DataStructures.md#6-binary-trees-and-binary-search-trees)
-from session 3."""),
+report("always predict negative", always_negative.predict(Xb))
+report("logistic regression, threshold 0.5", model.predict(Xb))
+prob = model.predict_proba(Xb)[:, 1]
+report("logistic regression, threshold 0.15", (prob > 0.15).astype(int))"""),
+
+("md", """The classifier that never says "positive" is about 94% accurate, because 94% of
+the cases are negative. The trained model has almost the same accuracy and, at the
+default threshold, finds only a fraction of the positives. Lowering the threshold
+catches many more of them at the cost of precision, with a barely changed accuracy.
+Accuracy cannot see any of this; precision, recall and $F_1$ on the positive class
+can, and which of them to optimize depends on what a missed case and a false alarm
+cost in your application."""),
+
+("md", """**What we used:** [the train/test split](../Transcripts/11-MachineLearning.md#6-generalization-the-traintest-split),
+[k nearest neighbors](../Transcripts/11-MachineLearning.md#7-a-first-model-k-nearest-neighbors),
+[overfitting and underfitting](../Transcripts/11-MachineLearning.md#8-overfitting-underfitting-bias-and-variance),
+[error, loss and the traps of accuracy](../Transcripts/11-MachineLearning.md#5-error-loss-and-the-traps-of-accuracy)
+and [features](../Transcripts/11-MachineLearning.md#4-features) from this session."""),
 ]
