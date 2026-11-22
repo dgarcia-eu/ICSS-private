@@ -1,5 +1,10 @@
 # Solutions to Exercise Sheet 6: Recursion
 
+<style>
+table { width: auto !important; margin: 1.2em auto 1.8em auto; }
+table th, table td { padding: 0.35em 1.1em !important; }
+</style>
+
 *Introduction to Computing for the Social Sciences · Prof. Dr. David Garcia*
 
 ---
@@ -61,7 +66,7 @@ c) The heap of the figure as an array, level by level, is
 child of position 3. Calling `reduce(H, 6, 1)` runs these steps:
 
 | step | action | array |
-|---|---|---|
+|:---:|:---|:---|
 | 0 | write $y = 1$ into position 6 | `[2, 4, 5, 13, 200, 1]` |
 | 1 | parent of 6 is position 3, value 5; $5 > 1$, swap | `[2, 4, 1, 13, 200, 5]` |
 | 2 | parent of 3 is position 1, value 2; $2 > 1$, swap | `[1, 4, 2, 13, 200, 5]` |
@@ -97,7 +102,7 @@ and finishing time $f$:
   Back in B, C is black. Finish B ($f = 12$).
 
 | vertex | A | B | C | D | E | F |
-|---|---|---|---|---|---|---|
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | $d$ | 2 | **1** | 3 | 4 | 6 | 5 |
 | $f$ | 11 | 12 | 10 | 9 | 7 | 8 |
 | $\pi$ | B | NIL | A | C | F | D |
@@ -204,53 +209,134 @@ c) Iteratively, you can walk from the end and append, or swap ends inwards. The
 recursive version (`REVERSE(rest) + [first]`) is not tail-recursive, while the
 iterative version needs no stack because a list gives random access.
 
-### A3. Fibonacci and memoization
+### A3. Searching recursively
 
-a) In the tree, fib(5) calls fib(4) and fib(3), fib(4) calls fib(3) and fib(2),
-and so on. There are **15** calls in total. The distinct subproblems are fib(0)
-to fib(5), so there are **6**. Already at $n = 5$ we are doing 2.5 times more
-work than necessary, and the ratio grows with $n$.
-b) Exactly $n + 1$ calls compute something new, i.e. one per distinct
-subproblem. Everything else is a table lookup.
-c) $1.6^{100} \approx 2.6 \times 10^{20}$ calls, so about $2.6 \times 10^{11}$
-seconds, which is roughly **8,000 years**. The memoized version takes 100
-additions. This difference is a strong argument for dynamic programming.
+a) The list ends at NIL, which is one base case, and finding the key is the
+other one.
 
-### A4. Reading a DFS trace
+```
+Procedure LIST-CONTAINS(node, k)
+Inputs:
+      node: the head of a singly linked list, possibly NIL
+      k: the key looked for
+Result: TRUE if some node holds key k, FALSE otherwise
+If node = NIL
+      then return FALSE                 # base case: end of the list
+If node.key = k
+      then return TRUE                  # base case: found
+return LIST-CONTAINS(node.next, k)      # recursion case
+```
 
-a) The root is A, because it has the smallest discovery time and the largest
-finishing time, so its interval $[1, 8]$ contains all the others.
-b) C is a descendant of B, since $[3,4] \subset [2,7]$. D is **not** a
-descendant of C, because $[5,6]$ and $[3,4]$ are disjoint, so C and D are
-siblings under B.
-c) The tree is A → B → {C, D}.
-d) When DFS explores D → A, A is **gray** (discovered at 1, not finished until
-8). An edge to a gray vertex is a **back edge**, and a back edge means that the
-graph contains a **cycle**: A → B → D → A.
+This is **linear recursion** and, more precisely, **tail-end recursion**,
+because there is one recursive call and it is the last step.
 
-### A5. Stack depth
+b) In a binary search tree the comparison with the key of the node tells us
+which subtree can contain the key.
 
-a) The depth is $n$. Python's default limit fails at roughly $n \approx 1000$,
-which is very small for real data. Any recursion whose depth is proportional to
-the data size is therefore a risk.
-b) The stack gets about $\log_2(10^9) \approx 30$ frames deep.
-c) It is safe because logarithmic depth stays very small even for extremely
-large inputs. This is why divide-and-conquer recursion, for example mergesort
-and binary search, is safe while linear recursion over a dataset is not. It is
-also why the iterative version of a linear recursion is usually the right
-choice.
+```
+Procedure BST-CONTAINS(node, k)
+Inputs:
+      node: the root of a binary search tree, possibly NIL
+      k: the key looked for
+Result: TRUE if some node holds key k, FALSE otherwise
+If node = NIL
+      then return FALSE
+If node.key = k
+      then return TRUE
+If k < node.key
+      then return BST-CONTAINS(node.left, k)
+      else return BST-CONTAINS(node.right, k)
+```
 
-### A6. Divide and conquer, or dynamic programming?
+This is also **linear (tail-end) recursion**. There are two recursive calls in
+the code but only one of them is executed in each call of the procedure, so
+the calls form a chain and not a tree. Compare it with the recursive Fibonacci
+procedure, in which both calls are executed.
 
-a) **Divide and conquer** (mergesort). The halves are disjoint, so no
-subproblem is ever solved twice.
-b) **Dynamic programming.** The number of paths to a cell depends on the cells
-above and to the left, and those subproblems are shared by many cells, so we
-fill a table.
-c) **Divide and conquer** (binary search). Each step discards half the array
-and there is exactly one subproblem.
-d) **Dynamic programming.** This is the classic case, because the distance
-between prefixes is reused constantly and the standard algorithm fills an
-$m \times n$ table.
+### A4. The minimum of a binary search tree
 
-In all four cases, the test is whether the subproblems overlap.
+a) Every key in the left subtree of a node is smaller than the key of the
+node, so the minimum is the leftmost node.
+
+```
+Procedure BST-MINIMUM(node)
+Inputs:
+      node: the root of a non-empty binary search tree
+Result: the smallest key in the tree
+If node.left = NIL
+      then return node.key
+      else return BST-MINIMUM(node.left)
+```
+
+This is **linear recursion** and specifically **tail-end recursion**, because
+the result of the recursive call is returned without further calculation.
+
+b)
+
+```
+Procedure BST-MINIMUM-ITERATIVE(node)
+Inputs:
+      node: the root of a non-empty binary search tree
+Result: the smallest key in the tree
+While node.left ≠ NIL:
+      node ← node.left
+return node.key
+```
+
+The main difference is the **memory**. Both versions visit the same nodes, but
+the recursive version puts one frame on the stack for every level of the tree,
+so it can cause a stack overflow on a very unbalanced tree. The iterative
+version needs one frame, whatever the height of the tree is. Each call also
+takes some time, so the iterative version is slightly faster.
+
+### A5. From a loop to a recursion
+
+a) The loop doubles `x` once for every value of `i` from 0 to $n - 1$, so the
+method computes $2^n$. Recursively, $2^n = 2 \cdot 2^{n-1}$ and $2^0 = 1$.
+
+```
+Procedure UNKNOWN(n)
+Inputs:
+      n: a non-negative integer
+Result: 2 to the power of n
+If n = 0
+      then return 1
+      else return 2 · UNKNOWN(n - 1)
+```
+
+b) It is **linear recursion**, because the procedure calls itself once. It is
+not tail-end recursion, because the result of the recursive call still has to
+be multiplied by 2.
+
+c) `unknown(10)` calls `unknown(9)`, and so on down to `unknown(0)`, so there
+are **11 frames** on the stack at the deepest point. The iterative version
+needs **one frame**, with the two variables `x` and `i`.
+
+### A6. Everyone below a manager
+
+a)
+
+```
+Procedure ALL-REPORTS(e)
+Inputs:
+      e: an employee, with the list reports[e] of the employees
+         that e manages directly
+Result: the list of all the employees that e manages directly or indirectly
+result ← an empty list
+For each employee r in reports[e]:
+      append r to result
+      append every element of ALL-REPORTS(r) to result
+return result
+```
+
+The procedure does not mention the number of levels, so it keeps working when
+the hierarchy changes.
+
+b) For Ben it returns `[Dua, Eli]`. For Ana it returns
+`[Ben, Dua, Eli, Cem, Fay]`, because after Ben it appends everyone below Ben,
+and after Cem it appends everyone below Cem.
+
+c) The base case is an employee who manages nobody. The For loop does not run
+and the procedure returns the empty list without calling itself. It is **tree
+recursion**, because the procedure calls itself once for every employee that
+`e` manages directly, which can be several times.

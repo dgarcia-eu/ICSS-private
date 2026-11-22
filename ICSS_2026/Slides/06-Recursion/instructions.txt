@@ -1,0 +1,10 @@
+- Slide 3: center the figure on the right column.
+- Slide 14: increase the size of the text after the box to fill the vertical space
+- Slide 41: remove "intermission" from the title
+- Slides 44 to 46, make sure the figures on the right are centered on the right column and make them taller so they fill the vertical space.
+- Put the "recursive algorithm 1" header on the following slide for Euclid's algorithm, not for GCD
+- Change the pseudocode highlight of slide 54 to be the first for loop, not the second
+- on the DFS worked example, change the color of the nodes in the image to black when it changes in the running trace
+- Slide 76, center the figure on the right an dmake it use the vertical space
+- Slide 86: increase font and space around table to fill vertical space
+- Slide 87:  the caption of the BFS figure is on top of it. Make the figures a bit larger, especially the last two using the vertical space

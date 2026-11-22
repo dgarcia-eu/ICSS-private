@@ -48,71 +48,68 @@ format:
 :::
 ::::
 
-
-<!-- MOTIVATION:M06-A:BEGIN -->
-## How many people report to her?
-
-::: {.motivation}
-[Motivating example]{.label}
-An organizational chart has a chief executive, division heads, department heads,
-team leads and staff, and **nobody knows how deep it goes**, because it differs
-by division. You are asked how many people, in total, work below any given
-manager.
-:::
-
-- A loop over levels needs to know **how many levels** to go through.
-- You do not know that number, and it can change next month.
-
-[How do you write a procedure that works without knowing in advance how deep the structure is?]{.ask}
-<!-- MOTIVATION:M06-A:END -->
-
 <!-- MOTIVATION:M06-B:BEGIN -->
-## The comment thread with no bottom
+## The comment thread with no bottom {.fit1}
 
 ::: {.motivation}
 [Motivating example]{.label}
 A discussion thread has replies, replies to replies, and replies to those. To
-count the posts, render the page, or measure how deep an argument went, a
-procedure has to go through the whole structure, and the structure is
-**defined in terms of itself**.
+count the posts or to measure how deep an argument went, a procedure has to go
+through the whole structure, and the structure is **defined in terms of itself**.
 :::
 
+:::: {.columns}
+::: {.column width="46%"}
 ::: {.definition}
 [A comment is]{.label}
 a post, plus a list of **comments**.
 :::
 
 [When the *data* is defined in terms of itself, what should the *procedure* look like?]{.ask}
+:::
+
+::: {.column width="54%"}
+::: {.center-h}
+![](figures/06-thread-recursive.svg){height="9.7em"}
+:::
+:::
+::::
 <!-- MOTIVATION:M06-B:END -->
 
-<!-- MOTIVATION:M06-C:BEGIN -->
-## The algorithm that is 2,300 years old {.fit1}
+<!-- MOTIVATION:M06-D:BEGIN -->
+## The car software that could run out of stack {.fit1}
 
 ::: {.motivation}
 [Motivating example]{.label}
-Euclid's *Elements*, Book VII, around 300 BC, gives a procedure for the greatest
-common divisor, namely to **replace the larger number by its remainder against
-the smaller and repeat.** It is still the algorithm your computer uses today.
+Between 2009 and 2011 Toyota recalled millions of cars after reports of
+unintended acceleration. In the trial *Bookout v. Toyota* (2013), the software
+expert Michael Barr testified that the engine control software of the Camry
+used **recursion** and could run out of **stack memory**.
 :::
 
-::: {.example}
-[gcd(270, 192)]{.label}
-gcd(270, 192) → gcd(192, 78) → gcd(78, 36) → gcd(36, 6) → gcd(6, 0) = **6**
+:::: {.figures}
+::: {.fq}
+[41%]{.big}[of the stack used at most, according to Toyota]{.cap}
 :::
+::: {.fq}
+[94%]{.big}[of the stack used, according to the expert, before counting the recursion]{.cap}
+:::
+::: {.fq}
+[no check]{.big}[at run time that would notice a stack overflow]{.cap}
+:::
+::::
 
-[What makes this procedure *stop*, and what happens to a procedure that calls itself and never stops?]{.ask}
+[Why does a function that calls itself need more memory with every call, and what happens when that memory runs out?]{.ask}
 
 ::: {.source}
-Euclid, *Elements*, Book VII, Propositions 1–2
+Barr, M. (2013). *Bookout v. Toyota: 2005 Camry L4 software analysis*. Koopman, P. (2014). *A case study of Toyota unintended acceleration and software safety*
 :::
-<!-- MOTIVATION:M06-C:END -->
+<!-- MOTIVATION:M06-D:END -->
 
 ## Example: Citizens of Simpleland
 
 ::: {.center-h}
-![](figures/simpleland-map.png){height="11.6em"}
-
-**Simpleland**
+![](figures/06-simpleland-map.svg){height="13.4em"}
 :::
 
 ## Example: Citizens of Simpleland {.fit1}
@@ -124,9 +121,9 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 - either of P's parents are citizens of Simpleland
 :::
 
-
-<img class="simpleland" src="figures/simpleland-map.png">
-<div class="simpleland-label">Simpleland</div>
+::: {.stage-bottom}
+![](figures/06-simpleland-0.svg)
+:::
 
 ## Example: Citizens of Simpleland {.fit1}
 
@@ -141,12 +138,9 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 **Is P a citizen of Simpleland?**
 :::
 
-<div class="family">
-<div class="gen gen-p"><img src="figures/person-p.png"></div>
-</div>
-
-<img class="simpleland" src="figures/simpleland-map.png">
-<div class="simpleland-label">Simpleland</div>
+::: {.stage-bottom}
+![](figures/06-simpleland-1.svg)
+:::
 
 ## Example: Citizens of Simpleland {.fit1}
 
@@ -161,12 +155,9 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 **Is P a citizen of Simpleland?**
 :::
 
-<div class="family">
-<div class="gen gen-p"><img src="figures/person-p.png"></div>
-</div>
-
-<img class="simpleland" src="figures/simpleland-map.png">
-<div class="simpleland-label">Simpleland</div>
+::: {.stage-bottom}
+![](figures/06-simpleland-1.svg)
+:::
 
 ## Example: Citizens of Simpleland {.fit1}
 
@@ -181,13 +172,9 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 **Is P a citizen of Simpleland?**
 :::
 
-<div class="family">
-<div class="gen gen-parents"><img src="figures/person-mother.png"><img src="figures/person-father.png"></div>
-<div class="gen gen-p"><img src="figures/person-p.png"></div>
-</div>
-
-<img class="simpleland" src="figures/simpleland-map.png">
-<div class="simpleland-label">Simpleland</div>
+::: {.stage-bottom}
+![](figures/06-simpleland-2.svg)
+:::
 
 ## Example: Citizens of Simpleland {.fit1}
 
@@ -202,13 +189,9 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 **Is P a citizen of Simpleland?**
 :::
 
-<div class="family">
-<div class="gen gen-parents"><img src="figures/person-mother.png"><img src="figures/person-father.png"></div>
-<div class="gen gen-p"><img src="figures/person-p.png"></div>
-</div>
-
-<img class="simpleland" src="figures/simpleland-map.png">
-<div class="simpleland-label">Simpleland</div>
+::: {.stage-bottom}
+![](figures/06-simpleland-2.svg)
+:::
 
 ## Example: Citizens of Simpleland {.fit1}
 
@@ -219,18 +202,13 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 - either of P's parents are citizens of Simpleland
 :::
 
-::: {.tag .qcentre}
-Is P a citizen of Simpleland?
+::: {.sm}
+**Is P a citizen of Simpleland?**
 :::
 
-<div class="family">
-<div class="gen gen-grand"><img src="figures/person-gm1.png"><img src="figures/person-gf1.png"><span class="gap"></span><img src="figures/person-gm2.png"><img src="figures/person-gf2.png"></div>
-<div class="gen gen-parents"><img src="figures/person-mother.png"><img src="figures/person-father.png"></div>
-<div class="gen gen-p"><img src="figures/person-p.png"></div>
-</div>
-
-<img class="simpleland" src="figures/simpleland-map.png">
-<div class="simpleland-label">Simpleland</div>
+::: {.stage-bottom}
+![](figures/06-simpleland-3.svg)
+:::
 
 ## Components of Recursion {.fit1}
 
@@ -241,14 +219,13 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 - either of P's parents are citizens of Simpleland
 :::
 
-<div class="family">
-<div class="gen gen-grand"><img src="figures/person-gm1.png"><img src="figures/person-gf1.png"><span class="gap"></span><img src="figures/person-gm2.png"><img src="figures/person-gf2.png"></div>
-<div class="gen gen-parents"><img src="figures/person-mother.png"><img src="figures/person-father.png"></div>
-<div class="gen gen-p"><img src="figures/person-p.png"></div>
-</div>
+::: {.sm}
+**Is P a citizen of Simpleland?**
+:::
 
-<img class="simpleland" src="figures/simpleland-map.png">
-<div class="simpleland-label">Simpleland</div>
+::: {.stage-bottom}
+![](figures/06-simpleland-3.svg)
+:::
 
 ## Components of Recursion {.fit1}
 
@@ -259,18 +236,13 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 - either of P's parents are citizens of Simpleland &nbsp;&nbsp; [**Recursion case**]{.hl}
 :::
 
-::: {.tag .qcentre}
-Is P a citizen of Simpleland?
+::: {.sm}
+**Is P a citizen of Simpleland?**
 :::
 
-<div class="family">
-<div class="gen gen-grand"><img src="figures/person-gm1.png"><img src="figures/person-gf1.png"><span class="gap"></span><img src="figures/person-gm2.png"><img src="figures/person-gf2.png"></div>
-<div class="gen gen-parents"><img src="figures/person-mother.png"><img src="figures/person-father.png"></div>
-<div class="gen gen-p"><img src="figures/person-p.png"></div>
-</div>
-
-<img class="simpleland" src="figures/simpleland-map.png">
-<div class="simpleland-label">Simpleland</div>
+::: {.stage-bottom}
+![](figures/06-simpleland-3.svg)
+:::
 
 ## Recursion {.fit1}
 
@@ -282,7 +254,7 @@ Recursion is a technique in mathematics, logic and computer science to specify a
 :::
 :::
 
-::: {.sm}
+::: {}
 - as long as the start value of the function $f$ is known for sufficiently many arguments (**base cases**), any value of $f$ can be calculated
 - a recursive call of the function $f$ keeps calling itself until
   - the function converges to a specific target value
@@ -298,18 +270,13 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 - either of P's parents are citizens of Simpleland
 :::
 
-::: {.tag .qcentre}
-What if we don't know all ancestors of P?
+::: {.sm}
+**What if we don't know all ancestors of P?**
 :::
 
-<div class="family">
-<div class="gen gen-grand"><img src="figures/person-gm1.png"><img src="figures/person-gf1.png"><span class="gap"></span><img src="figures/person-gm2.png"><img src="figures/person-gf2.png"></div>
-<div class="gen gen-parents"><img src="figures/person-mother.png"><img src="figures/person-father.png"></div>
-<div class="gen gen-p"><img src="figures/person-p.png"></div>
-</div>
-
-<img class="simpleland" src="figures/simpleland-map.png">
-<div class="simpleland-label">Simpleland</div>
+::: {.stage-bottom}
+![](figures/06-simpleland-4.svg)
+:::
 
 ## Issues with Recursion {.fit1}
 
@@ -321,25 +288,8 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 - if we don't know P's parents, P is not a citizen of Simpleland &nbsp;&nbsp; [**Abort case**]{.hl}
 :::
 
-<div class="family">
-<div class="gen gen-grand"><img src="figures/person-gm1.png"><img src="figures/person-gf1.png"><span class="gap"></span><img src="figures/person-gm2.png"><img src="figures/person-gf2.png"></div>
-<div class="gen gen-parents"><img src="figures/person-mother.png"><img src="figures/person-father.png"></div>
-<div class="gen gen-p"><img src="figures/person-p.png"></div>
-</div>
-
-<img class="simpleland" src="figures/simpleland-map.png">
-<div class="simpleland-label">Simpleland</div>
-
-## Recursion and Fractals
-
-::: {.imgrow .middle style="flex-wrap:wrap;gap:0.4em 1.0em"}
-![](figures/recursive-drawing-1.png){height="6.6em"}
-![](figures/recursive-drawing-3.png){height="6.6em"}
-![](figures/recursive-drawing-2.png){height="6.6em"}
-:::
-
-::: {.source}
-<http://recursivedrawing.com/>
+::: {.stage-bottom}
+![](figures/06-simpleland-4.svg)
 :::
 
 ## Example: Seating four diners
@@ -348,21 +298,9 @@ A person (P) is a citizen of Simpleland if it satisfies any of these conditions:
 How many different ways exist for arranging the four diners?
 :::
 
-:::: {.columns}
-::: {.column width="16%"}
-::: {}
-**Slots**
-
-<br>
-
-**Choices**
+::: {.center-h}
+![](figures/06-seating-diners.svg){height="9.5em"}
 :::
-:::
-
-::: {.column width="84%"}
-![](figures/06-factorial-slots.svg){height="5.4em"}
-:::
-::::
 
 ## Example: Seating four diners
 
@@ -370,21 +308,9 @@ How many different ways exist for arranging the four diners?
 How many different ways exist for arranging the four diners?
 :::
 
-:::: {.columns}
-::: {.column width="16%"}
-::: {}
-**Slots**
-
-<br>
-
-**Choices**
+::: {.center-h}
+![](figures/06-seating-choices.svg){height="9.5em"}
 :::
-:::
-
-::: {.column width="84%"}
-![](figures/06-factorial-slots-choices.svg){height="9.5em"}
-:::
-::::
 
 ## Example: Seating four diners
 
@@ -392,21 +318,9 @@ How many different ways exist for arranging the four diners?
 How many different ways exist for arranging the four diners?
 :::
 
-:::: {.columns}
-::: {.column width="16%"}
-::: {}
-**Slots**
-
-<br>
-
-**Choices**
+::: {.center-h}
+![](figures/06-seating-choices.svg){height="9.5em"}
 :::
-:::
-
-::: {.column width="84%"}
-![](figures/06-factorial-slots-choices.svg){height="9.5em"}
-:::
-::::
 
 ::: {.center-h}
 $4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24$ arrangements
@@ -482,8 +396,16 @@ $n! = n \, (n-1)!$ &nbsp;&nbsp;&nbsp; $1! = 1$
 
 ## Recursive factorial in Python
 
-::: {.center-h}
-![](figures/python-recursive-factorial.png){height="10.6em"}
+::: {.pycode}
+```{.python code-line-numbers="false"}
+# assumes input is a positive integer
+# returns n!
+def recursive_factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * recursive_factorial(n-1)
+```
 :::
 
 ::: {.center-h .sm}
@@ -582,150 +504,582 @@ $\Rightarrow$ `fac(4)` = 24
 
 ## Factorial: Recursive Execution
 
-::: {.center-h}
-![](figures/callstack-32.jpg){height="14.0em"}
+::: {.sm}
+**The call `recursive_factorial(3)` creates a frame with n = 3**
 :::
+
+<!-- CALLSTACK:1:BEGIN -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 596" class="callstack" font-family="Arial, Helvetica, sans-serif">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e07b00"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3e5496"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888"/></marker></defs>
+  <text x="20" y="28" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">recursive_factorial(3)</text>
+  <path d="M 64 37 L 150 53" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="164" y="51" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=3</text>
+  <g opacity="1">
+  <rect x="110" y="58" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <rect x="114" y="177" width="592" height="28" rx="0" fill="#fde3a7" stroke="none" stroke-width="1.4"/>
+  <text x="124" y="85" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="124" y="113" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="141" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="124" y="169" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="197" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="750" y="99" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="758" y="71" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="779" y="99" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">3</text>
+  </g>
+</svg>
+```
+<!-- CALLSTACK:1:END -->
 
 ## Factorial: Recursive Execution
 
-::: {.center-h}
-![](figures/callstack-33.jpg){height="14.0em"}
+::: {.sm}
+**n is not 1, so the function calls itself with n = 2 and waits for the result**
 :::
+
+<!-- CALLSTACK:2:BEGIN -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 596" class="callstack" font-family="Arial, Helvetica, sans-serif">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e07b00"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3e5496"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888"/></marker></defs>
+  <text x="20" y="28" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">recursive_factorial(3)</text>
+  <path d="M 64 37 L 150 53" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="164" y="51" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=3</text>
+  <g opacity="1">
+  <rect x="110" y="58" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="124" y="85" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="124" y="113" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="141" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="124" y="169" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="197" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="750" y="99" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="758" y="71" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="779" y="99" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">3</text>
+  </g>
+  <path d="M 521 215 L 560 241" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="576" y="232" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=2</text>
+  <g opacity="1">
+  <rect x="250" y="246" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <rect x="254" y="365" width="592" height="28" rx="0" fill="#fde3a7" stroke="none" stroke-width="1.4"/>
+  <text x="264" y="273" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="264" y="301" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="329" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="264" y="357" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="385" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="890" y="287" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="898" y="259" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="919" y="287" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">2</text>
+  </g>
+</svg>
+```
+<!-- CALLSTACK:2:END -->
 
 ## Factorial: Recursive Execution
 
-::: {.center-h}
-![](figures/callstack-34.jpg){height="14.0em"}
+::: {.sm}
+**The call with n = 1 reaches the base case**
 :::
+
+<!-- CALLSTACK:3:BEGIN -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 596" class="callstack" font-family="Arial, Helvetica, sans-serif">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e07b00"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3e5496"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888"/></marker></defs>
+  <text x="20" y="28" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">recursive_factorial(3)</text>
+  <path d="M 64 37 L 150 53" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="164" y="51" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=3</text>
+  <g opacity="1">
+  <rect x="110" y="58" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="124" y="85" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="124" y="113" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="141" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="124" y="169" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="197" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="750" y="99" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="758" y="71" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="779" y="99" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">3</text>
+  </g>
+  <path d="M 521 215 L 560 241" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="576" y="232" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=2</text>
+  <g opacity="1">
+  <rect x="250" y="246" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="264" y="273" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="264" y="301" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="329" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="264" y="357" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="385" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="890" y="287" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="898" y="259" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="919" y="287" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">2</text>
+  </g>
+  <path d="M 661 403 L 700 429" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="716" y="420" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=1</text>
+  <g opacity="1">
+  <rect x="390" y="434" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <rect x="394" y="497" width="592" height="28" rx="0" fill="#fde3a7" stroke="none" stroke-width="1.4"/>
+  <text x="404" y="461" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="404" y="489" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="404" y="517" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="404" y="545" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="404" y="573" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="1030" y="475" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="1038" y="447" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="1059" y="475" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">1</text>
+  </g>
+</svg>
+```
+<!-- CALLSTACK:3:END -->
 
 ## Factorial: Recursive Execution
 
-::: {.center-h}
-![](figures/callstack-35.jpg){height="14.0em"}
+::: {.sm}
+**The base case returns 1 to the call that is waiting with n = 2**
 :::
+
+<!-- CALLSTACK:4:BEGIN -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 596" class="callstack" font-family="Arial, Helvetica, sans-serif">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e07b00"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3e5496"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888"/></marker></defs>
+  <text x="20" y="28" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">recursive_factorial(3)</text>
+  <path d="M 64 37 L 150 53" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="164" y="51" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=3</text>
+  <g opacity="1">
+  <rect x="110" y="58" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="124" y="85" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="124" y="113" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="141" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="124" y="169" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="197" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="750" y="99" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="758" y="71" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="779" y="99" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">3</text>
+  </g>
+  <path d="M 521 215 L 560 241" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="576" y="232" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=2</text>
+  <g opacity="1">
+  <rect x="250" y="246" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <rect x="254" y="365" width="592" height="28" rx="0" fill="#fde3a7" stroke="none" stroke-width="1.4"/>
+  <text x="264" y="273" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="264" y="301" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="329" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="264" y="357" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="385" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="890" y="287" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="898" y="259" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="919" y="287" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">2</text>
+  <text x="862" y="385" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" fill="#b03a2e" font-weight="bold" xml:space="preserve" style="white-space:pre">= 2 * 1</text>
+  </g>
+  <path d="M 661 403 L 700 429" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="716" y="420" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=1</text>
+  <g opacity="0.45">
+  <rect x="390" y="434" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="404" y="461" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="404" y="489" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="404" y="517" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="404" y="545" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="404" y="573" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="1030" y="475" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="1038" y="447" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="1059" y="475" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">1</text>
+  </g>
+  <path d="M 387 511 C 297 525 250 491 306 405" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="266" y="475" text-anchor="middle" font-size="24" fill="#b03a2e" font-weight="bold" font-style="normal">1</text>
+</svg>
+```
+<!-- CALLSTACK:4:END -->
 
 ## Factorial: Recursive Execution
 
-::: {.center-h}
-![](figures/callstack-36.jpg){height="14.0em"}
+::: {.sm}
+**That call returns 2 · 1 = 2 to the call that is waiting with n = 3**
 :::
+
+<!-- CALLSTACK:5:BEGIN -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 596" class="callstack" font-family="Arial, Helvetica, sans-serif">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e07b00"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3e5496"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888"/></marker></defs>
+  <text x="20" y="28" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">recursive_factorial(3)</text>
+  <path d="M 64 37 L 150 53" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="164" y="51" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=3</text>
+  <g opacity="1">
+  <rect x="110" y="58" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <rect x="114" y="177" width="592" height="28" rx="0" fill="#fde3a7" stroke="none" stroke-width="1.4"/>
+  <text x="124" y="85" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="124" y="113" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="141" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="124" y="169" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="197" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="750" y="99" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="758" y="71" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="779" y="99" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">3</text>
+  <text x="722" y="197" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" fill="#b03a2e" font-weight="bold" xml:space="preserve" style="white-space:pre">= 3 * 2</text>
+  </g>
+  <path d="M 521 215 L 560 241" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="576" y="232" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=2</text>
+  <g opacity="0.45">
+  <rect x="250" y="246" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="264" y="273" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="264" y="301" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="329" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="264" y="357" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="385" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="890" y="287" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="898" y="259" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="919" y="287" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">2</text>
+  <text x="862" y="385" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" fill="#b03a2e" font-weight="bold" xml:space="preserve" style="white-space:pre">= 2 * 1</text>
+  </g>
+  <path d="M 661 403 L 700 429" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="716" y="420" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=1</text>
+  <g opacity="0.45">
+  <rect x="390" y="434" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="404" y="461" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="404" y="489" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="404" y="517" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="404" y="545" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="404" y="573" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="1030" y="475" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="1038" y="447" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="1059" y="475" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">1</text>
+  </g>
+  <path d="M 387 511 C 297 525 250 491 306 405" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="266" y="475" text-anchor="middle" font-size="24" fill="#b03a2e" font-weight="bold" font-style="normal">1</text>
+  <path d="M 247 379 C 157 393 110 303 166 217" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="126" y="287" text-anchor="middle" font-size="24" fill="#b03a2e" font-weight="bold" font-style="normal">2</text>
+</svg>
+```
+<!-- CALLSTACK:5:END -->
 
 ## Factorial: Recursive Execution
 
-::: {.center-h}
-![](figures/callstack-37.jpg){height="14.0em"}
+::: {.sm}
+**The first call returns 3 · 2 = 6**
 :::
+
+<!-- CALLSTACK:6:BEGIN -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 596" class="callstack" font-family="Arial, Helvetica, sans-serif">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e07b00"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3e5496"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888"/></marker></defs>
+  <text x="20" y="28" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">recursive_factorial(3)</text>
+  <path d="M 64 37 L 150 53" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="164" y="51" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=3</text>
+  <g opacity="0.45">
+  <rect x="110" y="58" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="124" y="85" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="124" y="113" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="141" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="124" y="169" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="197" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="750" y="99" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="758" y="71" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="779" y="99" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">3</text>
+  <text x="722" y="197" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" fill="#b03a2e" font-weight="bold" xml:space="preserve" style="white-space:pre">= 3 * 2</text>
+  </g>
+  <path d="M 521 215 L 560 241" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="576" y="232" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=2</text>
+  <g opacity="0.45">
+  <rect x="250" y="246" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="264" y="273" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="264" y="301" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="329" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="264" y="357" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="385" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="890" y="287" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="898" y="259" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="919" y="287" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">2</text>
+  <text x="862" y="385" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" fill="#b03a2e" font-weight="bold" xml:space="preserve" style="white-space:pre">= 2 * 1</text>
+  </g>
+  <path d="M 661 403 L 700 429" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="716" y="420" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=1</text>
+  <g opacity="0.45">
+  <rect x="390" y="434" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="404" y="461" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="404" y="489" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="404" y="517" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="404" y="545" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="404" y="573" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="1030" y="475" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="1038" y="447" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="1059" y="475" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">1</text>
+  </g>
+  <path d="M 387 511 C 297 525 250 491 306 405" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="266" y="475" text-anchor="middle" font-size="24" fill="#b03a2e" font-weight="bold" font-style="normal">1</text>
+  <path d="M 247 379 C 157 393 110 303 166 217" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="126" y="287" text-anchor="middle" font-size="24" fill="#b03a2e" font-weight="bold" font-style="normal">2</text>
+  <path d="M 107 191 C 47 221 22 180 34 40" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="14" y="150" text-anchor="middle" font-size="24" fill="#b03a2e" font-weight="bold" font-style="normal">6</text>
+</svg>
+```
+<!-- CALLSTACK:6:END -->
 
 ## Factorial: Recursive Execution
 
-::: {.center-h}
-![](figures/callstack-38.jpg){height="14.0em"}
+::: {.sm}
+**Memory costs: every call that is waiting keeps its own frame with its own n**
 :::
+
+<!-- CALLSTACK:7:BEGIN -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 596" class="callstack" font-family="Arial, Helvetica, sans-serif">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e07b00"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3e5496"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888"/></marker></defs>
+  <text x="20" y="28" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">recursive_factorial(3)</text>
+  <path d="M 64 37 L 150 53" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="164" y="51" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=3</text>
+  <g opacity="1">
+  <rect x="110" y="58" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="124" y="85" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="124" y="113" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="141" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="124" y="169" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="197" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="750" y="99" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="758" y="71" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="779" y="99" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">3</text>
+  <text x="722" y="197" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" fill="#b03a2e" font-weight="bold" xml:space="preserve" style="white-space:pre">= 3 * 2</text>
+  </g>
+  <path d="M 521 215 L 560 241" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="576" y="232" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=2</text>
+  <g opacity="1">
+  <rect x="250" y="246" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="264" y="273" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="264" y="301" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="329" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="264" y="357" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="385" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="890" y="287" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="898" y="259" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="919" y="287" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">2</text>
+  <text x="862" y="385" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" fill="#b03a2e" font-weight="bold" xml:space="preserve" style="white-space:pre">= 2 * 1</text>
+  </g>
+  <path d="M 661 403 L 700 429" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="716" y="420" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=1</text>
+  <g opacity="1">
+  <rect x="390" y="434" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="404" y="461" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="404" y="489" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="404" y="517" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="404" y="545" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="404" y="573" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="1030" y="475" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="1038" y="447" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="1059" y="475" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">1</text>
+  </g>
+  <path d="M 387 511 C 297 525 250 491 306 405" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="266" y="475" text-anchor="middle" font-size="24" fill="#b03a2e" font-weight="bold" font-style="normal">1</text>
+  <path d="M 247 379 C 157 393 110 303 166 217" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="126" y="287" text-anchor="middle" font-size="24" fill="#b03a2e" font-weight="bold" font-style="normal">2</text>
+  <path d="M 107 191 C 47 221 22 180 34 40" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="14" y="150" text-anchor="middle" font-size="24" fill="#b03a2e" font-weight="bold" font-style="normal">6</text>
+  <rect x="930" y="60" width="200" height="36" rx="3" fill="#59d8c4" stroke="none" stroke-width="1.4"/>
+  <text x="1030.0" y="86" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">Memory costs</text>
+  <path d="M 938 78 L 804 90" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M 1010 96 L 922 255" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M 1070 96 L 1062 443" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+</svg>
+```
+<!-- CALLSTACK:7:END -->
 
 ## Factorial: Recursive Execution
 
-::: {.center-h}
-![](figures/callstack-39.jpg){height="14.0em"}
+::: {.sm}
+**Time costs: every call and every return takes time**
 :::
 
-## Intermission: Memory of a running program
+<!-- CALLSTACK:8:BEGIN -->
+```{=html}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 596" class="callstack" font-family="Arial, Helvetica, sans-serif">
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b03a2e"/></marker><marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e07b00"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3e5496"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#888"/></marker></defs>
+  <text x="20" y="28" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">recursive_factorial(3)</text>
+  <path d="M 64 37 L 150 53" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="164" y="51" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=3</text>
+  <g opacity="1">
+  <rect x="110" y="58" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="124" y="85" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="124" y="113" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="141" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="124" y="169" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="124" y="197" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="750" y="99" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="758" y="71" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="779" y="99" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">3</text>
+  <text x="722" y="197" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" fill="#b03a2e" font-weight="bold" xml:space="preserve" style="white-space:pre">= 3 * 2</text>
+  </g>
+  <path d="M 521 215 L 560 241" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="576" y="232" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=2</text>
+  <g opacity="1">
+  <rect x="250" y="246" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="264" y="273" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="264" y="301" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="329" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="264" y="357" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="264" y="385" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="890" y="287" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="898" y="259" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="919" y="287" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">2</text>
+  <text x="862" y="385" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" fill="#b03a2e" font-weight="bold" xml:space="preserve" style="white-space:pre">= 2 * 1</text>
+  </g>
+  <path d="M 661 403 L 700 429" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="716" y="420" text-anchor="start" font-size="24" fill="#111" font-weight="bold" font-style="normal">n=1</text>
+  <g opacity="1">
+  <rect x="390" y="434" width="600" height="154" rx="6" fill="#f6f8fa" stroke="#c9d1d9" stroke-width="1.4"/>
+  <text x="404" y="461" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#d73a49" font-weight="bold">def</tspan><tspan fill="#24292e"> </tspan><tspan fill="#6f42c1">recursive_factorial</tspan><tspan fill="#24292e">(n):</tspan></text>
+  <text x="404" y="489" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">if</tspan><tspan fill="#24292e"> n == </tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="404" y="517" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> </tspan><tspan fill="#005cc5">1</tspan></text>
+  <text x="404" y="545" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">    </tspan><tspan fill="#d73a49" font-weight="bold">else</tspan><tspan fill="#24292e">:</tspan></text>
+  <text x="404" y="573" font-size="22" font-family="DejaVu Sans Mono, Menlo, Consolas, Liberation Mono, monospace" xml:space="preserve" style="white-space:pre"><tspan fill="#24292e">        </tspan><tspan fill="#d73a49" font-weight="bold">return</tspan><tspan fill="#24292e"> n * recursive_factorial(n-</tspan><tspan fill="#005cc5">1</tspan><tspan fill="#24292e">)</tspan></text>
+  <text x="1030" y="475" text-anchor="end" font-size="24" fill="#111" font-weight="bold" font-style="normal">n:</text>
+  <rect x="1038" y="447" width="42" height="38" rx="0" fill="#fff" stroke="#b03a2e" stroke-width="2.4"/>
+  <text x="1059" y="475" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">1</text>
+  </g>
+  <path d="M 387 511 C 297 525 250 491 306 405" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="266" y="475" text-anchor="middle" font-size="24" fill="#b03a2e" font-weight="bold" font-style="normal">1</text>
+  <path d="M 247 379 C 157 393 110 303 166 217" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="126" y="287" text-anchor="middle" font-size="24" fill="#b03a2e" font-weight="bold" font-style="normal">2</text>
+  <path d="M 107 191 C 47 221 22 180 34 40" fill="none" stroke="#b03a2e" stroke-width="3.4" marker-end="url(#ar)"/>
+  <text x="14" y="150" text-anchor="middle" font-size="24" fill="#b03a2e" font-weight="bold" font-style="normal">6</text>
+  <rect x="20" y="540" width="160" height="36" rx="3" fill="#59d8c4" stroke="none" stroke-width="1.4"/>
+  <text x="100.0" y="566" text-anchor="middle" font-size="24" fill="#111" font-weight="bold" font-style="normal">Time costs</text>
+  <path d="M 60 538 L 14 162" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M 96 538 L 130 299" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M 132 538 L 270 487" fill="none" stroke="#111" stroke-width="2" marker-end="url(#a)"/>
+</svg>
+```
+<!-- CALLSTACK:8:END -->
+
+## Memory of a running program {.fit1}
 
 :::: {.columns}
-::: {.column width="52%"}
+::: {.column width="56%"}
 ::: {.sm}
 A program being run in a machine is called a **process**. Processes require memory to run, which is organized as follows:
 
-- Code Segment (CS)
-- Stack Segment (SS)
-- Data Segment or Heap (DS)
+- **Code Segment (CS)** with the instructions of the program
+- **Data Segment or Heap (DS)** with the data that the program creates
+- **Stack Segment (SS)** with what the running function calls have to remember
+
+The heap and the stack grow and shrink while the program runs.
 :::
 :::
 
-::: {.column width="48%"}
-![](figures/06-process-memory.svg){height="11.9em"}
+::: {.column width="44%"}
+::: {.center-h}
+![](figures/06-memory.svg){height="15.4em"}
+:::
 :::
 ::::
 
-## Memory of a running program
+## Memory of a running program {.fit1}
 
 :::: {.columns}
-::: {.column width="52%"}
+::: {.column width="56%"}
 ::: {.sm}
 A program being run in a machine is called a **process**. Processes require memory to run, which is organized as follows:
 
-- Code Segment (CS)
+- **Code Segment (CS)**
   - contains executable instructions, i.e., a program loaded from hard disk
   - typically read-only and of fixed size
-- Stack Segment (SS)
 - Data Segment or Heap (DS)
+- Stack Segment (SS)
 :::
 :::
 
-::: {.column width="48%"}
-![](figures/06-process-memory.svg){height="11.9em"}
+::: {.column width="44%"}
+::: {.center-h}
+![](figures/06-memory-cs.svg){height="15.4em"}
+:::
 :::
 ::::
 
-## Memory of a running program
+## Memory of a running program {.fit1}
 
 :::: {.columns}
-::: {.column width="52%"}
+::: {.column width="56%"}
 ::: {.sm}
 A program being run in a machine is called a **process**. Processes require memory to run, which is organized as follows:
 
 - Code Segment (CS)
-- Stack Segment (SS)
-  - contains local variables, parameters, return address
-  - typically no execute (NX)
-  - limited in size, e.g. 8 MB for Linux, 1 MB for Windows and Java
-- Data Segment or Heap (DS)
-:::
-:::
-
-::: {.column width="48%"}
-![](figures/06-process-memory.svg){height="11.9em"}
-:::
-::::
-
-## Memory of a running program
-
-:::: {.columns}
-::: {.column width="52%"}
-::: {.sm}
-A program being run in a machine is called a **process**. Processes require memory to run, which is organized as follows:
-
-- Code Segment (CS)
-- Stack Segment (SS)
-- Data Segment or Heap (DS)
+- **Data Segment or Heap (DS)**
   - contains global data, and Python manages all objects in a (private) heap
   - typically no execute (NX)
   - size is limited by main memory (RAM) or by explicit parameter when run
+- Stack Segment (SS)
 :::
 :::
 
-::: {.column width="48%"}
-![](figures/06-process-memory.svg){height="11.9em"}
+::: {.column width="44%"}
+::: {.center-h}
+![](figures/06-memory-ds.svg){height="15.4em"}
+:::
 :::
 ::::
 
-## Recursion: Implementation in memory
-
-::: {}
-- Recursion uses the **program stack**:
-  - parameters
-  - return address
-  - local variables
-  - return values
-- stack grows and shrinks automatically with every method call
-  - but it has a maximum size, so **stack overflows** are possible!
-  - Warning: recursion in functions easily leads to stack overflow
-:::
-
-## Memes warned you about recursion
+## Memory of a running program {.fit1}
 
 :::: {.columns}
-::: {.column width="44%"}
+::: {.column width="56%"}
 ::: {.sm}
+A program being run in a machine is called a **process**. Processes require memory to run, which is organized as follows:
+
+- Code Segment (CS)
+- Data Segment or Heap (DS)
+- **Stack Segment (SS)**
+  - contains local variables, parameters, return address
+  - typically no execute (NX)
+  - limited in size, e.g. 8 MB for Linux, 1 MB for Windows and Java
+:::
+:::
+
+::: {.column width="44%"}
+::: {.center-h}
+![](figures/06-memory-ss.svg){height="15.4em"}
+:::
+:::
+::::
+
+## Recursion in memory: one stack frame per call {.fit1}
+
+:::: {.columns}
+::: {.column width="56%"}
+::: {.sm}
+- Every function call puts a **frame** on the stack that contains:
+  - its parameters and local variables
+  - the **return address**, i.e. where the program continues after the call
+- The frame is removed when the call returns its value
+- A recursive call does not replace the frame of its caller. It adds a new frame on top
+- `recursive_factorial(3)` needs three frames at its deepest point, so the stack grows and shrinks with every call
+:::
+:::
+
+::: {.column width="44%"}
+::: {.center-h}
+![](figures/06-stack-frames.svg){height="15.4em"}
+:::
+:::
+::::
+
+## How a stack overflow happens {.fit1}
+
+:::: {.columns}
+::: {.column width="56%"}
+::: {.sm}
+- The stack has a **maximum size**, e.g. 8 MB for Linux
+- If the base case is missing or is never reached, no call returns and every call adds a frame
+- A correct recursion can also be too deep, e.g. one call per element of a list with a million elements
+- When the next frame does not fit, we have a **stack overflow**
+  - the program crashes or, in languages like C, it overwrites other memory
+  - Python stops earlier, by default after 1,000 nested calls, with a `RecursionError`
+:::
+:::
+
+::: {.column width="44%"}
+::: {.center-h}
+![](figures/06-stack-overflow.svg){height="15.4em"}
+:::
+:::
+::::
+
+## Memes warned you about recursion {.fit1}
+
+:::: {.columns}
+::: {.column width="40%"}
+::: {}
 **3 Steps to being a good Programmer**
 
 1. Avoid recursion
@@ -734,11 +1088,11 @@ A program being run in a machine is called a **process**. Processes require memo
 4. Beware of being off by one
 :::
 
-![](figures/meme-stack-overflow.png){height="5.6em"}
+![](figures/meme-stack-overflow.png){height="5.9em"}
 :::
 
-::: {.column width="56%"}
-![](figures/meme-distracted-boyfriend.jpg){height="8.6em"}
+::: {.column width="60%"}
+![](figures/meme-distracted-boyfriend.jpg){width="100%"}
 :::
 ::::
 
@@ -747,7 +1101,7 @@ A program being run in a machine is called a **process**. Processes require memo
 ::: {.outline .focus}
 1. Recursion
 2. [Recursive Algorithms]{.current}
-3. Dynamic Programming
+3. Memoization
 :::
 
 ## The Greatest Common Divisor
@@ -756,7 +1110,7 @@ A program being run in a machine is called a **process**. Processes require memo
 ![](figures/06-gcd.svg){height="14.5em"}
 :::
 
-## Euclid's algorithm
+## [Recursive algorithm 1]{.pretitle} Euclid's algorithm
 
 ::: {}
 Uses the mathematical property: $\gcd(a,b) = \gcd(b,\ a \bmod b)$
@@ -807,10 +1161,10 @@ Uses the mathematical property: $\gcd(a,b) = \gcd(b,\ a \bmod b)$
 :::
 ::::
 
-## Euclid and the GCD
+## Euclid and the GCD {.fit1}
 
 :::: {.columns}
-::: {.column width="70%"}
+::: {.column width="60%"}
 ::: {.sm}
 - Euclid (~300 BC) Greek mathematician
 - "Euclid of Alexandria" but little is actually known about his life, neither birth year nor place
@@ -821,19 +1175,21 @@ Uses the mathematical property: $\gcd(a,b) = \gcd(b,\ a \bmod b)$
 :::
 :::
 
-::: {.column width="30%"}
-![](figures/euclid.jpg){height="8.6em"}
+::: {.column width="40%"}
+::: {.center-h}
+![](figures/euclid.jpg){height="13.4em"}
 
-::: {.sm}
+::: {.xs}
 Imagination of how Euclid could have looked like
+:::
 :::
 :::
 ::::
 
-## Depth-First Search in Directed Graphs
+## [Recursive algorithm 2]{.pretitle} Depth-First Search in Directed Graphs
 
 ::: {.center-h}
-![](figures/directed-graph.png){height="8.4em"}
+![](figures/directed-graph.png){height="7.7em"}
 :::
 
 ::: {.sm}
@@ -854,9 +1210,9 @@ Several problems can be solved with depth-first search, such as:
   <i>G</i>: a graph
 <i>Result:</i> every vertex stores its discovery time <i>d</i>,
 its finishing time <i>f</i> and its parent &pi;
-<b>For</b> each vertex <i>u</i> in <i>G</i>.<i>V</i>:
-      color[<i>u</i>] &larr; WHITE
-      &pi;[<i>u</i>] &larr; NIL              # parent
+<span class="hl"><b>For</b> each vertex <i>u</i> in <i>G</i>.<i>V</i>:</span>
+<span class="hl">      color[<i>u</i>] &larr; WHITE</span>
+<span class="hl">      &pi;[<i>u</i>] &larr; NIL              # parent</span>
 <i>time</i> &larr; 0                      # global counter
 <b>For</b> each vertex <i>u</i> in <i>G</i>.<i>V</i>:
       <b>If</b> color[<i>u</i>] = WHITE
@@ -883,13 +1239,13 @@ Example: the For loop takes vertex $c$ first<br>and neighbors are taken alphabet
   <i>G</i>: a graph
   <i>u</i>: the vertex to be processed
 <i>Result:</i> <i>u</i> and every vertex reachable from it are visited
-<i>time</i> &larr; <i>time</i> + 1
-<i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
-color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
-            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
-                 DFS-VISIT(<i>G</i>, <i>v</i>)
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered</span>
+<span class="hl">color[<i>u</i>] &larr; GRAY</span>
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
+<span class="hl">            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i></span>
+<span class="hl">                 DFS-VISIT(<i>G</i>, <i>v</i>)</span>
 color[<i>u</i>] &larr; BLACK
 <i>time</i> &larr; <i>time</i> + 1
 <i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
@@ -915,13 +1271,13 @@ call `DFS-VISIT(G, c)`<br>time = 1<br>Enter For-Loop:<br>next adjacent white nod
   <i>G</i>: a graph
   <i>u</i>: the vertex to be processed
 <i>Result:</i> <i>u</i> and every vertex reachable from it are visited
-<i>time</i> &larr; <i>time</i> + 1
-<i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
-color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
-            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
-                 DFS-VISIT(<i>G</i>, <i>v</i>)
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered</span>
+<span class="hl">color[<i>u</i>] &larr; GRAY</span>
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
+<span class="hl">            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i></span>
+<span class="hl">                 DFS-VISIT(<i>G</i>, <i>v</i>)</span>
 color[<i>u</i>] &larr; BLACK
 <i>time</i> &larr; <i>time</i> + 1
 <i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
@@ -947,13 +1303,13 @@ call `DFS-VISIT(G, b)`<br>time = 2<br>Enter For-Loop:<br>next adjacent white nod
   <i>G</i>: a graph
   <i>u</i>: the vertex to be processed
 <i>Result:</i> <i>u</i> and every vertex reachable from it are visited
-<i>time</i> &larr; <i>time</i> + 1
-<i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
-color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
-            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
-                 DFS-VISIT(<i>G</i>, <i>v</i>)
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered</span>
+<span class="hl">color[<i>u</i>] &larr; GRAY</span>
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
+<span class="hl">            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i></span>
+<span class="hl">                 DFS-VISIT(<i>G</i>, <i>v</i>)</span>
 color[<i>u</i>] &larr; BLACK
 <i>time</i> &larr; <i>time</i> + 1
 <i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
@@ -979,11 +1335,11 @@ call `DFS-VISIT(G, e)`<br>time = 3<br>Enter For-Loop:<br>next adjacent white nod
   <i>G</i>: a graph
   <i>u</i>: the vertex to be processed
 <i>Result:</i> <i>u</i> and every vertex reachable from it are visited
-<i>time</i> &larr; <i>time</i> + 1
-<i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
-color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered</span>
+<span class="hl">color[<i>u</i>] &larr; GRAY</span>
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
 color[<i>u</i>] &larr; BLACK
@@ -1018,9 +1374,9 @@ color[<i>u</i>] &larr; GRAY
       <b>If</b> color[<i>v</i>] = WHITE
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
-color[<i>u</i>] &larr; BLACK
-<i>time</i> &larr; <i>time</i> + 1
-<i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
+<span class="hl">color[<i>u</i>] &larr; BLACK</span>
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</span></pre>
 :::
 :::
 
@@ -1046,10 +1402,10 @@ finish `DFS-VISIT(G, a)`<br>time = 5<br>return to For-Loop of `DFS-VISIT(G, e)`
 <i>time</i> &larr; <i>time</i> + 1
 <i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
 color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
-            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
-                 DFS-VISIT(<i>G</i>, <i>v</i>)
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
+<span class="hl">            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i></span>
+<span class="hl">                 DFS-VISIT(<i>G</i>, <i>v</i>)</span>
 color[<i>u</i>] &larr; BLACK
 <i>time</i> &larr; <i>time</i> + 1
 <i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
@@ -1075,11 +1431,11 @@ return to For-Loop of `DFS-VISIT(G, e)`<br>time = 5<br>Back in the For-Loop:<br>
   <i>G</i>: a graph
   <i>u</i>: the vertex to be processed
 <i>Result:</i> <i>u</i> and every vertex reachable from it are visited
-<i>time</i> &larr; <i>time</i> + 1
-<i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
-color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered</span>
+<span class="hl">color[<i>u</i>] &larr; GRAY</span>
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
 color[<i>u</i>] &larr; BLACK
@@ -1114,9 +1470,9 @@ color[<i>u</i>] &larr; GRAY
       <b>If</b> color[<i>v</i>] = WHITE
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
-color[<i>u</i>] &larr; BLACK
-<i>time</i> &larr; <i>time</i> + 1
-<i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
+<span class="hl">color[<i>u</i>] &larr; BLACK</span>
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</span></pre>
 :::
 :::
 
@@ -1142,8 +1498,8 @@ finish `DFS-VISIT(G, f)`<br>time = 7<br>return to For-Loop of `DFS-VISIT(G, e)`
 <i>time</i> &larr; <i>time</i> + 1
 <i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
 color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
 color[<i>u</i>] &larr; BLACK
@@ -1178,9 +1534,9 @@ color[<i>u</i>] &larr; GRAY
       <b>If</b> color[<i>v</i>] = WHITE
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
-color[<i>u</i>] &larr; BLACK
-<i>time</i> &larr; <i>time</i> + 1
-<i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
+<span class="hl">color[<i>u</i>] &larr; BLACK</span>
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</span></pre>
 :::
 :::
 
@@ -1206,8 +1562,8 @@ finish `DFS-VISIT(G, e)`<br>time = 8<br>return to For-Loop of `DFS-VISIT(G, b)`
 <i>time</i> &larr; <i>time</i> + 1
 <i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
 color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
 color[<i>u</i>] &larr; BLACK
@@ -1242,9 +1598,9 @@ color[<i>u</i>] &larr; GRAY
       <b>If</b> color[<i>v</i>] = WHITE
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
-color[<i>u</i>] &larr; BLACK
-<i>time</i> &larr; <i>time</i> + 1
-<i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
+<span class="hl">color[<i>u</i>] &larr; BLACK</span>
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</span></pre>
 :::
 :::
 
@@ -1270,10 +1626,10 @@ finish `DFS-VISIT(G, b)`<br>time = 9<br>return to For-Loop of `DFS-VISIT(G, c)`
 <i>time</i> &larr; <i>time</i> + 1
 <i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
 color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
-            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
-                 DFS-VISIT(<i>G</i>, <i>v</i>)
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
+<span class="hl">            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i></span>
+<span class="hl">                 DFS-VISIT(<i>G</i>, <i>v</i>)</span>
 color[<i>u</i>] &larr; BLACK
 <i>time</i> &larr; <i>time</i> + 1
 <i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
@@ -1299,13 +1655,13 @@ return to For-Loop of `DFS-VISIT(G, c)`<br>time = 9<br>Back in the For-Loop:<br>
   <i>G</i>: a graph
   <i>u</i>: the vertex to be processed
 <i>Result:</i> <i>u</i> and every vertex reachable from it are visited
-<i>time</i> &larr; <i>time</i> + 1
-<i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
-color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
-            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
-                 DFS-VISIT(<i>G</i>, <i>v</i>)
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered</span>
+<span class="hl">color[<i>u</i>] &larr; GRAY</span>
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
+<span class="hl">            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i></span>
+<span class="hl">                 DFS-VISIT(<i>G</i>, <i>v</i>)</span>
 color[<i>u</i>] &larr; BLACK
 <i>time</i> &larr; <i>time</i> + 1
 <i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
@@ -1331,11 +1687,11 @@ call `DFS-VISIT(G, g)`<br>time = 10<br>Enter the For-Loop:<br>next adjacent whit
   <i>G</i>: a graph
   <i>u</i>: the vertex to be processed
 <i>Result:</i> <i>u</i> and every vertex reachable from it are visited
-<i>time</i> &larr; <i>time</i> + 1
-<i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
-color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered</span>
+<span class="hl">color[<i>u</i>] &larr; GRAY</span>
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
 color[<i>u</i>] &larr; BLACK
@@ -1370,9 +1726,9 @@ color[<i>u</i>] &larr; GRAY
       <b>If</b> color[<i>v</i>] = WHITE
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
-color[<i>u</i>] &larr; BLACK
-<i>time</i> &larr; <i>time</i> + 1
-<i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
+<span class="hl">color[<i>u</i>] &larr; BLACK</span>
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</span></pre>
 :::
 :::
 
@@ -1398,8 +1754,8 @@ finish `DFS-VISIT(G, d)`<br>time = 12<br>return to For-Loop of `DFS-VISIT(G, g)`
 <i>time</i> &larr; <i>time</i> + 1
 <i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
 color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
 color[<i>u</i>] &larr; BLACK
@@ -1434,9 +1790,9 @@ color[<i>u</i>] &larr; GRAY
       <b>If</b> color[<i>v</i>] = WHITE
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
-color[<i>u</i>] &larr; BLACK
-<i>time</i> &larr; <i>time</i> + 1
-<i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
+<span class="hl">color[<i>u</i>] &larr; BLACK</span>
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</span></pre>
 :::
 :::
 
@@ -1462,8 +1818,8 @@ finish `DFS-VISIT(G, g)`<br>time = 13<br>return to For-Loop of `DFS-VISIT(G, c)`
 <i>time</i> &larr; <i>time</i> + 1
 <i>d</i>[<i>u</i>] &larr; <i>time</i>                 # discovered
 color[<i>u</i>] &larr; GRAY
-<b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
-      <b>If</b> color[<i>v</i>] = WHITE
+<span class="hl"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):</span>
+<span class="hl">      <b>If</b> color[<i>v</i>] = WHITE</span>
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
 color[<i>u</i>] &larr; BLACK
@@ -1498,9 +1854,9 @@ color[<i>u</i>] &larr; GRAY
       <b>If</b> color[<i>v</i>] = WHITE
             <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
                  DFS-VISIT(<i>G</i>, <i>v</i>)
-color[<i>u</i>] &larr; BLACK
-<i>time</i> &larr; <i>time</i> + 1
-<i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</pre>
+<span class="hl">color[<i>u</i>] &larr; BLACK</span>
+<span class="hl"><i>time</i> &larr; <i>time</i> + 1</span>
+<span class="hl"><i>f</i>[<i>u</i>] &larr; <i>time</i>                 # finished</span></pre>
 :::
 :::
 
@@ -1528,77 +1884,106 @@ More on Depth-First Search: See Cormen (2009)
 From *Introduction to Algorithms* by Thomas Cormen (2009)
 :::
 
-## Types of recursive algorithms {.fit2}
+## DFS for planning: topological sorting {.fit1}
 
 :::: {.columns}
-::: {.column width="64%"}
+::: {.column width="44%"}
 ::: {.sm}
-- **linear** recursion
-  - method calls itself once recursively<br>e.g., factorial, gcd
-- **tree** or **cascade** recursion
-  - method calls itself multiple times recursively<br>e.g., DFS, fibonacci numbers (next section)
-- **tail-end** recursion
-  - return value of a function is calculated as a call to itself and nothing else
-    - gcd is tail-recursive
-  - result of the last recursive call is the final return value
-- other types: **nested** recursion
-  - parameters of the method contain recursive calls<br>e.g., Ackermann function:
+- Tasks often depend on each other, e.g. data has to be collected before it is analyzed
+- A directed graph without cycles describes the plan, with an edge $u \rightarrow v$ if $u$ has to be done before $v$
+- **Topological sorting** finds an order that respects all dependencies:
+  1. run DFS on the graph
+  2. sort the vertices by **decreasing finishing time** $f$
+- A vertex finishes after all vertices that depend on it
 :::
 :::
 
-::: {.column width="36%"}
-![](figures/ackermann.png){height="3.9em"}
+::: {.column width="56%"}
+::: {.center-h}
+![](figures/06-dfs-topological.svg){height="15.0em"}
+:::
 :::
 ::::
+
+## DFS for finding cycles {.fit1}
+
+:::: {.columns}
+::: {.column width="46%"}
+::: {.sm}
+- A cycle in a plan means that it cannot be carried out, e.g. a course that requires itself through other courses. Such a graph has no topological order
+- While `DFS-VISIT(G, u)` runs, the GRAY vertices are the ones whose calls are waiting on the stack
+- If a neighbor $v$ of $u$ is **GRAY**, there is a path from $v$ to $u$ and an edge from $u$ to $v$, i.e. a **cycle**
+:::
+:::
+
+::: {.column width="54%"}
+![](figures/06-dfs-cycle.svg){width="100%"}
+
+::: {.codewrap style="font-size:1.0em"}
+<pre class="pseudocode"><b>For</b> each vertex <i>v</i> in neighbors(<i>u</i>):
+<span class="hl">      <b>If</b> color[<i>v</i>] = GRAY</span>
+<span class="hl">            <b>then</b> report a cycle</span>
+      <b>If</b> color[<i>v</i>] = WHITE
+            <b>then</b> &pi;[<i>v</i>] &larr; <i>u</i>
+                 DFS-VISIT(<i>G</i>, <i>v</i>)</pre>
+:::
+:::
+::::
+
+## Types of recursive algorithms
+
+:::::: {.rtypes}
+::::: {.rt}
+:::: {.rt-row}
+::: {.rt-l}
+**Linear recursion:** the procedure calls itself once
+:::
+::: {.rt-r}
+$\text{FACTORIAL}(n) = n \cdot \text{FACTORIAL}(n-1)$
+:::
+::::
+
+::::: {.rt .rt-inner}
+:::: {.rt-row}
+::: {.rt-l}
+**Tail-end recursion** is a special case of linear recursion: the recursive call is the last step, so its result is returned without any further calculation
+:::
+::: {.rt-r}
+$\text{GCD}(a, b) = \text{GCD}(b,\ a \bmod b)$
+:::
+::::
+:::::
+:::::
+
+::::: {.rt}
+:::: {.rt-row}
+::: {.rt-l}
+**Tree** or **cascade recursion:** the procedure calls itself several times
+:::
+::: {.rt-r}
+$\text{FIB}(n) = \text{FIB}(n-1) + \text{FIB}(n-2)$<br>DFS-VISIT, with one call per white neighbor
+:::
+::::
+:::::
+
+::::: {.rt}
+:::: {.rt-row}
+::: {.rt-l}
+**Nested recursion:** the parameters of a recursive call contain another recursive call, e.g. the Ackermann function
+:::
+::: {.rt-r}
+$ack(0, m) = m + 1$<br>$ack(n+1, 0) = ack(n, 1)$<br>$ack(n+1, m+1) = ack(n,\ ack(n+1, m))$
+:::
+::::
+:::::
+::::::
 
 ## Outline
 
 ::: {.outline .focus}
 1. Recursion
 2. Recursive Algorithms
-3. [Dynamic Programming]{.current}
-:::
-
-
-## Optimization Problems (Motivation)
-
-::: {}
-- An **optimization problem** consists of maximizing or minimizing a real function by systematically choosing input values from within an allowed set and computing the value of the function
-- finding "best available" values of some objective function given a defined domain or input
-- many problems in applied social science research actually have this structure
-  - optimizing a statistical model
-  - optimizing the parameters of a simulation model
-  - calculating the shortest geographical path
-:::
-
-## Dynamic Programming {.fit1}
-
-::: {.definition}
-[Definition of dynamic programming]{.label}
-
-::: {.sm}
-Dynamic programming refers to simplifying a complicated problem by breaking it down into simpler sub-problems and **saving the result** for the future so that we will not have to compute that same problem again.
-:::
-:::
-
-::: {.sm}
-While some problems cannot be taken apart this way, problems that span several points in time often do break apart recursively.
-
-- both a mathematical optimization method and an algorithm design principle
-- common technique used in engineering and economics, which goes back to the idea of Richard Bellman in the 1950s
-- **optimal substructure** means that a problem can be solved optimally by breaking it into sub-problems and recursively finding optimal solutions to sub-problems
-:::
-
-## Dynamic Programming for Recursion
-
-::: {.sm}
-- Idea behind dynamic programming
-  - use recursion but also save and re-use intermediate solutions:
-    - breaking down an optimization problem into simpler sub-problems, and storing the solution to each sub-problem (called **memoization**) so that each sub-problem is only solved once
-  - step-by-step put overlapping partial solutions together to form the overall solutions
-  - requires checking global values at intermediate steps using all partial solutions
-  - typical implementation through iteratively "filling up" an array or a matrix
-  - makes code faster by reducing time complexity (reduced compute cycles) by efficient use of space
+3. [Memoization]{.current}
 :::
 
 ## Example: Fibonacci numbers
@@ -1617,6 +2002,37 @@ While some problems cannot be taken apart this way, problems that span several p
 
 ::: {.center-h .sm}
 The number of calls to `fib(n)` grows **exponentially** with $n$
+:::
+
+## Why is the recursive version slow? {.fit1}
+
+::: {.center-h}
+![](figures/06-fib-tree.svg){.nostretch height="9.6em"}
+:::
+
+::: {.sm}
+- FIB(5) makes 15 calls, although there are only 6 different sub-problems, namely FIB(0) to FIB(5)
+- The number of calls grows fast with $n$, e.g. FIB(30) makes about 2.7 million calls
+:::
+
+## Memoization: saving results in an array {.fit1}
+
+::: {.definition}
+[Definition of memoization]{.label}
+
+::: {.sm}
+Memoization means **saving the result** of each sub-problem the first time it is calculated, for example in an array, so that we do not have to compute that same sub-problem again.
+:::
+:::
+
+::: {.center-h}
+![](figures/06-memo-array.svg){.nostretch height="4.2em"}
+:::
+
+::: {.sm}
+- Each sub-problem is solved only once, which makes the algorithm faster in exchange for the memory of the array
+- With the array we can also rewrite the recursion as a loop that fills the array from the smallest sub-problem
+- Saving and reusing the results of sub-problems is the idea behind **dynamic programming**
 :::
 
 ## Example: Fibonacci numbers
@@ -1674,23 +2090,70 @@ Previously calculated results are saved in `memo`
 <b>return</b> <i>memo</i>[<i>n</i>]</pre>
 :::
 
-## Outtake &ndash; Types of algorithms {.fit1}
+## Memoization and memory: the stack or the array? {.fit1}
+
+::: {.tbl-grid .tbl-roomy}
+| Version of FIB($n$) | Calls for $n = 30$ | Stack | Array |
+|---|:---:|:---:|:---:|
+| recursive | about 2.7 million | up to $n$ frames | none |
+| recursive with memoization | 59 | up to $n$ frames | $n + 1$ entries |
+| iterative with an array | 1 | 1 frame | $n + 1$ entries |
+| iterative with two variables | 1 | 1 frame | none |
+:::
 
 ::: {.sm}
-The most prevalent problem-solving heuristics you will encounter
-
-- **Recursion**
-  - optimization through recursive function call, e.g. DFS
-  - requires specifying sensible abort conditions
-- **Greedy**
-  - successive extension of partial solutions, e.g. building a Huffman code
-  - determines locally optimal choice at each step, then moves on
-  - only correct if local optimum also leads to globally optimal solutions
-- **Divide and Conquer**
-  - separate the problem into decoupled/non-overlapping smaller sub-problems. More next session!
-  - solve sub-problems independently
-  - if necessary, collapse all sub-results to global results
+- Memoization uses **more memory** than the plain recursion, because it keeps the array in addition to the stack
+- The iterative version uses **less memory** than both recursive versions, because it needs the array but no stack frames, so it cannot overflow the stack
+- If only the last results are needed, as in Fibonacci, the array can be replaced by two variables
 :::
+
+## Outtake &ndash; Types of algorithms you will encounter {.fit1}
+
+:::::: {.rtypes .atypes}
+::::: {.rt}
+:::: {.rt-row}
+::: {.rt-l}
+**Recursion**
+
+- solves a problem through calls to itself on smaller inputs, e.g. DFS
+- requires specifying sensible abort conditions
+:::
+::: {.rt-r}
+![](figures/06-type-recursion.svg)
+:::
+::::
+:::::
+
+::::: {.rt}
+:::: {.rt-row}
+::: {.rt-l}
+**Greedy**
+
+- successive extension of partial solutions, e.g. BFS extends the visited nodes with the closest ones
+- determines locally optimal choice at each step, then moves on
+- only correct if local optimum also leads to globally optimal solutions
+:::
+::: {.rt-r}
+![](figures/06-type-greedy.svg)
+:::
+::::
+:::::
+
+::::: {.rt}
+:::: {.rt-row}
+::: {.rt-l}
+**Divide and Conquer**
+
+- separate the problem into decoupled/non-overlapping smaller sub-problems. [More next session!]{.hl-orange}
+- solve sub-problems independently
+- if necessary, collapse all sub-results to global results
+:::
+::: {.rt-r}
+![](figures/06-type-dc.svg)
+:::
+::::
+:::::
+::::::
 
 ## Why does this matter? Practical Python examples
 
@@ -1715,18 +2178,22 @@ The most prevalent problem-solving heuristics you will encounter
 ## Summary
 
 - Recursion needs a **base case** and a **recursive case** that moves towards it
-- Every call waits on the **program stack** until its own calls return
+- Every call waits on the **program stack** until its own calls return, and a recursion that is too deep causes a **stack overflow**
 - **Factorial** and **Euclid's algorithm** run their recursive definitions
-- **Depth-first search** records discovery and finishing times
-- Recursion can be **linear**, **tree**, **tail-end** or **nested**
-- **Dynamic programming** reuses the results of overlapping subproblems
+- **Depth-first search** records times that sort tasks and reveal cycles
+- Recursion can be **linear** (**tail-end** as a special case), **tree** or **nested**
+- **Memoization** saves results in an array and calculates each only once
 
 **Next session:** Sorting Algorithms
 
 ## Evaluation for Introduction to Programming with Python
 
 ::: {.center-h}
-![](figures/evaluation-qr.png){height="9.0em"}
+![](figures/evaluation-qr.png){height="10.4em"}
 
-<https://evasys.uni-konstanz.de/evasys/online.php?pswd=DPQ9D>
+<https://evasys.uni-konstanz.de/evasys/online.php?pswd=HYFEH>
+
+::: {.sm}
+The survey is open until 27.11.2026 at 18:00
+:::
 :::

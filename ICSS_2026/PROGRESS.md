@@ -859,3 +859,49 @@ Deck 5: flowchart on slides 23-24 at 16.4em (full height); slide 34 graph at 10.
 Transcript 5, Graphs: Königsberg bridges figure floated right of the first paragraph (figure.wrap-right in the style block, cleared after the paragraph).
 Sheet 5: ex05-flowchart-unknown.svg recolored with the deck colors (terminal green, data tan, operation gray, condition red); matrix tables in sheet 5 and the vertex tables in its solutions centered (first column left).
 Public repo: a1ce988 (session 5 + pending 1-4), d090c86 (README links, Examples05-Algorithms.ipynb, notebook anchors), 722ecf6 (transcript 5 color/ring sentences, bfs-e2, References = 12; Exercise05-Solutions.md published).
+
+## 2026-11-22 Session 6 (Recursion), from Slides/06-Recursion/instructions.txt
+
+Deck (90 slides, overflow 0, PDF reprinted):
+- Motivation: M06-A and M06-C parked (MotivatingExamples-parked.md, park() in
+  motivation_data.py); M06-B with the figure 06-thread-recursive.svg; new M06-D
+  "The car software that could run out of stack" (Toyota, Barr 2013: 41% vs 94%).
+- Simpleland redrawn (06-simpleland-0..4.svg, 06-simpleland-map.svg), shown in a
+  .stage-bottom div so the family stays in place. Fractals slide removed.
+- Diners: 06-seating-diners.svg on the first slide, 06-seating-choices.svg after.
+- Python slide is a real code block; the eight call-stack slides hold inline SVG
+  pasted by gen06b.py between the CALLSTACK markers (rerun gen06b.py to update).
+- Memory of a process: 06-memory*.svg, 06-stack-frames.svg, 06-stack-overflow.svg;
+  new slides "Recursion in memory" and "How a stack overflow happens".
+- Pretitles "Recursive algorithm 1/2" (.pretitle); Euclid picture larger; DFS
+  trace with shaded pseudocode lines; new slides on topological sorting and
+  cycle detection; types of recursion as rows (.rtypes); section "Dynamic
+  programming" renamed "Memoization", optimization and DP slides removed, new
+  slides on the call tree, the array and stack vs array memory; outtake with
+  BFS instead of Huffman and three small figures; evaluation link and QR code
+  from email.odt (pswd=HYFEH, open until 27.11.2026 18:00).
+- New tool tools/gen06b.py. Theme gained .stage-bottom, .pretitle, .pycode,
+  svg.callstack, .rtypes (private theme only; copy to ICSS-github when
+  session 6 is published).
+Transcript 6: same changes, figures centered, table columns aligned, factorial
+tree as a step-through box (.stepper), sections 5 and 6 titled "Recursive
+algorithm 1/2" with the anchors #recursive-algorithms and #depth-first-search,
+section 8 is #memoization. W06 notebook: two markdown cells (memoization link).
+Sheet 6: table alignment, A2 with the recursive pseudocode, A3-A6 replaced by
+tasks from the exams of 2022/23 to 2024/25 and the 2023/24 tutorial; solutions
+and the Pool-2 index line updated.
+Not done: Examples/posts X06-* and tools/why_06.py still link to the old
+#8-dynamic-programming anchor.
+Second round (instructions.txt of 16:12): thread figure centered; larger text on
+the Recursion definition slide; "Intermission" removed from the title; memory and
+stack figures taller (446x476 canvas, 15.4em) and centered; pretitle "Recursive
+algorithm 1" moved to the first Euclid's algorithm slide; DFS(G) slide shades the
+first For loop; DFS trace figures fill nodes gray when discovered and black when
+finished (gen06.py), also described in the transcript; topological figure
+centered at 15em; memory table larger (.tbl-roomy); outtake figures larger, BFS
+caption below the graph. Deck 90 slides, overflow 0.
+Transcript 6: the factorial step-through box is now a raw HTML block (pandoc had wrapped the caption and the Next button in a paragraph); fixed-size box, image frame and a three-column button bar, so Back stays left and Next stays right at every step.
+Transcript 6: inline equations no longer wrap (nowrap rule in the style block, each equation on one source line, non-breaking spaces in the captions of the step-through box).
+Session 6: memory diagram redrawn so that the memory of one process sits inside the memory of the system, next to the operating system and other processes (06-memory*.svg, deck and transcript).
+Transcript 6: gcd(270, 192) worked example as a table with one call per row.
+Transcript 6: restored the three merged rows of the stack/array table (merged by the equation-joining edit); GCD table and memory text reapplied after an accidental overwrite.

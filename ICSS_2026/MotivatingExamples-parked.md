@@ -252,3 +252,180 @@ The second study is not conceptually harder than the first. The difference is th
 Without these four answers we only have a good idea, while with them we have a procedure that a machine can execute.
 
 In this session you will learn which properties an algorithm must have, for example finiteness and definiteness, and how each of them rules out a specific way of writing something that looks like a procedure but is not one. You will also learn to write a procedure down as pseudocode or as a flowchart, so that another person and eventually a machine can execute it identically. Finally, we will learn about graphs, how to represent them, and breadth-first search, which is the computation described above. A research question of your own becomes computable when you can say without ambiguity what to do next, and most of the work is usually in getting to that point.
+
+---
+
+## M06-A · How many people report to her?
+
+*Parked on 2026-11-22 (David: removed from the Recursion session). Kept for later use.*
+
+### Slide
+
+```markdown
+## How many people report to her?
+
+::: {.motivation}
+[Motivating example]{.label}
+An organizational chart has a chief executive, division heads, department heads,
+team leads and staff, and **nobody knows how deep it goes**, because it differs
+by division. You are asked how many people, in total, work below any given
+manager.
+:::
+
+- A loop over levels needs to know **how many levels** to go through.
+- You do not know that number, and it can change next month.
+
+[How do you write a procedure that works without knowing in advance how deep the structure is?]{.ask}
+```
+
+### Transcript
+
+````markdown
+### A · How many people report to her?
+
+An ordinary organizational chart has a chief executive, division heads below
+her, and departments, teams and staff below them. Some
+divisions have four levels, others have seven, and the number can change with
+the next reorganization. How many people in total work below a given manager?
+With what we learned in the Software session, the first idea is a loop that
+adds up the direct reports, then their reports, then the reports of those.
+Written out, the loop becomes:
+
+```
+total ← direct reports
+For each direct report:
+      total ← total + their direct reports
+      For each of those:
+            total ← total + their direct reports
+                  ...
+```
+
+The problem is the `...` at the end. The nesting depth of the code has to
+match the depth of the chart, but you do not know that depth when you write
+the code and it is not even the same across the organization. You could write
+ten levels of nesting, but the code would be wrong for a chart with eleven
+levels and it would already be hard to read at the third. The solution comes
+from looking at the structure of the data instead of the code. The subtree of
+a manager is the manager plus the subtree of each direct report, so the
+description of the whole chart refers to the same kind of thing as its parts.
+We can write a procedure that follows that description:
+
+```
+Procedure HEADCOUNT-BELOW(person)
+Inputs:
+      person: a node of the organizational chart
+Result: the number of people below person
+total ← 0
+For each direct report r of person:
+      total ← total + 1 + HEADCOUNT-BELOW(r)
+return total
+```
+
+The procedure has four lines and makes no assumption about the depth of the
+chart. You can check that it is correct by reading it as a sentence, namely
+that the number of people below me is, for each of my direct reports, that
+person plus the number of people below them. The procedure also stops without
+an explicit test, because a person with no direct reports never enters the
+loop and returns 0.
+
+In this session you will learn about the parts of a recursive definition,
+namely a base case that returns without recursing and a recursion case that
+moves closer to the base case. If either of them is wrong, the procedure never
+stops. We will also learn about the call stack, i.e. what the machine keeps in
+memory while those nested calls are waiting, and why "recursion depth
+exceeded" is a limit that you can reach in practice. Finally, we will learn
+about the types of recursion, including tree recursion, which is the type of
+the procedure above because it makes one call per direct report. Recursion is
+useful when the data is defined in terms of itself, which is the case for
+organizations, family trees, file systems, comment threads and grammatical
+sentences. If you work with data like these, a recursive procedure is often
+the shortest correct way to process them.
+````
+
+---
+
+## M06-C · The algorithm that is 2,300 years old
+
+*Parked on 2026-11-22 (David: removed from the Recursion session). Kept for later use.*
+
+### Slide
+
+```markdown
+## The algorithm that is 2,300 years old {.fit1}
+
+::: {.motivation}
+[Motivating example]{.label}
+Euclid's *Elements*, Book VII, around 300 BC, gives a procedure for the greatest
+common divisor, namely to **replace the larger number by its remainder against
+the smaller and repeat.** It is still the algorithm your computer uses today.
+:::
+
+::: {.example}
+[gcd(270, 192)]{.label}
+gcd(270, 192) → gcd(192, 78) → gcd(78, 36) → gcd(36, 6) → gcd(6, 0) = **6**
+:::
+
+[What makes this procedure *stop*, and what happens to a procedure that calls itself and never stops?]{.ask}
+
+::: {.source}
+Euclid, *Elements*, Book VII, Propositions 1–2
+:::
+```
+
+### Transcript
+
+````markdown
+### C · The algorithm that is 2,300 years old
+
+The oldest algorithm still in everyday use is about 2,300 years old. Euclid
+gives it in Book VII of the *Elements* in geometric language. To find the
+greatest common measure of two magnitudes, you repeatedly subtract the smaller
+from the larger. In modern form, using remainders instead of repeated
+subtraction, the algorithm is written as follows:
+
+$$\gcd(a, b) = \gcd(b,\ a \bmod b), \qquad \gcd(a, 0) = a.$$
+
+These two equations find the largest number that divides both $a$ and $b$
+without factoring either of them, which is not obvious at first sight. Let's
+run the algorithm on 270 and 192.
+
+| Call | $a$ | $b$ | $a \bmod b$ |
+|---|---|---|---|
+| 1 | 270 | 192 | 78 |
+| 2 | 192 | 78 | 36 |
+| 3 | 78 | 36 | 6 |
+| 4 | 36 | 6 | 0 |
+| 5 | 6 | 0 | base case, return 6 |
+
+The algorithm needs only five calls because the numbers decrease fast, from
+270 to 192, 78, 36 and 6. This speed has an explanation, namely that taking a
+remainder against $b$ produces a number strictly less than $b$. It can be
+shown that two steps at least halve the larger number, so the number of calls
+is logarithmic in the input instead of linear. The table also shows the two
+things that a recursion needs:
+
+1. **A base case.** In line 5 of the table, $b = 0$ and the procedure returns
+   without calling itself. Without the base case the recursion would never
+   end.
+2. **Progress towards the base case.** Each call replaces $(a, b)$ with
+   $(b, a \bmod b)$ and $a \bmod b < b$, so the second argument strictly
+   decreases and is never negative. A strictly decreasing sequence of
+   non-negative integers cannot go on forever, so the base case is eventually
+   reached.
+
+The second point is a proof of termination, and you should be able to make an
+argument like it for any recursion you write. If the base case is missing or
+the recursive call does not shrink the problem, the calls never stop. Each
+call pushes a frame onto the call stack until the stack is full, and the
+program stops with the error `RecursionError: maximum recursion depth
+exceeded`, which in Python happens after about 1,000 frames.
+
+In this session you will learn about the base case and the recursion case as
+the two requirements of a recursive definition, with termination arguments
+like the one above. We will also learn about the call stack, what a stack
+frame contains, and why Python stops at about 1,000 frames. Finally, we will
+learn about linear recursion, of which Euclid's algorithm is the standard
+example, and how it can be converted into a loop. After this session you
+should be able to run Euclid's algorithm with pen and paper and to explain why
+it stops.
+````

@@ -694,31 +694,30 @@ are really conclusions about a badly chosen representation.
 #  Session 6 -- Recursion
 # ===========================================================================
 
-add("M06-A", "How many people report to her?",
-    "An org chart of unknown depth: a loop needs to know how many levels "
-    "there are, and you don't.",
+park("M06-A", 'How many people report to her?',
+    "An org chart of unknown depth: a loop needs to know how many levels there are, and you don't.",
     r"""
 ::: {.motivation}
 [Motivating example]{.label}
 An organizational chart has a chief executive, division heads, department heads,
 team leads and staff, and **nobody knows how deep it goes**, because it differs
-by division. You are asked a simple question: how many people, in total, sit
-below any given manager?
+by division. You are asked how many people, in total, work below any given
+manager.
 :::
 
 - A loop over levels needs to know **how many levels** to go through.
-- You don't. And the answer changes next month.
+- You do not know that number, and it can change next month.
 
 [How do you write a procedure that works without knowing in advance how deep the structure is?]{.ask}
 """,
     r"""
-Take an ordinary organizational chart. There is a chief executive; below her,
-division heads; below them, departments, teams and staff. In some divisions
-that is four levels, in others seven, and after the next reorganization
-something else. Now answer a simple question: how many people in total sit
-below a given manager? The instinct from session 4 is a loop. Add up the
-direct reports, then add up their reports, then theirs, and written out it
-becomes:
+An ordinary organizational chart has a chief executive, division heads below
+her, and departments, teams and staff below them. Some
+divisions have four levels, others have seven, and the number can change with
+the next reorganization. How many people in total work below a given manager?
+With what we learned in the Software session, the first idea is a loop that
+adds up the direct reports, then their reports, then the reports of those.
+Written out, the loop becomes:
 
 ```
 total ← direct reports
@@ -729,14 +728,15 @@ For each direct report:
                   ...
 ```
 
-The `...` is the problem. The nesting depth of the code has to match the
-depth of the chart, which you do not know when you write the code, and which
-is not even the same across the organization. You could write ten levels of
-nesting and hope; it would be wrong for the eleventh, and unreadable at the
-third. The way out is to notice something about the structure, not about the
-code. The subtree of a manager is the manager plus the subtree of each direct
-report, so the description of the whole refers to the same kind of thing as
-its parts:
+The problem is the `...` at the end. The nesting depth of the code has to
+match the depth of the chart, but you do not know that depth when you write
+the code and it is not even the same across the organization. You could write
+ten levels of nesting, but the code would be wrong for a chart with eleven
+levels and it would already be hard to read at the third. The solution comes
+from looking at the structure of the data instead of the code. The subtree of
+a manager is the manager plus the subtree of each direct report, so the
+description of the whole chart refers to the same kind of thing as its parts.
+We can write a procedure that follows that description:
 
 ```
 Procedure HEADCOUNT-BELOW(person)
@@ -749,61 +749,83 @@ For each direct report r of person:
 return total
 ```
 
-Four lines, no assumption about depth, and it is obviously correct once you
-read it as a sentence: the number below me is, for each of my reports, that
-person plus the number below them. The base case is hidden in plain sight,
-because a person with no direct reports never enters the loop and returns 0,
-and that is what stops the whole thing.
+The procedure has four lines and makes no assumption about the depth of the
+chart. You can check that it is correct by reading it as a sentence, namely
+that the number of people below me is, for each of my direct reports, that
+person plus the number of people below them. The procedure also stops without
+an explicit test, because a person with no direct reports never enters the
+loop and returns 0.
 
-Section 2 of this session is about the parts of any recursive definition, a
-base case that returns without recursing and a recursion case that moves
-strictly closer to it; get either wrong and you get an infinite descent.
-Section 4 is about the call stack, what the machine actually keeps while
-those nested calls are outstanding, and why "recursion depth exceeded" is a
-real limit rather than a theoretical one. Section 7 is about the types of
-recursion, and tree recursion is exactly the shape above: one call per child
-rather than one call in total. The reframing to take away is that recursion
-is not a trick for writing loops differently. It is what you reach for when
-the data is defined in terms of itself, and organizations, family trees, file
-systems, comment threads and grammatical sentences all are.
-"""
-    )
+In this session you will learn about the parts of a recursive definition,
+namely a base case that returns without recursing and a recursion case that
+moves closer to the base case. If either of them is wrong, the procedure never
+stops. We will also learn about the call stack, i.e. what the machine keeps in
+memory while those nested calls are waiting, and why "recursion depth
+exceeded" is a limit that you can reach in practice. Finally, we will learn
+about the types of recursion, including tree recursion, which is the type of
+the procedure above because it makes one call per direct report. Recursion is
+useful when the data is defined in terms of itself, which is the case for
+organizations, family trees, file systems, comment threads and grammatical
+sentences. If you work with data like these, a recursive procedure is often
+the shortest correct way to process them.
+""",
+    'Removed from the Recursion session on 2026-11-22 (David). Kept for later use.')
 
-add("M06-B", "The comment thread with no bottom",
-    "Replies to replies to replies: when the data is defined in terms of "
-    "itself, what should the procedure look like?",
+add("M06-B", 'The comment thread with no bottom',
+    'Replies to replies to replies: when the data is defined in terms of itself, what should the procedure look like?',
     r"""
 ::: {.motivation}
 [Motivating example]{.label}
 A discussion thread has replies, replies to replies, and replies to those. To
-count the posts, render the page, or measure how deep an argument went, something
-has to walk the whole structure, and the structure is **defined in terms of
-itself**:
+count the posts or to measure how deep an argument went, a procedure has to go
+through the whole structure, and the structure is **defined in terms of itself**.
 :::
 
+:::: {.columns}
+::: {.column width="46%"}
 ::: {.definition}
 [A comment is]{.label}
 a post, plus a list of **comments**.
 :::
 
 [When the *data* is defined in terms of itself, what should the *procedure* look like?]{.ask}
+:::
+
+::: {.column width="54%"}
+::: {.center-h}
+![](figures/06-thread-recursive.svg){height="9.7em"}
+:::
+:::
+::::
 """,
     r"""
 Online discussion is a standard object of study in computational social
-science, and it has an awkward shape. A thread is not a list of posts. It is a
-tree: a top-level post has replies, those replies have replies, and there is
-no fixed limit. A heated exchange between two people can run forty levels
-deep while the rest of the thread is flat. Look at how you would have to
-define the data type: a comment consists of an author, a timestamp, some
-text, and a list of comments. The definition uses the word it is defining.
-That is not sloppiness; it is the honest description, and it is exactly why
-loops sit badly on this data. Any question you want to ask has the same
-self-referential shape. How many posts are in this thread? One, plus the
-count in each reply. How deep does it go? One, plus the deepest of its
-replies. How many distinct people are involved? This author, together with
-the people involved in each reply. When did the argument end? The latest
-timestamp among this post and all its replies. Each of these is a short
-recursive procedure and a genuinely awkward loop. For example:
+science, but its data has a structure that is not easy to process. A thread is
+a tree and not a list of posts, because a top-level post has replies, those
+replies have replies, and there is no fixed limit to the depth. A heated
+exchange between two people can run forty levels deep while the rest of the
+thread is flat. Think about how you would define the data type. A comment
+consists of an author, a timestamp, some text and a list of comments, so the
+definition uses the word that it is defining. This is the correct description
+of the data and it is the reason why loops are hard to write for it.
+
+![*A thread drawn by its definition, in which every comment is a post plus a list of comments.*](../Slides/06-Recursion/figures/06-thread-recursive.svg)
+
+Any question that you want to ask about a thread refers to itself in the same
+way:
+
+- **How many posts are in this thread?** The answer is one plus the number of
+  posts in each reply.
+- **How deep does it go?** The depth is one plus the depth of the deepest
+  reply.
+- **How many distinct people are involved?** They are the author of this post
+  together with the people involved in each reply.
+- **When did the argument end?** It ended at the latest timestamp among this
+  post and all its replies.
+
+Each of these questions is answered by a short recursive procedure, while the
+corresponding loop is much harder to write. For example, the depth of a thread
+can be computed like this:
 
 ```
 Procedure THREAD-DEPTH(comment)
@@ -818,34 +840,32 @@ For each reply r of comment:
 return 1 + best
 ```
 
-The principle worth generalizing is that when the structure of the data is
-recursive, the procedure that walks it should be recursive too. The code then
-has the same shape as the thing it describes, which is why recursive
-solutions to recursive data are usually shorter and easier to convince
-yourself are correct.
+When the structure of the data is recursive, the procedure that goes through
+it should usually be recursive too. The code then has the same structure as
+the data it describes, so recursive solutions for recursive data are usually
+shorter and it is easier to check that they are correct.
 
-Section 2 of this session is about the base case and the recursion case.
-Here the base case is a comment with no replies, and it is what guarantees
-termination, provided that the thread really is a tree and not a cycle.
-Section 4 is about the call stack and the practical limit it imposes: a
-thread 40 000 levels deep would exhaust Python's default recursion limit of
-about 1 000, which is a real constraint on real data. Section 7 distinguishes
-tree recursion, one call per child, from linear recursion. The exercise sheet
-asks you to write several of these procedures; do them by writing the
-definition of the data first, and the procedure follows from it almost
-mechanically.
+In this session you will learn about the base case and the recursion case of a
+recursive definition. Here the base case is a comment with no replies, and it
+guarantees that the procedure terminates as long as the thread really is a
+tree and has no cycle. We will also learn about the call stack and the
+practical limit that it imposes. For example, a thread 40,000 levels deep
+would exceed Python's default recursion limit of about 1,000 calls. Finally,
+we will learn to distinguish tree recursion, which makes one call per child,
+from linear recursion. When you write a procedure like these for your own
+data, write the definition of the data first, because the procedure follows
+from it almost mechanically.
 """
     )
 
-add("M06-C", "The algorithm that is 2 300 years old",
-    "Euclid's gcd, c. 300 BC, still the one your computer uses, and the "
-    "cleanest illustration of what makes a recursion stop.",
+park("M06-C", 'The algorithm that is 2,300 years old',
+    "Euclid's gcd, c. 300 BC, still the one your computer uses, and the cleanest illustration of what makes a recursion stop.",
     r"""
 ::: {.motivation}
 [Motivating example]{.label}
 Euclid's *Elements*, Book VII, around 300 BC, gives a procedure for the greatest
-common divisor: **replace the larger number by its remainder against the
-smaller, and repeat.** It is still the algorithm your computer uses today.
+common divisor, namely to **replace the larger number by its remainder against
+the smaller and repeat.** It is still the algorithm your computer uses today.
 :::
 
 ::: {.example}
@@ -853,23 +873,24 @@ smaller, and repeat.** It is still the algorithm your computer uses today.
 gcd(270, 192) → gcd(192, 78) → gcd(78, 36) → gcd(36, 6) → gcd(6, 0) = **6**
 :::
 
-[What makes this procedure *stop*? And what happens to a procedure that calls itself and forgets to?]{.ask}
+[What makes this procedure *stop*, and what happens to a procedure that calls itself and never stops?]{.ask}
 
 ::: {.source}
 Euclid, *Elements*, Book VII, Propositions 1–2
 :::
 """,
     r"""
-The oldest algorithm still in everyday use is about 2 300 years old. Euclid
-gives it in Book VII of the *Elements*, in geometric language: to find the
-greatest common measure of two magnitudes, repeatedly subtract the smaller
+The oldest algorithm still in everyday use is about 2,300 years old. Euclid
+gives it in Book VII of the *Elements* in geometric language. To find the
+greatest common measure of two magnitudes, you repeatedly subtract the smaller
 from the larger. In modern form, using remainders instead of repeated
-subtraction,
+subtraction, the algorithm is written as follows:
 
 $$\gcd(a, b) = \gcd(b,\ a \bmod b), \qquad \gcd(a, 0) = a.$$
 
-Two lines, and they do something genuinely non-obvious: they find the largest
-number dividing both, without factoring either. Run it on 270 and 192:
+These two equations find the largest number that divides both $a$ and $b$
+without factoring either of them, which is not obvious at first sight. Let's
+run the algorithm on 270 and 192.
 
 | Call | $a$ | $b$ | $a \bmod b$ |
 |---|---|---|---|
@@ -879,33 +900,103 @@ number dividing both, without factoring either. Run it on 270 and 192:
 | 4 | 36 | 6 | 0 |
 | 5 | 6 | 0 | base case, return 6 |
 
-Five calls, and the numbers collapse fast: 270, 192, 78, 36, 6. That speed is
-not luck. Taking a remainder against $b$ produces something strictly less
-than $b$, and it can be shown that two steps at least halve the larger
-number, so the number of calls is logarithmic in the input, not linear. This
-is the cleanest example in the course of the two things a recursion needs,
-and it is worth naming them against this table. The first is a base case,
-line 5 of the table: when $b = 0$, the procedure returns without calling
-itself, and without it the recursion never ends. The second is progress
-towards the base case: each call replaces $(a, b)$ with $(b, a \bmod b)$, and
-$a \bmod b < b$, so the second argument strictly decreases and is never
-negative. A strictly decreasing sequence of non-negative integers cannot go
-on forever, so the base case is reached. That is a proof of termination, and
-it is the argument you should be able to make for any recursion you write.
-Drop either half and the failure is dramatic rather than subtle. A missing
-base case, or a recursive call that does not shrink the problem, gives
-infinite descent: each call pushes a frame onto the call stack, the stack
-fills, and the program dies with `RecursionError: maximum recursion depth
-exceeded`, which in Python happens after about 1 000 frames.
+The algorithm needs only five calls because the numbers decrease fast, from
+270 to 192, 78, 36 and 6. This speed has an explanation, namely that taking a
+remainder against $b$ produces a number strictly less than $b$. It can be
+shown that two steps at least halve the larger number, so the number of calls
+is logarithmic in the input instead of linear. The table also shows the two
+things that a recursion needs:
 
-Section 2 of this session develops the base case and the recursion case as
-the two obligations, with termination arguments like the one above. Section
-4 explains the call stack, why 1 000 is the number, what a stack frame
-contains, and why it is the same stack you met in session 5. Section 7
-covers linear recursion, of which Euclid is the textbook case, and its
-conversion to a loop. Euclid returns in the exercise sheet and has been a
-full exam question. Being able to run it by hand and to say why it stops is
-the whole of what is asked.
+1. **A base case.** In line 5 of the table, $b = 0$ and the procedure returns
+   without calling itself. Without the base case the recursion would never
+   end.
+2. **Progress towards the base case.** Each call replaces $(a, b)$ with
+   $(b, a \bmod b)$ and $a \bmod b < b$, so the second argument strictly
+   decreases and is never negative. A strictly decreasing sequence of
+   non-negative integers cannot go on forever, so the base case is eventually
+   reached.
+
+The second point is a proof of termination, and you should be able to make an
+argument like it for any recursion you write. If the base case is missing or
+the recursive call does not shrink the problem, the calls never stop. Each
+call pushes a frame onto the call stack until the stack is full, and the
+program stops with the error `RecursionError: maximum recursion depth
+exceeded`, which in Python happens after about 1,000 frames.
+
+In this session you will learn about the base case and the recursion case as
+the two requirements of a recursive definition, with termination arguments
+like the one above. We will also learn about the call stack, what a stack
+frame contains, and why Python stops at about 1,000 frames. Finally, we will
+learn about linear recursion, of which Euclid's algorithm is the standard
+example, and how it can be converted into a loop. After this session you
+should be able to run Euclid's algorithm with pen and paper and to explain why
+it stops.
+""",
+    'Removed from the Recursion session on 2026-11-22 (David). Kept for later use.')
+
+add("M06-D", 'The car software that could run out of stack',
+    'Toyota said its engine software used 41% of the stack. An expert found 94%, plus recursion, and no check for a stack overflow.',
+    r"""
+::: {.motivation}
+[Motivating example]{.label}
+Between 2009 and 2011 Toyota recalled millions of cars after reports of
+unintended acceleration. In the trial *Bookout v. Toyota* (2013), the software
+expert Michael Barr testified that the engine control software of the Camry
+used **recursion** and could run out of **stack memory**.
+:::
+
+:::: {.figures}
+::: {.fq}
+[41%]{.big}[of the stack used at most, according to Toyota]{.cap}
+:::
+::: {.fq}
+[94%]{.big}[of the stack used, according to the expert, before counting the recursion]{.cap}
+:::
+::: {.fq}
+[no check]{.big}[at run time that would notice a stack overflow]{.cap}
+:::
+::::
+
+[Why does a function that calls itself need more memory with every call, and what happens when that memory runs out?]{.ask}
+
+::: {.source}
+Barr, M. (2013). *Bookout v. Toyota: 2005 Camry L4 software analysis*. Koopman, P. (2014). *A case study of Toyota unintended acceleration and software safety*
+:::
+""",
+    r"""
+Between 2009 and 2011 Toyota recalled millions of cars after drivers reported
+that their cars accelerated without them pressing the pedal. In 2013 a court
+in Oklahoma heard the case of a 2005 Camry that had crashed in this way, which
+is known as *Bookout v. Toyota*. The software expert Michael Barr had studied
+the source code of the engine control unit, i.e. the small computer that
+decides how far the throttle opens, and he explained to the jury what he
+found. One of his findings was about a part of the memory called the *stack*.
+Every time a function is called, the computer reserves a piece of the stack
+for it and frees that piece when the function returns. Toyota had reported
+that its software never used more than 41% of the stack. Barr's analysis found
+that it could use 94%, and this number did not yet include a function that
+called itself, i.e. a recursive function.
+
+A recursive function reserves a new piece of the stack with every call, so the
+memory that it needs depends on how deep the recursion goes, and that depth
+cannot be read directly from the code. For this reason the coding standard of
+the car industry, which is called MISRA C, tells programmers to avoid
+recursion. If the stack is full and one more function is called, the new piece
+is written over memory that belongs to something else. This is called a *stack
+overflow*. According to Barr, the software had no check at run time that would
+notice a stack overflow, and the memory next to the stack held data that the
+operating system needed to keep the tasks of the engine control unit running.
+The jury found Toyota liable. The trial did not prove that a stack overflow
+caused this particular crash, but it showed that the software could fail in
+this way without anyone noticing.
+
+In this session you will learn what the computer stores on the stack for every
+call of a function and why a recursive function needs one more frame for every
+call that is waiting. We will also learn how a stack overflow happens, why
+Python stops a recursion after about 1,000 calls, and how a recursion can be
+rewritten as a loop that needs no additional stack memory. If you write a
+recursive function for your own data, you should know how deep the recursion
+can get before you run it.
 """
     )
 

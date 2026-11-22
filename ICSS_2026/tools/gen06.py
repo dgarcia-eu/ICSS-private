@@ -156,9 +156,12 @@ for key, (times, parents, cur) in DSTATES.items():
         body += (f'  <line x1="{cx1:.1f}" y1="{cy1:.1f}" x2="{cx2:.1f}" y2="{cy2:.1f}" '
                  f'stroke="#111" stroke-width="1.2" marker-end="url(#a)"/>\n')
     for n, (x, y) in GP.items():
-        body += (f'  <rect x="{x-NW/2}" y="{y-NH/2}" width="{NW}" height="{NH}" rx="6" fill="#fff" '
+        # fill by DFS color: WHITE not discovered, GRAY discovered, BLACK finished
+        t = times[n]
+        fill, tc = ("#fff", "#111") if t == "/" else (("#b8b8b8", "#111") if t.endswith("/") else ("#222", "#fff"))
+        body += (f'  <rect x="{x-NW/2}" y="{y-NH/2}" width="{NW}" height="{NH}" rx="6" fill="{fill}" '
                  f'stroke="#111" stroke-width="1.2"/>\n')
-        body += txt(x, y + 5, times[n], 13)
+        body += txt(x, y + 5, times[n], 13, fill=tc)
         if n in TOP:
             body += txt(x, y - 24, n, 13, style="italic")
             body += txt(x, y - 40, parents[n], 12, fill="#8a8a8a", style="italic")

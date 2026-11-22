@@ -84,12 +84,12 @@ decks. After selection it will be off by however many you kept, usually one.
 
 <small>Deck: `Slides/06-Recursion/ICSS-2026-06-Recursion.qmd` · Transcript: `Transcripts/06-Recursion.md`</small>
 
-- [ ] **M06-A**: *How many people report to her?*  
-  <small>An org chart of unknown depth: a loop needs to know how many levels there are, and you don't.</small>
-- [ ] **M06-B**: *The comment thread with no bottom*  
+- [x] **M06-B**: *The comment thread with no bottom*  
   <small>Replies to replies to replies: when the data is defined in terms of itself, what should the procedure look like?</small>
-- [ ] **M06-C**: *The algorithm that is 2 300 years old*  
-  <small>Euclid's gcd, c. 300 BC, still the one your computer uses, and the cleanest illustration of what makes a recursion stop.</small>
+- [x] **M06-D**: *The car software that could run out of stack*  
+  <small>Toyota said its engine software used 41% of the stack. An expert found 94%, plus recursion, and no check for a stack overflow.</small>
+
+<small>Parked on 2026-11-22: M06-A (*How many people report to her?*) and M06-C (*The algorithm that is 2,300 years old*), see `MotivatingExamples-parked.md`.</small>
 
 
 ## Session 7: Sorting Algorithms

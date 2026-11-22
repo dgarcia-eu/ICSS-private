@@ -1,5 +1,10 @@
 # Exercise Sheet 6: Recursion
 
+<style>
+table { width: auto !important; margin: 1.2em auto 1.8em auto; }
+table th, table td { padding: 0.35em 1.1em !important; }
+</style>
+
 *Introduction to Computing for the Social Sciences · Prof. Dr. David Garcia*
 
 Exercises 1 to 3 will be covered in the exercise session. The *Additional practice* section is for self-study and to be covered if time allows.
@@ -14,7 +19,7 @@ full except the last one, which may be partly filled and is filled from the
 leftmost leaf. They satisfy the condition that **each node contains a key that
 is smaller than or equal to the keys of its children**. Below is an example:
 
-![A min-heap](figures/ex06-min-heap.svg)
+![](figures/ex06-min-heap.svg)
 
 Min-heaps can be implemented in arrays such that the levels of the tree are
 stored sequentially in the array positions between 1 and $N$, where $N$ is the
@@ -47,7 +52,7 @@ that before you write any pseudocode.
 Given the following adjacency matrix:
 
 | | A | B | C | D | E | F |
-|---|---|---|---|---|---|---|
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | **A** | 0 | 1 | 1 | 0 | 0 | 0 |
 | **B** | 1 | 0 | 1 | 0 | 0 | 0 |
 | **C** | 1 | 1 | 0 | 1 | 1 | 0 |
@@ -71,8 +76,7 @@ a) Write the **recursive** version of Euclid's algorithm and a **non-recursive**
    $\gcd(a,b) = \gcd(b, a \bmod b)$.)* Explain the kind of recursion of Euclid's
    algorithm.
 
-b) Show how the recursive version of Euclid's algorithm finds the gcd of 210 and
-   45. How many calls to the algorithm happen in this case?
+b) Show how the recursive version of Euclid's algorithm finds the gcd of **210** and **45**. How many calls to the algorithm happen in this case?
 
 ---
 
@@ -91,73 +95,125 @@ c) $g(n) = g(n/2)$ if $n$ is even, $g(3n+1)$ if $n$ is odd, with $g(1) = 1$.
 
 ### A2. Recursive to iterative
 
-Convert each recursive procedure to an iterative one, and say whether the
-conversion was mechanical (tail recursion) or required a stack or an accumulator.
+Convert each of the three recursive procedures below to an iterative one, and
+say whether the conversion was mechanical (tail recursion) or required a stack
+or an accumulator.
 
-a) `SUM(A, n)`: returns $A[1] + \dots + A[n]$.
-b) `POWER(x, n)`: returns $x^n$.
-c) `REVERSE(list)`: returns the list reversed.
+a) `SUM(A, n)` returns $A[1] + \dots + A[n]$.
 
-### A3. Fibonacci and memoization
+```
+Procedure SUM(A, n)
+Inputs:
+      A: an array of numbers
+      n: how many of its elements to add
+Result: A[1] + … + A[n]
+If n = 0
+      then return 0
+      else return A[n] + SUM(A, n - 1)
+```
 
-a) Draw the call tree of the naive `fib(5)`, with `fib(0) = 0` and
-   `fib(1) = 1` as base cases. How many calls are made in total? How many
-   distinct sub-problems are there?
-b) With memoization, how many calls compute something new?
-c) The naive version makes roughly $1.6^n$ calls. How long would `fib(100)` take
-   at one billion calls per second?
+b) `POWER(x, n)` returns $x^n$.
 
-### A4. Reading a DFS trace
+```
+Procedure POWER(x, n)
+Inputs:
+      x: a number
+      n: a non-negative integer
+Result: x to the power of n
+If n = 0
+      then return 1
+      else return x · POWER(x, n - 1)
+```
 
-For a DFS on a directed graph you obtain these timestamps:
+c) `REVERSE(L)` returns the list reversed.
 
-| node | d | f |
-|---|---|---|
-| A | 1 | 8 |
-| B | 2 | 7 |
-| C | 3 | 4 |
-| D | 5 | 6 |
+```
+Procedure REVERSE(L)
+Inputs:
+      L: a list
+Result: a list with the elements of L in reverse order
+If L is empty
+      then return L
+      else return REVERSE(L without its first element) followed by
+                  the first element of L
+```
 
-a) Which node is the root of the DFS tree?
-b) Is C a descendant of B? Is D a descendant of C?
-c) Sketch the DFS tree.
-d) The graph also contains an edge D → A. What kind of edge is it, and what does
-   it tell you?
+### A3. Searching recursively
 
-### A5. Stack depth
+a) Write the pseudocode of a recursive algorithm that determines if a linked 
+  list contains an element with a given key. Which kind of recursion
+   did you use?
 
-a) A recursive function processes a list of $n$ elements one at a time. How deep
-   does the stack get? What is the largest $n$ that works with Python's default
-   limit of about 1000 frames?
-b) A recursive function halves its input each call. How deep does the stack get
-   for $n = 10^9$?
-c) Why is (b) safe in practice while (a) is not?
+b) Write the pseudocode of a recursive algorithm that determines if a binary
+   search tree contains a key. Which kind of recursion did you use, and how
+   many recursive calls are executed in each call of your procedure?
 
-### A6. Divide and conquer, or dynamic programming?
+### A4. The minimum of a binary search tree
 
-For each problem, say which of the two strategies fits, and why.
+a) Write the pseudocode of a recursive algorithm to find the minimum value of
+   the keys of a binary search tree. Which kind of recursion did you use?
 
-a) Sorting a list by splitting it in half and sorting each half.
-b) Computing the number of distinct paths through a grid from the top-left to the
-   bottom-right, moving only right or down.
-c) Finding an element in a sorted array.
-d) Computing the edit distance between two strings.
+b) Write an iterative version of your pseudocode. What is the main difference
+   when running the iterative and the recursive versions?
+
+### A5. From a loop to a recursion
+
+The procedure below is the iterative implementation of the method `unknown(n)`
+from the flowchart in the exercise sheet of the Algorithms session.
+
+```
+Procedure UNKNOWN(n)
+Inputs:
+      n: a non-negative integer
+Result: ?
+x ← 1
+i ← 0
+While i < n:
+      x ← x · 2
+      i ← i + 1
+return x
+```
+
+a) Write the pseudocode of the same method using recursion.
+
+b) What type of recursion have you implemented?
+
+c) How many frames are on the stack at the deepest point of `unknown(10)`, and
+   how many does the iterative version need?
+
+### A6. Everyone below a manager
+
+A company stores, for every employee, the list of the employees that this
+person manages directly:
+
+| employee | manages directly |
+|:---|:---|
+| Ana | Ben, Cem |
+| Ben | Dua, Eli |
+| Cem | Fay |
+| Dua | nobody |
+| Eli | nobody |
+| Fay | nobody |
+
+a) Write the pseudocode of a recursive procedure `ALL-REPORTS(e)` that returns
+   all the employees that are managed by employee `e`, either directly or
+   indirectly. Your procedure has to keep working if the company adds more
+   levels to its hierarchy.
+
+b) Which list does your procedure return for Ben, and which for Ana?
+
+c) What is the base case of your procedure, and which type of recursion is
+   it?
 
 ---
 
 ## Sources
 
-- Exercises 1–3 are adapted from the 2023/24 sheet on recursion of this course,
-  and the min-heap figure has been redrawn.
 - **Zelle, J. M. (2016).** *Python Programming*, 3rd ed., ch. 13. Reading for
   this session.
 - **Cormen, T. H., Leiserson, C. E., Rivest, R. L. & Stein, C. (2009).**
-  *Introduction to Algorithms*, 3rd ed., ch. 6 (heaps), ch. 15 (dynamic
-  programming), ch. 22.3 (DFS). Source of the heap index formulas in
-  exercise 1 and the DFS conventions in exercise 2.
-- **Bellman, R. (1957).** *Dynamic Programming*. Princeton University Press.
-  Background for A6.
+  *Introduction to Algorithms*, 3rd ed., ch. 6 (heaps), ch. 12 (binary search
+  trees), ch. 22.3 (DFS). Source of the heap index formulas in exercise 1 and
+  the DFS conventions in exercise 2.
 - **Lagarias, J. C. (2010).** *The Ultimate Challenge: The 3x+1 Problem*. AMS.
   The Collatz conjecture in A1(c).
-- **Python recursion limit** (A5):
-  <https://docs.python.org/3/library/sys.html#sys.setrecursionlimit>

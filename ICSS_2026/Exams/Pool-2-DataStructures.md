@@ -552,7 +552,7 @@ almost impossible to answer from memorization. Good closing subquestion.
 | Sheet | Contents | Suitable as |
 |---|---|---|
 | [`Exercise03.md`](../TheoryExercises/Exercise03.md) | Arrays, lists, stacks/queues, hash tables, trees, graphs; A-items on complexity of operations and structure choice | 2–4 point subquestions, all with worked answers |
-| [`Exercise06.md`](../TheoryExercises/Exercise06.md) | Recursion: base cases, call stacks, tree vs linear recursion, converting to iteration, Euclid, Towers of Hanoi | Restores recursion to exam weight (see Blueprint §5) |
+| [`Exercise06.md`](../TheoryExercises/Exercise06.md) | Recursion: base cases, converting to iteration, recursive search in lists and BSTs (the items `DS-11` to `DS-13`), tree vs linear recursion, Euclid | Restores recursion to exam weight (see Blueprint §5) |
 
 **Euclid's algorithm** (`gcd(a,b) = gcd(b, a mod b)`) was a full 9-point question
 in 2023-Ex and has not been examined since. The recursive/iterative pair plus a
